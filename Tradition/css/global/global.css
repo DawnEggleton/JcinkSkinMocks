@@ -35,8 +35,7 @@ body {
   font-family: var(--body);
   font-size: var(--mBody);
   letter-spacing: 0.5px;
-  color: var(--fontMain);
-  min-height: 1000vh; }
+  color: var(--fontMain); }
 
 .extraBG {
   position: fixed;

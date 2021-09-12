@@ -40,7 +40,7 @@
         &-ucp {
             display: flex;
             gap: 20px;
-            justify-content: start;
+            justify-content: flex-start;
             align-items: center;
 
             &--name {
@@ -62,6 +62,13 @@
             }
 
             &--switcher {
+
+                &.open {
+                    display: grid;
+                    grid-template-columns: 200px max-content;
+                    grid-gap: 10px;
+                }
+                
                 select {
                     background: var(--bgMain);
                     border: 1px solid var(--borderMain);
@@ -213,11 +220,18 @@
         font-size: var(--xsBody);
         letter-spacing: 2px;
         font-weight: bold;
+        width: 30px;
+        height: calc(100% - 40px);
+        text-align: right;
 
         span {
-            margin: 0 20px;
+            margin: 10px 0;
             color: var(--accent);
             font-weight: bold;
+        }
+
+        .push & {
+            right: clamp(200px, 100vw, 600px);
         }
     }
 }

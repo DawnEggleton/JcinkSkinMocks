@@ -30,7 +30,7 @@
     .nav--top-ucp {
       display: flex;
       gap: 20px;
-      justify-content: start;
+      justify-content: flex-start;
       align-items: center; }
       .nav--top-ucp--name {
         display: flex;
@@ -44,6 +44,10 @@
           background: var(--accent); }
       .nav--top-ucp i {
         font-size: var(--sBody); }
+      .nav--top-ucp--switcher.open {
+        display: grid;
+        grid-template-columns: 200px max-content;
+        grid-gap: 10px; }
       .nav--top-ucp--switcher select {
         background: var(--bgMain);
         border: 1px solid var(--borderMain);
@@ -147,8 +151,13 @@
     text-transform: uppercase;
     font-size: var(--xsBody);
     letter-spacing: 2px;
-    font-weight: bold; }
+    font-weight: bold;
+    width: 30px;
+    height: calc(100% - 40px);
+    text-align: right; }
     .nav--breadcrumb span {
-      margin: 0 20px;
+      margin: 10px 0;
       color: var(--accent);
       font-weight: bold; }
+    .push .nav--breadcrumb {
+      right: clamp(200px, 100vw, 600px); }
