@@ -2,3 +2,107 @@
     Header
 ********************************/
 
+header {
+    display: grid;
+    align-items: center;
+    padding: 50px;
+    height: 100vh;
+    width: 100%;
+
+    .push & {
+        margin-left: -200px;
+    }
+}
+.header {
+    display: grid;
+
+    a:hover {
+        color: var(--fontHeader);
+    }
+
+    h1 {
+        color: var(--fontHeader);
+        font-family: var(--header);
+        font-size: clamp(80px, 20vw, 130px);
+        text-transform: uppercase;
+        letter-spacing: 20px;
+        margin: 0;
+        transform: scaleY(90%);
+        line-height: clamp(80px, 20vw, 130px);
+        width: max-content;
+        max-width: 100%;
+        padding-right: 40px;
+
+        span {
+            color: var(--accent);
+        }
+
+        &:before {
+            content: '';
+            width: 0;
+            height: 1px;
+            position: absolute;
+            bottom: -12px;
+            left: -20px;
+            background: linear-gradient(to left, var(--fontHeader), transparent);
+            transition-duration: 0.75s;
+        }
+
+        &:hover::before {
+            width: 100%;
+        }
+    }
+
+    & > p {
+        text-transform: uppercase;
+        font-weight: 300;
+        padding: 8px 20px;
+        border-left: 2px solid var(--accent);
+        align-self: end;
+        letter-spacing: 3px;
+        width: max-content;
+        max-width: 100%;
+    }
+
+    &--info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 50px;
+        margin-top: 20px;
+        height: 180px;
+    }
+
+    &--text-block {
+        line-height: 200%;
+
+        b {
+            color: var(--accent);
+            font-size: var(--sBody);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        p {
+            max-height: 142px;
+            text-align: justify;
+        }
+    }
+
+    &--image-block {
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 10px;
+
+        img {
+            height: 100%;
+            border-radius: 3px;
+            filter: var(--imageFilter);
+            mix-blend-mode: var(--imageEffect);
+
+            &:hover {
+                filter: var(--imageFilterHover);
+            }
+        }
+    }
+}

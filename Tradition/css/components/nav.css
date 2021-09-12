@@ -1,3 +1,154 @@
 /*******************************
     Navigation
 ********************************/
+.nav {
+  position: fixed;
+  background: var(--bgMain);
+  z-index: 10; }
+  .nav--top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-size: var(--xsBody);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0 10px;
+    border-bottom: 1px solid var(--borderMain-0); }
+    .nav--top.scrolled {
+      background: var(--bgNav);
+      border-color: var(--borderMain); }
+    .push .nav--top {
+      margin-left: clamp(-600px, -100vw, -200px); }
+      .push .nav--top .nav--top-ucp {
+        margin-left: clamp(200px, 100vw, 600px); }
+    .nav--top-ucp {
+      display: flex;
+      gap: 20px;
+      justify-content: start;
+      align-items: center; }
+      .nav--top-ucp--name {
+        display: flex;
+        align-items: center;
+        gap: 20px; }
+        .nav--top-ucp--name::after {
+          content: '';
+          display: block;
+          width: 30px;
+          height: 1px;
+          background: var(--accent); }
+      .nav--top-ucp i {
+        font-size: var(--sBody); }
+      .nav--top-ucp--switcher select {
+        background: var(--bgMain);
+        border: 1px solid var(--borderMain);
+        border-radius: 3px;
+        padding: 6px 10px;
+        color: var(--fontMain);
+        text-transform: uppercase;
+        font-family: var(--body);
+        font-size: var(--xsBody);
+        letter-spacing: 2px;
+        margin-right: 10px;
+        width: 200px; }
+      .nav--top-ucp--switcher option {
+        font-size: var(--sBody); }
+    .nav--top-right {
+      display: flex;
+      gap: 20px;
+      font-size: var(--mBody); }
+  .nav--popout {
+    top: 0;
+    right: -600px;
+    width: 100%;
+    max-width: 600px;
+    height: 100vh;
+    border-left: 1px solid var(--borderMain);
+    background: var(--bgOverlay);
+    display: grid;
+    grid-template-rows: 250px calc(100vh - 250px); }
+    .push .nav--popout {
+      right: 0; }
+    .nav--popout .overlay {
+      opacity: 0.5; }
+    .nav--popout--image {
+      border-bottom: 1px solid var(--borderMain); }
+      .nav--popout--image img {
+        width: 100%;
+        height: 100%;
+        filter: var(--imageFilter2); }
+      .nav--popout--image-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+        .nav--popout--image-overlay.nav--code--show {
+          font-family: var(--header);
+          font-size: 30px;
+          letter-spacing: 10px; }
+          .nav--popout--image-overlay.nav--code--show a {
+            color: var(--fontOverlay);
+            cursor: pointer; }
+        .nav--popout--image-overlay.nav--code--hide {
+          text-align: right; }
+          .nav--popout--image-overlay.nav--code--hide a {
+            color: var(--fontOverlay);
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 0 10px;
+            font-weight: 600;
+            cursor: pointer; }
+          .nav--popout--image-overlay.nav--code--hide pre {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            background: var(--bgMain);
+            border-radius: 3px;
+            padding: 10px;
+            white-space: pre-wrap;
+            text-align: left;
+            font-size: var(--xsBody); }
+            .nav--popout--image-overlay.nav--code--hide pre code {
+              display: block;
+              max-height: 50px; }
+    .nav--popout--links {
+      padding: 10%; }
+      .nav--popout--links > div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(auto-fit, 29px);
+        grid-gap: 40px 10%; }
+        .lrgFont .nav--popout--links > div {
+          grid-template-rows: repeat(auto-fit, 31.5px); }
+        .nav--popout--links > div.scroll {
+          padding: 0;
+          max-height: calc(100vh - 250px - 17vh); }
+        .nav--popout--links > div a {
+          border-left: 2px solid var(--accent);
+          padding: 8px 20px;
+          text-transform: uppercase;
+          font-size: var(--sBody);
+          letter-spacing: 5px;
+          font-weight: 300; }
+          .nav--popout--links > div a:hover {
+            color: var(--fontLinks);
+            letter-spacing: 7px; }
+  .nav--breadcrumb {
+    bottom: 0;
+    right: 0;
+    writing-mode: vertical-lr;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: var(--xsBody);
+    letter-spacing: 2px;
+    font-weight: bold; }
+    .nav--breadcrumb span {
+      margin: 0 20px;
+      color: var(--accent);
+      font-weight: bold; }

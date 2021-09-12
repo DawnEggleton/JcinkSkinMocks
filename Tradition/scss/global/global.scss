@@ -5,11 +5,104 @@
 * {
     position: relative;
     box-sizing: border-box;
+    transition-duration: 0.5s;
 }
 a {
     text-decoration: none;
+    color: var(--fontLinks);
+
+    &:hover {
+        color: var(--accent);
+    }
+}
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+button {
+    all: unset;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--accent);
+    }
+}
+table,
+tr,
+td {
+	all: unset;
 }
 body {
     padding: 0;
     margin: 0;
+    background-color: var(--bgMain);
+    font-family: var(--body);
+    font-size: var(--mBody);
+    letter-spacing: 0.5px;
+    color: var(--fontMain);
+    min-height: 1000vh;
+}
+.extraBG {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bgImage);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--bgOverlay);
+    }
+
+    &::before {
+        mix-blend-mode: color;
+    }
+    &::after {
+        opacity: 0.8;
+    }
+}
+.scroll {
+    padding-right: 15px;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+}
+.scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.scroll::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 5px;
+}
+.scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+.hide,
+.newstext,
+#logostrip,
+#submenu,
+#userlinks,
+.subforums-macro,
+.topic-title-space,
+.wrapmini {
+	display: none !important;
 }

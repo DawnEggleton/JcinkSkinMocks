@@ -1,3 +1,55 @@
 /*******************************
     Variables
 ********************************/
+:root {
+  --header: 'Six Caps', sans-serif;
+  --body: 'Montserrat', sans-serif;
+  --xlBody: 16px;
+  --lBody: 14px;
+  --mBody: 12px;
+  --sBody: 10px;
+  --xsBody: 8px;
+  --pureBlack: rgba(0, 0, 0, 1);
+  --black: rgba(40, 40, 40, 1);
+  --dkGrey: rgba(65, 65, 65, 1);
+  --midGrey: rgba(80, 80, 80, 1);
+  --midGrey-0: rgba(80, 80, 80, 0);
+  --ltGrey: rgba(200, 200, 200, 1);
+  --white: rgba(235, 235, 235, 1);
+  --accent: rgba(196, 122, 100, 1);
+  --bgImage: url(../img/leafPattern.jpg);
+  --imageFilter: grayscale(1) brightness(0.5) opacity(0.7) contrast(0.5);
+  --imageFilterHover: grayscale(1) brightness(0.8) opacity(0.7) contrast(0.8); }
+
+.lrgFont {
+  --xlBody: 18px;
+  --lBody: 16px;
+  --mBody: 14px;
+  --sBody: 12px;
+  --xsBody: 10px; }
+
+.dark {
+  --bgMain: var(--black);
+  --bgOverlay: var(--pureBlack);
+  --bgNav: var(--dkGrey);
+  --fontLinks: var(--white);
+  --fontHeader: var(--white);
+  --fontMain: var(--ltGrey);
+  --fontOverlay: var(--accent);
+  --borderMain-0: var(--midGrey-0);
+  --borderMain: var(--midGrey);
+  --imageEffect: difference;
+  --imageFilter2: grayscale(1) brightness(0.5) opacity(0.7) contrast(1); }
+
+.light {
+  --bgMain: var(--ltGrey);
+  --bgOverlay: var(--white);
+  --bgNav: var(--white);
+  --fontLinks: var(--black);
+  --fontHeader: var(--dkGrey);
+  --fontMain: var(--midGrey);
+  --fontOverlay: var(--black);
+  --borderMain-0: var(--midGrey-0);
+  --borderMain: var(--midGrey);
+  --imageEffect: hard-light;
+  --imageFilter2: grayscale(1) brightness(1) opacity(0.5) contrast(1); }

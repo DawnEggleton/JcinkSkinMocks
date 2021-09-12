@@ -1,13 +1,118 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Site Title</title>
+        <title>This is Tradition</title>
 
         <!--Styles-->
         <link rel="stylesheet" href="../css/styles.css" />
-    </head>
-    <body>
 
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet"> 
+
+        <!--Icons-->
+		<link href="https://dawneggleton.github.io/css/all.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/saturnicons.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/honeybee.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
+
+        <!--Script Libraries-->
+		<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+        <script src="../js/clipboard.js"></script>
+    </head>
+    <body class="dark">
+        <div class="extraBG"><div class="overlay"></div></div>
+        
+        <!--Header-->
+        <header>
+            <div class="header">
+                <p>ask for forgiveness, never permission</p>
+                <a href="index.html"><h1>this is <span>tradition</span></h1></a>
+                <div class="header--info">
+                    <div class="header--text-block">
+                        <b>Heading</b>
+                        <p class="scroll">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="header--image-block">
+                        <a href=""><img src="https://64.media.tumblr.com/a90e88c9719a9328bab42a32517863db/8ae87b2d4a09f09e-61/s500x750/60a5f5d359c6de5275f1050a1f4d40b2ea712656.jpg" /></a>
+                        <a href=""><img src="https://64.media.tumblr.com/b75549f481c51068ea64be8021c11e05/48f217e9071302f0-ae/s1280x1920/a96f6ffba4708923a5701d9babb391698f7ca01b.jpg" /></a>
+                        <a href=""><img src="https://64.media.tumblr.com/3e95550b1e178819e3c42f69d0396610/4f763bf49b0c3353-5b/s1280x1920/235a69526d368631155bf941f68cb3754cbe3de5.jpg" /></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--Navigation: User Links-->
+        <nav class="nav nav--top">
+            <div class="overlay"></div>
+            <div class="nav--top-ucp">
+                <a href="?showuser=<!-- |id| -->" class="nav--top-ucp--name">duncan taggart-o'donnelly</a>
+                <div class="nav--top-ucp--switcher">
+                    <button onclick="openSwitch(this)" title="switch accounts"><i class="fas fa-exchange-alt"></i></button>
+                </div>
+                <a href="" title="edit profile"><i class="fas fa-cog"></i></a>
+                <a href="" title="go to inbox"><i class="fas fa-envelope"></i></a>
+                <a href="" title="view alerts"><i class="fas fa-bell"></i></a>
+                <a href="" title="logout"><i class="fas fa-power-off"></i></a>
+            </div>
+            <div class="nav--top-right">
+                <button onclick="toggleFont()" title="toggle font size"><i class="fas fa-text-size"></i></button>
+                <button onclick="toggleMode()" title="toggle brightness"><i class="fas fa-adjust"></i></button>
+                <button onclick="toggleMenu()" title="navigation"><i class="menuToggle fas fa-bars"></i></button>
+            </div>
+        </nav>
+
+        <!--Navigation: Breadcrumb-->
+        <nav class="nav nav--breadcrumb">
+            <div class="overlay"></div>
+            <a href="index.html">this is tradition</a>
+            <span>&mdash;</span>
+            <a href="index.html">item two</a>
+            <span>&mdash;</span>
+            text item
+        </nav>
+
+        <!--Navigation: Popout-->
+        <div class="nav nav--popout">
+            <div class="overlay"></div>
+            <div class="nav--popout--image">
+                <img src="https://64.media.tumblr.com/3be7bbea390b51c369f1423cf1a50009/4c74192dcb7fbc00-f1/s500x750/833a835cb847a74102d6a54f30eb6a80fdc5d70c.gif">
+                <div class="nav--popout--image-overlay nav--code--show">
+                    <a onclick="popoutCode()">get template code</a>
+                </div>
+                <div class="nav--popout--image-overlay nav--code--hide hide">
+                    <a onclick="highlightCode()" class="copyQuick">copy</a>
+                    <a onclick="popoutCode()">close</a>
+                    <pre><code class="scroll">[dohtml]<p class="class">this is a test</p>[/dohtml]</code></pre>
+                </div>
+            </div>
+            <div class="nav--popout--links"><div>
+                <a href="">link one</a>
+                <a href="">link two</a>
+                <a href="">link one</a>
+                <a href="">link two</a>
+                <a href="">link one</a>
+                <a href="">link two</a>
+                <a href="">link one</a>
+                <a href="">link two</a>
+                <a href="">link one</a>
+                <a href="">link two</a>
+                <a href="">link one</a>
+                <a href="">link two</a>
+                <a href="">link one</a>
+                <a href="">link two</a>
+                <a href="">link one</a>
+                <a href="">link two</a>
+                <a href="">link one</a>
+                <a href="">link two</a>
+                <a href="">link one</a>
+                <a href="">link two</a>
+            </div></div>
+        </div>
 
         <!--Scripts-->
         <script src="../js/functions.js"></script>

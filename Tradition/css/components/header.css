@@ -1,3 +1,78 @@
 /*******************************
     Header
 ********************************/
+header {
+  display: grid;
+  align-items: center;
+  padding: 50px;
+  height: 100vh;
+  width: 100%; }
+  .push header {
+    margin-left: -200px; }
+
+.header {
+  display: grid; }
+  .header a:hover {
+    color: var(--fontHeader); }
+  .header h1 {
+    color: var(--fontHeader);
+    font-family: var(--header);
+    font-size: clamp(80px, 20vw, 130px);
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    margin: 0;
+    transform: scaleY(90%);
+    line-height: clamp(80px, 20vw, 130px);
+    width: max-content;
+    max-width: 100%;
+    padding-right: 40px; }
+    .header h1 span {
+      color: var(--accent); }
+    .header h1:before {
+      content: '';
+      width: 0;
+      height: 1px;
+      position: absolute;
+      bottom: -12px;
+      left: -20px;
+      background: linear-gradient(to left, var(--fontHeader), transparent);
+      transition-duration: 0.75s; }
+    .header h1:hover::before {
+      width: 100%; }
+  .header > p {
+    text-transform: uppercase;
+    font-weight: 300;
+    padding: 8px 20px;
+    border-left: 2px solid var(--accent);
+    align-self: end;
+    letter-spacing: 3px;
+    width: max-content;
+    max-width: 100%; }
+  .header--info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    margin-top: 20px;
+    height: 180px; }
+  .header--text-block {
+    line-height: 200%; }
+    .header--text-block b {
+      color: var(--accent);
+      font-size: var(--sBody);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 900; }
+    .header--text-block p {
+      max-height: 142px;
+      text-align: justify; }
+  .header--image-block {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 10px; }
+    .header--image-block img {
+      height: 100%;
+      border-radius: 3px;
+      filter: var(--imageFilter);
+      mix-blend-mode: var(--imageEffect); }
+      .header--image-block img:hover {
+        filter: var(--imageFilterHover); }
