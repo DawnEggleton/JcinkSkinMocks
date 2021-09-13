@@ -313,6 +313,8 @@ body {
       font-weight: bold; }
     .push .nav--breadcrumb {
       right: clamp(200px, 100vw, 600px); }
+    .nav--breadcrumb #navstrip {
+      text-align: right; }
 
 /*******************************
     Header

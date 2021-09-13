@@ -233,5 +233,9 @@
         .push & {
             right: clamp(200px, 100vw, 600px);
         }
+
+        #navstrip {
+            text-align: right;
+        }
     }
 }
