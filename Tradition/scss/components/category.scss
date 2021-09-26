@@ -15,58 +15,21 @@
 
     &--forums {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
         padding: 50px;
         grid-gap: 50px;
 
+        @media only screen and (min-width: $sm) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media only screen and (min-width: $lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
         .forum {
             display: grid;
-            grid-template-rows: 375px 1fr;
-
-            &:last-child:nth-child(3n + 1),
-            &:nth-last-child(2):nth-child(3n + 1),
-            &:last-child:nth-child(3n + 2) {
-                grid-template-rows: 1fr;
-                grid-template-columns: repeat(2, 1fr);
-                width: 200%;
-                height: 375px;
-
-                img {
-                    height: 375px;
-                }
-            }
-
-            &:last-child:nth-child(3n + 1) {
-                grid-column: 1 / 2;
-
-                & .forum--content {
-                    margin: 40px 20px 20px -50px;
-                    align-self: start;
-                }
-            }
-
-            &:nth-last-child(2):nth-child(3n + 1) {
-                grid-column: 1 / 2;
-
-                & .forum--content {
-                    margin: -20px 20px 20px -50px;
-                    align-self: start;
-                }
-            }
-
-            &:last-child:nth-child(3n + 2) {
-                grid-column: 2 / 3;
-
-                & .forum--content {
-                    order: 1;
-                    z-index: 2;
-                    margin: 20px -50px -20px 20px;
-                    align-self: end;
-                }
-                & .forum--image {
-                    order: 2;
-                }
-            }
+            grid-template-rows: max-content 1fr;
 
             &:hover {
                 img {
@@ -80,11 +43,13 @@
 
             &--image {
                 background: var(--bgContent);
+                border-radius: 3px;
+                overflow: hidden;
 
                 span {
                     display: block;
                     width: 100%;
-                    padding-top: 100%;
+                    padding-top: min(100%, 375px);
 
                     img {
                         position: absolute;
@@ -95,7 +60,7 @@
                         width: 100%;
                         height: 100%;
                         filter: var(--imageFilter2);
-                        border-radius: 3px;
+                        object-position: center;
                     }
                 }
 
@@ -196,6 +161,97 @@
             &--subs {
                 height: 57.6px;
                 margin: 20px 0;
+            }
+
+            @media only screen and (min-width: $sm) {
+    
+                &:last-child:nth-child(2n + 1) {
+                    grid-template-rows: 1fr;
+                    grid-template-columns: repeat(2, 1fr);
+                    width: 100%;
+                    height: 375px;
+    
+                    img {
+                        height: 375px;
+                    }
+                }
+
+                &:last-child:nth-child(2n + 1) {
+                    grid-column: 1 / 3;
+    
+                    & .forum--content {
+                        margin: 40px 20px 20px -50px;
+                        align-self: start;
+                    }
+                }
+            }
+
+            @media only screen and (min-width: $lg) {
+    
+                &:last-child:nth-child(2n + 1) {
+                    grid-template-rows: max-content 1fr;
+                    grid-template-columns: 1fr;
+                    width: 100%;
+                    height: auto;
+    
+                    img {
+                        height: 100%;
+                    }
+                }
+
+                &:last-child:nth-child(2n + 1) {
+                    grid-column: span 1;
+    
+                    & .forum--content {
+                        margin: -20px 20px 20px;
+                        align-self: start;
+                    }
+                }
+                
+                &:last-child:nth-child(3n + 1),
+                &:nth-last-child(2):nth-child(3n + 1),
+                &:last-child:nth-child(3n + 2) {
+                    grid-template-rows: 1fr;
+                    grid-template-columns: repeat(2, 1fr);
+                    width: 200%;
+                    height: 375px;
+    
+                    img {
+                        height: 375px;
+                    }
+                }
+    
+                &:last-child:nth-child(3n + 1) {
+                    grid-column: 1 / 2;
+    
+                    & .forum--content {
+                        margin: 40px 20px 20px -50px;
+                        align-self: start;
+                    }
+                }
+    
+                &:nth-last-child(2):nth-child(3n + 1) {
+                    grid-column: 1 / 2;
+    
+                    & .forum--content {
+                        margin: -20px 20px 20px -50px;
+                        align-self: start;
+                    }
+                }
+    
+                &:last-child:nth-child(3n + 2) {
+                    grid-column: 2 / 3;
+    
+                    & .forum--content {
+                        order: 1;
+                        z-index: 2;
+                        margin: 20px -50px -20px 20px;
+                        align-self: end;
+                    }
+                    & .forum--image {
+                        order: 2;
+                    }
+                }
             }
 
         }
