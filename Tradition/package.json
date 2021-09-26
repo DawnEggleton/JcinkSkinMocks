@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass scss/styles.scss:css/styles.css -w --style compressed",
+    "sass": "sass scss/styles.scss:css/styles.css -w",
     "prefix": "postcss css/styles.css --use autoprefixer -d css/prefixed/"
   },
   "author": "",
@@ -13,7 +13,8 @@
     "autoprefixer": "^10.3.4",
     "node-sass": "^6.0.1",
     "postcss": "^8.3.6",
-    "postcss-cli": "^8.3.1"
+    "postcss-cli": "^8.3.1",
+    "sass": "^1.39.2"
   },
   "browserslist": "last 4 versions"
 }

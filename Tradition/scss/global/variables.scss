@@ -14,7 +14,11 @@
 
     --pureBlack: rgba(0, 0, 0, 1);
 
+    --dkBlack: rgba(30, 30, 30, 1);
+
     --black: rgba(40, 40, 40, 1);
+
+    --black: rgba(50, 50, 50, 1);
 
     --dkGrey: rgba(65, 65, 65, 1);
 
@@ -27,7 +31,7 @@
 
     --accent: rgba(196, 122, 100, 1);
 
-    --bgImage: url(../img/leafPattern.jpg);
+    --bgImage: url(https://files.jcink.net/uploads2/luxtradition/leafPattern.jpg);
 
     --imageFilter: grayscale(1) brightness(0.5) opacity(0.7) contrast(0.5);
     --imageFilterHover: grayscale(1) brightness(0.8) opacity(0.7) contrast(0.8);
@@ -43,19 +47,25 @@
     --bgMain: var(--black);
     --bgOverlay: var(--pureBlack);
     --bgNav: var(--dkGrey);
+    --bgContent: var(--dkBlack);
+    --bgButtonHover: var(--dkGrey);
     --fontLinks: var(--white);
     --fontHeader: var(--white);
     --fontMain: var(--ltGrey);
     --fontOverlay: var(--accent);
     --borderMain-0: var(--midGrey-0);
     --borderMain: var(--midGrey);
+    --borderButton: var(--midGrey);
     --imageEffect: difference;
     --imageFilter2: grayscale(1) brightness(0.5) opacity(0.7) contrast(1);
+    --imageFilter2Hover: grayscale(0.2) brightness(0.5) opacity(0.7) contrast(1);
 }
 .light {
     --bgMain: var(--ltGrey);
     --bgOverlay: var(--white);
     --bgNav: var(--white);
+    --bgContent: var(--white);
+    --bgButtonHover: var(--white);
     --fontLinks: var(--black);
     --fontHeader: var(--dkGrey);
     --fontMain: var(--midGrey);
@@ -64,4 +74,5 @@
     --borderMain: var(--midGrey);
     --imageEffect: hard-light;
     --imageFilter2: grayscale(1) brightness(1) opacity(0.5) contrast(1);
+    --imageFilter2Hover: grayscale(0.2) brightness(1) opacity(0.5) contrast(1);
 }

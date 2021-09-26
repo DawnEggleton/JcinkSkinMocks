@@ -40,3 +40,7 @@ $("table[id='CODE-WRAP']").each(function() {
         "</code></pre></div></div>"
     );
 });
+
+document.querySelectorAll('.forum--content h3').forEach(forumTitle => {
+    spanLastWords(forumTitle);
+});

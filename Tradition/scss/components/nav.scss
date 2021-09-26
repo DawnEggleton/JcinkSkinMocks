@@ -63,6 +63,10 @@
 
             &--switcher {
 
+                .g-2 & {
+                    display: none;
+                }
+
                 &.open {
                     display: grid;
                     grid-template-columns: 200px max-content;
@@ -84,6 +88,34 @@
                 }
                 option {
                     font-size: var(--sBody);
+                }
+            }
+
+            a {
+                display: none;
+
+                .g-4 &.staffOnly {
+                    display: initial;
+
+                    &.nav--top-ucp--name {
+                        display: flex;
+                    }
+                }
+
+                .g-2 &.guestOnly {
+                    display: initial;
+
+                    &.nav--top-ucp--name {
+                        display: flex;
+                    }
+                }
+
+                body:not(.g-2) &.memOnly {
+                    display: initial;
+
+                    &.nav--top-ucp--name {
+                        display: flex;
+                    }
                 }
             }
         }
