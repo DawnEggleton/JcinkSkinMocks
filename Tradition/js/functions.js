@@ -202,3 +202,8 @@ function showLinks(el) {
 function toggleHide(item) {
     item.classList.toggle('hide');
 }
+
+function swapList() {
+    document.querySelectorAll('.online-swap > i').forEach(icon => icon.classList.toggle('hide'));
+    document.querySelectorAll('.stats--online > div').forEach(list => list.classList.toggle('hide'));
+}

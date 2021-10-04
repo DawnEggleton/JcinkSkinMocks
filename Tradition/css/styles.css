@@ -794,6 +794,77 @@ header {
   padding: 20px calc(20px + 3vw) 20px 20px;
   border-radius: 3px;
 }
+.stats--main h3 {
+  font-family: var(--header);
+  transform: scaleX(140%);
+  transform-origin: left;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 2px;
+  font-size: 40px;
+  color: var(--fontHeader);
+}
+.stats--main h3 span {
+  color: var(--accent);
+}
+.stats--stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 5px 0 20px;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.stats--stats b {
+  color: var(--accent);
+}
+.stats--now {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 200%;
+}
+.stats--now .scroll {
+  height: 232px;
+}
+.stats--now a {
+  color: var(--fontMain);
+}
+.stats--today {
+  text-align: justify;
+  text-transform: capitalize;
+  line-height: 200%;
+}
+.stats--today .scroll {
+  height: 232px;
+}
+.stats--today a {
+  color: var(--fontMain);
+}
+.stats--buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: end;
+}
+.stats--buttons button,
+.stats--buttons a {
+  display: block;
+  background: var(--bgMain);
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  font-size: var(--lBody);
+}
+.stats--buttons .fa-user-clock {
+  padding-left: 2px;
+}
 .stats--side {
   background: var(--bgContentAlt);
   margin: 3vw 0 3vw -3vw;
@@ -821,9 +892,13 @@ header {
   font-family: var(--header);
   font-size: 30px;
   letter-spacing: 1.5px;
-  transform: scaleY(80%);
+  transform: scaleY(80%) scaleX(120%);
+  transform-origin: left;
   max-width: 200px;
   margin-bottom: -13px;
+  background: var(--bgContentAlt);
+  z-index: 2;
+  padding-right: 8px;
 }
 .stats--side .scroll #recent-topics .recent-topics-info a:first-child strong {
   font-weight: normal;

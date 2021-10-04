@@ -10,7 +10,91 @@
         background: var(--bgContent);
         padding: 20px calc(20px + 3vw) 20px 20px;
         border-radius: 3px;
+
+        h3 {
+            font-family: var(--header);
+            transform: scaleX(140%);
+            transform-origin: left;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 2px;
+            font-size: 40px;
+            color: var(--fontHeader);
+
+            span {
+                color: var(--accent);
+            }
+        }
     }
+    &--stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 5px 0 20px;
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        b {
+            color: var(--accent);
+        }
+    }
+
+    &--now {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 200%;
+
+        .scroll {
+            height: 232px;
+        }
+
+        a {
+            color: var(--fontMain);
+        }
+    }
+
+    &--today {
+        text-align: justify;
+        text-transform: capitalize;
+        line-height: 200%;
+
+        .scroll {
+            height: 232px;
+        }
+
+        a {
+            color: var(--fontMain);
+        }
+    }
+
+    &--buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        justify-content: end;
+
+        button,
+        a {
+            display: block;
+            background: var(--bgMain);
+            width: 37px;
+            height: 37px;
+            border-radius: 50%;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            text-align: center;
+            font-size: var(--lBody);
+        }
+
+        .fa-user-clock {
+            padding-left: 2px;
+        }
+    }
+
     &--side {
         background: var(--bgContentAlt);
         margin: 3vw 0 3vw -3vw;
@@ -41,9 +125,13 @@
                         font-family: var(--header);
                         font-size: 30px;
                         letter-spacing: 1.5px;
-                        transform: scaleY(80%);
+                        transform: scaleY(80%) scaleX(120%);
+                        transform-origin: left;
                         max-width: 200px;
                         margin-bottom: -13px;
+                        background: var(--bgContentAlt);
+                        z-index: 2;
+                        padding-right: 8px;
                         
                         strong {
                             font-weight: normal;
