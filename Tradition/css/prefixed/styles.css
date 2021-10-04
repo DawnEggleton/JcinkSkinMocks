@@ -815,10 +815,10 @@ header {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
     width: 200%;
-    height: 415px;
+    height: 475px;
   }
   .category--forums .forum:last-child:nth-child(3n+1) img, .category--forums .forum:nth-last-child(2):nth-child(3n+1) img, .category--forums .forum:last-child:nth-child(3n+2) img {
-    height: 415px;
+    height: 475px;
   }
   .category--forums .forum:last-child:nth-child(3n+1) {
     grid-column: 1/2;

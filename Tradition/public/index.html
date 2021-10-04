@@ -580,13 +580,14 @@
                         </div></div>
                     </div>
                     <div class="stats--buttons">
-                        <a href="" title="all accounts"><i class="fas fa-users"></i></a>
-                        <a href="" title="online by click"><i class="fas fa-mouse-pointer"></i></a>
-                        <a href="" title="recent posts"><i class="fas fa-rss"></i></a>
+                        <a href="?act=Online&CODE=listall&sort_key=click" title="online by click"><i class="fas fa-mouse-pointer"></i></a>
+                        <a href="?act=Online&CODE=listall&sort_key=name&sort_order=asc&show_mem=reg" title="online by name"><i class="fas fa-sort-alpha-down"></i></a>
                         <button onclick="swapList()" class="online-swap">
                             <i class="fas fa-user-clock" title="view online today"></i>
                             <i class="fas fa-user-crown hide" title="view online now"></i>
                         </button>
+                        <a href="/?act=Members&name=&name_box=contains&filter=ALL&sort_key=name&sort_order=asc&max_results=1000" title="all accounts"><i class="fas fa-users"></i></a>
+                        <a href="?act=Search&CODE=getactive" title="recent posts"><i class="fas fa-rss"></i></a>
                     </div>
                 </div>
                 <div class="stats--side">
