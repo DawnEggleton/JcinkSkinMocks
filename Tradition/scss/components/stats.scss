@@ -1,4 +1,80 @@
 /*******************************
     Board Stats
 ********************************/
+.stats {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 415px;
 
+    &--main {
+        background: var(--bgContent);
+        padding: 20px calc(20px + 3vw) 20px 20px;
+        border-radius: 3px;
+    }
+    &--side {
+        background: var(--bgContentAlt);
+        margin: 3vw 0 3vw -3vw;
+        border-radius: 3px;
+        z-index: 2;
+        padding: 15px;
+
+        .scroll {
+            height: calc(385px - 6vw);
+
+            #recent-topics {
+                .maintitle {
+                    display: none;
+                }
+
+                tbody {
+                    display: block;
+                }
+
+                .recent-topics-info {
+                    display: grid;
+                    grid-template-columns: max-content 0 auto 0;
+                    align-items: end;
+                    font-size: 0;
+
+                    a:first-child {
+                        display: block;
+                        font-family: var(--header);
+                        font-size: 30px;
+                        letter-spacing: 1.5px;
+                        transform: scaleY(80%);
+                        max-width: 200px;
+                        margin-bottom: -13px;
+                        
+                        strong {
+                            font-weight: normal;
+                        }
+                    }
+
+                    a:nth-child(2) {
+                        font-size: var(--xsBody);
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        display: grid;
+                        grid-template-columns: 1fr max-content;
+                        align-items: center;
+
+                        &:before {
+                            content: '';
+                            border-bottom: 1px solid var(--accent);
+                            margin: 0 10px;
+                        }
+                    }
+                }
+
+                .recent-topics-date {
+                    display: block;
+                    font-size: var(--xsBody);
+                    text-transform: uppercase;
+                    font-style: italic;
+                    text-align: right;
+                    margin: 3px 0 15px 0;
+                }
+            }
+        }
+    }
+}

@@ -68,7 +68,6 @@
 
             &--content {
                 display: grid;
-                grid-template-rows: max-content 1fr 0 max-content;
                 align-items: center;
                 background: var(--bgContent);
                 padding: 20px;
@@ -91,13 +90,29 @@
                 }
             }
 
+            &--stats {
+                display: flex;
+                gap: 15px;
+                margin-top: 5px;
+                font-size: var(--xsBody);
+                letter-spacing: 1px;
+                text-transform: uppercase;
+
+                b {
+                    color: var(--accent);
+                }
+            }
+
             &--latest {
                 margin: 20px 0;
                 line-height: 180%;
                 text-transform: uppercase;
                 font-size: var(--xsBody);
                 letter-spacing: 2px;
-                height: 57.6px;
+
+                @media only screen and (min-width: $sm) {
+                    height: 57.6px;
+                }
 
                 a {
                     display: block;
@@ -151,6 +166,12 @@
                 }
             }
 
+            &--desc {
+                br {
+                    display: none;
+                }
+            }
+
             &--desc,
             &--none {
                 height: 57.6px;
@@ -158,9 +179,33 @@
                 line-height: 160%;
             }
 
+            &--text {
+                text-align: justify;
+            }
+
             &--subs {
                 height: 57.6px;
                 margin: 20px 0;
+                font-size: 0;
+                padding: 3px 0;
+
+                a {
+                    display: inline-block;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    font-weight: 600;
+                    font-size: var(--xsBody);
+                    background: var(--accent);
+                    padding: 3px 8px;
+                    border-radius: 2px;
+                    margin: 0 5px 5px 0;
+                    line-height: var(--accent);
+                    color: var(--bgMain);
+                }
+            }
+
+            &--links {
+                display: none;
             }
 
             @media only screen and (min-width: $sm) {
@@ -214,10 +259,10 @@
                     grid-template-rows: 1fr;
                     grid-template-columns: repeat(2, 1fr);
                     width: 200%;
-                    height: 375px;
+                    height: 415px;
     
                     img {
-                        height: 375px;
+                        height: 415px;
                     }
                 }
     

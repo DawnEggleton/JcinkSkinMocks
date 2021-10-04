@@ -28,9 +28,15 @@ button {
         color: var(--accent);
     }
 }
-table,
-tr,
-td {
+#UserCP table,
+#UserCP tr,
+#UserCP td,
+#Msg table,
+#Msg tr,
+#Msg td,
+#recent-topics table,
+#recent-topics tr,
+#recent-topics td {
 	all: unset;
 }
 body {

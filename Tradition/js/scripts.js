@@ -1,3 +1,18 @@
+//Toggles
+/* Original Cookie Script by Essi - sourced.jcink.net */
+if(localStorage.getItem("COLORMODE") == "1" || (localStorage.getItem("COLORMODE") === null && (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches))) {
+    document.querySelector('body').classList.add('dark');
+    document.querySelector('body').classList.remove('light');
+} else {
+    document.querySelector('body').classList.add('light');
+    document.querySelector('body').classList.remove('dark');
+}
+if(localStorage.getItem("SIZEMODE") == "1") {
+    document.querySelector('body').classList.add('lrgFont');
+} else {
+    document.querySelector('body').classList.remove('lrgFont');
+}
+
 // Menu Change on Scroll
 window.onscroll = function() { scrollFunction() };
 
@@ -11,11 +26,9 @@ if(linkInner >= linkBox) {
 
 
 // Code Area
-console.log($('.nav--code--hide pre code').html());
 $('.nav--code--hide pre code').html(
     $('.nav--code--hide pre code').html().replace(/<br>/ig, '').replace(/>/ig, '&gt;').replace(/</ig, '&lt;')
 );
-
 
 
 //copy code to clipboard
@@ -41,6 +54,37 @@ $("table[id='CODE-WRAP']").each(function() {
     );
 });
 
+
+//two tone forum titles
 document.querySelectorAll('.forum--content h3').forEach(forumTitle => {
     spanLastWords(forumTitle);
 });
+
+
+//remove all forum macros from subforum lists
+document.querySelectorAll('a.subforums-macro').forEach(link => {
+    link.remove();
+});
+
+
+//add manual links to subforum link list
+document.querySelectorAll('.forum--links').forEach(linkSet => {
+    let links = linkSet.innerHTML,
+        subs = linkSet.parentNode.parentNode.querySelector('.forum--subs');
+    subs.insertAdjacentHTML('beforeend', links);
+});
+
+
+//append custom forum image to image block
+$('.forum--desc').each(function() {
+    if($(this).children('img').length > 0) {
+        let image = $(this).children('img')[0];
+        let imageBlock = $(this).parent().parent().prev().children()[0];
+        imageBlock.innerHTML = '';
+        $(image).appendTo(imageBlock);
+    }
+});
+
+
+//append recent topics
+$('#recent-topics').appendTo('#recent-topics-clip');
