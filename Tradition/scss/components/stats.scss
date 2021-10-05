@@ -40,11 +40,14 @@
         }
     }
 
-    &--now {
+    &--online {
         text-transform: uppercase;
         letter-spacing: 2px;
+        font-weight: 300;
+    }
+
+    &--now {
         font-size: 20px;
-        font-weight: 900;
         line-height: 200%;
 
         .scroll {
@@ -58,7 +61,6 @@
 
     &--today {
         text-align: justify;
-        text-transform: capitalize;
         line-height: 200%;
 
         .scroll {

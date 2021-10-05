@@ -819,11 +819,13 @@ header {
 .stats--stats b {
   color: var(--accent);
 }
-.stats--now {
+.stats--online {
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 300;
+}
+.stats--now {
   font-size: 20px;
-  font-weight: 900;
   line-height: 200%;
 }
 .stats--now .scroll {
@@ -834,7 +836,6 @@ header {
 }
 .stats--today {
   text-align: justify;
-  text-transform: capitalize;
   line-height: 200%;
 }
 .stats--today .scroll {
