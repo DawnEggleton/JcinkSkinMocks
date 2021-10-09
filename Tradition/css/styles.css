@@ -1124,9 +1124,18 @@ header {
 .topic--stats a {
   color: var(--accent);
 }
+.topic--pages {
+  font-size: 0;
+  margin-top: 5px;
+}
 .topic--pages a {
-  color: var(--accent);
-  font-weight: bold;
+  background: var(--accent);
+  font-size: var(--mBody);
+  padding: 3px 2px 3px 7px;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: var(--bgContent);
+  font-weight: 500;
 }
 .topic--posters {
   display: grid;
