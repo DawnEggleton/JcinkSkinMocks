@@ -65,6 +65,7 @@
         margin: 0 20px;
         z-index: 3;
         order: 2;
+        background: var(--bgContent);
 
         @media only screen and (min-width: $sm) {
             display: block;

@@ -112,5 +112,110 @@ body {
 	display: none !important;
 }
 main {
-    margin: 0 50px 50px;
+    margin: 0 50px 50px 20px;
+    width: calc(100% - 70px);
+
+    @media only screen and (min-width: $md) {
+        margin: 0 50px 50px;
+        width: calc(100% - 100px);
+    }
+}
+
+#ST,
+#SF {
+    main {
+        & > table {
+            & > tbody {
+                & > tr {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                    margin-bottom: 30px;
+
+                    @media only screen and (min-width: $md) {
+                        grid-template-columns: 1fr max-content;
+                    }
+
+                    & > td {
+                        width: 100% !important;
+
+                        &:not(:first-child) {
+                            display: flex;
+                            gap: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.macro--button {
+    font-size: var(--mBody);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 0 15px 5px;
+    border-bottom: 1px solid var(--accent);
+
+    &:hover {
+        padding: 0 18px 5px;
+        letter-spacing: 4px;
+    }
+}
+
+.pagination {
+    display: flex;
+    gap: 5px;
+    font-size: 0;
+
+    &_pagetxt {
+        display: none;
+    }
+    &_current,
+    &_page,
+    &_last {
+        display: inline-block;
+        background: var(--accent);
+        color: var(--bgMain);
+        font-weight: 300;
+        font-size: var(--mBody);
+        padding: 5px 10px 6px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+.goto-firstunread {
+    display: block;
+    margin: 0 5px;
+    background: var(--accent);
+    color: var(--bgMain);
+    font-weight: 300;
+    font-size: var(--mBody);
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    max-width: max-content;
+
+    a {
+        color: var(--bgMain);
+    }
+}
+.activeuserstrip {
+    text-align: right;
+    border-right: 2px solid var(--accent);
+    padding: 10px 15px !important;
+    text-transform: uppercase;
+    font-size: var(--xsBody);
+    letter-spacing: 2px;
+    
+    & + .row2 {
+        text-align: right;
+        border-right: 2px solid var(--accent);
+        padding: 0 15px !important;
+        text-transform: uppercase;
+        font-size: var(--xsBody);
+        letter-spacing: 2px;
+    }
 }

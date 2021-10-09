@@ -61,6 +61,12 @@ document.querySelectorAll('.forum--content h3').forEach(forumTitle => {
 });
 
 
+//two tone account names
+document.querySelectorAll('.post--name').forEach(name => {
+    spanLastWords(name);
+});
+
+
 //remove all forum macros from subforum lists
 document.querySelectorAll('a.subforums-macro').forEach(link => {
     link.remove();
