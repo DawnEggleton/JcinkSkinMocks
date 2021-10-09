@@ -546,11 +546,12 @@ header {
 .category--forums {
   display: grid;
   grid-template-columns: 1fr;
-  padding: 50px;
   grid-gap: 50px;
+  padding: 20px;
 }
 @media only screen and (min-width: 720px) {
   .category--forums {
+    padding: 50px;
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -783,8 +784,13 @@ header {
 .category--topics {
   display: grid;
   grid-template-columns: 1fr;
-  padding: 50px;
+  padding: 20px;
   grid-gap: 20px;
+}
+@media only screen and (min-width: 720px) {
+  .category--topics {
+    padding: 50px;
+  }
 }
 
 /*******************************
@@ -974,6 +980,10 @@ header {
   justify-self: end;
   order: 1;
 }
+.topic:nth-child(2n) .topic--image label {
+  left: auto;
+  right: 10px;
+}
 .topic:nth-child(2n) .topic--main {
   order: 2;
   margin: -20px 0 20px 0;
@@ -1034,6 +1044,33 @@ header {
   height: 100%;
   object-fit: cover;
   filter: var(--imageFilter2);
+}
+.topic--image label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.topic--image label input {
+  display: none;
+}
+.topic--image label input + div {
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  background: var(--bgContent);
+  color: transparent;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.topic--image label input + div:hover {
+  background: var(--accent);
+}
+.topic--image label input:checked + div {
+  background: var(--accent);
+  color: var(--bgContent);
 }
 .topic--main {
   background: var(--bgContent);

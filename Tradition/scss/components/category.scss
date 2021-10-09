@@ -16,10 +16,11 @@
     &--forums {
         display: grid;
         grid-template-columns: 1fr;
-        padding: 50px;
         grid-gap: 50px;
+        padding: 20px;
 
         @media only screen and (min-width: $sm) {
+            padding: 50px;
             grid-template-columns: repeat(2, 1fr);
         }
 
@@ -305,7 +306,11 @@
     &--topics {
         display: grid;
         grid-template-columns: 1fr;
-        padding: 50px;
+        padding: 20px;
         grid-gap: 20px;
+
+        @media only screen and (min-width: $sm) {
+            padding: 50px;
+        }
     }
 }

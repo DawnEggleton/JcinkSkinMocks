@@ -15,6 +15,11 @@
         .topic--image {
             justify-self: end;
             order: 1;
+
+            & label {
+                left: auto;
+                right: 10px;
+            }
         }
         .topic--main {
             order: 2;
@@ -79,6 +84,38 @@
             height: 100%;
             object-fit: cover;
             filter: var(--imageFilter2);
+        }
+
+        label {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+
+            input {
+                display: none;
+
+                & + div {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 3px;
+                    background: var(--bgContent);
+                    color: transparent;
+                    display: grid;
+                    align-items: center;
+                    justify-items: center;
+                    text-align: center;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: var(--accent);
+                    }
+                }
+
+                &:checked + div {
+                    background: var(--accent);
+                    color: var(--bgContent);
+                }
+            }
         }
     }
 
