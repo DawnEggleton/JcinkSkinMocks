@@ -3,13 +3,21 @@
 ********************************/
 .stats {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 415px;
+
+    @media only screen and (min-width: $md) {
+        grid-template-columns: 2fr 1fr;
+    }
 
     &--main {
         background: var(--bgContent);
-        padding: 20px calc(20px + 3vw) 20px 20px;
+        padding: 20px 20px calc(20px + 3vw) 20px;
         border-radius: 3px;
+
+        @media only screen and (min-width: $md) {
+            padding: 20px calc(20px + 3vw) 20px 20px;
+        }
 
         h3 {
             font-family: var(--header);
@@ -51,7 +59,11 @@
         line-height: 200%;
 
         .scroll {
-            height: 232px;
+            height: 185px;
+
+            @media only screen and (min-width: $md) {
+                height: 232px;
+            }
         }
 
         a {
@@ -64,7 +76,11 @@
         line-height: 200%;
 
         .scroll {
-            height: 232px;
+            height: 185px;
+
+            @media only screen and (min-width: $md) {
+                height: 232px;
+            }
         }
 
         a {
@@ -99,10 +115,14 @@
 
     &--side {
         background: var(--bgContentAlt);
-        margin: 3vw 0 3vw -3vw;
+        margin: -3vw 3vw 0 3vw;
         border-radius: 3px;
         z-index: 2;
         padding: 15px;
+
+        @media only screen and (min-width: $md) {
+            margin: 3vw 0 3vw -3vw;
+        }
 
         .scroll {
             height: calc(385px - 6vw);

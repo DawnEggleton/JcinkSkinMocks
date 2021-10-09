@@ -780,19 +780,35 @@ header {
     order: 2;
   }
 }
+.category--topics {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 50px;
+  grid-gap: 20px;
+}
 
 /*******************************
     Board Stats
 ********************************/
 .stats {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 415px;
+}
+@media only screen and (min-width: 1000px) {
+  .stats {
+    grid-template-columns: 2fr 1fr;
+  }
 }
 .stats--main {
   background: var(--bgContent);
-  padding: 20px calc(20px + 3vw) 20px 20px;
+  padding: 20px 20px calc(20px + 3vw) 20px;
   border-radius: 3px;
+}
+@media only screen and (min-width: 1000px) {
+  .stats--main {
+    padding: 20px calc(20px + 3vw) 20px 20px;
+  }
 }
 .stats--main h3 {
   font-family: var(--header);
@@ -829,7 +845,12 @@ header {
   line-height: 200%;
 }
 .stats--now .scroll {
-  height: 232px;
+  height: 185px;
+}
+@media only screen and (min-width: 1000px) {
+  .stats--now .scroll {
+    height: 232px;
+  }
 }
 .stats--now a {
   color: var(--fontMain);
@@ -839,7 +860,12 @@ header {
   line-height: 200%;
 }
 .stats--today .scroll {
-  height: 232px;
+  height: 185px;
+}
+@media only screen and (min-width: 1000px) {
+  .stats--today .scroll {
+    height: 232px;
+  }
 }
 .stats--today a {
   color: var(--fontMain);
@@ -868,10 +894,15 @@ header {
 }
 .stats--side {
   background: var(--bgContentAlt);
-  margin: 3vw 0 3vw -3vw;
+  margin: -3vw 3vw 0 3vw;
   border-radius: 3px;
   z-index: 2;
   padding: 15px;
+}
+@media only screen and (min-width: 1000px) {
+  .stats--side {
+    margin: 3vw 0 3vw -3vw;
+  }
 }
 .stats--side .scroll {
   height: calc(385px - 6vw);
@@ -929,6 +960,165 @@ header {
 /*******************************
     Topic List
 ********************************/
+.topic {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.topic:not(:first-child) {
+  margin-top: 40px;
+}
+.topic:nth-child(2n) {
+  grid-template-columns: 1fr;
+}
+.topic:nth-child(2n) .topic--image {
+  justify-self: end;
+  order: 1;
+}
+.topic:nth-child(2n) .topic--main {
+  order: 2;
+  margin: -20px 0 20px 0;
+}
+@media only screen and (min-width: 720px) {
+  .topic:not(:first-child) {
+    margin-top: -20px;
+  }
+  .topic:nth-child(2n) {
+    margin-top: -180px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .topic {
+    grid-template-columns: 200px 1fr;
+  }
+  .topic:nth-child(2n) {
+    grid-template-columns: 1fr 200px;
+    margin-top: -20px;
+  }
+  .topic:nth-child(2n) .topic--image {
+    order: 2;
+    justify-self: auto;
+  }
+  .topic:nth-child(2n) .topic--main {
+    order: 1;
+    margin: 40px -20px 40px 0;
+  }
+}
+.topic--image {
+  display: none;
+  border-radius: 3px;
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+  max-width: calc(50% - 30px);
+  margin: 0 20px;
+  z-index: 3;
+  order: 2;
+}
+@media only screen and (min-width: 720px) {
+  .topic--image {
+    display: block;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .topic--image {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    z-index: 1;
+    order: 1;
+    max-width: none;
+  }
+}
+.topic--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: var(--imageFilter2);
+}
+.topic--main {
+  background: var(--bgContent);
+  order: 1;
+  margin: 20px 0 -20px 0;
+  border-radius: 3px;
+  z-index: 2;
+  padding: 20px;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: grid;
+  grid-gap: 20px;
+}
+@media only screen and (min-width: 1000px) {
+  .topic--main {
+    grid-template-columns: 1fr 250px;
+    align-items: center;
+    margin: 40px 0 40px -20px;
+    order: 2;
+  }
+}
+.topic--body {
+  display: grid;
+  grid-gap: 5px;
+  height: max-content;
+}
+@media only screen and (min-width: 720px) {
+  .topic--body {
+    padding-top: 20px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .topic--body {
+    padding-top: 0;
+    padding-left: 20px;
+  }
+}
+.topic--body > a {
+  font-size: var(--xlBody);
+  font-weight: 700;
+}
+.topic--stats {
+  display: flex;
+  gap: 15px;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.topic--stats b,
+.topic--stats a {
+  color: var(--accent);
+}
+.topic--pages a {
+  color: var(--accent);
+  font-weight: bold;
+}
+.topic--posters {
+  display: grid;
+  grid-gap: 20px;
+}
+.topic--starter, .topic--latest {
+  padding: 10px;
+}
+.topic--starter a, .topic--latest a {
+  display: block;
+  margin-bottom: 5px;
+  font-size: var(--mBody);
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.topic--starter {
+  border-left: 1px solid var(--accent);
+}
+.topic--starter a:before {
+  content: "started by ";
+}
+.topic--latest {
+  border-right: 1px solid var(--accent);
+  text-align: right;
+}
+.topic--latest a:before {
+  content: "last post by ";
+}
+
 /*******************************
     Post Row
 ********************************/
