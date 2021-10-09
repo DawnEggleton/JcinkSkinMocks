@@ -1,3 +1,7 @@
+/***********************************
+	Global, Load ALWAYS
+***********************************/
+
 //Toggles
 /* Original Cookie Script by Essi - sourced.jcink.net */
 if(localStorage.getItem("COLORMODE") == "1" || (localStorage.getItem("COLORMODE") === null && (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches))) {
@@ -30,7 +34,6 @@ $('.nav--code--hide pre code').html(
     $('.nav--code--hide pre code').html().replace(/<br>/ig, '').replace(/>/ig, '&gt;').replace(/</ig, '&lt;')
 );
 
-
 //copy code to clipboard
 let clipboard = new Clipboard('.clipboard');
 clipboard.on('success', function(e) {
@@ -55,42 +58,67 @@ $("table[id='CODE-WRAP']").each(function() {
 });
 
 
-//two tone forum titles
-document.querySelectorAll('.forum--content h3').forEach(forumTitle => {
-    spanLastWords(forumTitle);
-});
 
 
-//two tone account names
-document.querySelectorAll('.post--name').forEach(name => {
-    spanLastWords(name);
-});
+
+/***********************************
+	Index Or Topic List Only
+***********************************/
+if($('body#idx').length > 0 || $('body#SF').length > 0) {
+	//two tone forum titles
+	document.querySelectorAll('.forum--content h3').forEach(forumTitle => {
+	    spanLastWords(forumTitle);
+	});
 
 
-//remove all forum macros from subforum lists
-document.querySelectorAll('a.subforums-macro').forEach(link => {
-    link.remove();
-});
+	//remove all forum macros from subforum lists
+	document.querySelectorAll('a.subforums-macro').forEach(link => {
+	    link.remove();
+	});
+	
+	
+	//add manual links to subforum link list
+	document.querySelectorAll('.forum--links').forEach(linkSet => {
+	    let links = linkSet.innerHTML,
+	        subs = linkSet.parentNode.parentNode.querySelector('.forum--subs');
+	    subs.insertAdjacentHTML('beforeend', links);
+	});
+	
+	
+	//append custom forum image to image block
+	$('.forum--desc').each(function() {
+	    if($(this).children('img').length > 0) {
+	        let image = $(this).children('img')[0];
+	        let imageBlock = $(this).parent().parent().prev().children()[0];
+	        imageBlock.innerHTML = '';
+	        $(image).appendTo(imageBlock);
+	    }
+	});
+}
 
 
-//add manual links to subforum link list
-document.querySelectorAll('.forum--links').forEach(linkSet => {
-    let links = linkSet.innerHTML,
-        subs = linkSet.parentNode.parentNode.querySelector('.forum--subs');
-    subs.insertAdjacentHTML('beforeend', links);
-});
+/***********************************
+	Index Only
+***********************************/
+if($('body#idx').length > 0) {
+	//append recent topics
+	$('#recent-topics').appendTo('#recent-topics-clip');
+}
 
 
-//append custom forum image to image block
-$('.forum--desc').each(function() {
-    if($(this).children('img').length > 0) {
-        let image = $(this).children('img')[0];
-        let imageBlock = $(this).parent().parent().prev().children()[0];
-        imageBlock.innerHTML = '';
-        $(image).appendTo(imageBlock);
-    }
-});
+/***********************************
+	Post View Only
+***********************************/
+if($('body#ST').length > 0) {
+	//remove comma from topic description
+	$('.topic-desc').each(function () {
+	    let string = $(this).text();
+	    let newString = string.replace('[', `<span class="threadDate">`).replace(']', `</span>`);
+	    $(this).html(newString);
+	});
 
-
-//append recent topics
-$('#recent-topics').appendTo('#recent-topics-clip');
+	//two tone account names
+	document.querySelectorAll('.post--name').forEach(name => {
+	    spanLastWords(name);
+	});
+}

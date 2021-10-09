@@ -15,6 +15,7 @@
     --pureBlack: rgba(0, 0, 0, 1);
 
     --dkBlack: rgba(30, 30, 30, 1);
+    --dkBlack-80: rgba(30, 30, 30, 0.8);
 
     --black: rgba(40, 40, 40, 1);
 
@@ -28,6 +29,7 @@
     --ltGrey: rgba(200, 200, 200, 1);
 
     --white: rgba(235, 235, 235, 1);
+    --white-80: rgba(235, 235, 235, 0.8);
 
     --accent: rgba(196, 122, 100, 1);
 
@@ -48,6 +50,7 @@
     --bgOverlay: var(--pureBlack);
     --bgNav: var(--dkGrey);
     --bgContent: var(--dkBlack);
+    --bgContent-80: var(--dkBlack-80);
     --bgContentAlt: var(--dkGrey);
     --bgButtonHover: var(--dkGrey);
     --fontLinks: var(--white);
@@ -66,6 +69,7 @@
     --bgOverlay: var(--white);
     --bgNav: var(--white);
     --bgContent: var(--white);
+    --bgContent-80: var(--white-80);
     --bgButtonHover: var(--white);
     --bgContentAlt: var(--ltGrey);
     --fontLinks: var(--black);
