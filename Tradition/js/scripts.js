@@ -84,12 +84,13 @@ if($('body#idx').length > 0 || $('body#SF').length > 0) {
 	
 	//append custom forum image to image block
 	$('.forum--desc').each(function() {
+	    let image = `<img src="${defaultImages.forum}" />`;
 	    if($(this).children('img').length > 0) {
-	        let image = $(this).children('img')[0];
-	        let imageBlock = $(this).parent().parent().prev().children()[0];
-	        imageBlock.innerHTML = '';
-	        $(image).appendTo(imageBlock);
+	        image = $(this).children('img')[0];
 	    }
+	    let imageBlock = $(this).parent().parent().prev().children()[0];
+	    imageBlock.innerHTML = '';
+            $(image).appendTo(imageBlock);
 	});
 }
 
