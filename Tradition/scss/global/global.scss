@@ -124,6 +124,10 @@ main {
     .push & {
         margin-left: max(-50%, -600px);
     }
+
+    #Profile & {
+        margin: 0 0 50px;
+    }
 }
 
 #ST,

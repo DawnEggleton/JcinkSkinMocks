@@ -266,7 +266,6 @@
             text-transform: uppercase;
             font-size: var(--xsBody);
             letter-spacing: 2px;
-            color: var(--fontLinks);
             border-left: 1px solid var(--accent);
             padding: 5px 10px;
             line-height: 100%;
@@ -275,9 +274,10 @@
         span {
             font-size: var(--lBody);
             text-transform: uppercase;
-            font-weight: 700;
-            color: var(--accent);
+            font-weight: 300;
             padding-left: 10px;
+            opacity: 0.7;
+            letter-spacing: 3px;
         }
     }
 

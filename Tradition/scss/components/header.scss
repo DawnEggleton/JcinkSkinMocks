@@ -6,8 +6,16 @@ header {
     display: grid;
     align-items: center;
     padding: 50px 20px;
-    min-height: 100vh;
+    min-height: 60vh;
     width: calc(100% - 30px);
+
+    #idx & {
+        min-height: 100vh;
+    }
+
+    #Profile > & {
+        display: none;
+    }
 
     @media only screen and (min-width: $sm) {
         padding: 50px;
@@ -79,11 +87,15 @@ header {
     }
 
     &--info {
-        display: grid;
+        display: none;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(auto-fit, 180px);
         grid-gap: 50px;
         margin-top: 20px;
+
+        #idx & {
+            display: grid;
+        }
 
         @media only screen and (min-width: $sm) {
             grid-template-columns: repeat(2, 1fr);

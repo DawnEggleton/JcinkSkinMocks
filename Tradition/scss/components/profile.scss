@@ -1,4 +1,284 @@
 /*******************************
     Profile
 ********************************/
+#Profile {
+    header {
+        h1 {
+            font-size: clamp(55px, 15vw, 100px);
+            line-height: clamp(55px, 15vw, 100px);
 
+
+            span {
+                display: block;
+            }
+        }
+    }
+
+    main > span {
+        &.g-4 {
+            .charOnly {
+                display: none;
+            }
+        }
+        &:not(.g-4) {
+            .memOnly {
+                display: none;
+            }
+        }
+    }
+}
+
+
+.profile {
+    margin: 0 20px 50px;
+    width: calc(100% - 70px);
+
+    @media only screen and (min-width: $md) {
+        margin: 0 50px 50px;
+        width: calc(100% - 130px);
+    }
+
+    & > section:nth-of-type(2n + 1) {
+        background: var(--bgContent);
+        margin-right: 20px;
+
+        @media only screen and (min-width: $sm) {
+            margin-right: 50px;
+        }
+
+        & .profile--slider {
+            background: var(--bgContentAlt);
+        }
+    }
+    & > section:nth-of-type(2n) {
+        background: var(--bgContentAlt);
+        margin-left: 20px;
+
+        @media only screen and (min-width: $sm) {
+            margin-left: 50px;
+        }
+
+        & .profile--slider {
+            background: var(--bgContent);
+        }
+    }
+
+    & > section {
+        padding: 30px;
+        border-radius: 3px;
+        line-height: 200%;
+    }
+    & > section:not(:first-child) {
+        margin-top: -30px;
+    }
+    & > section:not(:last-child) {
+        padding-bottom: 60px;
+    }
+
+    &--image-links {
+        background: transparent !important;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 0 !important;
+
+        @media only screen and (min-width: $sm) {
+            grid-template-columns: 1fr 250px;
+        }
+    }
+
+    &--image {
+        border-radius: 3px;
+        overflow: hidden;
+        height: 450px;
+        order: 2;
+
+        @media only screen and (min-width: $sm) {
+            order: 1;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &--links {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-rows: repeat(auto-fit, minmax(0, max-content));
+        grid-template-columns: 1fr 1fr;
+        margin: 10px auto;
+        z-index: 2;
+        order: 1;
+
+        @media only screen and (min-width: $sm) {
+            order: 2;
+        }
+
+        @media only screen and (min-width: $sm) {
+            grid-template-columns: 1fr;
+            margin: 30px 0 30px -30px;
+        }
+
+        a {
+            display: block;
+            background: var(--bgContent);
+            border-radius: 3px;
+            font-weight: 300;
+            text-align: center;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: var(--sBody);
+
+            @media only screen and (min-width: $sm) {
+                text-align: right;
+            }
+
+            &:hover {
+                letter-spacing: 6px;
+                margin-right: -20px;
+            }
+        }
+    }
+
+    &--short {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+
+        @media only screen and (min-width: $sm) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &--long {
+        text-align: justify;
+
+        .scroll {
+            max-height: min(60vh, 400px);
+        }
+    }
+
+    &--item {
+        display: grid;
+        grid-gap: 5px;
+
+        strong {
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 2px;
+            border-left: 1px solid var(--accent);
+            padding: 5px 10px;
+            line-height: 100%;
+        }
+
+        span {
+            font-size: var(--lBody);
+            text-transform: uppercase;
+            font-weight: 300;
+            padding-left: 10px;
+            opacity: 0.7;
+            letter-spacing: 3px;
+        }
+    }
+
+    &--slideItem {
+        display: grid;
+        grid-gap: 5px;
+
+        strong {
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 2px;
+            border-left: 1px solid var(--accent);
+            padding: 5px 10px;
+            line-height: 100%;
+        }
+    }
+
+    &--slider {
+        width: calc(100% - 20px);
+        margin: 10px;
+        height: 2px;
+
+        span {
+            background: var(--accent);
+            display: block;
+            height: 100%;
+        }
+    }
+
+    &--player {
+        background: transparent !important;
+        margin: 0 auto !important;
+        max-width: 850px;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 30px 15px;
+        align-items: center;
+
+        &.charOnly {
+            grid-template-rows: max-content max-content 175px;
+        }
+
+        &.memOnly {
+            grid-template-rows: max-content 175px;
+        }
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: 300px 1fr;
+
+            &.charOnly {
+                grid-template-rows: max-content 175px;
+            }
+    
+            &.memOnly {
+                grid-template-rows: 175px;
+            }
+        }
+
+        &--name {
+            font-family: var(--header);
+            font-size: 60px;
+            line-height: 100%;
+            letter-spacing: 4px;
+            transform: scaleX(140%);
+            transform-origin: center;
+
+            @media only screen and (min-width: $md) {
+                grid-column: span 2;
+            }
+
+            span {
+                color: var(--accent);
+            }
+        }
+
+        &--info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            align-items: center;
+            grid-gap: 15px;
+            text-align: right;
+            height: 150px;
+
+            span {
+                display: block;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: var(--xsBody);
+                border-right: 1px solid var(--accent);
+                padding: 5px 10px 5px 0;
+                line-height: 160%;
+            }
+        }
+
+        &--triggers {
+            text-align: justify;
+            max-height: 175px;
+        }
+    }
+}

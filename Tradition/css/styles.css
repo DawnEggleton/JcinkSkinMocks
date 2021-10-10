@@ -207,6 +207,9 @@ main {
 .push main {
   margin-left: max(-50%, -600px);
 }
+#Profile main {
+  margin: 0 0 50px;
+}
 
 #ST main > table > tbody > tr,
 #SF main > table > tbody > tr {
@@ -544,8 +547,14 @@ header {
   display: grid;
   align-items: center;
   padding: 50px 20px;
-  min-height: 100vh;
+  min-height: 60vh;
   width: calc(100% - 30px);
+}
+#idx header {
+  min-height: 100vh;
+}
+#Profile > header {
+  display: none;
 }
 @media only screen and (min-width: 720px) {
   header {
@@ -614,11 +623,14 @@ header {
   max-width: 100%;
 }
 .header--info {
-  display: grid;
+  display: none;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(auto-fit, 180px);
   grid-gap: 50px;
   margin-top: 20px;
+}
+#idx .header--info {
+  display: grid;
 }
 @media only screen and (min-width: 720px) {
   .header--info {
@@ -1540,7 +1552,6 @@ header {
   text-transform: uppercase;
   font-size: var(--xsBody);
   letter-spacing: 2px;
-  color: var(--fontLinks);
   border-left: 1px solid var(--accent);
   padding: 5px 10px;
   line-height: 100%;
@@ -1548,9 +1559,10 @@ header {
 .post--item span {
   font-size: var(--lBody);
   text-transform: uppercase;
-  font-weight: 700;
-  color: var(--accent);
+  font-weight: 300;
   padding-left: 10px;
+  opacity: 0.7;
+  letter-spacing: 3px;
 }
 .post--buttons {
   position: sticky;
@@ -1603,6 +1615,255 @@ header {
 /*******************************
     Profile
 ********************************/
+#Profile header h1 {
+  font-size: clamp(55px, 15vw, 100px);
+  line-height: clamp(55px, 15vw, 100px);
+}
+#Profile header h1 span {
+  display: block;
+}
+#Profile main > span.g-4 .charOnly {
+  display: none;
+}
+#Profile main > span:not(.g-4) .memOnly {
+  display: none;
+}
+
+.profile {
+  margin: 0 20px 50px;
+  width: calc(100% - 70px);
+}
+@media only screen and (min-width: 1000px) {
+  .profile {
+    margin: 0 50px 50px;
+    width: calc(100% - 130px);
+  }
+}
+.profile > section:nth-of-type(2n + 1) {
+  background: var(--bgContent);
+  margin-right: 20px;
+}
+@media only screen and (min-width: 720px) {
+  .profile > section:nth-of-type(2n + 1) {
+    margin-right: 50px;
+  }
+}
+.profile > section:nth-of-type(2n + 1) .profile--slider {
+  background: var(--bgContentAlt);
+}
+.profile > section:nth-of-type(2n) {
+  background: var(--bgContentAlt);
+  margin-left: 20px;
+}
+@media only screen and (min-width: 720px) {
+  .profile > section:nth-of-type(2n) {
+    margin-left: 50px;
+  }
+}
+.profile > section:nth-of-type(2n) .profile--slider {
+  background: var(--bgContent);
+}
+.profile > section {
+  padding: 30px;
+  border-radius: 3px;
+  line-height: 200%;
+}
+.profile > section:not(:first-child) {
+  margin-top: -30px;
+}
+.profile > section:not(:last-child) {
+  padding-bottom: 60px;
+}
+.profile--image-links {
+  background: transparent !important;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0 !important;
+}
+@media only screen and (min-width: 720px) {
+  .profile--image-links {
+    grid-template-columns: 1fr 250px;
+  }
+}
+.profile--image {
+  border-radius: 3px;
+  overflow: hidden;
+  height: 450px;
+  order: 2;
+}
+@media only screen and (min-width: 720px) {
+  .profile--image {
+    order: 1;
+  }
+}
+.profile--image img {
+  height: 100%;
+  width: 100%;
+}
+.profile--links {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: repeat(auto-fit, minmax(0, max-content));
+  grid-template-columns: 1fr 1fr;
+  margin: 10px auto;
+  z-index: 2;
+  order: 1;
+}
+@media only screen and (min-width: 720px) {
+  .profile--links {
+    order: 2;
+  }
+}
+@media only screen and (min-width: 720px) {
+  .profile--links {
+    grid-template-columns: 1fr;
+    margin: 30px 0 30px -30px;
+  }
+}
+.profile--links a {
+  display: block;
+  background: var(--bgContent);
+  border-radius: 3px;
+  font-weight: 300;
+  text-align: center;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: var(--sBody);
+}
+@media only screen and (min-width: 720px) {
+  .profile--links a {
+    text-align: right;
+  }
+}
+.profile--links a:hover {
+  letter-spacing: 6px;
+  margin-right: -20px;
+}
+.profile--short {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 30px;
+}
+@media only screen and (min-width: 720px) {
+  .profile--short {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.profile--long {
+  text-align: justify;
+}
+.profile--long .scroll {
+  max-height: min(60vh, 400px);
+}
+.profile--item {
+  display: grid;
+  grid-gap: 5px;
+}
+.profile--item strong {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+  border-left: 1px solid var(--accent);
+  padding: 5px 10px;
+  line-height: 100%;
+}
+.profile--item span {
+  font-size: var(--lBody);
+  text-transform: uppercase;
+  font-weight: 300;
+  padding-left: 10px;
+  opacity: 0.7;
+  letter-spacing: 3px;
+}
+.profile--slideItem {
+  display: grid;
+  grid-gap: 5px;
+}
+.profile--slideItem strong {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+  border-left: 1px solid var(--accent);
+  padding: 5px 10px;
+  line-height: 100%;
+}
+.profile--slider {
+  width: calc(100% - 20px);
+  margin: 10px;
+  height: 2px;
+}
+.profile--slider span {
+  background: var(--accent);
+  display: block;
+  height: 100%;
+}
+.profile--player {
+  background: transparent !important;
+  margin: 0 auto !important;
+  max-width: 850px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px 15px;
+  align-items: center;
+}
+.profile--player.charOnly {
+  grid-template-rows: max-content max-content 175px;
+}
+.profile--player.memOnly {
+  grid-template-rows: max-content 175px;
+}
+@media only screen and (min-width: 1000px) {
+  .profile--player {
+    grid-template-columns: 300px 1fr;
+  }
+  .profile--player.charOnly {
+    grid-template-rows: max-content 175px;
+  }
+  .profile--player.memOnly {
+    grid-template-rows: 175px;
+  }
+}
+.profile--player--name {
+  font-family: var(--header);
+  font-size: 60px;
+  line-height: 100%;
+  letter-spacing: 4px;
+  transform: scaleX(140%);
+  transform-origin: center;
+}
+@media only screen and (min-width: 1000px) {
+  .profile--player--name {
+    grid-column: span 2;
+  }
+}
+.profile--player--name span {
+  color: var(--accent);
+}
+.profile--player--info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  grid-gap: 15px;
+  text-align: right;
+  height: 150px;
+}
+.profile--player--info span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+  border-right: 1px solid var(--accent);
+  padding: 5px 10px 5px 0;
+  line-height: 160%;
+}
+.profile--player--triggers {
+  text-align: justify;
+  max-height: 175px;
+}
+
 /*******************************
     Webpages
 ********************************/

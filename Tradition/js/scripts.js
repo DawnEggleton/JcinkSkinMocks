@@ -119,3 +119,14 @@ if($('body#ST').length > 0) {
 	    spanLastWords(name);
 	});
 }
+
+
+/***********************************
+	Profile Only
+***********************************/
+if($('body#Profile').length > 0) {
+	//two tone account names
+	document.querySelectorAll('main h1').forEach(name => {
+	    spanLastWords(name);
+	});
+}
