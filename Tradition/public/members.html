@@ -143,6 +143,14 @@
                         <div class="members--search">
                             <strong>Filter By</strong>
                             <input type="text" placeholder="Name" class="members--filter-name" onKeyUp="filterFunction('.members--filter-name', '.members--member .name', 'name')" />
+                            <select onchange="filterGroup(this)">
+                                <option value="">Group</option>
+                                <option value="1">Group 1</option>
+                                <option value="2">Group 2</option>
+                                <option value="3">Group 3</option>
+                                <option value="4">Group 4</option>
+                                <option value="5">Group 5</option>
+                            </select>
                             <strong>Sort By</strong>
                             <button type="button" class="members--sort" data-sort="name" onclick="sortList(this)">Name</button>
                             <button type="button" class="members--sort" data-sort="alias" onclick="sortList(this)">Alias</button>
@@ -165,6 +173,8 @@
                     age: parseInt('28', 10),
                     face: 'Milla Jovovich',
                     image: `http://placehold.it/100`,
+                    groupID: parseInt('3', 10),
+                    groupName: 'test',
                 });
 
                 accounts.push({
@@ -173,6 +183,8 @@
                     age: parseInt('22', 10),
                     face: 'Gaspard Ulliel',
                     image: `http://placehold.it/200`,
+                    groupID: parseInt('3', 10),
+                    groupName: 'test',
                 });
 
                 accounts.push({
@@ -181,6 +193,8 @@
                     age: parseInt('18', 10),
                     face: 'Lee Hyun-Jae',
                     image: `http://placehold.it/300`,
+                    groupID: parseInt('3', 10),
+                    groupName: 'test',
                 });
 
                 accounts.push({
@@ -189,9 +203,11 @@
                     age: parseInt('18', 10),
                     face: 'Kerry Ingram',
                     image: `http://placehold.it/400`,
+                    groupID: parseInt('3', 10),
+                    groupName: 'test',
                 });
 
-                populatePage();
+                populatePage(accounts);
 
                 function sortList(el) {
                     let sort = el.getAttribute('data-sort');
@@ -206,17 +222,22 @@
                         }
                         return 0;
                     });
-                    populatePage();
+                    populatePage(accounts);
                 }
                 
-                function populatePage() {
+                function populatePage(array) {
                     let html = ``;
-                    for (let i = 0; i < accounts.length; i++) {
-                    html += `<div class="members--member">
-                    <span class="name">${accounts[i].name}</span>
-                    <span class="alias">${accounts[i].alias}</span>
-                    <span class="age">${accounts[i].age}</span>
-                    <span class="face">${accounts[i].face}</span>
+                    for (let i = 0; i < array.length; i++) {
+                    html += `<div class="members--member g-${array[i].groupID}">
+                        <div class="member--image">
+                            <img src="${array[i].image}" />
+                        </div>
+                        <div class="member--info">
+                            <span class="member--name name">${array[i].name}</span>
+                            <span class="member--item alias">${array[i].alias}</span>
+                            <span class="member--item age">${array[i].age}</span>
+                            <span class="member--item face">${array[i].face}</span>
+                        </div>
                     </div>`;
                     }
                     document.querySelector('#memberList').innerHTML = html;
@@ -239,6 +260,21 @@
                             items[i].parents('.members--member').addClass(itemtype + 'Different');
                         }
                     }
+                }
+
+                function filterGroup(el) {
+                    let groupID = el.value;
+                    let filteredAccounts = [];
+                    if (groupID == 0) {
+                        filteredAccounts = accounts;
+                    } else {
+                        for(let i = 0; i < accounts.length; i++) {
+                            if(accounts[i].groupID == groupID) {
+                                filteredAccounts.push(accounts[i]);
+                            }
+                        }
+                    }
+                    populatePage(filteredAccounts);
                 }
             </script>
         </main>

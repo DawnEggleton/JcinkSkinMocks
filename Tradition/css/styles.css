@@ -410,7 +410,7 @@ body:not(.g-2) .nav--top-ucp a.memOnly.nav--top-ucp--name {
 }
 .nav--popout {
   top: 58px;
-  right: -600px;
+  right: -700px;
   background: var(--bgOverlay);
   display: grid;
   width: 100%;
@@ -1618,7 +1618,17 @@ header {
   display: none;
 }
 #Members main {
-  margin-top: 50px;
+  margin-top: 100px;
+}
+@media only screen and (min-width: 720px) {
+  #Members main {
+    margin-top: 100px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  #Members main {
+    margin-top: 50px;
+  }
 }
 
 .members--links {
@@ -1641,20 +1651,32 @@ header {
   border-right: 2px solid var(--accent);
 }
 .members--body {
-  margin: 50px;
+  margin: 30px 0;
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 1fr;
+}
+@media only screen and (min-width: 720px) {
+  .members--body {
+    margin: 50px;
+    grid-template-columns: 250px 1fr;
+  }
 }
 .members--search {
-  position: sticky;
-  top: 70px;
   background: var(--bgContentAlt);
   padding: 30px;
   border-radius: 3px;
-  margin: 30px -30px 30px 0;
+  margin: 0 30px -30px 30px;
   z-index: 2;
   display: grid;
   grid-gap: 10px;
+  height: max-content;
+}
+@media only screen and (min-width: 720px) {
+  .members--search {
+    position: sticky;
+    top: 70px;
+    margin: 30px -30px 30px 0;
+  }
 }
 .members--search strong {
   display: block;
@@ -1668,7 +1690,8 @@ header {
 .members--search strong:not(:first-child) {
   margin-top: 10px;
 }
-.members--search input {
+.members--search input,
+.members--search select {
   background: var(--bgContent);
   border-radius: 3px;
   padding: 8px 15px;
@@ -1680,7 +1703,8 @@ header {
   letter-spacing: 3px;
   font-size: var(--sBody);
 }
-.members--search input:focus {
+.members--search input:focus,
+.members--search select:focus {
   outline: 1px solid var(--accent);
   color: var(--fontLinks);
 }
@@ -1698,8 +1722,79 @@ header {
 }
 .members--list {
   background: var(--bgContent);
-  padding: 30px 30px 30px 60px;
+  padding: 60px 30px 30px 30px;
   border-radius: 3px;
+}
+@media only screen and (min-width: 720px) {
+  .members--list {
+    padding: 30px 30px 30px 60px;
+  }
+}
+.members--member {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media only screen and (min-width: 1000px) {
+  .members--member {
+    grid-template-columns: 125px 1fr;
+  }
+}
+.members--member:not(:first-child) {
+  margin-top: 30px;
+}
+
+.member--image {
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0 15px -15px 15px;
+  width: 200px;
+  justify-self: center;
+  z-index: 2;
+}
+@media only screen and (min-width: 1000px) {
+  .member--image {
+    margin: 0;
+    width: 100%;
+    justify-self: auto;
+    z-index: 1;
+  }
+}
+.member--image img {
+  width: 100%;
+  height: 100%;
+}
+.member--info {
+  background: var(--bgContentAlt);
+  border-radius: 3px;
+  padding: 30px 15px 15px 15px;
+  margin: 0;
+  display: flex;
+  gap: 10px 40px;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+@media only screen and (min-width: 1000px) {
+  .member--info {
+    padding: 15px;
+    margin: 15px 0 15px -15px;
+    z-index: 2;
+  }
+}
+.member--name {
+  width: 100%;
+  text-transform: uppercase;
+  font-family: var(--header);
+  font-size: 30px;
+  transform: scaleX(140%);
+  transform-origin: left;
+  letter-spacing: 1px;
+}
+.member--item {
+  border-left: 1px solid var(--accent);
+  padding: 3px 0 3px 10px;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .nameDifferent {
