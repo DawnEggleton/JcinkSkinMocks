@@ -109,7 +109,8 @@ body {
 #userlinks,
 .subforums-macro,
 .topic-title-space,
-.wrapmini {
+.wrapmini,
+#submenu + div {
 	display: none !important;
 }
 main {
