@@ -5,9 +5,13 @@
 header {
     display: grid;
     align-items: center;
-    padding: 50px;
+    padding: 50px 20px;
     min-height: 100vh;
-    width: 100%;
+    width: calc(100% - 30px);
+
+    @media only screen and (min-width: $sm) {
+        padding: 50px;
+    }
 
     .push & {
         margin-left: max(-50%, -600px);
@@ -23,15 +27,21 @@ header {
     h1 {
         color: var(--fontHeader);
         font-family: var(--header);
-        font-size: clamp(80px, 20vw, 130px);
+        font-size: clamp(55px, 15vw, 130px);
         text-transform: uppercase;
         letter-spacing: 20px;
         margin: 0;
         transform: scaleY(90%);
-        line-height: clamp(80px, 20vw, 130px);
+        line-height: clamp(55px, 15vw, 130px);
         width: max-content;
         max-width: 100%;
-        padding-right: 40px;
+        padding-right: 0;
+
+        @media only screen and (min-width: $sm) {
+            font-size: clamp(80px, 20vw, 130px);
+            line-height: clamp(80px, 20vw, 130px);
+            padding-right: 40px;
+        }
 
         span {
             color: var(--accent);
