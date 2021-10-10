@@ -1789,6 +1789,9 @@ header {
   transform-origin: left;
   letter-spacing: 1px;
 }
+.member--name a span {
+  color: var(--accent);
+}
 .member--item {
   border-left: 1px solid var(--accent);
   padding: 3px 0 3px 10px;

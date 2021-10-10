@@ -168,43 +168,43 @@
                 let accounts = [];
 
                 accounts.push({
-                    name: 'Hayden Donovan',
+                    name: spanLastInML('Hayden Donovan'),
                     alias: 'Lux',
                     age: parseInt('28', 10),
                     face: 'Milla Jovovich',
                     image: `http://placehold.it/100`,
                     groupID: parseInt('3', 10),
-                    groupName: 'test',
+                    id: '1',
                 });
 
                 accounts.push({
-                    name: 'Nikolas Kovac',
+                    name: spanLastInML('Nikolas Kovac'),
                     alias: 'Lux',
                     age: parseInt('22', 10),
                     face: 'Gaspard Ulliel',
                     image: `http://placehold.it/200`,
                     groupID: parseInt('3', 10),
-                    groupName: 'test',
+                    id: '2',
                 });
 
                 accounts.push({
-                    name: 'Connor King',
+                    name: spanLastInML('Connor King'),
                     alias: 'Lux',
                     age: parseInt('18', 10),
                     face: 'Lee Hyun-Jae',
                     image: `http://placehold.it/300`,
                     groupID: parseInt('3', 10),
-                    groupName: 'test',
+                    id: '3',
                 });
 
                 accounts.push({
-                    name: 'Carly Dillon',
+                    name: spanLastInML('Carly Dillon'),
                     alias: 'Bea',
                     age: parseInt('18', 10),
                     face: 'Kerry Ingram',
                     image: `http://placehold.it/400`,
                     groupID: parseInt('3', 10),
-                    groupName: 'test',
+                    id: '4',
                 });
 
                 populatePage(accounts);
@@ -233,7 +233,9 @@
                             <img src="${array[i].image}" />
                         </div>
                         <div class="member--info">
-                            <span class="member--name name">${array[i].name}</span>
+                            <span class="member--name name">
+                                <a href="?showuser=${array[i].id}">${array[i].name}</a>
+                            </span>
                             <span class="member--item alias">${array[i].alias}</span>
                             <span class="member--item age">${array[i].age}</span>
                             <span class="member--item face">${array[i].face}</span>
@@ -275,6 +277,14 @@
                         }
                     }
                     populatePage(filteredAccounts);
+                }
+
+                function spanLastInML(el) {
+                    let first = el.split(' ')[0], remainder = '';
+                    if(el.split(' ').length > 1) {
+                        remainder = el.substring(el.indexOf(" ") + 1);
+                    }
+                    return `${first} <span>${remainder}</span>`;
                 }
             </script>
         </main>
