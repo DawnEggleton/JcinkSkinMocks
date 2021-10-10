@@ -130,4 +130,8 @@ if($('body#Profile').length > 0) {
 	document.querySelectorAll('main h1').forEach(name => {
 	    spanLastWords(name);
 	});
+
+	
+	//adjust padding on last section before player
+	$('.profile--player').prev().css({'padding-bottom': '30px'});
 }
