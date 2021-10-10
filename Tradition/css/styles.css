@@ -531,7 +531,7 @@ body:not(.g-2) .nav--top-ucp a.memOnly.nav--top-ucp--name {
   font-weight: bold;
 }
 .push .nav--breadcrumb {
-  right: clamp(200px, 100vw, 600px);
+  right: clamp(200px, 50%, 600px);
 }
 .nav--breadcrumb #navstrip {
   text-align: right;
@@ -548,7 +548,7 @@ header {
   width: 100%;
 }
 .push header {
-  margin-left: -200px;
+  margin-left: max(-50%, -600px);
 }
 
 .header {
@@ -635,6 +635,7 @@ header {
 .header--image-block {
   display: grid;
   grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   grid-gap: 10px;
   justify-items: center;
 }

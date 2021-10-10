@@ -10,7 +10,7 @@ header {
     width: 100%;
 
     .push & {
-        margin-left: -200px;
+        margin-left: max(-50%, -600px);
     }
 }
 .header {
@@ -104,6 +104,7 @@ header {
     &--image-block {
         display: grid;
         grid-auto-flow: column;
+        grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
         grid-gap: 10px;
         justify-items: center;
 

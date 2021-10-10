@@ -58,9 +58,6 @@ $("table[id='CODE-WRAP']").each(function() {
 });
 
 
-
-
-
 /***********************************
 	Index Or Topic List Only
 ***********************************/
