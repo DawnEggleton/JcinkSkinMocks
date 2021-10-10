@@ -2040,7 +2040,7 @@ header {
   text-align: right;
   height: 150px;
 }
-.profile--player--info span {
+.profile--player--info > span {
   display: block;
   text-transform: uppercase;
   letter-spacing: 2px;
