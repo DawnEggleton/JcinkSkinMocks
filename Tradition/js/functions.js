@@ -29,6 +29,21 @@ function toggleMenu() {
     document.body.classList.toggle('push');
     document.querySelector('.menuToggle').classList.toggle('fa-bars');
     document.querySelector('.menuToggle').classList.toggle('fa-times');
+
+    if(window.innerWidth < 720) {
+        adjustPopoutHeight();
+    }
+}
+
+function adjustPopoutHeight() {
+	let navBox = document.querySelector('.nav--popout');
+	let navScroll = document.querySelector('.nav--popout--links > div.scroll');
+	let topNav = document.querySelector('.nav--top');
+	let topHeight = topNav.clientHeight + 1;
+    
+    navBox.style.height = "calc(100vh - " + topHeight + "px)";
+    navBox.style.gridTemplateRows = "250px calc(100vh - 264px - " + topHeight + "px)";
+    navScroll.style.height = "calc(80vh - 264px - " + topHeight + "px)";
 }
 
 function openSwitch(el) {

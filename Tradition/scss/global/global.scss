@@ -47,6 +47,7 @@ body {
     font-size: var(--mBody);
     letter-spacing: 0.5px;
     color: var(--fontMain);
+    overflow-x: hidden;
 }
 .extraBG {
     position: fixed;
@@ -112,12 +113,16 @@ body {
 	display: none !important;
 }
 main {
-    margin: 0 50px 50px 20px;
+    margin: 0 20px 50px;
     width: calc(100% - 70px);
 
     @media only screen and (min-width: $md) {
         margin: 0 50px 50px;
-        width: calc(100% - 100px);
+        width: calc(100% - 130px);
+    }
+
+    .push & {
+        margin-left: max(-50%, -600px);
     }
 }
 

@@ -124,6 +124,7 @@ body {
   font-size: var(--mBody);
   letter-spacing: 0.5px;
   color: var(--fontMain);
+  overflow-x: hidden;
 }
 
 .extraBG {
@@ -194,14 +195,17 @@ body {
 }
 
 main {
-  margin: 0 50px 50px 20px;
+  margin: 0 20px 50px;
   width: calc(100% - 70px);
 }
 @media only screen and (min-width: 1000px) {
   main {
     margin: 0 50px 50px;
-    width: calc(100% - 100px);
+    width: calc(100% - 130px);
   }
+}
+.push main {
+  margin-left: max(-50%, -600px);
 }
 
 #ST main > table > tbody > tr,
@@ -306,33 +310,34 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 10px 20px;
   font-size: var(--xsBody);
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 600;
-  padding: 0 10px;
+  padding: 10px;
   border-bottom: 1px solid var(--borderMain-0);
+  flex-wrap: wrap;
+  z-index: 11;
 }
 .nav--top.scrolled {
   background: var(--bgNav);
   border-color: var(--borderMain);
 }
-.push .nav--top {
-  margin-left: clamp(-600px, -100vw, -200px);
-}
-.push .nav--top .nav--top-ucp {
-  margin-left: clamp(200px, 100vw, 600px);
+@media only screen and (min-width: 720px) {
+  .push .nav--top {
+    width: calc(100% - min(50%, 600px));
+  }
 }
 .nav--top-ucp {
   display: flex;
-  gap: 20px;
+  gap: 10px 20px;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
 }
 .nav--top-ucp--name {
   display: flex;
@@ -400,15 +405,23 @@ body:not(.g-2) .nav--top-ucp a.memOnly.nav--top-ucp--name {
   font-size: var(--mBody);
 }
 .nav--popout {
-  top: 0;
+  top: 58px;
   right: -600px;
-  width: 100%;
-  max-width: 600px;
-  height: 100vh;
-  border-left: 1px solid var(--borderMain);
   background: var(--bgOverlay);
   display: grid;
-  grid-template-rows: 250px calc(100vh - 250px);
+  width: 100%;
+  height: calc(100vh - 58px);
+  grid-template-rows: 250px calc(100vh - 264px - 58px);
+}
+@media only screen and (min-width: 720px) {
+  .nav--popout {
+    top: 0;
+    width: 50%;
+    max-width: 600px;
+    height: 100vh;
+    border-left: 1px solid var(--borderMain);
+    grid-template-rows: 250px calc(100vh - 264px);
+  }
 }
 .push .nav--popout {
   right: 0;
@@ -467,7 +480,12 @@ body:not(.g-2) .nav--top-ucp a.memOnly.nav--top-ucp--name {
   max-height: 50px;
 }
 .nav--popout--links {
-  padding: 10%;
+  padding: 10vw;
+}
+@media only screen and (min-width: 720px) {
+  .nav--popout--links {
+    padding: 50px;
+  }
 }
 .nav--popout--links > div {
   display: grid;
@@ -480,7 +498,7 @@ body:not(.g-2) .nav--top-ucp a.memOnly.nav--top-ucp--name {
 }
 .nav--popout--links > div.scroll {
   padding: 0;
-  max-height: calc(100vh - 250px - 17vh);
+  max-height: calc(100vh - 364px);
 }
 .nav--popout--links > div a {
   border-left: 2px solid var(--accent);
