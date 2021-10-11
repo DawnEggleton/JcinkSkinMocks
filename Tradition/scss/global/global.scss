@@ -193,6 +193,14 @@ main {
         border-radius: 3px;
         text-transform: uppercase;
         letter-spacing: 2px;
+
+        b,
+        i,
+        a {
+            color: var(--bgMain);
+            font-weight: 300;
+            font-size: var(--mBody);
+        }
     }
 }
 .goto-firstunread {
@@ -374,7 +382,7 @@ b {
     font-weight: 800;
 }
 
-i {
+i:not(.fas):not(.fal):not(.far):not(.fab) {
     color: var(--accent);
     font-weight: 600;
     letter-spacing: 0.5px;

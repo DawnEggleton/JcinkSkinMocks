@@ -28,6 +28,9 @@
             letter-spacing: 2px;
             font-size: 40px;
             color: var(--fontHeader);
+            border: none;
+            padding: 0;
+            font-weight: bold;
 
             span {
                 color: var(--accent);
@@ -45,6 +48,16 @@
 
         b {
             color: var(--accent);
+            font-size: var(--xsBody);
+            font-weight: 700;
+        }
+
+        a {
+            font-size: var(--xsBody);
+            color: var(--fontMain);
+            letter-spacing: 1px;
+            font-weight: normal;
+            padding: 0;
         }
     }
 
@@ -55,7 +68,6 @@
     }
 
     &--now {
-        font-size: 20px;
         line-height: 200%;
 
         .scroll {
@@ -67,6 +79,7 @@
         }
 
         a {
+            font-size: 20px;
             color: var(--fontMain);
         }
     }

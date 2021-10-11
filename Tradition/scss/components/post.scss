@@ -146,7 +146,7 @@
                 }
 
                 &:checked + div {
-                    color: var(--bgMain);
+                    color: var(--bgContent);
                     background: var(--accent);
                 }
             }
@@ -159,6 +159,8 @@
         font-weight: 700;
         letter-spacing: 4px;
         transform: scaleX(140%);
+        color: var(--fontMain);
+        padding: 0;
 
         span {
             color: var(--accent);
@@ -249,6 +251,9 @@
                 color: var(--bgContent);
                 padding: 3px 5px;
                 border-radius: 3px;
+                font-weight: normal;
+                font-size: var(--xsBody);
+                letter-spacing: 2px;
             }
         }
     }
@@ -300,9 +305,17 @@
             top: 480px;
         }
 
-        a:hover {
-            font-weight: 600;
-            letter-spacing: 3px;
+        a {
+            font-size: var(--xsBody);
+            padding: 0;
+            letter-spacing: 1px;
+            font-weight: normal;
+            color: var(--fontMain);
+
+            &:hover {
+                font-weight: 600;
+                letter-spacing: 3px;
+            }
         }
     }
 

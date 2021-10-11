@@ -182,14 +182,15 @@
 
     &--name {
         width: 100%;
-        text-transform: uppercase;
-        font-family: var(--header);
-        font-size: 30px;
         transform: scaleX(140%);
         transform-origin: left;
-        letter-spacing: 1px;
 
         a {
+            text-transform: uppercase;
+            font-family: var(--header);
+            font-size: 30px;
+            letter-spacing: 1px;
+            
             span {
                 color: var(--accent);
             }

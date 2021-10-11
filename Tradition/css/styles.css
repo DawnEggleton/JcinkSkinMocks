@@ -267,6 +267,17 @@ main {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+.pagination_current b,
+.pagination_current i,
+.pagination_current a, .pagination_page b,
+.pagination_page i,
+.pagination_page a, .pagination_last b,
+.pagination_last i,
+.pagination_last a {
+  color: var(--bgMain);
+  font-weight: 300;
+  font-size: var(--mBody);
+}
 
 .goto-firstunread {
   display: block;
@@ -407,7 +418,7 @@ b {
   font-weight: 800;
 }
 
-i {
+i:not(.fas):not(.fal):not(.far):not(.fab) {
   color: var(--accent);
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -502,6 +513,10 @@ blockquote {
   display: flex;
   align-items: center;
   gap: 20px;
+  font-weight: 600;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+  padding: 0;
 }
 .nav--top-ucp--name::after {
   content: "";
@@ -606,12 +621,10 @@ body:not(.g-2) .nav--top-ucp a.memOnly.nav--top-ucp--name {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.nav--popout--image-overlay.nav--code--show {
+.nav--popout--image-overlay.nav--code--show a {
   font-family: var(--header);
   font-size: 30px;
   letter-spacing: 10px;
-}
-.nav--popout--image-overlay.nav--code--show a {
   color: var(--fontOverlay);
   cursor: pointer;
 }
@@ -698,6 +711,11 @@ body:not(.g-2) .nav--top-ucp a.memOnly.nav--top-ucp--name {
 }
 .nav--breadcrumb #navstrip {
   text-align: right;
+}
+.nav--breadcrumb #navstrip a {
+  font-weight: bold;
+  font-size: var(--xsBody);
+  color: var(--fontMain);
 }
 
 /*******************************
@@ -845,6 +863,9 @@ header {
   border-left: 2px solid var(--accent);
   padding: 8px 20px;
   margin: 0;
+  font-family: var(--body);
+  transform: none;
+  color: var(--fontMain);
 }
 .category--forums {
   display: grid;
@@ -902,11 +923,18 @@ header {
   margin: -20px 20px 20px;
   border-radius: 3px;
 }
+.category--forums .forum--content a {
+  padding: 0;
+}
 .category--forums .forum--content h3 {
   text-transform: uppercase;
   margin: 0;
   letter-spacing: 2px;
   font-size: 20px;
+  border: none;
+  color: var(--fontMain);
+  padding: 0;
+  font-weight: bold;
 }
 .category--forums .forum--content h3 span {
   color: var(--accent);
@@ -924,6 +952,8 @@ header {
 }
 .category--forums .forum--stats b {
   color: var(--accent);
+  font-weight: bold;
+  font-size: var(--xsBody);
 }
 .category--forums .forum--latest {
   margin: 20px 0;
@@ -940,6 +970,8 @@ header {
 .category--forums .forum--latest a {
   display: block;
   max-width: max-content;
+  font-size: var(--xsBody);
+  padding: 0;
 }
 .category--forums .forum--latest a:first-child {
   color: var(--accent);
@@ -1008,7 +1040,7 @@ header {
   border-radius: 2px;
   margin: 0 5px 5px 0;
   line-height: var(--accent);
-  color: var(--bgMain);
+  color: var(--bgContent);
 }
 .category--forums .forum--links {
   display: none;
@@ -1128,6 +1160,9 @@ header {
   letter-spacing: 2px;
   font-size: 40px;
   color: var(--fontHeader);
+  border: none;
+  padding: 0;
+  font-weight: bold;
 }
 .stats--main h3 span {
   color: var(--accent);
@@ -1143,6 +1178,15 @@ header {
 }
 .stats--stats b {
   color: var(--accent);
+  font-size: var(--xsBody);
+  font-weight: 700;
+}
+.stats--stats a {
+  font-size: var(--xsBody);
+  color: var(--fontMain);
+  letter-spacing: 1px;
+  font-weight: normal;
+  padding: 0;
 }
 .stats--online {
   text-transform: uppercase;
@@ -1150,7 +1194,6 @@ header {
   font-weight: 300;
 }
 .stats--now {
-  font-size: 20px;
   line-height: 200%;
 }
 .stats--now .scroll {
@@ -1162,6 +1205,7 @@ header {
   }
 }
 .stats--now a {
+  font-size: 20px;
   color: var(--fontMain);
 }
 .stats--today {
@@ -1416,6 +1460,9 @@ header {
 .topic--body > a {
   font-size: var(--xlBody);
   font-weight: 700;
+  letter-spacing: 0;
+  padding: 0;
+  color: var(--fontMain);
 }
 .topic--stats {
   display: flex;
@@ -1427,6 +1474,10 @@ header {
 .topic--stats b,
 .topic--stats a {
   color: var(--accent);
+  font-size: var(--xsBody);
+  font-weight: 700;
+  padding: 0;
+  letter-spacing: 1px;
 }
 .topic--pages {
   font-size: 0;
@@ -1435,11 +1486,12 @@ header {
 .topic--pages a {
   background: var(--accent);
   font-size: var(--mBody);
-  padding: 3px 2px 3px 7px;
+  padding: 3px 5px 3px 7px;
   border-radius: 3px;
   margin-right: 5px;
   color: var(--bgContent);
   font-weight: 500;
+  letter-spacing: 0;
 }
 .topic--posters {
   display: grid;
@@ -1454,6 +1506,7 @@ header {
   font-size: var(--mBody);
   font-weight: 300;
   letter-spacing: 1px;
+  padding: 0;
 }
 .topic--starter {
   border-left: 1px solid var(--accent);
@@ -1605,7 +1658,7 @@ header {
   background: var(--accent);
 }
 .post--header > label input:checked + div {
-  color: var(--bgMain);
+  color: var(--bgContent);
   background: var(--accent);
 }
 .post--name {
@@ -1614,6 +1667,8 @@ header {
   font-weight: 700;
   letter-spacing: 4px;
   transform: scaleX(140%);
+  color: var(--fontMain);
+  padding: 0;
 }
 .post--name span {
   color: var(--accent);
@@ -1699,6 +1754,9 @@ header {
   color: var(--bgContent);
   padding: 3px 5px;
   border-radius: 3px;
+  font-weight: normal;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
 }
 .post--item {
   display: grid;
@@ -1743,6 +1801,13 @@ header {
   .post--buttons {
     top: 480px;
   }
+}
+.post--buttons a {
+  font-size: var(--xsBody);
+  padding: 0;
+  letter-spacing: 1px;
+  font-weight: normal;
+  color: var(--fontMain);
 }
 .post--buttons a:hover {
   font-weight: 600;
@@ -1941,11 +2006,13 @@ header {
 }
 .member--name {
   width: 100%;
+  transform: scaleX(140%);
+  transform-origin: left;
+}
+.member--name a {
   text-transform: uppercase;
   font-family: var(--header);
   font-size: 30px;
-  transform: scaleX(140%);
-  transform-origin: left;
   letter-spacing: 1px;
 }
 .member--name a span {

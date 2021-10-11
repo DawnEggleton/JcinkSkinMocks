@@ -47,6 +47,10 @@
                 display: flex;
                 align-items: center;
                 gap: 20px;
+                font-weight: 600;
+                font-size: var(--xsBody);
+                letter-spacing: 2px;
+                padding: 0;
 
                 &::after {
                     content: '';
@@ -175,11 +179,10 @@
                 transform: translate(-50%, -50%);
 
                 &.nav--code--show {
-                    font-family: var(--header);
-                    font-size: 30px;
-                    letter-spacing: 10px;
-
                     a {
+                        font-family: var(--header);
+                        font-size: 30px;
+                        letter-spacing: 10px;
                         color: var(--fontOverlay);
                         cursor: pointer;
                     }
@@ -284,6 +287,12 @@
 
         #navstrip {
             text-align: right;
+
+            a {
+                font-weight: bold;
+                font-size: var(--xsBody);
+                color: var(--fontMain);
+            }
         }
     }
 }

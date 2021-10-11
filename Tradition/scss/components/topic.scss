@@ -158,6 +158,9 @@
         & > a {
             font-size: var(--xlBody);
             font-weight: 700;
+            letter-spacing: 0;
+            padding: 0;
+            color: var(--fontMain);
         }
     }
 
@@ -171,6 +174,10 @@
         b,
         a {
             color: var(--accent);
+            font-size: var(--xsBody);
+            font-weight: 700;
+            padding: 0;
+            letter-spacing: 1px;
         }
     }
 
@@ -181,11 +188,12 @@
         a {
             background: var(--accent);
             font-size: var(--mBody);
-            padding: 3px 2px 3px 7px;
+            padding: 3px 5px 3px 7px;
             border-radius: 3px;
             margin-right: 5px;
             color: var(--bgContent);
             font-weight: 500;
+            letter-spacing: 0;
         }
     }
 
@@ -204,6 +212,7 @@
             font-size: var(--mBody);
             font-weight: 300;
             letter-spacing: 1px;
+            padding: 0;
         }
     }
 

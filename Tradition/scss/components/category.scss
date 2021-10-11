@@ -11,6 +11,9 @@
         border-left: 2px solid var(--accent);
         padding: 8px 20px;
         margin: 0;
+        font-family: var(--body);
+        transform: none;
+        color: var(--fontMain);
     }
 
     &--forums {
@@ -75,11 +78,19 @@
                 margin: -20px 20px 20px;
                 border-radius: 3px;
 
+                a {
+                    padding: 0;
+                }
+
                 h3 {
                     text-transform: uppercase;
                     margin: 0;
                     letter-spacing: 2px;
                     font-size: 20px;
+                    border: none;
+                    color: var(--fontMain);
+                    padding: 0;
+                    font-weight: bold;
 
                     span {
                         color: var(--accent);
@@ -101,6 +112,8 @@
 
                 b {
                     color: var(--accent);
+                    font-weight: bold;
+                    font-size: var(--xsBody);
                 }
             }
 
@@ -118,6 +131,8 @@
                 a {
                     display: block;
                     max-width: max-content;
+                    font-size: var(--xsBody);
+                    padding: 0;
 
                     &:first-child {
                         color: var(--accent);
@@ -201,7 +216,7 @@
                     border-radius: 2px;
                     margin: 0 5px 5px 0;
                     line-height: var(--accent);
-                    color: var(--bgMain);
+                    color: var(--bgContent);
                 }
             }
 
