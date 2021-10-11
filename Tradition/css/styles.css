@@ -73,6 +73,30 @@
   --imageFilter2Hover: grayscale(0.2) brightness(1) opacity(0.5) contrast(1);
 }
 
+.g-5 {
+  --accent: rgba(160, 160, 160, 1);
+}
+
+.g-6 {
+  --accent: rgba(208, 175, 112, 1);
+}
+
+.g-7 {
+  --accent: rgba(154, 179, 111, 1);
+}
+
+.g-8 {
+  --accent: rgba(116, 179, 164, 1);
+}
+
+.g-9 {
+  --accent: rgba(165, 145, 196, 1);
+}
+
+.g-10 {
+  --accent: rgba(193, 137, 169, 1);
+}
+
 /*******************************
     Global
 ********************************/
