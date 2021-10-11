@@ -135,3 +135,43 @@ if($('body#Profile').length > 0) {
 	//adjust padding on last section before player
 	$('.profile--player').prev().css({'padding-bottom': '30px'});
 }
+
+
+/***********************************
+	Webpages Only
+***********************************/
+if($('body#Pages').length > 0) {
+	console.log('webpage');
+	document.querySelectorAll('.webpage--menu b').forEach(navHeader => {
+		navHeader.addEventListener('click', e => {
+			$(e.target).toggleClass('active');
+		});
+	});
+
+	document.querySelectorAll('.webpage--collapse a').forEach(item => {
+		item.addEventListener('click', e => {
+			changeContent(e);
+		});
+	});
+	if (window.location.hash){
+	    let hash = $.trim( window.location.hash );
+	    if (hash) {
+	        $(hash).trigger('click');
+	    }
+	    let hashSelect = hash.split('#')[1];
+	    let hashLabel = $('#tab-' + hashSelect);
+	    let hashTab = $('#tab-' + hashSelect + '-box');
+		let hashSection = hashLabel.parent().prev();
+	
+	    //Tabs
+	    $('.webpage--collapse a, .webpage--tab, .webpage--menu b').removeClass('active');
+	    hashLabel.addClass('active');
+	    hashTab.addClass('active');
+	    hashSection.addClass('active');
+	} else {
+	    //Auto-select  tab without hashtag present
+	    $('.webpage--menu').first().children('b').first().addClass('active');
+	    $('.webpage--collapse').first().children('a').first().addClass('active');
+	    $('.webpage--tab').first().addClass('active');
+	}
+}

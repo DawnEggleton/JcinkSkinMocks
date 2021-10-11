@@ -222,3 +222,17 @@ function swapList() {
     document.querySelectorAll('.online-swap > i').forEach(icon => icon.classList.toggle('hide'));
     document.querySelectorAll('.stats--online > div').forEach(list => list.classList.toggle('hide'));
 }
+
+function changeContent (e) {
+	let id = e.currentTarget.getAttribute('id');
+	let name = e.currentTarget.getAttribute('name');
+	document.querySelectorAll('.webpage--collapse a, .webpage--tab, .webpage--menu b').forEach(inactive => {
+        inactive.classList.remove('active')
+    });
+	e.currentTarget.classList.add('active');
+    e.currentTarget.parentNode.previousElementSibling.classList.add('active');
+	document.querySelector('#' + id + '-box').classList.add('active');
+	window.location.hash = name;
+	e.preventDefault();
+	return false;
+}
