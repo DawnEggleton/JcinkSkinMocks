@@ -1,0 +1,694 @@
+/*******************************
+    Defaults
+********************************/
+#mark-as-read-subto,
+#delcookiesrow {
+    justify-content: center;
+    font-size: 0;
+    margin-top: 50px;
+    display: flex;
+    gap: 50px;
+
+    a {
+        font-size: var(--xsBody);
+    }
+}
+
+main ~ * {
+    font-size: var(--xsBody);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 160%;
+
+    .row4,
+    a {
+        font-size: var(--xsBody) !important;
+        line-height: 160%;
+    }
+}
+select,
+input {
+    background: var(--bgMain);
+    border: 1px solid var(--borderMain);
+    border-radius: 3px;
+    padding: 6px 10px;
+    color: var(--fontMain);
+    text-transform: uppercase;
+    font-family: var(--body);
+    font-size: var(--xsBody);
+    letter-spacing: 2px;
+    margin: 5px;
+}
+option {
+    font-size: var(--mBody);
+}
+textarea {
+    background: var(--bgMain);
+    border: 1px solid var(--borderMain);
+    border-radius: 3px;
+    padding: 10px 15px;
+    color: var(--fontMain);
+    font-size: var(--mBody);
+    line-height: 200%;
+    margin: 5px;
+    font-family: var(--body);
+}
+
+.darkrow2,
+.row2 {
+    font-size: var(--xsBody);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+
+    a {
+        font-size: var(--xsBody);
+    }
+}
+
+body:not(#ST) main > .tableborder:not(#posting-form),
+body:not(#ST) main > form > .tableborder:not(#posting-form),
+#topic_open,
+#qr_open {
+    background: var(--bgContentAlt);
+    padding: 30px;
+    border-radius: 3px;
+    margin: 0 auto 30px;
+    max-width: 800px;
+
+    .maintitle {
+        font-family: var(--header);
+        font-size: 40px;
+        padding: 0;
+        transform: scaleX(140%);
+        transform-origin: left;
+        display: block;
+        margin: -15px 0 15px;
+
+        a {
+            font-size: 40px;
+            padding: 0;
+        }
+    }
+
+    a {
+        padding: 0;
+    }
+}
+
+#redirect-screen {
+
+    table {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--bgContentAlt);
+        padding: 20px;
+        border-radius: 5px;
+        color: var(--fontMain);
+        font-family: var(--body), sans-serif;
+        font-size: var(--mBody);
+        width: max-content;
+        display: block;
+
+        tr {
+            display: block;
+            
+            td {
+                display: block;
+            }
+        }
+
+        a {
+            color: var(--accent);
+        }
+    }
+}
+.bar {
+    text-align: right;
+
+    & > * {
+        float: none !important;
+    }
+}
+
+.maintitle + .pformstrip {
+    border-left: 1px solid var(--accent);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.quick-edit {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+
+    .editor {
+        grid-column: span 2;
+    }
+}
+
+body#Online main > .tableborder {
+    max-width: 1000px !important;
+}
+
+
+/****** Posting View ******/
+#posting-form {
+    .maintitle {
+        font-family: var(--header);
+        font-size: 40px;
+        padding: 0;
+        transform: scaleX(140%);
+        transform-origin: left;
+        display: block;
+        margin: -15px 0 15px;
+    }
+
+    tr:not(:last-child) {
+        .pformstrip {
+            border-left: 1px solid var(--accent);
+            padding: 10px 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+    }
+
+    tr:last-child {
+        .pformstrip {
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+
+    tr:not(:first-child):not(#topic-settings-header):not(#code-buttons-header):not(#enter-your-post-header):not(#post-icon-options + tr) {
+        background: var(--bgContentAlt);
+        border-radius: 3px;
+        display: block;
+        padding: 10px;
+    }
+
+    #topic-settings-header,
+    #code-buttons-header,
+    #enter-your-post-header,
+    #post-icon-options + tr {
+        margin: 45px 0 15px;
+        display: block;
+    }
+
+    .pformleft {
+        display: none;
+    }
+
+    .pformright {
+        width: 100%;
+        display: block;
+        text-align: center;
+
+        textarea {
+            width: calc(100% - 10px);
+            box-sizing: border-box;
+        }
+    }
+
+    tbody {
+        display: block;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    tr#topic-title {
+        border-radius: 3px 3px 0 0 !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0;
+
+        input {
+            width: 100%;
+            font-size: var(--xlBody);
+            font-weight: 300;
+            text-transform: none;
+        }
+    }
+
+    tr#topic-desc {
+        border-radius: 0 0 3px 3px !important;
+
+        input {
+            width: 100%;
+            font-weight: 300;
+            text-transform: none;
+            font-size: var(--mBody);
+            letter-spacing: 0;
+            padding: 8.5px 10px;
+        }
+    }
+}
+#topic-summary {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .pformstrip {
+        border-left: 1px solid var(--accent);
+        padding: 10px 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 20px;
+        font-weight: 300;
+        margin-bottom: 15px;
+    }
+
+    table {
+        tbody {
+            display: block;
+
+            tr {
+                display: grid;
+
+                td {
+                    width: 100%;
+                }
+
+                &:nth-of-type(2n + 1) {
+                    grid-template-columns: 1fr max-content;
+                    background: var(--bgContent);
+                    border-radius: 3px;
+                    padding: 15px;
+                    margin: 0 30px -30px 0;
+                    z-index: 2;
+                    align-items: end;
+                    font-size: var(--xsBody);
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+
+                    & td:first-child b {
+                        font-family: var(--header);
+                        font-size: 40px;
+                        font-weight: normal;
+                        letter-spacing: 2px;
+                        color: var(--fontMain);
+                        transform: scaleX(140%);
+                        transform-origin: left;
+                        display: block;
+                        max-width: max-content;
+                        line-height: 100%;
+                    }
+                }
+
+                &:nth-of-type(2n) {
+                    margin-bottom: 30px;
+
+                    td:first-child {
+                        display: none;
+                    }
+                    td:nth-child(2) {
+                        background: var(--bgContentAlt);
+                        padding: 60px 30px 30px 30px;
+                        border-radius: 3px;
+                        text-align: justify;
+                        line-height: 200%;
+                        margin-left: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/****** Search and Online Lists ******/
+#active-topics {
+    .tablebasic {
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: var(--bgContentAlt);
+        padding: 30px;
+        border-radius: 3px;
+        border-spacing: 10px;
+    
+        a {
+            padding: 0;
+            font-weight: 600;
+        }
+
+        tr:first-child {
+            .titlemedium:not(:first-child) {
+                border-left: 1px solid var(--accent);
+                font-size: var(--xsBody);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                padding: 0 10px;
+                text-align: left;
+            }
+        }
+
+        td {
+            text-align: left;
+        }
+
+        & > tbody {
+    
+            & > tr > td {
+                &:first-child,
+                &:nth-child(2) {
+                    display: none;
+                }
+            }
+        }
+
+        & + .titlemedium {
+            background: var(--bgContent);
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 3px;
+            font-size: var(--sBody);
+            letter-spacing: 3px;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+    }
+}
+fieldset {
+    border: 1px solid var(--accent);
+
+    legend {
+        color: var(--fontLinks);
+        padding: 0 10px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: var(--sBody);
+    }
+}
+.maintitle {
+    font-family: var(--header);
+    font-size: 40px;
+    text-transform: uppercase;
+    transform: scaleX(140%);
+    transform-origin: left;
+}
+
+
+/****** ModCP ******/
+#modcp-menu {
+    .titlemedium {
+        border-left: 1px solid var(--accent);
+        text-transform: uppercase;
+        font-size: var(--sBody);
+        letter-spacing: 2px;
+        padding: 5px 15px;
+        font-weight: 300;
+    }
+
+    .row2 {
+        text-align: left;
+
+        img {
+            display: none;
+        }
+
+        a {
+            background: var(--bgContent);
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: block;
+            width: calc(100% - 10px);
+        }
+    }
+}
+#modcp-content {
+    .tablepad {
+        background: var(--bgContentAlt);
+        padding: 15px;
+        border-radius: 3px;
+        margin-bottom: 30px;
+        line-height: 200% !important;
+    }
+
+    form {
+        & > .pformstrip {
+            border-left: 1px solid var(--accent);
+            padding: 10px 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+    }
+
+    table {
+        background: var(--bgContentAlt);
+        padding: 30px;
+        border-radius: 3px;
+        border-spacing: 10px;
+        width: 100%;
+
+        td {
+            text-align: left;
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            vertical-align: top;
+
+            b,
+            i,
+            a {
+                font-size: var(--xsBody);
+            }
+        }
+
+        .pformstrip {
+            border-left: 1px solid var(--accent);
+            padding: 5px 15px;
+        }
+
+        & + .pformstrip {
+            background: var(--bgContent);
+            margin-top: 10px;
+            border-radius: 3px;
+            padding: 15px;
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            font-weight: initial;
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+/****** User CP ******/
+#UserCP,
+#Msg {
+    main > table:first-of-type > tbody > tr {
+        display: grid;
+        grid-template-rows: max-content 0 auto;
+    }
+}
+#ucpmenu {
+
+    .pformstrip {
+        font-size: var(--sBody);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-left: 1px solid var(--accent);
+        padding: 5px 15px;
+        margin-bottom: 10px;
+        grid-row: 2 / 3;
+    }
+
+    p {
+        font-size: 0;
+        margin-bottom: 20px;
+        grid-row: 3 / 4;
+    }
+
+    a {
+        background: var(--bgContent);
+        padding: 5px 10px;
+        display: block;
+        width: calc(100% - 30px);
+        margin-bottom: 5px;
+        border-radius: 3px;
+        font-size: var(--xsBody);
+    }
+
+    @media only screen and (min-width: $sm) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        
+        .maintitle {
+            grid-column: span 2;
+        }
+        
+        .pformstrip:nth-of-type(2),
+        .pformstrip:nth-of-type(3) {
+            grid-row: 2 / 3;
+        }
+        
+        .pformstrip:nth-of-type(4),
+        .pformstrip:nth-of-type(5) {
+            grid-row: 4 / 5;
+        }
+
+        p:nth-of-type(1),
+        p:nth-of-type(2) { 
+            grid-row: 3 / 4;
+        }
+
+        p:nth-of-type(3),
+        p:nth-of-type(4) { 
+            grid-row: 5 / 6;
+        }
+    }
+
+    @media only screen and (min-width: $lg) {
+        grid-template-columns: repeat(4, 1fr);
+
+        .maintitle {
+            grid-column: span 4;
+        }
+        
+        .pformstrip {
+            grid-row: 2 / 3 !important;
+        }
+
+        p { 
+            grid-row: 3 / 4 !important;
+        }
+    }
+
+}
+#ucpcontent {
+    #UserCP.code-01 & .pformstrip:first-of-type,
+    #gallery_form .pformstrip,
+    & > .pformstrip:not(:last-of-type),
+    & > .tableborder > .pformstrip:not(:last-of-type),
+    & > form > .pformstrip:not(:last-of-type),
+    & > form > .tableborder > .pformstrip:not(:last-of-type),
+    & > .tableborder > form > .pformstrip:not(:last-of-type),
+    & > div[align="center"] > .tableborder > .pformstrip:not(:last-of-type),
+    & > div[align="center"] > .tableborder > form > .pformstrip:not(:last-of-type) {
+        border-left: 1px solid var(--accent);
+        padding: 10px 20px;
+        font-size: var(--lBody);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 20px 0 10px;
+        text-align: left;
+        background: transparent;
+        border-radius: 0;
+    }
+
+    & > .pformstrip:last-of-type,
+    & > .tableborder > .pformstrip:last-of-type,
+    & > form > .pformstrip:last-of-type,
+    & > form > .tableborder > .pformstrip:last-of-type,
+    & > .tableborder > form > .pformstrip:last-of-type,
+    & > div[align="center"] > .tableborder > .pformstrip:last-of-type,
+    & > div[align="center"] > .tableborder > form > .pformstrip:last-of-type {
+        background: var(--bgContent);
+        padding: 15px;
+        border-radius: 3px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    & > p,
+    & > form > p {
+        background: var(--bgContentAlt);
+        padding: 15px;
+        border-radius: 3px;
+        line-height: 200%;
+    }
+
+    & > table,
+    #gallery_form table,
+    & > .tableborder > table,
+    & > form > table,
+    & > form > .tableborder > table,
+    & > .tableborder > form > table,
+    & > div[align="center"] > .tableborder > table,
+    & > div[align="center"] > .tableborder > form > table {
+        background: var(--bgContentAlt);
+        padding: 30px;
+        border-radius: 3px;
+        line-height: 200%;
+        width: 100%;
+    }
+
+    #Msg.code-04 & form > table > tbody {
+        & > tr:nth-child(1),
+        & > tr:nth-child(2),
+        & > tr:nth-child(3) u,
+        & > tr:nth-child(4),
+        & > tr:nth-child(6),
+        & > tr#code-buttons-header,
+        & > tr#enter-your-post-header,
+        & > tr:nth-child(12) {
+            display: none;
+        }
+    }
+}
+/* UCP Page-Specific Overrides */
+#UserCP.code-22 #ucpcontent form > .signature + .pformstrip + table + div {
+    background: var(--bgContentAlt);
+    border-radius: 3px;
+    padding: 15px;
+    margin-top: 10px;
+}
+#UserCP.code-01 #ucpcontent form > table > tbody {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+    & > tr {
+        display: grid;
+        grid-template-rows: max-content auto;
+
+        & > .pformleft {
+            font-size: var(--sBody);
+            text-transform: uppercase;
+            font-weight: 300;
+            letter-spacing: 2px;
+            border-left: 1px solid var(--accent);
+            padding: 5px 15px;
+
+            b,
+            label {
+                font-size: var(--sBody);
+                color: var(--fontMain);
+                font-weight: 300;
+            }
+        }
+
+        & > .pformright {
+            margin-bottom: 30px;
+
+            textarea {
+                height: 150px;
+            }
+        }
+
+        &:last-child input {
+            background: transparent;
+            border: 0;
+            font-size: 30px;
+            font-family: var(--header);
+            transform: scaleX(140%);
+            transform-origin: left;
+            padding: 0;
+        }
+    }
+}
