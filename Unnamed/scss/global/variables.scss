@@ -2,4 +2,24 @@
     Variables
     - General variables
 ********************************/
+:root {
+    --xsBody: 8px;
+    --sBody: 10px;
+    --mBody: 12px;
+    --lBody: 14px;
+    --xlBody: 16px;
 
+    --serif: 'Averia Serif Libre';
+    --body: 'Montserrat';
+
+    --black: rgba(33, 33, 33, 1);
+    --white: rgba(240, 240, 240, 1);
+    --accent: #000;
+}
+.lgFont {
+    --xsBody: 10px;
+    --sBody: 12px;
+    --mBody: 14px;
+    --lBody: 16px;
+    --xlBody: 18px;
+}

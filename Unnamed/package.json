@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass -w scss/ -o css/ --recursive"
+    "build": "sass --no-source-map scss/styles.scss:css/styles.css --update",
+    "sass": "sass --no-source-map scss/styles.scss:css/styles.css -w",
+    "prefix": "postcss css/styles.css --use autoprefixer -d css/prefixed/"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "node-sass": "^6.0.1"
   }
 }

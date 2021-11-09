@@ -2,3 +2,35 @@
     Settings
     - Used in settings webpage
 ********************************/
+:root {
+    --headerImage: url(../img/coast.jpg); /*https://www.pexels.com/photo/top-view-photo-of-rocky-shore-2307636*/
+}
+.dark {
+    --headerOverlay: var(--black);
+    --headerBlend: multiply;
+    --headerOpacity: 0.7;
+
+    --textHeader: var(--white);
+}
+.light {
+    --headerOverlay: var(--white);
+    --headerBlend: screen;
+    --headerOpacity: 0.6;
+
+    --textHeader: var(--black);
+}
+.g-1 {
+    //validating
+}
+.g-2 {
+    //guest
+}
+.g-3 {
+    //member
+}
+.g-4 {
+    //admin
+}
+.g-5 {
+    //banned
+}

@@ -12,4 +12,13 @@ a {
 body {
     padding: 0;
     margin: 0;
+    font-size: var(--mBody);
+    font-family: var(--body);
+    font-weight: 400;
+}
+
+body:not(.g-4) .staffOnly,
+body:not(.g-2) .guestOnly,
+body.g-2 .memOnly {
+    display: none;
 }

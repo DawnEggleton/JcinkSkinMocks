@@ -2,30 +2,197 @@
     Settings
     - Used in settings webpage
 ********************************/
+:root {
+  --headerImage: url(../img/coast.jpg);
+  /*https://www.pexels.com/photo/top-view-photo-of-rocky-shore-2307636*/
+}
+
+.dark {
+  --headerOverlay: var(--black);
+  --headerBlend: multiply;
+  --headerOpacity: 0.7;
+  --textHeader: var(--white);
+}
+
+.light {
+  --headerOverlay: var(--white);
+  --headerBlend: screen;
+  --headerOpacity: 0.6;
+  --textHeader: var(--black);
+}
+
 /*******************************
     Variables
     - General variables
 ********************************/
+:root {
+  --xsBody: 8px;
+  --sBody: 10px;
+  --mBody: 12px;
+  --lBody: 14px;
+  --xlBody: 16px;
+  --serif: "Averia Serif Libre";
+  --body: "Montserrat";
+  --black: rgba(33, 33, 33, 1);
+  --white: rgba(240, 240, 240, 1);
+  --accent: #000;
+}
+
+.lgFont {
+  --xsBody: 10px;
+  --sBody: 12px;
+  --mBody: 14px;
+  --lBody: 16px;
+  --xlBody: 18px;
+}
+
 /*******************************
     Global
 ********************************/
 * {
   position: relative;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 body {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  font-size: var(--mBody);
+  font-family: var(--body);
+  font-weight: 400;
+}
+
+body:not(.g-4) .staffOnly,
+body:not(.g-2) .guestOnly,
+body.g-2 .memOnly {
+  display: none;
+}
 
 /*******************************
     Navigation
 ********************************/
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: var(--textHeader);
+  display: grid;
+  grid-template-columns: auto max-content;
+  align-items: center;
+  padding: 20px;
+}
+nav a {
+  color: var(--textHeader);
+}
+nav #navstrip {
+  font-size: var(--xsBody);
+  font-family: var(--body);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+nav #navstrip > a:first-child {
+  display: block;
+  font-size: var(--xlBody);
+  font-family: var(--serif);
+  font-weight: 700;
+  text-transform: none;
+  margin-bottom: 5px;
+}
+nav #navstrip > span:first-of-type {
+  display: none;
+}
+nav #navstrip > span {
+  display: inline-block;
+  margin: 0 5px;
+}
+nav #navstrip > a {
+  font-size: var(--xsBody);
+  font-family: var(--body);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+nav .ucp {
+  display: flex;
+  gap: 20px;
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  font-weight: 700;
+  align-items: center;
+}
+nav .ucp button {
+  border: none;
+  background: var(--textHeader);
+  color: var(--accent);
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
 /*******************************
     Header
 ********************************/
+header {
+  height: 100vh;
+  background-image: var(--headerImage);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: grid;
+  text-align: center;
+  justify-items: center;
+  grid-template-rows: 1fr max-content 1fr;
+  color: var(--textHeader);
+}
+header:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--headerOverlay);
+  mix-blend-mode: var(--headerBlend);
+  opacity: var(--headerOpacity);
+}
+header p {
+  align-self: end;
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 4px;
+}
+header a {
+  color: var(--textHeader);
+}
+header h1 {
+  font-family: var(--serif);
+  font-size: 4rem;
+  letter-spacing: 5px;
+  margin: 0;
+}
+header .skip {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 4px;
+  margin-top: 20px;
+  display: grid;
+  grid-template-rows: max-content auto;
+}
+header .skip:after {
+  content: "\f107";
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 300;
+  font-size: var(--xlBody);
+}
+
 /*******************************
     Categories
 ********************************/
