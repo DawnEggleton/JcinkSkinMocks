@@ -10,7 +10,7 @@ header {
     text-align: center;
     justify-items: center;
     grid-template-rows: 1fr max-content 1fr;
-    color: var(--textHeader);
+    color: var(--white);
 
     &:before {
         content: '';
@@ -32,7 +32,7 @@ header {
     }
 
     a {
-        color: var(--textHeader);
+        color: var(--white);
     }
 
     h1 {

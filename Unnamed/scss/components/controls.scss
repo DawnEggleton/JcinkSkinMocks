@@ -1,0 +1,87 @@
+/*******************************
+    Controls Popups
+********************************/
+.controls {
+    position: fixed;
+    right: 20px;
+    width: 250px;
+    background: var(--light);
+    border-radius: 2px;
+    transform: scaleY(0);
+    transform-origin: top right;
+    transition-duration: 0.8s;
+    z-index: 10;
+    opacity: 0;
+
+    &.active {
+        display: block;
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    &:before {
+        content: '';
+        width: 14px;
+        position: absolute;
+        top: -5px;
+        right: 10px;
+        height: 5px;
+        background: var(--accent);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+
+    &--user {
+        background: var(--accent);
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+        border-radius: 2px 2px 0 0;
+
+        img,
+        span#subaccounts_menu,
+        .fullWidth {
+            grid-column: span 2;
+        }
+
+        img {
+            border-radius: 2px;
+        }
+
+        select,
+        a {
+            width: 100%;
+            background: var(--light);
+            font-family: var(--serif);
+            text-transform: capitalize;
+            text-align: center;
+            padding: 7px 15px;
+            font-size: var(--lBody);
+            border-radius: 2px;
+            color: var(--dark);
+        }
+
+        select {
+            border: 0;
+        }
+    }
+
+    &--links .scroll {
+        margin: 10px;
+        display: grid;
+        gap: 5px;
+        padding: 0;
+        
+        a {
+            width: 100%;
+            background: var(--accent);
+            font-family: var(--serif);
+            text-transform: capitalize;
+            text-align: center;
+            padding: 7px 15px;
+            font-size: var(--lBody);
+            border-radius: 2px;
+            color: var(--black);
+        }
+    }
+}

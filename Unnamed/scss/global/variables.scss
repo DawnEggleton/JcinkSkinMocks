@@ -12,7 +12,12 @@
     --serif: 'Averia Serif Libre';
     --body: 'Montserrat';
 
+    --headerOverlay: var(--black);
+    --headerBlend: multiply;
+    --headerOpacity: 0.7;
+
     --black: rgba(33, 33, 33, 1);
+    --offwhite: rgba(220, 220, 220, 1);
     --white: rgba(240, 240, 240, 1);
     --accent: #000;
 }

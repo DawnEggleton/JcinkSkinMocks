@@ -8,17 +8,35 @@
 }
 
 .dark {
-  --headerOverlay: var(--black);
-  --headerBlend: multiply;
-  --headerOpacity: 0.7;
-  --textHeader: var(--white);
+  --dark: var(--white);
+  --bgOffset: var(--offwhite);
+  --light: var(--black);
 }
 
 .light {
-  --headerOverlay: var(--white);
-  --headerBlend: screen;
-  --headerOpacity: 0.6;
-  --textHeader: var(--black);
+  --dark: var(--black);
+  --bgOffset: var(--offwhite);
+  --light: var(--white);
+}
+
+.g-1 {
+  --accent: rgba(152, 183, 178, 1);
+}
+
+.g-2 {
+  --accent: rgba(152, 183, 178, 1);
+}
+
+.g-3 {
+  --accent: rgba(152, 183, 178, 1);
+}
+
+.g-4 {
+  --accent: rgba(152, 183, 178, 1);
+}
+
+.g-5 {
+  --accent: rgba(152, 183, 178, 1);
 }
 
 /*******************************
@@ -33,7 +51,11 @@
   --xlBody: 16px;
   --serif: "Averia Serif Libre";
   --body: "Montserrat";
+  --headerOverlay: var(--black);
+  --headerBlend: multiply;
+  --headerOpacity: 0.7;
   --black: rgba(33, 33, 33, 1);
+  --offwhite: rgba(220, 220, 220, 1);
   --white: rgba(240, 240, 240, 1);
   --accent: #000;
 }
@@ -66,9 +88,22 @@ body {
   font-weight: 400;
 }
 
+img {
+  max-width: 100%;
+}
+
+.scroll {
+  overflow: auto;
+  padding-right: 10px;
+}
+
 body:not(.g-4) .staffOnly,
 body:not(.g-2) .guestOnly,
-body.g-2 .memOnly {
+body.g-2 .memOnly,
+body.light .darkOnly,
+body.dark .lightOnly,
+body:not(.lgFont) .largeOnly,
+body.lgFont .smallOnly {
   display: none;
 }
 
@@ -80,14 +115,14 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  color: var(--textHeader);
+  color: var(--white);
   display: grid;
   grid-template-columns: auto max-content;
   align-items: center;
   padding: 20px;
 }
 nav a {
-  color: var(--textHeader);
+  color: var(--white);
 }
 nav #navstrip {
   font-size: var(--xsBody);
@@ -126,16 +161,78 @@ nav .ucp {
   font-weight: 700;
   align-items: center;
 }
-nav .ucp button {
+nav .ucp > button {
   border: none;
-  background: var(--textHeader);
-  color: var(--accent);
+  background: var(--light);
+  color: var(--dark);
   font-family: var(--serif);
   font-size: var(--xlBody);
   font-weight: 700;
   padding: 10px 20px;
   border-radius: 2px;
   cursor: pointer;
+}
+nav .ucp--menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+nav .ucp--menu > li > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 0 0 0;
+  position: absolute;
+  display: none;
+  transform: translateX(-50%);
+  left: 50%;
+  gap: 20px;
+}
+nav .ucp--menu > li > ul > span {
+  display: flex;
+  background: var(--light);
+  border-radius: 2px;
+}
+nav .ucp--menu > li > ul > span:before {
+  content: "";
+  width: 14px;
+  position: absolute;
+  top: -5px;
+  height: 5px;
+  background: var(--light);
+  left: calc(50% - 7px);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+nav .ucp--menu > li > ul > span li button {
+  border: none;
+  background: none;
+  color: var(--dark);
+  font-family: var(--serif);
+  padding: 5px 10px;
+  font-size: var(--mBody);
+  white-space: nowrap;
+  cursor: pointer;
+}
+nav .ucp--menu > li > ul > span a {
+  display: block;
+  color: var(--dark);
+  font-family: var(--serif);
+  font-size: var(--mBody);
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+nav .ucp--menu > li > ul.staff > span:before {
+  left: auto;
+  right: 10px;
+}
+nav .ucp--menu > li:hover > ul {
+  display: flex;
+}
+nav .ucp--menu > li:hover > ul.staff {
+  left: auto;
+  right: 0;
+  transform: none;
 }
 
 /*******************************
@@ -150,7 +247,7 @@ header {
   text-align: center;
   justify-items: center;
   grid-template-rows: 1fr max-content 1fr;
-  color: var(--textHeader);
+  color: var(--white);
 }
 header:before {
   content: "";
@@ -170,7 +267,7 @@ header p {
   letter-spacing: 4px;
 }
 header a {
-  color: var(--textHeader);
+  color: var(--white);
 }
 header h1 {
   font-family: var(--serif);
@@ -191,6 +288,85 @@ header .skip:after {
   font-family: "Font Awesome 5 Pro";
   font-weight: 300;
   font-size: var(--xlBody);
+}
+
+/*******************************
+    Controls Popups
+********************************/
+.controls {
+  position: fixed;
+  right: 20px;
+  width: 250px;
+  background: var(--light);
+  border-radius: 2px;
+  transform: scaleY(0);
+  transform-origin: top right;
+  transition-duration: 0.8s;
+  z-index: 10;
+  opacity: 0;
+}
+.controls.active {
+  display: block;
+  transform: scaleY(1);
+  opacity: 1;
+}
+.controls:before {
+  content: "";
+  width: 14px;
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  height: 5px;
+  background: var(--accent);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.controls--user {
+  background: var(--accent);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  border-radius: 2px 2px 0 0;
+}
+.controls--user img,
+.controls--user span#subaccounts_menu,
+.controls--user .fullWidth {
+  grid-column: span 2;
+}
+.controls--user img {
+  border-radius: 2px;
+}
+.controls--user select,
+.controls--user a {
+  width: 100%;
+  background: var(--light);
+  font-family: var(--serif);
+  text-transform: capitalize;
+  text-align: center;
+  padding: 7px 15px;
+  font-size: var(--lBody);
+  border-radius: 2px;
+  color: var(--dark);
+}
+.controls--user select {
+  border: 0;
+}
+.controls--links .scroll {
+  margin: 10px;
+  display: grid;
+  gap: 5px;
+  padding: 0;
+}
+.controls--links .scroll a {
+  width: 100%;
+  background: var(--accent);
+  font-family: var(--serif);
+  text-transform: capitalize;
+  text-align: center;
+  padding: 7px 15px;
+  font-size: var(--lBody);
+  border-radius: 2px;
+  color: var(--black);
 }
 
 /*******************************

@@ -16,9 +16,20 @@ body {
     font-family: var(--body);
     font-weight: 400;
 }
+img {
+    max-width: 100%;
+}
+.scroll {
+    overflow: auto;
+    padding-right: 10px;
+}
 
 body:not(.g-4) .staffOnly,
 body:not(.g-2) .guestOnly,
-body.g-2 .memOnly {
+body.g-2 .memOnly,
+body.light .darkOnly,
+body.dark .lightOnly,
+body:not(.lgFont) .largeOnly,
+body.lgFont .smallOnly {
     display: none;
 }

@@ -6,31 +6,32 @@
     --headerImage: url(../img/coast.jpg); /*https://www.pexels.com/photo/top-view-photo-of-rocky-shore-2307636*/
 }
 .dark {
-    --headerOverlay: var(--black);
-    --headerBlend: multiply;
-    --headerOpacity: 0.7;
-
-    --textHeader: var(--white);
+    --dark: var(--white);
+    --bgOffset: var(--offwhite);
+    --light: var(--black);
 }
 .light {
-    --headerOverlay: var(--white);
-    --headerBlend: screen;
-    --headerOpacity: 0.6;
-
-    --textHeader: var(--black);
+    --dark: var(--black);
+    --bgOffset: var(--offwhite);
+    --light: var(--white);
 }
 .g-1 {
     //validating
+    --accent: rgba(152, 183, 178, 1);
 }
 .g-2 {
     //guest
+    --accent: rgba(152, 183, 178, 1);
 }
 .g-3 {
     //member
+    --accent: rgba(152, 183, 178, 1);
 }
 .g-4 {
     //admin
+    --accent: rgba(152, 183, 178, 1);
 }
 .g-5 {
     //banned
+    --accent: rgba(152, 183, 178, 1);
 }
