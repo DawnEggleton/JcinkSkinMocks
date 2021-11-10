@@ -292,6 +292,8 @@ nav .ucp--menu-mobile button:not(.close) {
   width: 100%;
   padding: 10px 20px;
   font-weight: 700;
+  background: none;
+  color: var(--dark);
 }
 nav .ucp > button {
   border: none;
