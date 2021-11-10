@@ -189,3 +189,34 @@
         }
     }
 }
+
+.controls-guest {
+    position: fixed;
+    right: 20px;
+    background: var(--light);
+    border-radius: 2px;
+    transform: scaleY(0);
+    transform-origin: top right;
+    transition-duration: 0.8s;
+    z-index: 10;
+    opacity: 0;
+    width: 500px;
+
+    &.active {
+        display: block;
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+
+    .controls--user {
+        height: 65px;
+
+        &-left {
+            height: auto;
+        }
+        &-right {
+            grid-template-columns: repeat(2, 30px);
+        }
+    }
+}

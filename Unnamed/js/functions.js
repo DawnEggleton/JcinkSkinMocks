@@ -18,7 +18,14 @@ function toggleMode() {
 }
 
 function openVisitor() {
-    alert('Visitor toggle');
+    document.querySelector('.controls-guest').classList.toggle('active');
+    let infoHeight = (window.innerHeight - navHeight - 70 - document.querySelector('.controls-guest .controls--user').clientHeight) / 2;
+    document.querySelectorAll('.controls--site .scroll').forEach(info => {
+        info.style.height = `${infoHeight}px`;
+        if(info.scrollHeight > infoHeight) {
+            info.style.paddingRight = `10px`;
+        }
+    });
 }
 
 function openControls() {
@@ -35,4 +42,12 @@ function openControls() {
     if(document.querySelector('.controls--links .scroll').scrollHeight > linksHeight) {
         document.querySelector('.controls--links .scroll').style.paddingRight = `10px`;
     }
+}
+
+function openMobileMenu() {
+    document.querySelector('.ucp--menu-mobile').classList.add('active');
+}
+
+function closeMobileMenu() {
+    document.querySelector('.ucp--menu-mobile').classList.remove('active');
 }

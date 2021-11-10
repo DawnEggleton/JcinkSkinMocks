@@ -22,3 +22,5 @@ if(localStorage.getItem("SIZEMODE") == "1") {
 let navHeight = document.querySelector('nav').clientHeight;
 document.querySelector('.controls').style.top = `${navHeight - 10}px`;
 document.querySelector('.controls').style.height = `${window.innerHeight - navHeight - 10}px`;
+document.querySelector('.controls-guest').style.top = `${navHeight - 10}px`;
+document.querySelector('.controls-guest').style.height = `${window.innerHeight - navHeight - 10}px`;
