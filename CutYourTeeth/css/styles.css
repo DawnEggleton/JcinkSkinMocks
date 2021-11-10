@@ -553,7 +553,7 @@ header .skip:after {
 }
 @media only screen and (min-width: 1280px) {
   .controls--site-staff {
-    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   }
 }
 .controls--site-staff a {
