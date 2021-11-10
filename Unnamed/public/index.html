@@ -45,7 +45,7 @@
             <div id="navstrip" align="left">
                 <a href="?act=idx">Play God</a>
             </div>
-            <div class="ucp">
+            <div class="ucp desktopOnly">
                 <ul class="ucp--menu">
                     <li><a href="webpage.html">Guide</a></li>
                     <li><a href="/">Discord</a></li>
@@ -82,33 +82,90 @@
                 <button onclick="openVisitor()" class="guestOnly">Visitor</button>
                 <button onclick="openControls()" class="memOnly">First Last</button>
             </div>
+            <div class="ucp mobileTablet">
+                <button onclick="openMobileMenu()"><i class="fas fa-bars"></i></button>
+                <ul class="ucp--menu-mobile">
+                    <li><a href="">Guide</a></li>
+                    <li><a href="">Discord</a></li>
+                    <hr>
+                    <li><a href="">First Last</a></li>
+                    <li>
+                        <span id="subaccounts_menu">
+                            <form action="https://playedgod.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
+                                <input type="hidden" name="auth_key" value="67b665903a8fc5105c6bbb3892012108">
+                                <input type="hidden" name="UserName" value="subacct">
+                                <input type="hidden" name="PassWord" value="subacct">
+                                <input type="hidden" name="referer" value="">
+                                <select class="forminput" name="sub_id" onchange="this.form.submit()">
+                                    <option value="------------" selected="selected">Switch Account</option>
+                                    <option value="4">&nbsp;&nbsp;» Brennan Cormac </option>
+                                    <option value="43">&nbsp;&nbsp;» Cynbel Edevane </option>
+                                    <option value="2">&nbsp;&nbsp;» Hayden Donovan </option>
+                                    <option value="3">&nbsp;&nbsp;» Malcolm Murdock </option>
+                                    <option value="35">&nbsp;&nbsp;» Nikolas Kovac </option>
+                                    <option value="15">&nbsp;&nbsp;» Satiah El Masry </option>
+                                    <option value="36">&nbsp;&nbsp;» Sterling Di Mitri </option>
+                                </select>
+                            </form>
+                        </span>
+                    </li>
+                    <li><a href="">Edit Profile</a></li>
+                    <li><a href="">Inbox (0)</a></li>
+                    <li><a href="">Alerts (0)</a></li>
+                    <li><a href="">Logout</a></li>
+                    <hr>
+                    <li><a href="">Personal</a></li>
+                    <li><a href="">Links</a></li>
+                    <li><a href="">Here</a></li>
+                </ul>
+            </div>
         </nav>
 
         <!--Member Controls-->
         <div class="controls">
             <div class="controls--user">
-                <img src="https://64.media.tumblr.com/b0c54064312bf765d86b6e4246865446/tumblr_pyloafSHEF1vz2ghao2_500.jpg" />
-                <span id="subaccounts_menu">
-                    <form action="https://playedgod.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
-                        <input type="hidden" name="auth_key" value="67b665903a8fc5105c6bbb3892012108">
-                        <input type="hidden" name="UserName" value="subacct">
-                        <input type="hidden" name="PassWord" value="subacct">
-                        <input type="hidden" name="referer" value="">
-                        <select class="forminput" name="sub_id" onchange="this.form.submit()">
-                            <option value="------------" selected="selected">Switch Account</option>
-                            <option value="4">&nbsp;&nbsp;» Brennan Cormac </option>
-                            <option value="43">&nbsp;&nbsp;» Cynbel Edevane </option>
-                            <option value="2">&nbsp;&nbsp;» Hayden Donovan </option>
-                            <option value="3">&nbsp;&nbsp;» Malcolm Murdock </option>
-                            <option value="35">&nbsp;&nbsp;» Nikolas Kovac </option>
-                            <option value="15">&nbsp;&nbsp;» Satiah El Masry </option>
-                            <option value="36">&nbsp;&nbsp;» Sterling Di Mitri </option>
-                        </select>
-                    </form>
-                </span>
-                <a href="/" class="fullWidth">Update Profile</a>
-                <a href="/">Inbox (0)</a>
-                <a href="/">Alerts (0)</a>
+                <div class="controls--user-left">
+                    <img src="http://placehold.it/100" />
+                    <span id="subaccounts_menu">
+                        <form action="https://playedgod.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
+                            <input type="hidden" name="auth_key" value="67b665903a8fc5105c6bbb3892012108">
+                            <input type="hidden" name="UserName" value="subacct">
+                            <input type="hidden" name="PassWord" value="subacct">
+                            <input type="hidden" name="referer" value="">
+                            <select class="forminput" name="sub_id" onchange="this.form.submit()">
+                                <option value="------------" selected="selected">Switch Account</option>
+                                <option value="4">&nbsp;&nbsp;» Brennan Cormac </option>
+                                <option value="43">&nbsp;&nbsp;» Cynbel Edevane </option>
+                                <option value="2">&nbsp;&nbsp;» Hayden Donovan </option>
+                                <option value="3">&nbsp;&nbsp;» Malcolm Murdock </option>
+                                <option value="35">&nbsp;&nbsp;» Nikolas Kovac </option>
+                                <option value="15">&nbsp;&nbsp;» Satiah El Masry </option>
+                                <option value="36">&nbsp;&nbsp;» Sterling Di Mitri </option>
+                            </select>
+                        </form>
+                    </span>
+                </div>
+                <div class="controls--user-right">
+                    <a href="/" title="Edit Profile"><i class="fas fa-cog"></i></a>
+                    <a href="/" title="Check Messages"><i class="fas fa-envelope"></i></a>
+                    <a href="/" title="View Alerts"><i class="fas fa-bell"></i></a>
+                    <a href="/" title="Logout"><i class="fas fa-power-off"></i></a>
+                </div>
+            </div>
+            <div class="controls--site">
+                <div class="controls--site-intro scroll">
+                    <b><i>Play God</i></b> is a dystopian powers roleplay set in the imaginary city of Davenport, Maine. Pulling inspiration from sources such as Six of Crows, X-Men, Blindspot, and Motherland: Fort Salem, we want to focus on the struggles of publicly emerging otherness and socioeconomic struggles in a safe, accepting atmosphere. Want to learn more? Check out our <a href="?act=Pages&amp;kid=guide">Guidebook</a> or pop into our <a href="https://discord.gg/9yw8VgeCJ2" target="_blank">Discord</a> and chat with us!
+                </div>
+                <div class="controls--site-news scroll">
+                    <p><b>dd.mm.yyyy</b> new skin! make sure to check the announcements for any changes you might need to make to your profiles!</p>
+                    <p><b>03.09.2021</b> grand opening!</p>
+                    <p><b>14.08.2021</b> soft opening!</p>
+                </div>
+                <div class="controls--site-staff">
+                    <a href="?showuser=1" class="staff-lux"><span>Lux</span></a>
+                    <a href="?showuser=1" class="staff-quinn"><span>Quinn</span></a>
+                    <a href="?showuser=1" class="staff-meri"><span>Meriel</span></a>
+                </div>
             </div>
             <div class="controls--links">
                 <div class="scroll">

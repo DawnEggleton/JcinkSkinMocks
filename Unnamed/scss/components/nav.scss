@@ -12,6 +12,7 @@ nav {
     grid-template-columns: auto max-content;
     align-items: center;
     padding: 20px;
+    z-index: 11;
 
     a {
         color: var(--white);
@@ -79,6 +80,8 @@ nav {
             gap: 20px;
 
             & > li {
+                cursor: default;
+
                 & > ul {
                     list-style-type: none;
                     margin: 0;
@@ -88,6 +91,7 @@ nav {
                     transform: translateX(-50%);
                     left: 50%;
                     gap: 20px;
+                    z-index: 11;
 
                     & > span {
                         display: flex;

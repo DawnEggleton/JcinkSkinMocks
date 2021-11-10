@@ -4,34 +4,75 @@
 ********************************/
 :root {
     --headerImage: url(../img/coast.jpg); /*https://www.pexels.com/photo/top-view-photo-of-rocky-shore-2307636*/
+    --bgStaff-lux: url(https://64.media.tumblr.com/e529fdf50ea1d89f07dfca771f03b26c/8a9c1cf44400eb4c-de/s2048x3072/6e6315a3d09b4f7339daef33ec5df4551b683905.jpg);
+    --bgStaff-quinn: url(https://files.jcink.net/uploads2/playedgod//av-1.jpg?1628549520);
+    --bgStaff-meri: url(https://i.pinimg.com/originals/ac/41/28/ac4128a1badfaff7403a914eb712fd4c.gif);
 }
 .dark {
     --dark: var(--white);
     --bgOffset: var(--offwhite);
     --light: var(--black);
+    --altLight: var(--dkGrey);
+    --mid: var(--midGrey);
+    --staffBeforeBlend: screen;
+    
+    .g-1,
+    &.g-1 {
+        //validating
+        --accent: rgba(74, 104, 100, 1);
+    }
+    .g-2,
+    &.g-2 {
+        //guest
+        --accent: rgba(74, 104, 100, 1);
+    }
+    .g-3,
+    &.g-3 {
+        //member
+        --accent: rgba(74, 104, 100, 1);
+    }
+    .g-4,
+    &.g-4 {
+        //admin
+        --accent: rgba(74, 104, 100, 1);
+    }
+    .g-5,
+    &.g-5 {
+        //banned
+        --accent: rgba(74, 104, 100, 1);
+    }
 }
 .light {
     --dark: var(--black);
     --bgOffset: var(--offwhite);
     --light: var(--white);
-}
-.g-1 {
-    //validating
-    --accent: rgba(152, 183, 178, 1);
-}
-.g-2 {
-    //guest
-    --accent: rgba(152, 183, 178, 1);
-}
-.g-3 {
-    //member
-    --accent: rgba(152, 183, 178, 1);
-}
-.g-4 {
-    //admin
-    --accent: rgba(152, 183, 178, 1);
-}
-.g-5 {
-    //banned
-    --accent: rgba(152, 183, 178, 1);
+    --altLight: var(--offWhite);
+    --mid: var(--ltGrey);
+    --staffBeforeBlend: saturation;
+    
+    .g-1,
+    &.g-1 {
+        //validating
+        --accent: rgba(152, 183, 178, 1);
+    }
+    .g-2,
+    &.g-2 {
+        //guest
+        --accent: rgba(152, 183, 178, 1);
+    }
+    .g-3,
+    &.g-3 {
+        //member
+        --accent: rgba(152, 183, 178, 1);
+    }
+    .g-4,
+    &.g-4 {
+        //admin
+        --accent: rgba(152, 183, 178, 1);
+    }
+    .g-5,
+    &.g-5 {
+        //banned
+        --accent: rgba(152, 183, 178, 1);
+    }
 }

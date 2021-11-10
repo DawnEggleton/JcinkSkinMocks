@@ -15,6 +15,7 @@ body {
     font-size: var(--mBody);
     font-family: var(--body);
     font-weight: 400;
+    color: var(--dark);
 }
 img {
     max-width: 100%;
@@ -32,4 +33,32 @@ body.dark .lightOnly,
 body:not(.lgFont) .largeOnly,
 body.lgFont .smallOnly {
     display: none;
+}
+
+.mobileOnly {
+    @media only screen and (min-width: $sm) {
+        display: none !important;
+    }
+}
+
+.mobileTablet {
+    @media only screen and (min-width: $lg) {
+        display: none !important;
+    }
+}
+
+.tabletOnly {
+    @media only screen and (max-width: $sm) {
+        display: none !important;
+    }
+
+    @media only screen and (min-width: $lg) {
+        display: none !important;
+    }
+}
+
+.desktopOnly {
+    @media only screen and (max-width: $lg) {
+        display: none !important;
+    }
 }
