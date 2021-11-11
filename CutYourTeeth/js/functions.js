@@ -51,3 +51,13 @@ function openMobileMenu() {
 function closeMobileMenu() {
     document.querySelector('.ucp--menu-mobile').classList.remove('active');
 }
+
+function expandDesc(el) {
+    if(el.classList.contains('active')) {
+        el.classList.remove('active');
+        el.parentNode.nextElementSibling.classList.remove('active');
+    } else {
+        el.classList.add('active');
+        el.parentNode.nextElementSibling.classList.add('active');
+    }
+}

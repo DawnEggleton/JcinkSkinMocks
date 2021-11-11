@@ -59,9 +59,101 @@
 }
 
 .forum {
+    overflow: hidden;
+    
+    &--main {
+        padding: 50px;
+    }
+
+    &--stats {
+        text-transform: uppercase;
+        font-size: var(--xsBody);
+        letter-spacing: 4px;
+        font-weight: 400;
+
+        b {
+            color: var(--accent);
+            font-weight: 800;
+        }
+    }
+
+    &--name {
+        font-family: var(--serif);
+        font-size: 36px;
+        margin: 10px 0 0;
+    }
+
+    &--latest {
+        display: grid;
+        padding: 25px 0 35px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: var(--xsBody);
+        line-height: calc(var(--lBody) * 1.6);
+        grid-gap: 5px;
+
+        a {
+            color: var(--white);
+        }
+
+        i.fal {
+            font-size: var(--lBody);
+            margin-right: 5px;
+        }
+    }
+
+    button {
+        background: var(--light);
+        border: 0;
+        border-radius: 2px;
+        font-family: var(--serif);
+        padding: 10px 20px;
+        font-size: var(--xlBody);
+        font-weight: bold;
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        grid-gap: 10px;
+        cursor: pointer;
+    }
+
+    &--desc {
+        padding: 0 50px;
+        background: var(--altLight);
+        color: var(--dark);
+        height: 0;
+        transition-duration: 0.75s;
+        transform-origin: top;
+
+        &.active {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            height: auto;
+        }
+    }
+
     &.f-3,
     &.f-1,
     &.f-19 {
         grid-column: 1 / -1;
+    }
+
+    .c-4 &--main,
+    .c-5 &--main {
+        background-image: var(--forumBG);
+        background-size: cover;
+        background-position: center right;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--headerOverlay);
+            mix-blend-mode: var(--headerBlend);
+            opacity: var(--headerOpacity);
+        }
     }
 }

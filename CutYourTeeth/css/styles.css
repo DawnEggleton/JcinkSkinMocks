@@ -96,6 +96,51 @@
   --categoryMessage: "from the long time that he played god";
 }
 
+.f-35 {
+  --forumBG: url(../img/coastline.jpg);
+  /*Coastline: https://www.pexels.com/photo/lighthouse-by-sea-against-sky-247506/*/
+}
+
+.f-36 {
+  /*Old Town: https://www.pexels.com/photo/bird-s-eye-view-of-city-during-dawn-4039921/*/
+  --forumBG: url(../img/oldtown.jpg);
+}
+
+.f-37 {
+  --forumBG: url(../img/coastline.jpg);
+  /*Central Davenport: */
+}
+
+.f-38 {
+  --forumBG: url(../img/coastline.jpg);
+  /*River's Edge: */
+}
+
+.f-39 {
+  --forumBG: url(../img/coastline.jpg);
+  /*Outskirts: */
+}
+
+.f-13 {
+  --forumBG: url(../img/coastline.jpg);
+  /*Outside Town: */
+}
+
+.f-14 {
+  --forumBG: url(../img/coastline.jpg);
+  /*Past: */
+}
+
+.f-15 {
+  --forumBG: url(../img/coastline.jpg);
+  /*Future: */
+}
+
+.f-16 {
+  --forumBG: url(../img/coastline.jpg);
+  /*AU: */
+}
+
 /*******************************
     Variables
     - General variables
@@ -169,7 +214,9 @@ body.g-2 .memOnly,
 body.light .darkOnly,
 body.dark .lightOnly,
 body:not(.lgFont) .largeOnly,
-body.lgFont .smallOnly {
+body.lgFont .smallOnly,
+.active > .closeOnly,
+:not(.active) > .openOnly {
   display: none;
 }
 
@@ -719,8 +766,88 @@ header .skip:after {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.forum {
+  overflow: hidden;
+}
+.forum--main {
+  padding: 50px;
+}
+.forum--stats {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 4px;
+  font-weight: 400;
+}
+.forum--stats b {
+  color: var(--accent);
+  font-weight: 800;
+}
+.forum--name {
+  font-family: var(--serif);
+  font-size: 36px;
+  margin: 10px 0 0;
+}
+.forum--latest {
+  display: grid;
+  padding: 25px 0 35px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+  line-height: calc(var(--lBody) * 1.6);
+  grid-gap: 5px;
+}
+.forum--latest a {
+  color: var(--white);
+}
+.forum--latest i.fal {
+  font-size: var(--lBody);
+  margin-right: 5px;
+}
+.forum button {
+  background: var(--light);
+  border: 0;
+  border-radius: 2px;
+  font-family: var(--serif);
+  padding: 10px 20px;
+  font-size: var(--xlBody);
+  font-weight: bold;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-gap: 10px;
+  cursor: pointer;
+}
+.forum--desc {
+  padding: 0 50px;
+  background: var(--altLight);
+  color: var(--dark);
+  height: 0;
+  transition-duration: 0.75s;
+  transform-origin: top;
+}
+.forum--desc.active {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  height: auto;
+}
 .forum.f-3, .forum.f-1, .forum.f-19 {
   grid-column: 1/-1;
+}
+.c-4 .forum--main, .c-5 .forum--main {
+  background-image: var(--forumBG);
+  background-size: cover;
+  background-position: center right;
+}
+.c-4 .forum--main:before, .c-5 .forum--main:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--headerOverlay);
+  mix-blend-mode: var(--headerBlend);
+  opacity: var(--headerOpacity);
 }
 
 /*******************************

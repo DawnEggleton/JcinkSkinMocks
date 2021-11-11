@@ -35,7 +35,9 @@ body.g-2 .memOnly,
 body.light .darkOnly,
 body.dark .lightOnly,
 body:not(.lgFont) .largeOnly,
-body.lgFont .smallOnly {
+body.lgFont .smallOnly,
+.active > .closeOnly,
+:not(.active) > .openOnly {
     display: none;
 }
 
