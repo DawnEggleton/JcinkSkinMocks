@@ -61,6 +61,14 @@
 
     &--main {
         padding: 50px;
+
+        .f-39 & {
+            background-position: 50% 80% !important;
+        }
+
+        .f-35 & {
+            background-position: 50% 20% !important;
+        }
     }
 
     &--stats {
