@@ -160,6 +160,7 @@
   --black-50: rgba(33, 33, 33, 0.5);
   --dkGrey: rgba(55, 55, 55, 1);
   --midGrey: rgba(85, 85, 85, 1);
+  --midGrey-70: rgba(85, 85, 85, 0.7);
   --ltGrey: rgba(198, 198, 198, 1);
   --offWhite: rgba(217, 217, 217, 1);
   --white: rgba(240, 240, 240, 1);
@@ -206,6 +207,10 @@ img {
 .scroll {
   overflow: auto;
   padding-right: 10px;
+}
+
+.subforums-macro {
+  display: none;
 }
 
 body:not(.g-4) .staffOnly,
@@ -767,7 +772,7 @@ header .skip:after {
   z-index: 2;
   position: relative;
 }
-.category.c-1 .category--forums, .category.c-6 .category--forums {
+.category:not(.c-2):not(.c-3):not(.c-4):not(.c-5) .category--forums {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -779,14 +784,67 @@ header .skip:after {
 .forum {
   overflow: hidden;
 }
+.category:not(.c-5):not(.c-4) .forum {
+  border-bottom: 1px solid var(--midGrey-70);
+  display: grid;
+  grid-template-rows: max-content auto;
+}
+.category:not(.c-5):not(.c-4) .forum .forum--subs,
+.category:not(.c-5):not(.c-4) .forum .forum--subs .subforums {
+  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.category:not(.c-5):not(.c-4) .forum .forum--subs a,
+.category:not(.c-5):not(.c-4) .forum .forum--subs .subforums a {
+  background: var(--light);
+  color: var(--dark);
+  padding: 10px 20px;
+  font-size: var(--xlBody);
+  font-family: var(--serif);
+  text-transform: capitalize;
+  border-radius: 2px;
+}
+.category:not(.c-5):not(.c-4) .forum:first-child {
+  border-top: 1px solid var(--midGrey-70);
+}
+.forum.f-33, .forum.f-5 {
+  border-left: 1px solid var(--midGrey-70);
+  border-right: 1px solid var(--midGrey-70);
+}
+.forum.f-18 {
+  border-top: 1px solid var(--midGrey-70);
+  border-left: 1px solid var(--midGrey-70);
+}
+.c-2 .forum:nth-child(2n) {
+  border-right: 1px solid var(--midGrey-70);
+}
+.c-6 .forum {
+  border-top: 1px solid var(--midGrey-70);
+}
 .forum--main {
   padding: 50px;
+}
+.category:not(.c-4):not(.c-5) .forum--main {
+  padding-bottom: 0;
 }
 .f-39 .forum--main {
   background-position: 50% 80% !important;
 }
 .f-35 .forum--main {
   background-position: 50% 20% !important;
+}
+.forum--main:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--headerOverlay);
+  mix-blend-mode: var(--headerBlend);
+  opacity: var(--headerOpacity);
 }
 .forum--stats {
   text-transform: uppercase;
@@ -802,13 +860,15 @@ header .skip:after {
   font-size: 36px;
   margin: 10px 0 0;
 }
+.forum--name a {
+  color: var(--white);
+}
 .forum--latest {
   display: grid;
   padding: 25px 0 35px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: var(--xsBody);
-  line-height: calc(var(--lBody) * 1.6);
   grid-gap: 5px;
 }
 .forum--latest a {
@@ -816,7 +876,20 @@ header .skip:after {
 }
 .forum--latest i.fal {
   font-size: var(--lBody);
-  margin-right: 5px;
+  line-height: var(--lBody);
+}
+.forum--latest > span {
+  display: grid;
+  grid-template-columns: 16px auto;
+  grid-gap: 10px;
+  align-items: center;
+  height: 24px;
+}
+.forum--latest > span > a, .forum--latest > span > span {
+  line-height: var(--xsBody);
+}
+.forum--latest i.fa-user + a:before {
+  content: "Written by ";
 }
 .forum button {
   background: var(--light);
@@ -836,6 +909,9 @@ header .skip:after {
 .forum button i.fas {
   font-size: var(--lBody);
 }
+.category:not(.c-4):not(.c-5) .forum button {
+  display: none;
+}
 .forum--desc {
   padding: 0 50px;
   background: var(--altLight);
@@ -849,15 +925,15 @@ header .skip:after {
   padding-bottom: 50px;
   height: auto;
 }
-.forum.f-3, .forum.f-1, .forum.f-19 {
-  grid-column: 1/-1;
+.category:not(.c-4):not(.c-5) .forum--desc {
+  padding: 0 50px 50px;
+  height: auto;
+  background: none;
 }
-.c-4 .forum--main, .c-5 .forum--main {
-  background-image: var(--forumBG);
-  background-size: cover;
-  background-position: center right;
+.category:not(.c-4):not(.c-5) .forum--desc:empty {
+  padding-bottom: 25px;
 }
-.c-4 .forum--main:before, .c-5 .forum--main:before {
+.category:not(.c-4):not(.c-5) .forum--desc:before {
   content: "";
   position: absolute;
   top: 0;
@@ -867,6 +943,14 @@ header .skip:after {
   background: var(--headerOverlay);
   mix-blend-mode: var(--headerBlend);
   opacity: var(--headerOpacity);
+}
+.forum.f-3, .forum.f-1, .forum.f-19 {
+  grid-column: 1/-1;
+}
+.c-4 .forum--main, .c-5 .forum--main {
+  background-image: var(--forumBG);
+  background-size: cover;
+  background-position: center right;
 }
 
 /*******************************

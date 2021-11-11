@@ -39,8 +39,7 @@
         }
     }
 
-    &.c-1,
-    &.c-6 {
+    &:not(.c-2):not(.c-3):not(.c-4):not(.c-5) {
         .category--forums {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -59,8 +58,61 @@
 .forum {
     overflow: hidden;
 
+    .category:not(.c-5):not(.c-4) & {
+        border-bottom: 1px solid var(--midGrey-70);
+        display: grid;
+        grid-template-rows: max-content auto;
+
+        .forum--subs {
+            &,
+            .subforums {
+                font-size: 0;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+
+                a {
+                    background: var(--light);
+                    color: var(--dark);
+                    padding: 10px 20px;
+                    font-size: var(--xlBody);
+                    font-family: var(--serif);
+                    text-transform: capitalize;
+                    border-radius: 2px;
+                }
+            }
+        }
+
+        &:first-child {
+            border-top: 1px solid var(--midGrey-70);
+        }
+    }
+
+    &.f-33,
+    &.f-5 {
+        border-left: 1px solid var(--midGrey-70);
+        border-right: 1px solid var(--midGrey-70);
+    }
+
+    &.f-18 {
+        border-top: 1px solid var(--midGrey-70);
+        border-left: 1px solid var(--midGrey-70);
+    }
+
+    .c-2 &:nth-child(2n) {
+        border-right: 1px solid var(--midGrey-70);
+    }
+
+    .c-6 & {
+        border-top: 1px solid var(--midGrey-70);
+    }
+
     &--main {
         padding: 50px;
+
+        .category:not(.c-4):not(.c-5) & {
+            padding-bottom: 0;
+        }
 
         .f-39 & {
             background-position: 50% 80% !important;
@@ -68,6 +120,18 @@
 
         .f-35 & {
             background-position: 50% 20% !important;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--headerOverlay);
+            mix-blend-mode: var(--headerBlend);
+            opacity: var(--headerOpacity);
         }
     }
 
@@ -86,6 +150,10 @@
         font-family: var(--serif);
         font-size: 36px;
         margin: 10px 0 0;
+
+        a {
+            color: var(--white);
+        }
     }
 
     &--latest {
@@ -94,7 +162,6 @@
         text-transform: uppercase;
         letter-spacing: 2px;
         font-size: var(--xsBody);
-        line-height: calc(var(--lBody) * 1.6);
         grid-gap: 5px;
 
         a {
@@ -103,7 +170,24 @@
 
         i.fal {
             font-size: var(--lBody);
-            margin-right: 5px;
+            line-height: var(--lBody);
+        }
+
+        & > span {
+            display: grid;
+            grid-template-columns: 16px auto;
+            grid-gap: 10px;
+            align-items: center;
+            height: 24px;
+
+            & > a,
+            & > span {
+                line-height: var(--xsBody);
+            }
+        }
+
+        i.fa-user + a:before {
+            content: 'Written by ';
         }
     }
 
@@ -125,6 +209,10 @@
         i.fas {
             font-size: var(--lBody);
         }
+
+        .category:not(.c-4):not(.c-5) & {
+            display: none;
+        }
     }
 
     &--desc {
@@ -140,6 +228,28 @@
             padding-bottom: 50px;
             height: auto;
         }
+
+        .category:not(.c-4):not(.c-5) & {
+            padding: 0 50px 50px;
+            height: auto;
+            background: none;
+
+            &:empty {
+                padding-bottom: 25px;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--headerOverlay);
+                mix-blend-mode: var(--headerBlend);
+                opacity: var(--headerOpacity);
+            }
+        }
     }
 
     &.f-3,
@@ -153,17 +263,5 @@
         background-image: var(--forumBG);
         background-size: cover;
         background-position: center right;
-
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--headerOverlay);
-            mix-blend-mode: var(--headerBlend);
-            opacity: var(--headerOpacity);
-        }
     }
 }
