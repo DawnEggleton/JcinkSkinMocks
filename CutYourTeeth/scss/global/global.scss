@@ -16,6 +16,10 @@ body {
     font-family: var(--body);
     font-weight: 400;
     color: var(--dark);
+    background-image: var(--headerImage);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 img {
     max-width: 100%;

@@ -3,14 +3,12 @@
 ********************************/
 header {
     height: 100vh;
-    background-image: var(--headerImage);
-    background-size: cover;
-    background-repeat: no-repeat;
     display: grid;
     text-align: center;
     justify-items: center;
     grid-template-rows: 1fr max-content 1fr;
     color: var(--white);
+    background-image: linear-gradient(to top, var(--black), transparent, transparent, transparent);
 
     &:before {
         content: '';

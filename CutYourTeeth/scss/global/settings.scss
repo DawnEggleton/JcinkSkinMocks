@@ -7,6 +7,8 @@
     --bgStaff-lux: url(https://64.media.tumblr.com/e529fdf50ea1d89f07dfca771f03b26c/8a9c1cf44400eb4c-de/s2048x3072/6e6315a3d09b4f7339daef33ec5df4551b683905.jpg);
     --bgStaff-quinn: url(https://files.jcink.net/uploads2/playedgod//av-1.jpg?1628549520);
     --bgStaff-meri: url(https://i.pinimg.com/originals/ac/41/28/ac4128a1badfaff7403a914eb712fd4c.gif);
+    --textureBG: url(../img/texture.jpg); /*https://www.pexels.com/photo/aerial-view-of-ocean-waves-3614424/*/
+    --lightTextureBG: url(../img/lighttexture.jpg); /*https://www.pexels.com/photo/aerial-shot-of-blue-water-3894157/*/
 }
 .dark {
     --dark: var(--white);
@@ -20,26 +22,31 @@
     &.g-1 {
         //validating
         --accent: rgba(74, 104, 100, 1);
+        --accent: rgba(74, 104, 100, 0.5);
     }
     .g-2,
     &.g-2 {
         //guest
         --accent: rgba(74, 104, 100, 1);
+        --accent: rgba(74, 104, 100, 0.5);
     }
     .g-3,
     &.g-3 {
         //member
         --accent: rgba(74, 104, 100, 1);
+        --accent: rgba(74, 104, 100, 0.5);
     }
     .g-4,
     &.g-4 {
         //admin
         --accent: rgba(74, 104, 100, 1);
+        --accent: rgba(74, 104, 100, 0.5);
     }
     .g-5,
     &.g-5 {
         //banned
         --accent: rgba(74, 104, 100, 1);
+        --accent: rgba(74, 104, 100, 0.5);
     }
 }
 .light {
@@ -54,25 +61,48 @@
     &.g-1 {
         //validating
         --accent: rgba(152, 183, 178, 1);
+        --accent-50: rgba(152, 183, 178, 0.5);
     }
     .g-2,
     &.g-2 {
         //guest
         --accent: rgba(152, 183, 178, 1);
+        --accent-50: rgba(152, 183, 178, 0.5);
     }
     .g-3,
     &.g-3 {
         //member
         --accent: rgba(152, 183, 178, 1);
+        --accent-50: rgba(152, 183, 178, 0.5);
     }
     .g-4,
     &.g-4 {
         //admin
         --accent: rgba(152, 183, 178, 1);
+        --accent-50: rgba(152, 183, 178, 0.5);
     }
     .g-5,
     &.g-5 {
         //banned
         --accent: rgba(152, 183, 178, 1);
+        --accent-50: rgba(152, 183, 178, 0.5);
     }
+}
+.c-1 {
+    --categoryMessage: "it\'s all the same down in the capital";
+}
+.c-2 {
+    --categoryMessage: "all the suits and cladded feet";
+}
+.c-3 {
+    --categoryMessage: "sewer rats will shower the underground";
+}
+.c-4 {
+    --categoryMessage: "in a race to make ends meet";
+}
+.c-5 {
+    --categoryMessage: "am i mistaken or are we breaking under weight";
+}
+.c-6 {
+    --categoryMessage: "from the long time that he played god";
 }
