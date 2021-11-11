@@ -263,6 +263,14 @@ nav {
   align-items: center;
   padding: 20px;
   z-index: 11;
+  transition-duration: 0.5s;
+}
+nav.scrolled {
+  background: var(--black);
+  padding: 10px;
+}
+nav.scrolled .ucp > button {
+  padding: 5px 15px;
 }
 nav a {
   color: var(--white);
@@ -281,6 +289,9 @@ nav #navstrip > a:first-child {
   font-weight: 700;
   text-transform: none;
   margin-bottom: 5px;
+}
+nav #navstrip > a:first-child:only-child {
+  margin-bottom: 0;
 }
 nav #navstrip > i:first-of-type {
   display: none;
@@ -395,6 +406,7 @@ nav .ucp > button {
   padding: 10px 20px;
   border-radius: 2px;
   cursor: pointer;
+  transition-duration: 0.5s;
 }
 nav .ucp--menu {
   list-style-type: none;
@@ -731,8 +743,6 @@ header .skip:after {
   font-size: 36px;
   text-transform: capitalize;
   color: var(--white);
-  border-top: 1px solid var(--accent-50);
-  border-bottom: 1px solid var(--accent-50);
 }
 .category h2:before {
   content: "";
@@ -779,7 +789,6 @@ header .skip:after {
   font-weight: 400;
 }
 .forum--stats b {
-  color: var(--accent);
   font-weight: 800;
 }
 .forum--name {
@@ -805,6 +814,7 @@ header .skip:after {
 }
 .forum button {
   background: var(--light);
+  color: var(--dark);
   border: 0;
   border-radius: 2px;
   font-family: var(--serif);
@@ -816,6 +826,9 @@ header .skip:after {
   align-items: center;
   grid-gap: 10px;
   cursor: pointer;
+}
+.forum button i.fas {
+  font-size: var(--lBody);
 }
 .forum--desc {
   padding: 0 50px;

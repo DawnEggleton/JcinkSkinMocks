@@ -12,8 +12,6 @@
         font-size: 36px;
         text-transform: capitalize;
         color: var(--white);
-        border-top: 1px solid var(--accent-50);
-        border-bottom: 1px solid var(--accent-50);
 
         &:before {
             content: '';
@@ -60,7 +58,7 @@
 
 .forum {
     overflow: hidden;
-    
+
     &--main {
         padding: 50px;
     }
@@ -72,7 +70,6 @@
         font-weight: 400;
 
         b {
-            color: var(--accent);
             font-weight: 800;
         }
     }
@@ -104,6 +101,7 @@
 
     button {
         background: var(--light);
+        color: var(--dark);
         border: 0;
         border-radius: 2px;
         font-family: var(--serif);
@@ -115,6 +113,10 @@
         align-items: center;
         grid-gap: 10px;
         cursor: pointer;
+
+        i.fas {
+            font-size: var(--lBody);
+        }
     }
 
     &--desc {

@@ -13,6 +13,16 @@ nav {
     align-items: center;
     padding: 20px;
     z-index: 11;
+    transition-duration: 0.5s;
+
+    &.scrolled {
+        background: var(--black);
+        padding: 10px;
+
+        .ucp > button {
+            padding: 5px 15px;
+        }
+    }
 
     a {
         color: var(--white);
@@ -32,6 +42,10 @@ nav {
             font-weight: 700;
             text-transform: none;
             margin-bottom: 5px;
+
+            &:only-child {
+                margin-bottom: 0;
+            }
         }
 
         & > i:first-of-type {
@@ -162,6 +176,7 @@ nav {
             padding: 10px 20px;
             border-radius: 2px;
             cursor: pointer;
+            transition-duration: 0.5s;
         }
 
         &--menu {

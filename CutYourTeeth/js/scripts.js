@@ -24,3 +24,13 @@ document.querySelector('.controls').style.top = `${navHeight - 10}px`;
 document.querySelector('.controls').style.height = `${window.innerHeight - navHeight - 10}px`;
 document.querySelector('.controls-guest').style.top = `${navHeight - 10}px`;
 document.querySelector('.controls-guest').style.height = `${window.innerHeight - navHeight - 10}px`;
+
+
+//change nav styles
+window.onscroll = function() {
+    if (window.pageYOffset > 50) {
+        document.querySelector('nav').classList.add('scrolled');
+    } else {
+        document.querySelector('nav').classList.remove('scrolled');
+    }
+};
