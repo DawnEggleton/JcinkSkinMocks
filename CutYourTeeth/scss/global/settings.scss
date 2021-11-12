@@ -106,22 +106,93 @@
 .c-6 {
     --categoryMessage: "from the long time that he played god";
 }
-.f-35 {
-    --forumBG: url(../img/coastline.jpg); /*Coastline: https://www.pexels.com/photo/lighthouse-by-sea-against-sky-247506/*/
-}
+/* Old Town & Subforums */
 .f-36 {
     /*Old Town: https://www.pexels.com/photo/bird-s-eye-view-of-city-during-dawn-4039921/*/
     --forumBG: url(../img/oldtown.jpg);
 }
+.f-36 .subforums a:nth-child(2) {
+    /* Casino: https://www.pexels.com/photo/people-casino-luck-game-6664128/ */
+    --forumBG: url(../img/casino.jpg);
+}
+.f-36 .subforums a:nth-child(4) {
+    /* Red Light: https://www.pexels.com/photo/white-motor-scooter-near-open-door-219095/*/
+    --forumBG: url(../img/redlight.jpg);
+}
+.f-36 .subforums a:nth-child(6) {
+    /* Dockyards: https://www.pexels.com/photo/photography-of-ship-799091/*/
+    --forumBG: url(../img/docks.jpg);
+}
+
+/* Coastline & Subforums */
+.f-35 {
+    --forumBG: url(../img/coastline.jpg); /*Coastline: https://www.pexels.com/photo/lighthouse-by-sea-against-sky-247506/*/
+}
+.f-35 .subforums a:nth-child(2) {
+    /* Entertainment: https://www.pexels.com/photo/group-of-people-in-a-street-market-2276796/*/
+    --forumBG: url(../img/entertainment.jpg);
+}
+.f-35 .subforums a:nth-child(4) {
+    /* Bayside: https://www.pexels.com/photo/vegetables-stall-868110/*/
+    --forumBG: url(../img/bayside.jpg);
+}
+.f-35 .subforums a:nth-child(6) {
+    /* Graveyard: https://www.pexels.com/photo/graffiti-painted-on-wall-in-abandoned-building-1029696/*/
+    --forumBG: url(../img/graveyard.jpg);
+}
+
+/* Central Davenport & Subforums */
 .f-37 {
     --forumBG: url(../img/central.jpg); /*Central Davenport: https://www.pexels.com/photo/cityscape-photo-286076/*/
 }
+.f-37 .subforums a:nth-child(2) {
+    /* University: https://www.pexels.com/photo/green-leaves-tree-near-red-and-gray-concrete-structure-during-daytime-227405/*/
+    --forumBG: url(../img/uni.jpg);
+}
+.f-37 .subforums a:nth-child(4) {
+    /* Business: https://www.pexels.com/photo/view-of-city-buildings-near-river-4053729/*/
+    --forumBG: url(../img/business.jpg);
+}
+.f-37 .subforums a:nth-child(6) {
+    /* Boardwalk: https://www.pexels.com/photo/green-leafed-tree-beside-body-of-water-during-daytime-158063/*/
+    --forumBG: url(../img/boardwalk.jpg);
+}
+
+/* River's Edge & Subforums */
 .f-38 {
     --forumBG: url(../img/river.jpg); /*River's Edge: https://www.pexels.com/photo/river-near-city-buildings-under-cloudy-sky-1209978/*/
 }
+.f-38 .subforums a:nth-child(2) {
+    /* Willow Creek: https://www.pexels.com/photo/assorted-color-wall-paint-house-photo-1370704/*/
+    --forumBG: url(../img/willowcreek.jpg);
+}
+.f-38 .subforums a:nth-child(4) {
+    /* Park: https://www.pexels.com/photo/worm-s-eyeview-of-tall-tree-under-a-gray-sky-618608/*/
+    --forumBG: url(../img/park.jpg);
+}
+.f-38 .subforums a:nth-child(6) {
+    /* Government: https://www.pexels.com/photo/architecture-building-buildings-business-273239/*/
+    --forumBG: url(../img/gov.jpg);
+}
+
+/* Outskirts & Subforums */
 .f-39 {
     --forumBG: url(../img/outskirts.jpg); /*Outskirts: https://www.pexels.com/photo/brown-hay-roll-near-trees-442597/*/
 }
+.f-39 .subforums a:nth-child(2) {
+    /* Carnivale: https://www.pexels.com/photo/ferris-wheel-1047939/*/
+    --forumBG: url(../img/carnivale.jpg);
+}
+.f-39 .subforums a:nth-child(4) {
+    /* Witch's Hour: https://www.pexels.com/photo/wooden-house-in-a-forest-673788/*/
+    --forumBG: url(../img/witchhour.jpg);
+}
+.f-39 .subforums a:nth-child(6) {
+    /* Wilds: https://www.pexels.com/photo/remaining-walls-of-ruined-abandoned-building-4200749/*/
+    --forumBG: url(../img/wilds.jpg);
+}
+
+/* Outside Davenport */
 .f-13 {
     --forumBG: url(../img/outside.jpg); /*Outside Town: https://www.pexels.com/photo/padlock-on-grey-metal-cable-2214876/*/
 }
