@@ -42,7 +42,15 @@
     &:not(.c-2):not(.c-3):not(.c-4):not(.c-5) {
         .category--forums {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr;
+
+            @media only screen and(min-width: $md) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media only screen and (min-width: $xl) {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
     }
 
@@ -50,7 +58,11 @@
     &.c-3 {
         .category--forums {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
+
+            @media only screen and(min-width: $md) {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     }
 }
@@ -91,9 +103,14 @@
     .c-4 & .subforums,
     .c-5 & .subforums {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
         grid-gap: 20px;
         height: 100%;
+        align-items: center;
+
+        @media only screen and (min-width: $xl) {
+            align-items: normal;
+            grid-template-columns: repeat(3, 1fr);
+        }
 
         a.tooltip {
             background-image: var(--forumBG);
@@ -111,6 +128,7 @@
             color: var(--white);
             font-weight: 700;
             z-index: 1;
+            padding: 50px 20px;
 
             &:after {
                 content: '';
@@ -271,8 +289,22 @@
         .c-4 &,
         .c-5 & {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            grid-gap: 50px;
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+            align-items: center;
+
+            @media only screen and (min-width: $md) {
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 50px;
+            }
+
+            @media only screen and (min-width: $lg) {
+                grid-template-columns: 1fr 2fr;
+            }
+
+            @media only screen and (min-width: $xl) {
+                align-items: normal;
+            }
         }
 
         .category:not(.c-4):not(.c-5) & {
@@ -307,10 +339,23 @@
         border-radius: 2px;
     }
 
-    &.f-3,
-    &.f-1,
-    &.f-19 {
+    &.f-6,
+    &.f-34 {
         grid-column: 1 / -1;
+    }
+    @media only screen and (min-width: $xl) {
+        &.f-6,
+        &.f-34 {
+            grid-column: auto;
+        }
+    }
+
+    @media only screen and (min-width: $md) {
+        &.f-3,
+        &.f-1,
+        &.f-19 {
+            grid-column: 1 / -1;
+        }
     }
 
     .c-4 &--main,
