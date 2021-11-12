@@ -853,6 +853,12 @@ header .skip:after {
   z-index: 2;
   position: relative;
 }
+.category.c-1 h2, .category.c-5 h2, .category.c-6 h2 {
+  border-top: 1px solid var(--midGrey-70);
+}
+.category.c-4 h2, .category.c-5 h2 {
+  border-bottom: 1px solid var(--midGrey-70);
+}
 .category:not(.c-2):not(.c-3):not(.c-4):not(.c-5) .category--forums {
   display: grid;
   grid-template-columns: 1fr;

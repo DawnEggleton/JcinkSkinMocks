@@ -39,6 +39,21 @@
         }
     }
 
+    &.c-1,
+    &.c-5,
+    &.c-6 {
+        h2 {
+            border-top: 1px solid var(--midGrey-70);
+        }
+    }
+
+    &.c-4,
+    &.c-5 {
+        h2 {
+            border-bottom: 1px solid var(--midGrey-70);
+        }
+    }
+
     &:not(.c-2):not(.c-3):not(.c-4):not(.c-5) {
         .category--forums {
             display: grid;
