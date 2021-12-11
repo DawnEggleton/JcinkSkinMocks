@@ -30,6 +30,13 @@ function openVisitor() {
 
 function openControls() {
     document.querySelector('.controls').classList.toggle('active');
+    if(document.querySelector('.controls').classList.contains('active')) {
+        document.querySelectorAll('main > *').forEach(el => el.style.opacity = 0);
+        document.querySelectorAll('header > *').forEach(el => el.style.opacity = 0);
+    } else {
+        document.querySelectorAll('main > *').forEach(el => el.style.opacity = '');
+        document.querySelectorAll('header > *').forEach(el => el.style.opacity = '');
+    }
     let linksHeight = window.innerHeight - navHeight - 30 - document.querySelector('.controls--user').clientHeight;
     let infoHeight = (window.innerHeight - navHeight - 70 - document.querySelector('.controls--user').clientHeight) / 2;
     document.querySelector('.controls--links .scroll').style.maxHeight = `${linksHeight}px`;
