@@ -12,7 +12,7 @@ header {
     background-image: linear-gradient(to top, var(--black), transparent, transparent, transparent);
 
     &.controls-open {
-        background-image: none;
+        background-image: linear-gradient(to top, transparent, transparent, transparent, transparent);
 
         & > * {
             opacity: 0;

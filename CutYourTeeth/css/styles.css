@@ -637,7 +637,7 @@ header {
   background-image: linear-gradient(to top, var(--black), transparent, transparent, transparent);
 }
 header.controls-open {
-  background-image: none;
+  background-image: linear-gradient(to top, transparent, transparent, transparent, transparent);
 }
 header.controls-open > * {
   opacity: 0;
@@ -1198,17 +1198,6 @@ header .skip:after {
   .stats {
     grid-template-columns: 2fr 1fr;
   }
-}
-.stats:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--headerOverlay);
-  mix-blend-mode: var(--headerBlend);
-  opacity: var(--headerOpacity);
 }
 .stats h2 {
   border-bottom: 1px solid var(--midGrey-70);
