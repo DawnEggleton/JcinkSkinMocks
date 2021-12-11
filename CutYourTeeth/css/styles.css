@@ -350,7 +350,10 @@ body.lgFont .smallOnly,
 
 main {
   transition-duration: 0.75s;
-  border-top: 1px solid var(--midGrey-70);
+}
+main.controls-open > * {
+  opacity: 0;
+  transition-duration: 0.75s;
 }
 main:before {
   content: "";
@@ -633,6 +636,13 @@ header {
   color: var(--white);
   background-image: linear-gradient(to top, var(--black), transparent, transparent, transparent);
 }
+header.controls-open {
+  background-image: none;
+}
+header.controls-open > * {
+  opacity: 0;
+  transition-duration: 0.75s;
+}
 header:before {
   content: "";
   position: absolute;
@@ -902,7 +912,7 @@ header .skip:after {
   z-index: 2;
   position: relative;
 }
-.category.c-5 h2, .category.c-6 h2 {
+.category.c-1 h2, .category.c-5 h2, .category.c-6 h2 {
   border-top: 1px solid var(--midGrey-70);
 }
 .category.c-4 h2, .category.c-5 h2 {

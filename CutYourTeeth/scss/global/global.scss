@@ -85,7 +85,11 @@ body.lgFont .smallOnly,
 
 main {
     transition-duration: 0.75s;
-    border-top: 1px solid var(--midGrey-70);
+
+    &.controls-open > * {
+        opacity: 0;
+        transition-duration: 0.75s;
+    }
 
     &:before {
         content: '';
