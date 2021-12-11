@@ -5,6 +5,17 @@
 * {
     position: relative;
     box-sizing: border-box;
+    scrollbar-color: var(--white) transparent;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--white);
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
 }
 a {
     text-decoration: none;
@@ -75,5 +86,35 @@ body.lgFont .smallOnly,
 main {
     & > br {
         display: none;
+    }
+    #delcookiesrow {
+        background: var(--black);
+        padding: 15px;
+        text-transform: uppercase;
+        font-size: var(--xsBody);
+        letter-spacing: 2px;
+        color: var(--white);
+        text-align: center;
+        font-weight: 800;
+
+        a {
+        color: var(--white);
+        }
+    }
+    & + .tableborder {
+        background: var(--black);
+        padding: 0 15px 15px;
+
+        .row4 .copyright {
+            text-transform: uppercase;
+            font-size: var(--xsBody) !important;
+            letter-spacing: 2px;
+            color: var(--white);
+            line-height: 200% !important;
+    
+            a {
+                color: var(--white);
+            }
+        }
     }
 }

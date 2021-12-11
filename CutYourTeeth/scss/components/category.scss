@@ -59,7 +59,7 @@
             display: grid;
             grid-template-columns: 1fr;
 
-            @media only screen and(min-width: $md) {
+            @media only screen and (min-width: $md) {
                 grid-template-columns: repeat(2, 1fr);
             }
 

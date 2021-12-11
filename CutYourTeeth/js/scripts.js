@@ -38,3 +38,17 @@ window.onscroll = function() {
 
 //append recent topics
 document.querySelector('#recent-topics-clip').append(document.querySelector('#recent-topics'));
+
+
+//add anchor to guidebook
+document.querySelector('.f-3').setAttribute('name', 'learn-more');
+
+
+//smooth scrolling anchors by name
+$('a[href^="#"]').click(function () {
+    $('html, body').animate({
+        scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top - $('nav').height()
+    }, 750);
+
+    return false;
+});

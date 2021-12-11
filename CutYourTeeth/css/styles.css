@@ -266,6 +266,15 @@
 * {
   position: relative;
   box-sizing: border-box;
+  scrollbar-color: var(--white) transparent;
+  scrollbar-width: thin;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--white);
+  border-radius: 3px;
+}
+*::-webkit-scrollbar {
+  width: 6px;
 }
 
 a {
@@ -341,6 +350,33 @@ body.lgFont .smallOnly,
 
 main > br {
   display: none;
+}
+main #delcookiesrow {
+  background: var(--black);
+  padding: 15px;
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+  color: var(--white);
+  text-align: center;
+  font-weight: 800;
+}
+main #delcookiesrow a {
+  color: var(--white);
+}
+main + .tableborder {
+  background: var(--black);
+  padding: 0 15px 15px;
+}
+main + .tableborder .row4 .copyright {
+  text-transform: uppercase;
+  font-size: var(--xsBody) !important;
+  letter-spacing: 2px;
+  color: var(--white);
+  line-height: 200% !important;
+}
+main + .tableborder .row4 .copyright a {
+  color: var(--white);
 }
 
 /*******************************
@@ -1157,8 +1193,18 @@ header .skip:after {
 ********************************/
 .stats {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   color: var(--white);
+}
+@media only screen and (min-width: 800px) {
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .stats {
+    grid-template-columns: 2fr 1fr;
+  }
 }
 .stats:before {
   content: "";
@@ -1196,9 +1242,15 @@ header .skip:after {
 }
 .stats--now {
   padding: 50px;
-  border-right: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
   display: grid;
   grid-template-rows: max-content max-content 1fr max-content;
+}
+@media only screen and (min-width: 800px) {
+  .stats--now {
+    border-right: 1px solid var(--midGrey-70);
+    border-bottom: 0;
+  }
 }
 .stats--now .scroll {
   max-height: 100px;
@@ -1266,6 +1318,65 @@ header .skip:after {
   font-family: var(--serif);
   text-transform: capitalize;
   border-radius: 2px;
+}
+.stats #recent-topics {
+  font-size: 0;
+  margin-top: 30px;
+}
+.stats #recent-topics .maintitle {
+  display: none;
+}
+.stats #recent-topics tbody {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
+  max-height: 250px;
+  overflow: auto;
+}
+@media only screen and (min-width: 800px) {
+  .stats #recent-topics tbody {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .stats #recent-topics tbody {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.stats #recent-topics tr {
+  display: grid;
+}
+.stats #recent-topics .recent-topics-info {
+  width: 100%;
+}
+.stats #recent-topics .recent-topics-info a {
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 2px;
+}
+.stats #recent-topics .recent-topics-info a:first-child {
+  font-size: 16px;
+  font-family: var(--serif);
+  text-transform: capitalize;
+  letter-spacing: 0;
+}
+.stats #recent-topics .recent-topics-info a:nth-of-type(2) {
+  display: block;
+  margin: 5px 0 0;
+}
+.stats #recent-topics .recent-topics-info a:nth-of-type(2):before {
+  content: "written by ";
+}
+.stats #recent-topics .recent-topics-info a:last-child {
+  display: none;
+}
+.stats #recent-topics .recent-topics-date {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  font-style: italic;
 }
 
 /*******************************

@@ -3,8 +3,16 @@
 ********************************/
 .stats {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
     color: var(--white);
+
+    @media only screen and (min-width: $md) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media only screen and (min-width: $xl) {
+        grid-template-columns: 2fr 1fr;
+    }
 
     &:before {
         content: '';
@@ -45,9 +53,14 @@
 
     &--now {
         padding: 50px;
-        border-right: 1px solid var(--midGrey-70);
+        border-bottom: 1px solid var(--midGrey-70);
         display: grid;
         grid-template-rows: max-content max-content 1fr max-content;
+
+        @media only screen and (min-width: $md) {
+            border-right: 1px solid var(--midGrey-70);
+            border-bottom: 0;
+        }
 
         .scroll {
             max-height: 100px;
@@ -127,5 +140,74 @@
             text-transform: capitalize;
             border-radius: 2px;
          }
+    }
+
+    #recent-topics {
+        font-size: 0;
+        margin-top: 30px;
+
+        .maintitle {
+            display: none;
+        }
+
+        tbody {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 30px;
+            max-height: 250px;
+            overflow: auto;
+            
+            @media only screen and (min-width: $md) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            @media only screen and (min-width: $lg) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        tr {
+            display: grid;
+        }
+
+        .recent-topics {
+            &-info {
+                width: 100%;
+
+                a {
+                    font-size: var(--xsBody);
+                    text-transform: uppercase;
+                    color: var(--white);
+                    letter-spacing: 2px;
+
+                    &:first-child {
+                        font-size: 16px;
+                        font-family: var(--serif);
+                        text-transform: capitalize;
+                        letter-spacing: 0;
+                    }
+
+                    &:nth-of-type(2) {
+                        display: block;
+                        margin: 5px 0 0;
+
+                        &:before {
+                            content: 'written by ';
+                        }
+                    }
+
+                    &:last-child {
+                        display: none;
+                    }
+                }
+            }
+            &-date {
+                width: 100%;
+                text-transform: uppercase;
+                font-size: var(--xsBody);
+                letter-spacing: 1px;
+                font-style: italic;
+            }
+        }
     }
 }
