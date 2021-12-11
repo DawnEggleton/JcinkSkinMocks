@@ -71,3 +71,9 @@ body.lgFont .smallOnly,
         display: none !important;
     }
 }
+
+main {
+    & > br {
+        display: none;
+    }
+}

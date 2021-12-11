@@ -34,3 +34,7 @@ window.onscroll = function() {
         document.querySelector('nav').classList.remove('scrolled');
     }
 };
+
+
+//append recent topics
+document.querySelector('#recent-topics-clip').append(document.querySelector('#recent-topics'));
