@@ -42,7 +42,8 @@
         }
     }
 
-    &:not(.c-2):not(.c-3):not(.c-4):not(.c-5) {
+    &.c-1,
+    &.c-6 {
         .category--forums {
             display: grid;
             grid-template-columns: 1fr;
@@ -73,7 +74,7 @@
 .forum {
     overflow: hidden;
 
-    .category:not(.c-5):not(.c-4) & {
+    .category:not(.c-5):not(.c-4):not(.subforum-list.f-35):not(.subforum-list.f-36):not(.subforum-list.f-37):not(.subforum-list.f-38):not(.subforum-list.f-39) & {
         border-bottom: 1px solid var(--midGrey-70);
         display: grid;
         grid-template-rows: max-content auto;
@@ -170,7 +171,12 @@
     &--main {
         padding: 50px;
 
-        .category:not(.c-1):not(.c-2):not(.c-3):not(.c-6) & {
+        .category:not(.c-1):not(.c-2):not(.c-3):not(.c-6):not(.subforum-list) &,
+        .category.subforum-list.f-35 &,
+        .category.subforum-list.f-36 &,
+        .category.subforum-list.f-37 &,
+        .category.subforum-list.f-38 &,
+        .category.subforum-list.f-39 & {
             &:before {
                 content: '';
                 position: absolute;
@@ -188,11 +194,23 @@
             padding-bottom: 0;
         }
 
-        .f-39 & {
+        .subforum-list.f-35 &,
+        .subforum-list.f-36 &,
+        .subforum-list.f-37 &,
+        .subforum-list.f-38 &,
+        .subforum-list.f-39 & {
+            padding-bottom: 200px !important;
+
+            @media only screen and (min-width: $md) {
+                padding-bottom: 0 !important;
+            }
+        }
+
+        .category:not(.subforum-list) .f-39 & {
             background-position: 50% 80% !important;
         }
 
-        .f-35 & {
+        .category:not(.subforum-list) .f-35 & {
             background-position: 50% 20% !important;
         }
     }
@@ -285,6 +303,28 @@
         transition-duration: 0.75s;
         transform-origin: top;
 
+        .subforum-list.f-35 &,
+        .subforum-list.f-36 &,
+        .subforum-list.f-37 &,
+        .subforum-list.f-38 &,
+        .subforum-list.f-39 & {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            padding: 0 !important;
+            height: max-content !important;
+            width: calc(100% - 60px);
+            background: var(--light) !important;
+            border-radius: 3px;
+            max-height: 170px;
+
+            @media only screen and (min-width: $md) {
+                max-height: none;
+                height: calc(100% - 60px) !important;
+                width: 350px;
+            }
+        }
+
         &.active {
             padding-top: 50px;
             padding-bottom: 50px;
@@ -318,7 +358,7 @@
             background: none;
 
             &:empty {
-                padding-bottom: 25px;
+                padding-bottom: 10px;
             }
         }
     }
@@ -330,6 +370,28 @@
         background: var(--light);
         padding: 15px 20px;
         border-radius: 2px;
+
+        .subforum-list.f-35 &,
+        .subforum-list.f-36 &,
+        .subforum-list.f-37 &,
+        .subforum-list.f-38 &,
+        .subforum-list.f-39 & {
+            max-height: 140px;
+            overflow: auto;
+            background: none;
+            margin: 15px;
+            padding: 0 15px 0 0;
+            scrollbar-color: var(--dark) transparent;
+
+            @media only screen and (min-width: $md) {
+                max-height: none;
+                height: calc(100% - 30px);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: var(--dark);
+            }
+        }
     }
 
     &.f-6,
@@ -352,7 +414,12 @@
     }
 
     .c-4 &--main,
-    .c-5 &--main {
+    .c-5 &--main,
+    .f-36 &--main,
+    .f-35 &--main,
+    .f-37 &--main,
+    .f-38 &--main,
+    .f-39 &--main {
         background-image: var(--forumBG);
         background-size: cover;
         background-position: center right;

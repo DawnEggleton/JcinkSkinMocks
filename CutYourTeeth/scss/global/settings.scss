@@ -114,15 +114,18 @@
     /*Old Town: https://www.pexels.com/photo/bird-s-eye-view-of-city-during-dawn-4039921/*/
     --forumBG: url(../img/oldtown.jpg);
 }
-.f-36 .subforums a:nth-child(2) {
+.f-36 .subforums a:nth-child(2),
+.f-44 {
     /* Casino: https://www.pexels.com/photo/people-casino-luck-game-6664128/ */
     --forumBG: url(../img/casino.jpg);
 }
-.f-36 .subforums a:nth-child(4) {
+.f-36 .subforums a:nth-child(4),
+.f-46 {
     /* Red Light: https://www.pexels.com/photo/white-motor-scooter-near-open-door-219095/*/
     --forumBG: url(../img/redlight.jpg);
 }
-.f-36 .subforums a:nth-child(6) {
+.f-36 .subforums a:nth-child(6),
+.f-43 {
     /* Dockyards: https://www.pexels.com/photo/photography-of-ship-799091/*/
     --forumBG: url(../img/docks.jpg);
 }
@@ -131,15 +134,21 @@
 .f-35 {
     --forumBG: url(../img/coastline.jpg); /*Coastline: https://www.pexels.com/photo/lighthouse-by-sea-against-sky-247506/*/
 }
-.f-35 .subforums a:nth-child(2) {
+.f-35 .subforums a:nth-child(2),
+.f-41 {
     /* Entertainment: https://www.pexels.com/photo/group-of-people-in-a-street-market-2276796/*/
     --forumBG: url(../img/entertainment.jpg);
 }
-.f-35 .subforums a:nth-child(4) {
+.f-41 .forum--main {
+    background-position: top center !important;
+}
+.f-35 .subforums a:nth-child(4),
+.f-54 {
     /* Bayside: https://www.pexels.com/photo/vegetables-stall-868110/*/
     --forumBG: url(../img/bayside.jpg);
 }
-.f-35 .subforums a:nth-child(6) {
+.f-35 .subforums a:nth-child(6),
+.f-45 {
     /* Graveyard: https://www.pexels.com/photo/graffiti-painted-on-wall-in-abandoned-building-1029696/*/
     --forumBG: url(../img/graveyard.jpg);
 }
@@ -148,15 +157,21 @@
 .f-37 {
     --forumBG: url(../img/central.jpg); /*Central Davenport: https://www.pexels.com/photo/cityscape-photo-286076/*/
 }
-.f-37 .subforums a:nth-child(2) {
+.f-37 .subforums a:nth-child(2),
+.f-40 {
     /* University: https://www.pexels.com/photo/green-leaves-tree-near-red-and-gray-concrete-structure-during-daytime-227405/*/
     --forumBG: url(../img/uni.jpg);
 }
-.f-37 .subforums a:nth-child(4) {
+.f-40 .forum--main {
+    background-position: top center !important;
+}
+.f-37 .subforums a:nth-child(4),
+.f-47 {
     /* Business: https://www.pexels.com/photo/view-of-city-buildings-near-river-4053729/*/
     --forumBG: url(../img/business.jpg);
 }
-.f-37 .subforums a:nth-child(6) {
+.f-37 .subforums a:nth-child(6),
+.f-42 {
     /* Boardwalk: https://www.pexels.com/photo/green-leafed-tree-beside-body-of-water-during-daytime-158063/*/
     --forumBG: url(../img/boardwalk.jpg);
 }
@@ -165,15 +180,18 @@
 .f-38 {
     --forumBG: url(../img/river.jpg); /*River's Edge: https://www.pexels.com/photo/river-near-city-buildings-under-cloudy-sky-1209978/*/
 }
-.f-38 .subforums a:nth-child(2) {
+.f-38 .subforums a:nth-child(2),
+.f-51 {
     /* Willow Creek: https://www.pexels.com/photo/assorted-color-wall-paint-house-photo-1370704/*/
     --forumBG: url(../img/willowcreek.jpg);
 }
-.f-38 .subforums a:nth-child(4) {
+.f-38 .subforums a:nth-child(4),
+.f-53 {
     /* Park: https://www.pexels.com/photo/worm-s-eyeview-of-tall-tree-under-a-gray-sky-618608/*/
     --forumBG: url(../img/park.jpg);
 }
-.f-38 .subforums a:nth-child(6) {
+.f-38 .subforums a:nth-child(6),
+.f-52 {
     /* Government: https://www.pexels.com/photo/architecture-building-buildings-business-273239/*/
     --forumBG: url(../img/gov.jpg);
 }
@@ -182,15 +200,18 @@
 .f-39 {
     --forumBG: url(../img/outskirts.jpg); /*Outskirts: https://www.pexels.com/photo/brown-hay-roll-near-trees-442597/*/
 }
-.f-39 .subforums a:nth-child(2) {
+.f-39 .subforums a:nth-child(2),
+.f-48 {
     /* Carnivale: https://www.pexels.com/photo/ferris-wheel-1047939/*/
     --forumBG: url(../img/carnivale.jpg);
 }
-.f-39 .subforums a:nth-child(4) {
+.f-39 .subforums a:nth-child(4),
+.f-49 {
     /* Witch's Hour: https://www.pexels.com/photo/wooden-house-in-a-forest-673788/*/
     --forumBG: url(../img/witchhour.jpg);
 }
-.f-39 .subforums a:nth-child(6) {
+.f-39 .subforums a:nth-child(6),
+.f-50 {
     /* Wilds: https://www.pexels.com/photo/remaining-walls-of-ruined-abandoned-building-4200749/*/
     --forumBG: url(../img/wilds.jpg);
 }

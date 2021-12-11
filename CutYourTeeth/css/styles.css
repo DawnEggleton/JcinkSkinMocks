@@ -106,17 +106,20 @@
   --forumBG: url(../img/oldtown.jpg);
 }
 
-.f-36 .subforums a:nth-child(2) {
+.f-36 .subforums a:nth-child(2),
+.f-44 {
   /* Casino: https://www.pexels.com/photo/people-casino-luck-game-6664128/ */
   --forumBG: url(../img/casino.jpg);
 }
 
-.f-36 .subforums a:nth-child(4) {
+.f-36 .subforums a:nth-child(4),
+.f-46 {
   /* Red Light: https://www.pexels.com/photo/white-motor-scooter-near-open-door-219095/*/
   --forumBG: url(../img/redlight.jpg);
 }
 
-.f-36 .subforums a:nth-child(6) {
+.f-36 .subforums a:nth-child(6),
+.f-43 {
   /* Dockyards: https://www.pexels.com/photo/photography-of-ship-799091/*/
   --forumBG: url(../img/docks.jpg);
 }
@@ -127,17 +130,24 @@
   /*Coastline: https://www.pexels.com/photo/lighthouse-by-sea-against-sky-247506/*/
 }
 
-.f-35 .subforums a:nth-child(2) {
+.f-35 .subforums a:nth-child(2),
+.f-41 {
   /* Entertainment: https://www.pexels.com/photo/group-of-people-in-a-street-market-2276796/*/
   --forumBG: url(../img/entertainment.jpg);
 }
 
-.f-35 .subforums a:nth-child(4) {
+.f-41 .forum--main {
+  background-position: top center !important;
+}
+
+.f-35 .subforums a:nth-child(4),
+.f-54 {
   /* Bayside: https://www.pexels.com/photo/vegetables-stall-868110/*/
   --forumBG: url(../img/bayside.jpg);
 }
 
-.f-35 .subforums a:nth-child(6) {
+.f-35 .subforums a:nth-child(6),
+.f-45 {
   /* Graveyard: https://www.pexels.com/photo/graffiti-painted-on-wall-in-abandoned-building-1029696/*/
   --forumBG: url(../img/graveyard.jpg);
 }
@@ -148,17 +158,24 @@
   /*Central Davenport: https://www.pexels.com/photo/cityscape-photo-286076/*/
 }
 
-.f-37 .subforums a:nth-child(2) {
+.f-37 .subforums a:nth-child(2),
+.f-40 {
   /* University: https://www.pexels.com/photo/green-leaves-tree-near-red-and-gray-concrete-structure-during-daytime-227405/*/
   --forumBG: url(../img/uni.jpg);
 }
 
-.f-37 .subforums a:nth-child(4) {
+.f-40 .forum--main {
+  background-position: top center !important;
+}
+
+.f-37 .subforums a:nth-child(4),
+.f-47 {
   /* Business: https://www.pexels.com/photo/view-of-city-buildings-near-river-4053729/*/
   --forumBG: url(../img/business.jpg);
 }
 
-.f-37 .subforums a:nth-child(6) {
+.f-37 .subforums a:nth-child(6),
+.f-42 {
   /* Boardwalk: https://www.pexels.com/photo/green-leafed-tree-beside-body-of-water-during-daytime-158063/*/
   --forumBG: url(../img/boardwalk.jpg);
 }
@@ -169,17 +186,20 @@
   /*River's Edge: https://www.pexels.com/photo/river-near-city-buildings-under-cloudy-sky-1209978/*/
 }
 
-.f-38 .subforums a:nth-child(2) {
+.f-38 .subforums a:nth-child(2),
+.f-51 {
   /* Willow Creek: https://www.pexels.com/photo/assorted-color-wall-paint-house-photo-1370704/*/
   --forumBG: url(../img/willowcreek.jpg);
 }
 
-.f-38 .subforums a:nth-child(4) {
+.f-38 .subforums a:nth-child(4),
+.f-53 {
   /* Park: https://www.pexels.com/photo/worm-s-eyeview-of-tall-tree-under-a-gray-sky-618608/*/
   --forumBG: url(../img/park.jpg);
 }
 
-.f-38 .subforums a:nth-child(6) {
+.f-38 .subforums a:nth-child(6),
+.f-52 {
   /* Government: https://www.pexels.com/photo/architecture-building-buildings-business-273239/*/
   --forumBG: url(../img/gov.jpg);
 }
@@ -190,17 +210,20 @@
   /*Outskirts: https://www.pexels.com/photo/brown-hay-roll-near-trees-442597/*/
 }
 
-.f-39 .subforums a:nth-child(2) {
+.f-39 .subforums a:nth-child(2),
+.f-48 {
   /* Carnivale: https://www.pexels.com/photo/ferris-wheel-1047939/*/
   --forumBG: url(../img/carnivale.jpg);
 }
 
-.f-39 .subforums a:nth-child(4) {
+.f-39 .subforums a:nth-child(4),
+.f-49 {
   /* Witch's Hour: https://www.pexels.com/photo/wooden-house-in-a-forest-673788/*/
   --forumBG: url(../img/witchhour.jpg);
 }
 
-.f-39 .subforums a:nth-child(6) {
+.f-39 .subforums a:nth-child(6),
+.f-50 {
   /* Wilds: https://www.pexels.com/photo/remaining-walls-of-ruined-abandoned-building-4200749/*/
   --forumBG: url(../img/wilds.jpg);
 }
@@ -918,17 +941,17 @@ header .skip:after {
 .category.c-4 h2, .category.c-5 h2 {
   border-bottom: 1px solid var(--midGrey-70);
 }
-.category:not(.c-2):not(.c-3):not(.c-4):not(.c-5) .category--forums {
+.category.c-1 .category--forums, .category.c-6 .category--forums {
   display: grid;
   grid-template-columns: 1fr;
 }
 @media only screen and (min-width: 800px) {
-  .category:not(.c-2):not(.c-3):not(.c-4):not(.c-5) .category--forums {
+  .category.c-1 .category--forums, .category.c-6 .category--forums {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media only screen and (min-width: 1280px) {
-  .category:not(.c-2):not(.c-3):not(.c-4):not(.c-5) .category--forums {
+  .category.c-1 .category--forums, .category.c-6 .category--forums {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -946,20 +969,20 @@ header .skip:after {
   overflow: hidden;
   /*remove button & padding for ic category with no subforums/descriptions*/
 }
-.category:not(.c-5):not(.c-4) .forum {
+.category:not(.c-5):not(.c-4):not(.subforum-list.f-35):not(.subforum-list.f-36):not(.subforum-list.f-37):not(.subforum-list.f-38):not(.subforum-list.f-39) .forum {
   border-bottom: 1px solid var(--midGrey-70);
   display: grid;
   grid-template-rows: max-content auto;
 }
-.category:not(.c-5):not(.c-4) .forum .forum--subs,
-.category:not(.c-5):not(.c-4) .forum .forum--subs .subforums {
+.category:not(.c-5):not(.c-4):not(.subforum-list.f-35):not(.subforum-list.f-36):not(.subforum-list.f-37):not(.subforum-list.f-38):not(.subforum-list.f-39) .forum .forum--subs,
+.category:not(.c-5):not(.c-4):not(.subforum-list.f-35):not(.subforum-list.f-36):not(.subforum-list.f-37):not(.subforum-list.f-38):not(.subforum-list.f-39) .forum .forum--subs .subforums {
   font-size: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
 }
-.category:not(.c-5):not(.c-4) .forum .forum--subs a,
-.category:not(.c-5):not(.c-4) .forum .forum--subs .subforums a {
+.category:not(.c-5):not(.c-4):not(.subforum-list.f-35):not(.subforum-list.f-36):not(.subforum-list.f-37):not(.subforum-list.f-38):not(.subforum-list.f-39) .forum .forum--subs a,
+.category:not(.c-5):not(.c-4):not(.subforum-list.f-35):not(.subforum-list.f-36):not(.subforum-list.f-37):not(.subforum-list.f-38):not(.subforum-list.f-39) .forum .forum--subs .subforums a {
   background: var(--light);
   color: var(--dark);
   padding: 10px 20px;
@@ -968,7 +991,7 @@ header .skip:after {
   text-transform: capitalize;
   border-radius: 2px;
 }
-.category:not(.c-5):not(.c-4) .forum:first-child {
+.category:not(.c-5):not(.c-4):not(.subforum-list.f-35):not(.subforum-list.f-36):not(.subforum-list.f-37):not(.subforum-list.f-38):not(.subforum-list.f-39) .forum:first-child {
   border-top: 1px solid var(--midGrey-70);
 }
 .c-4 .forum .subforums, .c-5 .forum .subforums {
@@ -1030,7 +1053,7 @@ header .skip:after {
 .forum--main {
   padding: 50px;
 }
-.category:not(.c-1):not(.c-2):not(.c-3):not(.c-6) .forum--main:before {
+.category:not(.c-1):not(.c-2):not(.c-3):not(.c-6):not(.subforum-list) .forum--main:before, .category.subforum-list.f-35 .forum--main:before, .category.subforum-list.f-36 .forum--main:before, .category.subforum-list.f-37 .forum--main:before, .category.subforum-list.f-38 .forum--main:before, .category.subforum-list.f-39 .forum--main:before {
   content: "";
   position: absolute;
   top: 0;
@@ -1044,10 +1067,18 @@ header .skip:after {
 .category:not(.c-4):not(.c-5) .forum--main {
   padding-bottom: 0;
 }
-.f-39 .forum--main {
+.subforum-list.f-35 .forum--main, .subforum-list.f-36 .forum--main, .subforum-list.f-37 .forum--main, .subforum-list.f-38 .forum--main, .subforum-list.f-39 .forum--main {
+  padding-bottom: 200px !important;
+}
+@media only screen and (min-width: 800px) {
+  .subforum-list.f-35 .forum--main, .subforum-list.f-36 .forum--main, .subforum-list.f-37 .forum--main, .subforum-list.f-38 .forum--main, .subforum-list.f-39 .forum--main {
+    padding-bottom: 0 !important;
+  }
+}
+.category:not(.subforum-list) .f-39 .forum--main {
   background-position: 50% 80% !important;
 }
-.f-35 .forum--main {
+.category:not(.subforum-list) .f-35 .forum--main {
   background-position: 50% 20% !important;
 }
 .forum--stats {
@@ -1124,6 +1155,24 @@ header .skip:after {
   transition-duration: 0.75s;
   transform-origin: top;
 }
+.subforum-list.f-35 .forum--desc, .subforum-list.f-36 .forum--desc, .subforum-list.f-37 .forum--desc, .subforum-list.f-38 .forum--desc, .subforum-list.f-39 .forum--desc {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  padding: 0 !important;
+  height: max-content !important;
+  width: calc(100% - 60px);
+  background: var(--light) !important;
+  border-radius: 3px;
+  max-height: 170px;
+}
+@media only screen and (min-width: 800px) {
+  .subforum-list.f-35 .forum--desc, .subforum-list.f-36 .forum--desc, .subforum-list.f-37 .forum--desc, .subforum-list.f-38 .forum--desc, .subforum-list.f-39 .forum--desc {
+    max-height: none;
+    height: calc(100% - 60px) !important;
+    width: 350px;
+  }
+}
 .forum--desc.active {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -1157,7 +1206,7 @@ header .skip:after {
   background: none;
 }
 .category:not(.c-4):not(.c-5) .forum--desc:empty {
-  padding-bottom: 25px;
+  padding-bottom: 10px;
 }
 .forum--text {
   font-size: var(--xlBody);
@@ -1166,6 +1215,23 @@ header .skip:after {
   background: var(--light);
   padding: 15px 20px;
   border-radius: 2px;
+}
+.subforum-list.f-35 .forum--text, .subforum-list.f-36 .forum--text, .subforum-list.f-37 .forum--text, .subforum-list.f-38 .forum--text, .subforum-list.f-39 .forum--text {
+  max-height: 140px;
+  overflow: auto;
+  background: none;
+  margin: 15px;
+  padding: 0 15px 0 0;
+  scrollbar-color: var(--dark) transparent;
+}
+@media only screen and (min-width: 800px) {
+  .subforum-list.f-35 .forum--text, .subforum-list.f-36 .forum--text, .subforum-list.f-37 .forum--text, .subforum-list.f-38 .forum--text, .subforum-list.f-39 .forum--text {
+    max-height: none;
+    height: calc(100% - 30px);
+  }
+}
+.subforum-list.f-35 .forum--text::-webkit-scrollbar-thumb, .subforum-list.f-36 .forum--text::-webkit-scrollbar-thumb, .subforum-list.f-37 .forum--text::-webkit-scrollbar-thumb, .subforum-list.f-38 .forum--text::-webkit-scrollbar-thumb, .subforum-list.f-39 .forum--text::-webkit-scrollbar-thumb {
+  background: var(--dark);
 }
 .forum.f-6, .forum.f-34 {
   grid-column: 1/-1;
@@ -1180,7 +1246,7 @@ header .skip:after {
     grid-column: 1/-1;
   }
 }
-.c-4 .forum--main, .c-5 .forum--main {
+.c-4 .forum--main, .c-5 .forum--main, .f-36 .forum--main, .f-35 .forum--main, .f-37 .forum--main, .f-38 .forum--main, .f-39 .forum--main {
   background-image: var(--forumBG);
   background-size: cover;
   background-position: center right;
