@@ -1030,6 +1030,17 @@ header .skip:after {
 .forum--main {
   padding: 50px;
 }
+.category:not(.c-1):not(.c-2):not(.c-3):not(.c-6) .forum--main:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--headerOverlay);
+  mix-blend-mode: var(--headerBlend);
+  opacity: var(--headerOpacity);
+}
 .category:not(.c-4):not(.c-5) .forum--main {
   padding-bottom: 0;
 }

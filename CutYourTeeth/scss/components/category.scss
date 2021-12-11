@@ -170,6 +170,20 @@
     &--main {
         padding: 50px;
 
+        .category:not(.c-1):not(.c-2):not(.c-3):not(.c-6) & {
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--headerOverlay);
+                mix-blend-mode: var(--headerBlend);
+                opacity: var(--headerOpacity);
+            }
+        }
+
         .category:not(.c-4):not(.c-5) & {
             padding-bottom: 0;
         }
