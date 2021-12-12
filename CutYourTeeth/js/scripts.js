@@ -66,9 +66,7 @@ window.addEventListener('resize', () => {
     if(window.innerWidth < 1024) {
         document.querySelector('.controls.memOnly').classList.remove('active');
         document.querySelector('.controls.guestOnly').classList.remove('active');
-        document.querySelector('main').classList.remove('controls-open');
         document.querySelector('nav').classList.remove('controls-open');
-        document.querySelector('header').classList.remove('controls-open');
     } else {
         document.querySelector('.ucp--menu-mobile').classList.remove('active');
     }
