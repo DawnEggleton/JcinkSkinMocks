@@ -665,18 +665,21 @@ nav .ucp--menu > li:hover > ul.staff {
 ********************************/
 header {
   transition-duration: 0.75s;
-  height: 100vh;
-  display: grid;
+  height: 80px;
   text-align: center;
   justify-items: center;
-  grid-template-rows: 1fr max-content 1fr;
   color: var(--white);
+}
+#idx header {
+  display: grid;
+  grid-template-rows: 1fr max-content 1fr;
+  height: 100vh;
   background-image: linear-gradient(to top, var(--black), transparent, transparent, transparent);
 }
-header.controls-open {
+#idx header.controls-open {
   background-image: linear-gradient(to top, transparent, transparent, transparent, transparent);
 }
-header.controls-open > * {
+#idx header.controls-open > * {
   opacity: 0;
   transition-duration: 0.75s;
 }
@@ -697,6 +700,9 @@ header p {
   font-size: var(--xsBody);
   letter-spacing: 4px;
 }
+body:not(#idx) header p {
+  display: none;
+}
 header a {
   color: var(--white);
 }
@@ -706,13 +712,19 @@ header h1 {
   letter-spacing: 5px;
   margin: 0;
 }
+body:not(#idx) header h1 {
+  display: none;
+}
 header .skip {
+  display: grid;
   text-transform: uppercase;
   font-size: var(--xsBody);
   letter-spacing: 4px;
   margin-top: 20px;
-  display: grid;
   grid-template-rows: max-content auto;
+}
+body:not(#idx) header .skip {
+  display: none;
 }
 header .skip:after {
   content: "\f107";

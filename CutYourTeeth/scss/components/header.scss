@@ -3,20 +3,24 @@
 ********************************/
 header {
     transition-duration: 0.75s;
-    height: 100vh;
-    display: grid;
+    height: 80px;
     text-align: center;
     justify-items: center;
-    grid-template-rows: 1fr max-content 1fr;
     color: var(--white);
-    background-image: linear-gradient(to top, var(--black), transparent, transparent, transparent);
 
-    &.controls-open {
-        background-image: linear-gradient(to top, transparent, transparent, transparent, transparent);
+    #idx & {
+        display: grid;
+        grid-template-rows: 1fr max-content 1fr;
+        height: 100vh;
+        background-image: linear-gradient(to top, var(--black), transparent, transparent, transparent);
 
-        & > * {
-            opacity: 0;
-            transition-duration: 0.75s;
+        &.controls-open {
+            background-image: linear-gradient(to top, transparent, transparent, transparent, transparent);
+    
+            & > * {
+                opacity: 0;
+                transition-duration: 0.75s;
+            }
         }
     }
 
@@ -37,6 +41,10 @@ header {
         text-transform: uppercase;
         font-size: var(--xsBody);
         letter-spacing: 4px;
+
+        body:not(#idx) & {
+            display: none;
+        }
     }
 
     a {
@@ -48,15 +56,23 @@ header {
         font-size: 4rem;
         letter-spacing: 5px;
         margin: 0;
+
+        body:not(#idx) & {
+            display: none;
+        }
     }
 
     .skip {
+        display: grid;
         text-transform: uppercase;
         font-size: var(--xsBody);
         letter-spacing: 4px;
         margin-top: 20px;
-        display: grid;
         grid-template-rows: max-content auto;
+
+        body:not(#idx) & {
+            display: none;
+        }
 
         &:after {
             content: '\f107';
