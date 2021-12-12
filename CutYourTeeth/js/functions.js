@@ -18,31 +18,46 @@ function toggleMode() {
 }
 
 function openVisitor() {
-    document.querySelector('.controls-guest').classList.toggle('active');
-    let infoHeight = (window.innerHeight - navHeight - 70 - document.querySelector('.controls-guest .controls--user').clientHeight) / 2;
-    document.querySelectorAll('.controls--site .scroll').forEach(info => {
-        info.style.height = `${infoHeight}px`;
-        if(info.scrollHeight > infoHeight) {
-            info.style.paddingRight = `10px`;
-        }
-    });
+    //toggle css states
+    document.querySelector('.controls.guestOnly').classList.toggle('active');
+    document.querySelector('main').classList.toggle('controls-open');
+    document.querySelector('nav').classList.toggle('controls-open');
+    document.querySelector('header').classList.toggle('controls-open');
+    setControlSizes('visitor');
 }
 
 function openControls() {
-    document.querySelector('.controls').classList.toggle('active');
+    //toggle css states
+    document.querySelector('.controls.memOnly').classList.toggle('active');
     document.querySelector('main').classList.toggle('controls-open');
+    document.querySelector('nav').classList.toggle('controls-open');
     document.querySelector('header').classList.toggle('controls-open');
-    let linksHeight = window.innerHeight - navHeight - 30 - document.querySelector('.controls--user').clientHeight;
-    let infoHeight = (window.innerHeight - navHeight - 70 - document.querySelector('.controls--user').clientHeight) / 2;
-    document.querySelector('.controls--links .scroll').style.maxHeight = `${linksHeight}px`;
-    document.querySelectorAll('.controls--site .scroll').forEach(info => {
-        info.style.maxHeight = `${infoHeight}px`;
-        if(info.scrollHeight > infoHeight) {
-            info.style.paddingRight = `10px`;
-        }
-    });
-    if(document.querySelector('.controls--links .scroll').scrollHeight > linksHeight) {
-        document.querySelector('.controls--links .scroll').style.paddingRight = `10px`;
+    setControlSizes('member');
+}
+
+function setControlSizes(userType) {
+    //find heights
+    console.log(userType);
+    let parent = document.querySelector('.controls.memOnly');
+    if(userType === 'visitor') {
+        parent = document.querySelector('.controls.guestOnly');
+    }
+    fullHeight = window.innerHeight - navHeight;
+    let minusUser = fullHeight - parent.querySelector('.controls--user').clientHeight - 2;
+    let smallScroll = minusUser - parent.querySelector('.controls--site-info-staff').clientHeight - 60;
+    let largeScroll = minusUser - 200, imageHeight = 200;
+    if (window.innerWidth > 1280) {
+        largeScroll = minusUser;
+        imageHeight = minusUser;
+    }
+    
+    //set heights
+    parent.querySelector('.controls--site').style.height = `${minusUser}px`;
+    parent.querySelector('.controls--site-image').style.height = `${imageHeight}px`;
+    parent.querySelectorAll('.controls--site-info .scroll').forEach(scroll => scroll.style.height = `${smallScroll}px`);
+
+    if(userType === 'member') {
+        parent.querySelector('.controls--site-links .scroll').style.height = `${largeScroll - 60}px`;
     }
 }
 

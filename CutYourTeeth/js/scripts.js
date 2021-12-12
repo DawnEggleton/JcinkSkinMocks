@@ -20,10 +20,11 @@ if(localStorage.getItem("SIZEMODE") == "1") {
 
 //Set styles for user controls
 let navHeight = document.querySelector('nav').clientHeight;
-document.querySelector('.controls').style.top = `${navHeight - 10}px`;
-document.querySelector('.controls').style.height = `${window.innerHeight - navHeight - 10}px`;
-document.querySelector('.controls-guest').style.top = `${navHeight - 10}px`;
-document.querySelector('.controls-guest').style.height = `${window.innerHeight - navHeight - 10}px`;
+let fullHeight = window.innerHeight - navHeight;
+document.querySelector('.controls.memOnly').style.top = `${navHeight}px`;
+document.querySelector('.controls.memOnly').style.height = `${fullHeight}px`;
+document.querySelector('.controls.guestOnly').style.top = `${navHeight}px`;
+document.querySelector('.controls.guestOnly').style.height = `${fullHeight}px`;
 
 
 //change nav styles
@@ -52,3 +53,23 @@ $('a[href^="#"]').click(function () {
 
     return false;
 });
+
+
+//window resize functions
+window.addEventListener('resize', () => {
+    if(document.querySelector('.controls.memOnly').classList.contains('active')) {
+        setControlSizes('member');
+    } else if(document.querySelector('.controls.guestOnly').classList.contains('active')) {
+        setControlSizes('visitor');
+    }
+
+    if(window.innerWidth < 1024) {
+        document.querySelector('.controls.memOnly').classList.remove('active');
+        document.querySelector('.controls.guestOnly').classList.remove('active');
+        document.querySelector('main').classList.remove('controls-open');
+        document.querySelector('nav').classList.remove('controls-open');
+        document.querySelector('header').classList.remove('controls-open');
+    } else {
+        document.querySelector('.ucp--menu-mobile').classList.remove('active');
+    }
+})

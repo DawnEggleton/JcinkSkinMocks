@@ -15,7 +15,7 @@ nav {
     z-index: 11;
     transition-duration: 0.5s;
 
-    &.scrolled {
+    &.scrolled:not(.controls-open) {
         background: var(--black);
         padding: 10px;
 
@@ -101,6 +101,11 @@ nav {
             .scroll {
                 height: calc(100vh - 52px);
                 margin-top: 10px;
+                scrollbar-color: var(--dark) transparent;
+
+                &::-webkit-scrollbar-thumb {
+                    background: var(--dark);
+                }
             }
 
             .close {
