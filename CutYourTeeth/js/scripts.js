@@ -23,8 +23,10 @@ let navHeight = document.querySelector('nav').clientHeight;
 let fullHeight = window.innerHeight - navHeight;
 document.querySelector('.controls.memOnly').style.top = `${navHeight}px`;
 document.querySelector('.controls.memOnly').style.height = `${fullHeight}px`;
+document.querySelector('.controls.memOnly').style.backgroundPosition = `0 -${navHeight}px`;
 document.querySelector('.controls.guestOnly').style.top = `${navHeight}px`;
 document.querySelector('.controls.guestOnly').style.height = `${fullHeight}px`;
+document.querySelector('.controls.guestOnly').style.backgroundPosition = `0 -${navHeight}px`;
 
 
 //change nav styles

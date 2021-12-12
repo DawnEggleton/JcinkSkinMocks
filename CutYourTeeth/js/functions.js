@@ -52,7 +52,6 @@ function setControlSizes(userType) {
     parent.querySelector('.controls--site').style.height = `${minusUser}px`;
     parent.querySelector('.controls--site-image').style.height = `${imageHeight}px`;
     parent.querySelectorAll('.controls--site-info .scroll').forEach(scroll => scroll.style.height = `${smallScroll}px`);
-    parent.style.backgroundPosition = `0 -${navHeight}px`;
 
     if(userType === 'member') {
         parent.querySelector('.controls--site-links .scroll').style.height = `${largeScroll - 60}px`;
