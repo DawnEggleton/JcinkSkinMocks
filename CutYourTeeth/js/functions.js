@@ -20,14 +20,18 @@ function toggleMode() {
 function openVisitor() {
     //toggle css states
     document.querySelector('.controls.guestOnly').classList.toggle('active');
+    document.querySelector('main').classList.toggle('controls-open');
     document.querySelector('nav').classList.toggle('controls-open');
+    document.querySelector('header').classList.toggle('controls-open');
     setControlSizes('visitor');
 }
 
 function openControls() {
     //toggle css states
     document.querySelector('.controls.memOnly').classList.toggle('active');
+    document.querySelector('main').classList.toggle('controls-open');
     document.querySelector('nav').classList.toggle('controls-open');
+    document.querySelector('header').classList.toggle('controls-open');
     setControlSizes('member');
 }
 
@@ -39,8 +43,7 @@ function setControlSizes(userType) {
         parent = document.querySelector('.controls.guestOnly');
     }
     fullHeight = window.innerHeight - navHeight;
-    let userHeight = parent.querySelector('.controls--user').clientHeight;
-    let minusUser = fullHeight - userHeight - 2;
+    let minusUser = fullHeight - parent.querySelector('.controls--user').clientHeight - 2;
     let smallScroll = minusUser - parent.querySelector('.controls--site-info-staff').clientHeight - 60;
     let largeScroll = minusUser - 200, imageHeight = 200;
     if (window.innerWidth > 1280) {
@@ -48,7 +51,7 @@ function setControlSizes(userType) {
         imageHeight = minusUser;
     }
     
-    //set heights & positioning
+    //set heights
     parent.querySelector('.controls--site').style.height = `${minusUser}px`;
     parent.querySelector('.controls--site-image').style.height = `${imageHeight}px`;
     parent.querySelectorAll('.controls--site-info .scroll').forEach(scroll => scroll.style.height = `${smallScroll}px`);

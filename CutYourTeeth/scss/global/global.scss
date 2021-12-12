@@ -94,6 +94,17 @@ body.lgFont .smallOnly,
 main {
     transition-duration: 0.75s;
 
+    &.controls-open > * {
+        opacity: 0;
+        transition-duration: 0.75s;
+    }
+    &.controls-open ~ * {
+        height: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        transition-duration: 0.75s;
+    }
+
     &:before {
         content: '';
         position: absolute;
