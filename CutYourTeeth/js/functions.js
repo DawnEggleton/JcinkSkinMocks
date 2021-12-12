@@ -54,10 +54,10 @@ function setControlSizes(userType) {
     //set heights
     parent.querySelector('.controls--site').style.height = `${minusUser}px`;
     parent.querySelector('.controls--site-image').style.height = `${imageHeight}px`;
-    parent.querySelectorAll('.controls--site-info .scroll').forEach(scroll => scroll.style.height = `${smallScroll}px`);
+    parent.querySelectorAll('.controls--site-info .scroll').forEach(scroll => scroll.style.maxHeight = `${smallScroll}px`);
 
     if(userType === 'member') {
-        parent.querySelector('.controls--site-links .scroll').style.height = `${largeScroll - 60}px`;
+        parent.querySelector('.controls--site-links .scroll').style.maxHeight = `${largeScroll - 60}px`;
     }
 }
 
