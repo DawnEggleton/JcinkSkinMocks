@@ -321,6 +321,14 @@ img {
   max-width: 100%;
 }
 
+table,
+tbody,
+tr,
+td,
+th {
+  all: unset;
+}
+
 .scroll {
   overflow: auto;
   padding-right: 10px;
@@ -935,24 +943,57 @@ header .skip:after {
   z-index: 2;
   position: relative;
 }
-.category.c-1 h2, .category.c-5 h2, .category.c-6 h2 {
+.category.c-1 h2, .category.c-5 h2, .category.c-6 h2, .category.subforum-list h2 {
   border-top: 1px solid var(--midGrey-70);
 }
-.category.c-4 h2, .category.c-5 h2 {
+.category.c-4 h2, .category.c-5 h2, .category.subforum-list.f-35 h2, .category.subforum-list.f-36 h2, .category.subforum-list.f-37 h2, .category.subforum-list.f-38 h2, .category.subforum-list.f-39 h2 {
   border-bottom: 1px solid var(--midGrey-70);
 }
-.category.c-1 .category--forums, .category.c-6 .category--forums {
+.category.c-1 .category--forums, .category.c-6 .category--forums, .category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .category--forums {
   display: grid;
   grid-template-columns: 1fr;
 }
 @media only screen and (min-width: 800px) {
-  .category.c-1 .category--forums, .category.c-6 .category--forums {
+  .category.c-1 .category--forums, .category.c-6 .category--forums, .category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .category--forums {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media only screen and (min-width: 1280px) {
-  .category.c-1 .category--forums, .category.c-6 .category--forums {
+  .category.c-1 .category--forums, .category.c-6 .category--forums, .category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .category--forums {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+.category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .forum:not(:first-child) {
+  border-top: 0;
+}
+.category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .forum:only-child {
+  grid-column: 1/-1 !important;
+}
+@media only screen and (min-width: 800px) {
+  .category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .forum:nth-child(2) {
+    border-top: 1px solid var(--midGrey-70);
+  }
+  .category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .forum:nth-child(2n) {
+    border-left: 1px solid var(--midGrey-70);
+  }
+  .category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .forum:nth-child(2n+1):last-child {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .forum:nth-child(3) {
+    border-top: 1px solid var(--midGrey-70);
+  }
+  .category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .forum:nth-child(3n+2) {
+    border-left: 1px solid var(--midGrey-70);
+    border-right: 1px solid var(--midGrey-70);
+  }
+  .category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .forum:nth-child(3n+2):last-child {
+    grid-column: 2/-1;
+    border-right: 0;
+  }
+  .category.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) .forum:nth-child(2n+1):last-child {
+    grid-column: span 1;
   }
 }
 .category.c-2 .category--forums, .category.c-3 .category--forums {

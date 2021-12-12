@@ -29,21 +29,28 @@
 
     &.c-1,
     &.c-5,
-    &.c-6 {
+    &.c-6,
+    &.subforum-list {
         h2 {
             border-top: 1px solid var(--midGrey-70);
         }
     }
 
     &.c-4,
-    &.c-5 {
+    &.c-5,
+    &.subforum-list.f-35,
+    &.subforum-list.f-36,
+    &.subforum-list.f-37,
+    &.subforum-list.f-38,
+    &.subforum-list.f-39 {
         h2 {
             border-bottom: 1px solid var(--midGrey-70);
         }
     }
 
     &.c-1,
-    &.c-6 {
+    &.c-6,
+    &.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) {
         .category--forums {
             display: grid;
             grid-template-columns: 1fr;
@@ -54,6 +61,52 @@
 
             @media only screen and (min-width: $xl) {
                 grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+
+    &.subforum-list:not(.f-35):not(.f-36):not(.f-37):not(.f-38):not(.f-39) {
+        & .forum {
+            &:not(:first-child) {
+                border-top: 0;
+            }
+
+            &:only-child {
+                grid-column: 1 / -1 !important;
+            }
+
+            @media only screen and (min-width: $md) {
+                &:nth-child(2) {
+                    border-top: 1px solid var(--midGrey-70);
+                }
+
+                &:nth-child(2n) {
+                    border-left: 1px solid var(--midGrey-70);
+                }
+
+                &:nth-child(2n + 1):last-child {
+                        grid-column: 1 / -1;
+                }
+            }
+
+            @media only screen and (min-width: $xl) {
+                &:nth-child(3) {
+                    border-top: 1px solid var(--midGrey-70);
+                }
+
+                &:nth-child(3n + 2) {
+                    border-left: 1px solid var(--midGrey-70);
+                    border-right: 1px solid var(--midGrey-70);
+                }
+
+                &:nth-child(3n + 2):last-child {
+                        grid-column: 2 / -1;
+                        border-right: 0;
+                }
+
+                &:nth-child(2n + 1):last-child {
+                        grid-column: span 1;
+                }
             }
         }
     }

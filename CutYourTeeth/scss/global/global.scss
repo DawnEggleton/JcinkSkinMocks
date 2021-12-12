@@ -35,6 +35,13 @@ body {
 img {
     max-width: 100%;
 }
+table,
+tbody,
+tr,
+td,
+th {
+    all: unset;
+}
 .scroll {
     overflow: auto;
     padding-right: 10px;
