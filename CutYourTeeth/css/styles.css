@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*******************************
     Settings
     - Used in settings webpage
@@ -281,6 +282,14 @@
 /*******************************
     Global
 ********************************/
+table,
+tbody,
+tr,
+td,
+th {
+  all: unset;
+}
+
 * {
   position: relative;
   box-sizing: border-box;
@@ -311,18 +320,13 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+body > br {
+  display: none;
+}
 
 img {
   max-width: 100%;
   object-fit: cover;
-}
-
-table,
-tbody,
-tr,
-td,
-th {
-  all: unset;
 }
 
 .scroll {
@@ -428,6 +432,31 @@ main + .tableborder .row4 .copyright {
 }
 main + .tableborder .row4 .copyright a {
   color: var(--white);
+}
+
+.marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border: none;
+  z-index: 2;
+}
+.marker.active {
+  width: 90px;
+  border-left: 5px solid;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+}
+.marker.new {
+  border-color: var(--accent);
+}
+.marker.alert {
+  border-color: var(--ltGrey);
+}
+.marker.alert.new {
+  border-color: var(--white);
 }
 
 /*******************************
@@ -1122,6 +1151,9 @@ header .skip:after {
 .forum--main {
   padding: 50px;
 }
+.forum--main > * {
+  z-index: 2;
+}
 .category:not(.c-1):not(.c-2):not(.c-3):not(.c-6):not(.subforum-list) .forum--main:before, .category.subforum-list.f-35 .forum--main:before, .category.subforum-list.f-36 .forum--main:before, .category.subforum-list.f-37 .forum--main:before, .category.subforum-list.f-38 .forum--main:before, .category.subforum-list.f-39 .forum--main:before {
   content: "";
   position: absolute;
@@ -1166,6 +1198,15 @@ header .skip:after {
 }
 .forum--name a {
   color: var(--white);
+}
+.new .forum--name a:before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: 3px;
+  background: var(--accent);
 }
 .forum--latest {
   display: grid;
@@ -1510,6 +1551,145 @@ header .skip:after {
 /*******************************
     Topic List
 ********************************/
+#SF .f-35 + table,
+#SF .f-36 + table,
+#SF .f-37 + table,
+#SF .f-38 + table,
+#SF .f-39 + table {
+  border-top: 1px solid var(--midGrey-70);
+}
+#SF main > table,
+#SF main > form > table {
+  position: relative;
+  background: var(--black);
+  display: block;
+  padding: 15px;
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  color: var(--white);
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#SF main > table a,
+#SF main > form > table a {
+  color: var(--white);
+}
+#SF main > table > tbody > tr,
+#SF main > form > table > tbody > tr {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+#SF main > table .pagination_pagetxt,
+#SF main > form > table .pagination_pagetxt {
+  display: none;
+}
+#SF main > form > br,
+#SF .wrapmini {
+  display: none;
+}
+
+.topic {
+  padding: 30px;
+  border-bottom: 1px solid var(--midGrey-70);
+}
+.topic--stats {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 4px;
+  font-weight: 400;
+}
+.topic--stats b {
+  font-weight: 800;
+}
+.topic--stats a {
+  color: var(--white);
+}
+.topic--name {
+  font-family: var(--serif);
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 10px 0 0;
+  line-height: 160%;
+}
+.topic--name a {
+  color: var(--white);
+}
+.marked .topic--name a:before {
+  position: absolute;
+  bottom: calc(50% - 2.5px);
+  left: -13px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+.marked.pinned.new .topic--name a:before {
+  background: var(--white);
+}
+.marked.pinned .topic--name a:before {
+  background: var(--ltGrey);
+}
+.marked.new .topic--name a:before {
+  background: var(--accent);
+}
+.topic--desc {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+  margin-top: 12px;
+  margin-left: 5px;
+}
+.topic--desc:empty {
+  display: none;
+}
+.topic--desc:before {
+  content: "↳ ";
+}
+.topic--desc .threadDate {
+  background: var(--light);
+  color: var(--dark);
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+.topic--info {
+  display: grid;
+  grid-gap: 30px;
+  padding: 25px 0 0;
+}
+@media only screen and (min-width: 800px) {
+  .topic--info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.topic--player {
+  display: grid;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+  grid-gap: 5px;
+}
+.topic--player > span {
+  display: grid;
+  grid-template-columns: 16px auto;
+  grid-gap: 10px;
+  align-items: center;
+  height: 24px;
+}
+.topic--player a {
+  color: var(--white);
+}
+.topic--player i.fal {
+  font-size: var(--lBody);
+  line-height: var(--lBody);
+}
+.topic--player.topic--start a:before {
+  content: "Started by ";
+}
+.topic--player.topic--last a:before {
+  content: "Last post by ";
+}
+
 /*******************************
     Post Row
 ********************************/

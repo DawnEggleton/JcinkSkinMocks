@@ -38,11 +38,15 @@ window.onscroll = function() {
 
 
 //append recent topics
-document.querySelector('#recent-topics-clip').append(document.querySelector('#recent-topics'));
+if($('body#idx').length > 0) {
+    document.querySelector('#recent-topics-clip').append(document.querySelector('#recent-topics'));
+}
 
 
 //add anchor to guidebook
-document.querySelector('.f-3').setAttribute('name', 'learn-more');
+if($('.f-3').length > 0) {
+    document.querySelector('.f-3').setAttribute('name', 'learn-more');
+}
 
 
 //smooth scrolling anchors by name
@@ -72,4 +76,16 @@ window.addEventListener('resize', () => {
     } else {
         document.querySelector('.ucp--menu-mobile').classList.remove('active');
     }
-})
+});
+
+
+//Topic Lists Only
+if($('body#SF').length > 0) {
+
+    $('.topic--desc').each(function () {
+        let string = $(this).text();
+        let newString = string.replace('[', `<span class="threadDate">`).replace(']', `</span>`);
+        $(this).html(newString);
+    });
+
+}

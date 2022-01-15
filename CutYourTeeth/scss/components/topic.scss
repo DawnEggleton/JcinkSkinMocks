@@ -1,4 +1,175 @@
 /*******************************
     Topic List
 ********************************/
+#SF {
+    .f-35,
+    .f-36,
+    .f-37,
+    .f-38,
+    .f-39 {
+        & + table {
+            border-top: 1px solid var(--midGrey-70);
+        }
+    }
 
+    main > table,
+    main > form > table {
+        position: relative;
+        background: var(--black);
+        display: block;
+        padding: 15px;
+        font-family: var(--serif);
+        font-size: var(--xlBody);
+        color: var(--white);
+        border-bottom: 1px solid var(--midGrey-70);
+
+        a {
+            color: var(--white);
+        }
+
+        & > tbody > tr {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .pagination_pagetxt {
+            display: none;
+        }
+    }
+
+    main > form > br,
+    .wrapmini {
+        display: none;
+    }
+}
+
+.topic {
+    padding: 30px;
+    border-bottom: 1px solid var(--midGrey-70);
+
+    &--stats {
+        text-transform: uppercase;
+        font-size: var(--xsBody);
+        letter-spacing: 4px;
+        font-weight: 400;
+        
+        b {
+            font-weight: 800;
+        }
+
+        a {
+            color: var(--white);
+        }
+    }
+
+    &--name {
+        font-family: var(--serif);
+        font-size: 20px;
+        letter-spacing: 1px;
+        margin: 10px 0 0;
+        line-height: 160%;
+
+        a {
+            color: var(--white);
+        }
+
+        .marked & {
+            & a:before {
+                //content: '';
+                position: absolute;
+                bottom: calc(50% - 2.5px);
+                left: -13px;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+            }
+        }
+
+        .marked.pinned.new & {
+            & a:before {
+                background: var(--white);
+            }
+        }
+
+        .marked.pinned & {
+            & a:before {
+                background: var(--ltGrey);
+            }
+        }
+
+        .marked.new & {
+            & a:before {
+                background: var(--accent);
+            }
+        }
+    }
+
+    &--desc {
+        text-transform: uppercase;
+        font-size: var(--xsBody);
+        letter-spacing: 2px;
+        margin-top: 12px;
+        margin-left: 5px;
+
+        &:empty {
+            display: none;
+        }
+
+        &:before {
+            content: '\21B3 \0020';
+        }
+
+        .threadDate {
+            background: var(--light);
+            color: var(--dark);
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 2px 5px;
+            border-radius: 2px;
+        }
+    }
+
+    &--info {
+        display: grid;
+        grid-gap: 30px;
+        padding: 25px 0 0;
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &--player {
+        display: grid;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: var(--xsBody);
+        grid-gap: 5px;
+
+        & > span {
+            display: grid;
+            grid-template-columns: 16px auto;
+            grid-gap: 10px;
+            align-items: center;
+            height: 24px;
+        }
+
+        a {
+            color: var(--white);
+        }
+
+        i.fal {
+            font-size: var(--lBody);
+            line-height: var(--lBody);
+        }
+
+        &.topic--start a:before {
+            content: 'Started by ';
+        }
+
+        &.topic--last a:before {
+            content: 'Last post by ';
+        }
+    }
+}

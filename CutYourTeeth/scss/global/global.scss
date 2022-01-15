@@ -2,6 +2,13 @@
     Global
 ********************************/
 
+table,
+tbody,
+tr,
+td,
+th {
+    all: unset;
+}
 * {
     position: relative;
     box-sizing: border-box;
@@ -31,17 +38,14 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    
+    & > br {
+        display: none;
+    }
 }
 img {
     max-width: 100%;
     object-fit: cover;
-}
-table,
-tbody,
-tr,
-td,
-th {
-    all: unset;
 }
 .scroll {
     overflow: auto;
@@ -149,5 +153,32 @@ main {
                 color: var(--white);
             }
         }
+    }
+}
+
+.marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border: none;
+    z-index: 2;
+
+    &.active {
+        width: 90px;
+        border-left: 5px solid;
+        border-top: 2px solid;
+        border-bottom: 2px solid;
+    }
+
+    &.new {
+        border-color: var(--accent);
+    }
+    &.alert {
+        border-color: var(--ltGrey);
+    }
+    &.alert.new {
+        border-color: var(--white);
     }
 }

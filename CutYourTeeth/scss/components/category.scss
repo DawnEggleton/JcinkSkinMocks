@@ -224,6 +224,10 @@
     &--main {
         padding: 50px;
 
+        & > * {
+            z-index: 2;
+        }
+
         .category:not(.c-1):not(.c-2):not(.c-3):not(.c-6):not(.subforum-list) &,
         .category.subforum-list.f-35 &,
         .category.subforum-list.f-36 &,
@@ -286,6 +290,16 @@
 
         a {
             color: var(--white);
+
+            .new &:before {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: -10px;
+                width: calc(100% + 20px);
+                height: 3px;
+                background: var(--accent);
+            }
         }
     }
 
