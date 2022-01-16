@@ -1320,6 +1320,9 @@ header .skip:after {
 .category:not(.c-4):not(.c-5) .forum--desc:empty {
   padding-bottom: 10px;
 }
+.category:not(.c-4):not(.c-5) .redirect .forum--desc {
+  padding-top: 30px;
+}
 .forum--text {
   font-size: var(--xlBody);
   font-family: var(--serif);

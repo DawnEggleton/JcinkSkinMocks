@@ -428,6 +428,10 @@
                 padding-bottom: 10px;
             }
         }
+
+        .category:not(.c-4):not(.c-5) .redirect & {
+            padding-top: 30px;
+        }
     }
 
     &--text {
