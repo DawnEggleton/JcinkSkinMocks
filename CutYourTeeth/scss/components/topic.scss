@@ -31,6 +31,11 @@
             display: flex;
             justify-content: space-between;
             gap: 30px;
+
+            & > td:last-child {
+                display: flex;
+                gap: 20px;
+            }
         }
 
         .pagination_pagetxt {

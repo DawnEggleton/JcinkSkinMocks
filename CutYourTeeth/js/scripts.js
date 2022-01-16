@@ -89,3 +89,16 @@ if($('body#SF').length > 0) {
     });
 
 }
+
+
+//Post view only
+if($('body#ST').length > 0) {
+    $('main > table:first-of-type').before($('main > .tableborder > .maintitle'));
+    $('.topic-title-space').before($('.postlinksbar strong a:first-child'));
+
+    $('.topic-desc').each(function () {
+        let string = $(this).text();
+        let newString = string.replace('[', `<span class="threadDate">`).replace(']', `</span>`);
+        $(this).html(newString);
+    });
+}

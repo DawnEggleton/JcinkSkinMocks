@@ -1581,6 +1581,11 @@ header .skip:after {
   justify-content: space-between;
   gap: 30px;
 }
+#SF main > table > tbody > tr > td:last-child,
+#SF main > form > table > tbody > tr > td:last-child {
+  display: flex;
+  gap: 20px;
+}
 #SF main > table .pagination_pagetxt,
 #SF main > form > table .pagination_pagetxt {
   display: none;
@@ -1741,6 +1746,170 @@ header .skip:after {
 /*******************************
     Post Row
 ********************************/
+#ST main > table {
+  position: relative;
+  background: var(--black);
+  display: block;
+  padding: 15px;
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  color: var(--white);
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#ST main > table a {
+  color: var(--white);
+}
+#ST main > table > tbody > tr {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+#ST main > table > tbody > tr > td:last-child {
+  display: flex;
+  gap: 20px;
+}
+#ST main > table .pagination_pagetxt {
+  display: none;
+}
+#ST .bar {
+  padding: 30px 30px 0 !important;
+  font-size: 0;
+  text-align: right;
+}
+#ST .bar > div {
+  float: none !important;
+}
+#ST .bar + br + div[align=right] {
+  padding: 0 30px 25px;
+  font-size: 0;
+}
+#ST .bar input[type=submit],
+#ST .bar + br + div[align=right] input[type=submit] {
+  top: -0.5px;
+}
+#ST .bar input[type=submit],
+#ST .bar input[type=button],
+#ST .bar select,
+#ST .bar + br + div[align=right] input[type=submit],
+#ST .bar + br + div[align=right] input[type=button],
+#ST .bar + br + div[align=right] select {
+  background: var(--light);
+  border: 0;
+  padding: 6.5px 10px;
+  border-radius: 2px;
+  color: var(--dark);
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: var(--body);
+  font-weight: 500;
+  line-height: var(--sBody);
+  margin: 0 5px 5px 0;
+}
+#ST .bar input[type=text],
+#ST .bar + br + div[align=right] input[type=text] {
+  background: var(--light);
+  border: 0;
+  padding: 5px 10px;
+  border-radius: 2px;
+  color: var(--dark);
+  font-size: var(--sBody);
+  letter-spacing: 1px;
+  font-family: var(--body);
+  font-weight: 500;
+  line-height: var(--sBody);
+  margin: 0 5px 5px 0;
+}
+#ST .bar option,
+#ST .bar + br + div[align=right] option {
+  font-size: var(--mBody);
+}
+#ST .maintitle {
+  margin: 0;
+  padding: 100px 30px;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 36px;
+  text-transform: capitalize;
+  color: var(--white);
+  border-top: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#ST .maintitle > a:first-child {
+  position: absolute;
+  top: 15px;
+  right: 17.5px;
+  font-family: var(--body);
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+#ST .maintitle > a:first-child:before {
+  content: "[ ";
+  font-size: var(--mBody);
+}
+#ST .maintitle > a:first-child:after {
+  content: " ]";
+  font-size: var(--mBody);
+}
+#ST .maintitle .topic-desc {
+  display: block;
+  font-family: var(--body);
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 4px;
+  margin-top: 10px;
+  z-index: 2;
+  position: relative;
+}
+#ST .maintitle .topic-desc .threadDate {
+  background: var(--light);
+  color: var(--dark);
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 2px 5px;
+  border-radius: 2px;
+  display: block;
+  max-width: max-content;
+  margin: 19px auto 0;
+}
+#ST .postlinksbar {
+  display: none;
+}
+#ST .activeuserstrip,
+#ST .activeuserstrip + .row2 {
+  background: var(--black);
+  color: var(--white);
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  padding: 0 15px;
+}
+#ST .activeuserstrip a,
+#ST .activeuserstrip + .row2 a {
+  color: var(--white);
+}
+#ST .activeuserstrip + .row2 {
+  padding: 15px !important;
+}
+#ST .activeuserstrip:last-child {
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--midGrey-70);
+}
+
+.post {
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 50px;
+  color: var(--white);
+}
+.post + .activeuserstrip {
+  padding-top: 15px !important;
+}
+
 /*******************************
     Member List
 ********************************/

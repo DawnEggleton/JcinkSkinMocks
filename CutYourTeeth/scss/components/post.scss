@@ -1,4 +1,184 @@
 /*******************************
     Post Row
 ********************************/
+#ST {
+    main > table {
+        position: relative;
+        background: var(--black);
+        display: block;
+        padding: 15px;
+        font-family: var(--serif);
+        font-size: var(--xlBody);
+        color: var(--white);
+        border-bottom: 1px solid var(--midGrey-70);
 
+        a {
+            color: var(--white);
+        }
+
+        & > tbody > tr {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+
+            & > td:last-child {
+                display: flex;
+                gap: 20px;
+            }
+        }
+
+        .pagination_pagetxt {
+            display: none;
+        }
+    }
+
+    .bar {
+        padding: 30px 30px 0 !important;
+        font-size: 0;
+        text-align: right;
+
+        & > div {
+            float: none !important;
+        }
+
+        & + br + div[align="right"] {
+            padding: 0 30px 25px;
+            font-size: 0;
+        }
+    }
+
+    .bar,
+    .bar + br + div[align="right"] {
+        input[type="submit"] {
+            top: -0.5px;
+        }
+
+        input[type="submit"],
+        input[type="button"],
+        select {
+            background: var(--light);
+            border: 0;
+            padding: 6.5px 10px;
+            border-radius: 2px;
+            color: var(--dark);
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: var(--body);
+            font-weight: 500;
+            line-height: var(--sBody);
+            margin: 0 5px 5px 0;
+        }
+        input[type="text"] {
+            background: var(--light);
+            border: 0;
+            padding: 5px 10px;
+            border-radius: 2px;
+            color: var(--dark);
+            font-size: var(--sBody);
+            letter-spacing: 1px;
+            font-family: var(--body);
+            font-weight: 500;
+            line-height: var(--sBody);
+            margin: 0 5px 5px 0;
+        }
+
+        option {
+            font-size: var(--mBody);
+        }
+    }
+
+    .maintitle {
+        margin: 0;
+        padding: 100px 30px;
+        text-align: center;
+        font-family: var(--serif);
+        font-size: 36px;
+        text-transform: capitalize;
+        color: var(--white);
+        border-top: 1px solid var(--midGrey-70);
+        border-bottom: 1px solid var(--midGrey-70);
+
+        & > a:first-child {
+            position: absolute;
+            top: 15px;
+            right: 17.5px;
+            font-family: var(--body);
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            color: var(--white);
+            letter-spacing: 2px;
+            font-weight: 600;
+
+            &:before {
+                content: '[\0020';
+                font-size: var(--mBody);
+            }
+
+            &:after {
+                content: '\0020]';
+                font-size: var(--mBody);
+            }
+        }
+
+        .topic-desc {
+            display: block;
+            font-family: var(--body);
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 4px;
+            margin-top: 10px;
+            z-index: 2;
+            position: relative;
+
+            .threadDate {
+                background: var(--light);
+                color: var(--dark);
+                font-weight: 600;
+                letter-spacing: 1px;
+                padding: 2px 5px;
+                border-radius: 2px;
+                display: block;
+                max-width: max-content;
+                margin: 19px auto 0;
+            }
+        }
+    }
+
+    .postlinksbar {
+        display: none;
+    }
+
+    .activeuserstrip,
+    .activeuserstrip + .row2 {
+        background: var(--black);
+        color: var(--white);
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 2px;
+        padding: 0 15px;
+
+        a {
+            color: var(--white);
+        }
+    }
+    .activeuserstrip + .row2 {
+        padding: 15px !important;
+    }
+    .activeuserstrip:last-child {
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--midGrey-70);
+    }
+}
+
+.post {
+    border-bottom: 1px solid var(--midGrey-70);
+    padding: 50px;
+    color: var(--white);
+
+    & + .activeuserstrip {
+        padding-top: 15px !important;
+    }
+}
