@@ -42,6 +42,50 @@
     .wrapmini {
         display: none;
     }
+
+    .wrapmini + div[align="right"],
+    .wrapmini + div[align="right"] {
+        padding: 30px 30px 25px;
+        font-size: 0;
+
+        input[type="submit"] {
+            top: -0.5px;
+        }
+
+        input[type="submit"],
+        input[type="button"],
+        select {
+            background: var(--light);
+            border: 0;
+            padding: 6.5px 10px;
+            border-radius: 2px;
+            color: var(--dark);
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: var(--body);
+            font-weight: 500;
+            line-height: var(--sBody);
+            margin: 0 5px 5px 0;
+        }
+        input[type="text"] {
+            background: var(--light);
+            border: 0;
+            padding: 5px 10px;
+            border-radius: 2px;
+            color: var(--dark);
+            font-size: var(--sBody);
+            letter-spacing: 1px;
+            font-family: var(--body);
+            font-weight: 500;
+            line-height: var(--sBody);
+            margin: 0 5px 5px 0;
+        }
+
+        option {
+            font-size: var(--mBody);
+        }
+    }
 }
 
 .topic {

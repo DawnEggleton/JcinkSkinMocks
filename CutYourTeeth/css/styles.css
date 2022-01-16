@@ -1587,6 +1587,52 @@ header .skip:after {
 #SF .wrapmini {
   display: none;
 }
+#SF .wrapmini + div[align=right],
+#SF .wrapmini + div[align=right] {
+  padding: 30px 30px 25px;
+  font-size: 0;
+}
+#SF .wrapmini + div[align=right] input[type=submit],
+#SF .wrapmini + div[align=right] input[type=submit] {
+  top: -0.5px;
+}
+#SF .wrapmini + div[align=right] input[type=submit],
+#SF .wrapmini + div[align=right] input[type=button],
+#SF .wrapmini + div[align=right] select,
+#SF .wrapmini + div[align=right] input[type=submit],
+#SF .wrapmini + div[align=right] input[type=button],
+#SF .wrapmini + div[align=right] select {
+  background: var(--light);
+  border: 0;
+  padding: 6.5px 10px;
+  border-radius: 2px;
+  color: var(--dark);
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: var(--body);
+  font-weight: 500;
+  line-height: var(--sBody);
+  margin: 0 5px 5px 0;
+}
+#SF .wrapmini + div[align=right] input[type=text],
+#SF .wrapmini + div[align=right] input[type=text] {
+  background: var(--light);
+  border: 0;
+  padding: 5px 10px;
+  border-radius: 2px;
+  color: var(--dark);
+  font-size: var(--sBody);
+  letter-spacing: 1px;
+  font-family: var(--body);
+  font-weight: 500;
+  line-height: var(--sBody);
+  margin: 0 5px 5px 0;
+}
+#SF .wrapmini + div[align=right] option,
+#SF .wrapmini + div[align=right] option {
+  font-size: var(--mBody);
+}
 
 .topic {
   padding: 30px;
