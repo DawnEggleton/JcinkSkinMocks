@@ -406,6 +406,7 @@ main:before {
 main > br {
   display: none;
 }
+main #mark-as-read-subto,
 main #delcookiesrow {
   background: var(--black);
   padding: 15px;
@@ -416,6 +417,7 @@ main #delcookiesrow {
   text-align: center;
   font-weight: 800;
 }
+main #mark-as-read-subto a,
 main #delcookiesrow a {
   color: var(--white);
 }
