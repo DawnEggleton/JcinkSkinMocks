@@ -47,6 +47,10 @@ img {
     max-width: 100%;
     object-fit: cover;
 }
+input,
+select {
+    max-width: 100%;
+}
 .scroll {
     overflow: auto;
     padding-right: 10px;

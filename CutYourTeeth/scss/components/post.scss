@@ -18,6 +18,7 @@
 
         & > tbody > tr {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             gap: 30px;
 
@@ -171,21 +172,36 @@
         padding-bottom: 15px;
         border-bottom: 1px solid var(--midGrey-70);
     }
+
+    .goto-firstunread {
+        display: block;
+
+        @media only screen and (min-width: $md) {
+            display: inline;
+        }
+    }
 }
 
 .post {
     color: var(--white);
     display: grid;
-    grid-template-columns: 2.75fr 1fr;
-    grid-template-rows: 120px auto;
+    grid-template-rows: auto auto 251px;
+
+    @media only screen and (min-width: $md) {
+        grid-template-rows: 120px auto 251px;
+    }
+
+    @media only screen and (min-width: $lg) {
+        grid-template-columns: 70% 30%;
+        grid-template-rows: 120px auto;
+    }
 
     & + .activeuserstrip {
         padding-top: 15px !important;
     }
 
     &--top {
-        grid-column: span 2;
-        padding: 0 30px;
+        padding: 30px 30px 35px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -197,6 +213,14 @@
         background-size: cover;
         position: sticky;
         top: 55px;
+
+        @media only screen and (min-width: $md) {
+            padding: 0 30px;
+        }
+
+        @media only screen and (min-width: $lg) {
+            grid-column: span 2;
+        }
 
         &:before {
             content: "";
@@ -214,14 +238,19 @@
     &--name {
         display: block;
         font-family: var(--serif);
-        font-size: 30px;
+        font-size: 22px;
         color: var(--white);
         line-height: 30px;
+
+        @media only screen and (min-width: $sm) {
+            font-size: 30px;
+        }
     }
 
     &--buttons {
         display: flex;
-        gap: 30px;
+        gap: 10px 30px;
+        flex-wrap: wrap;
         font-size: var(--xsBody);
         text-transform: uppercase;
         font-weight: 600;
@@ -239,8 +268,15 @@
     }
 
     &--sticky {
-        position: sticky;
-        top: 175px;
+        display: grid;
+        grid-template-columns: auto 100px;
+
+        @media only screen and (min-width: $lg) {
+            display: block;
+            grid-template: none;
+            position: sticky;
+            top: 175px;
+        }
     }
 
     &--tab {
@@ -255,10 +291,88 @@
 
         &-set {
             width: 100%;
-            height: calc(100vh - 235px);
-            border-bottom: 1px solid var(--midGrey-70);
+            height: 250px;
+            border-right: 1px solid var(--midGrey-70);
             overflow: hidden;
             display: flex;
+
+            @media only screen and (min-width: $lg) {
+                height: calc(100vh - 235px);
+                border-bottom: 1px solid var(--midGrey-70);
+                border-right: 0;
+            }
+        }
+
+        &-scroll {
+            display: grid;
+            gap: 30px;
+            height: 100%;
+            max-height: 100%;
+
+            @media only screen and (min-width: $sm) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media only screen and (min-width: $lg) {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+    &--mini-item {
+        display: grid;
+        font-size: calc(var(--xlBody) + 4px);
+        font-family: var(--serif);
+        grid-gap: 3px;
+        margin-left: 10px;
+        height: max-content;
+
+        @media only screen and (min-width: $lg) {
+            height: auto;
+        }
+
+        &.full-width {
+            @media only screen and (min-width: $sm) {
+                grid-column: span 2;
+            }
+            @media only screen and (min-width: $lg) {
+                grid-column: span 1;
+            }
+        }
+
+        strong {
+            order: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            font-size: var(--xsBody);
+            font-family: var(--body);
+            max-width: max-content;
+
+            & > span {
+                z-index: 2;
+            }
+
+            &:after {
+                content: '';
+                width: calc(100% + 10px);
+                height: 7px;
+                background: var(--accent);
+                display: block;
+                position: absolute;
+                top: calc((var(--xsBody) / 2) + 1px);
+                left: -6px;
+                z-index: 1;
+            }
+        }
+
+        .scroll {
+            font-size: var(--mBody);
+            font-family: var(--body);
+            text-align: justify;
+            line-height: 200%;
+            margin-bottom: 5px;
         }
     }
 
@@ -268,14 +382,22 @@
         border-radius: 0;
         color: var(--white);
         padding: 20px;
-        height: 60px;
+
+        @media only screen and (min-width: $lg) {
+            height: 60px;
+        }
 
         i.fal {
             font-size: var(--xlBody);
         }
 
         &:not(:last-child) {
-            border-right: 1px solid var(--midGrey-70);
+            border-bottom: 1px solid var(--midGrey-70);
+
+            @media only screen and (min-width: $lg) {
+                border-right: 1px solid var(--midGrey-70);
+                border-bottom: 0;
+            }
         }
 
         &:hover:not(.active) {
@@ -296,9 +418,15 @@
         }
 
         &-set {
-            width: 100%;
+            width: 100px;
+            height: 250px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+
+            @media only screen and (min-width: $lg) {
+                width: 100%;
+                height: auto;
+                grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+            }
         }
     }
 
@@ -320,17 +448,86 @@
             height: 100%;
             object-fit: cover;
         }
+
+        &-desktop {
+            display: none;
+            
+            @media only screen and (min-width: $lg) {
+                display: block;
+            }
+        }
+
+        &-mobile {
+            display: block;
+            
+            @media only screen and (min-width: $lg) {
+                display: none;
+            }
+        }
+    }
+
+    &--date {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 15px;
+        background: var(--black);
+        border-top: 1px solid var(--midGrey-70);
+        font-size: var(--xsBody);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 300;
+        z-index: 2;
+        opacity: 0.8;
+        text-align: right;
+        display: grid;
+        grid-template-columns: 16px auto;
+        grid-gap: 15px;
+        align-items: center;
+
+        label {
+            & > input {
+                display: none;
+
+                &:checked + div {
+                    color: var(--dark);
+                }
+            }
+            & > div {
+                width: 16px;
+                height: 16px;
+                border-radius: 2px;
+                background: var(--light);
+                display: grid;
+                justify-items: center;
+                align-items: center;
+                text-align: center;
+                font-size: 12px;
+                font-weight: bold;
+                color: transparent;
+                cursor: pointer;
+
+                i.fa-times {
+                    left: 1px;
+                }
+            }
+        }
     }
 
     &--main {
         border-bottom: 1px solid var(--midGrey-70);
         border-right: 1px solid var(--midGrey-70);
-        padding: 50px;
+        padding: 10px 20px;
         font-size: calc(var(--mBody) + 0.75px);
         line-height: 240%;
         text-align: justify;
         letter-spacing: 0.7px;
         font-weight: 300;
+
+        @media only screen and (min-width: $sm) {
+            padding: 50px;
+        }
 
         &:before {
             content: "";
