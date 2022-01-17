@@ -18,31 +18,36 @@
     &.g-1 {
         //validating
         --accent: rgba(74, 104, 100, 1);
-        --accent: rgba(74, 104, 100, 0.5);
+        --accent-50: rgba(74, 104, 100, 0.5);
+        --accent-25: rgba(74, 104, 100, 0.25);
     }
     .g-2,
     &.g-2 {
         //guest
         --accent: rgba(74, 104, 100, 1);
-        --accent: rgba(74, 104, 100, 0.5);
+        --accent-50: rgba(74, 104, 100, 0.5);
+        --accent-25: rgba(74, 104, 100, 0.25);
     }
     .g-3,
     &.g-3 {
         //member
         --accent: rgba(74, 104, 100, 1);
-        --accent: rgba(74, 104, 100, 0.5);
+        --accent-50: rgba(74, 104, 100, 0.5);
+        --accent-25: rgba(74, 104, 100, 0.25);
     }
     .g-4,
     &.g-4 {
         //admin
         --accent: rgba(74, 104, 100, 1);
-        --accent: rgba(74, 104, 100, 0.5);
+        --accent-50: rgba(74, 104, 100, 0.5);
+        --accent-25: rgba(74, 104, 100, 0.25);
     }
     .g-5,
     &.g-5 {
         //banned
         --accent: rgba(74, 104, 100, 1);
-        --accent: rgba(74, 104, 100, 0.5);
+        --accent-50: rgba(74, 104, 100, 0.5);
+        --accent-25: rgba(74, 104, 100, 0.25);
     }
 }
 .light {
@@ -55,32 +60,37 @@
     .g-1,
     &.g-1 {
         //validating
-        --accent: rgba(152, 183, 178, 1);
-        --accent-50: rgba(152, 183, 178, 0.5);
+        --accent: rgba(74, 104, 100, 1);
+        --accent-50: rgba(74, 104, 100, 0.5);
+        --accent-25: rgba(74, 104, 100, 0.25);
     }
     .g-2,
     &.g-2 {
         //guest
-        --accent: rgba(152, 183, 178, 1);
-        --accent-50: rgba(152, 183, 178, 0.5);
+        --accent: rgba(74, 104, 100, 1);
+        --accent-50: rgba(74, 104, 100, 0.5);
+        --accent-25: rgba(74, 104, 100, 0.25);
     }
     .g-3,
     &.g-3 {
         //member
-        --accent: rgba(152, 183, 178, 1);
-        --accent-50: rgba(152, 183, 178, 0.5);
+        --accent: rgba(74, 104, 100, 1);
+        --accent-50: rgba(74, 104, 100, 0.5);
+        --accent-25: rgba(74, 104, 100, 0.25);
     }
     .g-4,
     &.g-4 {
         //admin
-        --accent: rgba(152, 183, 178, 1);
-        --accent-50: rgba(152, 183, 178, 0.5);
+        --accent: rgba(74, 104, 100, 1);
+        --accent-50: rgba(74, 104, 100, 0.5);
+        --accent-25: rgba(74, 104, 100, 0.25);
     }
     .g-5,
     &.g-5 {
         //banned
-        --accent: rgba(152, 183, 178, 1);
-        --accent-50: rgba(152, 183, 178, 0.5);
+        --accent: rgba(74, 104, 100, 1);
+        --accent-50: rgba(74, 104, 100, 0.5);
+        --accent-25: rgba(74, 104, 100, 0.25);
     }
 }
 .c-1 {

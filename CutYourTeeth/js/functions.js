@@ -78,3 +78,28 @@ function expandDesc(el) {
         el.parentNode.nextElementSibling.classList.add('active');
     }
 }
+
+function adjustPostRow(diff) {
+    console.log(diff);
+}
+
+function contentTabs(tabs, labels) {
+    if(tabs.length === labels.length) {
+        if(tabs.length > 1) {
+            tabs[0].classList.add('active');
+            labels[0].classList.add('active');
+            labels.forEach((label, index) => {
+                label.addEventListener('click', e => {
+                    labels.forEach(label => label.classList.remove('active'));
+                    e.currentTarget.classList.add('active');
+                    let move = -100 * index;
+                    tabs.forEach(tab => {
+                        tab.style.left = `${move}%`;
+                    });
+                })
+            })
+        }
+    } else {
+        console.log('error! tab count does not equal label count');
+    }
+}

@@ -26,6 +26,9 @@
 		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
         <script src="../js/clipboard.js"></script>
 
+        <!--Scripts-->
+        <script src="../js/functions.js"></script>
+
         <!--Settings-->
         <script type='text/javascript' src='../js/settings.js'></script>
         <link rel="stylesheet" href="../css/settings.css" />
@@ -345,7 +348,102 @@
                 
                 <!--Post Content-->
                 <section class="post g-4 p-1">
-                    Post content here
+                    <div class="post--top">
+                        <a href="profile.html" class="post--name">Duncan O'Donnelly-Taggart</a>
+                        <div class="post--buttons">
+                            <a href="">link to post</a>
+                            <a href="">edit</a>
+                            <a href="">quote</a>
+                            <a href="">delete</a>
+                            <a href="">report</a>
+                        </div>
+                    </div>
+                    <div class="post--main">
+                        <div class="post--main-inner">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ante turpis, volutpat vitae velit suscipit, sodales sollicitudin arcu. Proin ac est vel felis venenatis bibendum eget in orci. Nulla a viverra libero. Cras dictum quam at tortor tristique, vitae iaculis sem pharetra. Quisque vel pellentesque justo. Cras vitae eleifend justo. Vivamus quis ullamcorper mauris, sed viverra nisi.</p>
+
+                            <p>Etiam in sapien vehicula dui viverra volutpat. Praesent eleifend mi nec aliquet consequat. Mauris fermentum mollis ipsum eu dignissim. Vestibulum fringilla in justo at porta. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam efficitur, velit elementum malesuada molestie, nunc lectus dignissim dolor, et consequat dolor ligula eu metus. Duis suscipit tortor ligula. Nulla et pretium lacus, et rutrum justo. In pulvinar felis venenatis fringilla accumsan. Nunc venenatis fermentum mauris, at venenatis augue scelerisque vitae.</p>
+
+                            <p>Integer non gravida diam, sed tincidunt erat. Nullam dapibus turpis sed bibendum euismod. Nullam vel accumsan nunc. Maecenas ac odio eu nibh congue varius. Nullam non elementum mauris. Nulla blandit aliquam sapien ac fermentum. Pellentesque nec velit quis ipsum ornare molestie vulputate at risus. Aenean scelerisque massa sit amet libero porttitor luctus. Phasellus diam massa, placerat in posuere non, ultricies interdum felis. Donec venenatis lacus est, vel euismod tortor scelerisque cursus. In sit amet metus dapibus, luctus augue sed, consectetur tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
+
+                            <p>Nulla at ultrices tortor. Quisque fringilla facilisis tellus, maximus sagittis odio congue quis. Nullam nec nibh sit amet lectus egestas luctus nec et ex. Nam convallis condimentum ligula, nec lobortis ante consequat eget. Fusce dapibus id quam maximus finibus. Aenean et maximus leo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque dapibus sem libero, non malesuada quam interdum nec. Aliquam odio metus, porta id justo a, tincidunt auctor magna. Nulla convallis hendrerit aliquet.</p>
+
+                            <p>Duis quis velit sed eros viverra posuere ut eget est. Aliquam posuere tellus ac velit feugiat, vitae dictum ligula tristique. Nulla mollis consectetur bibendum. Mauris vel tincidunt augue. Nulla facilisi. Vivamus elementum hendrerit neque eu venenatis. Maecenas dolor nunc, sodales ac facilisis et, molestie id mauris. Nulla elementum eget metus vitae mollis. Curabitur consectetur et felis at dapibus. Quisque nec tincidunt ante. Curabitur ut lacus scelerisque, placerat leo vulputate, malesuada enim. In efficitur bibendum mi at ullamcorper. Nulla vulputate porta justo ac rhoncus. Aliquam vehicula a eros non iaculis. Aliquam sit amet velit et lacus porta lacinia eu sit amet quam. </p>
+                        </div>
+                    </div>
+                    <div class="post--info">
+                        <div class="post--sticky">
+                            <div class="post--tab-set">
+                                <div class="post--tab post--image active">
+                                    <img src="https://64.media.tumblr.com/15d61296fb9a2be5823e270fea99197e/tumblr_p001tgoDJo1tlgqkgo4_540.png" />
+                                </div>
+                                <div class="post--tab">
+                                    character info
+                                </div>
+                                <div class="post--tab">
+                                    player info
+                                </div>
+                            </div>
+                            <div class="post--label-set">
+                                <button class="post--label active"><i class="fal fa-camera"></i></button>
+                                <button class="post--label"><i class="fal fa-user"></i></button>
+                                <button class="post--label"><i class="fal fa-pencil"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        contentTabs(document.querySelectorAll('.p-1 .post--tab'), document.querySelectorAll('.p-1 .post--label'));
+                    </script>
+                </section>
+                
+                <!--Post Content-->
+                <section class="post g-4 p-2">
+                    <div class="post--top">
+                        <a href="profile.html" class="post--name">Duncan O'Donnelly-Taggart</a>
+                        <div class="post--buttons">
+                            <a href="">link to post</a>
+                            <a href="">edit</a>
+                            <a href="">quote</a>
+                            <a href="">delete</a>
+                            <a href="">report</a>
+                        </div>
+                    </div>
+                    <div class="post--main">
+                        <div class="post--main-inner">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ante turpis, volutpat vitae velit suscipit, sodales sollicitudin arcu. Proin ac est vel felis venenatis bibendum eget in orci. Nulla a viverra libero. Cras dictum quam at tortor tristique, vitae iaculis sem pharetra. Quisque vel pellentesque justo. Cras vitae eleifend justo. Vivamus quis ullamcorper mauris, sed viverra nisi.</p>
+
+                            <p>Etiam in sapien vehicula dui viverra volutpat. Praesent eleifend mi nec aliquet consequat. Mauris fermentum mollis ipsum eu dignissim. Vestibulum fringilla in justo at porta. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam efficitur, velit elementum malesuada molestie, nunc lectus dignissim dolor, et consequat dolor ligula eu metus. Duis suscipit tortor ligula. Nulla et pretium lacus, et rutrum justo. In pulvinar felis venenatis fringilla accumsan. Nunc venenatis fermentum mauris, at venenatis augue scelerisque vitae.</p>
+
+                            <p>Integer non gravida diam, sed tincidunt erat. Nullam dapibus turpis sed bibendum euismod. Nullam vel accumsan nunc. Maecenas ac odio eu nibh congue varius. Nullam non elementum mauris. Nulla blandit aliquam sapien ac fermentum. Pellentesque nec velit quis ipsum ornare molestie vulputate at risus. Aenean scelerisque massa sit amet libero porttitor luctus. Phasellus diam massa, placerat in posuere non, ultricies interdum felis. Donec venenatis lacus est, vel euismod tortor scelerisque cursus. In sit amet metus dapibus, luctus augue sed, consectetur tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
+
+                            <p>Nulla at ultrices tortor. Quisque fringilla facilisis tellus, maximus sagittis odio congue quis. Nullam nec nibh sit amet lectus egestas luctus nec et ex. Nam convallis condimentum ligula, nec lobortis ante consequat eget. Fusce dapibus id quam maximus finibus. Aenean et maximus leo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque dapibus sem libero, non malesuada quam interdum nec. Aliquam odio metus, porta id justo a, tincidunt auctor magna. Nulla convallis hendrerit aliquet.</p>
+
+                            <p>Duis quis velit sed eros viverra posuere ut eget est. Aliquam posuere tellus ac velit feugiat, vitae dictum ligula tristique. Nulla mollis consectetur bibendum. Mauris vel tincidunt augue. Nulla facilisi. Vivamus elementum hendrerit neque eu venenatis. Maecenas dolor nunc, sodales ac facilisis et, molestie id mauris. Nulla elementum eget metus vitae mollis. Curabitur consectetur et felis at dapibus. Quisque nec tincidunt ante. Curabitur ut lacus scelerisque, placerat leo vulputate, malesuada enim. In efficitur bibendum mi at ullamcorper. Nulla vulputate porta justo ac rhoncus. Aliquam vehicula a eros non iaculis. Aliquam sit amet velit et lacus porta lacinia eu sit amet quam. </p>
+                        </div>
+                    </div>
+                    <div class="post--info">
+                        <div class="post--sticky">
+                            <div class="post--tab-set">
+                                <div class="post--tab post--image active">
+                                    <img src="https://64.media.tumblr.com/15d61296fb9a2be5823e270fea99197e/tumblr_p001tgoDJo1tlgqkgo4_540.png" />
+                                </div>
+                                <div class="post--tab">
+                                    character info
+                                </div>
+                                <div class="post--tab">
+                                    player info
+                                </div>
+                            </div>
+                            <div class="post--label-set">
+                                <button class="post--label active"><i class="fal fa-camera"></i></button>
+                                <button class="post--label"><i class="fal fa-user"></i></button>
+                                <button class="post--label"><i class="fal fa-pencil"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        contentTabs(document.querySelectorAll('.p-2 .post--tab'), document.querySelectorAll('.p-2 .post--label'));
+                    </script>
                 </section>
 
                 <!--Remaining Defaults-->
@@ -542,7 +640,6 @@
         </div> 
 
         <!--Scripts-->
-        <script src="../js/functions.js"></script>
         <script src="../js/scripts.js"></script>
     </body>
 </html>
