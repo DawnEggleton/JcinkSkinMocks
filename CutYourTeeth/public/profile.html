@@ -21,6 +21,7 @@
 		<link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
 
         <!--Script Libraries-->
+        <script src="../js/functions.js"></script>
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
 		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
@@ -289,6 +290,39 @@
             <a name="top"></a>
 
             <!--Profile-->
+            <section class="prof">
+                <div class="prof--header">
+                    <p>i told myself that i wouldn't be scared, but i'm still having nightmares</p>
+                    <h1>Duncan O'Donnelly-Taggart</h1>
+                    <a href="#learn-more" class="skip">read more</a>
+                </div>
+                <div class="prof--body" name="learn-more">
+
+                    <div class="prof--label-set">
+                        <button class="prof--label" title="Introduction"><i class="fal fa-user"></i></button>
+                        <button class="prof--label" title="Context"><i class="fal fa-bolt"></i></button>
+                        <button class="prof--label" title="Synopsis"><i class="fal fa-books"></i></button>
+                        <button class="prof--label" title="Relationships"><i class="fal fa-heartbeat"></i></button>
+                        <button class="prof--label" title="Player"><i class="fal fa-pencil"></i></button>
+                    </div>
+
+                    <div class="prof--image">
+                        <img src="https://64.media.tumblr.com/15d61296fb9a2be5823e270fea99197e/tumblr_p001tgoDJo1tlgqkgo4_540.png" />
+                    </div>
+
+                    <div class="prof--tab-set">
+                        <div class="prof--tab">Intro</div>
+                        <div class="prof--tab">Context</div>
+                        <div class="prof--tab">Synopsis</div>
+                        <div class="prof--tab">Relationships</div>
+                        <div class="prof--tab">Player</div>
+                    </div>
+
+                </div>
+            </section>
+            <script>
+                contentTabs('.prof--tab', '.prof--label', 'v');
+            </script>
         </main>
 
         <!-- Copyright Information -->
@@ -310,7 +344,6 @@
         </div> 
 
         <!--Scripts-->
-        <script src="../js/functions.js"></script>
         <script src="../js/scripts.js"></script>
     </body>
 </html>

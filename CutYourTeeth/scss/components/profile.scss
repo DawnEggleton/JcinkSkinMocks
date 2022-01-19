@@ -1,4 +1,167 @@
 /*******************************
     Profile
 ********************************/
+#Profile {
+    main + .tableborder {
+        padding-top: 15px;
+    }
+}
+.prof {
 
+    &--header {
+        transition-duration: 0.75s;
+        text-align: center;
+        justify-items: center;
+        color: var(--white);
+        display: grid;
+        grid-template-rows: 1fr max-content 1fr;
+        height: calc(100vh - 80px);
+        background-image: linear-gradient(to top, var(--black), transparent, transparent, transparent);
+
+        &.controls-open {
+            background-image: linear-gradient(to top, transparent, transparent, transparent, transparent);
+    
+            & > * {
+                opacity: 0;
+                transition-duration: 0.75s;
+            }
+        }
+
+        p {
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 4px;
+            align-self: end;
+        }
+
+        a {
+            color: var(--white);
+        }
+
+        h1 {
+            font-family: var(--serif);
+            font-size: 4rem;
+            letter-spacing: 5px;
+            margin: 0;
+        }
+
+        .skip {
+            display: grid;
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 4px;
+            margin-top: 20px;
+            grid-template-rows: max-content auto;
+            max-width: 450px;
+
+            &:after {
+                content: '\f107';
+                font-family: 'Font Awesome 5 Pro';
+                font-weight: 300;
+                font-size: var(--xlBody);
+            }
+        }
+    }
+
+    &--body {
+        border-top: 1px solid var(--midGrey-70);
+        height: calc(100vh - 119px);
+        display: grid;
+        grid-template-columns: 100px 1fr 2fr;
+        grid-template-rows: calc(100vh - 120px);
+    }
+
+    &--label {
+        background: none;
+        border-radius: 0;
+        border: 0;
+        color: var(--white);
+        border-bottom: 1px solid var(--midGrey-70);
+
+        i.fal {
+            font-size: 20px;
+        }
+
+        &:hover:not(.active) {
+            background: var(--accent-25);
+            cursor: pointer;
+
+            i.fal {
+                font-weight: normal;
+            }
+        }
+
+        &.active {
+            background: var(--accent-50);
+
+            i.fal {
+                font-weight: normal;
+            }
+        }
+
+        &-set {
+            display: grid;
+            grid-template-rows: repeat(5, 1fr);
+            border-right: 1px solid var(--midGrey-70);
+        }
+    }
+
+    &--image {
+        border-bottom: 1px solid var(--midGrey-70);
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--headerOverlay);
+            mix-blend-mode: var(--headerBlend);
+            opacity: var(--headerOpacity);
+            z-index: 2;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &--tab {
+        width: 100%;
+        flex: 0 0 100%;
+        height: 100%;
+        color: var(--white);
+        padding: 50px;
+        transition-duration: 0.75s;
+        font-size: calc(var(--mBody) + 0.75px);
+        line-height: 240%;
+        text-align: justify;
+        letter-spacing: 0.7px;
+        font-weight: 300;
+        z-index: 2;
+
+        &-set {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-left: 1px solid var(--midGrey-70);
+            border-bottom: 1px solid var(--midGrey-70);
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--headerOverlay);
+                mix-blend-mode: var(--headerBlend);
+                opacity: var(--headerOpacity);
+                z-index: 1;
+                opacity: 0.5;
+            }
+        }
+    }
+}
