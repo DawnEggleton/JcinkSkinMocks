@@ -69,6 +69,7 @@ header {
         letter-spacing: 4px;
         margin-top: 20px;
         grid-template-rows: max-content auto;
+        max-height: max-content;
 
         body:not(#idx) & {
             display: none;

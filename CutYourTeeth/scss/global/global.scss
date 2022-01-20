@@ -51,6 +51,33 @@ input,
 select {
     max-width: 100%;
 }
+section ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+        margin-bottom: 20px;
+
+        &:before {
+            content: '\21B3';
+            background: var(--accent);
+            width: 20px;
+            height: 20px;
+            display: inline-grid;
+            border-radius: 50%;
+            margin: 0 10px 0 0;
+            font-size: var(--xsBody);
+            align-items: center;
+            text-align: center;
+            justify-items: center;
+        }
+    }
+
+    & > br {
+        display: none;
+    }
+}
 .scroll {
     overflow: auto;
     padding-right: 10px;
@@ -186,4 +213,40 @@ main {
     &.alert.new {
         border-color: var(--white);
     }
+}
+
+.grid {
+    display: grid;
+}
+
+.twoCol {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.threeCol {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.fourCol {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.fiveCol {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.weightRight {
+    grid-template-columns: 300px auto;
+}
+
+.weightLeft {
+    grid-template-columns: auto 300px;
+}
+
+.doubleHeight {
+    grid-row: span 2;
+}
+
+.fullWidth {
+    grid-column: 1 / -1;
 }
