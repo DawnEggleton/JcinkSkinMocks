@@ -537,6 +537,61 @@ main + .tableborder .row4 .copyright a {
   grid-column: 1/-1;
 }
 
+tag-xl,
+tag-lg,
+tag-md,
+tag-sm,
+tag-xs {
+  display: block;
+  margin: 20px 0 0 0;
+}
+br + tag-xl,
+br + tag-lg,
+br + tag-md,
+br + tag-sm,
+br + tag-xs {
+  margin-top: 0;
+}
+
+tag-xl,
+tag-lg {
+  font-family: var(--serif);
+}
+
+tag-xl {
+  font-size: 30px;
+  letter-spacing: 4px;
+}
+
+tag-lg {
+  font-size: 22px;
+  letter-spacing: 3.5px;
+}
+
+tag-md,
+tag-sm,
+tag-xs {
+  text-transform: uppercase;
+}
+
+tag-md {
+  font-size: var(--lBody);
+  letter-spacing: 9px;
+  font-weight: 500;
+}
+
+tag-sm {
+  font-size: var(--sBody);
+  font-weight: 400;
+  letter-spacing: 7px;
+}
+
+tag-xs {
+  font-size: var(--xsBody);
+  letter-spacing: 5px;
+  font-weight: 300;
+}
+
 /*******************************
     Navigation
 ********************************/
