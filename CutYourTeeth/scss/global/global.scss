@@ -256,11 +256,26 @@ tag-md,
 tag-sm,
 tag-xs {
     display: block;
-    margin: 20px 0 0 0;
+    margin: 20px 0;
+    text-align: left;
 
-    br + & {
-        margin-top: 0;
+    & + br {
+        display: none;
     }
+
+    &[data-align="center"] {
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    &[data-align="right"] {
+        text-align: right;
+    }
+
+    /*Sample Font Color
+    &[data-color="main"] {
+        color: var(--white);
+    }*/
 }
 tag-xl,
 tag-lg {
