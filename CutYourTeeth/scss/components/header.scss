@@ -8,6 +8,10 @@ header {
     justify-items: center;
     color: var(--white);
 
+    #Members & {
+        height: 55px;
+    }
+
     #idx & {
         display: grid;
         grid-template-rows: 1fr max-content 1fr;

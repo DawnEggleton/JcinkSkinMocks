@@ -111,3 +111,17 @@ function contentTabs(tabSelector, labelSelector, direction) {
         console.log('error! tab count does not equal label count');
     }
 }
+
+function toggleFilters() {
+    document.querySelector('.ml--top button.toggle-filter').classList.toggle('filtersOpen');
+    document.querySelector('.ml--filters').classList.toggle('filtersOpen');
+    document.querySelector('.ml--top button.toggle-sort').classList.remove('sortOpen');
+    document.querySelector('.ml--sort').classList.remove('sortOpen');
+}
+
+function toggleSort() {
+    document.querySelector('.ml--top button.toggle-filter').classList.remove('filtersOpen');
+    document.querySelector('.ml--filters').classList.remove('filtersOpen');
+    document.querySelector('.ml--top button.toggle-sort').classList.toggle('sortOpen');
+    document.querySelector('.ml--sort').classList.toggle('sortOpen');
+}

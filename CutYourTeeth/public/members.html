@@ -287,9 +287,343 @@
         <!--Main Body-->
         <main>
             <a name="top"></a>
-            <form action='index.php' method='get'>
-                <input type='hidden' name='act' value='Members' />
-            </form>
+            <section class="ml">
+                <div class="ml--top">
+                    <button onClick="toggleFilters()" class="toggle-filter">
+                        <i class="fas fa-plus"></i>
+                        <i class="fas fa-minus"></i>
+                        Filter
+                    </button>
+                    <button onClick="toggleSort()" class="toggle-sort">
+                        <i class="fas fa-plus"></i>
+                        <i class="fas fa-minus"></i>
+                        Sort
+                    </button>
+                </div>
+                <div class="ml--filters">
+                    <div class="ml--filters-inner">
+                        filters will go in here at some point
+                    </div>
+                </div>
+                <div class="ml--sort">
+                    <div class="ml--sort-inner">
+                        sorts will go in here at some point
+                    </div>
+                </div>
+                <div class="ml--members">
+                    <form action='index.php' method='get'>
+                        <input type='hidden' name='act' value='Members' />
+                        
+                        <div id="ml--rows"></div>
+                    </form>
+                </div>
+                <script>
+                    let accounts = [];
+                    let $container = $('#ml--rows');
+                    var filters = {};
+
+                    function sortList(el) {
+                        let sort = el.getAttribute('data-sort');
+                        accounts.sort((a, b) => {
+                            a = a[sort];
+                            b = b[sort];
+                            if (a < b) {
+                            return -1;
+                            }
+                            if (a > b) {
+                            return 1;
+                            }
+                            return 0;
+                        });
+                        populatePage(accounts);
+                    }
+                    
+                    function populatePage(array) {
+                        let html = ``;
+                        for (let i = 0; i < array.length; i++) {
+                            switch(array[i].groupID) {
+                                //only show when selected & for staff
+                                case '1':
+                                case '5':
+                                case '7':
+                                case '8':
+                                    html += `<div class="ml--member grid-item g-${array[i].groupID} ${array[i].alias}">
+                                            this is a member
+                                    </div>`;
+                                    break;
+                                case '4':
+                                case '6':
+                                    //member and active
+                                    html += `<div class="ml--member member onLoad grid-item g-${array[i].groupID} ${array[i].alias}">
+                                            this is a member
+                                    </div>`;
+                                    break;
+                                case '3':
+                                    if(array[i].type == 'member') {
+                                        //member
+                                        html += `<div class="ml--member member onLoad grid-item g-${array[i].groupID} ${array[i].alias}">
+                                                this is a member
+                                        </div>`;
+                                    } else {
+                                        //character
+                                        html += `<div class="ml--member character onLoad grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].species} ${array[i].alias}">
+                                                this is a member
+                                        </div>`;
+                                    }
+                                    break;
+                                default: 
+                                    //character and active
+                                    html += `<div class="ml--member character active onLoad grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].species} ${array[i].alias}">
+                                            this is a member
+                                    </div>`;
+                                    break;
+                            }
+                        }
+                        document.querySelector('#ml--rows').innerHTML = html;
+                    }
+                    
+                    function filterFunction(input, target, itemtype) {
+                        // Declare variables
+                        var filter, items = [];
+                        filter = $(input).val().toLowerCase();
+                        $(target).each(function() {
+                                items.push($(this));
+                        });
+                    
+                        // Loop through all list items, and hide those who don't match the search query
+                        for (let i = 0; i < items.length; i++) {
+                            if (items[i].text().toLowerCase().indexOf(filter) > -1) {
+                                items[i].parents('.ml--member').removeClass(itemtype + 'Different');
+                            } else {
+                                items[i].parents('.ml--member').addClass(itemtype + 'Different');
+                            }
+                        }
+                    }
+                    
+                    function filterGroup(el) {
+                        let groupID = el.value;
+                        let filteredAccounts = [];
+                        if (groupID == 0) {
+                            filteredAccounts = accounts;
+                        } else {
+                            for(let i = 0; i < accounts.length; i++) {
+                                if(accounts[i].groupID == groupID) {
+                                    filteredAccounts.push(accounts[i]);
+                                }
+                            }
+                        }
+                        populatePage(filteredAccounts);
+                    }
+
+                    /*
+                    if(ageNum >= 18 && ageNum <= 29 && age != 'Immortal') {
+                        let ageClass = '20s';
+                    } else if(ageNum >= 30 && ageNum <= 39 && age != 'Immortal') {
+                        let ageClass = '30s';
+                    } else if(ageNum >= 40 && ageNum <= 49 && age != 'Immortal') {
+                        let ageClass = '40s';
+                    } else if(ageNum >= 50 && age != 'Immortal') {
+                        let ageClass = '50';
+                    } else if(age == 'Immortal') {
+                        let ageClass = 'immortal';
+                    }
+                    */
+
+                    function getComboFilter( filters ) {
+                    var i = 0;
+                    var comboFilters = [];
+                    for ( var prop in filters ) {
+                        var filterGroup = filters[ prop ];
+                        // skip to next filter group if it doesn't have any values
+                        if ( !filterGroup.length ) {
+                        continue;
+                        }
+                        if ( i === 0 ) {
+                        // copy to new array
+                        comboFilters = filterGroup.slice(0);
+                        } else {
+                        var filterSelectors = [];
+                        // copy to fresh array
+                        var groupCombo = comboFilters.slice(0); // [ A, B ]
+                        // merge filter Groups
+                        for (var k=0, len3 = filterGroup.length; k < len3; k++) {
+                            for (var j=0, len2 = groupCombo.length; j < len2; j++) {
+                            filterSelectors.push( groupCombo[j] + filterGroup[k] ); // [ 1, 2 ]
+                            }
+                        }
+                        // apply filter selectors to combo filters for next group
+                        comboFilters = filterSelectors;
+                        }
+                        i++;
+                    }
+                    var comboFilter = comboFilters.join(', ');
+                    return comboFilter;
+                    }
+
+                    function manageCheckbox( $checkbox ) {
+                    var checkbox = $checkbox[0];
+                    var group = $checkbox.parents('.ml-filtergroup').attr('data-filter-group');
+                    // create array for filter group, if not there yet
+                    var filterGroup = filters[ group ];
+                    if ( !filterGroup ) {
+                        filterGroup = filters[ group ] = [];
+                    }
+                    var isAll = $checkbox.hasClass('all');
+                    // reset filter group if the all box was checked
+                    if ( isAll ) {
+                        delete filters[ group ];
+                        if ( !checkbox.checked ) {
+                        checkbox.checked = 'checked';
+                        }
+                    }
+                    // index of
+                    var index = $.inArray( checkbox.value, filterGroup );
+                    if ( checkbox.checked ) {
+                        var lSelector = isAll ? 'label' : 'label.all';
+                        var iSelector = isAll ? 'input' : 'input.all';
+                        $checkbox.parent().siblings(lSelector).removeClass('is-checked');
+                        $checkbox.parent().addClass('is-checked');
+                        $checkbox.parent().siblings(lSelector).children(iSelector).prop('checked', false);
+                        if ( !isAll && index === -1 ) {
+                        // add filter to group
+                        filters[ group ].push( checkbox.value );
+                        }
+                    } else if ( !isAll ) {
+                        // remove filter from group
+                        filters[ group ].splice( index, 1 );
+                        // if unchecked the last box, check the all
+                        if (filters[group].length == 0) {
+                        $checkbox.parent().siblings('label.all').addClass('is-checked');
+                        $checkbox.parent().siblings().children('input.all').prop('checked', true);
+                        }
+                        $checkbox.parent().removeClass('is-checked');
+                    }
+                    }
+                    
+
+                    accounts.push({
+                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `1`,
+                        type: 'member',
+                        ageClass: '20s',
+                        relStatus: `it's complicated`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `2`,
+                        type: 'member',
+                        ageClass: '20s',
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `meriel`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `3`,
+                        type: 'member',
+                        ageClass: '30s',
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `quinn`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `4`,
+                        type: 'member',
+                        ageClass: '30s',
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `dashin`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `5`,
+                        type: 'member',
+                        ageClass: '20s',
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `lauren`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `6`,
+                        type: 'member',
+                        ageClass: '20s',
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `shado`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `7`,
+                        type: 'member',
+                        ageClass: '20s',
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `kyo`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `8`,
+                        type: 'member',
+                        ageClass: '20s',
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `sol`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `9`,
+                        type: 'character',
+                        ageClass: '20s',
+                        relStatus: `it's complicated`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `10`,
+                        type: 'character',
+                        ageClass: '20s',
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `test/slash`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `11`,
+                        type: 'character',
+                        ageClass: '20s',
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'human'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `test a space`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        species: 'meta',
+                        groupID: `12`,
+                        type: 'character',
+                        ageClass: '20s',
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    accounts.push({
+                        alias: `Test Caps`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        groupID: `13`,
+                        type: 'character',
+                        ageClass: 'immortal',
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: 'meta'.toLowerCase(),
+                    });
+                    
+                    populatePage(accounts);
+
+                    //initialize isotope
+                    $container.isotope({
+                        itemSelector: '.grid-item',
+                        percentPosition: true,
+                        filter: '.onLoad',
+                    });
+                    // do stuff when checkbox change
+                    $('.ml-filters').on( 'change', function( jQEvent ) {
+                        var $checkbox = $( jQEvent.target );
+                        manageCheckbox( $checkbox );
+                        var comboFilter = getComboFilter( filters );
+                        $container.isotope({ filter: comboFilter });
+                    });
+                    </script>
+            </section>
         </main>
 
         <!-- Copyright Information -->
