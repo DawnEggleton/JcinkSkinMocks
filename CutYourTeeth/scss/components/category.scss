@@ -298,7 +298,8 @@
                 left: -10px;
                 width: calc(100% + 20px);
                 height: 3px;
-                background: var(--accent);
+                background: var(--textAccent);
+                opacity: 0.7;
             }
         }
     }
@@ -333,8 +334,13 @@
             }
         }
 
-        i.fa-user + a:before {
-            content: 'Written by ';
+        i.fa-user + a {
+            color: var(--textAccent);
+
+            &:before {
+                content: 'Written by ';
+                color: var(--white);
+            }
         }
     }
 

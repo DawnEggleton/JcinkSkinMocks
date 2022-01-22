@@ -14,50 +14,70 @@
 :root .g-1, :root.g-1,
 :root .g-2, :root.g-2,
 :root .g-3, :root.g-3,
-:root .g-4, :root.g-4,
 :root .g-6, :root.g-6 {
-  --accent: rgba(123, 100, 79, 1);
-  --accent-75: rgba(123, 100, 79, 0.75);
-  --accent-50: rgba(123, 100, 79, 0.5);
-  --accent-25: rgba(123, 100, 79, 0.25);
+  --accent: rgba(136, 110, 87, 1);
+  --accent-75: rgba(136, 110, 87, 0.75);
+  --accent-50: rgba(136, 110, 87, 0.5);
+  --accent-25: rgba(136, 110, 87, 0.25);
+}
+:root .g-1, :root.g-1,
+:root .g-2, :root.g-2,
+:root .g-3, :root.g-3 {
+  --textAccent: var(--white);
+}
+:root .g-6, :root.g-6 {
+  --textAccent: rgba(176, 145, 118, 1);
+}
+:root .g-4, :root.g-4 {
+  --accent: rgba(83, 113, 109, 1);
+  --accent-75: rgba(83, 113, 109, 0.75);
+  --accent-50: rgba(83, 113, 109, 0.5);
+  --accent-25: rgba(83, 113, 109, 0.25);
+  --textAccent: rgba(135, 198, 190, 1);
 }
 :root .g-5, :root.g-5,
 :root .g-7, :root.g-7,
 :root .g-8, :root.g-8 {
-  --accent: rgba(111, 111, 111, 1);
-  --accent-75: rgba(111, 111, 111, 0.75);
-  --accent-50: rgba(111, 111, 111, 0.5);
-  --accent-25: rgba(111, 111, 111, 0.25);
+  --accent: rgba(96, 96, 96, 1);
+  --accent-75: rgba(96, 96, 96, 0.75);
+  --accent-50: rgba(96, 96, 96, 0.5);
+  --accent-25: rgba(96, 96, 96, 0.25);
+  --textAccent: rgba(172, 172, 172, 1);
 }
 :root .g-9, :root.g-9 {
-  --accent: rgba(120, 116, 149, 1);
-  --accent-75: rgba(120, 116, 149, 0.75);
-  --accent-50: rgba(120, 116, 149, 0.5);
-  --accent-25: rgba(120, 116, 149, 0.25);
+  --accent: rgba(110, 107, 128, 1);
+  --accent-75: rgba(110, 107, 128, 0.75);
+  --accent-50: rgba(110, 107, 128, 0.5);
+  --accent-25: rgba(110, 107, 128, 0.25);
+  --textAccent: rgba(151, 145, 187, 1);
 }
 :root .g-10, :root.g-10 {
-  --accent: rgba(108, 136, 133, 1);
-  --accent-75: rgba(108, 136, 133, 0.75);
-  --accent-50: rgba(108, 136, 133, 0.5);
-  --accent-25: rgba(108, 136, 133, 0.25);
+  --accent: rgba(78, 105, 121, 1);
+  --accent-75: rgba(78, 105, 121, 0.75);
+  --accent-50: rgba(78, 105, 121, 0.5);
+  --accent-25: rgba(78, 105, 121, 0.25);
+  --textAccent: rgba(138, 179, 204, 1);
 }
 :root .g-11, :root.g-11 {
-  --accent: rgba(155, 125, 118, 1);
-  --accent-75: rgba(155, 125, 118, 0.75);
-  --accent-50: rgba(155, 125, 118, 0.5);
-  --accent-25: rgba(155, 125, 118, 0.25);
+  --accent: rgba(130, 95, 86, 1);
+  --accent-75: rgba(130, 95, 86, 0.75);
+  --accent-50: rgba(130, 95, 86, 0.5);
+  --accent-25: rgba(130, 95, 86, 0.25);
+  --textAccent: rgba(179, 139, 129, 1);
 }
 :root .g-12, :root.g-12 {
-  --accent: rgba(108, 136, 111, 1);
-  --accent-75: rgba(108, 136, 111, 0.75);
-  --accent-50: rgba(108, 136, 111, 0.5);
-  --accent-25: rgba(108, 136, 111, 0.25);
+  --accent: rgba(78, 111, 81, 1);
+  --accent-75: rgba(78, 111, 81, 0.75);
+  --accent-50: rgba(78, 111, 81, 0.5);
+  --accent-25: rgba(78, 111, 81, 0.25);
+  --textAccent: rgba(131, 179, 135, 1);
 }
 :root .g-13, :root.g-13 {
-  --accent: rgba(138, 145, 107, 1);
-  --accent-75: rgba(138, 145, 107, 0.75);
-  --accent-50: rgba(138, 145, 107, 0.5);
-  --accent-25: rgba(138, 145, 107, 0.25);
+  --accent: rgba(101, 108, 67, 1);
+  --accent-75: rgba(101, 108, 67, 0.75);
+  --accent-50: rgba(101, 108, 67, 0.5);
+  --accent-25: rgba(101, 108, 67, 0.25);
+  --textAccent: rgba(172, 171, 122, 1);
 }
 
 .dark {
@@ -1361,7 +1381,8 @@ header .skip:after {
   left: -10px;
   width: calc(100% + 20px);
   height: 3px;
-  background: var(--accent);
+  background: var(--textAccent);
+  opacity: 0.7;
 }
 .forum--latest {
   display: grid;
@@ -1388,8 +1409,12 @@ header .skip:after {
 .forum--latest > span > a, .forum--latest > span > span {
   line-height: var(--xsBody);
 }
+.forum--latest i.fa-user + a {
+  color: var(--textAccent);
+}
 .forum--latest i.fa-user + a:before {
   content: "Written by ";
+  color: var(--white);
 }
 .forum button {
   background: var(--light);
@@ -1590,6 +1615,9 @@ header .skip:after {
 .stats--now .scroll a {
   color: var(--white);
 }
+.stats--now .scroll a > span {
+  color: var(--textAccent);
+}
 .stats--today {
   padding: 50px;
   display: grid;
@@ -1607,6 +1635,9 @@ header .skip:after {
 }
 .stats--today .scroll a {
   color: var(--white);
+}
+.stats--today .scroll a > span {
+  color: var(--textAccent);
 }
 .stats--recent {
   grid-column: 1/-1;
@@ -1691,9 +1722,11 @@ header .skip:after {
 .stats #recent-topics .recent-topics-info a:nth-of-type(2) {
   display: block;
   margin: 5px 0 0;
+  color: var(--textAccent);
 }
 .stats #recent-topics .recent-topics-info a:nth-of-type(2):before {
   content: "written by ";
+  color: var(--white);
 }
 .stats #recent-topics .recent-topics-info a:last-child {
   display: none;
@@ -1704,6 +1737,7 @@ header .skip:after {
   font-size: var(--xsBody);
   letter-spacing: 1px;
   font-style: italic;
+  margin-top: 7px;
 }
 
 /*******************************
@@ -1893,11 +1927,19 @@ header .skip:after {
   font-size: var(--lBody);
   line-height: var(--lBody);
 }
+.topic--player.topic--start a {
+  color: var(--textAccent);
+}
 .topic--player.topic--start a:before {
   content: "Started by ";
+  color: var(--white);
+}
+.topic--player.topic--last a {
+  color: var(--textAccent);
 }
 .topic--player.topic--last a:before {
   content: "Last post by ";
+  color: var(--white);
 }
 
 /*******************************

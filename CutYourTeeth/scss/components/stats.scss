@@ -60,6 +60,10 @@
 
             a {
                 color: var(--white);
+
+                & > span {
+                    color: var(--textAccent);
+                }
             }
         }
     }
@@ -81,6 +85,10 @@
 
             a {
                 color: var(--white);
+
+                & > span {
+                    color: var(--textAccent);
+                }
             }
         }
     }
@@ -178,9 +186,11 @@
                     &:nth-of-type(2) {
                         display: block;
                         margin: 5px 0 0;
+                        color: var(--textAccent);
 
                         &:before {
                             content: 'written by ';
+                            color: var(--white);
                         }
                     }
 
@@ -195,6 +205,7 @@
                 font-size: var(--xsBody);
                 letter-spacing: 1px;
                 font-style: italic;
+                margin-top: 7px;
             }
         }
     }

@@ -214,12 +214,22 @@
             line-height: var(--lBody);
         }
 
-        &.topic--start a:before {
-            content: 'Started by ';
+        &.topic--start a {
+            color: var(--textAccent);
+
+            &:before {
+                content: 'Started by ';
+                color: var(--white);
+            }
         }
 
-        &.topic--last a:before {
-            content: 'Last post by ';
+        &.topic--last a {
+            color: var(--textAccent);
+            
+            &:before {
+                content: 'Last post by ';
+                color: var(--white);
+            }
         }
     }
 }
