@@ -125,3 +125,9 @@ function toggleSort() {
     document.querySelector('.ml--top button.toggle-sort').classList.toggle('sortOpen');
     document.querySelector('.ml--sort').classList.toggle('sortOpen');
 }
+
+function capitalize(str, separators) {
+    separators = separators || [ ' ' ];
+    var regex = new RegExp('(^|[' + separators.join('') + '])(\\w)', 'g');
+    return str.replace(regex, function(x) { return x.toUpperCase(); });
+}

@@ -6,6 +6,77 @@
     --headerImage: url(../img/coast.jpg); /*https://www.pexels.com/photo/top-view-photo-of-rocky-shore-2307636*/
     --textureBG: url(../img/texture.jpg); /*https://www.pexels.com/photo/aerial-view-of-ocean-waves-3614424/*/
     --lightTextureBG: url(../img/lighttexture.jpg); /*https://www.pexels.com/photo/aerial-shot-of-blue-water-3894157/*/
+
+
+    
+    .g-1,
+    &.g-1,
+    .g-2,
+    &.g-2,
+    .g-3,
+    &.g-3,
+    .g-4,
+    &.g-4,
+    .g-6,
+    &.g-6 {
+        //validating, guest, unsorted, admin, writer
+        --accent: rgba(123, 100, 79, 1);
+        --accent-75: rgba(123, 100, 79, 0.75);
+        --accent-50: rgba(123, 100, 79, 0.5);
+        --accent-25: rgba(123, 100, 79, 0.25);
+    }
+    .g-5,
+    &.g-5,
+    .g-7,
+    &.g-7,
+    .g-8,
+    &.g-8 {
+        //banned, hiatus, inactive
+        --accent: rgba(111, 111, 111, 1);
+        --accent-75: rgba(111, 111, 111, 0.75);
+        --accent-50: rgba(111, 111, 111, 0.5);
+        --accent-25: rgba(111, 111, 111, 0.25);
+    }
+    .g-9,
+    &.g-9 {
+        //writer
+        --accent: rgba(120, 116, 149, 1);
+        --accent-75: rgba(120, 116, 149, 0.75);
+        --accent-50: rgba(120, 116, 149, 0.5);
+        --accent-25: rgba(120, 116, 149, 0.25);
+    }
+    .g-10,
+    &.g-10 {
+        //writer
+        --accent: rgba(108, 136, 133, 1);
+        --accent-75: rgba(108, 136, 133, 0.75);
+        --accent-50: rgba(108, 136, 133, 0.5);
+        --accent-25: rgba(108, 136, 133, 0.25);
+    }
+    .g-11,
+    &.g-11 {
+        //writer
+        --accent: rgba(155, 125, 118, 1);
+        --accent-75: rgba(155, 125, 118, 0.75);
+        --accent-50: rgba(155, 125, 118, 0.5);
+        --accent-25: rgba(155, 125, 118, 0.25);
+    }
+    .g-12,
+    &.g-12 {
+        //writer
+        --accent: rgba(108, 136, 111, 1);
+        --accent-75: rgba(108, 136, 111, 0.75);
+        --accent-50: rgba(108, 136, 111, 0.5);
+        --accent-25: rgba(108, 136, 111, 0.25);
+    }
+    .g-13,
+    &.g-13 {
+        //writer
+        --accent: rgba(138, 145, 107, 1);
+        --accent-75: rgba(138, 145, 107, 0.75);
+        --accent-50: rgba(138, 145, 107, 0.5);
+        --accent-25: rgba(138, 145, 107, 0.25);
+    }
 }
 .dark {
     --dark: var(--white);
@@ -13,42 +84,6 @@
     --light: var(--black);
     --altLight: var(--dkGrey);
     --mid: var(--midGrey);
-    
-    .g-1,
-    &.g-1 {
-        //validating
-        --accent: rgba(74, 104, 100, 1);
-        --accent-50: rgba(74, 104, 100, 0.5);
-        --accent-25: rgba(74, 104, 100, 0.25);
-    }
-    .g-2,
-    &.g-2 {
-        //guest
-        --accent: rgba(74, 104, 100, 1);
-        --accent-50: rgba(74, 104, 100, 0.5);
-        --accent-25: rgba(74, 104, 100, 0.25);
-    }
-    .g-3,
-    &.g-3 {
-        //member
-        --accent: rgba(74, 104, 100, 1);
-        --accent-50: rgba(74, 104, 100, 0.5);
-        --accent-25: rgba(74, 104, 100, 0.25);
-    }
-    .g-4,
-    &.g-4 {
-        //admin
-        --accent: rgba(74, 104, 100, 1);
-        --accent-50: rgba(74, 104, 100, 0.5);
-        --accent-25: rgba(74, 104, 100, 0.25);
-    }
-    .g-5,
-    &.g-5 {
-        //banned
-        --accent: rgba(74, 104, 100, 1);
-        --accent-50: rgba(74, 104, 100, 0.5);
-        --accent-25: rgba(74, 104, 100, 0.25);
-    }
 }
 .light {
     --dark: var(--black);
@@ -56,42 +91,6 @@
     --light: var(--white);
     --altLight: var(--offWhite);
     --mid: var(--ltGrey);
-    
-    .g-1,
-    &.g-1 {
-        //validating
-        --accent: rgba(74, 104, 100, 1);
-        --accent-50: rgba(74, 104, 100, 0.5);
-        --accent-25: rgba(74, 104, 100, 0.25);
-    }
-    .g-2,
-    &.g-2 {
-        //guest
-        --accent: rgba(74, 104, 100, 1);
-        --accent-50: rgba(74, 104, 100, 0.5);
-        --accent-25: rgba(74, 104, 100, 0.25);
-    }
-    .g-3,
-    &.g-3 {
-        //member
-        --accent: rgba(74, 104, 100, 1);
-        --accent-50: rgba(74, 104, 100, 0.5);
-        --accent-25: rgba(74, 104, 100, 0.25);
-    }
-    .g-4,
-    &.g-4 {
-        //admin
-        --accent: rgba(74, 104, 100, 1);
-        --accent-50: rgba(74, 104, 100, 0.5);
-        --accent-25: rgba(74, 104, 100, 0.25);
-    }
-    .g-5,
-    &.g-5 {
-        //banned
-        --accent: rgba(74, 104, 100, 1);
-        --accent-50: rgba(74, 104, 100, 0.5);
-        --accent-25: rgba(74, 104, 100, 0.25);
-    }
 }
 .c-1 {
     --categoryMessage: "it\'s all the same down in the capital";

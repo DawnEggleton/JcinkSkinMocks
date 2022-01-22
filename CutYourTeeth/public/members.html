@@ -25,6 +25,7 @@
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
 		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
         <script src="../js/clipboard.js"></script>
+        <script src="../js/functions.js"></script>
 
         <!--Settings-->
         <script type='text/javascript' src='../js/settings.js'></script>
@@ -301,13 +302,98 @@
                     </button>
                 </div>
                 <div class="ml--filters">
-                    <div class="ml--filters-inner">
-                        filters will go in here at some point
+                    <div class="ml--filters-inner scroll">
+                        <div class="ml--filtergroup ml-memberlist" data-filter-group="member">
+                            <h2><span>Alias</span></h2>
+                            <div class="scroll">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all members</label>          
+                                <label><input type="checkbox" value=".ana">ana</label>
+                                <label><input type="checkbox" value=".dashin">dashin</label>
+                                <label><input type="checkbox" value=".jules">jules</label>
+                                <label><input type="checkbox" value=".julia">julia</label>
+                                <label><input type="checkbox" value=".kyo">kyo</label>
+                                <label><input type="checkbox" value=".lauren">lauren</label>
+                                <label><input type="checkbox" value=".lux">lux</label>
+                                <label><input type="checkbox" value=".meriel">meriel</label>
+                                <label><input type="checkbox" value=".morgan/high lady">morgan/high lady</label>
+                                <label><input type="checkbox" value=".quinn">quinn</label>
+                                <label><input type="checkbox" value=".shado">shado</label>
+                                <label><input type="checkbox" value=".sol">sol</label>
+                            </div>
+                        </div>
+
+                        <div class="ml--filtergroup" data-filter-group="group">
+                            <h2><span>Group</span></h2>
+                            <div class="scroll">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all groups</label>
+                                <label><input type="checkbox" value=".g-4">staff</label>
+                                <label><input type="checkbox" value=".g-6">writers</label>
+                                <label><input type="checkbox" value=".active">active characters</label>
+                                <label><input type="checkbox" value=".g-3">unsorted</label>
+                                <label class="staffOnly"><input type="checkbox" value=".g-8">inactive</label>
+                                <label><input type="checkbox" value=".g-7">hiatus</label>
+                            </div>
+                        </div>
+                        
+                        <div class="ml--filtergroup" data-filter-group="district">
+                            <h2><span>District</span></h2>
+                            <div class="scroll">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all locations</label>
+                                <label><input type="checkbox" value=".g-12">central davenport</label>
+                                <label><input type="checkbox" value=".g-10">coastline</label>
+                                <label><input type="checkbox" value=".g-11">old town</label>
+                                <label><input type="checkbox" value=".g-13">outskirts</label>
+                                <label><input type="checkbox" value=".g-9">river's edge</label>
+                            </div>
+                        </div>
+                        
+                        <div class="ml--filtergroup" data-filter-group="age">
+                            <h2><span>Age</span></h2>
+                            <div class="scroll">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all ages</label>
+                                <label><input type="checkbox" value=".20s">18 - 29</label>
+                                <label><input type="checkbox" value=".30s">30 - 39</label>
+                                <label><input type="checkbox" value=".40s">40 - 49</label>
+                                <label><input type="checkbox" value=".50">50+</label>
+                                <label><input type="checkbox" value=".immortal">Immortal</label>
+                            </div>
+                        </div>
+                        
+                        <div class="ml--filtergroup" data-filter-group="group">
+                            <h2><span>Relationship</span></h2>
+                            <div class="scroll">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all types</label>
+                                <label><input type="checkbox" value=".single">single</label>
+                                <label><input type="checkbox" value=".dating">dating</label>
+                                <label><input type="checkbox" value=".engaged">engaged</label>
+                                <label><input type="checkbox" value=".married">married</label>
+                                <label><input type="checkbox" value=".separated">separated</label>
+                                <label><input type="checkbox" value=".divorced">divorced</label>
+                                <label><input type="checkbox" value=".widowed">widowed</label>
+                                <label><input type="checkbox" value=".itscomplicated">it's complicated</label>
+                            </div>
+                        </div>
+                        
+                        <div class="ml--filtergroup" data-filter-group="group">
+                            <h2><span>Meta?</span></h2>
+                            <div class="scroll">
+                                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                                <label><input type="checkbox" value=".meta">yes</label>
+                                <label><input type="checkbox" value=".human">no</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="ml--sort">
                     <div class="ml--sort-inner">
-                        sorts will go in here at some point
+                        <h2><span>Sort By</span></h2>
+                        <button type="button" class="members--sort" data-sort="name" onclick="sortList(this)">Name</button>
+                        <button type="button" class="members--sort" data-sort="alias" onclick="sortList(this)">Alias</button>
+                        <button type="button" class="members--sort" data-sort="age" onclick="sortList(this)">Age</button>
+                        <button type="button" class="members--sort" data-sort="face" onclick="sortList(this)">Face</button>
+                        <a class="members--sort" href="?act=Members&name=&sort_key=posts&sort_order=desc&max_results=1000">Post Count</a>
+                        <a class="members--sort" href="?act=Members&name=&sort_key=last_post&sort_order=desc&max_results=1000">Last Post</a>
+                        <a class="members--sort" href="?act=Members&name=&sort_key=joined&sort_order=desc&max_results=1000">Join Date</a>
                     </div>
                 </div>
                 <div class="ml--members">
@@ -336,45 +422,100 @@
                             return 0;
                         });
                         populatePage(accounts);
+                        $container.isotope( 'reloadItems' ).isotope();
                     }
                     
                     function populatePage(array) {
                         let html = ``;
                         for (let i = 0; i < array.length; i++) {
                             switch(array[i].groupID) {
-                                //only show when selected & for staff
-                                case '1':
-                                case '5':
-                                case '7':
-                                case '8':
-                                    html += `<div class="ml--member grid-item g-${array[i].groupID} ${array[i].alias}">
-                                            this is a member
-                                    </div>`;
-                                    break;
-                                case '4':
-                                case '6':
-                                    //member and active
+                                //member only
+                                case 4:
+                                case 6:
                                     html += `<div class="ml--member member onLoad grid-item g-${array[i].groupID} ${array[i].alias}">
-                                            this is a member
+                                        <div class="mem">
+                                            <div class="mem--top">
+                                                <img src="${array[i].image}" />
+                                                <a href="?showuser=${array[i].id}">${array[i].name}</a>
+                                                <span>${array[i].memPronouns}</span>
+                                                <span>${array[i].memAge} years</span>
+                                                <span>${array[i].groupName}</span>
+                                            </div>
+                                            <div class="mem--overview">
+                                                <div class="scroll">${array[i].name} will not write ${array[i].limits}.</div>
+                                            </div>
+                                            <div class="mem--playedBy">
+                                                Posts ${array[i].frequency}
+                                            </div>
+                                        </div>
                                     </div>`;
                                     break;
-                                case '3':
-                                    if(array[i].type == 'member') {
+                                //depends on type
+                                case 1:
+                                case 5:
+                                case 7:
+                                case 8:
+                                case 3:
+                                    if(array[i].type == `member`) {
                                         //member
                                         html += `<div class="ml--member member onLoad grid-item g-${array[i].groupID} ${array[i].alias}">
-                                                this is a member
+                                            <div class="mem">
+                                                <div class="mem--top">
+                                                    <img src="${array[i].image}" />
+                                                    <a href="?showuser=${array[i].id}">${array[i].name}</a>
+                                                    <span class="fullWidth">${array[i].face}</span>
+                                                    <span>${array[i].memPronouns}</span>
+                                                    <span>${array[i].memAge} years</span>
+                                                    <span>${array[i].groupName}</span>
+                                                </div>
+                                                <div class="mem--overview">
+                                                    <div class="scroll">${array[i].name} will not write ${array[i].limits}.</div>
+                                                </div>
+                                                <div class="mem--playedBy">
+                                                    Posts ${array[i].frequency}
+                                                </div>
+                                            </div>
                                         </div>`;
                                     } else {
                                         //character
-                                        html += `<div class="ml--member character onLoad grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].species} ${array[i].alias}">
-                                                this is a member
+                                        html += `<div class="ml--member character active onLoad grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].species} ${array[i].alias}">
+                                            <div class="mem">
+                                                <div class="mem--top">
+                                                    <img src="${array[i].image}" />
+                                                    <a href="?showuser=${array[i].id}">${array[i].name}</a>
+                                                    <span>${array[i].pronouns}</span>
+                                                    <span>${array[i].age} years</span>
+                                                    <span>${array[i].groupName}</span>
+                                                </div>
+                                                <div class="mem--overview">
+                                                    <div class="scroll">${array[i].overview}</div>
+                                                </div>
+                                                <div class="mem--playedBy">
+                                                    Played by ${array[i].alias}
+                                                </div>
+                                            </div>
                                         </div>`;
                                     }
                                     break;
+                                //character only
                                 default: 
-                                    //character and active
                                     html += `<div class="ml--member character active onLoad grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].species} ${array[i].alias}">
-                                            this is a member
+                                        <div class="mem">
+                                            <div class="mem--top">
+                                                <img src="${array[i].image}" />
+                                                <a href="?showuser=${array[i].id}">${array[i].name}</a>
+                                                <span class="fullWidth">${array[i].face}</span>
+                                                <span>${array[i].pronouns}</span>
+                                                <span>${array[i].age} years</span>
+                                                <span>${array[i].groupName}</span>
+                                            </div>
+                                            <div class="mem--overview">
+                                                <div class="scroll">${array[i].overview}</div>
+                                            </div>
+                                            <div class="mem--playedBy">
+                                                Played by ${array[i].alias}
+                                            </div>
+                                        </div>
                                     </div>`;
                                     break;
                             }
@@ -417,7 +558,7 @@
 
                     /*
                     if(ageNum >= 18 && ageNum <= 29 && age != 'Immortal') {
-                        let ageClass = '20s';
+                        let ageClass = `20s`;
                     } else if(ageNum >= 30 && ageNum <= 39 && age != 'Immortal') {
                         let ageClass = '30s';
                     } else if(ageNum >= 40 && ageNum <= 49 && age != 'Immortal') {
@@ -462,7 +603,7 @@
 
                     function manageCheckbox( $checkbox ) {
                     var checkbox = $checkbox[0];
-                    var group = $checkbox.parents('.ml-filtergroup').attr('data-filter-group');
+                    var group = $checkbox.parents('.ml--filtergroup').attr('data-filter-group');
                     // create array for filter group, if not there yet
                     var filterGroup = filters[ group ];
                     if ( !filterGroup ) {
@@ -502,109 +643,209 @@
                     
 
                     accounts.push({
+                        name: capitalize(`Brennan Cormac`, [`-`, `'`, ` `]),
                         alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `1`,
-                        type: 'member',
-                        ageClass: '20s',
-                        relStatus: `it's complicated`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
+                        memAge: parseInt(`29`),
+                        frequency: `every 1 to 2 weeks`,
+                        limits: `detailed, mature sexual content`,
+                        groupID: parseInt(`12`),
+                        id: parseInt(`4`),
+                        groupName: `Central Davenport`,
+                        face: `jonathan young`,
+                        pronouns: `he/him`,
+                        overview: `Brennan is a bit of a mess He had a rough go of it as a child and learned young to not count on anyone else- a mentality that's persisted to this day. Of course, being tossed into an underground meta fighting ring as a young adult hardly helped. He's got a twisted worldview as a result of this and, while he's incredibly intelligent and a gifted forensic toxicologist, he finds it all a little dull.
+
+                        So, crime.
+
+                        He doesn't usually get his hands dirty, beyond quietly pulling aside people no one will miss to try out his personally-made poisons for his private research, but he's extremely adept at finding and gathering information and so offers these services on a for-hire basis. Mostly, he does this through a local criminal group known as the Zodiac, but he's done solo jobs as well on occasion.
+
+                        He doesn't tend to make friends very easily - a mix of aloofness and his odd sense of humour - and his loyalty is even harder won without a significant handful of cash. He's perfectly capable of a civil, and even friendly, conversation though - just be aware he's habitually nocturnal, so don't expect to see him in the middle of the day.`,
+                        type: `character`,
+                        age: parseInt(`37`),
+                        ageClass: `30s`,
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: `meta`,
+                        image: `https://64.media.tumblr.com/940cd7d53247eaf95a543d2fc02e484c/tumblr_p2j7yd83P81vz2ghao4_1280.jpg`,
                     });
                     accounts.push({
+                        name: capitalize(`Cynbel Edevane`, [`-`, `'`, ` `]),
                         alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `2`,
-                        type: 'member',
-                        ageClass: '20s',
+                        memAge: parseInt(`29`),
+                        frequency: `every 1 to 2 weeks`,
+                        limits: `detailed, mature sexual content`,
+                        groupID: parseInt(`13`),
+                        id: parseInt(`43`),
+                        groupName: `Outskirts`,
+                        pronouns: `he/him`,
+                        face: `ezra miller`,
+                        overview: `Cynbel is your local vampiric asshole. He's proud, pretentious, and way too vain to let himself be seen as anything less that what he strictly dictates. He watches his image carefully, portraying the sides he wants people to see - often a little more violent and aggressive than most would find appropriate, but it keeps them all at arms length , which is part of the goal. He has mellowed a bit over the many centuries he's been alive, but he still isn't particularly benign as far as immortal beings go. He kills when he gets bored, he steals years off people's lives when he feels like it, and is a general gem of a creature (note the sarcasm). He has such a hard time relying on and trust people that he tends to avoid getting remotely close to people - especially people who are not immortal. He has had very few friends and is fairly determined to say he doesn't have (and has never had) any. He's still super bitter over the last time people he trusted fucked him over. And the time before that. And the time before that. Needless to say, he holds a grudge well, but he also hasn't been given any reason to trust. As for romance and intimacy, Cyn has had flings off and on over the years, but nothing too serious except when he came close to love with Mary Jane Kelly (his last Ripper victim). With his extreme sensitivity to pheromones and heartbeats, he's very picky about who he even considers a fling with and so he hasn't had a lot of them and a serious relationship would be a million times tougher to finagle out of him.`,
+                        type: `character`,
+                        age: parseInt(`2082`),
+                        ageClass: `immortal`,
                         relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
+                        species: `meta`,
+                        image: `https://64.media.tumblr.com/76440e43cbdc87b1116196f37849f222/511317c6596bdf04-c7/s1280x1920/c37af67e6d9094490a1e5152193582f8a70c98ae.jpg`,
                     });
                     accounts.push({
-                        alias: `meriel`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `3`,
-                        type: 'member',
-                        ageClass: '30s',
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
-                    });
-                    accounts.push({
-                        alias: `quinn`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `4`,
-                        type: 'member',
-                        ageClass: '30s',
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
-                    });
-                    accounts.push({
-                        alias: `dashin`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `5`,
-                        type: 'member',
-                        ageClass: '20s',
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
-                    });
-                    accounts.push({
-                        alias: `lauren`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `6`,
-                        type: 'member',
-                        ageClass: '20s',
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
-                    });
-                    accounts.push({
-                        alias: `shado`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `7`,
-                        type: 'member',
-                        ageClass: '20s',
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
-                    });
-                    accounts.push({
-                        alias: `kyo`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `8`,
-                        type: 'member',
-                        ageClass: '20s',
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
-                    });
-                    accounts.push({
-                        alias: `sol`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `9`,
-                        type: 'character',
-                        ageClass: '20s',
-                        relStatus: `it's complicated`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
-                    });
-                    accounts.push({
+                        name: capitalize(`Hayden Donovan`, [`-`, `'`, ` `]),
                         alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `10`,
-                        type: 'character',
-                        ageClass: '20s',
+                        memAge: parseInt(`29`),
+                        frequency: `every 1 to 2 weeks`,
+                        limits: `detailed, mature sexual content`,
+                        groupID: parseInt(`10`),
+                        id: parseInt(`2`),
+                        groupName: `Coastline`,
+                        pronouns: `she/her`,
+                        face: `milla jovovich`,
+                        overview: `Hayden is... well, complicated but not at the same time. She's pretty straightforward to understand: she's ready to fuck you up if you fuck up her or people she cares about, and she's 100% capable of doing it. Don't bother her, she won't bother you, most likely — kind of like a hive of bees. Jostle her a little too much and you'll regret it. She's got a lot of pent up rage and anger over her mistreatment, especially given she believes the government was involved and she served and trusted them. It was enough to get her to start a whole damned rebellion, which is probably not what the metas need when the world just found out they exist but... well. Here we are anyway. Needless to say, getting on her bad side is... not recommended. If you're on her good side, though, no need to worry; she's a bit abrasive at times, but she's steady, reliable, and loyal to a fault.
+
+                        Speaking of that rebellion, she sort of knows everyone through either that or her work. She started off tending the bar at the Heart & Crown pub and bar on the coastline, which has become the main hub for rebellion meetings and activity. This to say, if she didn't meet someone through the rebellion, then she's probably served them drinks at some point. The Heart & Crown is more or less a public institution in Divine.`,
+                        type: `character`,
+                        age: parseInt(`28`),
+                        ageClass: `20s`,
                         relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
+                        species: `meta`,
+                        image: `https://64.media.tumblr.com/52e0b2b5d8df16be2906747ffd8c6b6a/d11abbca8359c565-2a/s640x960/caa2500dd4329fe1674806e9bbcaf0375ccefa27.jpg`,
                     });
                     accounts.push({
-                        alias: `test/slash`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `11`,
-                        type: 'character',
-                        ageClass: '20s',
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'human'.toLowerCase(),
+                        name: capitalize(`Jesse Dunn`, [`-`, `'`, ` `]),
+                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        memAge: parseInt(`29`),
+                        frequency: `every 1 to 2 weeks`,
+                        limits: `detailed, mature sexual content`,
+                        groupID: parseInt(`13`),
+                        id: parseInt(`50`),
+                        groupName: `Outskirts`,
+                        pronouns: `he/him`,
+                        face: `viggo mortenson`,
+                        overview: `A cowboy who never quite outgrew the wild west and the call of the wide open plains, Jes is a bit rough-and-tumble and more likely to get into a fist fight than he is to calmly talk any sort of argument through. He's the passionate sort, and not in the slightest bit quiet, so has often been described as dramatic, overbearing, and reactive. It leads, frequently, to the assumption that he can't keep a secret to save his life, considering he never seems to shut up - but that's just a common misconception. He's remarkably good at shutting his trap when he's got to, or talking circles around the question until you don't know what you were asking any longer. It comes from a place of deep self-loathing that he's only partly gotten past, but hey, at least he talks about it now. To Gaius, specifically, because fuck if he's going to get all weepy to people that aren't his husband. He has his pride to maintain!`,
+                        type: `character`,
+                        age: parseInt(`239`),
+                        ageClass: `immortal`,
+                        relStatus: `married`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: `meta`,
+                        image: `https://64.media.tumblr.com/a2ef7dbf678361d0c594fb7e8f1c5833/af990ad6c68dd970-ff/s1280x1920/93d23a77350f93249a804acde644987bf29c1ef6.jpg`,
                     });
                     accounts.push({
-                        alias: `test a space`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        species: 'meta',
-                        groupID: `12`,
-                        type: 'character',
-                        ageClass: '20s',
+                        name: capitalize(`Madison McKinley`, [`-`, `'`, ` `]),
+                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        memAge: parseInt(`29`),
+                        frequency: `every 1 to 2 weeks`,
+                        limits: `detailed, mature sexual content`,
+                        groupID: parseInt(`10`),
+                        id: parseInt(`45`),
+                        groupName: `Coastline`,
+                        pronouns: `she/her`,
+                        face: `tessa thompson`,
+                        overview: `Mads is general a sweet girl; she's the sort to bake cookies for new neighbours and offer up somewhat lewd jokes in the same breath, sure, but she's sweet and she means well. She's also, however, incredibly bullheaded and, once she sets her mind to something, it's near-impossible to get her to change it. She faces danger and sorrow both with a smile, determined not to let it get to her. It does, if she's honest, but fuck if she's telling anyone except those she's closest too - and, after her fiance went missing, that's precious few. Half of that is because she's currently undercover in the Order and, well, trusting the enemy is not something that comes highly recommended - but the other half? Intentional, trying to avoid feeling that hurt again. She'd rather stay a sunshine child, thanks.`,
+                        type: `character`,
+                        age: parseInt(`32`),
+                        ageClass: `30s`,
                         relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
+                        species: `meta`,
+                        image: `https://64.media.tumblr.com/9c96a8764436d70db5d4eb8fd1276976/dc6ed113a363f70d-e1/s640x960/77d774ca4ef4e0c63b3f8d5763bad0ac9cc8244f.jpg`,
                     });
                     accounts.push({
-                        alias: `Test Caps`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        groupID: `13`,
-                        type: 'character',
-                        ageClass: 'immortal',
+                        name: capitalize(`Malcolm Murdock`, [`-`, `'`, ` `]),
+                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        memAge: parseInt(`29`),
+                        frequency: `every 1 to 2 weeks`,
+                        limits: `detailed, mature sexual content`,
+                        groupID: parseInt(`11`),
+                        id: parseInt(`3`),
+                        groupName: `Old Town`,
+                        pronouns: `he/him`,
+                        face: `timur simakov`,
+                        overview: `Malcolm is practically an urban legend around Davenport; he's a story that parents tell their children at night to keep them in their rooms and not climbing out of windows, and he's the monster under your bed. Not literally, of course. If you were to meet him on the streets, you'd likely look down on him. He's not particularly tall or short, a little on the scrawny side, and altogether a bit unassuming. The limp in his step, gloves over his hands, and generally calculating look in his eye, though, is what gives him away. He grew up on the streets and he is dead set on owning them - no matter the cost. The fact he's an upstart kid that came from out of nowhere only adds to his reputation.
+
+                        Malcolm is not only selective about those he associates with, but also his friends - especially his friends. He doesn't trust easily and he's more liable to play nice and stab you in the back than he is to actually be nice to you for the sake of being nice. This makes for a lot of fake friendships, or friendships based solely on convenience (if you can call either of those things a friendship). He didn't come to be called 'bastard' by most of the people in the seedy underbelly of Davenport by the age of sixteen through hugs and cupcakes and rainbows. No, he got there by being cruel, unforgiving, sadistic, and callous towards almost everyone. He steals, he murders, he ruins the plans of other criminals if there's something in it for him, and he's incredibly self-assured and self-centred. Basically, there is every reason to hate this guy on principle alone. And, honestly, he encourages it. Gimme those antagonistic plots up the wazoo (but also some people he's on good terms with because he will be awkward and won't know what to do).
+
+                        (And yes, he is 10000% a Kaz Brekker. As if that wasn't obvious to anyone who knows SoC).`,
+                        type: `character`,
+                        age: parseInt(`22`),
+                        ageClass: `20s`,
                         relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: 'meta'.toLowerCase(),
+                        species: `meta`,
+                        image: `https://64.media.tumblr.com/289e7830f83c0545498ba6ae4333c1ca/tumblr_p3wz67wAPP1vz2ghao8_640.jpg`,
+                    });
+                    accounts.push({
+                        name: capitalize(`Nikolas Kovac`, [`-`, `'`, ` `]),
+                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        memAge: parseInt(`29`),
+                        frequency: `every 1 to 2 weeks`,
+                        limits: `detailed, mature sexual content`,
+                        groupID: parseInt(`10`),
+                        id: parseInt(`35`),
+                        groupName: `Coastline`,
+                        pronouns: `he/him`,
+                        face: `jack savoretti`,
+                        overview: `Nik is kind of a walking tragedy, to be quite honest. He's had a really hard life, and being immortal hasn't really helped much, because it's given him even more time to experience these hardships. He's a sensitive soul, feeling each of these things very deeply and to extremes, despite his attempts to shove all those feelings down. He is kind, though, and unerringly so. He will attempt to help just about anyone who needs it, even at great personal risk or cost to his own well-being. You'll find he can be quite distant at first if he doesn't know you. He is quite cautious, despite his desire to help and heal, and so will take a while to warm up, but he's trying to work on it.
+
+                        When it comes to interacting with people, he's particularly soft-spoken, but an otherwise excellent conversationalist (assuming you can get him to speak). He's easily distracted, often getting caught up in a flurry of his own thoughts and ideas, but trust that he hasn't missed a word you're saying either (at least, usually). He just might take a second or two to catch up and backtrack to what you were talking about first. Most of the people he knows, he knows through his work as a professor at the local university, but he may have some old friends from his time at Quantum - before he found out what they were doing and promptly left, but was too chicken to actually pursue any sort of action to stop them.`,
+                        type: `character`,
+                        age: parseInt(`199`),
+                        ageClass: `immortal`,
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: `meta`,
+                        image: `https://64.media.tumblr.com/e1a7a0df7663a3f06b0afb090871cfa1/e9564d2ab94005ea-93/s1280x1920/52dfbaf19a3e726bece2a45ce3f9c95a4fcd1662.jpg`,
+                    });
+                    accounts.push({
+                        name: capitalize(`Satiah El Masry`, [`-`, `'`, ` `]),
+                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        memAge: parseInt(`29`),
+                        frequency: `every 1 to 2 weeks`,
+                        limits: `detailed, mature sexual content`,
+                        groupID: parseInt(`11`),
+                        id: parseInt(`15`),
+                        groupName: `Old Town`,
+                        pronouns: `she/her`,
+                        face: `imaan hammam`,
+                        overview: `Tia is a spitfire of a woman, though you wouldn't always know it. Her abilities were awoken by someone who claimed to be the Egyptian god Anubis when she was younger and seeking revenge for the senseless murder of her daughter and her husband. One of these gifts was the ability to shift into a striped hyena, which has distinctly rubbed off on her, leaving her with a fair few tendencies of said animal. She is irrevocably nocturnal, lazing about during the day as best she can despite working, she has a stomach of steel and will eat anything, and her hearing is kind of shit. That said, she likes loud parties, bright lights, and late nights and she loves a good night club where she can get all three. She knows how to have a good time, and she isn't afraid to show it. Attachments really aren't her thing, unless she knows you're a fellow immortal, but she's rather content to hang out nonetheless.`,
+                        type: `character`,
+                        age: parseInt(`2173`),
+                        ageClass: `immortal`,
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: `meta`,
+                        image: `https://64.media.tumblr.com/43f5bf16f500a8ce1c48e7a4b86958aa/tumblr_pyloafSHEF1vz2ghao10_1280.jpg" style="object-position: top;`,
+                    });
+                    accounts.push({
+                        name: capitalize(`Sterling Di Mitri`, [`-`, `'`, ` `]),
+                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        memAge: parseInt(`29`),
+                        frequency: `every 1 to 2 weeks`,
+                        limits: `detailed, mature sexual content`,
+                        groupID: parseInt(`9`),
+                        id: parseInt(`36`),
+                        groupName: `River's Edge`,
+                        pronouns: `he/him`,
+                        face: `max barczak`,
+                        overview: `Honestly... Sterling is a bit of a mess. He spent his whole childhood doing everything he could to make his mother happy, not understanding that it was depression rather than regular sadness that plagued her, and after seeing her kill herself in a particularly low point, he's been stuck on that mindset ever since. He's determined to never ever cause problems and do whatever he has to to make other people happy, even at his own expense (and usually at his own expense, historically speaking). He even got so far as to propose to the girlfriend he has never had a single romantic feeling for last year just because they'd been together seven years and that was expected of him. In a panic, he ended up on a road trip across the country to move to Davenport and change universities, which sparked some of the real him and also gave him the chance to run into someone he actually had feelings for. And he's kind of been in a state of gay panic ever since.`,
+                        type: `character`,
+                        age: parseInt(`24`),
+                        ageClass: `20s`,
+                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: `meta`,
+                        image: `https://64.media.tumblr.com/b7566e3d90cf94f600c9fa2a92263538/c2c95cd4653a9c80-1b/s640x960/90f4f78d373132dddb075fddb78912cb01d74b38.jpg`,
+                    });
+                    accounts.push({
+                        name: capitalize(`lux`, [`-`, `'`, ` `]),
+                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
+                        memAge: parseInt(`29`),
+                        memPronouns: `she/her`,
+                        frequency: `every 1 to 2 weeks`,
+                        limits: `detailed, mature sexual content`,
+                        groupID: parseInt(`4`),
+                        id: parseInt(`1`),
+                        groupName: `admin`,
+                        pronouns: ``,
+                        face: ``,
+                        overview: ``,
+                        type: `member`,
+                        age: parseInt(``),
+                        ageClass: ``,
+                        relStatus: ``.toLowerCase().replace(' ', '').replace('\'', ''),
+                        species: ``,
+                        image: `https://dawneggleton.github.io/images/photo/eq/2017-despook4.jpg`,
                     });
                     
                     populatePage(accounts);
@@ -616,7 +857,7 @@
                         filter: '.onLoad',
                     });
                     // do stuff when checkbox change
-                    $('.ml-filters').on( 'change', function( jQEvent ) {
+                    $('.ml--filters').on( 'change', function( jQEvent ) {
                         var $checkbox = $( jQEvent.target );
                         manageCheckbox( $checkbox );
                         var comboFilter = getComboFilter( filters );
@@ -645,7 +886,6 @@
         </div> 
 
         <!--Scripts-->
-        <script src="../js/functions.js"></script>
         <script src="../js/scripts.js"></script>
     </body>
 </html>
