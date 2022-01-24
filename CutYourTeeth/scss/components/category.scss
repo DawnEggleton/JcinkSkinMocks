@@ -127,6 +127,12 @@
 .forum {
     overflow: hidden;
 
+    &--subs {
+        br {
+            display: none;
+        }
+    }
+
     .category:not(.c-5):not(.c-4):not(.subforum-list.f-35):not(.subforum-list.f-36):not(.subforum-list.f-37):not(.subforum-list.f-38):not(.subforum-list.f-39) & {
         border-bottom: 1px solid var(--midGrey-70);
         display: grid;

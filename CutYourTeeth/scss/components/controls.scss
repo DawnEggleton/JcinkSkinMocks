@@ -44,8 +44,9 @@
                     position: absolute;
                     top: 0;
                     left: 0;
-                    width: 100%;
-                    height: 100%;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 2px;
                     background: var(--headerOverlay);
                     mix-blend-mode: var(--headerBlend);
                     opacity: calc(var(--headerOpacity) - 0.1);

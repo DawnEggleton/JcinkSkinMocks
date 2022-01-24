@@ -18,6 +18,10 @@ if(localStorage.getItem("SIZEMODE") == "1") {
 }
 
 
+//Adjust navstrip to remove nbsp
+$('#navstrip').html($('#navstrip').html().replace(/(?:^(?:&nbsp;)+)|(?:(?:&nbsp;)+$)/g, ''));
+
+
 //Set styles for user controls
 let navHeight = document.querySelector('nav').clientHeight;
 let fullHeight = window.innerHeight - navHeight;

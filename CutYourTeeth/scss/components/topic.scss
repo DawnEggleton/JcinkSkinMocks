@@ -12,6 +12,9 @@
         }
     }
 
+    main > script + table {
+        border-top: 1px solid var(--midGrey-70);
+    }
     main > table,
     main > form > table {
         position: relative;
@@ -111,6 +114,26 @@
         a {
             color: var(--white);
         }
+
+        .small {
+            font-size: 0;
+
+            &:before {
+                content: ' | ';
+                font-size: var(--xsBody);
+                margin-right: -26px;
+            }
+
+            a {
+                font-size: var(--xsBody);
+
+                &:first-child:before {
+                    content: 'Pages ';
+                    margin-right: 5px;
+                    font-weight: 800;
+                }
+            }
+        }
     }
 
     &--name {
@@ -126,7 +149,7 @@
 
         .marked & {
             & a:before {
-                //content: '';
+                content: '';
                 position: absolute;
                 bottom: calc(50% - 2.5px);
                 left: -13px;
@@ -136,21 +159,9 @@
             }
         }
 
-        .marked.pinned.new & {
-            & a:before {
-                background: var(--white);
-            }
-        }
-
-        .marked.pinned & {
-            & a:before {
-                background: var(--ltGrey);
-            }
-        }
-
         .marked.new & {
             & a:before {
-                background: var(--accent);
+                background: var(--textAccent);
             }
         }
     }
@@ -230,6 +241,20 @@
                 content: 'Last post by ';
                 color: var(--white);
             }
+        }
+    }
+
+    &--end {
+        background: var(--black);
+        border-bottom: 1px solid var(--midGrey-70);
+        padding: 15px;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: var(--xsBody);
+        letter-spacing: 2px;
+
+        a {
+            color: var(--white);
         }
     }
 }

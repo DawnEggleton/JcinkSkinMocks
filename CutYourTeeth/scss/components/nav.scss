@@ -35,6 +35,10 @@ nav {
         letter-spacing: 2px;
         font-weight: 300;
 
+        & ~ br {
+            display: none;
+        }
+
         & > a:first-child {
             display: block;
             font-size: var(--xlBody);
