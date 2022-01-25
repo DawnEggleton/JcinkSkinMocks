@@ -167,6 +167,11 @@
                 display: inline-block;
                 margin: 0 5px 5px 0;
                 cursor: pointer;
+
+                &.is-checked {
+                    background: var(--accent);
+                    color: var(--white);
+                }
             }
         }
     }

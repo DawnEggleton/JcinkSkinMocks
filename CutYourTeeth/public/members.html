@@ -394,10 +394,10 @@
                 <div class="ml--sort">
                     <div class="ml--sort-inner">
                         <h2><span>Sort By</span></h2>
-                        <button type="button" class="members--sort" data-sort="name" onclick="sortList(this, 'asc')">Name</button>
-                        <button type="button" class="members--sort" data-sort="alias" onclick="sortList(this, 'asc')">Alias</button>
-                        <button type="button" class="members--sort" data-sort="age" onclick="sortList(this, 'asc')">Age</button>
-                        <button type="button" class="members--sort" data-sort="face" onclick="sortList(this, 'asc')">Face</button>
+                        <button type="button" class="members--sort" data-sort="name">Name (A -> Z)</button>
+                        <button type="button" class="members--sort" data-sort="nameDesc">Name (Z -> A)</button>
+                        <button type="button" class="members--sort" data-sort="age">Age (Asc)</button>
+                        <button type="button" class="members--sort" data-sort="face">Face (A -> Z)</button>
                         <!--<a class="members--sort" href="?act=Members&name=&sort_key=posts&sort_order=desc&max_results=1000">Post Count</a>
                         <a class="members--sort" href="?act=Members&name=&sort_key=last_post&sort_order=desc&max_results=1000">Last Post</a>
                         <a class="members--sort" href="?act=Members&name=&sort_key=joined&sort_order=desc&max_results=1000">Join Date</a>-->
@@ -410,19 +410,18 @@
                         <div id="ml--rows"><div class="grid-sizer"></div></div>
                     </form>
                 </div>
-                <script>
+                <script>    
                     let accounts = [], members = [];
                     let $container = $('#ml--rows');
                     var filters = {};
                     let charAge = `0`, ageClass = ``;
-                
+
                     function sortList(el, direction) {
                         let sort = el.getAttribute('data-sort');
                         accounts.sort((a, b) => {
                             let aSort = a[sort];
                             let bSort = b[sort];
-                            if(a['type'] != 'member' && b['type'] != 'member') {
-
+                            if(a['type'] != 'Member' && b['type'] != 'Member') {
                                 if (aSort === bSort) {
                                     return 0;
                                 }
@@ -439,30 +438,30 @@
                                     return aSort < bSort ? 1 : -1;
                                 }
                             } else {
-                                if (a['type'] == 'member') {
+                                if (a['type'] == 'Member') {
                                     return 1;
-                                } else if (b['type'] == 'member') {
+                                } else if (b['type'] == 'Member') {
                                     return -1;
+                                } else {
+                                    return 0;
                                 }
                             }
                         });
                         populatePage(accounts);
-                        $container.isotope( 'reloadItems',  ).isotope();
+                        $container.isotope('reloadItems').isotope();
                     }
-                        
+                    
                     function populatePage(array) {
                         let html = ``;
                         let members = [];
                         let membersClean = [];
                         for (let i = 0; i < array.length; i++) {
-                
                             //Make Member Array
                             let member = {raw: array[i].rawAlias, clean: array[i].alias};
                             if(jQuery.inArray(member.clean, membersClean) == -1 && member.clean != '') {
                                 membersClean.push(member.clean);
                                 members.push(member);
                             }
-
                             switch(array[i].groupID) {
                                 //member only
                                 case 4:
@@ -497,7 +496,6 @@
                                                 <div class="mem--top">
                                                     <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
                                                     <a href="?showuser=${array[i].id}">${array[i].name}</a>
-                                                    <span class="fullWidth">${array[i].face}</span>
                                                     <span>${array[i].memPronouns}</span>
                                                     <span>${array[i].memAge} years</span>
                                                     <span>${array[i].groupName}</span>
@@ -516,10 +514,10 @@
                                             <div class="mem">
                                                 <div class="mem--top">
                                                     <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
-                                                    <a href="?showuser=${array[i].id}">${array[i].name}</a>
-                                                    <span class="fullWidth">${array[i].face}</span>
+                                                    <a href="?showuser=${array[i].id}" class="name">${array[i].name}</a>
+                                                    <span class="fullWidth face">${array[i].face}</span>
                                                     <span>${array[i].pronouns}</span>
-                                                    <span>${array[i].age} years</span>
+                                                    <span><span class="age">${array[i].age}</span> years</span>
                                                     <span>${array[i].groupName}</span>
                                                 </div>
                                                 <div class="mem--playedBy">
@@ -541,7 +539,6 @@
                                                 <div class="mem--top">
                                                     <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
                                                     <a href="?showuser=${array[i].id}">${array[i].name}</a>
-                                                    <span class="fullWidth">${array[i].face}</span>
                                                     <span>${array[i].memPronouns}</span>
                                                     <span>${array[i].memAge} years</span>
                                                     <span>${array[i].groupName}</span>
@@ -559,12 +556,12 @@
                                         html += `<div class="ml--member character onLoad grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].species} ${array[i].alias}">
                                             <div class="mem">
                                                 <div class="mem--top">
-                                                    <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
-                                                    <a href="?showuser=${array[i].id}">${array[i].name}</a>
-                                                    <span class="fullWidth">${array[i].face}</span>
-                                                    <span>${array[i].pronouns}</span>
-                                                    <span>${array[i].age} years</span>
-                                                    <span>${array[i].groupName}</span>
+                                                <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
+                                                <a href="?showuser=${array[i].id}" class="name">${array[i].name}</a>
+                                                <span class="fullWidth face">${array[i].face}</span>
+                                                <span>${array[i].pronouns}</span>
+                                                <span><span class="age">${array[i].age}</span> years</span>
+                                                <span>${array[i].groupName}</span>
                                                 </div>
                                                 <div class="mem--playedBy">
                                                     Played by ${array[i].rawAlias}
@@ -582,10 +579,10 @@
                                         <div class="mem">
                                             <div class="mem--top">
                                                 <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
-                                                <a href="?showuser=${array[i].id}">${array[i].name}</a>
-                                                <span class="fullWidth">${array[i].face}</span>
+                                                <a href="?showuser=${array[i].id}" class="name">${array[i].name}</a>
+                                                <span class="fullWidth face">${array[i].face}</span>
                                                 <span>${array[i].pronouns}</span>
-                                                <span>${array[i].age} years</span>
+                                                <span><span class="age">${array[i].age}</span> years</span>
                                                 <span>${array[i].groupName}</span>
                                             </div>
                                             <div class="mem--playedBy">
@@ -597,16 +594,16 @@
                                         </div>
                                     </div>`;
                                     break;
-                                }
                             }
-                            document.querySelector('#ml--rows').innerHTML = html;
-                
-                            //sort member array
-                            members.sort();
-                    
-                            //Append Array
-                            members.forEach(member => {
-                            document.querySelector('.ml-memberlist .scroll').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${member.clean}"/>${member.raw}</label>`);
+                        }
+                        document.querySelector('#ml--rows').innerHTML = html;
+
+                        //sort member array
+                        members.sort();
+
+                        //Append Array
+                        members.forEach(member => {
+                        document.querySelector('.ml-memberlist .scroll').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${member.clean}"/>${member.raw}</label>`);
                         });
                     }
 
@@ -628,7 +625,7 @@
                                 searchFilter = '.show';
                             }
                         });
-                        
+                    
                         let filterGroups = document.querySelectorAll('.ml--filtergroup');
                         let groups = [];
                         let checkFilters;
@@ -641,7 +638,7 @@
                             });
                             groups.push({group: group.dataset.filterGroup, selected: filters});
                         });
-                        
+                    
                         let filterCount = 0;
                         let comboFilters = [];
                         groups.forEach(group => {
@@ -691,7 +688,7 @@
                             let dualFilters = comboFilters.map(filter => filter + '.show');
                             filter = [...dualFilters];
                         }
-                        
+                    
                         //join array into string
                         filter = filter.join(', ');
                         
@@ -700,15 +697,15 @@
                             filter: filter
                         });
                     }
-
-                        // debounce so filtering doesn't happen every millisecond
+                
+                    // debounce so filtering doesn't happen every millisecond
                     function debounce(fn, threshold) {
                         var timeout;
                         return function debounced() {
                             if (timeout) {
                             clearTimeout(timeout);
                             }
-
+                    
                             function delayed() {
                             fn();
                             timeout = null;
@@ -718,63 +715,92 @@
                     }
 
                     accounts = fakeAccounts;
-                
+
                     populatePage(accounts);
 
-//initialize isotope
-// quick search regex
-let qsRegex;
-let elements = document.querySelectorAll('.grid-item');
+                    //initialize isotope
+                    // quick search regex
+                    let qsRegex;
+                    let elements = document.querySelectorAll('.grid-item');
+                    
+                    // init Isotope
+                    $container.isotope({
+                        itemSelector: '.grid-item',
+                        percentPosition: true,
+                        filter: '.onLoad',
+                        getSortData: {
+                            name: '.name',
+                            nameDesc: '.name',
+                            age: '.age parseInt',
+                            ageDesc: '.age parseInt',
+                            face: '.face',
+                            faceDesc: '.face',
+                        },
+                        sortAscending: {
+                            name: true,
+                            nameDesc: false,
+                            age: true,
+                            ageDesc: false,
+                            face: true,
+                            faceDesc: false,
+                        }
+                    });
+                
+                    //use value of input select to filter
+                    let checkboxes = document.querySelectorAll('.ml--filtergroup input');
+                    checkboxes.forEach(checkbox => {
+                        checkbox.addEventListener('change', e => {
+                            if(e.currentTarget.classList.contains('all')) {
+                                e.currentTarget.checked = true;
+                                e.currentTarget.parentElement.classList.add('is-checked');
+                                e.currentTarget.parentElement.parentElement.querySelectorAll('input:not(.all)').forEach(input => {
+                                    input.checked = false;
+                                    input.parentElement.classList.remove('is-checked');
+                                });
+                            } else {
+                                if(e.currentTarget.parentElement.classList.contains('is-checked')) {
+                                    e.currentTarget.checked = false;
+                                    e.currentTarget.parentElement.classList.remove('is-checked');
+                                } else {
+                                    e.currentTarget.checked = true;
+                                    e.currentTarget.parentElement.classList.add('is-checked');
+                                    e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = false;
+                                    e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.remove('is-checked');
+                                }
+                            }
+                            let labels = e.currentTarget.parentElement.parentElement.querySelectorAll('label');
+                            let checked = 0;
+                            labels.forEach(label => {
+                                if(label.classList.contains('is-checked')) {
+                                    checked++;
+                                }
+                            });
+                            if(checked === 0) {
+                                e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = true;
+                                e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.add('is-checked');
+                            }
+                            //set filters
+                            setCustomFilter();
+                        });
+                    });
+                    
+                    // use value of search field to filter
+                    document.querySelector('#quicksearch').addEventListener('keyup', e => {
+                        setCustomFilter();
+                    });
 
-// init Isotope
-$container.isotope({
-    itemSelector: '.grid-item',
-    percentPosition: true,
-    filter: '.onLoad',
-});
-
-//use value of input select to filter
-let checkboxes = document.querySelectorAll('.ml--filtergroup input');
-checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', e => {
-        if(e.currentTarget.classList.contains('all')) {
-            e.currentTarget.checked = true;
-            e.currentTarget.parentElement.classList.add('is-checked');
-            e.currentTarget.parentElement.parentElement.querySelectorAll('input:not(.all)').forEach(input => {
-                input.checked = false;
-                input.parentElement.classList.remove('is-checked');
-            });
-        } else {
-            if(e.currentTarget.parentElement.classList.contains('is-checked')) {
-                e.currentTarget.checked = false;
-                e.currentTarget.parentElement.classList.remove('is-checked');
-            } else {
-                e.currentTarget.checked = true;
-                e.currentTarget.parentElement.classList.add('is-checked');
-                e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = false;
-                e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.remove('is-checked');
-            }
-        }
-        let labels = e.currentTarget.parentElement.parentElement.querySelectorAll('label');
-        let checked = 0;
-        labels.forEach(label => {
-            if(label.classList.contains('is-checked')) {
-                checked++;
-            }
-        });
-        if(checked === 0) {
-            e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = true;
-            e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.add('is-checked');
-        }
-        //set filters
-        setCustomFilter();
-    });
-});
-
-// use value of search field to filter
-document.querySelector('#quicksearch').addEventListener('keyup', e => {
-setCustomFilter();
-})
+                    // bind sort button click
+                    let sortButtons = document.querySelectorAll('.ml--sort-inner button');
+                    sortButtons.forEach(button => {
+                        button.addEventListener('click', e => {
+                            let sortValue = e.currentTarget.dataset.sort;
+                            $container.isotope({ sortBy: sortValue });
+                            sortButtons.forEach(button => {
+                                button.classList.remove('is-checked');
+                            });
+                            e.currentTarget.classList.add('is-checked');
+                        });
+                    });
                     </script>
             </section>
         </main>

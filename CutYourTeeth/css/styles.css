@@ -2646,6 +2646,11 @@ header .skip:after {
   margin: 0 5px 5px 0;
   cursor: pointer;
 }
+.ml--sort-inner button.is-checked,
+.ml--sort-inner a.is-checked {
+  background: var(--accent);
+  color: var(--white);
+}
 .ml--filtergroup {
   font-size: 0;
 }
