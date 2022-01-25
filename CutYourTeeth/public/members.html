@@ -290,16 +290,23 @@
             <a name="top"></a>
             <section class="ml">
                 <div class="ml--top">
-                    <button onClick="toggleFilters()" class="toggle-filter">
-                        <i class="fas fa-plus"></i>
-                        <i class="fas fa-minus"></i>
-                        Filter
-                    </button>
-                    <button onClick="toggleSort()" class="toggle-sort">
-                        <i class="fas fa-plus"></i>
-                        <i class="fas fa-minus"></i>
-                        Sort
-                    </button>
+                    <div class="ml--top-left">
+                        <h2>All Accounts</h2>
+                    </div>
+                    <div class="ml--top-right">
+                        <!-- onkeyup="filterFunction('.memberlist-namesearch', '.mem--top a', 'name')" -->
+                        <input id="quicksearch" class="forminput memberlist-namesearch" type="text" size="25" name="name" value="" placeholder="Filter by name...">
+                        <button onClick="toggleFilters()" class="toggle-filter">
+                            <i class="fas fa-plus"></i>
+                            <i class="fas fa-minus"></i>
+                            Filter
+                        </button>
+                        <button onClick="toggleSort()" class="toggle-sort">
+                            <i class="fas fa-plus"></i>
+                            <i class="fas fa-minus"></i>
+                            Sort
+                        </button>
+                    </div>
                 </div>
                 <div class="ml--filters">
                     <div class="ml--filters-inner scroll">
@@ -387,10 +394,10 @@
                 <div class="ml--sort">
                     <div class="ml--sort-inner">
                         <h2><span>Sort By</span></h2>
-                        <button type="button" class="members--sort" data-sort="name" onclick="sortList(this)">Name</button>
-                        <button type="button" class="members--sort" data-sort="alias" onclick="sortList(this)">Alias</button>
-                        <button type="button" class="members--sort" data-sort="age" onclick="sortList(this)">Age</button>
-                        <button type="button" class="members--sort" data-sort="face" onclick="sortList(this)">Face</button>
+                        <button type="button" class="members--sort" data-sort="name" onclick="sortList(this, 'asc')">Name</button>
+                        <button type="button" class="members--sort" data-sort="alias" onclick="sortList(this, 'asc')">Alias</button>
+                        <button type="button" class="members--sort" data-sort="age" onclick="sortList(this, 'asc')">Age</button>
+                        <button type="button" class="members--sort" data-sort="face" onclick="sortList(this, 'asc')">Face</button>
                         <!--<a class="members--sort" href="?act=Members&name=&sort_key=posts&sort_order=desc&max_results=1000">Post Count</a>
                         <a class="members--sort" href="?act=Members&name=&sort_key=last_post&sort_order=desc&max_results=1000">Last Post</a>
                         <a class="members--sort" href="?act=Members&name=&sort_key=joined&sort_order=desc&max_results=1000">Join Date</a>-->
@@ -400,34 +407,62 @@
                     <form action='index.php' method='get'>
                         <input type='hidden' name='act' value='Members' />
                         
-                        <div id="ml--rows"></div>
+                        <div id="ml--rows"><div class="grid-sizer"></div></div>
                     </form>
                 </div>
                 <script>
-                    let accounts = [];
+                    let accounts = [], members = [];
                     let $container = $('#ml--rows');
                     var filters = {};
-
-                    function sortList(el) {
+                    let charAge = `0`, ageClass = ``;
+                
+                    function sortList(el, direction) {
                         let sort = el.getAttribute('data-sort');
                         accounts.sort((a, b) => {
-                            a = a[sort];
-                            b = b[sort];
-                            if (a < b) {
-                            return -1;
+                            let aSort = a[sort];
+                            let bSort = b[sort];
+                            if(a['type'] != 'member' && b['type'] != 'member') {
+
+                                if (aSort === bSort) {
+                                    return 0;
+                                }
+                                else if (aSort === `` || !aSort) {
+                                    return 1;
+                                }
+                                else if (bSort === `` || !bSort) {
+                                    return -1;
+                                }
+                                else if (direction === `asc` && aSort !== `` && bSort !== ``) {
+                                    return aSort < bSort ? -1 : 1;
+                                }
+                                else if (direction === `desc` && aSort !== `` && bSort !== ``) {
+                                    return aSort < bSort ? 1 : -1;
+                                }
+                            } else {
+                                if (a['type'] == 'member') {
+                                    return 1;
+                                } else if (b['type'] == 'member') {
+                                    return -1;
+                                }
                             }
-                            if (a > b) {
-                            return 1;
-                            }
-                            return 0;
                         });
                         populatePage(accounts);
-                        $container.isotope( 'reloadItems' ).isotope();
+                        $container.isotope( 'reloadItems',  ).isotope();
                     }
-                    
+                        
                     function populatePage(array) {
                         let html = ``;
+                        let members = [];
+                        let membersClean = [];
                         for (let i = 0; i < array.length; i++) {
+                
+                            //Make Member Array
+                            let member = {raw: array[i].rawAlias, clean: array[i].alias};
+                            if(jQuery.inArray(member.clean, membersClean) == -1 && member.clean != '') {
+                                membersClean.push(member.clean);
+                                members.push(member);
+                            }
+
                             switch(array[i].groupID) {
                                 //member only
                                 case 4:
@@ -435,17 +470,17 @@
                                     html += `<div class="ml--member member onLoad grid-item g-${array[i].groupID} ${array[i].alias}">
                                         <div class="mem">
                                             <div class="mem--top">
-                                                <img src="${array[i].image}" />
+                                                <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
                                                 <a href="?showuser=${array[i].id}">${array[i].name}</a>
                                                 <span>${array[i].memPronouns}</span>
                                                 <span>${array[i].memAge} years</span>
                                                 <span>${array[i].groupName}</span>
                                             </div>
-                                            <div class="mem--overview">
-                                                <div class="scroll">${array[i].name} will not write ${array[i].limits}.</div>
-                                            </div>
                                             <div class="mem--playedBy">
                                                 Posts ${array[i].frequency}
+                                            </div>
+                                            <div class="mem--overview">
+                                                <div class="scroll">${array[i].name} will not write ${array[i].limits}.</div>
                                             </div>
                                         </div>
                                     </div>`;
@@ -455,43 +490,87 @@
                                 case 5:
                                 case 7:
                                 case 8:
-                                case 3:
                                     if(array[i].type == `member`) {
                                         //member
-                                        html += `<div class="ml--member member onLoad grid-item g-${array[i].groupID} ${array[i].alias}">
+                                        html += `<div class="ml--member member grid-item g-${array[i].groupID} ${array[i].alias}">
                                             <div class="mem">
                                                 <div class="mem--top">
-                                                    <img src="${array[i].image}" />
+                                                    <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
                                                     <a href="?showuser=${array[i].id}">${array[i].name}</a>
                                                     <span class="fullWidth">${array[i].face}</span>
                                                     <span>${array[i].memPronouns}</span>
                                                     <span>${array[i].memAge} years</span>
                                                     <span>${array[i].groupName}</span>
                                                 </div>
-                                                <div class="mem--overview">
-                                                    <div class="scroll">${array[i].name} will not write ${array[i].limits}.</div>
-                                                </div>
                                                 <div class="mem--playedBy">
                                                     Posts ${array[i].frequency}
+                                                </div>
+                                                <div class="mem--overview">
+                                                    <div class="scroll">${array[i].name} will not write ${array[i].limits}.</div>
                                                 </div>
                                             </div>
                                         </div>`;
                                     } else {
                                         //character
-                                        html += `<div class="ml--member character active onLoad grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].species} ${array[i].alias}">
+                                        html += `<div class="ml--member character grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].species} ${array[i].alias}">
                                             <div class="mem">
                                                 <div class="mem--top">
-                                                    <img src="${array[i].image}" />
+                                                    <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
                                                     <a href="?showuser=${array[i].id}">${array[i].name}</a>
+                                                    <span class="fullWidth">${array[i].face}</span>
                                                     <span>${array[i].pronouns}</span>
                                                     <span>${array[i].age} years</span>
                                                     <span>${array[i].groupName}</span>
                                                 </div>
+                                                <div class="mem--playedBy">
+                                                    Played by ${array[i].rawAlias}
+                                                </div>
                                                 <div class="mem--overview">
                                                     <div class="scroll">${array[i].overview}</div>
                                                 </div>
+                                            </div>
+                                        </div>`;
+                                    }
+                                    break;
+                                //unsorted
+                                case 3:
+                                    if(array[i].type == `member`) {
+                                        //member
+                                        html += `<div class="ml--member member onLoad grid-item g-${array[i].groupID} ${array[i].alias}">
+                                            <div class="mem">
+                                                <div class="mem--top">
+                                                    <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
+                                                    <a href="?showuser=${array[i].id}">${array[i].name}</a>
+                                                    <span class="fullWidth">${array[i].face}</span>
+                                                    <span>${array[i].memPronouns}</span>
+                                                    <span>${array[i].memAge} years</span>
+                                                    <span>${array[i].groupName}</span>
+                                                </div>
                                                 <div class="mem--playedBy">
-                                                    Played by ${array[i].alias}
+                                                    Posts ${array[i].frequency}
+                                                </div>
+                                                <div class="mem--overview">
+                                                    <div class="scroll">${array[i].name} will not write ${array[i].limits}.</div>
+                                                </div>
+                                            </div>
+                                        </div>`;
+                                    } else {
+                                        //character
+                                        html += `<div class="ml--member character onLoad grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].species} ${array[i].alias}">
+                                            <div class="mem">
+                                                <div class="mem--top">
+                                                    <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
+                                                    <a href="?showuser=${array[i].id}">${array[i].name}</a>
+                                                    <span class="fullWidth">${array[i].face}</span>
+                                                    <span>${array[i].pronouns}</span>
+                                                    <span>${array[i].age} years</span>
+                                                    <span>${array[i].groupName}</span>
+                                                </div>
+                                                <div class="mem--playedBy">
+                                                    Played by ${array[i].rawAlias}
+                                                </div>
+                                                <div class="mem--overview">
+                                                    <div class="scroll">${array[i].overview}</div>
                                                 </div>
                                             </div>
                                         </div>`;
@@ -502,367 +581,200 @@
                                     html += `<div class="ml--member character active onLoad grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].species} ${array[i].alias}">
                                         <div class="mem">
                                             <div class="mem--top">
-                                                <img src="${array[i].image}" />
+                                                <img src="${array[i].image}" style="object-position: ${array[i].imagePos}" />
                                                 <a href="?showuser=${array[i].id}">${array[i].name}</a>
                                                 <span class="fullWidth">${array[i].face}</span>
                                                 <span>${array[i].pronouns}</span>
                                                 <span>${array[i].age} years</span>
                                                 <span>${array[i].groupName}</span>
                                             </div>
+                                            <div class="mem--playedBy">
+                                                Played by ${array[i].rawAlias}
+                                            </div>
                                             <div class="mem--overview">
                                                 <div class="scroll">${array[i].overview}</div>
-                                            </div>
-                                            <div class="mem--playedBy">
-                                                Played by ${array[i].alias}
                                             </div>
                                         </div>
                                     </div>`;
                                     break;
-                            }
-                        }
-                        document.querySelector('#ml--rows').innerHTML = html;
-                    }
-                    
-                    function filterFunction(input, target, itemtype) {
-                        // Declare variables
-                        var filter, items = [];
-                        filter = $(input).val().toLowerCase();
-                        $(target).each(function() {
-                                items.push($(this));
-                        });
-                    
-                        // Loop through all list items, and hide those who don't match the search query
-                        for (let i = 0; i < items.length; i++) {
-                            if (items[i].text().toLowerCase().indexOf(filter) > -1) {
-                                items[i].parents('.ml--member').removeClass(itemtype + 'Different');
-                            } else {
-                                items[i].parents('.ml--member').addClass(itemtype + 'Different');
-                            }
-                        }
-                    }
-                    
-                    function filterGroup(el) {
-                        let groupID = el.value;
-                        let filteredAccounts = [];
-                        if (groupID == 0) {
-                            filteredAccounts = accounts;
-                        } else {
-                            for(let i = 0; i < accounts.length; i++) {
-                                if(accounts[i].groupID == groupID) {
-                                    filteredAccounts.push(accounts[i]);
                                 }
                             }
-                        }
-                        populatePage(filteredAccounts);
+                            document.querySelector('#ml--rows').innerHTML = html;
+                
+                            //sort member array
+                            members.sort();
+                    
+                            //Append Array
+                            members.forEach(member => {
+                            document.querySelector('.ml-memberlist .scroll').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${member.clean}"/>${member.raw}</label>`);
+                        });
                     }
 
-                    /*
-                    if(ageNum >= 18 && ageNum <= 29 && age != 'Immortal') {
-                        let ageClass = `20s`;
-                    } else if(ageNum >= 30 && ageNum <= 39 && age != 'Immortal') {
-                        let ageClass = '30s';
-                    } else if(ageNum >= 40 && ageNum <= 49 && age != 'Immortal') {
-                        let ageClass = '40s';
-                    } else if(ageNum >= 50 && age != 'Immortal') {
-                        let ageClass = '50';
-                    } else if(age == 'Immortal') {
-                        let ageClass = 'immortal';
-                    }
-                    */
-
-                    function getComboFilter( filters ) {
-                    var i = 0;
-                    var comboFilters = [];
-                    for ( var prop in filters ) {
-                        var filterGroup = filters[ prop ];
-                        // skip to next filter group if it doesn't have any values
-                        if ( !filterGroup.length ) {
-                        continue;
-                        }
-                        if ( i === 0 ) {
-                        // copy to new array
-                        comboFilters = filterGroup.slice(0);
-                        } else {
-                        var filterSelectors = [];
-                        // copy to fresh array
-                        var groupCombo = comboFilters.slice(0); // [ A, B ]
-                        // merge filter Groups
-                        for (var k=0, len3 = filterGroup.length; k < len3; k++) {
-                            for (var j=0, len2 = groupCombo.length; j < len2; j++) {
-                            filterSelectors.push( groupCombo[j] + filterGroup[k] ); // [ 1, 2 ]
+                    function setCustomFilter() {
+                        //get search value
+                        qsRegex = document.querySelector('#quicksearch').value;
+                        
+                        //add show class to all items to reset
+                        elements.forEach(el => el.classList.add('show'));
+                        
+                        //filter by nothing
+                        let searchFilter = '';
+                        
+                        //check each item
+                        elements.forEach(el => {
+                            let name = el.querySelector('.mem--top a').textContent;
+                            if(!name.toLowerCase().includes(qsRegex)) {
+                                el.classList.remove('show');
+                                searchFilter = '.show';
                             }
+                        });
+                        
+                        let filterGroups = document.querySelectorAll('.ml--filtergroup');
+                        let groups = [];
+                        let checkFilters;
+                        filterGroups.forEach(group => {
+                            let filters = [];
+                            group.querySelectorAll('label.is-checked input').forEach(filter => {
+                                if(filter.value) {
+                                    filters.push(filter.value);
+                                }
+                            });
+                            groups.push({group: group.dataset.filterGroup, selected: filters});
+                        });
+                        
+                        let filterCount = 0;
+                        let comboFilters = [];
+                        groups.forEach(group => {
+                            // skip to next filter group if it doesn't have any values
+                            if ( group.selected.length > 0 ) {
+                                if ( filterCount === 0 ) {
+                                    // copy groups to comboFilters
+                                    comboFilters = group.selected;
+                                } else {
+                                    var filterSelectors = [];
+                                    var groupCombo = comboFilters;
+                                    // merge filter Groups
+                                    for (var k = 0; k < group.selected.length; k++) {
+                                        for (var j = 0; j < groupCombo.length; j++) {
+                                            //accommodate weirdness with object vs not
+                                            if(groupCombo[j].selected) {
+                                                if(groupCombo[j].selected != group.selected[k]) {
+                                                    filterSelectors.push( groupCombo[j].selected + group.selected[k] );
+                                                }
+                                            } else if (!groupCombo[j].selected && group.selected[k]) {
+                                                if(groupCombo[j] != group.selected[k]) {
+                                                    filterSelectors.push( groupCombo[j] + group.selected[k] );
+                                                }
+                                            }
+                                        }
+                                    }
+                                    // apply filter selectors to combo filters for next group
+                                    comboFilters = filterSelectors;
+                                }
+                                filterCount++;
+                            }
+                        });
+                        
+                        //set filter to blank
+                        let filter = [];
+                        //check if it's only search
+                        if(qsRegex.length > 0 && comboFilters.length === 0) {
+                            filter = ['.show'];
                         }
-                        // apply filter selectors to combo filters for next group
-                        comboFilters = filterSelectors;
+                        //check if it's only checkboxes
+                        else if(qsRegex.length === 0 && comboFilters.length > 0) {
+                            let combos = comboFilters.join(',').split(',');
+                            filter = [...combos];
                         }
-                        i++;
-                    }
-                    var comboFilter = comboFilters.join(', ');
-                    return comboFilter;
-                    }
-
-                    function manageCheckbox( $checkbox ) {
-                    var checkbox = $checkbox[0];
-                    var group = $checkbox.parents('.ml--filtergroup').attr('data-filter-group');
-                    // create array for filter group, if not there yet
-                    var filterGroup = filters[ group ];
-                    if ( !filterGroup ) {
-                        filterGroup = filters[ group ] = [];
-                    }
-                    var isAll = $checkbox.hasClass('all');
-                    // reset filter group if the all box was checked
-                    if ( isAll ) {
-                        delete filters[ group ];
-                        if ( !checkbox.checked ) {
-                        checkbox.checked = 'checked';
+                        //check if it's both
+                        else if (qsRegex.length > 0 && comboFilters.length > 0) {
+                            let dualFilters = comboFilters.map(filter => filter + '.show');
+                            filter = [...dualFilters];
                         }
+                        
+                        //join array into string
+                        filter = filter.join(', ');
+                        
+                        //render isotope
+                        $container.isotope({
+                            filter: filter
+                        });
                     }
-                    // index of
-                    var index = $.inArray( checkbox.value, filterGroup );
-                    if ( checkbox.checked ) {
-                        var lSelector = isAll ? 'label' : 'label.all';
-                        var iSelector = isAll ? 'input' : 'input.all';
-                        $checkbox.parent().siblings(lSelector).removeClass('is-checked');
-                        $checkbox.parent().addClass('is-checked');
-                        $checkbox.parent().siblings(lSelector).children(iSelector).prop('checked', false);
-                        if ( !isAll && index === -1 ) {
-                        // add filter to group
-                        filters[ group ].push( checkbox.value );
-                        }
-                    } else if ( !isAll ) {
-                        // remove filter from group
-                        filters[ group ].splice( index, 1 );
-                        // if unchecked the last box, check the all
-                        if (filters[group].length == 0) {
-                        $checkbox.parent().siblings('label.all').addClass('is-checked');
-                        $checkbox.parent().siblings().children('input.all').prop('checked', true);
-                        }
-                        $checkbox.parent().removeClass('is-checked');
+
+                        // debounce so filtering doesn't happen every millisecond
+                    function debounce(fn, threshold) {
+                        var timeout;
+                        return function debounced() {
+                            if (timeout) {
+                            clearTimeout(timeout);
+                            }
+
+                            function delayed() {
+                            fn();
+                            timeout = null;
+                            }
+                            setTimeout(delayed, threshold || 100);
+                        };
                     }
-                    }
-                    
 
-                    accounts.push({
-                        name: capitalize(`Brennan Cormac`, [`-`, `'`, ` `]),
-                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        memAge: parseInt(`29`),
-                        frequency: `every 1 to 2 weeks`,
-                        limits: `detailed, mature sexual content`,
-                        groupID: parseInt(`12`),
-                        id: parseInt(`4`),
-                        groupName: `Central Davenport`,
-                        face: `jonathan young`,
-                        pronouns: `he/him`,
-                        overview: `Brennan is a bit of a mess He had a rough go of it as a child and learned young to not count on anyone else- a mentality that's persisted to this day. Of course, being tossed into an underground meta fighting ring as a young adult hardly helped. He's got a twisted worldview as a result of this and, while he's incredibly intelligent and a gifted forensic toxicologist, he finds it all a little dull.
-
-                        So, crime.
-
-                        He doesn't usually get his hands dirty, beyond quietly pulling aside people no one will miss to try out his personally-made poisons for his private research, but he's extremely adept at finding and gathering information and so offers these services on a for-hire basis. Mostly, he does this through a local criminal group known as the Zodiac, but he's done solo jobs as well on occasion.
-
-                        He doesn't tend to make friends very easily - a mix of aloofness and his odd sense of humour - and his loyalty is even harder won without a significant handful of cash. He's perfectly capable of a civil, and even friendly, conversation though - just be aware he's habitually nocturnal, so don't expect to see him in the middle of the day.`,
-                        type: `character`,
-                        age: parseInt(`37`),
-                        ageClass: `30s`,
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: `meta`,
-                        image: `https://64.media.tumblr.com/940cd7d53247eaf95a543d2fc02e484c/tumblr_p2j7yd83P81vz2ghao4_1280.jpg`,
-                    });
-                    accounts.push({
-                        name: capitalize(`Cynbel Edevane`, [`-`, `'`, ` `]),
-                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        memAge: parseInt(`29`),
-                        frequency: `every 1 to 2 weeks`,
-                        limits: `detailed, mature sexual content`,
-                        groupID: parseInt(`13`),
-                        id: parseInt(`43`),
-                        groupName: `Outskirts`,
-                        pronouns: `he/him`,
-                        face: `ezra miller`,
-                        overview: `Cynbel is your local vampiric asshole. He's proud, pretentious, and way too vain to let himself be seen as anything less that what he strictly dictates. He watches his image carefully, portraying the sides he wants people to see - often a little more violent and aggressive than most would find appropriate, but it keeps them all at arms length , which is part of the goal. He has mellowed a bit over the many centuries he's been alive, but he still isn't particularly benign as far as immortal beings go. He kills when he gets bored, he steals years off people's lives when he feels like it, and is a general gem of a creature (note the sarcasm). He has such a hard time relying on and trust people that he tends to avoid getting remotely close to people - especially people who are not immortal. He has had very few friends and is fairly determined to say he doesn't have (and has never had) any. He's still super bitter over the last time people he trusted fucked him over. And the time before that. And the time before that. Needless to say, he holds a grudge well, but he also hasn't been given any reason to trust. As for romance and intimacy, Cyn has had flings off and on over the years, but nothing too serious except when he came close to love with Mary Jane Kelly (his last Ripper victim). With his extreme sensitivity to pheromones and heartbeats, he's very picky about who he even considers a fling with and so he hasn't had a lot of them and a serious relationship would be a million times tougher to finagle out of him.`,
-                        type: `character`,
-                        age: parseInt(`2082`),
-                        ageClass: `immortal`,
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: `meta`,
-                        image: `https://64.media.tumblr.com/76440e43cbdc87b1116196f37849f222/511317c6596bdf04-c7/s1280x1920/c37af67e6d9094490a1e5152193582f8a70c98ae.jpg`,
-                    });
-                    accounts.push({
-                        name: capitalize(`Hayden Donovan`, [`-`, `'`, ` `]),
-                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        memAge: parseInt(`29`),
-                        frequency: `every 1 to 2 weeks`,
-                        limits: `detailed, mature sexual content`,
-                        groupID: parseInt(`10`),
-                        id: parseInt(`2`),
-                        groupName: `Coastline`,
-                        pronouns: `she/her`,
-                        face: `milla jovovich`,
-                        overview: `Hayden is... well, complicated but not at the same time. She's pretty straightforward to understand: she's ready to fuck you up if you fuck up her or people she cares about, and she's 100% capable of doing it. Don't bother her, she won't bother you, most likely — kind of like a hive of bees. Jostle her a little too much and you'll regret it. She's got a lot of pent up rage and anger over her mistreatment, especially given she believes the government was involved and she served and trusted them. It was enough to get her to start a whole damned rebellion, which is probably not what the metas need when the world just found out they exist but... well. Here we are anyway. Needless to say, getting on her bad side is... not recommended. If you're on her good side, though, no need to worry; she's a bit abrasive at times, but she's steady, reliable, and loyal to a fault.
-
-                        Speaking of that rebellion, she sort of knows everyone through either that or her work. She started off tending the bar at the Heart & Crown pub and bar on the coastline, which has become the main hub for rebellion meetings and activity. This to say, if she didn't meet someone through the rebellion, then she's probably served them drinks at some point. The Heart & Crown is more or less a public institution in Divine.`,
-                        type: `character`,
-                        age: parseInt(`28`),
-                        ageClass: `20s`,
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: `meta`,
-                        image: `https://64.media.tumblr.com/52e0b2b5d8df16be2906747ffd8c6b6a/d11abbca8359c565-2a/s640x960/caa2500dd4329fe1674806e9bbcaf0375ccefa27.jpg`,
-                    });
-                    accounts.push({
-                        name: capitalize(`Jesse Dunn`, [`-`, `'`, ` `]),
-                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        memAge: parseInt(`29`),
-                        frequency: `every 1 to 2 weeks`,
-                        limits: `detailed, mature sexual content`,
-                        groupID: parseInt(`13`),
-                        id: parseInt(`50`),
-                        groupName: `Outskirts`,
-                        pronouns: `he/him`,
-                        face: `viggo mortenson`,
-                        overview: `A cowboy who never quite outgrew the wild west and the call of the wide open plains, Jes is a bit rough-and-tumble and more likely to get into a fist fight than he is to calmly talk any sort of argument through. He's the passionate sort, and not in the slightest bit quiet, so has often been described as dramatic, overbearing, and reactive. It leads, frequently, to the assumption that he can't keep a secret to save his life, considering he never seems to shut up - but that's just a common misconception. He's remarkably good at shutting his trap when he's got to, or talking circles around the question until you don't know what you were asking any longer. It comes from a place of deep self-loathing that he's only partly gotten past, but hey, at least he talks about it now. To Gaius, specifically, because fuck if he's going to get all weepy to people that aren't his husband. He has his pride to maintain!`,
-                        type: `character`,
-                        age: parseInt(`239`),
-                        ageClass: `immortal`,
-                        relStatus: `married`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: `meta`,
-                        image: `https://64.media.tumblr.com/a2ef7dbf678361d0c594fb7e8f1c5833/af990ad6c68dd970-ff/s1280x1920/93d23a77350f93249a804acde644987bf29c1ef6.jpg`,
-                    });
-                    accounts.push({
-                        name: capitalize(`Madison McKinley`, [`-`, `'`, ` `]),
-                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        memAge: parseInt(`29`),
-                        frequency: `every 1 to 2 weeks`,
-                        limits: `detailed, mature sexual content`,
-                        groupID: parseInt(`10`),
-                        id: parseInt(`45`),
-                        groupName: `Coastline`,
-                        pronouns: `she/her`,
-                        face: `tessa thompson`,
-                        overview: `Mads is general a sweet girl; she's the sort to bake cookies for new neighbours and offer up somewhat lewd jokes in the same breath, sure, but she's sweet and she means well. She's also, however, incredibly bullheaded and, once she sets her mind to something, it's near-impossible to get her to change it. She faces danger and sorrow both with a smile, determined not to let it get to her. It does, if she's honest, but fuck if she's telling anyone except those she's closest too - and, after her fiance went missing, that's precious few. Half of that is because she's currently undercover in the Order and, well, trusting the enemy is not something that comes highly recommended - but the other half? Intentional, trying to avoid feeling that hurt again. She'd rather stay a sunshine child, thanks.`,
-                        type: `character`,
-                        age: parseInt(`32`),
-                        ageClass: `30s`,
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: `meta`,
-                        image: `https://64.media.tumblr.com/9c96a8764436d70db5d4eb8fd1276976/dc6ed113a363f70d-e1/s640x960/77d774ca4ef4e0c63b3f8d5763bad0ac9cc8244f.jpg`,
-                    });
-                    accounts.push({
-                        name: capitalize(`Malcolm Murdock`, [`-`, `'`, ` `]),
-                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        memAge: parseInt(`29`),
-                        frequency: `every 1 to 2 weeks`,
-                        limits: `detailed, mature sexual content`,
-                        groupID: parseInt(`11`),
-                        id: parseInt(`3`),
-                        groupName: `Old Town`,
-                        pronouns: `he/him`,
-                        face: `timur simakov`,
-                        overview: `Malcolm is practically an urban legend around Davenport; he's a story that parents tell their children at night to keep them in their rooms and not climbing out of windows, and he's the monster under your bed. Not literally, of course. If you were to meet him on the streets, you'd likely look down on him. He's not particularly tall or short, a little on the scrawny side, and altogether a bit unassuming. The limp in his step, gloves over his hands, and generally calculating look in his eye, though, is what gives him away. He grew up on the streets and he is dead set on owning them - no matter the cost. The fact he's an upstart kid that came from out of nowhere only adds to his reputation.
-
-                        Malcolm is not only selective about those he associates with, but also his friends - especially his friends. He doesn't trust easily and he's more liable to play nice and stab you in the back than he is to actually be nice to you for the sake of being nice. This makes for a lot of fake friendships, or friendships based solely on convenience (if you can call either of those things a friendship). He didn't come to be called 'bastard' by most of the people in the seedy underbelly of Davenport by the age of sixteen through hugs and cupcakes and rainbows. No, he got there by being cruel, unforgiving, sadistic, and callous towards almost everyone. He steals, he murders, he ruins the plans of other criminals if there's something in it for him, and he's incredibly self-assured and self-centred. Basically, there is every reason to hate this guy on principle alone. And, honestly, he encourages it. Gimme those antagonistic plots up the wazoo (but also some people he's on good terms with because he will be awkward and won't know what to do).
-
-                        (And yes, he is 10000% a Kaz Brekker. As if that wasn't obvious to anyone who knows SoC).`,
-                        type: `character`,
-                        age: parseInt(`22`),
-                        ageClass: `20s`,
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: `meta`,
-                        image: `https://64.media.tumblr.com/289e7830f83c0545498ba6ae4333c1ca/tumblr_p3wz67wAPP1vz2ghao8_640.jpg`,
-                    });
-                    accounts.push({
-                        name: capitalize(`Nikolas Kovac`, [`-`, `'`, ` `]),
-                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        memAge: parseInt(`29`),
-                        frequency: `every 1 to 2 weeks`,
-                        limits: `detailed, mature sexual content`,
-                        groupID: parseInt(`10`),
-                        id: parseInt(`35`),
-                        groupName: `Coastline`,
-                        pronouns: `he/him`,
-                        face: `jack savoretti`,
-                        overview: `Nik is kind of a walking tragedy, to be quite honest. He's had a really hard life, and being immortal hasn't really helped much, because it's given him even more time to experience these hardships. He's a sensitive soul, feeling each of these things very deeply and to extremes, despite his attempts to shove all those feelings down. He is kind, though, and unerringly so. He will attempt to help just about anyone who needs it, even at great personal risk or cost to his own well-being. You'll find he can be quite distant at first if he doesn't know you. He is quite cautious, despite his desire to help and heal, and so will take a while to warm up, but he's trying to work on it.
-
-                        When it comes to interacting with people, he's particularly soft-spoken, but an otherwise excellent conversationalist (assuming you can get him to speak). He's easily distracted, often getting caught up in a flurry of his own thoughts and ideas, but trust that he hasn't missed a word you're saying either (at least, usually). He just might take a second or two to catch up and backtrack to what you were talking about first. Most of the people he knows, he knows through his work as a professor at the local university, but he may have some old friends from his time at Quantum - before he found out what they were doing and promptly left, but was too chicken to actually pursue any sort of action to stop them.`,
-                        type: `character`,
-                        age: parseInt(`199`),
-                        ageClass: `immortal`,
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: `meta`,
-                        image: `https://64.media.tumblr.com/e1a7a0df7663a3f06b0afb090871cfa1/e9564d2ab94005ea-93/s1280x1920/52dfbaf19a3e726bece2a45ce3f9c95a4fcd1662.jpg`,
-                    });
-                    accounts.push({
-                        name: capitalize(`Satiah El Masry`, [`-`, `'`, ` `]),
-                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        memAge: parseInt(`29`),
-                        frequency: `every 1 to 2 weeks`,
-                        limits: `detailed, mature sexual content`,
-                        groupID: parseInt(`11`),
-                        id: parseInt(`15`),
-                        groupName: `Old Town`,
-                        pronouns: `she/her`,
-                        face: `imaan hammam`,
-                        overview: `Tia is a spitfire of a woman, though you wouldn't always know it. Her abilities were awoken by someone who claimed to be the Egyptian god Anubis when she was younger and seeking revenge for the senseless murder of her daughter and her husband. One of these gifts was the ability to shift into a striped hyena, which has distinctly rubbed off on her, leaving her with a fair few tendencies of said animal. She is irrevocably nocturnal, lazing about during the day as best she can despite working, she has a stomach of steel and will eat anything, and her hearing is kind of shit. That said, she likes loud parties, bright lights, and late nights and she loves a good night club where she can get all three. She knows how to have a good time, and she isn't afraid to show it. Attachments really aren't her thing, unless she knows you're a fellow immortal, but she's rather content to hang out nonetheless.`,
-                        type: `character`,
-                        age: parseInt(`2173`),
-                        ageClass: `immortal`,
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: `meta`,
-                        image: `https://64.media.tumblr.com/43f5bf16f500a8ce1c48e7a4b86958aa/tumblr_pyloafSHEF1vz2ghao10_1280.jpg" style="object-position: top;`,
-                    });
-                    accounts.push({
-                        name: capitalize(`Sterling Di Mitri`, [`-`, `'`, ` `]),
-                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        memAge: parseInt(`29`),
-                        frequency: `every 1 to 2 weeks`,
-                        limits: `detailed, mature sexual content`,
-                        groupID: parseInt(`9`),
-                        id: parseInt(`36`),
-                        groupName: `River's Edge`,
-                        pronouns: `he/him`,
-                        face: `max barczak`,
-                        overview: `Honestly... Sterling is a bit of a mess. He spent his whole childhood doing everything he could to make his mother happy, not understanding that it was depression rather than regular sadness that plagued her, and after seeing her kill herself in a particularly low point, he's been stuck on that mindset ever since. He's determined to never ever cause problems and do whatever he has to to make other people happy, even at his own expense (and usually at his own expense, historically speaking). He even got so far as to propose to the girlfriend he has never had a single romantic feeling for last year just because they'd been together seven years and that was expected of him. In a panic, he ended up on a road trip across the country to move to Davenport and change universities, which sparked some of the real him and also gave him the chance to run into someone he actually had feelings for. And he's kind of been in a state of gay panic ever since.`,
-                        type: `character`,
-                        age: parseInt(`24`),
-                        ageClass: `20s`,
-                        relStatus: `single`.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: `meta`,
-                        image: `https://64.media.tumblr.com/b7566e3d90cf94f600c9fa2a92263538/c2c95cd4653a9c80-1b/s640x960/90f4f78d373132dddb075fddb78912cb01d74b38.jpg`,
-                    });
-                    accounts.push({
-                        name: capitalize(`lux`, [`-`, `'`, ` `]),
-                        alias: `lux`.toLowerCase().replace(' ', "").replace('\/', ""),
-                        memAge: parseInt(`29`),
-                        memPronouns: `she/her`,
-                        frequency: `every 1 to 2 weeks`,
-                        limits: `detailed, mature sexual content`,
-                        groupID: parseInt(`4`),
-                        id: parseInt(`1`),
-                        groupName: `admin`,
-                        pronouns: ``,
-                        face: ``,
-                        overview: ``,
-                        type: `member`,
-                        age: parseInt(``),
-                        ageClass: ``,
-                        relStatus: ``.toLowerCase().replace(' ', '').replace('\'', ''),
-                        species: ``,
-                        image: `https://dawneggleton.github.io/images/photo/eq/2017-despook4.jpg`,
-                    });
-                    
+                    accounts = fakeAccounts;
+                
                     populatePage(accounts);
 
-                    //initialize isotope
-                    $container.isotope({
-                        itemSelector: '.grid-item',
-                        percentPosition: true,
-                        filter: '.onLoad',
-                    });
-                    // do stuff when checkbox change
-                    $('.ml--filters').on( 'change', function( jQEvent ) {
-                        var $checkbox = $( jQEvent.target );
-                        manageCheckbox( $checkbox );
-                        var comboFilter = getComboFilter( filters );
-                        $container.isotope({ filter: comboFilter });
-                    });
+//initialize isotope
+// quick search regex
+let qsRegex;
+let elements = document.querySelectorAll('.grid-item');
+
+// init Isotope
+$container.isotope({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    filter: '.onLoad',
+});
+
+//use value of input select to filter
+let checkboxes = document.querySelectorAll('.ml--filtergroup input');
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', e => {
+        if(e.currentTarget.classList.contains('all')) {
+            e.currentTarget.checked = true;
+            e.currentTarget.parentElement.classList.add('is-checked');
+            e.currentTarget.parentElement.parentElement.querySelectorAll('input:not(.all)').forEach(input => {
+                input.checked = false;
+                input.parentElement.classList.remove('is-checked');
+            });
+        } else {
+            if(e.currentTarget.parentElement.classList.contains('is-checked')) {
+                e.currentTarget.checked = false;
+                e.currentTarget.parentElement.classList.remove('is-checked');
+            } else {
+                e.currentTarget.checked = true;
+                e.currentTarget.parentElement.classList.add('is-checked');
+                e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = false;
+                e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.remove('is-checked');
+            }
+        }
+        let labels = e.currentTarget.parentElement.parentElement.querySelectorAll('label');
+        let checked = 0;
+        labels.forEach(label => {
+            if(label.classList.contains('is-checked')) {
+                checked++;
+            }
+        });
+        if(checked === 0) {
+            e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = true;
+            e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.add('is-checked');
+        }
+        //set filters
+        setCustomFilter();
+    });
+});
+
+// use value of search field to filter
+document.querySelector('#quicksearch').addEventListener('keyup', e => {
+setCustomFilter();
+})
                     </script>
             </section>
         </main>

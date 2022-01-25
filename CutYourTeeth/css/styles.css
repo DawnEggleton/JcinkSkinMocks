@@ -2521,15 +2521,34 @@ header .skip:after {
   background-attachment: fixed;
   background-size: cover;
   border-bottom: 1px solid var(--midGrey-70);
+  display: grid;
+  grid-template-columns: auto max-content;
+  align-items: center;
+}
+.ml--top > * {
+  z-index: 2;
+}
+.ml--top-left h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--white);
+}
+.ml--top-right {
   text-align: right;
   display: flex;
   justify-content: end;
   gap: 10px;
 }
-.ml--top > * {
-  z-index: 2;
+.ml--top-right > input[type=text] {
+  padding: 5px 15px;
+  border-radius: 2px;
+  font-family: var(--serif);
+  font-size: 16px;
+  border: 0;
+  margin: 0;
 }
-.ml--top > button {
+.ml--top-right > button {
   background: var(--light);
   color: var(--dark);
   padding: 5px 15px;
@@ -2544,16 +2563,16 @@ header .skip:after {
   grid-gap: 10px;
   cursor: pointer;
 }
-.ml--top > button > i {
+.ml--top-right > button > i {
   font-size: 12px;
 }
-.ml--top > button > .fa-minus {
+.ml--top-right > button > .fa-minus {
   display: none;
 }
-.ml--top > button.filtersOpen > .fa-minus, .ml--top > button.sortOpen > .fa-minus {
+.ml--top-right > button.filtersOpen > .fa-minus, .ml--top-right > button.sortOpen > .fa-minus {
   display: initial;
 }
-.ml--top > button.filtersOpen > .fa-plus, .ml--top > button.sortOpen > .fa-plus {
+.ml--top-right > button.filtersOpen > .fa-plus, .ml--top-right > button.sortOpen > .fa-plus {
   display: none;
 }
 .ml--top:before {
@@ -2673,7 +2692,7 @@ header .skip:after {
 }
 .ml--member {
   width: 100%;
-  height: 400px;
+  height: 460px;
   max-height: calc(100vh - 171px);
   border-right: 1px solid var(--midGrey-70);
   border-bottom: 1px solid var(--midGrey-70);
@@ -2694,13 +2713,33 @@ header .skip:after {
   }
 }
 
+.grid-sizer {
+  width: 100%;
+  height: 460px;
+}
+@media only screen and (min-width: 480px) {
+  .grid-sizer {
+    width: calc(100% / 2);
+  }
+}
+@media only screen and (min-width: 800px) {
+  .grid-sizer {
+    width: calc(100% / 3);
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .grid-sizer {
+    width: calc(100% / 4);
+  }
+}
+
 .mem--top {
   padding: 20px 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 5px 30px;
-  height: 165px;
+  height: 225px;
   align-content: end;
 }
 .mem--top:before {
@@ -2777,6 +2816,10 @@ header .skip:after {
   background: var(--accent-75);
   padding: 10px 15px;
   line-height: 10px;
+}
+
+.nameDifferent {
+  display: none;
 }
 
 /*******************************
