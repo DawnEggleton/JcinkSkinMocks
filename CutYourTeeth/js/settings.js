@@ -1,4 +1,9 @@
 /* Fake Data Generation */
+function capitalize(str, separators) {
+    separators = separators || [ ' ' ];
+    var regex = new RegExp('(^|[' + separators.join('') + '])(\\w)', 'g');
+    return str.replace(regex, function(x) { return x.toUpperCase(); });
+}
 
 let fakeAccounts = [
     {

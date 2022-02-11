@@ -1,0 +1,676 @@
+/*******************************
+    Variables
+********************************/
+:root {
+  --accentFont: "linotype-didot", serif;
+  --headerFont: "source code pro", monospace;
+  --bodyFont: "montserrat", sans-serif;
+  --xsBody: 8px;
+  --sBody: 10px;
+  --mBody: 12px;
+  --lBody: 14px;
+  --xlBody: 16px;
+  --black: rgba(12, 12, 12, 1);
+  --offBlack: rgba(18, 18, 18, 1);
+  --dkGrey: rgba(26, 26, 26, 1);
+  --mdGrey: rgba(40, 40, 40, 1);
+  --lmGrey: rgba(110, 110, 110, 1);
+  --ltGrey: rgba(134, 134, 134, 1);
+  --offWhite: rgba(215, 215, 215, 1);
+  --white: rgba(235, 235, 235, 1);
+}
+
+.light {
+  --background: var(--offWhite);
+  --content: var(--white);
+  --dark: var(--mdGrey);
+  --headerText: var(--offWhite);
+  --text: var(--mdGrey);
+  --light: var(--ltGrey);
+  --accentColor: var(--black);
+  --accent: rgba(87, 188, 210, 1);
+  --ltaccent: rgba(87, 188, 210, 1);
+  /**************************
+  Validating, Guests
+  **************************/
+  /**************************
+  Unsorted
+  **************************/
+  /**************************
+  Admin
+  **************************/
+  /**************************
+  Banned, Inactive, Hiatus
+  **************************/
+  /**************************
+  Adults
+  **************************/
+  /**************************
+  Gryffindor
+  **************************/
+  /**************************
+  Hogwarts Staff
+  **************************/
+  /**************************
+  Hufflepuff
+  **************************/
+  /**************************
+  Press
+  **************************/
+  /**************************
+  Ministry
+  **************************/
+  /**************************
+  Quidditch
+  **************************/
+  /**************************
+  Ravenclaw
+  **************************/
+  /**************************
+  Healers
+  **************************/
+  /**************************
+  Slytherin
+  **************************/
+  /**************************
+  Returners
+  **************************/
+  /**************************
+  Entertainment
+  **************************/
+  /**************************
+  Members
+  **************************/
+}
+.light .g-1,
+.light .g-2, .light.g-1, .light.g-2 {
+  --accentColor: var(--black);
+  --accent: rgba(196, 177, 125, 1);
+  --ltaccent: rgba(225, 210, 166, 1);
+}
+.light .g-3, .light.g-3 {
+  --accentColor: var(--black);
+  --accent: rgba(189, 133, 92, 1);
+  --ltaccent: rgba(215, 159, 118, 1);
+}
+.light .g-4, .light.g-4 {
+  --accentColor: var(--black);
+  --accent: rgba(110, 130, 155, 1);
+  --ltaccent: rgba(142, 161, 185, 1);
+}
+.light .g-5,
+.light .g-10,
+.light .g-19, .light.g-5, .light.g-10, .light.g-19 {
+  --accentColor: var(--black);
+  --accent: rgba(196, 196, 196, 1);
+  --ltaccent: rgba(220, 220, 220, 1);
+}
+.light adults,
+.light .adults,
+.light .g-6, .light.g-6 {
+  --accentColor: var(--white);
+  --accent: rgba(179, 73, 85, 1);
+  --ltaccent: rgba(200, 107, 118, 1);
+}
+.light gryffindor,
+.light .gryffindor,
+.light .g-7, .light.g-7 {
+  --accentColor: var(--white);
+  --accent: rgba(147, 42, 47, 1);
+  --ltaccent: rgba(176, 58, 63, 1);
+}
+.light hogwarts,
+.light .hogwarts,
+.light .g-8, .light.g-8 {
+  --accentColor: var(--white);
+  --accent: rgba(97, 86, 153, 1);
+  --ltaccent: rgba(123, 113, 170, 1);
+}
+.light hufflepuff,
+.light .hufflepuff,
+.light .g-9, .light.g-9 {
+  --accentColor: var(--black);
+  --accent: rgba(183, 148, 117, 1);
+  --ltaccent: rgba(213, 177, 146, 1);
+}
+.light press,
+.light .press,
+.light .g-11, .light.g-11 {
+  --accentColor: var(--black);
+  --accent: rgba(176, 134, 84, 1);
+  --ltaccent: rgba(200, 160, 112, 1);
+}
+.light ministry,
+.light .ministry,
+.light .g-12, .light.g-12 {
+  --accentColor: var(--white);
+  --accent: rgba(78, 134, 126, 1);
+  --ltaccent: rgba(101, 157, 149, 1);
+}
+.light quidditch,
+.light .quidditch,
+.light .g-13, .light.g-13 {
+  --accentColor: var(--black);
+  --accent: rgba(146, 130, 157, 1);
+  --ltaccent: rgba(166, 148, 179, 1);
+}
+.light ravenclaw,
+.light .ravenclaw,
+.light .g-14, .light.g-14 {
+  --accentColor: var(--white);
+  --accent: rgba(65, 91, 142, 1);
+  --ltaccent: rgba(86, 113, 166, 1);
+}
+.light healers,
+.light .healers,
+.light .g-15, .light.g-15 {
+  --accentColor: var(--white);
+  --accent: rgba(88, 123, 83, 1);
+  --ltaccent: rgba(102, 142, 96, 1);
+}
+.light slytherin,
+.light .slytherin,
+.light .g-16, .light.g-16 {
+  --accentColor: var(--white);
+  --accent: rgba(45, 91, 61, 1);
+  --ltaccent: rgba(60, 113, 78, 1);
+}
+.light returners,
+.light .returners,
+.light .g-17, .light.g-17 {
+  --accentColor: var(--white);
+  --accent: rgba(90, 137, 151, 1);
+  --ltaccent: rgba(105, 154, 168, 1);
+}
+.light entertainment,
+.light .entertainment,
+.light .g-18, .light.g-18 {
+  --accentColor: var(--black);
+  --accent: rgba(82, 154, 162, 1);
+  --ltaccent: rgba(108, 181, 189, 1);
+}
+.light .g-20, .light.g-20 {
+  --accentColor: var(--black);
+  --accent: rgba(97, 177, 202, 1);
+  --ltaccent: rgba(130, 201, 223, 1);
+}
+
+.dark {
+  --background: var(--mdGrey);
+  --content: var(--offBlack);
+  --dark: var(--offBlack);
+  --headerText: var(--lmGrey);
+  --text: var(--lmGrey);
+  --light: var(--mdGrey);
+  --accentColor: var(--black);
+  --accent: rgba(87, 188, 210, 1);
+  --ltaccent: rgba(87, 188, 210, 1);
+  /**************************
+  Validating, Guests
+  **************************/
+  /**************************
+  Unsorted
+  **************************/
+  /**************************
+  Admin
+  **************************/
+  /**************************
+  Banned, Inactive, Hiatus
+  **************************/
+  /**************************
+  Adults
+  **************************/
+  /**************************
+  Gryffindor
+  **************************/
+  /**************************
+  Hogwarts Staff
+  **************************/
+  /**************************
+  Hufflepuff
+  **************************/
+  /**************************
+  Press
+  **************************/
+  /**************************
+  Ministry
+  **************************/
+  /**************************
+  Quidditch
+  **************************/
+  /**************************
+  Ravenclaw
+  **************************/
+  /**************************
+  Healers
+  **************************/
+  /**************************
+  Slytherin
+  **************************/
+  /**************************
+  Returners
+  **************************/
+  /**************************
+  Entertainment
+  **************************/
+  /**************************
+  Members
+  **************************/
+}
+.dark .g-1,
+.dark .g-2, .dark.g-1, .dark.g-2 {
+  --accentColor: var(--black);
+  --ltaccent: rgba(196, 177, 125, 1);
+  --accent: rgba(225, 210, 166, 1);
+}
+.dark .g-3, .dark.g-3 {
+  --accentColor: var(--black);
+  --ltaccent: rgba(189, 133, 92, 1);
+  --accent: rgba(215, 159, 118, 1);
+}
+.dark .g-4, .dark.g-4 {
+  --accentColor: var(--black);
+  --ltaccent: rgba(110, 130, 155, 1);
+  --accent: rgba(97, 116, 140, 1);
+}
+.dark .g-5,
+.dark .g-10,
+.dark .g-19, .dark.g-5, .dark.g-10, .dark.g-19 {
+  --accentColor: var(--black);
+  --ltaccent: rgba(196, 196, 196, 1);
+  --accent: rgba(220, 220, 220, 1);
+}
+.dark adults,
+.dark .adults,
+.dark .g-6, .dark.g-6 {
+  --accentColor: var(--white);
+  --ltaccent: rgba(179, 73, 85, 1);
+  --accent: rgba(200, 107, 118, 1);
+}
+.dark gryffindor,
+.dark .gryffindor,
+.dark .g-7, .dark.g-7 {
+  --accentColor: var(--white);
+  --ltaccent: rgba(147, 42, 47, 1);
+  --accent: rgba(176, 58, 63, 1);
+}
+.dark hogwarts,
+.dark .hogwarts,
+.dark .g-8, .dark.g-8 {
+  --accentColor: var(--white);
+  --ltaccent: rgba(97, 86, 153, 1);
+  --accent: rgba(123, 113, 170, 1);
+}
+.dark hufflepuff,
+.dark .hufflepuff,
+.dark .g-9, .dark.g-9 {
+  --accentColor: var(--black);
+  --ltaccent: rgba(183, 148, 117, 1);
+  --accent: rgba(213, 177, 146, 1);
+}
+.dark press,
+.dark .press,
+.dark .g-11, .dark.g-11 {
+  --accentColor: var(--black);
+  --ltaccent: rgba(176, 134, 84, 1);
+  --accent: rgba(200, 160, 112, 1);
+}
+.dark ministry,
+.dark .ministry,
+.dark .g-12, .dark.g-12 {
+  --accentColor: var(--white);
+  --ltaccent: rgba(78, 134, 126, 1);
+  --accent: rgba(101, 157, 149, 1);
+}
+.dark quidditch,
+.dark .quidditch,
+.dark .g-13, .dark.g-13 {
+  --accentColor: var(--black);
+  --ltaccent: rgba(146, 130, 157, 1);
+  --accent: rgba(166, 148, 179, 1);
+}
+.dark ravenclaw,
+.dark .ravenclaw,
+.dark .g-14, .dark.g-14 {
+  --accentColor: var(--white);
+  --ltaccent: rgba(65, 91, 142, 1);
+  --accent: rgba(86, 113, 166, 1);
+}
+.dark healers,
+.dark .healers,
+.dark .g-15, .dark.g-15 {
+  --accentColor: var(--white);
+  --ltaccent: rgba(88, 123, 83, 1);
+  --accent: rgba(102, 142, 96, 1);
+}
+.dark slytherin,
+.dark .slytherin,
+.dark .g-16, .dark.g-16 {
+  --accentColor: var(--white);
+  --ltaccent: rgba(45, 91, 61, 1);
+  --accent: rgba(60, 113, 78, 1);
+}
+.dark returners,
+.dark .returners,
+.dark .g-17, .dark.g-17 {
+  --accentColor: var(--white);
+  --ltaccent: rgba(90, 137, 151, 1);
+  --accent: rgba(105, 154, 168, 1);
+}
+.dark entertainment,
+.dark .entertainment,
+.dark .g-18, .dark.g-18 {
+  --accentColor: var(--black);
+  --ltaccent: rgba(82, 154, 162, 1);
+  --accent: rgba(108, 181, 189, 1);
+}
+.dark .g-20, .dark.g-20 {
+  --accentColor: var(--black);
+  --ltaccent: rgba(97, 177, 202, 1);
+  --accent: rgba(130, 201, 223, 1);
+}
+
+/*******************************
+    Font Imports
+********************************/
+@font-face {
+  font-family: "troye serif";
+  src: url("../fonts/troyeserif.woff2") format("woff2"), url("../fonts/troyeserif.woff") format("woff"), url("../fonts/troyeserif.ttf") format("truetype"), url("../fonts/troyeserif.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+/*******************************
+    Global
+********************************/
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--bodyFont);
+  background: var(--background);
+  color: var(--text);
+}
+
+main {
+  min-height: 100vh;
+  padding: 0 80px;
+}
+
+/*******************************
+    Navigation
+********************************/
+/*******************************
+    Header
+********************************/
+.header {
+  background: var(--dark);
+  padding: 50px 50px 0;
+}
+.header h1 {
+  font-family: var(--accentFont);
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+  font-size: clamp(60px, 6vw, 80px);
+  color: var(--headerText);
+}
+.header p {
+  color: var(--headerText);
+  text-align: center;
+  font-family: var(--headerFont);
+  margin: 0;
+  text-transform: lowercase;
+}
+.header--deco {
+  border: 1px solid var(--light);
+  border-bottom: none;
+  padding: 130px 50px 230px;
+}
+.header--deco:before, .header--deco:after {
+  content: "";
+  position: absolute;
+  top: -42px;
+  border: 1px solid var(--light);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--dark);
+}
+.header--deco:before {
+  left: -42px;
+  clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+}
+.header--deco:after {
+  right: -42px;
+  clip-path: polygon(0 50%, 50% 50%, 50% 100%, 0 100%);
+}
+.header--info {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1.5fr;
+  grid-column-gap: 2.5vw;
+  max-width: 1000px;
+  margin: -100px auto 50px;
+}
+.header--calendar, .header--intro, .header--staff {
+  background: var(--ltaccent);
+  color: var(--accentColor);
+  padding: 15px 20px;
+  font-size: var(--mBody);
+  line-height: 200%;
+  text-align: justify;
+}
+.header--calendar > b:first-child, .header--intro > b:first-child, .header--staff > b:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--ltaccent);
+  padding: 0 8px 0 10px;
+  transform: translateY(-100%);
+  font-family: var(--headerFont);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--sBody);
+}
+.header--calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  grid-gap: 5px;
+}
+.header--calendar .calendar-day {
+  font-weight: 700;
+  font-size: var(--xsBody);
+  font-family: var(--headerFont);
+}
+.header--calendar span:not(.calendar-day) {
+  font-size: var(--sBody);
+  aspect-ratio: 1;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 50%;
+}
+.header--calendar span.event {
+  background: var(--accent);
+}
+.header--intro {
+  display: grid;
+  align-items: center;
+  font-size: calc(var(--mBody) + 1px);
+}
+.header--intro p {
+  margin: 0;
+}
+.header--staff {
+  display: grid;
+  grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+  grid-gap: 10px;
+}
+.header--staff a {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+  font-size: 40px;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 4px;
+  transition-duration: 0.5s;
+}
+.header--staff a:hover {
+  background: var(--ltaccent);
+}
+
+/*******************************
+    Categories
+********************************/
+.category {
+  margin-bottom: 80px;
+}
+.category h2 {
+  margin: 0 auto 40px;
+  max-width: max-content;
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 20px;
+  font-size: 34px;
+}
+.category--rows {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.forum {
+  background: var(--content);
+  padding: 30px;
+  font-size: var(--mBody);
+}
+.forum--stats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  background: var(--white);
+  padding: 0 8px 0 10px;
+  font-family: var(--headerFont);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+  line-height: 200%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+.forum h3 {
+  margin: 0 0 15px 0;
+  font-size: 26px;
+  font-weight: 500;
+  max-width: max-content;
+  padding: 0 40px 0 5px;
+  line-height: 100%;
+  letter-spacing: 2px;
+  font-family: var(--headerFont);
+}
+.forum h3::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: var(--ltaccent);
+}
+.forum h3 a {
+  color: var(--dark);
+}
+.forum--latest {
+  display: grid;
+  margin: 30px 5px;
+  line-height: 160%;
+}
+.forum--latest > a {
+  font-size: var(--lBody);
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+.forum--poster {
+  text-transform: uppercase;
+  font-size: calc(var(--xsBody) + 1px);
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-top: 2px;
+  opacity: 0.7;
+}
+.forum--date {
+  font-family: var(--headerFont);
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+.forum--subforums {
+  margin: 0 5px;
+  font-size: 0;
+}
+.forum--subforums a {
+  background: var(--ltaccent);
+  color: var(--accentColor);
+  font-family: var(--headerFont);
+  padding: 10px 16px;
+  text-transform: lowercase;
+  font-weight: 600;
+  letter-spacing: 0px;
+  font-size: var(--mBody);
+  margin: 0 5px 5px 0;
+  display: inline-block;
+  transition-duration: 0.5s;
+}
+.forum--subforums a::after {
+  content: ">";
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  transition-duration: 0.5s;
+}
+.forum--subforums a:hover {
+  background: transparent;
+}
+.forum--subforums a:hover::after {
+  width: 20px;
+  margin-left: 10px;
+}
+
+/*******************************
+    Board Stats
+********************************/
+/*******************************
+    Topic List
+********************************/
+/*******************************
+    Post Row
+********************************/
+/*******************************
+    Member List
+********************************/
+/*******************************
+    Profile
+********************************/
+/*******************************
+    Webpages
+********************************/
+/*******************************
+    Templates
+********************************/
+
+/*# sourceMappingURL=styles.css.map */

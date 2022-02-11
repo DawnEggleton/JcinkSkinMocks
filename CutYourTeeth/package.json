@@ -1,5 +1,5 @@
 {
-  "name": "tradition",
+  "name": "cutyourteeth",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "lit": "^2.1.3",
     "node-sass": "^6.0.1"
   }
 }

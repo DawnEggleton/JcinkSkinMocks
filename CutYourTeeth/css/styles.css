@@ -413,6 +413,7 @@ section ul li:before {
   align-items: center;
   text-align: center;
   justify-items: center;
+  line-height: 22px;
 }
 section ul > br {
   display: none;

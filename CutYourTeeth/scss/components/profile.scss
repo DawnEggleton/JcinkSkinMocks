@@ -17,6 +17,7 @@
         grid-template-rows: 1fr max-content max-content 1fr;
         height: calc(100vh - 80px);
         background-image: linear-gradient(to top, var(--black), transparent, transparent, transparent);
+        padding: 0 50px;
 
         &.controls-open {
             background-image: linear-gradient(to top, transparent, transparent, transparent, transparent);

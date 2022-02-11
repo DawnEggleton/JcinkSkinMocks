@@ -33,258 +33,16 @@
     <body id="SF" class="dark g-4">
         
         <!--Header-->
-        <header>
-            <p>every word would herd the cynical</p>
-            <a href=index.html><h1>Play God</h1></a>
-            <a href=index.html class="skip">learn more</a>
-        </header>
+        <header></header>
 
         <!--Navigation-->
-        <nav>
-            <div id="navstrip" align="left">
-                <a href=index.html>Play God</a>
-                <i class="fal fa-ellipsis-h"></i>
-                <a href="category.html">Davenport, Maine</a>
-                <i class="fal fa-ellipsis-h"></i>
-                <a href="coastline.html">River's Edge</a>
-            </div>
-
-            <!--Desktop Menu-->
-            <div class="ucp desktopOnly">
-                <ul class="ucp--menu">
-                    <li>
-                        <a href="webpage.html">Guide</a>
-                        <ul>
-                            <span>
-                                <li><a href="webpage.html">Premise</a></li>
-                                <li><a href="webpage.html">Etiquette</a></li>
-                                <li><a href="webpage.html">Timeline</a></li>
-                                <li><a href="webpage.html">Setting</a></li>
-                                <li><a href="webpage.html">Canons</a></li>
-                                <li><a href="webpage.html">Claims</a></li>
-                            </span>
-                        </ul>
-                    </li>
-                    <li><a href=index.html>Discord</a></li>
-                    <li>
-                        Settings
-                        <ul>
-                            <span>
-                                <li>
-                                    <button onclick="toggleMode()">
-                                        <span class="darkOnly">Lighter</span>
-                                        <span class="lightOnly">Darker</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button onclick="toggleFont()">
-                                        <span class="smallOnly">Larger Font</span>
-                                        <span class="largeOnly">Smaller Font</span>
-                                    </button>
-                                </li>
-                            </span>
-                        </ul>
-                    </li>
-                    <li class="staffOnly">
-                        Staff
-                        <ul class="staff">
-                            <span>
-                                <li><a href="">Admin CP</a></li>
-                                <li><a href="">Mod CP</a></li>
-                                <li><a href="https://docs.google.com/spreadsheets/d/1egWN7GbLdcKs_T9eKQTE0viNMbua7b7A5ebbBUpyPMo/edit#gid=0">Activity</a></li>
-                            </span>
-                        </ul>
-                    </li>
-                </ul>
-                <button onclick="openVisitor()" class="guestOnly"><i class="fas fa-bars"></i></button>
-                <button onclick="openControls()" class="memOnly"><i class="fas fa-bars"></i></button>
-            </div>
-
-            <!--Mobile Menu-->
-            <div class="ucp mobileTablet">
-                <button onclick="openMobileMenu()"><i class="fas fa-bars"></i></button>
-                <ul class="ucp--menu-mobile">
-                    <button class="close" onclick="closeMobileMenu()"><i class="fas fa-times"></i>close</button>
-                    <div class="scroll">
-                        <li class="name">Navigation</li>
-                        <li><a href="webpage.html">Guide</a></li>
-                        <li><a href="">Discord</a></li>
-                        <li>
-                            <button onclick="toggleMode()">
-                                <span class="darkOnly">Lighter</span>
-                                <span class="lightOnly">Darker</span>
-                            </button>
-                        </li>
-                        <li>
-                            <button onclick="toggleFont()">
-                                <span class="smallOnly">Larger Font</span>
-                                <span class="largeOnly">Smaller Font</span>
-                            </button>
-                        </li>
-                        <li><a href="" class="staffOnly">Admin CP</a></li>
-                        <li><a href="" class="staffOnly">Mod CP</a></li>
-                        <hr>
-                        <li class="name memOnly"><a href="profile.html">First Last</a></li>
-                        <li class="memOnly">
-                            <span id="subaccounts_menu">
-                                <form action="https://playedgod.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
-                                    <input type="hidden" name="auth_key" value="67b665903a8fc5105c6bbb3892012108">
-                                    <input type="hidden" name="UserName" value="subacct">
-                                    <input type="hidden" name="PassWord" value="subacct">
-                                    <input type="hidden" name="referer" value="">
-                                    <select class="forminput" name="sub_id" onchange="this.form.submit()">
-                                        <option value="------------" selected="selected">Switch Account</option>
-                                        <option value="4">&nbsp;&nbsp;» Brennan Cormac </option>
-                                        <option value="43">&nbsp;&nbsp;» Cynbel Edevane </option>
-                                        <option value="2">&nbsp;&nbsp;» Hayden Donovan </option>
-                                        <option value="3">&nbsp;&nbsp;» Malcolm Murdock </option>
-                                        <option value="35">&nbsp;&nbsp;» Nikolas Kovac </option>
-                                        <option value="15">&nbsp;&nbsp;» Satiah El Masry </option>
-                                        <option value="36">&nbsp;&nbsp;» Sterling Di Mitri </option>
-                                    </select>
-                                </form>
-                            </span>
-                        </li>
-                        <li class="memOnly"><a href="">Edit Profile</a></li>
-                        <li class="memOnly"><a href="">Inbox (0)</a></li>
-                        <li class="memOnly"><a href="">Alerts (0)</a></li>
-                        <li class="memOnly"><a href="">Logout</a></li>
-                        <li class="name guestOnly">Visitor</li>
-                        <li class="guestOnly"><a href="">Register</a></li>
-                        <li class="guestOnly"><a href="">Login</a></li>
-                        <hr class="memOnly">
-                        <li class="name memOnly">Personal Links</li>
-                        <li class="memOnly"><a href="">Personal</a></li>
-                        <li class="memOnly"><a href="">Links</a></li>
-                        <li class="memOnly"><a href="">Here</a></li>
-                    </div>
-                </ul>
-            </div>
-        </nav>
+        <nav></nav>
 
         <!--Member Controls-->
-        <div class="controls memOnly desktopOnly">
-            <div class="controls--user">
-                <div class="controls--user-left">
-                    <a href="profile.html"><img src="https://64.media.tumblr.com/b8fb1f7acf637dd06f881a35b253f132/tumblr_p8q8bhKscU1qee9ito4_400.gif" /></a>
-                    <span id="subaccounts_menu">
-                        <form action="https://playedgod.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
-                            <input type="hidden" name="auth_key" value="67b665903a8fc5105c6bbb3892012108">
-                            <input type="hidden" name="UserName" value="subacct">
-                            <input type="hidden" name="PassWord" value="subacct">
-                            <input type="hidden" name="referer" value="">
-                            <select class="forminput" name="sub_id" onchange="this.form.submit()">
-                                <option value="------------" selected="selected">Switch Account</option>
-                                <option value="4">&nbsp;&nbsp;» Brennan Cormac </option>
-                                <option value="43">&nbsp;&nbsp;» Cynbel Edevane </option>
-                                <option value="2">&nbsp;&nbsp;» Hayden Donovan </option>
-                                <option value="3">&nbsp;&nbsp;» Malcolm Murdock </option>
-                                <option value="35">&nbsp;&nbsp;» Nikolas Kovac </option>
-                                <option value="15">&nbsp;&nbsp;» Satiah El Masry </option>
-                                <option value="36">&nbsp;&nbsp;» Sterling Di Mitri </option>
-                            </select>
-                        </form>
-                    </span>
-                </div>
-                <div class="controls--user-right">
-                    <a href="profile.html" class="name">Duncan O'Donnelly-Taggart</a>
-                    <a href="index.html">Controls</a>
-                    <a href="index.html">Inbox (0)</a>
-                    <a href="index.html">Alerts (0)</a>
-                    <a href="index.html">Logout</a>
-                </div>
-            </div>
-            <div class="controls--site">
-                <div class="controls--site-info">
-                    <div class="controls--site-info-intro">
-                        <div class="scroll">
-                            <b><i>Play God</i></b> is a dystopian powers roleplay set in the imaginary city of Davenport, Maine. Pulling inspiration from sources such as Six of Crows, X-Men, Blindspot, and Motherland: Fort Salem, we want to focus on the struggles of publicly emerging otherness and socioeconomic struggles in a safe, accepting atmosphere. Want to learn more? Check out our <a href="?act=Pages&amp;kid=guide">Guidebook</a> or pop into our <a href="https://discord.gg/9yw8VgeCJ2" target="_blank">Discord</a> and chat with us!
-                        </div>
-                    </div>
-                    <div class="controls--site-info-news">
-                        <div class="scroll">
-                            <p><b>dd.mm.yyyy</b> new skin! make sure to check the announcements for any changes you might need to make to your profiles!</p>
-                            <p><b>03.09.2021</b> grand opening!</p>
-                            <p><b>14.08.2021</b> soft opening!</p>
-                        </div>
-                    </div>
-                    <div class="controls--site-info-staff">
-                        <a href="?showuser=1"><span>Lux</span>Admin / Coder</a>
-                        <a href="?showuser=8"><span>Meriel</span> Mod</a>
-                        <a href="?showuser=5"><span>Quinn</span> Mod</a>
-                    </div>
-                </div>
-                <div class="controls--site-links">
-                    <div class="scroll">
-                        <a href="">personal</a>
-                        <a href="">links</a>
-                        <a href="">here</a>
-                        <a href="">personal</a>
-                        <a href="">links</a>
-                        <a href="">here</a>
-                        <a href="">personal</a>
-                        <a href="">links</a>
-                        <a href="">here</a>
-                        <a href="">personal</a>
-                        <a href="">links</a>
-                        <a href="">here</a>
-                        <a href="">personal</a>
-                        <a href="">links</a>
-                        <a href="">here</a>
-                        <a href="">personal</a>
-                        <a href="">links</a>
-                        <a href="">here</a>
-                        <a href="">personal</a>
-                        <a href="">links</a>
-                        <a href="">here</a>
-                        <a href="">personal</a>
-                        <a href="">links</a>
-                        <a href="">here</a>
-                    </div>
-                </div>
-                <div class="controls--site-image">
-                    <img src="https://64.media.tumblr.com/15d61296fb9a2be5823e270fea99197e/tumblr_p001tgoDJo1tlgqkgo4_540.png" />
-                </div>
-            </div>
-        </div>
+        <div class="controls memOnly desktopOnly"></div>
 
         <!--Guest Controls-->
-        <div class="controls guestOnly desktopOnly">
-            <div class="controls--user">
-                <div class="controls--user-left">
-                    <a href="profile.html"><img src="http://placehold.it/100" /></a>
-                </div>
-                <div class="controls--user-right">
-                    <a class="name">Welcome to Play God!</a>
-                    <a href="?act=Reg&CODE=00">Register</a>
-                    <a href="?act=Login&CODE=00">Login</a>
-                </div>
-            </div>
-            <div class="controls--site">
-                <div class="controls--site-info">
-                    <div class="controls--site-info-intro">
-                        <div class="scroll">
-                            <b><i>Play God</i></b> is a dystopian powers roleplay set in the imaginary city of Davenport, Maine. Pulling inspiration from sources such as Six of Crows, X-Men, Blindspot, and Motherland: Fort Salem, we want to focus on the struggles of publicly emerging otherness and socioeconomic struggles in a safe, accepting atmosphere. Want to learn more? Check out our <a href="?act=Pages&amp;kid=guide">Guidebook</a> or pop into our <a href="https://discord.gg/9yw8VgeCJ2" target="_blank">Discord</a> and chat with us!
-                        </div>
-                    </div>
-                    <div class="controls--site-info-news">
-                        <div class="scroll">
-                            <p><b>dd.mm.yyyy</b> new skin! make sure to check the announcements for any changes you might need to make to your profiles!</p>
-                            <p><b>03.09.2021</b> grand opening!</p>
-                            <p><b>14.08.2021</b> soft opening!</p>
-                        </div>
-                    </div>
-                    <div class="controls--site-info-staff">
-                        <a href="?showuser=1"><span>Lux</span>Admin / Coder</a>
-                        <a href="?showuser=8"><span>Meriel</span> Mod</a>
-                        <a href="?showuser=5"><span>Quinn</span> Mod</a>
-                    </div>
-                </div>
-                <div class="controls--site-image">
-                    <img src="http://placehold.it/1000x2000" />
-                </div>
-            </div>
-        </div>
+        <div class="controls guestOnly desktopOnly"></div>
 
         <!--Main Body-->
         <main>
@@ -715,6 +473,12 @@
         </div>
 
         <br>
+
+        <!--Templates-->
+        <script type="text/javascript" src="../templates/navigation.js"></script>
+        <script type="text/javascript" src="../templates/header.js"></script>
+        <script type="text/javascript" src="../templates/memberControls.js"></script>
+        <script type="text/javascript" src="../templates/guestControls.js"></script>
 
         <!--Scripts-->
         <script src="../js/functions.js"></script>

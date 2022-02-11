@@ -1,0 +1,38 @@
+/*******************************
+    Font Imports
+********************************/
+@font-face {
+    font-family: 'troye serif';
+    src: url('../fonts/troyeserif.woff2') format('woff2'),
+         url('../fonts/troyeserif.woff') format('woff'),
+         url('../fonts/troyeserif.ttf') format('truetype'),
+         url('../fonts/troyeserif.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/*******************************
+    Global
+********************************/
+
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: var(--text);
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-family: var(--bodyFont);
+    background: var(--background);
+    color: var(--text);
+}
+main {
+    min-height: 100vh;
+    padding: 0 80px;
+}
