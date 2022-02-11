@@ -11,6 +11,7 @@
     grid-template-columns: var(--sidebarWidth) 50px;
     background: var(--dkGrey);
     transition-duration: 0.5s;
+    z-index: 10;
 
     .nav-open & {
         left: 0;
@@ -43,14 +44,6 @@
                 .bars::after {
                     width: 22px;
                 }
-
-                .nav-open & {
-                    .bars::before,
-                    .bars::after {
-                        width: 20px;
-                        left: calc(29px / 2);
-                    }
-                }
             }
 
             .bars {
@@ -66,29 +59,43 @@
                     position: absolute;
                     left: calc(27px / 2);
                     transition-duration: 0.5s;
-
-                    .nav-open & {
-                        top: 5px;
-                        left: calc(32px / 2);
-                        width: 17px;
-                    }
                 }
 
                 &::before {
                     top: 0;
                     width: 22px;
-
-                    .nav-open & {
-                        transform: rotate(45deg);
-                    }
                 }
 
                 &::after {
                     bottom: 0;
                     width: 17px;
+                }
+            }
 
-                    .nav-open & {
+            .nav-open & {
+                color: var(--accentColor);
+
+                .bars {
+                    &::before,
+                    &::after {
+                        top: 5px;
+                        left: calc(32px / 2);
+                        width: 17px;
+                        background: var(--accentColor);
+                    }
+                    &::before {
+                        transform: rotate(45deg);
+                    }
+                    &::after {
                         transform: rotate(-45deg);
+                    }
+                }
+
+                &:hover {
+                    .bars::before,
+                    .bars::after {
+                        width: 20px;
+                        left: calc(29px / 2);
                     }
                 }
             }

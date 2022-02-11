@@ -447,6 +447,7 @@ main {
   grid-template-columns: var(--sidebarWidth) 50px;
   background: var(--dkGrey);
   transition-duration: 0.5s;
+  z-index: 10;
 }
 .nav-open .main-nav {
   left: 0;
@@ -476,11 +477,6 @@ main {
 .main-nav--trigger-bar button:hover .bars::after {
   width: 22px;
 }
-.nav-open .main-nav--trigger-bar button:hover .bars::before,
-.nav-open .main-nav--trigger-bar button:hover .bars::after {
-  width: 20px;
-  left: calc(29px / 2);
-}
 .main-nav--trigger-bar button .bars {
   align-self: end;
   height: 10px;
@@ -494,24 +490,33 @@ main {
   left: calc(27px / 2);
   transition-duration: 0.5s;
 }
-.nav-open .main-nav--trigger-bar button .bars::before, .nav-open .main-nav--trigger-bar button .bars::after {
-  top: 5px;
-  left: calc(32px / 2);
-  width: 17px;
-}
 .main-nav--trigger-bar button .bars::before {
   top: 0;
   width: 22px;
-}
-.nav-open .main-nav--trigger-bar button .bars::before {
-  transform: rotate(45deg);
 }
 .main-nav--trigger-bar button .bars::after {
   bottom: 0;
   width: 17px;
 }
+.nav-open .main-nav--trigger-bar button {
+  color: var(--accentColor);
+}
+.nav-open .main-nav--trigger-bar button .bars::before, .nav-open .main-nav--trigger-bar button .bars::after {
+  top: 5px;
+  left: calc(32px / 2);
+  width: 17px;
+  background: var(--accentColor);
+}
+.nav-open .main-nav--trigger-bar button .bars::before {
+  transform: rotate(45deg);
+}
 .nav-open .main-nav--trigger-bar button .bars::after {
   transform: rotate(-45deg);
+}
+.nav-open .main-nav--trigger-bar button:hover .bars::before,
+.nav-open .main-nav--trigger-bar button:hover .bars::after {
+  width: 20px;
+  left: calc(29px / 2);
 }
 
 /*******************************
