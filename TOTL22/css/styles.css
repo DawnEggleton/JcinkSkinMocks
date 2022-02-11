@@ -1,3 +1,8 @@
+/******* Settings ********/
+:root {
+  --sidebarWidth: 350px;
+}
+
 /*******************************
     Variables
 ********************************/
@@ -16,6 +21,7 @@
   --mdGrey: rgba(40, 40, 40, 1);
   --lmGrey: rgba(110, 110, 110, 1);
   --ltGrey: rgba(134, 134, 134, 1);
+  --xltGrey: rgba(170, 170, 170, 1);
   --offWhite: rgba(215, 215, 215, 1);
   --white: rgba(235, 235, 235, 1);
 }
@@ -27,6 +33,9 @@
   --headerText: var(--offWhite);
   --text: var(--mdGrey);
   --light: var(--ltGrey);
+  --overlayText: var(--mdGrey);
+  --opacityShift: 1;
+  --subHoverText: var(--mdGrey);
   --accentColor: var(--black);
   --accent: rgba(87, 188, 210, 1);
   --ltaccent: rgba(87, 188, 210, 1);
@@ -200,8 +209,11 @@
   --content: var(--offBlack);
   --dark: var(--offBlack);
   --headerText: var(--lmGrey);
-  --text: var(--lmGrey);
+  --text: var(--xltGrey);
   --light: var(--mdGrey);
+  --overlayText: var(--offWhite);
+  --opacityShift: 0.8;
+  --subHoverText: var(--ltaccent);
   --accentColor: var(--black);
   --accent: rgba(87, 188, 210, 1);
   --ltaccent: rgba(87, 188, 210, 1);
@@ -398,11 +410,18 @@ body {
   font-family: var(--bodyFont);
   background: var(--background);
   color: var(--text);
+  overflow-x: hidden;
 }
 
 main {
   min-height: 100vh;
   padding: 0 20px;
+  transition-duration: 0.5s;
+  left: 50px;
+  width: calc(100% - 50px);
+}
+.nav-open main {
+  left: calc(var(--sidebarWidth) + 50px);
 }
 @media only screen and (min-width: 480px) {
   main {
@@ -418,12 +437,94 @@ main {
 /*******************************
     Navigation
 ********************************/
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: calc(var(--sidebarWidth) * -1);
+  width: calc(var(--sidebarWidth) + 50px);
+  height: 100vh;
+  display: grid;
+  grid-template-columns: var(--sidebarWidth) 50px;
+  background: var(--dkGrey);
+  transition-duration: 0.5s;
+}
+.nav-open .main-nav {
+  left: 0;
+}
+.main-nav--trigger-bar {
+  width: 100%;
+  height: 100%;
+  background: var(--dark);
+  transition-duration: 0.5s;
+}
+.nav-open .main-nav--trigger-bar {
+  background: var(--accent);
+}
+.main-nav--trigger-bar button {
+  width: 50px;
+  background: transparent;
+  border: none;
+  color: var(--headerText);
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: grid;
+  grid-gap: 9px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.main-nav--trigger-bar button:hover .bars::after {
+  width: 22px;
+}
+.nav-open .main-nav--trigger-bar button:hover .bars::before,
+.nav-open .main-nav--trigger-bar button:hover .bars::after {
+  width: 20px;
+  left: calc(29px / 2);
+}
+.main-nav--trigger-bar button .bars {
+  align-self: end;
+  height: 10px;
+}
+.main-nav--trigger-bar button .bars::before, .main-nav--trigger-bar button .bars::after {
+  content: "";
+  height: 1px;
+  background: var(--headerText);
+  display: block;
+  position: absolute;
+  left: calc(27px / 2);
+  transition-duration: 0.5s;
+}
+.nav-open .main-nav--trigger-bar button .bars::before, .nav-open .main-nav--trigger-bar button .bars::after {
+  top: 5px;
+  left: calc(32px / 2);
+  width: 17px;
+}
+.main-nav--trigger-bar button .bars::before {
+  top: 0;
+  width: 22px;
+}
+.nav-open .main-nav--trigger-bar button .bars::before {
+  transform: rotate(45deg);
+}
+.main-nav--trigger-bar button .bars::after {
+  bottom: 0;
+  width: 17px;
+}
+.nav-open .main-nav--trigger-bar button .bars::after {
+  transform: rotate(-45deg);
+}
+
 /*******************************
     Header
 ********************************/
 .header {
   background: var(--dark);
   padding: 50px 50px 0;
+  transition-duration: 0.5s;
+  left: 0;
+}
+.nav-open .header {
+  left: calc(var(--sidebarWidth) + 50px);
 }
 .header h1 {
   font-family: var(--accentFont);
@@ -469,6 +570,11 @@ main {
   grid-column-gap: 2.5vw;
   max-width: 1000px;
   margin: -100px auto 50px;
+  transition-duration: 0.5s;
+  left: 0;
+}
+.nav-open .header--info {
+  left: calc(var(--sidebarWidth) + 50px);
 }
 .header--calendar, .header--intro, .header--staff {
   background: var(--ltaccent);
@@ -586,7 +692,7 @@ main {
   top: 0;
   left: 0;
   transform: translateY(-100%);
-  background: var(--white);
+  background: var(--content);
   padding: 0 8px 0 10px;
   font-family: var(--headerFont);
   text-transform: uppercase;
@@ -616,13 +722,14 @@ main {
   width: 100%;
   height: 12px;
   background: var(--ltaccent);
-}
-.forum h3 a {
-  color: var(--dark);
+  opacity: var(--opacityShift);
   transition-duration: 0.5s;
 }
-.forum h3 a:hover {
-  margin-right: 20px;
+.forum h3:hover::before {
+  width: calc(100% + 20px);
+}
+.forum h3 a {
+  color: var(--overlayText);
 }
 .forum--latest {
   display: grid;
@@ -669,6 +776,7 @@ main {
   line-height: calc(var(--mBody) + 28px);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+  opacity: var(--opacityShift);
 }
 .forum--subforums a::after {
   content: "\f178";
@@ -681,9 +789,11 @@ main {
   bottom: -3px;
   position: relative;
   line-height: 100%;
+  color: var(--ltaccent);
 }
 .forum--subforums a:hover {
   background: transparent;
+  color: var(--subHoverText);
 }
 .forum--subforums a:hover::after {
   width: 20px;

@@ -18,6 +18,7 @@
     --mdGrey: rgba(40, 40, 40, 1);
     --lmGrey: rgba(110, 110, 110, 1);
     --ltGrey: rgba(134, 134, 134, 1);
+    --xltGrey: rgba(170, 170, 170, 1);
     --offWhite: rgba(215, 215, 215, 1);
     --white: rgba(235, 235, 235, 1);
 }
@@ -28,6 +29,9 @@
     --headerText: var(--offWhite);
     --text: var(--mdGrey);
     --light: var(--ltGrey);
+    --overlayText: var(--mdGrey);
+    --opacityShift: 1;
+    --subHoverText: var(--mdGrey);
 
     --accentColor: var(--black);
     --accent: rgba(87, 188, 210, 1);
@@ -238,8 +242,11 @@
     --content: var(--offBlack);
     --dark: var(--offBlack);
     --headerText: var(--lmGrey);
-    --text: var(--lmGrey);
+    --text: var(--xltGrey);
     --light: var(--mdGrey);
+    --overlayText: var(--offWhite);
+    --opacityShift: 0.8;
+    --subHoverText: var(--ltaccent);
 
     --accentColor: var(--black);
     --accent: rgba(87, 188, 210, 1);

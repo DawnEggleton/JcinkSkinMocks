@@ -1,4 +1,97 @@
 /*******************************
     Navigation
 ********************************/
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: calc(var(--sidebarWidth) * -1);
+    width: calc(var(--sidebarWidth) + 50px);
+    height: 100vh;
+    display: grid;
+    grid-template-columns: var(--sidebarWidth) 50px;
+    background: var(--dkGrey);
+    transition-duration: 0.5s;
 
+    .nav-open & {
+        left: 0;
+    }
+
+    &--trigger-bar {
+        width: 100%;
+        height: 100%;
+        background: var(--dark);
+        transition-duration: 0.5s;
+
+        .nav-open & {
+            background: var(--accent);
+        }
+
+        button {
+            width: 50px;
+            background: transparent;
+            border: none;
+            color: var(--headerText);
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: grid;
+            grid-gap: 9px;
+            padding: 10px 0;
+            cursor: pointer;
+
+            &:hover {
+                .bars::after {
+                    width: 22px;
+                }
+
+                .nav-open & {
+                    .bars::before,
+                    .bars::after {
+                        width: 20px;
+                        left: calc(29px / 2);
+                    }
+                }
+            }
+
+            .bars {
+                align-self: end;
+                height: 10px;
+
+                &::before,
+                &::after {
+                    content: "";
+                    height: 1px;
+                    background: var(--headerText);
+                    display: block;
+                    position: absolute;
+                    left: calc(27px / 2);
+                    transition-duration: 0.5s;
+
+                    .nav-open & {
+                        top: 5px;
+                        left: calc(32px / 2);
+                        width: 17px;
+                    }
+                }
+
+                &::before {
+                    top: 0;
+                    width: 22px;
+
+                    .nav-open & {
+                        transform: rotate(45deg);
+                    }
+                }
+
+                &::after {
+                    bottom: 0;
+                    width: 17px;
+
+                    .nav-open & {
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+}

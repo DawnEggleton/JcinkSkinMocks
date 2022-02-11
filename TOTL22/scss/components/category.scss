@@ -46,7 +46,7 @@
         top: 0;
         left: 0;
         transform: translateY(-100%);
-        background: var(--white);
+        background: var(--content);
         padding: 0 8px 0 10px;
         font-family: var(--headerFont);
         text-transform: uppercase;
@@ -77,15 +77,16 @@
             width: 100%;
             height: 12px;
             background: var(--ltaccent);
+            opacity: var(--opacityShift);
+            transition-duration: 0.5s;
+        }
+
+        &:hover::before {
+            width: calc(100% + 20px);
         }
 
         a {
-            color: var(--dark);
-            transition-duration: 0.5s;
-
-            &:hover {
-                margin-right: 20px;
-            }
+            color: var(--overlayText);
         }
     }
 
@@ -138,6 +139,7 @@
             line-height: calc(var(--mBody) + 28px);
             -webkit-box-decoration-break: clone;
             box-decoration-break: clone;
+            opacity: var(--opacityShift);
 
             &::after {
                 content: '\f178';
@@ -150,10 +152,12 @@
                 bottom: -3px;
                 position: relative;
                 line-height: 100%;
+                color: var(--ltaccent);
             }
 
             &:hover {
                 background: transparent;
+                color: var(--subHoverText);
 
                 &::after {
                     width: 20px;

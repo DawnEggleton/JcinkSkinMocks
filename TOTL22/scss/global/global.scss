@@ -31,10 +31,18 @@ body {
     font-family: var(--bodyFont);
     background: var(--background);
     color: var(--text);
+    overflow-x: hidden;
 }
 main {
     min-height: 100vh;
     padding: 0 20px;
+    transition-duration: 0.5s;
+    left: 50px;
+    width: calc(100% - 50px);
+
+    .nav-open & {
+        left: calc(var(--sidebarWidth) + 50px);
+    }
 
     @media only screen and (min-width: $sm) {
         padding: 0 40px;
