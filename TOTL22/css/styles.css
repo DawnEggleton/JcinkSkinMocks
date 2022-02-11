@@ -547,7 +547,7 @@ main {
   margin-bottom: 80px;
 }
 .category h2 {
-  margin: 0 auto 40px;
+  margin: 0 auto 85px;
   max-width: max-content;
   text-transform: uppercase;
   font-weight: 100;
@@ -664,8 +664,11 @@ main {
   letter-spacing: 0px;
   font-size: var(--mBody);
   margin: 0 5px 5px 0;
-  display: inline-block;
+  display: inline;
   transition-duration: 0.5s;
+  line-height: calc(var(--mBody) + 20px);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .forum--subforums a::after {
   content: "\f178";
@@ -677,6 +680,7 @@ main {
   font-weight: 300;
   bottom: -3px;
   position: relative;
+  line-height: 100%;
 }
 .forum--subforums a:hover {
   background: transparent;
