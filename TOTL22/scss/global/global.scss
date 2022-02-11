@@ -34,5 +34,13 @@ body {
 }
 main {
     min-height: 100vh;
-    padding: 0 80px;
+    padding: 0 20px;
+
+    @media only screen and (min-width: $sm) {
+        padding: 0 40px;
+    }
+
+    @media only screen and (min-width: $lg) {
+        padding: 0 80px;
+    }
 }

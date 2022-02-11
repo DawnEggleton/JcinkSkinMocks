@@ -11,11 +11,29 @@
         font-weight: 100;
         letter-spacing: 20px;
         font-size: 34px;
+        text-align: center;
     }
 
     &--rows {
         display: grid;
-        grid-gap: 20px;
+        grid-gap: 35px 19px;
+        grid-template-columns: repeat(1, 1fr);
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media only screen and (min-width: $lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media only screen and (min-width: $lg) {
+        &.c-10 {
+            .category--rows {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     }
 }
 .forum {
@@ -63,6 +81,11 @@
 
         a {
             color: var(--dark);
+            transition-duration: 0.5s;
+
+            &:hover {
+                margin-right: 20px;
+            }
         }
     }
 
@@ -114,11 +137,15 @@
             transition-duration: 0.5s;
 
             &::after {
-                content: '>';
+                content: '\f178';
                 display: inline-block;
                 width: 0;
                 overflow: hidden;
                 transition-duration: 0.5s;
+                font-family: 'Font Awesome 6 Pro';
+                font-weight: 300;
+                bottom: -3px;
+                position: relative;
             }
 
             &:hover {
@@ -129,6 +156,37 @@
                     margin-left: 10px;
                 }
             }
+        }
+    }
+
+    @media only screen and (min-width: $md) and (max-width: $lg) {
+        &.f-7,
+        &.f-182,
+        &.f-96,
+        &.f-17,
+        &.f-14,
+        &.f-128,
+        &.f-135,
+        &.f-26 {
+            grid-column: span 2;
+        }
+        &.f-96 {
+            order: -1;
+        }
+        &.f-182 {
+            order: 1;
+        }
+    }
+
+    @media only screen and (min-width: $lg) {
+        &.f-7,
+        &.f-17,
+        &.f-182,
+        &.f-14 {
+            grid-column: span 2;
+        }
+        &.f-17 {
+            order: -1;
         }
     }
 }
