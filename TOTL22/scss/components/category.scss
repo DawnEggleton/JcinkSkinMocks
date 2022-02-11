@@ -91,7 +91,7 @@
 
     &--latest {
         display: grid;
-        margin: 30px 5px;
+        margin: 30px 5px 20px;
         line-height: 160%;
 
         & > a {
@@ -135,7 +135,7 @@
             margin: 0 5px 5px 0;
             display: inline;
             transition-duration: 0.5s;
-            line-height: calc(var(--mBody) + 20px);
+            line-height: calc(var(--mBody) + 28px);
             -webkit-box-decoration-break: clone;
             box-decoration-break: clone;
 
