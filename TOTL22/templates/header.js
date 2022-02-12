@@ -1,6 +1,8 @@
 const header = `
 <div class="header">
     <div class="header--deco">
+        <div class="header--deco-accent left"></div>
+        <div class="header--deco-accent right"></div>
         <h1>Turn on the Light</h1>
         <p>a post-potter site currently in february 2006</p>
     </div>

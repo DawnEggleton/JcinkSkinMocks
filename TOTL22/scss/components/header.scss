@@ -3,9 +3,15 @@
 ********************************/
 .header {
     background: var(--dark);
-    padding: 50px 50px 0;
+    padding: 50px 0 0 50px;
     transition-duration: 0.5s;
     left: 0;
+    margin-bottom: 80px;
+
+    @media only screen and (min-width: $md) {
+        margin-bottom: 0;
+        padding: 50px 50px 0;
+    }
 
     .nav-open & {
         left: calc(var(--sidebarWidth) + 50px);
@@ -31,10 +37,15 @@
     &--deco {
         border: 1px solid var(--light);
         border-bottom: none;
-        padding: 130px 50px 230px;
+        padding: 130px 50px 150px;
+        transition-duration: 0.5s;
 
-        &:before,
-        &:after {
+        @media only screen and (min-width: $md) {
+            padding: 130px 50px 230px;
+        }
+
+        &::before,
+        &::after {
             content: '';
             position: absolute;
             top: -42px;
@@ -44,24 +55,42 @@
             border-radius: 50%;
             background: var(--dark);
         }
-        &:before {
+
+        &::before {
             left: -42px;
             clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
         }
-        &:after {
+        &::after {
             right: -42px;
             clip-path: polygon(0 50%, 50% 50%, 50% 100%, 0 100%);
+
+            @media only screen and (max-width: $md) {
+                display: none;
+            }
         }
     }
 
     &--info {
-        display: grid;
-        grid-template-columns: 1.5fr 2fr 1.5fr;
+        grid-template-columns: 100%;
         grid-column-gap: 2.5vw;
         max-width: 1000px;
         margin: -100px auto 50px;
         transition-duration: 0.5s;
         left: 0;
+        width: max-content;
+        grid-row-gap: 50px;
+        display: none;
+
+        @media only screen and (min-width: $md) {
+            display: grid;
+            grid-template-columns: 280px 280px;
+            width: max-content;
+        }
+
+        @media only screen and (min-width: $lg) {
+            grid-template-columns: 280px 1fr 280px;
+            width: calc(100% - 150px);
+        }
 
         .nav-open & {
             left: calc(var(--sidebarWidth) + 50px);
@@ -122,6 +151,16 @@
         display: grid;
         align-items: center;
         font-size: calc(var(--mBody) + 1px);
+
+        @media only screen and (min-width: $md) {
+            grid-column: span 2;
+            order: -1;
+        }
+
+        @media only screen and (min-width: $lg) {
+            grid-column: auto;
+            order: auto;
+        }
 
         p {
             margin: 0;
