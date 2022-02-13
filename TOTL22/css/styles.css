@@ -408,12 +408,18 @@
   box-sizing: border-box;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 a {
   text-decoration: none;
   color: var(--text);
 }
 
 body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   padding: 0;
   margin: 0;
   font-family: var(--bodyFont);
