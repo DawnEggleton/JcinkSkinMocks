@@ -51,16 +51,20 @@ body {
         }
     }
 }
+hr {
+    width: 60%;
+    height: 1px;
+    border: none;
+    background: var(--light);
+    margin: 10px auto;
+    opacity: 0.5;
+}
 main {
     min-height: 100vh;
     padding: 0 20px;
     transition-duration: 0.5s;
     left: 50px;
     width: calc(100% - 100px);
-
-    .nav-open & {
-        left: calc(var(--sidebarWidth) + 50px);
-    }
 
     @media only screen and (min-width: $sm) {
         padding: 0 40px;
@@ -93,6 +97,13 @@ main {
 }
 .fa-thin {
     font-weight: 100 !important;
+}
+
+.scroll {
+    overflow: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
 }
 
 @media only screen and (max-width: $md) {

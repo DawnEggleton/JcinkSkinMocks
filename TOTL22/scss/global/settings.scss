@@ -1,4 +1,8 @@
 /******* Settings ********/
 :root {
-    --sidebarWidth: 350px;
+    --sidebarWidth: 300px;
+
+    @media only screen and (max-width: $xs) {
+        --sidebarWidth: 250px;
+    }
 }

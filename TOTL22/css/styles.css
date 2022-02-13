@@ -1,6 +1,11 @@
 /******* Settings ********/
 :root {
-  --sidebarWidth: 350px;
+  --sidebarWidth: 300px;
+}
+@media only screen and (max-width: 375px) {
+  :root {
+    --sidebarWidth: 250px;
+  }
 }
 
 /*******************************
@@ -36,6 +41,8 @@
   --overlayText: var(--mdGrey);
   --opacityShift: 1;
   --subHoverText: var(--mdGrey);
+  --menuLink: var(--mdGrey);
+  --menuBG: var(--dkGrey);
   --accentColor: var(--black);
   --accent: rgba(87, 188, 210, 1);
   --ltaccent: rgba(87, 188, 210, 1);
@@ -214,6 +221,8 @@
   --overlayText: var(--offWhite);
   --opacityShift: 0.8;
   --subHoverText: var(--ltaccent);
+  --menuLink: var(--mdGrey);
+  --menuBG: var(--dkGrey);
   --accentColor: var(--black);
   --accent: rgba(87, 188, 210, 1);
   --ltaccent: rgba(87, 188, 210, 1);
@@ -422,15 +431,21 @@ body:not(.g-4) .staffOnly {
   display: none;
 }
 
+hr {
+  width: 60%;
+  height: 1px;
+  border: none;
+  background: var(--light);
+  margin: 10px auto;
+  opacity: 0.5;
+}
+
 main {
   min-height: 100vh;
   padding: 0 20px;
   transition-duration: 0.5s;
   left: 50px;
   width: calc(100% - 100px);
-}
-.nav-open main {
-  left: calc(var(--sidebarWidth) + 50px);
 }
 @media only screen and (min-width: 480px) {
   main {
@@ -470,6 +485,13 @@ main {
 
 .fa-thin {
   font-weight: 100 !important;
+}
+
+.scroll {
+  overflow: auto;
+  padding-right: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
 }
 
 @media only screen and (max-width: 768px) {
@@ -570,6 +592,84 @@ main {
   width: 20px;
   left: calc(29px / 2);
 }
+.main-nav--code {
+  margin: 15px;
+}
+.main-nav--code .copyQuick {
+  border: none;
+  color: var(--accentColor);
+  text-transform: uppercase;
+  font-size: var(--sBody);
+  letter-spacing: 2px;
+  font-family: var(--headerFont);
+  font-weight: 700;
+  margin: 0;
+  line-height: 100%;
+  background: var(--accent);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.main-nav--code pre {
+  background: var(--menuLink);
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+}
+.main-nav--code pre textarea {
+  border: 0;
+  background: transparent;
+  width: 100%;
+  color: var(--headerText);
+  font-family: var(--headerFont);
+  font-size: var(--sBody);
+  height: 100%;
+}
+.main-nav--code pre textarea:focus {
+  outline: none;
+}
+.main-nav--code pre textarea::selection {
+  background: var(--accent);
+  color: var(--accentColor);
+}
+.main-nav--links {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 5px 15px 15px;
+  scrollbar-color: var(--accent) var(--mdGrey);
+}
+.main-nav--links a {
+  display: block;
+  background: var(--mdGrey);
+  color: var(--headerText);
+  font-family: var(--headerFont);
+  text-transform: lowercase;
+  text-align: center;
+  padding: 15px;
+  font-size: var(--mBody);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.main-nav--links a::after {
+  content: "\f178";
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  transition-duration: 0.5s;
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 300;
+  bottom: -3px;
+  position: relative;
+  line-height: 100%;
+}
+.main-nav--links a:hover {
+  background: var(--accent);
+  color: var(--accentColor);
+}
+.main-nav--links a:hover::after {
+  width: 20px;
+  margin-left: 10px;
+}
 
 .alt-nav {
   position: fixed;
@@ -578,13 +678,10 @@ main {
   width: 50px;
   height: 100vh;
   background: var(--dark);
-  z-index: 10;
+  z-index: 9;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-}
-.nav-open .alt-nav {
-  right: calc((var(--sidebarWidth) + 50px) * -1);
 }
 
 .breadcrumb-nav {
@@ -592,7 +689,7 @@ main {
   top: 0;
   left: 50px;
   width: calc(100% - 100px);
-  z-index: 10;
+  z-index: 9;
   transition-duration: 0.5s;
   padding: 5px 10px;
   text-transform: uppercase;
@@ -603,9 +700,6 @@ main {
 }
 .breadcrumb-nav.scrolled {
   background: var(--dark);
-}
-.nav-open .breadcrumb-nav {
-  left: calc(var(--sidebarWidth) + 50px);
 }
 .breadcrumb-nav #navstrip a {
   color: var(--headerText);
@@ -634,13 +728,11 @@ main {
 .nav--controls a:hover {
   opacity: 1;
 }
-.nav--controls hr {
-  width: 30px;
-  height: 1px;
-  border: none;
-  background: var(--light);
-  margin: 10px auto;
-  opacity: 0.5;
+.nav-open .main-nav--trigger-bar .nav--controls a {
+  color: var(--accentColor);
+}
+.nav-open .main-nav--trigger-bar .nav--controls hr {
+  background: var(--accentColor);
 }
 
 /*******************************
@@ -658,9 +750,6 @@ main {
     margin-bottom: 0;
     padding: 50px 50px 0;
   }
-}
-.nav-open .header {
-  left: calc(var(--sidebarWidth) + 50px);
 }
 .header h1 {
   font-family: var(--accentFont);
@@ -734,9 +823,6 @@ main {
     grid-template-columns: 280px 1fr 280px;
     width: calc(100% - 150px);
   }
-}
-.nav-open .header--info {
-  left: calc(var(--sidebarWidth) + 50px);
 }
 .header--calendar, .header--intro, .header--staff {
   background: var(--ltaccent);

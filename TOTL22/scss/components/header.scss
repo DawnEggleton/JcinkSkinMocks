@@ -13,10 +13,6 @@
         padding: 50px 50px 0;
     }
 
-    .nav-open & {
-        left: calc(var(--sidebarWidth) + 50px);
-    }
-
     h1 {
         font-family: var(--accentFont);
         font-weight: 700;
@@ -90,10 +86,6 @@
         @media only screen and (min-width: $lg) {
             grid-template-columns: 280px 1fr 280px;
             width: calc(100% - 150px);
-        }
-
-        .nav-open & {
-            left: calc(var(--sidebarWidth) + 50px);
         }
     }
 
