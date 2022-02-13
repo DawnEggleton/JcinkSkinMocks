@@ -21,4 +21,7 @@ const controls = `
     <a href="#tobottom" title="Go to Bottom"><i class="fa-solid fa-angle-down"></i></a>
 </div>
 `;
-document.querySelectorAll('.nav-controls').forEach(controlSet => controlSet.innerHTML = controls);
+document.querySelectorAll('.nav--controls').forEach(controlSet => {
+    console.log(controlSet);
+    controlSet.innerHTML = controls;
+});
