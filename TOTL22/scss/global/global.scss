@@ -20,6 +20,12 @@
 * {
     position: relative;
     box-sizing: border-box;
+
+    &:not(textarea),
+    &::before,
+    &::after {
+        transition-duration: 0.5s;
+    }
 }
 html {
     height: -webkit-fill-available;
@@ -67,16 +73,25 @@ hr {
 main {
     min-height: 100vh;
     padding: 0 20px;
-    transition-duration: 0.5s;
     left: 50px;
-    width: calc(100% - 100px);
+    width: calc(100% - 50px);
 
     @media only screen and (min-width: $sm) {
         padding: 0 40px;
     }
 
+    @media only screen and (min-width: $md) {
+        width: calc(100% - 100px);
+    }
+
     @media only screen and (min-width: $lg) {
         padding: 0 80px;
+    }
+
+    #Profile & {
+        padding: 0;
+        width: 100%;
+        left: 0;
     }
 }
 
@@ -109,6 +124,13 @@ main {
     padding-right: 10px;
     scrollbar-width: thin;
     scrollbar-color: var(--accent) transparent;
+}
+
+.dark .lightOnly,
+.light .darkOnly,
+.lrgFont .smallOnly,
+.smlFont .largeOnly {
+    display: none;
 }
 
 @media only screen and (max-width: $md) {

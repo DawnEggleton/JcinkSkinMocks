@@ -6,21 +6,29 @@
     --headerFont: 'source code pro', monospace;
     --bodyFont: 'montserrat', sans-serif;
 
+    --black: rgba(12, 12, 12, 1);
+    --offBlack: rgba(18, 18, 18, 1);
+    --dkGrey: rgba(26, 26, 26, 1);
+    --mdGrey: rgba(40, 40, 40, 1);
+    --lmGrey: rgba(150, 150, 150, 1);
+    --ltGrey: rgba(134, 134, 134, 1);
+    --xltGrey: rgba(170, 170, 170, 1);
+    --offWhite: rgba(215, 215, 215, 1);
+    --white: rgba(235, 235, 235, 1);
+}
+.smlFont {
     --xsBody: 8px;
     --sBody: 10px;
     --mBody: 12px;
     --lBody: 14px;
     --xlBody: 16px;
-
-    --black: rgba(12, 12, 12, 1);
-    --offBlack: rgba(18, 18, 18, 1);
-    --dkGrey: rgba(26, 26, 26, 1);
-    --mdGrey: rgba(40, 40, 40, 1);
-    --lmGrey: rgba(110, 110, 110, 1);
-    --ltGrey: rgba(134, 134, 134, 1);
-    --xltGrey: rgba(170, 170, 170, 1);
-    --offWhite: rgba(215, 215, 215, 1);
-    --white: rgba(235, 235, 235, 1);
+}
+.lrgFont {
+    --xsBody: 10px;
+    --sBody: 12px;
+    --mBody: 14px;
+    --lBody: 16px;
+    --xlBody: 18px;
 }
 .light {
     --background: var(--offWhite);

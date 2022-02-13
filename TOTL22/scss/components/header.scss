@@ -1,10 +1,12 @@
 /*******************************
     Header
 ********************************/
+#Profile header {
+    display: none;
+}
 .header {
     background: var(--dark);
     padding: 50px 0 0 50px;
-    transition-duration: 0.5s;
     left: 0;
     margin-bottom: 80px;
 
@@ -18,8 +20,15 @@
         font-weight: 700;
         margin: 0;
         text-align: center;
-        font-size: clamp(60px, 6vw, 80px);
+        font-size: clamp(30px, 5vw, 45px);
         color: var(--headerText);
+
+        #idx & {
+            font-size: clamp(60px, 6vw, 80px);
+        }
+        #Profile & {
+            font-size: clamp(50px, 6vw, 70px);
+        }
     }
 
     p {
@@ -28,16 +37,30 @@
         font-family: var(--headerFont);
         margin: 0;
         text-transform: lowercase;
+
+        body:not(#idx):not(#Profile) & {
+            font-size: var(--lBody);
+        }
     }
 
     &--deco {
         border: 1px solid var(--light);
         border-bottom: none;
-        padding: 130px 50px 150px;
-        transition-duration: 0.5s;
-
+        padding: 50px;
+    
         @media only screen and (min-width: $md) {
-            padding: 130px 50px 230px;
+            padding: 50px 50px 180px;
+        }
+
+        #idx & {
+            padding: 130px 50px 150px;
+    
+            @media only screen and (min-width: $md) {
+                padding: 130px 50px 230px;
+            }
+        }
+        #Profile & {
+            padding: 130px 50px 150px;
         }
 
         &::before,
@@ -71,7 +94,6 @@
         grid-column-gap: 2.5vw;
         max-width: 1000px;
         margin: -100px auto 50px;
-        transition-duration: 0.5s;
         left: 0;
         width: max-content;
         grid-row-gap: 50px;
@@ -118,6 +140,7 @@
         grid-template-columns: repeat(7, 1fr);
         text-align: center;
         grid-gap: 5px;
+        order: 1;
 
         .calendar-day {
             font-weight: 700;
@@ -151,7 +174,7 @@
 
         @media only screen and (min-width: $lg) {
             grid-column: auto;
-            order: auto;
+            order: 2;
         }
 
         p {
@@ -163,6 +186,7 @@
         display: grid;
         grid-template: repeat(2, 1fr) / repeat(2, 1fr);
         grid-gap: 10px;
+        order: 3;
 
         a {
             display: grid;
@@ -173,7 +197,6 @@
             background: var(--accent);
             color: var(--white);
             border-radius: 4px;
-            transition-duration: 0.5s;
 
             &:hover {
                 background: var(--ltaccent);

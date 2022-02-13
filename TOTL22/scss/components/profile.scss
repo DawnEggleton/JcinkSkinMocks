@@ -1,4 +1,63 @@
 /*******************************
     Profile
 ********************************/
+.profile { 
+    &--header {
+        &-links {
+            color: var(--headerText);
+            text-align: center;
+            font-family: var(--headerFont);
+            margin: 0;
+            text-transform: lowercase;
+            display: flex;
+            justify-content: center;
 
+            a {
+                padding: 8px 15px;
+                color: var(--headerText);
+
+                &::after {
+                    content: '\f178';
+                    display: inline-block;
+                    width: 0;
+                    overflow: hidden;
+                    font-family: 'Font Awesome 6 Pro';
+                    font-weight: 300;
+                    bottom: -3px;
+                    position: relative;
+                    line-height: 100%;
+                    color: var(--ltaccent);
+                }
+    
+                &:hover {
+                    background: var(--ltaccent);
+                    color: var(--accentColor);
+    
+                    &::after {
+                        width: 20px;
+                        margin-left: 10px;
+                        color: var(--accentColor);
+                    }
+                }
+            }
+        }
+    }
+    &--body {
+        min-height: 100vh;
+        padding: 0 20px;
+        left: 50px;
+        width: calc(100% - 50px);
+    
+        @media only screen and (min-width: $sm) {
+            padding: 0 40px;
+        }
+    
+        @media only screen and (min-width: $md) {
+            width: calc(100% - 100px);
+        }
+    
+        @media only screen and (min-width: $lg) {
+            padding: 0 80px;
+        }
+    }
+}

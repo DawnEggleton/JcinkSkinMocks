@@ -1,5 +1,23 @@
+//Toggles & Cookies
+/* Original Cookie Script by Essi - sourced.jcink.net */
+if(localStorage.getItem("COLORMODE") == "1" || (localStorage.getItem("COLORMODE") === null && (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches))) {
+    document.querySelector('body').classList.add('dark');
+    document.querySelector('body').classList.remove('light');
+} else {
+    document.querySelector('body').classList.add('light');
+    document.querySelector('body').classList.remove('dark');
+}
+if(localStorage.getItem("SIZEMODE") == "1") {
+    document.querySelector('body').classList.add('lrgFont');
+    document.querySelector('body').classList.remove('smlFont');
+} else {
+    document.querySelector('body').classList.remove('lrgFont');
+    document.querySelector('body').classList.add('smlFont');
+}
+
+
 //change deco borders
-let headerHeight = document.querySelector('.header').clientHeight;
+let headerHeight = document.querySelector('header').clientHeight || document.querySelector('.profile--header').clientHeight;
 window.onscroll = function() {
     if (window.pageYOffset > (headerHeight - 140)) {
         document.querySelector('.breadcrumb-nav').classList.add('scrolled');
