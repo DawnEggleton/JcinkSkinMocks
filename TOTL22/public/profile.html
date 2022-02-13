@@ -26,12 +26,14 @@
         <script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
         <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
         <script src="../js/clipboard.js"></script>
+        <script src="../js/functions.js"></script>
 
         <!--Settings-->
         <script type='text/javascript' src='../js/settings.js'></script>
         <link rel="stylesheet" href="../css/settings.css" />
     </head>
     <body id="Profile" class="dark g-4">
+        <a name="totop" class="anchorLink"></a>
         <!--Header-->
         <header></header>
 
@@ -55,15 +57,15 @@
             <a name="top"></a>
 
             <!--Profile-->
-            <section class="profile">
+            <section class="profile g-8 acc-Character app-Traditional">
                 <div class="profile--header header">
                     <div class="header--deco">
                         <div class="header--deco-accent left"></div>
                         <div class="header--deco-accent right"></div>
-                        <h1>Duncan O'Donnelly-Taggart</h1>
+                        <h1></h1>
                         <div class="profile--header-links">
                             <a href="post.html">directory</a>
-                            <a href="post.html">development</a>
+                            <a href="<i>No Information</i>">development</a>
                             <a href="post.html">tracker</a>
                             <a href="">wanted</a>
                             <a href="">custom</a>
@@ -73,35 +75,390 @@
                         </div>
                     </div>
                 </div>
+                <div class="profile--menu">
+                    <a href="#basics">Basics</a>
+                    <a href="#health" class="fullOnly">Health</a>
+                    <a href="#magic" class="fullOnly">Magic</a>
+                    <a href="#personality" class="fullOnly">Personality</a>
+                    <a href="#relationships">Relationships</a>
+                    <a href="#cheatsheet" class="basicOnly">Cheatsheet</a>
+                    <a href="#freeform" class="notBasic">Freeform</a>
+                    <a href="#shipper">Shipper</a>
+                    <a href="#activity">Activity</a>
+                    <a href="#player">Player</a>
+                </div>
                 <div class="profile--body">
 
-                    <div id="trackerwrap">
-                        <div class="tracker-item">
-                            <b>
-                                <span class="status caughtup" aria-described-by="Caught Up">✓</span>
-                                <a href="https://totl.jcink.net/index.php?showtopic=3510&amp;view=getlastpost">pieces of a clock that lies broken</a>
-                            </b>
-                            <div class="tracker-desc">
-                                residences | lux/aiden / october 29th 2005<br>
-                                <b>Last Post:</b> aiden mitchell - Yesterday at 08:02 pm
+                    <div class="profile--warnings">
+                        <strong>warning!</strong>
+                        verbal and physical abuse, depression, suicidal attempt/ideation, severe injury
+                    </div>
+
+                    <div class="profile--section">
+                        <a name="basics" class="anchorLink"></a>
+                        <h2>Basics</h2>
+                        <div class="profile--box grid threeCol">
+                            <div class="profile--item">
+                                <strong><span>Full Name</span></strong>
+                                <span>Duncan Lucas O'Donnelly-Taggart</span>
                             </div>
-                            <hr>
+                            <div class="profile--item">
+                                <strong><span>Nickname(s)</span></strong>
+                                <span>Duck</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Pronouns</span></strong>
+                                <span>He/Him</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Gender</span></strong>
+                                <span>Cismale</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Age</span></strong>
+                                <span>35 years old</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Birthday</span></strong>
+                                <span>23 June 1970</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Born In</span></strong>
+                                <span>London, England</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Lives In</span></strong>
+                                <span>Hogwarts Castle, Scotland</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Ethnicity</span></strong>
+                                <span>Caucasian</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Nationality</span></strong>
+                                <span>British</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Occupation</span></strong>
+                                <span>Librarian</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Blood Status</span></strong>
+                                <span>Halfblood</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Orientation</span></strong>
+                                <span>Homosexual Homoromantic</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Relationship Status</span></strong>
+                                <span>Married</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Looks Like</span></strong>
+                                <span>Tom Hiddleston</span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Specs</span></strong>
+                                <span>6'1", 174lbs</span>
+                            </div>
+                            <div class="profile--item twoWide fullOnly">
+                                <strong><span>Distinguishing Features</span></strong>
+                                <span>
+                                    <b>+</b> various scars across torso, arms, and legs from shrapnel<br>
+                                    <b>+</b> a two-inch long, angled scar from his cheek to the back of his jawbone<br>
+                                    <b>+</b> a surgical scar down his left leg
+                                </span>
+                            </div>
+                            <div class="profile--item basicOnly">
+                                <strong><span>Education</span></strong>
+                                <span>
+                                    <b>+</b> Attended Hogwarts<br>
+                                    <b>+</b> Was sorted into Ravenclaw<br>
+                                    <b>+</b> Graduated with the class of '88<br>
+                                </span>
+                            </div>
+                            <div class="profile--item basicOnly">
+                                <strong><span>Abilities & Species</span></strong>
+                                <span>Seer (intuition-based)</span>
+                            </div>
                         </div>
-                        <div class="tracker-item">
-                            <b>
-                                <span class="status myturn" aria-described-by="My Turn">➤</span>
-                                <a href="https://totl.jcink.net/index.php?showtopic=4016&amp;view=getlastpost">stay forever and a day</a>
-                            </b>
-                            <div class="tracker-desc">
-                                residences | ft mickey / roe [ dec 25 2005 ]<br>
-                                <b>Last Post:</b> mickey rose - Yesterday at 04:25 pm
+                    </div>
+
+                    <div class="profile--section fullOnly">
+                        <a name="health" class="anchorLink"></a>
+                        <h2>Health</h2>
+                        <div class="profile--box grid twoCol">
+                            <div class="profile--item">
+                                <strong><span>Ailments</span></strong>
+                                <span>
+                                    <b>+</b> A slight limp in his left leg, particularly when there is bad weather active or approaching<br>
+                                    <b>+</b> Depression<br>
+                                    <b>+</b> PTSD
+                                </span>
                             </div>
-                            <hr>
+                            <div class="profile--item">
+                                <strong><span>Treatments</span></strong>
+                                <span>
+                                    <b>+</b> None, currently, but needs therapy
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile--section fullOnly">
+                        <a name="magic" class="anchorLink"></a>
+                        <h2>Magic</h2>
+                        <div class="profile--box grid threeCol">
+                            <div class="profile--item">
+                                <strong><span>Education</span></strong>
+                                <span>
+                                    <b>+</b> Attended Hogwarts<br>
+                                    <b>+</b> Was sorted into Ravenclaw<br>
+                                    <b>+</b> Graduated with the class of '88<br>
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Abilities</span></strong>
+                                <span>
+                                    <b>+</b> Seer (intuition-based)
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Wand</span></strong>
+                                <span>
+                                    <b>+</b> Silver lime wood<br>
+                                    <b>+</b> Unicorn hair core<br>
+                                    <b>+</b> 12.75" and slightly yielding<br>
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Amortentia</span></strong>
+                                <span>
+                                    <b>+</b> Books & parchment<br>
+                                    <b>+</b> Coffee<br>
+                                    <b>+</b> Fresh laundry<br>
+                                    <b>+</b> Aran's bookshop<br>
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Patronus</span></strong>
+                                <span>
+                                    <b>+</b> Ibizan hound<br>
+                                    <b>+</b> Thinks of lazy mornings with Aran<br>
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Boggart</span></strong>
+                                <span>
+                                    <b>+</b> Smoke and the flash of gunfire<br>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile--section fullOnly">
+                        <a name="personality" class="anchorLink"></a>
+                        <h2>Personality</h2>
+                        <div class="profile--box grid threeCol">
+                            <div class="profile--item">
+                                <strong><span>Likes</span></strong>
+                                <span class="scroll">
+                                    <b>+</b> wandering the castle at night<br>
+                                    <b>+</b> sitting in coffee shops to read<br>
+                                    <b>+</b> romantic comedies<br>
+                                    <b>+</b> gardening<br>
+                                    <b>+</b> helping people who need it<br>
+                                    <b>+</b> acoustic guitar<br>
+                                    <b>+</b> dark chocolate<br>
+                                    <b>+</b> quiet conversation<br>
+                                    <b>+</b> photography, particularly black and white<br>
+                                    <b>+</b> muggles, and their world
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Dislikes</span></strong>
+                                <span class="scroll">
+                                    <b>+</b> busy city streets<br>
+                                    <b>+</b> sudden loud noises<br>
+                                    <b>+</b> arguing<br>
+                                    <b>+</b> talking on the phone<br>
+                                    <b>+</b> high society bullshit<br>
+                                    <b>+</b> stereotypes<br>
+                                    <b>+</b> being away from his friends and family (mostly)<br>
+                                    <b>+</b> being helpless, or feeling like he is<br>
+                                    <b>+</b> when he isn't taken seriously<br>
+                                    <b>+</b> mystery novels (he finds them predictable)
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Traits</span></strong>
+                                <span class="scroll">
+                                    <b>+</b> inquisitive<br>
+                                    <b>+</b> eloquent<br>
+                                    <b>+</b> loving<br>
+                                    <b>+</b> imaginative<br>
+                                    <b>+</b> sensitive<br>
+                                    <b>+</b> nervous<br>
+                                    <b>+</b> tentative<br>
+                                    <b>+</b> emotional<br>
+                                    <b>+</b> bookish<br>
+                                    <b>+</b> shy
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Goals</span></strong>
+                                <span class="scroll">
+                                    <b>+</b> to adopt, someday, maybe<br>
+                                    <b>+</b> to get past his frequent state of terror<br>
+                                    <b>+</b> to find a way to be happy
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Fears</span></strong>
+                                <span class="scroll">
+                                    <b>+</b> loud, sudden noises<br>
+                                    <b>+</b> death<br>
+                                    <b>+</b> muggle weaponry
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Secrets</span></strong>
+                                <span class="scroll">
+                                    <b>+</b> why he fled from the muggle world, which he previously adored<br>
+                                    <b>+</b> that he tried to kill himself, once, and still sort of wishes he'd gone through with it<br>
+                                    <b>+</b> that he is a seer (some know, but he tends to not be super open with it)
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile--section">
+                        <a name="relationships" class="anchorLink"></a>
+                        <h2>Relationships</h2>
+                        <div class="profile--box fullOnly grid threeCol">
+                            <div class="profile--item">
+                                <strong><span>Family</span></strong>
+                                <span class="scroll tallScroll">
+                                    <b>jacob taggart</b><br>
+                                    <b>+</b> father<br>
+                                    <b>+</b> deceased<br>
+                                    <b>+</b> dirty cop<br>
+                                    <b>maria taggart nee scott</b><br>
+                                    <b>+</b> mother<br>
+                                    <b>+</b> extremely religious<br>
+                                    <b>+</b> should be estranged, but Duck is to soft to keep it that way<br>
+                                    <b>siblings</b><br>
+                                    <b>+</b> two unnamed older brothers<br>
+                                    <b>+</b> unnamed younger brother<br>
+                                    <b>+</b> unnamed younger sister (youngest sibling)<br>
+                                    <b>extended family</b><br>
+                                    <b>+</b> extensive<br>
+                                    <b>+</b> primarily muggles
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Important People</span></strong>
+                                <span class="scroll tallScroll">
+                                    <b>elliot</b><br>
+                                    <b>+</b> male red dapple miniature dachshund<br>
+                                    <b>+</b> born in '01<br>
+                                    <b>+</b> emotional support animal<br>
+                                    <b>+</b> <a href="https://cdn.discordapp.com/attachments/467070401080459264/574041535901859860/p45.png" target="_blank">view</a>
+                                </span>
+                            </div>
+                            <div class="profile--item">
+                                <strong><span>Partner(s)</span></strong>
+                                <span class="scroll tallScroll">
+                                    <b>aran o'donnelly</b><br>
+                                    <b>+</b> it's been sort of slow and steady and no labels<br>
+                                    <b>+</b> but frankly duck wouldn't have it any other way<br>
+                                    <b>+</b> they're extremely serious by now and dating feels like too small a label but fuck finding another one<br>
+                                    <b>+</b> makes him feel safe literally all the time and honestly duck has contemplated just straight up moving in and helping out at the shop but they're both not good at big steps so he hasn't had the courage to ask
+                                </span>
+                            </div>
+                        </div>
+                        <div class="profile--box basicOnly">
+                            <span class="scroll">
+                                this would be relationship tracker stuff
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="profile--section basicOnly">
+                        <a name="cheatsheet" class="anchorLink"></a>
+                        <h2>Cheatsheet</h2>
+                        <div class="profile--box">
+                            <span class="scroll">
+                                this would be cheatsheet stuff
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="profile--section notBasic">
+                        <a name="freeform" class="anchorLink"></a>
+                        <h2>Freeform</h2>
+                        <div class="profile--item">
+                            Content stuff
+                        </div>
+                    </div>
+
+                    <div class="profile--section">
+                        <a name="shipper" class="anchorLink"></a>
+                        <h2>Shipper</h2>
+                        <div class="profile--item">
+                            Content stuff
+                        </div>
+                    </div>
+
+                    <div class="profile--section">
+                        <a name="activity" class="anchorLink"></a>
+                        <h2>Activity</h2>
+                        <div class="profile--item">
+                            <div id="trackerwrap">
+                                <div class="tracker-item">
+                                    <b>
+                                        <span class="status caughtup" aria-described-by="Caught Up">✓</span>
+                                        <a href="https://totl.jcink.net/index.php?showtopic=3510&amp;view=getlastpost">pieces of a clock that lies broken</a>
+                                    </b>
+                                    <div class="tracker-desc">
+                                        residences | lux/aiden / october 29th 2005<br>
+                                        <b>Last Post:</b> aiden mitchell - Yesterday at 08:02 pm
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="tracker-item">
+                                    <b>
+                                        <span class="status myturn" aria-described-by="My Turn">➤</span>
+                                        <a href="https://totl.jcink.net/index.php?showtopic=4016&amp;view=getlastpost">stay forever and a day</a>
+                                    </b>
+                                    <div class="tracker-desc">
+                                        residences | ft mickey / roe [ dec 25 2005 ]<br>
+                                        <b>Last Post:</b> mickey rose - Yesterday at 04:25 pm
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile--section">
+                        <a name="player" class="anchorLink"></a>
+                        <h2>Player</h2>
+                        <div class="profile--item">
+                            Content stuff
                         </div>
                     </div>
 
                 </div>
             </section>
+
+            <script>
+                document.querySelector('#navstrip').insertAdjacentHTML('beforeend', `<i class="fa-light fa-ellipsis-h"></i> <span class="addName">duncan o'donnelly-taggart</span>`);
+                document.querySelector('.profile--header h1').boxText = capitalize(`duncan o'donnelly-taggart`, [`-`, `'`, ` `]);
+            </script>
+
+            <a name="tobottom" class="anchorLink"></a>
         </main>
 
         <!-- Copyright Information -->
@@ -129,7 +486,6 @@
         <script type="text/javascript" src="../templates/controls.js"></script>
 
         <!--Scripts-->
-        <script src="../js/functions.js"></script>
         <script src="../js/scripts.js"></script>
     </body>
 </html>

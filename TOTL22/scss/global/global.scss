@@ -95,6 +95,65 @@ main {
     }
 }
 
+.anchorLink {
+    height: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0;
+}
+
+.grid {
+    display: grid;
+
+    &.twoCol {
+        grid-template-columns: repeat(1, 1fr);
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &.threeCol {
+        grid-template-columns: repeat(1, 1fr);
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media only screen and (min-width: $lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &.fourCol {
+        grid-template-columns: repeat(1, 1fr);
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media only screen and (min-width: $lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media only screen and (min-width: $xl) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .fullWidth {
+        grid-column: 1 / -1;
+    }
+
+    .twoWide {
+        @media only screen and (min-width: $md) {
+            grid-column: span 2;
+        }
+    }
+}
+
 .fa-solid,
 .fa-regular,
 .fa-light,

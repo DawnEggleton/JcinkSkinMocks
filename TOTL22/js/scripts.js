@@ -1,3 +1,9 @@
+//set anchorlink
+let breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight - 12.5;
+document.querySelectorAll('.anchorLink').forEach(link => {
+    link.style.marginTop = `${(breadcrumbHeight + 20) * -1}px`;
+});
+
 //Toggles & Cookies
 /* Original Cookie Script by Essi - sourced.jcink.net */
 if(localStorage.getItem("COLORMODE") == "1" || (localStorage.getItem("COLORMODE") === null && (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches))) {
@@ -67,3 +73,16 @@ $("table[id='CODE-WRAP']").each(function() {
         "</code></pre></div></div>"
     );
 });
+
+
+
+/******************
+ PROFILE ONLY
+ ******************/
+if($('body#Profile').length > 0) {
+    document.querySelector('.profile--menu').style.top = `${breadcrumbHeight}px`;
+    let submenuHeight = document.querySelector('.profile--menu').clientHeight;
+    document.querySelectorAll('.anchorLink').forEach(link => {
+        link.style.marginTop = `${(breadcrumbHeight + submenuHeight + 20) * -1}px`;
+    });
+}

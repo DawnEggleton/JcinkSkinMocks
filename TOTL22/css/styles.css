@@ -114,16 +114,19 @@
   --accentColor: var(--black);
   --accent: rgba(196, 177, 125, 1);
   --ltaccent: rgba(225, 210, 166, 1);
+  --opacityShift: 1;
 }
 .light .g-3, .light.g-3 {
   --accentColor: var(--black);
   --accent: rgba(189, 133, 92, 1);
   --ltaccent: rgba(215, 159, 118, 1);
+  --opacityShift: 1;
 }
 .light .g-4, .light.g-4 {
   --accentColor: var(--black);
   --accent: rgba(110, 130, 155, 1);
   --ltaccent: rgba(142, 161, 185, 1);
+  --opacityShift: 1;
 }
 .light .g-5,
 .light .g-10,
@@ -131,6 +134,7 @@
   --accentColor: var(--black);
   --accent: rgba(196, 196, 196, 1);
   --ltaccent: rgba(220, 220, 220, 1);
+  --opacityShift: 1;
 }
 .light adults,
 .light .adults,
@@ -138,6 +142,7 @@
   --accentColor: var(--white);
   --accent: rgba(179, 73, 85, 1);
   --ltaccent: rgba(200, 107, 118, 1);
+  --opacityShift: 1;
 }
 .light gryffindor,
 .light .gryffindor,
@@ -145,6 +150,7 @@
   --accentColor: var(--white);
   --accent: rgba(147, 42, 47, 1);
   --ltaccent: rgba(176, 58, 63, 1);
+  --opacityShift: 1;
 }
 .light hogwarts,
 .light .hogwarts,
@@ -152,6 +158,7 @@
   --accentColor: var(--white);
   --accent: rgba(97, 86, 153, 1);
   --ltaccent: rgba(123, 113, 170, 1);
+  --opacityShift: 0.7;
 }
 .light hufflepuff,
 .light .hufflepuff,
@@ -159,6 +166,7 @@
   --accentColor: var(--black);
   --accent: rgba(183, 148, 117, 1);
   --ltaccent: rgba(213, 177, 146, 1);
+  --opacityShift: 1;
 }
 .light press,
 .light .press,
@@ -166,6 +174,7 @@
   --accentColor: var(--black);
   --accent: rgba(176, 134, 84, 1);
   --ltaccent: rgba(200, 160, 112, 1);
+  --opacityShift: 1;
 }
 .light ministry,
 .light .ministry,
@@ -173,6 +182,7 @@
   --accentColor: var(--white);
   --accent: rgba(78, 134, 126, 1);
   --ltaccent: rgba(101, 157, 149, 1);
+  --opacityShift: 1;
 }
 .light quidditch,
 .light .quidditch,
@@ -180,6 +190,7 @@
   --accentColor: var(--black);
   --accent: rgba(146, 130, 157, 1);
   --ltaccent: rgba(166, 148, 179, 1);
+  --opacityShift: 1;
 }
 .light ravenclaw,
 .light .ravenclaw,
@@ -187,6 +198,7 @@
   --accentColor: var(--white);
   --accent: rgba(65, 91, 142, 1);
   --ltaccent: rgba(86, 113, 166, 1);
+  --opacityShift: 1;
 }
 .light healers,
 .light .healers,
@@ -194,6 +206,7 @@
   --accentColor: var(--white);
   --accent: rgba(88, 123, 83, 1);
   --ltaccent: rgba(102, 142, 96, 1);
+  --opacityShift: 1;
 }
 .light slytherin,
 .light .slytherin,
@@ -201,6 +214,7 @@
   --accentColor: var(--white);
   --accent: rgba(45, 91, 61, 1);
   --ltaccent: rgba(60, 113, 78, 1);
+  --opacityShift: 1;
 }
 .light returners,
 .light .returners,
@@ -208,6 +222,7 @@
   --accentColor: var(--white);
   --accent: rgba(90, 137, 151, 1);
   --ltaccent: rgba(105, 154, 168, 1);
+  --opacityShift: 1;
 }
 .light entertainment,
 .light .entertainment,
@@ -215,11 +230,13 @@
   --accentColor: var(--black);
   --accent: rgba(82, 154, 162, 1);
   --ltaccent: rgba(108, 181, 189, 1);
+  --opacityShift: 1;
 }
 .light .g-20, .light.g-20 {
   --accentColor: var(--black);
   --accent: rgba(97, 177, 202, 1);
   --ltaccent: rgba(130, 201, 223, 1);
+  --opacityShift: 1;
 }
 
 .dark {
@@ -294,16 +311,19 @@
   --accentColor: var(--black);
   --ltaccent: rgba(196, 177, 125, 1);
   --accent: rgba(225, 210, 166, 1);
+  --opacityShift: 0.8;
 }
 .dark .g-3, .dark.g-3 {
   --accentColor: var(--black);
   --ltaccent: rgba(189, 133, 92, 1);
   --accent: rgba(215, 159, 118, 1);
+  --opacityShift: 0.8;
 }
 .dark .g-4, .dark.g-4 {
   --accentColor: var(--black);
   --ltaccent: rgba(110, 130, 155, 1);
   --accent: rgba(97, 116, 140, 1);
+  --opacityShift: 0.8;
 }
 .dark .g-5,
 .dark .g-10,
@@ -311,6 +331,7 @@
   --accentColor: var(--black);
   --ltaccent: rgba(196, 196, 196, 1);
   --accent: rgba(220, 220, 220, 1);
+  --opacityShift: 0.8;
 }
 .dark adults,
 .dark .adults,
@@ -318,6 +339,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(179, 73, 85, 1);
   --accent: rgba(200, 107, 118, 1);
+  --opacityShift: 0.8;
 }
 .dark gryffindor,
 .dark .gryffindor,
@@ -325,6 +347,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(147, 42, 47, 1);
   --accent: rgba(176, 58, 63, 1);
+  --opacityShift: 0.8;
 }
 .dark hogwarts,
 .dark .hogwarts,
@@ -332,6 +355,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(97, 86, 153, 1);
   --accent: rgba(123, 113, 170, 1);
+  --opacityShift: 0.8;
 }
 .dark hufflepuff,
 .dark .hufflepuff,
@@ -339,6 +363,7 @@
   --accentColor: var(--black);
   --ltaccent: rgba(183, 148, 117, 1);
   --accent: rgba(213, 177, 146, 1);
+  --opacityShift: 0.8;
 }
 .dark press,
 .dark .press,
@@ -346,6 +371,7 @@
   --accentColor: var(--black);
   --ltaccent: rgba(176, 134, 84, 1);
   --accent: rgba(200, 160, 112, 1);
+  --opacityShift: 0.8;
 }
 .dark ministry,
 .dark .ministry,
@@ -353,6 +379,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(78, 134, 126, 1);
   --accent: rgba(101, 157, 149, 1);
+  --opacityShift: 0.8;
 }
 .dark quidditch,
 .dark .quidditch,
@@ -360,6 +387,7 @@
   --accentColor: var(--black);
   --ltaccent: rgba(146, 130, 157, 1);
   --accent: rgba(166, 148, 179, 1);
+  --opacityShift: 0.8;
 }
 .dark ravenclaw,
 .dark .ravenclaw,
@@ -367,6 +395,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(65, 91, 142, 1);
   --accent: rgba(86, 113, 166, 1);
+  --opacityShift: 0.8;
 }
 .dark healers,
 .dark .healers,
@@ -374,6 +403,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(88, 123, 83, 1);
   --accent: rgba(102, 142, 96, 1);
+  --opacityShift: 0.8;
 }
 .dark slytherin,
 .dark .slytherin,
@@ -381,6 +411,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(45, 91, 61, 1);
   --accent: rgba(60, 113, 78, 1);
+  --opacityShift: 0.8;
 }
 .dark returners,
 .dark .returners,
@@ -388,6 +419,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(90, 137, 151, 1);
   --accent: rgba(105, 154, 168, 1);
+  --opacityShift: 0.8;
 }
 .dark entertainment,
 .dark .entertainment,
@@ -395,11 +427,13 @@
   --accentColor: var(--black);
   --ltaccent: rgba(82, 154, 162, 1);
   --accent: rgba(108, 181, 189, 1);
+  --opacityShift: 0.8;
 }
 .dark .g-20, .dark.g-20 {
   --accentColor: var(--black);
   --ltaccent: rgba(97, 177, 202, 1);
   --accent: rgba(130, 201, 223, 1);
+  --opacityShift: 0.8;
 }
 
 /*******************************
@@ -485,6 +519,66 @@ main {
   padding: 0;
   width: 100%;
   left: 0;
+}
+
+.anchorLink {
+  height: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0;
+}
+
+.grid {
+  display: grid;
+}
+.grid.twoCol {
+  grid-template-columns: repeat(1, 1fr);
+}
+@media only screen and (min-width: 768px) {
+  .grid.twoCol {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.grid.threeCol {
+  grid-template-columns: repeat(1, 1fr);
+}
+@media only screen and (min-width: 768px) {
+  .grid.threeCol {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .grid.threeCol {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.grid.fourCol {
+  grid-template-columns: repeat(1, 1fr);
+}
+@media only screen and (min-width: 768px) {
+  .grid.fourCol {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .grid.fourCol {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .grid.fourCol {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.grid .fullWidth {
+  grid-column: 1/-1;
+}
+@media only screen and (min-width: 768px) {
+  .grid .twoWide {
+    grid-column: span 2;
+  }
 }
 
 .fa-solid,
@@ -1196,6 +1290,30 @@ body:not(#idx):not(#Profile) .header p {
 /*******************************
     Profile
 ********************************/
+#Profile #navstrip i:last-of-type,
+#Profile #navstrip .addName {
+  opacity: 0;
+}
+#Profile .scrolled #navstrip i:last-of-type,
+#Profile .scrolled #navstrip .addName {
+  opacity: 1;
+}
+
+.profile.app-Traditional .basicOnly {
+  display: none;
+}
+.profile:not(.app-Traditional) .fullOnly {
+  display: none;
+}
+.profile.app-Basic .notBasic {
+  display: none;
+}
+.profile--header {
+  margin-bottom: 0;
+}
+.profile--header h1 {
+  text-transform: capitalize;
+}
 .profile--header-links {
   color: var(--headerText);
   text-align: center;
@@ -1230,6 +1348,32 @@ body:not(#idx):not(#Profile) .header p {
   margin-left: 10px;
   color: var(--accentColor);
 }
+.profile--header-links a[href="<i>No Information</i>"], .profile--header-links a[href=""] {
+  display: none;
+}
+.profile--menu {
+  position: sticky;
+  margin: 0 0 0 50px;
+  background: var(--ltaccent);
+  padding: 15px 20px;
+  font-family: var(--headerFont);
+  text-transform: lowercase;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  font-size: var(--lBody);
+  z-index: 10;
+}
+@media only screen and (min-width: 768px) {
+  .profile--menu {
+    margin: 0 50px;
+  }
+}
+.profile--menu a {
+  color: var(--accentColor);
+}
 .profile--body {
   min-height: 100vh;
   padding: 0 20px;
@@ -1250,6 +1394,80 @@ body:not(#idx):not(#Profile) .header p {
   .profile--body {
     padding: 0 80px;
   }
+}
+.profile--warnings {
+  background: var(--content);
+  padding: 30px 40px;
+  text-align: center;
+  font-size: var(--lBody);
+  text-transform: lowercase;
+  margin: 40px auto 0;
+  max-width: max-content;
+  line-height: 200%;
+}
+@media only screen and (min-width: 768px) {
+  .profile--warnings {
+    margin: 85px auto 0;
+  }
+}
+.profile--warnings strong {
+  font-family: var(--headerFont);
+  text-transform: uppercase;
+  font-size: 20px;
+  display: block;
+  margin: 0 auto 20px;
+}
+.profile--section h2 {
+  margin: 40px auto;
+  max-width: max-content;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+@media only screen and (min-width: 768px) {
+  .profile--section h2 {
+    letter-spacing: 20px;
+    font-size: 34px;
+    font-weight: 100;
+    margin: 85px auto;
+  }
+}
+.profile--box {
+  background: var(--content);
+  padding: 40px;
+  grid-gap: 40px;
+  line-height: 200%;
+}
+.profile--item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: var(--lBody);
+}
+.profile--item strong {
+  font-family: var(--headerFont);
+  font-size: var(--xlBody);
+  max-width: max-content;
+  padding: 0 20px 0 5px;
+  line-height: 100%;
+}
+.profile--item strong::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background: var(--ltaccent);
+  opacity: var(--opacityShift);
+}
+.profile--item .scroll {
+  max-height: 250px;
+}
+.profile--item .scroll.tallScroll {
+  max-height: 300px;
 }
 
 /*******************************

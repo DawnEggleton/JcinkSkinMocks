@@ -57,6 +57,7 @@
       --accentColor: var(--black);
       --accent: rgba(196, 177, 125, 1);
       --ltaccent: rgba(225, 210, 166, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -67,6 +68,7 @@
       --accentColor: var(--black);
       --accent: rgba(189, 133, 92, 1);
       --ltaccent: rgba(215, 159, 118, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -77,6 +79,7 @@
       --accentColor: var(--black);
       --accent: rgba(110, 130, 155, 1);
       --ltaccent: rgba(142, 161, 185, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -91,6 +94,7 @@
       --accentColor: var(--black);
       --accent: rgba(196, 196, 196, 1);
       --ltaccent: rgba(220, 220, 220, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -103,6 +107,7 @@
       --accentColor: var(--white);
       --accent: rgba(179, 73, 85, 1);
       --ltaccent: rgba(200, 107, 118, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -115,6 +120,7 @@
       --accentColor: var(--white);
       --accent: rgba(147, 42, 47, 1);
       --ltaccent: rgba(176, 58, 63, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -127,6 +133,7 @@
       --accentColor: var(--white);
       --accent: rgba(97, 86, 153, 1);
       --ltaccent: rgba(123, 113, 170, 1);
+      --opacityShift: 0.7;
     }
 
     /**************************
@@ -139,6 +146,7 @@
       --accentColor: var(--black);
       --accent: rgba(183, 148, 117, 1);
       --ltaccent: rgba(213, 177, 146, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -151,6 +159,7 @@
       --accentColor: var(--black);
       --accent: rgba(176, 134, 84, 1);
       --ltaccent: rgba(200, 160, 112, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -163,6 +172,7 @@
       --accentColor: var(--white);
       --accent: rgba(78, 134, 126, 1);
       --ltaccent: rgba(101, 157, 149, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -175,6 +185,7 @@
       --accentColor: var(--black);
       --accent: rgba(146, 130, 157, 1);
       --ltaccent: rgba(166, 148, 179, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -187,6 +198,7 @@
       --accentColor: var(--white);
       --accent: rgba(65, 91, 142, 1);
       --ltaccent: rgba(86, 113, 166, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -199,6 +211,7 @@
       --accentColor: var(--white);
       --accent: rgba(88, 123, 83, 1);
       --ltaccent: rgba(102, 142, 96, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -211,6 +224,7 @@
       --accentColor: var(--white);
       --accent: rgba(45, 91, 61, 1);
       --ltaccent: rgba(60, 113, 78, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -223,6 +237,7 @@
       --accentColor: var(--white);
       --accent: rgba(90, 137, 151, 1);
       --ltaccent: rgba(105, 154, 168, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -235,6 +250,7 @@
       --accentColor: var(--black);
       --accent: rgba(82, 154, 162, 1);
       --ltaccent: rgba(108, 181, 189, 1);
+      --opacityShift: 1;
     }
 
     /**************************
@@ -245,6 +261,7 @@
       --accentColor: var(--black);
       --accent: rgba(97, 177, 202, 1);
       --ltaccent: rgba(130, 201, 223, 1);
+      --opacityShift: 1;
     }
 }
 .dark {
@@ -274,6 +291,7 @@
       --accentColor: var(--black);
       --ltaccent: rgba(196, 177, 125, 1);
       --accent: rgba(225, 210, 166, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -284,6 +302,7 @@
       --accentColor: var(--black);
       --ltaccent: rgba(189, 133, 92, 1);
       --accent: rgba(215, 159, 118, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -294,6 +313,7 @@
       --accentColor: var(--black);
       --ltaccent: rgba(110, 130, 155, 1);
       --accent: rgba(97, 116, 140, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -308,6 +328,7 @@
       --accentColor: var(--black);
       --ltaccent: rgba(196, 196, 196, 1);
       --accent: rgba(220, 220, 220, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -320,6 +341,7 @@
       --accentColor: var(--white);
       --ltaccent: rgba(179, 73, 85, 1);
       --accent: rgba(200, 107, 118, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -332,6 +354,7 @@
       --accentColor: var(--white);
       --ltaccent: rgba(147, 42, 47, 1);
       --accent: rgba(176, 58, 63, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -344,6 +367,7 @@
       --accentColor: var(--white);
       --ltaccent: rgba(97, 86, 153, 1);
       --accent: rgba(123, 113, 170, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -356,6 +380,7 @@
       --accentColor: var(--black);
       --ltaccent: rgba(183, 148, 117, 1);
       --accent: rgba(213, 177, 146, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -368,6 +393,7 @@
       --accentColor: var(--black);
       --ltaccent: rgba(176, 134, 84, 1);
       --accent: rgba(200, 160, 112, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -380,6 +406,7 @@
       --accentColor: var(--white);
       --ltaccent: rgba(78, 134, 126, 1);
       --accent: rgba(101, 157, 149, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -392,6 +419,7 @@
       --accentColor: var(--black);
       --ltaccent: rgba(146, 130, 157, 1);
       --accent: rgba(166, 148, 179, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -404,6 +432,7 @@
       --accentColor: var(--white);
       --ltaccent: rgba(65, 91, 142, 1);
       --accent: rgba(86, 113, 166, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -416,6 +445,7 @@
       --accentColor: var(--white);
       --ltaccent: rgba(88, 123, 83, 1);
       --accent: rgba(102, 142, 96, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -428,6 +458,7 @@
       --accentColor: var(--white);
       --ltaccent: rgba(45, 91, 61, 1);
       --accent: rgba(60, 113, 78, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -440,6 +471,7 @@
       --accentColor: var(--white);
       --ltaccent: rgba(90, 137, 151, 1);
       --accent: rgba(105, 154, 168, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -452,6 +484,7 @@
       --accentColor: var(--black);
       --ltaccent: rgba(82, 154, 162, 1);
       --accent: rgba(108, 181, 189, 1);
+      --opacityShift: 0.8;
     }
 
     /**************************
@@ -462,5 +495,6 @@
       --accentColor: var(--black);
       --ltaccent: rgba(97, 177, 202, 1);
       --accent: rgba(130, 201, 223, 1);
+      --opacityShift: 0.8;
     }
 }
