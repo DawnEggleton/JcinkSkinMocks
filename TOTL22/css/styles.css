@@ -1357,6 +1357,7 @@ body:not(#idx):not(#Profile) .header p {
   text-transform: lowercase;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .profile--header-links a {
   padding: 8px 15px;
