@@ -14,7 +14,8 @@
     }
 }
 .profile { 
-    &.acc-Character .memOnly {
+    &.acc-Character .memOnly,
+    &.acc-Member .charOnly {
         display: none;
     }
     &.app-Traditional {
@@ -36,8 +37,19 @@
     &--header {
         margin-bottom: 0;
 
+        img {
+            margin: 0 auto 35px;
+            display: block;
+            border-radius: 50%;
+            width: 125px;
+            height: 125px;
+            object-fit: cover;
+            filter: var(--imageFilter);
+        }
+        
         h1 {
             text-transform: capitalize;
+            margin-bottom: 20px;
         }
 
         &-links {

@@ -54,6 +54,7 @@
   --subHoverText: var(--mdGrey);
   --menuLink: var(--mdGrey);
   --menuBG: var(--dkGrey);
+  --imageFilter: grayscale(1) contrast(0.7) brightness(1.3);
   --accentColor: var(--black);
   --accent: rgba(87, 188, 210, 1);
   --ltaccent: rgba(87, 188, 210, 1);
@@ -251,6 +252,7 @@
   --subHoverText: var(--ltaccent);
   --menuLink: var(--mdGrey);
   --menuBG: var(--dkGrey);
+  --imageFilter: grayscale(1) brightness(0.7) contrast(1.3);
   --accentColor: var(--black);
   --accent: rgba(87, 188, 210, 1);
   --ltaccent: rgba(87, 188, 210, 1);
@@ -1319,7 +1321,7 @@ body:not(#idx):not(#Profile) .header p {
   opacity: 1;
 }
 
-.profile.acc-Character .memOnly {
+.profile.acc-Character .memOnly, .profile.acc-Member .charOnly {
   display: none;
 }
 .profile.app-Traditional .basicOnly {
@@ -1334,8 +1336,18 @@ body:not(#idx):not(#Profile) .header p {
 .profile--header {
   margin-bottom: 0;
 }
+.profile--header img {
+  margin: 0 auto 35px;
+  display: block;
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  filter: var(--imageFilter);
+}
 .profile--header h1 {
   text-transform: capitalize;
+  margin-bottom: 20px;
 }
 .profile--header-links {
   color: var(--headerText);
