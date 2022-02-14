@@ -85,4 +85,33 @@ if($('body#Profile').length > 0) {
     document.querySelectorAll('.anchorLink').forEach(link => {
         link.style.marginTop = `${(breadcrumbHeight + submenuHeight + 20) * -1}px`;
     });
+
+    const labels = document.querySelectorAll('.tracker--labels button');
+    const tabs = document.querySelectorAll('.tracker--tab');
+    labels.forEach((label, index) => {
+        label.addEventListener('click', e => {
+            labels.forEach(label => label.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            tabs.forEach(tab => {
+                tab.style.left = `${index * -100}%`;
+            });
+        });
+    });
+
+    tabs.forEach(tab => {
+        tab.querySelector('.tracker--inner-labels .left').addEventListener('click', e=> {
+            if(!e.currentTarget.classList.contains('active')) {
+                e.currentTarget.classList.add('active');
+                tab.querySelector('.right').classList.remove('active');
+                tab.querySelectorAll('.tracker').forEach(innerTab => innerTab.style.left = '0');
+            }
+        });
+        tab.querySelector('.tracker--inner-labels .right').addEventListener('click', e=> {
+            if(!e.currentTarget.classList.contains('active')) {
+                e.currentTarget.classList.add('active');
+                tab.querySelector('.left').classList.remove('active');
+                tab.querySelectorAll('.tracker').forEach(innerTab => innerTab.style.left = '-100%');
+            }
+        });
+    });
 }

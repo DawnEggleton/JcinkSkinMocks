@@ -102,6 +102,11 @@ main {
     top: 0;
     left: 0;
     font-size: 0;
+
+    &[name="tobottom"] {
+        top: auto;
+        bottom: 0;
+    }
 }
 
 .grid {
@@ -154,6 +159,16 @@ main {
     }
 }
 
+.justify {
+    text-align: justify;
+}
+
+luxblock {
+    max-width: 850px;
+    display: block;
+    margin: 0 auto;
+}
+
 .fa-solid,
 .fa-regular,
 .fa-light,
@@ -202,4 +217,8 @@ main {
     .mobileOnly {
         display: none !important;
     }
+}
+
+.hide {
+    display: none !important;
 }
