@@ -3,13 +3,13 @@ let breadcrumbHeight;
 setTimeout(() => {
     breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight;
     document.querySelectorAll('.anchorLink').forEach(link => {
-        link.style.marginTop = `${(breadcrumbHeight + 20) * -1}px`;
+        link.style.marginTop = `${(breadcrumbHeight + 40) * -1}px`;
     });
 }, 400);
 window.addEventListener('resize', () => {
     breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight;
     document.querySelectorAll('.anchorLink').forEach(link => {
-        link.style.marginTop = `${(breadcrumbHeight + 20) * -1}px`;
+        link.style.marginTop = `${(breadcrumbHeight + 40) * -1}px`;
     });
 });
 
@@ -93,13 +93,13 @@ if($('body#Profile').length > 0) {
         document.querySelector('.profile--menu').style.top = `${breadcrumbHeight - 1}px`;
         let submenuHeight = document.querySelector('.profile--menu').clientHeight;
         document.querySelectorAll('.anchorLink').forEach(link => {
-            link.style.marginTop = `${(breadcrumbHeight + submenuHeight + 20) * -1}px`;
+            link.style.marginTop = `${(breadcrumbHeight + submenuHeight + 40) * -1}px`;
         });
     }, 400);
     window.addEventListener('resize', () => {
         breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight;
         document.querySelectorAll('.anchorLink').forEach(link => {
-            link.style.marginTop = `${(breadcrumbHeight + 20) * -1}px`;
+            link.style.marginTop = `${(breadcrumbHeight + 40) * -1}px`;
         });
     });
 
