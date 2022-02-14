@@ -853,6 +853,9 @@ nav {
 .breadcrumb-nav.scrolled {
   background: var(--dark);
 }
+.breadcrumb-nav #navstrip {
+  max-height: max-content;
+}
 .breadcrumb-nav #navstrip a {
   color: var(--headerText);
 }
@@ -947,7 +950,12 @@ nav {
   font-size: clamp(60px, 6vw, 80px);
 }
 #Profile .header h1 {
-  font-size: clamp(50px, 6vw, 70px);
+  font-size: clamp(30px, 5vw, 45px);
+}
+@media only screen and (min-width: 480px) {
+  #Profile .header h1 {
+    font-size: clamp(50px, 6vw, 70px);
+  }
 }
 .header p {
   color: var(--headerText);

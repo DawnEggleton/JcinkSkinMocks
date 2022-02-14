@@ -27,7 +27,11 @@
             font-size: clamp(60px, 6vw, 80px);
         }
         #Profile & {
-            font-size: clamp(50px, 6vw, 70px);
+            font-size: clamp(30px, 5vw, 45px);
+
+            @media only screen and (min-width: $sm) {
+                font-size: clamp(50px, 6vw, 70px);
+            }
         }
     }
 

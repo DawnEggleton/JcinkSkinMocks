@@ -1,7 +1,16 @@
 //set anchorlink
-let breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight - 12.5;
-document.querySelectorAll('.anchorLink').forEach(link => {
-    link.style.marginTop = `${(breadcrumbHeight + 20) * -1}px`;
+let breadcrumbHeight;
+setTimeout(() => {
+    breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight;
+    document.querySelectorAll('.anchorLink').forEach(link => {
+        link.style.marginTop = `${(breadcrumbHeight + 20) * -1}px`;
+    });
+}, 400);
+window.addEventListener('resize', () => {
+    breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight;
+    document.querySelectorAll('.anchorLink').forEach(link => {
+        link.style.marginTop = `${(breadcrumbHeight + 20) * -1}px`;
+    });
 });
 
 //Toggles & Cookies
@@ -80,10 +89,18 @@ $("table[id='CODE-WRAP']").each(function() {
  PROFILE ONLY
  ******************/
 if($('body#Profile').length > 0) {
-    document.querySelector('.profile--menu').style.top = `${breadcrumbHeight}px`;
-    let submenuHeight = document.querySelector('.profile--menu').clientHeight;
-    document.querySelectorAll('.anchorLink').forEach(link => {
-        link.style.marginTop = `${(breadcrumbHeight + submenuHeight + 20) * -1}px`;
+    setTimeout(() => {
+        document.querySelector('.profile--menu').style.top = `${breadcrumbHeight - 1}px`;
+        let submenuHeight = document.querySelector('.profile--menu').clientHeight;
+        document.querySelectorAll('.anchorLink').forEach(link => {
+            link.style.marginTop = `${(breadcrumbHeight + submenuHeight + 20) * -1}px`;
+        });
+    }, 400);
+    window.addEventListener('resize', () => {
+        breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight;
+        document.querySelectorAll('.anchorLink').forEach(link => {
+            link.style.marginTop = `${(breadcrumbHeight + 20) * -1}px`;
+        });
     });
 
     const labels = document.querySelectorAll('.tracker--labels button');

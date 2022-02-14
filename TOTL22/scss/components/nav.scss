@@ -229,6 +229,8 @@ nav {
     }
 
     #navstrip {
+        max-height: max-content;
+
         a {
             color: var(--headerText);
 
