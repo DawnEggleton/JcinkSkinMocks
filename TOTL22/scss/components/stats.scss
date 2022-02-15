@@ -1,4 +1,168 @@
 /*******************************
     Board Stats
 ********************************/
+.stats {
+    &--lists {
+        grid-gap: 42px 19px;
+        margin-bottom: 85px;
+        grid-template-columns: 100%;
+        grid-template-rows: 200px 150px max-content;
 
+        @media only screen and (min-width: $md) {
+            grid-template-columns: 1fr 1.5fr;
+            grid-template-rows: 200px 150px;
+        }
+    }
+    &--online {
+        background: var(--content);
+        padding: 20px;
+        font-family: var(--headerFont);
+        text-transform: lowercase;
+        line-height: 200%;
+        font-size: var(--xlBody);
+
+        @media only screen and (min-width: $md) {
+            grid-column: span 2;
+        }
+
+        .scroll {
+            height: 160px;
+        }
+    }
+    &--today {
+        background: var(--content);
+        padding: 20px;
+
+        .scroll {
+            height: 110px;
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 200%;
+        }
+    }
+    &--links {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+        margin-top: -22px;
+
+        @media only screen and (min-width: $md) {
+            margin-top: 0;
+        }
+
+        a {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            text-align: center;
+            background: var(--content);
+            font-family: var(--headerFont);
+            font-size: var(--mBody);
+            text-transform: lowercase;
+            font-weight: 600;
+            padding: 20px;
+
+            @media only screen and (min-width: $md) {
+                padding: 10px;
+            }
+
+            span::after {
+                content: '\f178';
+                display: inline-block;
+                width: 0;
+                overflow: hidden;
+                font-family: 'Font Awesome 6 Pro';
+                font-weight: 300;
+                bottom: -3px;
+                position: relative;
+                line-height: 100%;
+                color: var(--accentColor);
+            }
+
+            &:hover {
+                background: var(--ltaccent);
+                color: var(--accentColor);
+
+                span::after {
+                    width: 20px;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+    &--header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        background: var(--content);
+        padding: 3px 10px;
+        font-family: var(--headerFont);
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: var(--xsBody);
+        letter-spacing: 2px;
+        line-height: 200%;
+        display: flex;
+        gap: 10px;
+    }
+
+    &--recent {
+        grid-gap: 20px;
+
+        tr {
+            background: var(--content);
+            padding: 20px;
+            display: grid;
+
+            td {
+                width: 100% !important;
+
+                &.recent-topics-info {
+                    font-size: 0;
+                    
+                    & > a {
+                        &:nth-of-type(1) {
+                            display: block;
+                            font-family: var(--headerFont);
+                            font-weight: 600;
+                            text-transform: lowercase;
+                            font-size: var(--xlBody);
+                        }
+
+                        &:nth-of-type(2) {
+                            display: inline-block;
+                            background: var(--ltaccent);
+                            color: var(--accentColor);
+                            text-transform: uppercase;
+                            font-size: var(--xsBody);
+                            letter-spacing: 2px;
+                            padding: 5px 10px;
+                            border-radius: 4px;
+                            font-weight: 600;
+                            max-width: max-content;
+                            margin: 5px 0;
+
+                            &::before {
+                                content: 'written by ';
+                            }
+                        }
+                        &:nth-of-type(3) {
+                            display: none;
+                        }
+                    }
+                }
+
+                &.recent-topics-date {
+                    font-size: var(--xsBody);
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+
+                    &::before {
+                        content: 'posted ';
+                    }
+                }
+            }
+        }
+    }
+}

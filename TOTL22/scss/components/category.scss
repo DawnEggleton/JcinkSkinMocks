@@ -4,6 +4,10 @@
 .category {
     margin-bottom: 80px;
 
+    &.subforums .redirect {
+        display: none;
+    }
+
     h2 {
         margin: 0 auto 85px;
         max-width: max-content;
@@ -55,16 +59,15 @@
         left: 0;
         transform: translateY(-100%);
         background: var(--content);
-        padding: 0 8px 0 10px;
+        padding: 3px 10px;
         font-family: var(--headerFont);
         text-transform: uppercase;
         font-weight: 600;
         font-size: var(--xsBody);
         letter-spacing: 2px;
         line-height: 200%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px;
+        display: flex;
+        gap: 10px;
     }
 
     h3 {
@@ -139,6 +142,10 @@
     &--subforums {
         margin: 0 5px;
         font-size: 0;
+
+        br {
+            display: none;
+        }
 
         a {
             background: var(--ltaccent);

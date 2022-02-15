@@ -9,6 +9,20 @@ nav {
     height: 0;
     z-index: 10;
 }
+
+#subaccounts_menu select {
+    background: var(--menuLink);
+    border: 0;
+    width: 100%;
+    color: var(--headerText);
+    padding: 15px;
+    text-align: center;
+    font-family: var(--headerFont);
+    text-transform: lowercase;
+    font-weight: 600;
+    font-size: var(--mBody);
+}
+
 .main-nav {
     position: absolute;
     top: 0;
@@ -163,6 +177,11 @@ nav {
         margin: 5px 15px 15px;
         scrollbar-color: var(--accent) var(--mdGrey);
 
+        &:first-child {
+            margin-top: 15px;
+            height: calc(100vh - 30px);
+        }
+
         a {
             display: block;
             background: var(--mdGrey);
@@ -231,6 +250,10 @@ nav {
     #navstrip {
         max-height: max-content;
 
+        & ~ br {
+            display: none;
+        }
+
         a {
             color: var(--headerText);
 
@@ -271,12 +294,9 @@ nav {
         font-size: var(--mBody);
         opacity: 0.8;
 
-        .fa-circle {
-            font-size: var(--xsBody);
-        }
-
         &:hover {
             opacity: 1;
+            font-size: calc(var(--mBody) + 3px);
         }
     }
 
@@ -284,13 +304,22 @@ nav {
         background: none;
         border: none;
         cursor: pointer;
+        margin: 0;
 
         .smallOnly {
             font-size: var(--lBody);
+
+            &:hover {
+                font-size: calc(var(--lBody) + 3px);
+            }
         }
 
         .largeOnly {
             font-size: var(--sBody);
+
+            &:hover {
+                font-size: calc(var(--sBody) + 3px);
+            }
         }
     }
 

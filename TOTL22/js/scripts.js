@@ -1,3 +1,6 @@
+//Adjust navstrip to remove nbsp
+$('#navstrip').html($('#navstrip').html().replace(/(?:^(?:&nbsp;)+)|(?:(?:&nbsp;)+$)/g, ''));
+
 //set anchorlink
 let breadcrumbHeight;
 setTimeout(() => {
@@ -131,4 +134,15 @@ if($('body#Profile').length > 0) {
             }
         });
     });
+}
+
+
+
+
+/******************
+ INDEX/SC ONLY
+******************/
+if($('body#idx').length > 0 || $('body#SC').length > 0) {
+    $('#recent-topics-clip').append($('#recent-topics tbody').html());
+    $('#recent-topics').remove();
 }

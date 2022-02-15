@@ -6,3 +6,11 @@
         --sidebarWidth: 250px;
     }
 }
+
+.main-nav--links a::after,
+.forum--subforums a::after,
+.profile--header-links a::after,
+.profile--sub a::after,
+.tracker--labels button::after {
+  content: "\f178";
+}
