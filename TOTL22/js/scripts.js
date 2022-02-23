@@ -59,8 +59,10 @@ $('.main-nav--code pre textarea').each(function() {
 
 
 //calculate link scroll height
-let codeHeight = document.querySelector('.main-nav--content > .main-nav--code').clientHeight + 45;
-document.querySelector('.main-nav--links').style.height = `calc(100vh - ${codeHeight}px)`;
+if($('.main-nav--content > .main-nav--code').length > 0) {
+	let codeHeight = document.querySelector('.main-nav--content > .main-nav--code').clientHeight + 45;
+	document.querySelector('.main-nav--links').style.height = `calc(100vh - ${codeHeight}px)`;
+}
 
 
 //copy code to clipboard

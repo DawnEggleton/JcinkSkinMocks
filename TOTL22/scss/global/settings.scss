@@ -11,6 +11,7 @@
 .forum--subforums a::after,
 .profile--header-links a::after,
 .profile--sub a::after,
-.tracker--labels button::after {
+.tracker--labels button::after,
+.stats--links a span::after {
   content: "\f178";
 }

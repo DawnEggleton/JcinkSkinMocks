@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TOTL 2022</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Styles-->
+        <link rel="stylesheet" href="../css/styles.css" />
+
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.typekit.net/bvh4fkz.css">
+
+
+        <!--Icons-->
+        <link href="https://dawneggleton.github.io/JcinkSkinMocks/FA6/css/all.min.css" rel="stylesheet" />
+        <link href="https://files.jcink.net/uploads/totl/saturnicons.css" rel="stylesheet" />
+        <link href="https://files.jcink.net/uploads/totl/honeybee.css" rel="stylesheet" />
+        <link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
+
+        <!--Script Libraries-->
+        <script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+        <script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+        <script src="../js/clipboard.js"></script>
+
+        <!--Settings-->
+        <script type='text/javascript' src='../js/settings.js'></script>
+        <link rel="stylesheet" href="../css/settings.css" />
+    </head>
+    <body id="idx" class="light smlFont g-4">
+        <!--Header-->
+        <header></header>
+
+        <!--Navigation-->
+        <nav>
+            <div class="main-nav"></div>
+    
+            <div class="alt-nav notMobile"><div class="nav--controls"></div></div>
+    
+            <div class="breadcrumb-nav">
+                <div id="navstrip" align="left">
+                    <a href="?act=idx">My Community</a>
+                </div>
+            </div>
+        </nav>
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+
+            <form id="sort" onsubmit="return postToGoogle();">
+                <label>
+                    <strong>Alias</strong>
+                    <i>Instructions</i>
+                    <input type="text"
+                        name="entry.1432517820"
+                        id="sort-member">
+                </label>
+                <label>
+                    <strong>Character Name</strong>
+                    <i>Instructions</i>
+                    <input   type="text"
+                        name="entry.107957704"
+                        id="sort-character">
+                </label>
+                <label>
+                    <strong>Account ID</strong>
+                    <i>Instructions</i>
+                    <input   type="text"
+                        name="entry.1642550285"
+                        id="sort-id">
+                </label>
+                <label>
+                    <strong>Group</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.143362062"
+                            id="sort-group">
+                        <option value=""></option>
+                        <optgroup label="Students">
+                            <option value="7">Gryffindor</option>
+                            <option value="9">Hufflepuf</option>
+                            <option value="14">Ravenclaw</option>
+                            <option value="16">Slytherin</option>
+                        </optgroup>
+                        <optgroup label="Adults">
+                            <option value="18">Entertainment</option>
+                            <option value="15">Healers</option>
+                            <option value="8">Hogwarts Staff</option>
+                            <option value="12">Ministry</option>
+                            <option value="11">Press</option>
+                            <option value="13">Quidditch</option>
+                            <option value="17">Returners</option>
+                            <option value="6">Adults</option>
+                        </optgroup>
+                    </select>
+                </label>
+                <label>
+                    <strong>Face Claim</strong>
+                    <i>Instructions</i>
+                    <input   type="text"
+                        name="entry.1726668460"
+                        id="sort-face">
+                </label>
+                <label>
+                    <strong>Ability?</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.622253808"
+                        id="sort-abilityexists">
+                        <option value=""></option>
+                        <option value="y">yes</option>
+                        <option value="n">no</option>
+                    </select>
+                </label>
+                <div class="form-item">
+                    <strong>Abilities</strong>
+                    <i>Instructions</i>
+                    <label>
+                        <input   type="checkbox"
+                            name="abilities"
+                            id="sort-animagus"
+                            value="animagus">
+                        <strong>Animagus</strong>
+                    </label>
+                    <label>
+                        <input   type="checkbox"
+                            name="abilities"
+                            id="sort-legilimens"
+                            value="legilimens">
+                        <strong>Legilimens</strong>
+                    </label>
+                    <label>
+                        <input   type="checkbox"
+                            name="abilities"
+                            id="sort-metamorphmagus"
+                            value="metamorphmagus">
+                        <strong>Metamorphmagus</strong>
+                    </label>
+                    <label>
+                        <input   type="checkbox"
+                            name="abilities"
+                            id="sort-occlumens"
+                            value="occlumens">
+                        <strong>Occlumens</strong>
+                    </label>
+                    <label>
+                        <input   type="checkbox"
+                            name="abilities"
+                            id="sort-seer"
+                            value="seer">
+                        <strong>Seer</strong>
+                    </label>
+                    <label>
+                        <strong>Other Abilities</strong>
+                        <input   type="text"
+                        name="otherabilities"
+                        id="sort-otherability">
+                    </label>
+                </div>
+                <label>
+                    <strong>Species</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.994119699"
+                            id="sort-species">
+                        <option value=""></option>
+                        <option value="vampire">Vampire</option>
+                        <option value="veela">Veela</option>
+                        <option value="werewolf">Werewolf</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Veela Blood</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.2106914261"
+                            id="sort-veelablood">
+                        <option value=""></option>
+                        <option value="full">Full</option>
+                        <option value="half">Half</option>
+                        <option value="quarter">Quarter</option>
+                        <option value="eighth">Eighth</option>
+                        <option value="minimal">Minimal</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Employed?</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1852737004"
+                            id="sort-employed">
+                        <option value=""></option>
+                        <option value="y">yes</option>
+                        <option value="n">no</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Job Section</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.794218756"
+                            id="sort-jobsection">
+                        <option value=""></option>
+                        <option value="hogwarts">Hogwarts Castle</option>
+                        <option value="ministry">Ministry of Magic</option>
+                        <option value="mungos">St. Mungo's</option>
+                        <option value="quidditch">Quidditch</option>
+                        <option value="prophet">The Daily Prophet</option>
+                        <option value="diagon">Diagon Alley</option>
+                        <option value="horizon">Horizon Alley</option>
+                        <option value="knockturn">Knockturn Alley</option>
+                        <option value="mythic">Mythic Alley</option>
+                        <option value="wizardlondon">Wizarding London (Other)</option>
+                        <option value="mugglelondon">Muggle London (Other)</option>
+                        <option value="hogsmeade">Hogsmeade</option>
+                        <option value="ilkley">Ilkley</option>
+                        <option value="elsewhere">Elsewhere</option>
+                        <option value="selfemployed">Self-Employed</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Job Sub-Section</strong>
+                    <i>Instructions</i>
+                    <input   type="text"
+                        name="entry.13065058"
+                        id="sort-jobsubsection">
+                </label>
+                <label>
+                    <strong>Job Title</strong>
+                    <i>Instructions</i>
+                    <input   type="text"
+                        name="entry.437548501"
+                        id="sort-jobtitle">
+                </label>
+                <label>
+                    <strong>Job Notes</strong>
+                    <i>Instructions</i>
+                    <input   type="text"
+                        name="entry.1508899464"
+                        id="sort-jobnotes">
+                </label>
+                <label>
+                    <strong>University Student?</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.836822682"
+                            id="sort-universitystudent">
+                        <option value=""></option>
+                        <option value="y">yes</option>
+                        <option value="n">no</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>School</strong>
+                    <i>Instructions</i>
+                    <input   type="text"
+                        name="entry.1260116484"
+                        id="sort-universityname">
+                </label>
+                <label>
+                    <strong>Program</strong>
+                    <i>Instructions</i>
+                    <input   type="text"
+                        name="entry.1662751314"
+                        id="sort-universityprogram">
+                </label>
+                <label>
+                    <strong>Year</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.876623337"
+                        id="sort-universityyear">
+                        <option value=""></option>
+                        <option value="1">First Year</option>
+                        <option value="2">Second Year</option>
+                        <option value="3">Third Year</option>
+                        <option value="4">Fourth Year</option>
+                        <option value="post">Post-Grad</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Hogwarts Year</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.2066116776"
+                            id="sort-hogwartsyear">
+                        <option value=""></option>
+                        <option value="1">First Year</option>
+                        <option value="2">Second Year</option>
+                        <option value="3">Third Year</option>
+                        <option value="4">Fourth Year</option>
+                        <option value="5">Fifth Year</option>
+                        <option value="6">Sixth Year</option>
+                        <option value="7">Seventh Year</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Astronomy</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.183274541"
+                            id="sort-astronomy">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Charms</strong>
+                        <i>Instructions</i>
+                    <select  name="entry.1490442733"
+                            id="sort-charms">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Defence Against the Dark Arts</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1393178788"
+                            id="sort-dada">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Games</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.967152081"
+                            id="sort-games">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Herbology</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1098395938"
+                            id="sort-herbology">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>History of Magic</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1697474133"
+                            id="sort-historyofmagic">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Literacy</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1903652715"
+                            id="sort-literacy">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Magical Theory</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.484032441"
+                            id="sort-magicaltheory">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Maths</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.135635464"
+                            id="sort-maths">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Potions</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1264662180"
+                            id="sort-potions">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Transfiguration</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1035411565"
+                            id="sort-transfiguration">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Culture Class</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.2142142079"
+                            id="sort-culture">
+                    <option value=""></option>
+                    <option value="muggle">Muggle Studies</option>
+                    <option value="wizarding">Wizarding Culture</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Culture Grade</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.698903169"
+                            id="sort-culturegrade">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1299686648"
+                            id="sort-elec1">
+                    <option value=""></option>
+                    <option value="alchemy">Alchemy</option>
+                    <option value="runes">Ancient Runes</option>
+                    <option value="ancientstudies">Ancient Studies</option>
+                    <option value="arithmancy">Arithmancy</option>
+                    <option value="art">Art</option>
+                    <option value="astronomy">Astronomy</option>
+                    <option value="comc">Care of Magical Creatures</option>
+                    <option value="charms">Charms</option>
+                    <option value="dada">Defence Against the Dark Arts</option>
+                    <option value="divination">Divination</option>
+                    <option value="games">Games</option>
+                    <option value="ghoulstudies">Ghoul Studies</option>
+                    <option value="herbology">Herbology</option>
+                    <option value="historyofmagic">History of Magic</option>
+                    <option value="magicaltheory">Magical Theory</option>
+                    <option value="mugglestudies">Muggle Studies</option>
+                    <option value="music">Music</option>
+                    <option value="potions">Potions</option>
+                    <option value="transfiguration">Transfiguration</option>
+                    <option value="xylomancy">Xylomancy</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective Grade</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.768681073"
+                            id="sort-elec1grade">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.671470831"
+                            id="sort-elec2">
+                    <option value=""></option>
+                    <option value="alchemy">Alchemy</option>
+                    <option value="runes">Ancient Runes</option>
+                    <option value="ancientstudies">Ancient Studies</option>
+                    <option value="arithmancy">Arithmancy</option>
+                    <option value="art">Art</option>
+                    <option value="astronomy">Astronomy</option>
+                    <option value="comc">Care of Magical Creatures</option>
+                    <option value="charms">Charms</option>
+                    <option value="dada">Defence Against the Dark Arts</option>
+                    <option value="divination">Divination</option>
+                    <option value="games">Games</option>
+                    <option value="ghoulstudies">Ghoul Studies</option>
+                    <option value="herbology">Herbology</option>
+                    <option value="historyofmagic">History of Magic</option>
+                    <option value="magicaltheory">Magical Theory</option>
+                    <option value="mugglestudies">Muggle Studies</option>
+                    <option value="music">Music</option>
+                    <option value="potions">Potions</option>
+                    <option value="transfiguration">Transfiguration</option>
+                    <option value="xylomancy">Xylomancy</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective Grade</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.483899832"
+                            id="sort-elec2grade">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1377650876"
+                            id="sort-elec3">
+                    <option value=""></option>
+                    <option value="alchemy">Alchemy</option>
+                    <option value="runes">Ancient Runes</option>
+                    <option value="ancientstudies">Ancient Studies</option>
+                    <option value="arithmancy">Arithmancy</option>
+                    <option value="art">Art</option>
+                    <option value="astronomy">Astronomy</option>
+                    <option value="comc">Care of Magical Creatures</option>
+                    <option value="charms">Charms</option>
+                    <option value="dada">Defence Against the Dark Arts</option>
+                    <option value="divination">Divination</option>
+                    <option value="games">Games</option>
+                    <option value="ghoulstudies">Ghoul Studies</option>
+                    <option value="herbology">Herbology</option>
+                    <option value="historyofmagic">History of Magic</option>
+                    <option value="magicaltheory">Magical Theory</option>
+                    <option value="mugglestudies">Muggle Studies</option>
+                    <option value="music">Music</option>
+                    <option value="potions">Potions</option>
+                    <option value="transfiguration">Transfiguration</option>
+                    <option value="xylomancy">Xylomancy</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective Grade</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.261216209"
+                            id="sort-elec3grade">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.530618541"
+                            id="sort-elec4">
+                    <option value=""></option>
+                    <option value="alchemy">Alchemy</option>
+                    <option value="runes">Ancient Runes</option>
+                    <option value="ancientstudies">Ancient Studies</option>
+                    <option value="arithmancy">Arithmancy</option>
+                    <option value="art">Art</option>
+                    <option value="astronomy">Astronomy</option>
+                    <option value="comc">Care of Magical Creatures</option>
+                    <option value="charms">Charms</option>
+                    <option value="dada">Defence Against the Dark Arts</option>
+                    <option value="divination">Divination</option>
+                    <option value="games">Games</option>
+                    <option value="ghoulstudies">Ghoul Studies</option>
+                    <option value="herbology">Herbology</option>
+                    <option value="historyofmagic">History of Magic</option>
+                    <option value="magicaltheory">Magical Theory</option>
+                    <option value="mugglestudies">Muggle Studies</option>
+                    <option value="music">Music</option>
+                    <option value="potions">Potions</option>
+                    <option value="transfiguration">Transfiguration</option>
+                    <option value="xylomancy">Xylomancy</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective Grade</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1632241456"
+                            id="sort-elec4grade">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1399421084"
+                            id="sort-elec5">
+                    <option value=""></option>
+                    <option value="alchemy">Alchemy</option>
+                    <option value="runes">Ancient Runes</option>
+                    <option value="ancientstudies">Ancient Studies</option>
+                    <option value="arithmancy">Arithmancy</option>
+                    <option value="art">Art</option>
+                    <option value="astronomy">Astronomy</option>
+                    <option value="comc">Care of Magical Creatures</option>
+                    <option value="charms">Charms</option>
+                    <option value="dada">Defence Against the Dark Arts</option>
+                    <option value="divination">Divination</option>
+                    <option value="games">Games</option>
+                    <option value="ghoulstudies">Ghoul Studies</option>
+                    <option value="herbology">Herbology</option>
+                    <option value="historyofmagic">History of Magic</option>
+                    <option value="magicaltheory">Magical Theory</option>
+                    <option value="mugglestudies">Muggle Studies</option>
+                    <option value="music">Music</option>
+                    <option value="potions">Potions</option>
+                    <option value="transfiguration">Transfiguration</option>
+                    <option value="xylomancy">Xylomancy</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective Grade</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1123859686"
+                            id="sort-elec5grade">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.223598383"
+                            id="sort-elec6">
+                    <option value=""></option>
+                    <option value="alchemy">Alchemy</option>
+                    <option value="runes">Ancient Runes</option>
+                    <option value="ancientstudies">Ancient Studies</option>
+                    <option value="arithmancy">Arithmancy</option>
+                    <option value="art">Art</option>
+                    <option value="astronomy">Astronomy</option>
+                    <option value="comc">Care of Magical Creatures</option>
+                    <option value="charms">Charms</option>
+                    <option value="dada">Defence Against the Dark Arts</option>
+                    <option value="divination">Divination</option>
+                    <option value="games">Games</option>
+                    <option value="ghoulstudies">Ghoul Studies</option>
+                    <option value="herbology">Herbology</option>
+                    <option value="historyofmagic">History of Magic</option>
+                    <option value="magicaltheory">Magical Theory</option>
+                    <option value="mugglestudies">Muggle Studies</option>
+                    <option value="music">Music</option>
+                    <option value="potions">Potions</option>
+                    <option value="transfiguration">Transfiguration</option>
+                    <option value="xylomancy">Xylomancy</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective Grade</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1859311863"
+                            id="sort-elec6grade">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.76064911"
+                            id="sort-elec7">
+                    <option value=""></option>
+                    <option value="alchemy">Alchemy</option>
+                    <option value="runes">Ancient Runes</option>
+                    <option value="ancientstudies">Ancient Studies</option>
+                    <option value="arithmancy">Arithmancy</option>
+                    <option value="art">Art</option>
+                    <option value="astronomy">Astronomy</option>
+                    <option value="comc">Care of Magical Creatures</option>
+                    <option value="charms">Charms</option>
+                    <option value="dada">Defence Against the Dark Arts</option>
+                    <option value="divination">Divination</option>
+                    <option value="games">Games</option>
+                    <option value="ghoulstudies">Ghoul Studies</option>
+                    <option value="herbology">Herbology</option>
+                    <option value="historyofmagic">History of Magic</option>
+                    <option value="magicaltheory">Magical Theory</option>
+                    <option value="mugglestudies">Muggle Studies</option>
+                    <option value="music">Music</option>
+                    <option value="potions">Potions</option>
+                    <option value="transfiguration">Transfiguration</option>
+                    <option value="xylomancy">Xylomancy</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective Grade</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1321648888"
+                            id="sort-elec7grade">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1638810127"
+                            id="sort-elec8">
+                    <option value=""></option>
+                    <option value="alchemy">Alchemy</option>
+                    <option value="runes">Ancient Runes</option>
+                    <option value="ancientstudies">Ancient Studies</option>
+                    <option value="arithmancy">Arithmancy</option>
+                    <option value="art">Art</option>
+                    <option value="astronomy">Astronomy</option>
+                    <option value="comc">Care of Magical Creatures</option>
+                    <option value="charms">Charms</option>
+                    <option value="dada">Defence Against the Dark Arts</option>
+                    <option value="divination">Divination</option>
+                    <option value="games">Games</option>
+                    <option value="ghoulstudies">Ghoul Studies</option>
+                    <option value="herbology">Herbology</option>
+                    <option value="historyofmagic">History of Magic</option>
+                    <option value="magicaltheory">Magical Theory</option>
+                    <option value="mugglestudies">Muggle Studies</option>
+                    <option value="music">Music</option>
+                    <option value="potions">Potions</option>
+                    <option value="transfiguration">Transfiguration</option>
+                    <option value="xylomancy">Xylomancy</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Elective Grade</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1094021435"
+                            id="sort-elec8grade">
+                    <option value=""></option>
+                    <option value="o">Outstanding</option>
+                    <option value="e">Exceeds Expectations</option>
+                    <option value="a">Acceptable</option>
+                    <option value="p">Poor</option>
+                    <option value="d">Dreadful</option>
+                    <option value="t">Troll</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Quidditch?</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1025317984"
+                            id="sort-quidditch">
+                        <option value=""></option>
+                        <option value="y">yes</option>
+                        <option value="n">no</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Quidditch Position</strong>
+                    <i>Instructions</i>
+                    <input   type="text"
+                            name="entry.1227238528"
+                            id="sort-quidditchposition">
+                </label>
+                <label>
+                    <strong>Leadership?</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.1827293380"
+                            id="sort-leadership">
+                        <option value=""></option>
+                        <option value="y">yes</option>
+                        <option value="n">no</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Leadership Position</strong>
+                    <i>Instructions</i>
+                    <select  name="entry.878358884"
+                            id="sort-leadershipposition">
+                        <option value=""></option>
+                        <option value="prefect">Prefect</option>
+                        <option value="head">Head Boy/Girl</option>
+                    </select>
+                </label>
+                <button type="submit">Submit</button>
+            </form>
+            <script>
+                function postToGoogle() {
+                  let member = $("#sort-member").val().toLowerCase();
+                  let character = $("#sort-character").val().toLowerCase();
+                  let id = $("#sort-id").val();
+                  let group = $("#sort-group").find(":selected").text().toLowerCase();
+                  let groupID = $("#sort-group").val();
+                  let face = $("#sort-face").val();
+                  let checkboxes = document.querySelectorAll('input[name="abilities"]:checked'), values = [];
+                  Array.prototype.forEach.call(checkboxes, function(el) {
+                      values.push(el.value);
+                  });
+                  if($('#sort-otherability').val()) {
+                      values.push($('#sort-otherability').val().toLowerCase());
+                  }
+                  let abilities = values.join(', ');
+                  let species = $("#sort-species").val();
+                  let veelablood = $("#sort-veelablood").val();
+                  let jobsection = $("#sort-jobsection").find(":selected").text().toLowerCase();
+                  let jobsubsection = $("#sort-jobsubsection").val().toLowerCase();
+                  let jobtitle = $("#sort-jobtitle").val().toLowerCase();
+                  let jobnotes = $("#sort-jobnotes").val().toLowerCase();
+                  let school = $("#sort-universityname").val().toLowerCase();
+                  let program = $("#sort-universityprogram").val().toLowerCase();
+                  let universityyear = $("#sort-universityyear").find(":selected").text().toLowerCase();
+                  let hogwartsyear = $("#sort-hogwartsyear").find(":selected").text().toLowerCase();
+                  let astronomy = $("#sort-astronomy").find(":selected").text().toLowerCase();
+                  let charms = $("#sort-charms").find(":selected").text().toLowerCase();
+                  let dada = $("#sort-dada").find(":selected").text().toLowerCase();
+                  let games = $("#sort-games").find(":selected").text().toLowerCase();
+                  let herbology = $("#sort-herbology").find(":selected").text().toLowerCase();
+                  let historyofmagic = $("#sort-historyofmagic").find(":selected").text().toLowerCase();
+                  let literacy = $("#sort-literacy").find(":selected").text().toLowerCase();
+                  let magicaltheory = $("#sort-magicaltheory").find(":selected").text().toLowerCase();
+                  let maths = $("#sort-maths").find(":selected").text().toLowerCase();
+                  let potions = $("#sort-potions").find(":selected").text().toLowerCase();
+                  let transfiguration = $("#sort-transfiguration").find(":selected").text().toLowerCase();
+                  let culture = $("#sort-culture").find(":selected").text().toLowerCase();
+                  let culturegrade = $("#sort-culturegrade").find(":selected").text().toLowerCase();
+                  let elec1 = $("#sort-elec1").find(":selected").text().toLowerCase();
+                  let elec1grade = $("#sort-elec1grade").find(":selected").text().toLowerCase();
+                  let elec2 = $("#sort-elec2").find(":selected").text().toLowerCase();
+                  let elec2grade = $("#sort-elec2grade").find(":selected").text().toLowerCase();
+                  let elec3 = $("#sort-elec3").find(":selected").text().toLowerCase();
+                  let elec3grade = $("#sort-elec3grade").find(":selected").text().toLowerCase();
+                  let elec4 = $("#sort-elec4").find(":selected").text().toLowerCase();
+                  let elec4grade = $("#sort-elec4grade").find(":selected").text().toLowerCase();
+                  let elec5 = $("#sort-elec5").find(":selected").text().toLowerCase();
+                  let elec5grade = $("#sort-elec5grade").find(":selected").text().toLowerCase();
+                  let elec6 = $("#sort-elec6").find(":selected").text().toLowerCase();
+                  let elec6grade = $("#sort-elec6grade").find(":selected").text().toLowerCase();
+                  let elec7 = $("#sort-elec7").find(":selected").text().toLowerCase();
+                  let elec7grade = $("#sort-elec7grade").find(":selected").text().toLowerCase();
+                  let elec8 = $("#sort-elec8").find(":selected").text().toLowerCase();
+                  let elec8grade = $("#sort-elec8grade").find(":selected").text().toLowerCase();
+                  let quidditchposition = $("#sort-quidditchposition").val().toLowerCase();
+                  let leadershipposition = $("#sort-leadershipposition").find(":selected").text().toLowerCase();
+            
+                  $.ajax({
+                    url: "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHej9BAllha02vmUwmNvXWlWpX_0ECX-zUq3bLO5gmSU3PBw/formResponse",
+                      
+                    //add your google form generated numbers below which are also the 'names' of your inputs     
+                    data: {
+                      "entry.1432517820": member,
+                      "entry.107957704": character,
+                      "entry.1642550285": id,
+                      "entry.143362062": group,
+                      "entry.1355686451": groupID,
+                      "entry.1726668460": face,
+                      "entry.622253808": abilities,
+                      "entry.994119699": species,
+                      "entry.2106914261": veelablood,
+                      "entry.794218756": jobsection,
+                      "entry.13065058": jobsubsection,
+                      "entry.437548501": jobtitle,
+                      "entry.1508899464": jobnotes,
+                      "entry.1260116484": school,
+                      "entry.1662751314": program,
+                      "entry.876623337": universityyear,
+                      "entry.2066116776": hogwartsyear,
+                      "entry.183274541": astronomy,
+                      "entry.1490442733": charms,
+                      "entry.1393178788": dada,
+                      "entry.967152081": games,
+                      "entry.1098395938": herbology,
+                      "entry.1697474133": historyofmagic,
+                      "entry.1903652715": literacy,
+                      "entry.484032441": magicaltheory,
+                      "entry.135635464": maths,
+                      "entry.1264662180": potions,
+                      "entry.1035411565": transfiguration,
+                      "entry.2142142079": culture,
+                      "entry.698903169": culturegrade,
+                      "entry.1299686648": elec1,
+                      "entry.768681073": elec1grade,
+                      "entry.671470831": elec2,
+                      "entry.483899832": elec2grade,
+                      "entry.1377650876": elec3,
+                      "entry.261216209": elec3grade,
+                      "entry.530618541": elec4,
+                      "entry.1632241456": elec4grade,
+                      "entry.1399421084": elec5,
+                      "entry.1123859686": elec5grade,
+                      "entry.223598383": elec6,
+                      "entry.1859311863": elec6grade,
+                      "entry.76064911": elec7,
+                      "entry.1321648888": elec7grade,
+                      "entry.1638810127": elec8,
+                      "entry.1094021435": elec8grade,
+                      "entry.1227238528": quidditchposition,
+                      "entry.878358884": leadershipposition
+                    },
+                    method: "POST",
+                    type: "POST",
+                    contentType: 'application/json',
+                    dataType: "json",
+                    success: function () {
+                      console.log('success');
+                    },
+                    error: function () {
+                      console.log('error');
+                    }
+                  });
+                  return false;
+                }
+            </script>
+
+        </main>
+
+        <!--Templates-->
+        <script type="text/javascript" src="../templates/header.js"></script>
+        <script type="text/javascript" src="../templates/calendar.js"></script>
+        <script type="text/javascript" src="../templates/nav.js"></script>
+        <script type="text/javascript" src="../templates/controls.js"></script>
+
+        <!--Scripts-->
+        <script type="text/javascript" src="../js/functions.js"></script>
+        <script type="text/javascript" src="../js/scripts.js"></script>
+    </body>
+</html>

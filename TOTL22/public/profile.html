@@ -809,10 +809,14 @@
         
         $('#prof--subs div.prof--sub').sort(Alpha).appendTo('#prof--subs');
     } else {
+        //print warnings
+        if(`<!-- |field_32| -->` != `` && `<!-- |field_32| -->` != `<i>No Information</i>`) {
+            document.querySelector('#warningClip').innerHTML = `<strong>warning!</strong><!-- |field_32| -->`;
+        }
         //print freeform overflow
-        //if(`<i>No Information</i>` != `` && `<i>No Information</i>` != `<i>No Information</i>`) {
+        if(`<i>No Information</i>` != `` && `<i>No Information</i>` != `<i>No Information</i>`) {
             document.querySelector('#freeClip').innerHTML = `<i>No Information</i>`;
-        //}
+        }
     }
 </script>
 

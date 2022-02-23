@@ -80,6 +80,12 @@
         letter-spacing: 1px;
         font-family: var(--headerFont);
 
+        i.fa-angles-right {
+            font-size: 0.8em;
+            margin-right: -5px;
+            top: 1px;
+        }
+
         &::before {
             content: '';
             position: absolute;
@@ -164,7 +170,6 @@
             opacity: var(--opacityShift);
 
             &::after {
-                content: '\f178';
                 display: inline-block;
                 width: 0;
                 overflow: hidden;

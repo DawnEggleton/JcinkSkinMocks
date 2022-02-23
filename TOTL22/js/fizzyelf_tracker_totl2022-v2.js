@@ -8,16 +8,16 @@ async function FillTracker(username, params = {}) {
     altforumids: params.altForumIds || [],
     commforums: params.commForumNames || [],
     commforumids: params.commForumIds || [],
-    devforums: params.commForumNames || [],
-    devforumids: params.commForumIds || [],
-    wantedforums: params.commForumNames || [],
-    wantedforumids: params.commForumIds || [],
+    devforums: params.devForumNames || [],
+    devforumids: params.devForumIds || [],
+    wantedforums: params.wantedForumNames || [],
+    wantedforumids: params.wantedForumIds || [],
     ignoreforums: params.ignoreForumNames || [],
     ignoreforumids: params.ignoreForumIds || [],
     lockedclass: params.lockedMacroIdentifier || "[title=Closed]",
     lockedforums: params.archiveForumNames || [],
     lockedforumids: params.archiveForumIds || [],
-    indicators: params.indicators || ['<span style="font-family: roboto, verdana, arial, sans">ÃƒÂ¢Ã…â€œÃ¢â‚¬Å“</span>', '<span style="font-family: roboto, verdana, arial, sans">ÃƒÂ¢Ã…Â¾Ã‚Â¤</span>'],
+    indicators: params.indicators || ['<span style="font-family: roboto, verdana, arial, sans">ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ</span>', '<span style="font-family: roboto, verdana, arial, sans">ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã‚Â¾Ãƒâ€šÃ‚Â¤</span>'],
     separator: params.separator || "|",
     username: username.replace(/&#([0-9]+);/g, (m, p1) => String.fromCharCode(p1)),
     trackerwrap: params.thisTracker || $('#trackerwrap'),
@@ -198,7 +198,7 @@ parseResults = async (searchlink, config, page) => {
           }
         } else if (dev) {
           config.devwrap.append($(`<div class="tracker--item dev">
-                                  <div class="tracker--status></div>
+                                  <div class="tracker--status"></div>
                                   <div class="tracker--body">
                                       <a href="${threadLink}" class="tracker--link">${title}</a>
                                       <div class="tracker--desc">
@@ -213,7 +213,7 @@ parseResults = async (searchlink, config, page) => {
                               </div>`));
         } else if (wanted) {
           config.wantedwrap.append($(`<div class="tracker--item wanted">
-                                  <div class="tracker--status></div>
+                                  <div class="tracker--status"></div>
                                   <div class="tracker--body">
                                       <a href="${threadLink}" class="tracker--link">${title}</a>
                                       <div class="tracker--desc">

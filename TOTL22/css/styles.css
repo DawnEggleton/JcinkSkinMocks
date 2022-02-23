@@ -12,7 +12,8 @@
 .forum--subforums a::after,
 .profile--header-links a::after,
 .profile--sub a::after,
-.tracker--labels button::after {
+.tracker--labels button::after,
+.stats--links a span::after {
   content: "\f178";
 }
 
@@ -836,7 +837,6 @@ nav {
   letter-spacing: 1px;
 }
 .main-nav--links a::after {
-  content: "\f178";
   display: inline-block;
   width: 0;
   overflow: hidden;
@@ -962,19 +962,19 @@ nav {
   display: none;
 }
 
-.header {
+header .header, .header.profile--header {
   background: var(--dark);
   padding: 50px 0 0 50px;
   left: 0;
   margin-bottom: 80px;
 }
 @media only screen and (min-width: 768px) {
-  .header {
+  header .header, .header.profile--header {
     margin-bottom: 0;
     padding: 50px 50px 0;
   }
 }
-.header h1 {
+header .header h1, .header.profile--header h1 {
   font-family: var(--accentFont);
   font-weight: 700;
   margin: 0;
@@ -982,25 +982,25 @@ nav {
   font-size: clamp(30px, 5vw, 45px);
   color: var(--headerText);
 }
-#idx .header h1 {
+#idx header .header h1, #idx .header.profile--header h1 {
   font-size: clamp(60px, 6vw, 80px);
 }
-#Profile .header h1 {
+#Profile header .header h1, #Profile .header.profile--header h1 {
   font-size: clamp(30px, 5vw, 45px);
 }
 @media only screen and (min-width: 480px) {
-  #Profile .header h1 {
+  #Profile header .header h1, #Profile .header.profile--header h1 {
     font-size: clamp(50px, 6vw, 70px);
   }
 }
-.header p {
+header .header p, .header.profile--header p {
   color: var(--headerText);
   text-align: center;
   font-family: var(--headerFont);
   margin: 0;
   text-transform: lowercase;
 }
-body:not(#idx):not(#Profile) .header p {
+body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .header.profile--header p {
   font-size: var(--lBody);
 }
 .header--deco {
@@ -1232,6 +1232,11 @@ body:not(#idx):not(#Profile) .header p {
   letter-spacing: 1px;
   font-family: var(--headerFont);
 }
+.forum h3 i.fa-angles-right {
+  font-size: 0.8em;
+  margin-right: -5px;
+  top: 1px;
+}
 .forum h3::before {
   content: "";
   position: absolute;
@@ -1307,7 +1312,6 @@ body:not(#idx):not(#Profile) .header p {
   opacity: var(--opacityShift);
 }
 .forum--subforums a::after {
-  content: "\f178";
   display: inline-block;
   width: 0;
   overflow: hidden;
@@ -1416,7 +1420,6 @@ body:not(#idx):not(#Profile) .header p {
   }
 }
 .stats--links a span::after {
-  content: "\f178";
   display: inline-block;
   width: 0;
   overflow: hidden;
@@ -1521,10 +1524,10 @@ body:not(#idx):not(#Profile) .header p {
   opacity: 1;
 }
 
-.profile.acc-Character .memOnly, .profile.acc-Member .charOnly {
+.profile:not(.acc-Member) .memOnly, .profile.acc-Member .charOnly {
   display: none;
 }
-.profile.app-Traditional .basicOnly {
+.profile:not(.app-Basic):not(.app-Simplified) .basicOnly {
   display: none;
 }
 .profile:not(.app-Traditional) .fullOnly {
@@ -1564,7 +1567,6 @@ body:not(#idx):not(#Profile) .header p {
   color: var(--headerText);
 }
 .profile--header-links a::after {
-  content: "\f178";
   display: inline-block;
   width: 0;
   overflow: hidden;
@@ -1618,10 +1620,6 @@ body:not(#idx):not(#Profile) .header p {
   padding: 0 20px;
   left: 50px;
   width: calc(100% - 50px);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 @media only screen and (min-width: 480px) {
   .profile--body {
@@ -1647,6 +1645,9 @@ body:not(#idx):not(#Profile) .header p {
   margin: 40px auto 0;
   max-width: max-content;
   line-height: 200%;
+}
+.profile--warnings:empty {
+  display: none;
 }
 @media only screen and (min-width: 768px) {
   .profile--warnings {
@@ -1784,7 +1785,6 @@ body:not(#idx):not(#Profile) .header p {
   border-radius: 4px;
 }
 .profile--sub a::after {
-  content: "\f178";
   display: inline-block;
   width: 0;
   overflow: hidden;
@@ -1846,7 +1846,6 @@ body:not(#idx):not(#Profile) .header p {
   cursor: default;
 }
 .tracker--labels button::after {
-  content: "\f178";
   display: inline-block;
   width: 0;
   overflow: hidden;
@@ -1966,6 +1965,10 @@ body:not(#idx):not(#Profile) .header p {
 .tracker--body {
   background: var(--content);
   padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .tracker--body > a {
   font-family: var(--headerFont);
@@ -1988,6 +1991,9 @@ body:not(#idx):not(#Profile) .header p {
   font-weight: 600;
   max-width: max-content;
 }
+.tracker--fact:empty {
+  display: none;
+}
 .tracker--latest {
   font-size: var(--xsBody);
   text-transform: uppercase;
@@ -2001,5 +2007,20 @@ body:not(#idx):not(#Profile) .header p {
 /*******************************
     Templates
 ********************************/
+#sort {
+  display: grid;
+  grid-gap: 20px;
+}
+#sort label {
+  display: grid;
+}
+#sort .form-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+#sort .form-item > strong, #sort .form-item > i {
+  flex: 0 0 100%;
+}
 
 /*# sourceMappingURL=styles.css.map */

@@ -5,60 +5,64 @@
     display: none;
 }
 .header {
-    background: var(--dark);
-    padding: 50px 0 0 50px;
-    left: 0;
-    margin-bottom: 80px;
 
-    @media only screen and (min-width: $md) {
-        margin-bottom: 0;
-        padding: 50px 50px 0;
-    }
+    header &,
+    &.profile--header {
+        background: var(--dark);
+        padding: 50px 0 0 50px;
+        left: 0;
+        margin-bottom: 80px;
 
-    h1 {
-        font-family: var(--accentFont);
-        font-weight: 700;
-        margin: 0;
-        text-align: center;
-        font-size: clamp(30px, 5vw, 45px);
-        color: var(--headerText);
-
-        #idx & {
-            font-size: clamp(60px, 6vw, 80px);
+        @media only screen and (min-width: $md) {
+            margin-bottom: 0;
+            padding: 50px 50px 0;
         }
-        #Profile & {
-            font-size: clamp(30px, 5vw, 45px);
 
-            @media only screen and (min-width: $sm) {
-                font-size: clamp(50px, 6vw, 70px);
+        h1 {
+            font-family: var(--accentFont);
+            font-weight: 700;
+            margin: 0;
+            text-align: center;
+            font-size: clamp(30px, 5vw, 45px);
+            color: var(--headerText);
+
+            #idx & {
+                font-size: clamp(60px, 6vw, 80px);
+            }
+            #Profile & {
+                font-size: clamp(30px, 5vw, 45px);
+
+                @media only screen and (min-width: $sm) {
+                    font-size: clamp(50px, 6vw, 70px);
+                }
+            }
+        }
+
+        p {
+            color: var(--headerText);
+            text-align: center;
+            font-family: var(--headerFont);
+            margin: 0;
+            text-transform: lowercase;
+
+            body:not(#idx):not(#Profile) & {
+                font-size: var(--lBody);
             }
         }
     }
-
-    p {
-        color: var(--headerText);
-        text-align: center;
-        font-family: var(--headerFont);
-        margin: 0;
-        text-transform: lowercase;
-
-        body:not(#idx):not(#Profile) & {
-            font-size: var(--lBody);
-        }
-    }
-
+      
     &--deco {
         border: 1px solid var(--light);
         border-bottom: none;
         padding: 50px;
-    
+
         @media only screen and (min-width: $md) {
             padding: 50px 50px 180px;
         }
 
         #idx & {
             padding: 130px 50px 150px;
-    
+
             @media only screen and (min-width: $md) {
                 padding: 130px 50px 230px;
             }

@@ -14,11 +14,11 @@
     }
 }
 .profile { 
-    &.acc-Character .memOnly,
+    &:not(.acc-Member) .memOnly,
     &.acc-Member .charOnly {
         display: none;
     }
-    &.app-Traditional {
+    &:not(.app-Basic):not(.app-Simplified) {
         .basicOnly {
             display: none;
         }
@@ -67,7 +67,6 @@
                 color: var(--headerText);
 
                 &::after {
-                    content: '\f178';
                     display: inline-block;
                     width: 0;
                     overflow: hidden;
@@ -130,10 +129,6 @@
         padding: 0 20px;
         left: 50px;
         width: calc(100% - 50px);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
     
         @media only screen and (min-width: $sm) {
             padding: 0 40px;
@@ -156,6 +151,10 @@
         margin: 40px auto 0;
         max-width: max-content;
         line-height: 200%;
+
+        &:empty {
+            display: none;
+        }
     
         @media only screen and (min-width: $md) {
             margin: 85px auto 0;
@@ -302,7 +301,6 @@
             border-radius: 4px;
 
             &::after {
-                content: '\f178';
                 display: inline-block;
                 width: 0;
                 overflow: hidden;
@@ -369,7 +367,6 @@
             }
 
             &::after {
-                content: '\f178';
                 display: inline-block;
                 width: 0;
                 overflow: hidden;
@@ -510,6 +507,10 @@
     &--body {
         background: var(--content);
         padding: 20px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         & > a {
             font-family: var(--headerFont);
@@ -532,6 +533,10 @@
         border-radius: 4px;
         font-weight: 600;
         max-width: max-content;
+
+        &:empty {
+            display: none;
+        }
     }
     &--latest {
         font-size: var(--xsBody);
