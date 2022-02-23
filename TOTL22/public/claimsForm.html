@@ -22,7 +22,7 @@
         <link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
 
         <!--Script Libraries-->
-        <script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
         <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
         <script src="../js/clipboard.js"></script>
@@ -850,7 +850,7 @@
                   let id = $("#sort-id").val();
                   let group = $("#sort-group").find(":selected").text().toLowerCase();
                   let groupID = $("#sort-group").val();
-                  let face = $("#sort-face").val();
+                  let face = $("#sort-face").val().toLowerCase();
                   let checkboxes = document.querySelectorAll('input[name="abilities"]:checked'), values = [];
                   Array.prototype.forEach.call(checkboxes, function(el) {
                       values.push(el.value);
@@ -902,7 +902,7 @@
                   let leadershipposition = $("#sort-leadershipposition").find(":selected").text().toLowerCase();
             
                   $.ajax({
-                    url: "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHej9BAllha02vmUwmNvXWlWpX_0ECX-zUq3bLO5gmSU3PBw/formResponse",
+                    url: "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHej9BAllha02vmUwmNvXWlWpX_0ECX-zUq3bLO5gmSU3PBw/formResponse?embedded=true",
                       
                     //add your google form generated numbers below which are also the 'names' of your inputs     
                     data: {
@@ -957,13 +957,12 @@
                     },
                     method: "POST",
                     type: "POST",
-                    contentType: 'application/json',
-                    dataType: "jsonp", 
+                    dataType: "json", 
                     success: function () {
                       console.log('success');
                     },
-                    error: function () {
-                      console.log('error');
+                    error: function (data) {
+                      console.log(data);
                     }
                   });
                   return false;
