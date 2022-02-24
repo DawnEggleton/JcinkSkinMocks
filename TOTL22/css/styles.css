@@ -2041,6 +2041,17 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   letter-spacing: 0;
   margin-bottom: 4px;
 }
+.claim--labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.claim--tab {
+  grid-gap: 20px;
+}
+.claim--tab:not(:last-child) {
+  margin-bottom: 20px;
+}
 
 /*******************************
     Templates

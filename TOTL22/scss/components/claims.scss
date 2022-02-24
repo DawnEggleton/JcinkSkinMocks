@@ -20,4 +20,18 @@
             margin-bottom: 4px;
         }
     }
+
+    &--labels {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    &--tab {
+        grid-gap: 20px;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
 }

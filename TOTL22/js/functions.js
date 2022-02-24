@@ -129,8 +129,28 @@ function checkQuid() {
     }  
 }
 
+function getYear(year) {
+    switch (year) {
+        case 'first year':
+            return 1;
+        case 'second year':
+            return 2;
+        case 'third year':
+            return 3;
+        case 'fourth year':
+            return 4;
+        case 'post-grad':
+        case 'fifth year':
+            return 5;
+        case 'sixth year':
+            return 6;
+        case 'seventh year':
+            return 7;
+    }
+}
+
 function structureFaceClaim (data) {
-    data.sort(function(a, b) {
+    data.sort((a, b) => {
         aValue = a.Face;
         bValue = b.Face;
         if (aValue < bValue) {
@@ -170,14 +190,26 @@ function structureFaceClaim (data) {
 
 function structureUniClaim (data) {
     let students = data.filter(item => item.School);
-    students.sort(function(a, b) {
-        aValue = a.School;
-        bValue = b.School;
+    students.sort((a, b) => {
+        aSchool = a.School;
+        bSchool = b.School;
+        aYear = parseInt(getYear(a.UniversityYear));
+        bYear = parseInt(getYear(b.UniversityYear));
+        aProgram = a.Program;
+        bProgram = b.Program;
         aName = a.Character;
         bName = b.Character;
-        if (aValue < bValue) {
+        if (aSchool < bSchool) {
             return -1;
-        } else if (aValue > bValue) {
+        } else if (aSchool > bSchool) {
+            return 1;
+        } if (aProgram < bProgram) {
+            return -1;
+        } else if (aProgram > bProgram) {
+            return 1;
+        } if (aYear < bYear) {
+            return -1;
+        } else if (aYear > bYear) {
             return 1;
         } else if (aName < bName) {
                 return -1;
@@ -191,27 +223,141 @@ function structureUniClaim (data) {
     students.forEach((character, i) => {
         if(i === 0) {
             html += `<h3 class="fullWidth">${character.School}</h3>`;
+            html += `<h4 class="fullWidth">${character.Program}</h4>`;
             html += `<div class="claim--item g-${character.GroupID}">
-                <b>${character.Face}</b>
-                <span>${character.Character}</span>
-                <span>Played by ${character.Member}</span>
+                    <b>${character.Character}</b>
+                    <span>Studying ${character.Program}</span>
+                    <span>Currently ${character.UniversityYear}</span>
                 </div>`;
         } else if(students[i - 1].School !== character.School) {
             html += `<h3 class="fullWidth">${character.School}</h3>`;
+            html += `<h4 class="fullWidth">${character.Program}</h4>`;
             html += `<div class="claim--item g-${character.GroupID}">
-                <b>${character.Face}</b>
-                <span>${character.Character}</span>
-                <span>Played by ${character.Member}</span>
+                    <b>${character.Character}</b>
+                    <span>Studying ${character.Program}</span>
+                    <span>Currently ${character.UniversityYear}</span>
+                </div>`;
+        } else if(students[i - 1].School === character.School && students[i - 1].Program !== character.Program) {
+            html += `<h4 class="fullWidth">${character.Program}</h4>`;
+            html += `<div class="claim--item g-${character.GroupID}">
+                    <b>${character.Character}</b>
+                    <span>Studying ${character.Program}</span>
+                    <span>Currently ${character.UniversityYear}</span>
                 </div>`;
         } else {
             html += `<div class="claim--item g-${character.GroupID}">
-                <b>${character.Face}</b>
-                <span>${character.Character}</span>
-                <span>Played by ${character.Member}</span>
+                    <b>${character.Character}</b>
+                    <span>Studying ${character.Program}</span>
+                    <span>Currently ${character.UniversityYear}</span>
                 </div>`;
         }
     });
     document.querySelector('#university').innerHTML = html;
+}
+
+function structureAbilitiesClaim (data) {
+    let charAbilities = data.filter(item => item.Abilities);
+    let charSpecies = data.filter(item => item.Species);
+    let abilities = [];
+    charAbilities.forEach(character => {
+        let characterAbilities = character.Abilities.split(', ');
+        characterAbilities.forEach(ability => {
+            let stripped = ability.split(' ('), animagusForm = null;
+            if(stripped.length > 1) {
+                animagusForm = stripped[1].split(')')[0];
+            }
+            abilities.push({
+                Character: character.Character,
+                GroupID: character.GroupID,
+                Ability: stripped[0],
+                AnimagusForm: animagusForm,
+            });
+        });
+    });
+    abilities.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        aAbility = a.Ability;
+        bAbility = b.Ability;
+        if (aAbility < bAbility) {
+            return -1;
+        } else if (aAbility > bAbility) {
+            return 1;
+        } else if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    charSpecies.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        aSpecies = a.Species;
+        bSpecies = b.Species;
+        if (aSpecies < bSpecies) {
+            return -1;
+        } else if (aSpecies > bSpecies) {
+            return 1;
+        } else if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let body = ``;
+    let labels = ``;
+    abilities.forEach((character, i) => {
+        if(i === 0) {
+            labels += `<a href="">${character.Ability}</a>`;
+            body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Ability}</h3>`;
+            body += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${(character.AnimagusForm) ? character.AnimagusForm : ''}</span>
+                </div>`;
+        } else if(abilities[i - 1].Ability !== character.Ability) {
+            labels += `<a href="">${character.Ability}</a>`;
+            body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Ability}</h3>`;
+            body += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${(character.AnimagusForm) ? character.AnimagusForm : ''}</span>
+                </div>`;
+        } else {
+            body += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${(character.AnimagusForm) ? character.AnimagusForm : ''}</span>
+                </div>`;
+        }
+    });
+    body += `</div>`;
+    charSpecies.forEach((character, i) => {
+        if(i === 0) {
+            labels += `<a href="">${character.Species}</a>`;
+            body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Species}</h3>`;
+            body += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${(character.VeelaBlood) ? character.VeelaBlood : ''}</span>
+                </div>`;
+        } else if(charSpecies[i - 1].Species !== character.Species) {
+            labels += `<a href="">${character.Species}</a>`;
+            body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Species}</h3>`;
+            body += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${(character.VeelaBlood) ? character.VeelaBlood : ''}</span>
+                </div>`;
+        } else {
+            body += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${(character.VeelaBlood) ? character.VeelaBlood : ''}</span>
+                </div>`;
+        }
+    });
+    body += `</div>`;
+    document.querySelector('#abilitiesTabs').innerHTML = labels;
+    document.querySelector('#abilities').innerHTML = body;
 }
                 
 
