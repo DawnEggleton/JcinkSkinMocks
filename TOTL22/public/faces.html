@@ -54,15 +54,54 @@
             
             <!--Webpage-->
             <h2>Face Claims</h2>
-            <div id="faces"></div>
+            <div id="faces" class="claim grid threeCol"></div>
 
             <script>
-                //
-                fetch('https://docs.google.com/spreadsheets/d/1oxsI5jK9YnNMjo2DI_ocoP0DEPwG-yFJhS7HsRRyBQU/edit?usp=sharing')
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                })
+                const url = `https://opensheet.elk.sh/1oxsI5jK9YnNMjo2DI_ocoP0DEPwG-yFJhS7HsRRyBQU/Info`;
+                function loadFaceClaim() {
+                    fetch(url)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        data.sort(function(a, b) {
+                            aValue = a.Face;
+                            bValue = b.Face;
+                            if (aValue < bValue) {
+                                return -1;
+                            } else if (aValue > bValue) {
+                                return 1;
+                            } else {
+                                return 0;
+                            }
+                        });
+                        let html = ``;
+                        data.forEach((character, i) => {
+                            if(i === 0) {
+                                html += `<h3 class="fullWidth">${character.Face[0]}</h3>`;
+                                html += `<div class="claim--item g-${character.GroupID}">
+                                    <b>${character.Face}</b>
+                                    <span>${character.Character}</span>
+                                    <span>Played by ${character.Member}</span>
+                                    </div>`;
+                            } else if(data[i - 1].Face[0] !== character.Face[0]) {
+                                html += `<h3 class="fullWidth">${character.Face[0]}</h3>`;
+                                html += `<div class="claim--item g-${character.GroupID}">
+                                    <b>${character.Face}</b>
+                                    <span>${character.Character}</span>
+                                    <span>Played by ${character.Member}</span>
+                                    </div>`;
+                            } else {
+                                html += `<div class="claim--item g-${character.GroupID}">
+                                    <b>${character.Face}</b>
+                                    <span>${character.Character}</span>
+                                    <span>Played by ${character.Member}</span>
+                                    </div>`;
+                            }
+                        });
+                        document.querySelector('#faces').innerHTML = html;
+
+                    });
+                }
+                loadFaceClaim();
             </script>
 
         </main>

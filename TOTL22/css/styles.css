@@ -2004,9 +2004,6 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
 /*******************************
     Webpages
 ********************************/
-/*******************************
-    Templates
-********************************/
 #sort {
   display: grid;
   grid-gap: 20px;
@@ -2022,5 +2019,31 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
 #sort .form-item > strong, #sort .form-item > i {
   flex: 0 0 100%;
 }
+
+.claim {
+  grid-gap: 20px;
+}
+.claim--item {
+  background: var(--content);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 200%;
+  border-left: 10px solid var(--ltaccent);
+}
+.claim--item b {
+  font-family: var(--headerFont);
+  font-size: var(--xlBody);
+  text-transform: lowercase;
+  letter-spacing: 0;
+  margin-bottom: 4px;
+}
+
+/*******************************
+    Templates
+********************************/
 
 /*# sourceMappingURL=styles.css.map */
