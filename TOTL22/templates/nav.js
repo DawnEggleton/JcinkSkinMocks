@@ -23,8 +23,14 @@ const nav = `
         <a href="/" class="memOnly">Discord</a>
         <a href="/" class="staffOnly mobileOnly">Admin Panel</a>
         <a href="/" class="staffOnly mobileOnly">Mod Panel</a>
-        <a href="/">Custom Links</a>
-        <a href="/">Come After</a>
+        <a href="claim-faces.html">Faces</a>
+        <a href="claim-abilities.html">abilities</a>
+        <a href="claim-jobs.html">jobs</a>
+        <a href="claim-university.html">universities</a>
+        <a href="claim-classes.html">classes</a>
+        <a href="claim-dorms.html">dorms</a>
+        <a href="claim-leadership.html">leadership</a>
+        <a href="claim-quidditch.html">quidditch</a>
     </div>
 </div>
 <div class="main-nav--trigger-bar">

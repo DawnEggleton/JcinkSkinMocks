@@ -128,12 +128,97 @@ function checkQuid() {
         hideFields('.ifQuidditch');
     }  
 }
+
+function structureFaceClaim (data) {
+    data.sort(function(a, b) {
+        aValue = a.Face;
+        bValue = b.Face;
+        if (aValue < bValue) {
+            return -1;
+        } else if (aValue > bValue) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let html = ``;
+    data.forEach((character, i) => {
+        if(i === 0) {
+            html += `<h3 class="fullWidth">${character.Face[0]}</h3>`;
+            html += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Face}</b>
+                <span>${character.Character}</span>
+                <span>Played by ${character.Member}</span>
+                </div>`;
+        } else if(data[i - 1].Face[0] !== character.Face[0]) {
+            html += `<h3 class="fullWidth">${character.Face[0]}</h3>`;
+            html += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Face}</b>
+                <span>${character.Character}</span>
+                <span>Played by ${character.Member}</span>
+                </div>`;
+        } else {
+            html += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Face}</b>
+                <span>${character.Character}</span>
+                <span>Played by ${character.Member}</span>
+                </div>`;
+        }
+    });
+    document.querySelector('#faces').innerHTML = html;
+}
+
+function structureUniClaim (data) {
+    let students = data.filter(item => item.School);
+    students.sort(function(a, b) {
+        aValue = a.School;
+        bValue = b.School;
+        aName = a.Character;
+        bName = b.Character;
+        if (aValue < bValue) {
+            return -1;
+        } else if (aValue > bValue) {
+            return 1;
+        } else if (aName < bName) {
+                return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let html = ``;
+    students.forEach((character, i) => {
+        if(i === 0) {
+            html += `<h3 class="fullWidth">${character.School}</h3>`;
+            html += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Face}</b>
+                <span>${character.Character}</span>
+                <span>Played by ${character.Member}</span>
+                </div>`;
+        } else if(students[i - 1].School !== character.School) {
+            html += `<h3 class="fullWidth">${character.School}</h3>`;
+            html += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Face}</b>
+                <span>${character.Character}</span>
+                <span>Played by ${character.Member}</span>
+                </div>`;
+        } else {
+            html += `<div class="claim--item g-${character.GroupID}">
+                <b>${character.Face}</b>
+                <span>${character.Character}</span>
+                <span>Played by ${character.Member}</span>
+                </div>`;
+        }
+    });
+    document.querySelector('#university').innerHTML = html;
+}
                 
 
 function postToGoogle() {
   let member = $("#sort-member").val().toLowerCase();
   let character = $("#sort-character").val().toLowerCase();
-  let id = $("#sort-id").val();
+  let accountID = $("#sort-id").val();
   let group = $("#sort-group").find(":selected").text().toLowerCase();
   let groupID = $("#sort-group").val();
   let face = $("#sort-face").val().toLowerCase();
@@ -233,7 +318,7 @@ function postToGoogle() {
     data: {
       "entry.1432517820": member,
       "entry.107957704": character,
-      "entry.1642550285": id,
+      "entry.1642550285": accountID,
       "entry.143362062": group,
       "entry.1355686451": groupID,
       "entry.1726668460": face,
@@ -285,11 +370,9 @@ function postToGoogle() {
     dataType: "json", 
     success: function () {
       console.log('success');
-      $('button[type="submit"]').val('Submitting...');
     },
     error: function (data) {
       console.log('error');
-      $('button[type="submit"]').val('Submitting...');
     },
     complete: function () {
         $('#sort').trigger('reset');
@@ -301,6 +384,7 @@ function postToGoogle() {
         removeRequired('#sort-employed');
         removeRequired('#sort-universitystudent');
         $('button[type="submit"]').val('Submit');
+        document.querySelector('#warning').innerHTML = 'Success! Your character has been added to the sheet.';
     }
   });
 
