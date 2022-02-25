@@ -2028,6 +2028,7 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   padding: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   font-size: var(--xsBody);
   text-transform: uppercase;
   letter-spacing: 2px;

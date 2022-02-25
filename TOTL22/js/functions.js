@@ -91,24 +91,24 @@ function checkYear() {
         case '1':
         case '2':
             showFields('.ifCore, .ifStart');
-            hideFields('.ifLower, .ifLeadershipershipPossible, .ifUpper, .ifElec');
+            hideFields('.ifLower, .ifLeadershipPossible, .ifUpper, .ifElec');
             break;
         case '3':
         case '4':
             showFields('.ifLower, .ifElec, .ifCore');
-            hideFields('.ifLeadershipershipPossible, .ifUpper, .ifStart');
+            hideFields('.ifLeadership, .ifLeadershipPossible, .ifUpper, .ifStart');
             break;
         case '5':
-            showFields('.ifLeadershipershipPossible, .ifLower, .ifElec, .ifCore');
+            showFields('.ifLeadershipPossible, .ifLower, .ifElec, .ifCore');
             hideFields('.ifUpper, .ifStart');
             break;
         case '6':
         case '7':
-            showFields('.ifLeadershipershipPossible, .ifUpper, .ifElec');
+            showFields('.ifLeadershipPossible, .ifUpper, .ifElec');
             hideFields('.ifLower, .ifStart, .ifCore');
             break;
         default:
-            hideFields('.ifLower, .ifUpper, .ifLeadership, .ifLeadershipershipPossible, .ifQuidditch, .ifElec, .ifStart, .ifCore');
+            hideFields('.ifLower, .ifUpper, .ifLeadership, .ifLeadershipPossible, .ifQuidditch, .ifElec, .ifStart, .ifCore');
             break;
     } 
 }
@@ -666,11 +666,11 @@ function structureClassClaim (data) {
             return -1;
         } else if (aYear > bYear) {
             return 1;
-        } if (aClass < bClass) {
+        } else if (aClass < bClass) {
             return -1;
         } else if (aClass > bClass) {
             return 1;
-        } if (aName < bName) {
+        } else if (aName < bName) {
             return -1;
         } else if (aName > bName) {
             return 1;
@@ -713,6 +713,209 @@ function structureClassClaim (data) {
     body += `</div>`;
     document.querySelector('#classTabs').innerHTML = labels;
     document.querySelector('#classes').innerHTML = body;
+}
+
+function structureDormClaim (data) {
+    let students = data.filter(item => {
+        if(item.GroupName === 'hufflepuff' || item.GroupName === 'ravenclaw' || item.GroupName === 'gryffindor' || item.GroupName === 'slytherin') {
+            return true;
+        }
+        return false;
+    });
+    students.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        aHouse = a.GroupName;
+        bHouse = b.GroupName;
+        aYear = parseInt(getYear(a.HogwartsYear));
+        bYear = parseInt(getYear(b.HogwartsYear));
+        aDorm = a.Dorm;
+        bDorm = b.Dorm;
+        if (aHouse < bHouse) {
+            return -1;
+        } else if (aHouse > bHouse) {
+            return 1;
+        } else if (aYear < bYear) {
+            return -1;
+        } else if (aYear > bYear) {
+            return 1;
+        } else if (aDorm < bDorm) {
+            return -1;
+        } else if (aDorm > bDorm) {
+            return 1;
+        } else if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let body = ``;
+    let labels = ``;
+    students.forEach((character, i) => {
+        if(i === 0) {
+            labels += `<a href="">${character.GroupName}</a>`;
+            body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
+            body += `<h4 class="fullWidth">${character.Dorm}</h4>`;
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                </a>`;
+        } else if(students[i - 1].GroupName !== character.GroupName) {
+            labels += `<a href="">${character.GroupName}</a>`;
+            body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
+            body += `<h4 class="fullWidth">${character.Dorm}</h4>`;
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                </a>`;
+        } else if(students[i - 1].HogwartsYear !== character.HogwartsYear) {
+            body += `<h3 class="fullWidth">${character.HogwartsYear}</h3>`;
+            body += `<h4 class="fullWidth">${character.Dorm}</h4>`;
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                </a>`;
+        } else if(students[i - 1].Dorm !== character.Dorm) {
+            body += `<h4 class="fullWidth">${character.Dorm}</h4>`;
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                </a>`;
+        } else {
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                </a>`;
+        }
+    });
+    body += `</div>`;
+    document.querySelector('#dormTabs').innerHTML = labels;
+    document.querySelector('#dorms').innerHTML = body;
+}
+
+function structureQuidditchClaim (data) {
+    let students = data.filter(item => item.QuidditchPosition);
+    students.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        aHouse = a.GroupName;
+        bHouse = b.GroupName;
+        aPosition = a.QuidditchPosition;
+        bPosition = b.QuidditchPosition;
+        if (aHouse < bHouse) {
+            return -1;
+        } else if (aHouse > bHouse) {
+            return 1;
+        } else if (aPosition < bPosition) {
+            return -1;
+        } else if (aPosition > bPosition) {
+            return 1;
+        } else if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let html = ``;
+    students.forEach((character, i) => {
+        if(i === 0) {
+            html += `<h3 class="fullWidth">${character.GroupName}</h3>`;
+            html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                    <b>${character.Character}</b>
+                    <span>${character.QuidditchPosition}</span>
+                </a>`;
+        } else if(students[i - 1].GroupName !== character.GroupName) {
+            html += `<h3 class="fullWidth">${character.School}</h3>`;
+            html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                    <b>${character.Character}</b>
+                    <span>${character.QuidditchPosition}</span>
+                </a>`;
+        } else {
+            html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                    <b>${character.Character}</b>
+                    <span>${character.QuidditchPosition}</span>
+                </a>`;
+        }
+    });
+    document.querySelector('#quidditch').innerHTML = html;
+}
+
+function structureLeadClaim (data) {
+    let students = data.filter(item => item.LeadershipPosition);
+    students.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        aHouse = a.GroupName;
+        bHouse = b.GroupName;
+        if (aHouse < bHouse) {
+            return -1;
+        } else if (aHouse > bHouse) {
+            return 1;
+        } else if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let heads = false;
+    let fifths = false;
+    let sixths = false;
+    let sevenths = false;
+    if(students.filter(student => student.LeadershipPosition === 'head boy/girl').length > 0) {
+        heads = true;
+    }
+    if(students.filter(student => student.HogwartsYear === 'fifth year').length > 0) {
+        fifths = true;
+    }
+    if(students.filter(student => student.HogwartsYear === 'sixth year').length > 0) {
+        sixths = true;
+    }
+    if(students.filter(student => student.HogwartsYear === 'seventh year').length > 0) {
+        sevenths = true;
+    }
+    let html = ``;
+    if(heads) {
+        html += `<h3 class="fullWidth">student heads</h3>`;
+        students.forEach(character => {
+            if(character.LeadershipPosition === 'head boy/girl') {
+                html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                </a>`;
+            }
+        });
+    }
+    if(sevenths) {
+        html += `<h3 class="fullWidth">seventh year prefects</h3>`;
+        students.forEach(character => {
+            if(character.LeadershipPosition === 'prefect' && character.HogwartsYear === 'seventh year') {
+                html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                </a>`;
+            }
+        });
+    }
+    if(sixths) {
+        html += `<h3 class="fullWidth">sixth year prefects</h3>`;
+        students.forEach(character => {
+            if(character.LeadershipPosition === 'prefect' && character.HogwartsYear === 'sixth year') {
+                html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                </a>`;
+            }
+        });
+    }
+    if(fifths) {
+        html += `<h3 class="fullWidth">fifth year prefects</h3>`;
+        students.forEach(character => {
+            if(character.LeadershipPosition === 'prefect' && character.HogwartsYear === 'fifth year') {
+                html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                </a>`;
+            }
+        });
+    }
+    document.querySelector('#leadership').innerHTML = html;
 }
                 
 
