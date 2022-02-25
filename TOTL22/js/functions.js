@@ -165,24 +165,24 @@ function structureFaceClaim (data) {
     data.forEach((character, i) => {
         if(i === 0) {
             html += `<h3 class="fullWidth">${character.Face[0]}</h3>`;
-            html += `<div class="claim--item g-${character.GroupID}">
+            html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Face}</b>
                 <span>${character.Character}</span>
                 <span>Played by ${character.Member}</span>
-                </div>`;
+                </a>`;
         } else if(data[i - 1].Face[0] !== character.Face[0]) {
             html += `<h3 class="fullWidth">${character.Face[0]}</h3>`;
-            html += `<div class="claim--item g-${character.GroupID}">
+            html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Face}</b>
                 <span>${character.Character}</span>
                 <span>Played by ${character.Member}</span>
-                </div>`;
+                </a>`;
         } else {
-            html += `<div class="claim--item g-${character.GroupID}">
+            html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Face}</b>
                 <span>${character.Character}</span>
                 <span>Played by ${character.Member}</span>
-                </div>`;
+                </a>`;
         }
     });
     document.querySelector('#faces').innerHTML = html;
@@ -224,32 +224,32 @@ function structureUniClaim (data) {
         if(i === 0) {
             html += `<h3 class="fullWidth">${character.School}</h3>`;
             html += `<h4 class="fullWidth">${character.Program}</h4>`;
-            html += `<div class="claim--item g-${character.GroupID}">
+            html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                     <b>${character.Character}</b>
                     <span>Studying ${character.Program}</span>
                     <span>Currently ${character.UniversityYear}</span>
-                </div>`;
+                </a>`;
         } else if(students[i - 1].School !== character.School) {
             html += `<h3 class="fullWidth">${character.School}</h3>`;
             html += `<h4 class="fullWidth">${character.Program}</h4>`;
-            html += `<div class="claim--item g-${character.GroupID}">
+            html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                     <b>${character.Character}</b>
                     <span>Studying ${character.Program}</span>
                     <span>Currently ${character.UniversityYear}</span>
-                </div>`;
+                </a>`;
         } else if(students[i - 1].School === character.School && students[i - 1].Program !== character.Program) {
             html += `<h4 class="fullWidth">${character.Program}</h4>`;
-            html += `<div class="claim--item g-${character.GroupID}">
+            html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                     <b>${character.Character}</b>
                     <span>Studying ${character.Program}</span>
                     <span>Currently ${character.UniversityYear}</span>
-                </div>`;
+                </a>`;
         } else {
-            html += `<div class="claim--item g-${character.GroupID}">
+            html += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                     <b>${character.Character}</b>
                     <span>Studying ${character.Program}</span>
                     <span>Currently ${character.UniversityYear}</span>
-                </div>`;
+                </a>`;
         }
     });
     document.querySelector('#university').innerHTML = html;
@@ -269,6 +269,7 @@ function structureAbilitiesClaim (data) {
             abilities.push({
                 Character: character.Character,
                 GroupID: character.GroupID,
+                AccountID: character.AccountID,
                 Ability: stripped[0],
                 AnimagusForm: animagusForm,
             });
@@ -314,22 +315,22 @@ function structureAbilitiesClaim (data) {
         if(i === 0) {
             labels += `<a href="">${character.Ability}</a>`;
             body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Ability}</h3>`;
-            body += `<div class="claim--item g-${character.GroupID}">
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.AnimagusForm) ? character.AnimagusForm : ''}</span>
-                </div>`;
+                </a>`;
         } else if(abilities[i - 1].Ability !== character.Ability) {
             labels += `<a href="">${character.Ability}</a>`;
             body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Ability}</h3>`;
-            body += `<div class="claim--item g-${character.GroupID}">
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.AnimagusForm) ? character.AnimagusForm : ''}</span>
-                </div>`;
+                </a>`;
         } else {
-            body += `<div class="claim--item g-${character.GroupID}">
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.AnimagusForm) ? character.AnimagusForm : ''}</span>
-                </div>`;
+                </a>`;
         }
     });
     body += `</div>`;
@@ -337,27 +338,381 @@ function structureAbilitiesClaim (data) {
         if(i === 0) {
             labels += `<a href="">${character.Species}</a>`;
             body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Species}</h3>`;
-            body += `<div class="claim--item g-${character.GroupID}">
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.VeelaBlood) ? character.VeelaBlood : ''}</span>
-                </div>`;
+                </a>`;
         } else if(charSpecies[i - 1].Species !== character.Species) {
             labels += `<a href="">${character.Species}</a>`;
             body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Species}</h3>`;
-            body += `<div class="claim--item g-${character.GroupID}">
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.VeelaBlood) ? character.VeelaBlood : ''}</span>
-                </div>`;
+                </a>`;
         } else {
-            body += `<div class="claim--item g-${character.GroupID}">
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.VeelaBlood) ? character.VeelaBlood : ''}</span>
-                </div>`;
+                </a>`;
         }
     });
     body += `</div>`;
     document.querySelector('#abilitiesTabs').innerHTML = labels;
     document.querySelector('#abilities').innerHTML = body;
+}
+
+function structureJobClaim (data) {
+    let array = data.filter(item => item.JobTitle);
+    let employed = [];
+    array.forEach(character => {
+        employed.push({
+            Character: character.Character,
+            GroupID: character.GroupID,
+            AccountID: character.AccountID,
+            Section: character.JobSection,
+            Subsection: character.JobSubsection,
+            Title: character.JobTitle,
+            Notes: character.JobNotes,
+        });
+        if(character.Job2Title) {
+            employed.push({
+                Character: character.Character,
+                GroupID: character.GroupID,
+                AccountID: character.AccountID,
+                Section: character.Job2Section,
+                Subsection: character.Job2Subsection,
+                Title: character.Job2Title,
+                Notes: character.Job2Notes,
+            });
+        }
+        if(character.Job3Title) {
+            employed.push({
+                Character: character.Character,
+                GroupID: character.GroupID,
+                AccountID: character.AccountID,
+                Section: character.Job3Section,
+                Subsection: character.Job3Subsection,
+                Title: character.Job3Title,
+                Notes: character.Job3Notes,
+            });
+        }
+        if(character.Job4Title) {
+            employed.push({
+                Character: character.Character,
+                GroupID: character.GroupID,
+                AccountID: character.AccountID,
+                Section: character.Job4Section,
+                Subsection: character.Job4Subsection,
+                Title: character.Job4Title,
+                Notes: character.Job4Notes,
+            });
+        }
+    });
+    employed.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        aSection = a.Section;
+        bSection = b.Section;
+        aSubsection = a.Subsection;
+        bSubsection = b.Subsection;
+        aTitle = a.Title;
+        bTitle = b.Title;
+        aNotes = a.Notes;
+        bNotes = b.Notes;
+        if (aSection < bSection) {
+            return -1;
+        } else if (aSection > bSection) {
+            return 1;
+        } else if (aSubsection < bSubsection) {
+            return -1;
+        } else if (aSubsection > bSubsection) {
+            return 1;
+        }  else if (aNotes < bNotes) {
+            return -1;
+        } else if (aNotes > bNotes) {
+            return 1;
+        } else if (aTitle < bTitle) {
+            return -1;
+        } else if (aTitle > bTitle) {
+            return 1;
+        }  else if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let body = ``;
+    let labels = ``;
+    employed.forEach((character, i) => {
+        if(i === 0) {
+            labels += `<a href="">${character.Section}</a>`;
+            body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Section}</h3>`;
+            body += `<h4 class="fullWidth">${character.Subsection}</h4>`;
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${(character.Notes) ? character.Notes : ''}</span>
+                <span>${character.Title}</span>
+                </a>`;
+        } else if(employed[i - 1].Section !== character.Section) {
+            labels += `<a href="">${character.Section}</a>`;
+            body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Section}</h3>`;
+            body += `<h4 class="fullWidth">${character.Subsection}</h4>`;
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${(character.Notes) ? character.Notes : ''}</span>
+                <span>${character.Title}</span>
+                </a>`;
+        }  else if(employed[i - 1].Section === character.Section && employed[i - 1].Subsection !== character.Subsection) {
+            body += `<h4 class="fullWidth">${character.Subsection}</h4>`;
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${(character.Notes) ? character.Notes : ''}</span>
+                <span>${character.Title}</span>
+                </a>`;
+        } else {
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${(character.Notes) ? character.Notes : ''}</span>
+                <span>${character.Title}</span>
+                </a>`;
+        }
+    });
+    body += `</div>`;
+    document.querySelector('#jobsTabs').innerHTML = labels;
+    document.querySelector('#jobs').innerHTML = body;
+}
+
+function structureClassClaim (data) {
+    let array = data.filter(item => {
+        if(item.GroupName === 'hufflepuff' || item.GroupName === 'ravenclaw' || item.GroupName === 'gryffindor' || item.GroupName === 'slytherin') {
+            return true;
+        }
+        return false;
+    });
+    let classLists = [];
+    array.forEach(character => {
+        let student = {
+            Character: character.Character,
+            AccountID: character.AccountID,
+            GroupID: character.GroupID,
+            HogwartsYear: character.HogwartsYear,
+        };
+        if(parseInt(getYear(character.HogwartsYear)) < 3) {
+            student.Classes = [
+                {
+                    Name: 'astronomy',
+                    Grade: character.Astronomy,
+                },
+                {
+                    Name: 'charms',
+                    Grade: character.Charms,
+                },
+                {
+                    Name: 'defence against the dark arts',
+                    Grade: character.DADA,
+                },
+                {
+                    Name: 'games',
+                    Grade: character.Games,
+                },
+                {
+                    Name: 'herbology',
+                    Grade: character.Herbology,
+                },
+                {
+                    Name: 'history of magic',
+                    Grade: character.HistoryOfMagic,
+                },
+                {
+                    Name: 'literacy',
+                    Grade: character.Literacy,
+                },
+                {
+                    Name: 'magical theory',
+                    Grade: character.MagicalTheory,
+                },
+                {
+                    Name: 'maths',
+                    Grade: character.Maths,
+                },
+                {
+                    Name: character.Culture,
+                    Grade: character.CultureGrade,
+                },
+                {
+                    Name: 'potions',
+                    Grade: character.Potions,
+                },
+                {
+                    Name: 'transfiguration',
+                    Grade: character.Transfiguration,
+                }
+            ]
+        } else if (parseInt(getYear(character.HogwartsYear)) < 6) {
+            student.Classes = [
+                {
+                    Name: 'astronomy',
+                    Grade: character.Astronomy,
+                },
+                {
+                    Name: 'charms',
+                    Grade: character.Charms,
+                },
+                {
+                    Name: 'defence against the dark arts',
+                    Grade: character.DADA,
+                },
+                {
+                    Name: 'games',
+                    Grade: character.Games,
+                },
+                {
+                    Name: 'herbology',
+                    Grade: character.Herbology,
+                },
+                {
+                    Name: 'history of magic',
+                    Grade: character.HistoryOfMagic,
+                },
+                {
+                    Name: 'potions',
+                    Grade: character.Potions,
+                },
+                {
+                    Name: 'transfiguration',
+                    Grade: character.Transfiguration,
+                },
+                {
+                    Name: character.Elec1,
+                    Grade: character.Elec1Grade,
+                },
+                {
+                    Name: character.Elec2,
+                    Grade: character.Elec2Grade,
+                },
+                {
+                    Name: character.Elec3,
+                    Grade: character.Elec3Grade,
+                },
+                {
+                    Name: character.Elec4,
+                    Grade: character.Elec4Grade,
+                }
+            ]
+        } else {
+            student.Classes = [
+                {
+                    Name: character.Elec1,
+                    Grade: character.Elec1Grade,
+                },
+                {
+                    Name: character.Elec2,
+                    Grade: character.Elec2Grade,
+                },
+                {
+                    Name: character.Elec3,
+                    Grade: character.Elec3Grade,
+                },
+                {
+                    Name: character.Elec4,
+                    Grade: character.Elec4Grade,
+                },
+                {
+                    Name: character.Elec5,
+                    Grade: character.Elec5Grade,
+                },
+                {
+                    Name: character.Elec6,
+                    Grade: character.Elec6Grade,
+                },
+                {
+                    Name: character.Elec7,
+                    Grade: character.Elec7Grade,
+                },
+                {
+                    Name: character.Elec8,
+                    Grade: character.Elec8Grade,
+                }
+            ]
+        }
+        classLists.push(student);
+    });
+    let students = [];
+    classLists.forEach(student => {
+        student.Classes.forEach(course => {
+            if(course.Name) {
+                students.push({
+                    Character: student.Character,
+                    AccountID: student.AccountID,
+                    GroupID: student.GroupID,
+                    HogwartsYear: student.HogwartsYear,
+                    ClassName: course.Name,
+                    ClassGrade: course.Grade,
+                });
+            }
+        });
+    });
+    console.log(students);
+    students.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        aYear = parseInt(getYear(a.HogwartsYear));
+        bYear = parseInt(getYear(b.HogwartsYear));
+        aClass = a.ClassName;
+        bClass = b.ClassName;
+        if (aYear < bYear) {
+            return -1;
+        } else if (aYear > bYear) {
+            return 1;
+        } if (aClass < bClass) {
+            return -1;
+        } else if (aClass > bClass) {
+            return 1;
+        } if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let body = ``;
+    let labels = ``;
+    students.forEach((character, i) => {
+        if(i === 0) {
+            labels += `<a href="">${character.HogwartsYear}</a>`;
+            body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
+            body += `<h4 class="fullWidth">${character.ClassName}</h4>`;
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${character.ClassGrade}</span>
+                </a>`;
+        } else if(students[i - 1].HogwartsYear !== character.HogwartsYear) {
+            labels += `<a href="">${character.HogwartsYear}</a>`;
+            body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
+            body += `<h4 class="fullWidth">${character.ClassName}</h4>`;
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${character.ClassGrade}</span>
+                </a>`;
+        }  else if(students[i - 1].HogwartsYear === character.HogwartsYear && students[i - 1].ClassName !== character.ClassName) {
+            body += `<h4 class="fullWidth">${character.ClassName}</h4>`;
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${character.ClassGrade}</span>
+                </a>`;
+        } else {
+            body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
+                <b>${character.Character}</b>
+                <span>${character.ClassGrade}</span>
+                </a>`;
+        }
+    });
+    body += `</div>`;
+    document.querySelector('#classTabs').innerHTML = labels;
+    document.querySelector('#classes').innerHTML = body;
 }
                 
 

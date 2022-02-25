@@ -53,15 +53,16 @@
             <a name="top"></a>
             
             <!--Webpage-->
-            <h2>Face Claims</h2>
-            <div id="faces" class="claim grid threeCol"></div>
+            <h2>Class Claims</h2>
+            <div id="classTabs" class="claim--labels"></div>
+            <div id="classes" class="claim--tabs"></div>
 
             <script>
                 const url = `https://opensheet.elk.sh/1oxsI5jK9YnNMjo2DI_ocoP0DEPwG-yFJhS7HsRRyBQU/Info`;
                 fetch(url)
                 .then((response) => response.json())
                 .then((data) => {
-                    structureFaceClaim(data);
+                    structureClassClaim(data);
                 });
             </script>
 
