@@ -314,14 +314,14 @@ function structureAbilitiesClaim (data) {
     abilities.forEach((character, i) => {
         if(i === 0) {
             labels += `<a href="#${character.Ability.replace(' ', '')}">${character.Ability}</a>`;
-            body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Ability}</h3>`;
+            body += `<div class="claim--tab grid twoCol"><h3 class="fullWidth">${character.Ability}</h3>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.AnimagusForm) ? character.AnimagusForm : ''}</span>
                 </a>`;
         } else if(abilities[i - 1].Ability !== character.Ability) {
             labels += `<a href="#${character.Ability.replace(' ', '')}">${character.Ability}</a>`;
-            body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Ability}</h3>`;
+            body += `</div><div class="claim--tab grid twoCol"><h3 class="fullWidth">${character.Ability}</h3>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.AnimagusForm) ? character.AnimagusForm : ''}</span>
@@ -337,14 +337,14 @@ function structureAbilitiesClaim (data) {
     charSpecies.forEach((character, i) => {
         if(i === 0) {
             labels += `<a href="#${character.Species.replace(' ', '')}">${character.Species}</a>`;
-            body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Species}</h3>`;
+            body += `<div class="claim--tab grid twoCol"><h3 class="fullWidth">${character.Species}</h3>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.VeelaBlood) ? character.VeelaBlood : ''}</span>
                 </a>`;
         } else if(charSpecies[i - 1].Species !== character.Species) {
             labels += `<a href="#${character.Species.replace(' ', '')}">${character.Species}</a>`;
-            body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Species}</h3>`;
+            body += `</div><div class="claim--tab grid twoCol"><h3 class="fullWidth">${character.Species}</h3>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.VeelaBlood) ? character.VeelaBlood : ''}</span>
@@ -448,7 +448,7 @@ function structureJobClaim (data) {
     employed.forEach((character, i) => {
         if(i === 0) {
             labels += `<a href="#${character.Section.replace(' ', '')}">${character.Section}</a>`;
-            body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Section}</h3>`;
+            body += `<div class="claim--tab grid twoCol"><h3 class="fullWidth">${character.Section}</h3>`;
             body += `<h4 class="fullWidth">${character.Subsection}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
@@ -457,7 +457,7 @@ function structureJobClaim (data) {
                 </a>`;
         } else if(employed[i - 1].Section !== character.Section) {
             labels += `<a href="#${character.Section.replace(' ', '')}">${character.Section}</a>`;
-            body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Section}</h3>`;
+            body += `</div><div class="claim--tab grid twoCol"><h3 class="fullWidth">${character.Section}</h3>`;
             body += `<h4 class="fullWidth">${character.Subsection}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
@@ -682,7 +682,7 @@ function structureClassClaim (data) {
     students.forEach((character, i) => {
         if(i === 0) {
             labels += `<a href="#${character.HogwartsYear.replace(' ', '')}">${character.HogwartsYear}</a>`;
-            body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
+            body += `<div class="claim--tab grid twoCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
             body += `<h4 class="fullWidth">${character.ClassName}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
@@ -690,7 +690,7 @@ function structureClassClaim (data) {
                 </a>`;
         } else if(students[i - 1].HogwartsYear !== character.HogwartsYear) {
             labels += `<a href="#${character.HogwartsYear.replace(' ', '')}">${character.HogwartsYear}</a>`;
-            body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
+            body += `</div><div class="claim--tab grid twoCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
             body += `<h4 class="fullWidth">${character.ClassName}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
@@ -755,14 +755,14 @@ function structureDormClaim (data) {
     students.forEach((character, i) => {
         if(i === 0) {
             labels += `<a href="#${character.GroupName.replace(' ', '')}">${character.GroupName}</a>`;
-            body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
+            body += `<div class="claim--tab grid twoCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
             body += `<h4 class="fullWidth">${character.Dorm}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 </a>`;
         } else if(students[i - 1].GroupName !== character.GroupName) {
             labels += `<a href="#${character.GroupName.replace(' ', '')}">${character.GroupName}</a>`;
-            body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
+            body += `</div><div class="claim--tab grid twoCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
             body += `<h4 class="fullWidth">${character.Dorm}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
@@ -1094,7 +1094,7 @@ function postToGoogle() {
   return false;
 }
 
-function tabbedContent(labels, tabs) {
+function tabbedContent(labels, tabs, remove = '') {
     let labelArray = document.querySelectorAll(labels);
     let tabArray = document.querySelectorAll(tabs);
     if(Array.from(labelArray).filter(label => label.classList.contains('active')).length === 0) {
@@ -1107,6 +1107,13 @@ function tabbedContent(labels, tabs) {
             tabArray.forEach(tab => tab.classList.remove('active'));
             labelArray[index].classList.add('active');
             tabArray[index].classList.add('active');
+            if(remove === 'webpagetab') {
+                document.querySelectorAll('.webpage--tab').forEach(tabset => tabset.classList.remove('active'));
+                document.querySelectorAll('.claim--tabs').forEach(tabset => tabset.classList.remove('active'));
+                if(tabArray[index].parentNode.classList.contains('claim--tabs')) {
+                    tabArray[index].parentNode.classList.add('active');
+                }
+            }
         });
     });
 }
@@ -1131,4 +1138,12 @@ function collapsingTabbedContent(labels, tabs) {
             }
         });
     });
+}
+
+function moveLeft(e) {
+    e.parentNode.querySelector('.webpage--sub-menu-links').scrollLeft -= 150;
+}
+
+function moveRight(e) {
+    e.parentNode.querySelector('.webpage--sub-menu-links').scrollLeft += 150;
 }

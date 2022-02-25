@@ -2185,6 +2185,7 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
 }
 .webpage--tab {
   display: none;
+  padding: 20px;
 }
 .webpage--tab.active {
   display: block;
@@ -2228,9 +2229,16 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   letter-spacing: 0;
   margin-bottom: 4px;
 }
+.claim--tabs {
+  display: none;
+}
+.claim--tabs.active {
+  display: block;
+}
 .claim--tab {
   grid-gap: 20px;
   display: none;
+  padding: 20px;
 }
 .claim--tab.active {
   display: grid;

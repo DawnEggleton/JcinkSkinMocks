@@ -79,7 +79,7 @@
                     <div class="webpage--content">
                         <section class="webpage--section active">
                             <div class="webpage--sub-menu">
-                                <button class="go-left" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft -= 150">
+                                <button class="go-left" onclick="moveLeft(this)">
                                     <i class="fa-light fa-angles-left"></i>
                                 </button>
                                 <div class="webpage--sub-menu-links">
@@ -88,7 +88,7 @@
                                     <a href="#groups">Groups</a>
                                     <a href="#credits">Credits</a>
                                 </div>
-                                <button class="go-right" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft += 150">
+                                <button class="go-right" onclick="moveRight(this)">
                                     <i class="fa-light fa-angles-right"></i>
                                 </button>
                             </div>
@@ -107,7 +107,7 @@
                         </section>
                         <section class="webpage--section">
                             <div class="webpage--sub-menu">
-                                <button class="go-left" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft -= 150">
+                                <button class="go-left" onclick="moveLeft(this)">
                                     <i class="fa-light fa-angles-left"></i>
                                 </button>
                                 <div class="webpage--sub-menu-links">
@@ -116,12 +116,12 @@
                                     <button>Locations</button>
                                     <button>Society & Culture</button>
                                 </div>
-                                <button class="go-right" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft += 150">
+                                <button class="go-right" onclick="moveRight(this)">
                                     <i class="fa-light fa-angles-right"></i>
                                 </button>
                             </div>
                             <div class="webpage--pop-menu">
-                                <button class="go-left" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft -= 150">
+                                <button class="go-left" onclick="moveLeft(this)">
                                     <i class="fa-light fa-angles-left"></i>
                                 </button>
                                 <div class="webpage--sub-menu-links claim--labels">
@@ -131,12 +131,12 @@
                                     <a href="#Vampires">Vampires</a>
                                     <a href="#Werewolves">Werewolves</a>
                                 </div>
-                                <button class="go-right" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft += 150">
+                                <button class="go-right" onclick="moveRight(this)">
                                     <i class="fa-light fa-angles-right"></i>
                                 </button>
                             </div>
                             <div class="webpage--pop-menu">
-                                <button class="go-left" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft -= 150">
+                                <button class="go-left" onclick="moveLeft(this)">
                                     <i class="fa-light fa-angles-left"></i>
                                 </button>
                                 <div class="webpage--sub-menu-links claim--labels">
@@ -149,12 +149,12 @@
                                     <a href="#Staffing">Staffing</a>
                                     <a href="#StudentLeads&Prefects">Student Leads & Prefects</a>
                                 </div>
-                                <button class="go-right" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft += 150">
+                                <button class="go-right" onclick="moveRight(this)">
                                     <i class="fa-light fa-angles-right"></i>
                                 </button>
                             </div>
                             <div class="webpage--pop-menu">
-                                <button class="go-left" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft -= 150">
+                                <button class="go-left" onclick="moveLeft(this)">
                                     <i class="fa-light fa-angles-left"></i>
                                 </button>
                                 <div class="webpage--sub-menu-links claim--labels">
@@ -162,12 +162,12 @@
                                     <a href="#Hogsmeade">Hogsmeade</a>
                                     <a href="#Ilkley">Ilkley</a>
                                 </div>
-                                <button class="go-right" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft += 150">
+                                <button class="go-right" onclick="moveRight(this)">
                                     <i class="fa-light fa-angles-right"></i>
                                 </button>
                             </div>
                             <div class="webpage--pop-menu">
-                                <button class="go-left" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft -= 150">
+                                <button class="go-left" onclick="moveLeft(this)">
                                     <i class="fa-light fa-angles-left"></i>
                                 </button>
                                 <div class="webpage--sub-menu-links claim--labels">
@@ -177,7 +177,7 @@
                                     <a href="#Purebloods">Purebloods</a>
                                     <a href="#Returners">Returners</a>
                                 </div>
-                                <button class="go-right" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft += 150">
+                                <button class="go-right" onclick="moveRight(this)">
                                     <i class="fa-light fa-angles-right"></i>
                                 </button>
                             </div>
@@ -212,13 +212,95 @@
                             </div>
                         </section>
                         <section class="webpage--section">
-                            schools
+                            <div class="webpage--sub-menu">
+                                <button class="go-left" onclick="moveLeft(this)">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div class="webpage--sub-menu-links">
+                                    <a href="#Africa">Africa</a>
+                                    <a href="#Asia">Asia</a>
+                                    <a href="#Australia">Australia</a>
+                                    <a href="#Europe">Europe</a>
+                                    <a href="#NorthAmerica">North America</a>
+                                    <a href="#SouthAmerica">South America</a>
+                                    <a href="#Post-Secondary">Post-Secondary</a>
+                                </div>
+                                <button class="go-right" onclick="moveRight(this)">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div class="webpage--tab">
+                                africa
+                            </div>
+                            <div class="webpage--tab">
+                                asia
+                            </div>
+                            <div class="webpage--tab">
+                                australia
+                            </div>
+                            <div class="webpage--tab">
+                                europe
+                            </div>
+                            <div class="webpage--tab">
+                                north america
+                            </div>
+                            <div class="webpage--tab">
+                                south america
+                            </div>
+                            <div class="webpage--tab">
+                                post secondary
+                            </div>
                         </section>
                         <section class="webpage--section">
-                            canons
+                            <div class="webpage--sub-menu">
+                                <button class="go-left" onclick="moveLeft(this)">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div class="webpage--sub-menu-links">
+                                    <a href="#Canons">Overview</a>
+                                </div>
+                                <button class="go-right" onclick="moveRight(this)">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div class="webpage--tab">
+                                just no i'm not touching these
+                            </div>
                         </section>
                         <section class="webpage--section">
-                            claims
+                            <div class="webpage--sub-menu">
+                                <button class="go-left" onclick="moveLeft(this)">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div class="webpage--sub-menu-links">
+                                    <a href="#Reserves">Reserves</a>
+                                    <a href="#ClaimedFaces">Claimed Faces</a>
+                                    <a href="#UniversityClaims">University Claims</a>
+                                    <button>Abilities & Species</button>
+                                </div>
+                                <button class="go-right" onclick="moveRight(this)">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div class="webpage--pop-menu">
+                                <button class="go-left" onclick="moveLeft(this)">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div id="abilitiesTabs" class="webpage--sub-menu-links claim--labels"></div>
+                                <button class="go-right" onclick="moveRight(this)">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div class="webpage--tab">
+                                reserves
+                            </div>
+                            <div class="webpage--tab">
+                                <div id="faces" class="claim grid twoCol"></div>
+                            </div>
+                            <div class="webpage--tab">
+                                <div id="university" class="claim grid twoCol"></div>
+                            </div>
+                            <div id="abilities" class="claim--tabs">populated by script</div>
                         </section>
                         <section class="webpage--section">
                             jobs
@@ -232,10 +314,20 @@
         </main>
 
         <script>
-            tabbedContent('.webpage--main-menu a', '.webpage--section');
-            tabbedContent('.webpage--sub-menu .webpage--sub-menu-links a', '.webpage--tab');
-            collapsingTabbedContent('.webpage--sub-menu .webpage--sub-menu-links button', '.webpage--pop-menu');
-            tabbedContent('.claim--labels a', '.claim--tab');
+
+            const url = `https://opensheet.elk.sh/1oxsI5jK9YnNMjo2DI_ocoP0DEPwG-yFJhS7HsRRyBQU/Info`;
+            fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                structureFaceClaim(data);
+                structureUniClaim(data);
+                structureAbilitiesClaim(data);
+            }).then(() => {
+                tabbedContent('.webpage--main-menu a', '.webpage--section');
+                tabbedContent('.webpage--sub-menu .webpage--sub-menu-links a', '.webpage--tab');
+                collapsingTabbedContent('.webpage--sub-menu .webpage--sub-menu-links button', '.webpage--pop-menu');
+                tabbedContent('.claim--labels a', '.claim--tab', 'webpagetab');
+            });
         </script>
 
         <!-- Copyright Information -->
