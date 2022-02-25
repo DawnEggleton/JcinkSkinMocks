@@ -13,7 +13,9 @@
 .profile--header-links a::after,
 .profile--sub a::after,
 .tracker--labels button::after,
-.stats--links a span::after {
+.stats--links a span::after,
+.webpage--main-menu a::after,
+.webpage--sub-menu a::after {
   content: "\f178";
 }
 
@@ -526,7 +528,7 @@ main {
     padding: 0 80px;
   }
 }
-#Profile main {
+#Profile main, #Pages main {
   padding: 0;
   width: 100%;
   left: 0;
@@ -958,23 +960,24 @@ nav {
 /*******************************
     Header
 ********************************/
-#Profile header {
+#Profile header,
+#Pages header {
   display: none;
 }
 
-header .header, .header.profile--header {
+header .header, .header.profile--header, .header.webpage--header {
   background: var(--dark);
   padding: 50px 0 0 50px;
   left: 0;
   margin-bottom: 80px;
 }
 @media only screen and (min-width: 768px) {
-  header .header, .header.profile--header {
+  header .header, .header.profile--header, .header.webpage--header {
     margin-bottom: 0;
     padding: 50px 50px 0;
   }
 }
-header .header h1, .header.profile--header h1 {
+header .header h1, .header.profile--header h1, .header.webpage--header h1 {
   font-family: var(--accentFont);
   font-weight: 700;
   margin: 0;
@@ -982,25 +985,25 @@ header .header h1, .header.profile--header h1 {
   font-size: clamp(30px, 5vw, 45px);
   color: var(--headerText);
 }
-#idx header .header h1, #idx .header.profile--header h1 {
+#idx header .header h1, #idx .header.profile--header h1, #idx .header.webpage--header h1 {
   font-size: clamp(60px, 6vw, 80px);
 }
-#Profile header .header h1, #Profile .header.profile--header h1 {
+#Profile header .header h1, #Profile .header.profile--header h1, #Profile .header.webpage--header h1 {
   font-size: clamp(30px, 5vw, 45px);
 }
 @media only screen and (min-width: 480px) {
-  #Profile header .header h1, #Profile .header.profile--header h1 {
+  #Profile header .header h1, #Profile .header.profile--header h1, #Profile .header.webpage--header h1 {
     font-size: clamp(50px, 6vw, 70px);
   }
 }
-header .header p, .header.profile--header p {
+header .header p, .header.profile--header p, .header.webpage--header p {
   color: var(--headerText);
   text-align: center;
   font-family: var(--headerFont);
   margin: 0;
   text-transform: lowercase;
 }
-body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .header.profile--header p {
+body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .header.profile--header p, body:not(#idx):not(#Profile) .header.webpage--header p {
   font-size: var(--lBody);
 }
 .header--deco {
@@ -2004,6 +2007,135 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
 /*******************************
     Webpages
 ********************************/
+.webpage--header {
+  margin-bottom: 0;
+}
+.webpage--header h1 {
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.webpage--header .header--deco {
+  padding: 50px;
+}
+.webpage--wrapper {
+  min-height: 100vh;
+  left: 50px;
+  width: calc(100% - 50px);
+  display: grid;
+  grid-template-columns: 250px auto;
+}
+@media only screen and (min-width: 768px) {
+  .webpage--wrapper {
+    width: calc(100% - 100px);
+  }
+}
+.webpage--main-menu {
+  background: rgba(40, 40, 40, 0.95);
+  border-left: 1px solid var(--light);
+}
+.webpage--main-menu a {
+  background: var(--dkGrey);
+  color: var(--headerText);
+  font-family: var(--headerFont);
+  text-transform: lowercase;
+  padding: 15px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: var(--mBody);
+}
+.webpage--main-menu a::after {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 300;
+  bottom: -3px;
+  position: relative;
+  line-height: 100%;
+}
+.webpage--main-menu a.active, .webpage--main-menu a:hover {
+  background: var(--accent);
+  color: var(--accentColor);
+}
+.webpage--main-menu a.active::after, .webpage--main-menu a:hover::after {
+  width: 20px;
+  margin-left: 10px;
+}
+.webpage--sticky {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 5px;
+  position: sticky;
+}
+.webpage--sub-menu {
+  position: sticky;
+  background: var(--accent);
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 30px auto 30px;
+  padding: 10px;
+}
+.webpage--sub-menu button {
+  background: transparent;
+  border: none;
+  height: max-content;
+  cursor: pointer;
+}
+.webpage--sub-menu button.go-left {
+  padding: 10px 10px 10px 0;
+  border-right: 1px solid var(--accentColor);
+}
+.webpage--sub-menu button.go-right {
+  padding: 10px 0 10px 10px;
+  border-left: 1px solid var(--accentColor);
+}
+.webpage--sub-menu-links {
+  padding: 10px;
+  white-space: nowrap;
+  font-size: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+.webpage--sub-menu-links a {
+  background: var(--ltaccent);
+  border-radius: 4px;
+  padding: 10px;
+  font-size: var(--mBody);
+  text-transform: lowercase;
+  font-family: var(--headerFont);
+}
+.webpage--sub-menu-links a:not(:last-child) {
+  margin-right: 5px;
+}
+.webpage--sub-menu-links a::after {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 300;
+  bottom: -3px;
+  position: relative;
+  line-height: 100%;
+}
+.webpage--sub-menu-links a.active::after, .webpage--sub-menu-links a:hover::after {
+  width: 20px;
+  margin-left: 10px;
+}
+.webpage--section {
+  display: none;
+}
+.webpage--section.active {
+  display: block;
+}
+.webpage--tab {
+  display: none;
+}
+.webpage--tab.active {
+  display: block;
+}
+
 #sort {
   display: grid;
   grid-gap: 20px;

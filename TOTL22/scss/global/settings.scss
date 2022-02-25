@@ -12,6 +12,8 @@
 .profile--header-links a::after,
 .profile--sub a::after,
 .tracker--labels button::after,
-.stats--links a span::after {
+.stats--links a span::after,
+.webpage--main-menu a::after,
+.webpage--sub-menu a::after {
   content: "\f178";
 }

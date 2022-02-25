@@ -26,6 +26,7 @@
         <script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
         <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
         <script src="../js/clipboard.js"></script>
+        <script src="../js/functions.js"></script>
 
         <!--Settings-->
         <script type='text/javascript' src='../js/settings.js'></script>
@@ -44,6 +45,8 @@
             <div class="breadcrumb-nav">
                 <div id="navstrip" align="left">
                     <a href="?act=idx">My Community</a>
+                    <i class="fa-light fa-ellipsis-h"></i>
+                    The TOTL Handbook
                 </div>
             </div>
         </nav>
@@ -53,7 +56,82 @@
             <a name="top"></a>
             
             <!--Webpage-->
+            <div class="webpage">
+                <div class="webpage--header header">
+                    <div class="header--deco">
+                        <div class="header--deco-accent left"></div>
+                        <div class="header--deco-accent right"></div>
+                        <h1>Guidebook</h1>
+                    </div>
+                </div>
+                <div class="webpage--wrapper">
+                    <div class="webpage--main-menu">
+                        <div class="webpage--sticky">
+                            <a href="#basics" class="active"><span>Basics</span></a>
+                            <a href="#guides"><span>Guides</span></a>
+                            <a href="#schools"><span>Schools</span></a>
+                            <a href="#canons"><span>Canons</span></a>
+                            <a href="#claims"><span>Claims</span></a>
+                            <a href="#jobs"><span>Jobs</span></a>
+                            <a href="#students"><span>Students</span></a>
+                        </div>
+                    </div>
+                    <div class="webpage--content">
+                        <section class="webpage--section active">
+                            <div class="webpage--sub-menu">
+                                <button class="go-left" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft -= 150">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div class="webpage--sub-menu-links">
+                                    <a href="#rules" class="active">Rules</a>
+                                    <a href="#plot">Plot</a>
+                                    <a href="#groups">Groups</a>
+                                    <a href="#credits">Credits</a>
+                                </div>
+                                <button class="go-right" onclick="document.querySelector('.webpage--sub-menu-links').scrollLeft += 150">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div class="webpage--tab active">
+                                rules
+                            </div>
+                            <div class="webpage--tab">
+                                plot
+                            </div>
+                            <div class="webpage--tab">
+                                groups
+                            </div>
+                            <div class="webpage--tab">
+                                credits
+                            </div>
+                        </section>
+                        <section class="webpage--section">
+                            guides
+                        </section>
+                        <section class="webpage--section">
+                            schools
+                        </section>
+                        <section class="webpage--section">
+                            canons
+                        </section>
+                        <section class="webpage--section">
+                            claims
+                        </section>
+                        <section class="webpage--section">
+                            jobs
+                        </section>
+                        <section class="webpage--section">
+                            students
+                        </section>
+                    </div>
+                </div>
+            </div>
         </main>
+
+        <script>
+            tabbedContent('.webpage--main-menu a', '.webpage--section');
+            tabbedContent('.webpage--sub-menu a', '.webpage--tab');
+        </script>
 
         <!-- Copyright Information -->
         <div class="tableborder" align="center">
@@ -80,7 +158,6 @@
         <script type="text/javascript" src="../templates/controls.js"></script>
 
         <!--Scripts-->
-        <script src="../js/functions.js"></script>
         <script src="../js/scripts.js"></script>
     </body>
 </html>

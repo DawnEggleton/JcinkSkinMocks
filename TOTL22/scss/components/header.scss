@@ -1,13 +1,15 @@
 /*******************************
     Header
 ********************************/
-#Profile header {
+#Profile header,
+#Pages header {
     display: none;
 }
 .header {
 
     header &,
-    &.profile--header {
+    &.profile--header,
+    &.webpage--header {
         background: var(--dark);
         padding: 50px 0 0 50px;
         left: 0;
