@@ -1097,7 +1097,6 @@ function postToGoogle() {
 function tabbedContent(labels, tabs) {
     let labelArray = document.querySelectorAll(labels);
     let tabArray = document.querySelectorAll(tabs);
-    console.log(tabArray);
     if(Array.from(labelArray).filter(label => label.classList.contains('active')).length === 0) {
         labelArray[0].classList.add('active');
         tabArray[0].classList.add('active');
@@ -1108,6 +1107,28 @@ function tabbedContent(labels, tabs) {
             tabArray.forEach(tab => tab.classList.remove('active'));
             labelArray[index].classList.add('active');
             tabArray[index].classList.add('active');
+        });
+    });
+}
+
+function collapsingTabbedContent(labels, tabs) {
+    let labelArray = document.querySelectorAll(labels);
+    let tabArray = document.querySelectorAll(tabs);
+    if(Array.from(labelArray).filter(label => label.classList.contains('active')).length === 0) {
+        labelArray[0].classList.add('active');
+        tabArray[0].classList.add('active');
+    }
+    labelArray.forEach((label, index) => {
+        label.addEventListener('click', e => {
+            if(e.currentTarget.classList.contains('active')) {
+                labelArray[index].classList.remove('active');
+                tabArray[index].classList.remove('active');
+            } else {
+                labelArray.forEach(label => label.classList.remove('active'));
+                tabArray.forEach(tab => tab.classList.remove('active'));
+                labelArray[index].classList.add('active');
+                tabArray[index].classList.add('active');
+            }
         });
     });
 }
