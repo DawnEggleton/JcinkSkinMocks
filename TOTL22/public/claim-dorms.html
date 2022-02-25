@@ -63,6 +63,7 @@
                 .then((response) => response.json())
                 .then((data) => {
                     structureDormClaim(data);
+                    tabbedContent('.claim--labels a', '.claim--tab');
                 });
             </script>
 

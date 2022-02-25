@@ -313,14 +313,14 @@ function structureAbilitiesClaim (data) {
     let labels = ``;
     abilities.forEach((character, i) => {
         if(i === 0) {
-            labels += `<a href="">${character.Ability}</a>`;
+            labels += `<a href="#${character.Ability.replace(' ', '')}">${character.Ability}</a>`;
             body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Ability}</h3>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.AnimagusForm) ? character.AnimagusForm : ''}</span>
                 </a>`;
         } else if(abilities[i - 1].Ability !== character.Ability) {
-            labels += `<a href="">${character.Ability}</a>`;
+            labels += `<a href="#${character.Ability.replace(' ', '')}">${character.Ability}</a>`;
             body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Ability}</h3>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
@@ -336,14 +336,14 @@ function structureAbilitiesClaim (data) {
     body += `</div>`;
     charSpecies.forEach((character, i) => {
         if(i === 0) {
-            labels += `<a href="">${character.Species}</a>`;
+            labels += `<a href="#${character.Species.replace(' ', '')}">${character.Species}</a>`;
             body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Species}</h3>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 <span>${(character.VeelaBlood) ? character.VeelaBlood : ''}</span>
                 </a>`;
         } else if(charSpecies[i - 1].Species !== character.Species) {
-            labels += `<a href="">${character.Species}</a>`;
+            labels += `<a href="#${character.Species.replace(' ', '')}">${character.Species}</a>`;
             body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Species}</h3>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
@@ -447,7 +447,7 @@ function structureJobClaim (data) {
     let labels = ``;
     employed.forEach((character, i) => {
         if(i === 0) {
-            labels += `<a href="">${character.Section}</a>`;
+            labels += `<a href="#${character.Section.replace(' ', '')}">${character.Section}</a>`;
             body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Section}</h3>`;
             body += `<h4 class="fullWidth">${character.Subsection}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
@@ -456,7 +456,7 @@ function structureJobClaim (data) {
                 <span>${character.Title}</span>
                 </a>`;
         } else if(employed[i - 1].Section !== character.Section) {
-            labels += `<a href="">${character.Section}</a>`;
+            labels += `<a href="#${character.Section.replace(' ', '')}">${character.Section}</a>`;
             body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.Section}</h3>`;
             body += `<h4 class="fullWidth">${character.Subsection}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
@@ -654,7 +654,6 @@ function structureClassClaim (data) {
             }
         });
     });
-    console.log(students);
     students.sort((a, b) => {
         aName = a.Character;
         bName = b.Character;
@@ -682,7 +681,7 @@ function structureClassClaim (data) {
     let labels = ``;
     students.forEach((character, i) => {
         if(i === 0) {
-            labels += `<a href="">${character.HogwartsYear}</a>`;
+            labels += `<a href="#${character.HogwartsYear.replace(' ', '')}">${character.HogwartsYear}</a>`;
             body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
             body += `<h4 class="fullWidth">${character.ClassName}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
@@ -690,7 +689,7 @@ function structureClassClaim (data) {
                 <span>${character.ClassGrade}</span>
                 </a>`;
         } else if(students[i - 1].HogwartsYear !== character.HogwartsYear) {
-            labels += `<a href="">${character.HogwartsYear}</a>`;
+            labels += `<a href="#${character.HogwartsYear.replace(' ', '')}">${character.HogwartsYear}</a>`;
             body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
             body += `<h4 class="fullWidth">${character.ClassName}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
@@ -755,14 +754,14 @@ function structureDormClaim (data) {
     let labels = ``;
     students.forEach((character, i) => {
         if(i === 0) {
-            labels += `<a href="">${character.GroupName}</a>`;
+            labels += `<a href="#${character.GroupName.replace(' ', '')}">${character.GroupName}</a>`;
             body += `<div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
             body += `<h4 class="fullWidth">${character.Dorm}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
                 <b>${character.Character}</b>
                 </a>`;
         } else if(students[i - 1].GroupName !== character.GroupName) {
-            labels += `<a href="">${character.GroupName}</a>`;
+            labels += `<a href="#${character.GroupName.replace(' ', '')}">${character.GroupName}</a>`;
             body += `</div><div class="claim--tab grid threeCol"><h3 class="fullWidth">${character.HogwartsYear}</h3>`;
             body += `<h4 class="fullWidth">${character.Dorm}</h4>`;
             body += `<a href="?showuser=${character.AccountID}" class="claim--item g-${character.GroupID}">
@@ -1093,4 +1092,21 @@ function postToGoogle() {
   });
 
   return false;
+}
+
+function tabbedContent(labels, tabs) {
+    let labelArray = document.querySelectorAll(labels);
+    let tabArray = document.querySelectorAll(tabs);
+    if(Array.from(labelArray).filter(label => label.classList.contains('active')).length === 0) {
+        labelArray[0].classList.add('active');
+        tabArray[0].classList.add('active');
+    }
+    labelArray.forEach((label, index) => {
+        label.addEventListener('click', e => {
+            labelArray.forEach(label => label.classList.remove('active'));
+            tabArray.forEach(tab => tab.classList.remove('active'));
+            labelArray[index].classList.add('active');
+            tabArray[index].classList.add('active');
+        });
+    });
 }

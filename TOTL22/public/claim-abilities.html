@@ -26,6 +26,7 @@
         <script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
         <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
         <script src="../js/clipboard.js"></script>
+        <script src="../js/functions.js"></script>
 
         <!--Settings-->
         <script type='text/javascript' src='../js/settings.js'></script>
@@ -63,6 +64,7 @@
                 .then((response) => response.json())
                 .then((data) => {
                     structureAbilitiesClaim(data);
+                    tabbedContent('.claim--labels a', '.claim--tab');
                 });
             </script>
 
@@ -93,7 +95,6 @@
         <script type="text/javascript" src="../templates/controls.js"></script>
 
         <!--Scripts-->
-        <script src="../js/functions.js"></script>
         <script src="../js/scripts.js"></script>
     </body>
 </html>

@@ -63,6 +63,7 @@
                 .then((response) => response.json())
                 .then((data) => {
                     structureClassClaim(data);
+                    tabbedContent('.claim--labels a', '.claim--tab');
                 });
             </script>
 
