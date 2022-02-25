@@ -1097,6 +1097,7 @@ function postToGoogle() {
 function tabbedContent(labels, tabs) {
     let labelArray = document.querySelectorAll(labels);
     let tabArray = document.querySelectorAll(tabs);
+    console.log(tabArray);
     if(Array.from(labelArray).filter(label => label.classList.contains('active')).length === 0) {
         labelArray[0].classList.add('active');
         tabArray[0].classList.add('active');
