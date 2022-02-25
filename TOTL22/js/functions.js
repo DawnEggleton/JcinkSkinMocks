@@ -1097,6 +1097,8 @@ function postToGoogle() {
 function tabbedContent(labels, tabs, remove = '') {
     let labelArray = document.querySelectorAll(labels);
     let tabArray = document.querySelectorAll(tabs);
+    console.log(labelArray);
+    console.log(tabArray);
     if(Array.from(labelArray).filter(label => label.classList.contains('active')).length === 0) {
         labelArray[0].classList.add('active');
         tabArray[0].classList.add('active');
@@ -1109,6 +1111,12 @@ function tabbedContent(labels, tabs, remove = '') {
             tabArray[index].classList.add('active');
             if(remove === 'webpagetab') {
                 document.querySelectorAll('.webpage--tab').forEach(tabset => tabset.classList.remove('active'));
+                document.querySelectorAll('.claim--tabs').forEach(tabset => tabset.classList.remove('active'));
+                if(tabArray[index].parentNode.classList.contains('claim--tabs')) {
+                    tabArray[index].parentNode.classList.add('active');
+                }
+            }
+            if(remove === 'claimtab') {
                 document.querySelectorAll('.claim--tabs').forEach(tabset => tabset.classList.remove('active'));
                 if(tabArray[index].parentNode.classList.contains('claim--tabs')) {
                     tabArray[index].parentNode.classList.add('active');

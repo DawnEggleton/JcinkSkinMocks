@@ -303,10 +303,58 @@
                             <div id="abilities" class="claim--tabs">populated by script</div>
                         </section>
                         <section class="webpage--section">
-                            jobs
+                            <div class="webpage--sub-menu">
+                                <button class="go-left" onclick="moveLeft(this)">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div id="jobsTabs" class="webpage--sub-menu-links claim--labels"></div>
+                                <button class="go-right" onclick="moveRight(this)">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div id="jobs" class="claim--tabs"></div>
                         </section>
                         <section class="webpage--section">
-                            students
+                            <div class="webpage--sub-menu">
+                                <button class="go-left" onclick="moveLeft(this)">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div class="webpage--sub-menu-links">
+                                    <button>Class Lists</button>
+                                    <button>Dormitories</button>
+                                    <a href="#Quidditch">Quidditch</a>
+                                    <a href="#Leadership">Leadership</a>
+                                </div>
+                                <button class="go-right" onclick="moveRight(this)">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div class="webpage--pop-menu">
+                                <button class="go-left" onclick="moveLeft(this)">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div id="classTabs" class="webpage--sub-menu-links claim--labels"></div>
+                                <button class="go-right" onclick="moveRight(this)">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div class="webpage--pop-menu">
+                                <button class="go-left" onclick="moveLeft(this)">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div id="dormTabs" class="webpage--sub-menu-links claim--labels"></div>
+                                <button class="go-right" onclick="moveRight(this)">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div id="classes" class="claim--tabs"></div>
+                            <div id="dorms" class="claim--tabs"></div>
+                            <div class="webpage--tab">
+                                <div id="quidditch" class="claim grid twoCol"></div>
+                            </div>
+                            <div class="webpage--tab">
+                                <div id="leadership" class="claim grid twoCol"></div>
+                            </div>
                         </section>
                     </div>
                 </div>
@@ -322,11 +370,16 @@
                 structureFaceClaim(data);
                 structureUniClaim(data);
                 structureAbilitiesClaim(data);
+                structureJobClaim(data);
+                structureClassClaim(data);
+                structureDormClaim(data);
+                structureQuidditchClaim(data);
+                structureLeadClaim(data);
             }).then(() => {
                 tabbedContent('.webpage--main-menu a', '.webpage--section');
-                tabbedContent('.webpage--sub-menu .webpage--sub-menu-links a', '.webpage--tab');
-                collapsingTabbedContent('.webpage--sub-menu .webpage--sub-menu-links button', '.webpage--pop-menu');
-                tabbedContent('.claim--labels a', '.claim--tab', 'webpagetab');
+                tabbedContent('.webpage--sub-menu .webpage--sub-menu-links:not(.claim--labels) > a', '.webpage--tab', 'claimtab');
+                collapsingTabbedContent('.webpage--sub-menu .webpage--sub-menu-links > button', '.webpage--pop-menu');
+                tabbedContent('.claim--labels > a', '.claim--tab', 'webpagetab');
             });
         </script>
 
