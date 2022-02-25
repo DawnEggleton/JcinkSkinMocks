@@ -26,6 +26,13 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+
+        a {
+            &.active {
+                font-weight: bold;
+                text-decoration: underline;
+            }
+        }
     }
 
     &--tab {
