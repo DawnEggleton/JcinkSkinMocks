@@ -32,6 +32,10 @@
         background: rgba(40, 40, 40, 0.95);
         border-left: 1px solid var(--light);
 
+        &.scrolled {
+            border-left-color: rgba(40, 40, 40, 0.95);
+        }
+
         a {
             background: var(--dkGrey);
             color: var(--headerText);

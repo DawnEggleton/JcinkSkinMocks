@@ -2041,6 +2041,9 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   background: rgba(40, 40, 40, 0.95);
   border-left: 1px solid var(--light);
 }
+.webpage--main-menu.scrolled {
+  border-left-color: rgba(40, 40, 40, 0.95);
+}
 .webpage--main-menu a {
   background: var(--dkGrey);
   color: var(--headerText);
