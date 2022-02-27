@@ -1039,14 +1039,11 @@ function formReset() {
 function tabbedContent(labels, tabs, remove = '') {
     let labelArray = document.querySelectorAll(labels);
     let tabArray = document.querySelectorAll(tabs);
-    if(Array.from(labelArray).filter(label => label.classList.contains('active')).length === 0) {
-        labelArray[0].classList.add('active');
-        tabArray[0].classList.add('active');
-    }
     labelArray.forEach((label, index) => {
         label.addEventListener('click', e => {
             labelArray.forEach(label => label.classList.remove('active'));
             tabArray.forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.webpage a').forEach(label => label.classList.remove('active'));
             labelArray[index].classList.add('active');
             tabArray[index].classList.add('active');
             if(remove === 'webpagetab') {
@@ -1069,10 +1066,6 @@ function tabbedContent(labels, tabs, remove = '') {
 function collapsingTabbedContent(labels, tabs) {
     let labelArray = document.querySelectorAll(labels);
     let tabArray = document.querySelectorAll(tabs);
-    if(Array.from(labelArray).filter(label => label.classList.contains('active')).length === 0) {
-        labelArray[0].classList.add('active');
-        tabArray[0].classList.add('active');
-    }
     labelArray.forEach((label, index) => {
         label.addEventListener('click', e => {
             if(e.currentTarget.classList.contains('active')) {
@@ -1081,6 +1074,7 @@ function collapsingTabbedContent(labels, tabs) {
             } else {
                 labelArray.forEach(label => label.classList.remove('active'));
                 tabArray.forEach(tab => tab.classList.remove('active'));
+                document.querySelectorAll('.webpage a').forEach(label => label.classList.remove('active'));
                 labelArray[index].classList.add('active');
                 tabArray[index].classList.add('active');
             }
