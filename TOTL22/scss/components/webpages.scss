@@ -78,11 +78,13 @@
         position: sticky;
     }
 
+    &--menu-sticky {
+        position: sticky;
+        z-index: 10;
+    }
     &--pop-menu,
     &--sub-menu {
-        position: sticky;
         background: var(--accent);
-        z-index: 10;
         display: grid;
         grid-template-columns: 30px auto 30px;
         padding: 10px;

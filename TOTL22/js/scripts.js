@@ -165,11 +165,8 @@ if($('body#Pages').length > 0) {
         let submenuHeight = document.querySelector('.webpage--sub-menu').clientHeight;
         console.log(submenuHeight);
         document.querySelector('.webpage--sticky').style.top = `${breadcrumbHeight - 1}px`;
-        document.querySelectorAll('.webpage--sub-menu').forEach(submenu => {
+        document.querySelectorAll('.webpage--menu-sticky').forEach(submenu => {
             submenu.style.top = `${breadcrumbHeight - 1}px`;
-        });
-        document.querySelectorAll('.webpage--pop-menu').forEach(submenu => {
-            submenu.style.top = `${breadcrumbHeight + submenuHeight - 1}px`;
         });
         document.querySelectorAll('.webpage--section').forEach(section => {
             section.style.minHeight = `calc(100vh - ${breadcrumbHeight - 1}px)`;

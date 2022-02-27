@@ -2086,10 +2086,12 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   gap: 5px;
   position: sticky;
 }
-.webpage--pop-menu, .webpage--sub-menu {
+.webpage--menu-sticky {
   position: sticky;
-  background: var(--accent);
   z-index: 10;
+}
+.webpage--pop-menu, .webpage--sub-menu {
+  background: var(--accent);
   display: grid;
   grid-template-columns: 30px auto 30px;
   padding: 10px;
