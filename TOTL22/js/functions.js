@@ -1019,7 +1019,9 @@ function postToGoogle() {
     },
     error: function (jqXHR, textStatus, errorThrown) {
         console.log(jqXHR.status);
-        if(jqXHR.status === 404) {
+        console.log(textStatus);
+        console.log(errorThrown);
+        if(jqXHR.status == 404) {
             document.querySelector('#warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again!`;
         }
     },
