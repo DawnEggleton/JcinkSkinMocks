@@ -1092,12 +1092,12 @@ function collapsingTabbedContent(labels, tabs) {
     });
 }
 
-function moveLeft(e) {
-    e.parentNode.querySelector('.webpage--sub-menu-links').scrollLeft -= 150;
+function moveLeft(e, scrollMenu) {
+    e.parentNode.querySelector(scrollMenu).scrollLeft -= 150;
 }
 
-function moveRight(e) {
-    e.parentNode.querySelector('.webpage--sub-menu-links').scrollLeft += 150;
+function moveRight(e, scrollMenu) {
+    e.parentNode.querySelector(scrollMenu).scrollLeft += 150;
 }
 
 function cleanString(string) {

@@ -21,19 +21,27 @@
         left: 50px;
         width: calc(100% - 50px);
         display: grid;
-        grid-template-columns: 250px auto;
-    
+        grid-template-rows: max-content auto;
+
         @media only screen and (min-width: $md) {
             width: calc(100% - 100px);
+        }
+
+        @media only screen and (min-width: $lg) {
+            grid-template-columns: 250px auto;
         }
     }
 
     &--main-menu {
         background: var(--webMenu);
         border-left: 1px solid var(--light);
+        border-right: 1px solid var(--light);
+        position: sticky;
+        z-index: 10;
 
         &.scrolled {
             border-left-color: var(--webMenu);
+            border-right-color: var(--webMenu);
         }
 
         a {
@@ -45,6 +53,8 @@
             border-radius: 4px;
             text-align: center;
             font-size: var(--mBody);
+            margin-right: 5px;
+            display: inline-block;
 
             &::after {
                 display: inline-block;
@@ -68,14 +78,56 @@
                 }
             }
         }
+
+        &-links {
+            padding: 0 10px;
+            white-space: nowrap;
+            font-size: 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+
+            @media only screen and (min-width: $lg) {
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
     }
 
     &--sticky {
-        display: flex;
-        flex-direction: column;
         padding: 15px;
-        gap: 5px;
         position: sticky;
+        display: grid;
+        grid-template-columns: 30px auto 30px;
+        align-items: center;
+
+        button {
+            background: transparent;
+            border: none;
+            height: max-content;
+            cursor: pointer;
+            color: var(--headerText);
+
+            &.go-left {
+                padding: 10px 10px 10px 0;
+                border-right: 1px solid var(--light);
+            }
+
+            &.go-right {
+                padding: 10px 0 10px 10px;
+                border-left: 1px solid var(--light);
+            }
+        }
+
+        @media only screen and (min-width: $lg) {
+            grid-template-columns: 100%;
+
+            button {
+                display: none;
+            }
+        }
     }
 
     &--menu-sticky {
