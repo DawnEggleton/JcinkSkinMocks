@@ -29,11 +29,11 @@
     }
 
     &--main-menu {
-        background: rgba(40, 40, 40, 0.95);
+        background: var(--webMenu);
         border-left: 1px solid var(--light);
 
         &.scrolled {
-            border-left-color: rgba(40, 40, 40, 0.95);
+            border-left-color: var(--webMenu);
         }
 
         a {
@@ -122,6 +122,7 @@
                 text-transform: lowercase;
                 font-family: var(--headerFont);
                 margin: 0 10px 0 0;
+                color: var(--accentColor);
 
                 &:not(:last-child) {
                     margin-right: 5px;
