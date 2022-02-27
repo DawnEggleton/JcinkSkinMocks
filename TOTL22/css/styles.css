@@ -2310,6 +2310,7 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   font-size: var(--lBody);
   padding: 8px 10px 9px;
   color: var(--text);
+  height: max-content;
 }
 #sort .form-item .form-flex {
   display: flex;
