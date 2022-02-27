@@ -52,7 +52,7 @@
         <main>
             <a name="top"></a>
 
-            <form id="sort">
+            <form id="sort" class="grid twoCol">
                 <label>
                     <strong>Alias</strong>
                     <input type="text"
@@ -68,8 +68,14 @@
                         required>
                 </label>
                 <label>
-                    <strong>Account ID</strong>
-                    <i>Can be found by getting the numbers at the end of the URL of your main profile.</i>
+                    <strong>
+                        Account ID
+                        <button onclick="openHelp(this)">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </button>
+                    </strong>
+                    <i class="help">Can be found by getting the numbers at the end of the URL of your main profile.</i>
                     <input   type="text"
                         name="entry.1642550285"
                         id="sort-id"
@@ -99,7 +105,7 @@
                         </optgroup>
                     </select>
                 </label>
-                <label>
+                <label class="fullWidth">
                     <strong>Face Claim</strong>
                     <input   type="text"
                         name="entry.1726668460"
@@ -116,64 +122,6 @@
                         <option value="n">no</option>
                     </select>
                 </label>
-                <div class="form-item hide ifAbilities">
-                    <strong>Abilities</strong>
-                    <i>Check all that apply. If multiple 'other' abilities, please make sure to separate them by a comma with a space after (e.g., ability 1, ability 2, ability 3). Wandless and non-verbal magic do not need to be claimed.</i>
-                    <label>
-                        <input   type="checkbox"
-                            name="abilities"
-                            id="sort-animagus"
-                            value="animagus">
-                        <strong>Animagus</strong>
-                    </label>
-                    <label>
-                        <input   type="checkbox"
-                            name="abilities"
-                            id="sort-metamorphmagus"
-                            value="metamorphmagus">
-                        <strong>Metamorphmagus</strong>
-                    </label>
-                    <label>
-                        <input   type="checkbox"
-                            name="abilities"
-                            id="sort-legilimens"
-                            value="legilimens">
-                        <strong>Legilimens</strong>
-                    </label>
-                    <label>
-                        <input   type="checkbox"
-                            name="abilities"
-                            id="sort-occlumens"
-                            value="occlumens">
-                        <strong>Occlumens</strong>
-                    </label>
-                    <label>
-                        <input   type="checkbox"
-                            name="abilities"
-                            id="sort-seer"
-                            value="seer">
-                        <strong>Seer</strong>
-                    </label>
-                    <label>
-                        <input   type="checkbox"
-                            name="abilities"
-                            id="sort-squib"
-                            value="squib">
-                        <strong>Squib</strong>
-                    </label>
-                    <label>
-                        <strong>Other Abilities</strong>
-                        <input   type="text"
-                        name="otherabilities"
-                        id="sort-otherability">
-                    </label>
-                    <label class="hide ifAnimagus">
-                        <strong>Animagus Form</strong>
-                        <input   type="text"
-                        name="animagusform"
-                        id="sort-animagusform">
-                    </label>
-                </div>
                 <label>
                     <strong>Species</strong>
                     <select  name="entry.994119699"
@@ -184,7 +132,75 @@
                         <option value="werewolf">Werewolf</option>
                     </select>
                 </label>
-                <label class="hide ifVeela">
+                <div class="form-item hide ifAbilities fullWidth">
+                    <strong>
+                        Abilities
+                        <button onclick="openHelp(this)">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </button>
+                    </strong>
+                    <i class="help">Check all that apply. If multiple 'other' abilities, please make sure to separate them by a comma with a space after (e.g., ability 1, ability 2, ability 3). Wandless and non-verbal magic do not need to be claimed.</i>
+                    <div class="form-flex">
+                        <label>
+                            <input   type="checkbox"
+                                name="abilities"
+                                id="sort-animagus"
+                                value="animagus">
+                            <strong class="checkbox">Animagus</strong>
+                        </label>
+                        <label>
+                            <input   type="checkbox"
+                                name="abilities"
+                                id="sort-metamorphmagus"
+                                value="metamorphmagus">
+                            <strong class="checkbox">Metamorphmagus</strong>
+                        </label>
+                        <label>
+                            <input   type="checkbox"
+                                name="abilities"
+                                id="sort-legilimens"
+                                value="legilimens">
+                            <strong class="checkbox">Legilimens</strong>
+                        </label>
+                        <label>
+                            <input   type="checkbox"
+                                name="abilities"
+                                id="sort-occlumens"
+                                value="occlumens">
+                            <strong class="checkbox">Occlumens</strong>
+                        </label>
+                        <label>
+                            <input   type="checkbox"
+                                name="abilities"
+                                id="sort-seer"
+                                value="seer">
+                            <strong class="checkbox">Seer</strong>
+                        </label>
+                        <label>
+                            <input   type="checkbox"
+                                name="abilities"
+                                id="sort-squib"
+                                value="squib">
+                            <strong class="checkbox">Squib</strong>
+                        </label>
+                    </div>
+                    <div class="grid twoCol">
+                        <label>
+                            <strong>Other Abilities</strong>
+                            <input   type="text"
+                            name="otherabilities"
+                            id="sort-otherability">
+                        </label>
+                        <label class="hide ifAnimagus">
+                            <strong>Animagus Form</strong>
+                            <input   type="text"
+                            name="animagusform"
+                            id="sort-animagusform">
+                        </label>
+                    </div>
+                </div>
+                <label class="hide ifVeela fullWidth">
                     <strong>Veela Blood</strong>
                     <select  name="entry.2106914261"
                             id="sort-veelablood">
@@ -200,6 +216,15 @@
                     <strong>Employed?</strong>
                     <select  name="entry.1852737004"
                             id="sort-employed">
+                        <option value="">(select)</option>
+                        <option value="y">yes</option>
+                        <option value="n">no</option>
+                    </select>
+                </label>
+                <label class="hide ifAdult">
+                    <strong>University Student?</strong>
+                    <select  name="entry.836822682"
+                            id="sort-universitystudent">
                         <option value="">(select)</option>
                         <option value="y">yes</option>
                         <option value="n">no</option>
@@ -228,34 +253,43 @@
                     </select>
                 </label>
                 <label class="hide ifJob">
-                    <strong>Job Sub-Section</strong>
-                    <i>Equivalent to the grouping underneath the main tab. For example, in the Ministry, these are overarching departments. In Diagon Alley, these are individual businesses. REQUIRED unless self-employed.</i>
+                    <strong>
+                        Job Sub-Section
+                        <button onclick="openHelp(this)">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </button>
+                    </strong>
+                    <i class="help">Equivalent to the grouping underneath the main tab. For example, in the Ministry, these are overarching departments. In Diagon Alley, these are individual businesses. REQUIRED unless self-employed.</i>
                     <input   type="text"
                         name="entry.13065058"
                         id="sort-jobsubsection">
                 </label>
                 <label class="hide ifJob">
-                    <strong>Job Title</strong>
-                    <i>The position your character holds - with ONE exception. For Hogwarts staff who teach specific years or manage a specific house (e.g., house parents), please put instead the years they teach or the house they manage. This will result in a more sensible order of information in the final claim.</i>
+                    <strong>
+                        Job Title
+                        <button onclick="openHelp(this)">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </button>
+                    </strong>
+                    <i class="help">The position your character holds - with ONE exception. For Hogwarts staff who teach specific years or manage a specific house (e.g., house parents), please put instead the years they teach or the house they manage. This will result in a more sensible order of information in the final claim.</i>
                     <input   type="text"
                         name="entry.437548501"
                         id="sort-jobtitle">
                 </label>
                 <label class="hide ifJob">
-                    <strong>Job Notes</strong>
-                    <i>Not applicable to most characters. For Ministry personnel, if they are part of a specific sub-division or team under the overall department (e.g., the Hitwizard Team within Magical Law Enforcement), then specify that here. For Hogwarts staff that were exceptions to the Job Title above, please place either their speciality (for professors, e.g., 'Potions') or their actual job title here (e.g., 'house parent'). If they are a Quidditch player, please name their team. If they are self-employed and have a specific business name, you may mention it here as well, but in this instance it isn't required.</i>
+                    <strong>
+                        Job Notes
+                        <button onclick="openHelp(this)">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </button>
+                    </strong>
+                    <i class="help">Not applicable to most characters. For Ministry personnel, if they are part of a specific sub-division or team under the overall department (e.g., the Hitwizard Team within Magical Law Enforcement), then specify that here. For Hogwarts staff that were exceptions to the Job Title above, please place either their speciality (for professors, e.g., 'Potions') or their actual job title here (e.g., 'house parent'). If they are a Quidditch player, please name their team. If they are self-employed and have a specific business name, you may mention it here as well, but in this instance it isn't required.</i>
                     <input   type="text"
                         name="entry.1508899464"
                         id="sort-jobnotes">
-                </label>
-                <label class="hide ifAdult">
-                    <strong>University Student?</strong>
-                    <select  name="entry.836822682"
-                            id="sort-universitystudent">
-                        <option value="">(select)</option>
-                        <option value="y">yes</option>
-                        <option value="n">no</option>
-                    </select>
                 </label>
                 <label class="hide ifUni">
                     <strong>University/College</strong>
@@ -296,8 +330,14 @@
                     </select>
                 </label>
                 <label class="hide ifStudent">
-                    <strong>Preferred Dorm Arrangement</strong>
-                    <i>If there is a specific room or dormmate you would like, please let us know. Otherwise, we will randomly assign characters to rooms. This occurs manually upon character sorting and so will NOT appear within 30-60s on the claims after submission.</i>
+                    <strong>
+                        Preferred Dorm Arrangement
+                        <button onclick="openHelp(this)">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </button>
+                    </strong>
+                    <i class="help">If there is a specific room or dormmate you would like, please let us know. Otherwise, we will randomly assign characters to rooms. This occurs manually upon character sorting and so will NOT appear within 30-60s on the claims after submission.</i>
                     <input   type="text"
                         name="entry.1662751314"
                         id="sort-preferreddorm">
@@ -467,8 +507,8 @@
                     <option value="t">Troll</option>
                     </select>
                 </label>
-                <strong class="hide ifElec">Electives</strong>
-                <i class="hide ifElec">Minimum of 2 electives for years 3 to 5. Minimum of 4 electives for years 6 and 7.</i>
+                <strong class="hide ifElec fullWidth">Electives</strong>
+                <i class="hide ifElec fullWidth">Minimum of 2 electives for years 3 to 5. Minimum of 4 electives for years 6 and 7.</i>
                 <label class="hide ifElec">
                     <strong>Course</strong>
                     <select  name="entry.1299686648"
@@ -785,12 +825,6 @@
                         <option value="n">no</option>
                     </select>
                 </label>
-                <label class="hide ifQuidditch">
-                    <strong>Quidditch Position</strong>
-                    <input   type="text"
-                            name="entry.1227238528"
-                            id="sort-quidditchposition">
-                </label>
                 <label class="hide ifLeadershipPossible">
                     <strong>Leadership?</strong>
                     <select  name="entry.1827293380"
@@ -799,6 +833,12 @@
                         <option value="y">yes</option>
                         <option value="n">no</option>
                     </select>
+                </label>
+                <label class="hide ifQuidditch">
+                    <strong>Quidditch Position</strong>
+                    <input   type="text"
+                            name="entry.1227238528"
+                            id="sort-quidditchposition">
                 </label>
                 <label class="hide ifLeadership">
                     <strong>Leadership Position</strong>
@@ -809,140 +849,12 @@
                         <option value="head">Head Boy/Girl</option>
                     </select>
                 </label>
-                <button type="submit">Submit</button>
+                <div class="form-buttons fullWidth">
+                    <button type="submit">Submit</button>
+                    <button onclick="formReset()">Reset</button>
+                </div>
             </form>
             <div id="warning" style="margin-bottom: 50px;"></div>
-            <script>
-                document.querySelector('#sort-group').addEventListener('change', () => {
-                    let selected = document.querySelector('#sort-group').options[document.querySelector('#sort-group').selectedIndex].value;
-                    switch (selected) {
-                        case '18':
-                        case '15':
-                        case '8':
-                        case '12':
-                        case '11':
-                        case '13':
-                        case '6':
-                            showFields('.ifAdult');
-                            hideFields('.ifStudent, .ifLower, .ifUpper, .ifLeadership, .ifLeadershipPossible, .ifQuidditch, .ifElec, .ifStart, .ifCore');
-                            checkEmployed();
-                            removeRequired('#sort-hogwartsyear');
-                            addRequired('#sort-employed');
-                            addRequired('#sort-universitystudent');
-                            break;
-                        case '17':
-                            showFields('.ifAdult');
-                            hideFields('.ifStudent, .ifLower, .ifUpper, .ifLeadership, .ifLeadershipPossible, .ifQuidditch, .ifElec, .ifStart, .ifCore');
-                            checkEmployed();
-                            removeRequired('#sort-hogwartsyear');
-                            addRequired('#sort-employed');
-                            addRequired('#sort-universitystudent');
-                            break;
-                        case '7':
-                        case '9':
-                        case '14':
-                        case '16':
-                            hideFields('.ifAdult, .ifJob');
-                            showFields('.ifStudent');
-                            checkYear();
-                            checkLeadPos();
-                            checkQuid();   
-                            addRequired('#sort-hogwartsyear');
-                            removeRequired('#sort-employed');
-                            removeRequired('#sort-universitystudent');
-                            break;
-                        default:
-                            break;
-                    }  
-                });
-
-                //Ability change
-                document.querySelector('#sort-abilityexists').addEventListener('change', () => {
-                    let selected = document.querySelector('#sort-abilityexists').options[document.querySelector('#sort-abilityexists').selectedIndex].value;
-                    if(selected == 'y') {
-                        showFields('.ifAbilities');
-                    } else {
-                        hideFields('.ifAbilities');
-                    }
-                });
-                document.querySelector('#sort-animagus').addEventListener('change', () => {
-                    if(document.querySelector('#sort-animagus').checked) {
-                        showFields('.ifAnimagus');
-                    } else {
-                        hideFields('.ifAnimagus');
-                    }
-                })
-
-                //Species change
-                document.querySelector('#sort-species').addEventListener('change', () => {
-                    let selected = document.querySelector('#sort-species').options[document.querySelector('#sort-species').selectedIndex].value;
-                    if(selected == 'veela') {
-                        showFields('.ifVeela');
-                    } else {
-                        hideFields('.ifVeela');
-                    }
-                });
-
-                //Employed change
-                document.querySelector('#sort-employed').addEventListener('change', () => {
-                    checkEmployed();
-                });
-
-                //University change
-                document.querySelector('#sort-universitystudent').addEventListener('change', () => {
-                    checkUniversity();
-                });
-
-                //Year standing change
-                document.querySelector('#sort-hogwartsyear').addEventListener('change', () => {
-                    checkYear();
-                });
-
-                //Student leadership change
-                document.querySelector('#sort-leadership').addEventListener('change', () => {
-                    checkLeadPos();
-                });
-
-                //Student quidditch change
-                document.querySelector('#sort-quidditch').addEventListener('change', () => {
-                    checkQuid();
-                });
-            
-
-                let instance = [];
-                //update instance on change to reduce delay
-                document.querySelector('#sort-id').addEventListener('change', () => {
-                    const url = `https://opensheet.elk.sh/1oxsI5jK9YnNMjo2DI_ocoP0DEPwG-yFJhS7HsRRyBQU/Info`;
-                    let accountID = $("#sort-id").val();
-                    fetch(url)
-                    .then((response) => response.json())
-                    .then((data) => {
-                        console.log(data);
-                        instance = data.filter(item => item.AccountID == accountID);
-                        console.log(instance);
-                        if(instance.length === 1) {
-                            console.log('update');
-                        } else if (instance.length === 0) {
-                            console.log('add');
-                        } else {
-                            console.log('error! multiple ids exist');
-                        }
-                    });
-                });
-                //submit form - send data if character does not exist, stop submission if they do
-                document.querySelector('#sort').addEventListener('submit', e => {
-                    e.preventDefault();
-                    if(instance.length === 1) {
-                        console.log('update');
-                        document.querySelector('#warning').innerHTML = 'This character already exists in the claims! Please <a href="">update your claims</a> instead.';
-                    } else if (instance.length === 0) {
-                        postToGoogle('POST');
-                        $('button[type="submit"]').val('Submitting...');
-                    } else {
-                        console.log('error! multiple instances of id');
-                    }
-                });
-            </script>
 
         </main>
 

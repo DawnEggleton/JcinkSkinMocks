@@ -67,7 +67,8 @@
                 <div class="webpage--wrapper">
                     <div class="webpage--main-menu">
                         <div class="webpage--sticky">
-                            <a href="#basics" class="active"><span>Basics</span></a>
+                            <a href="#basics"><span>Basics</span></a>
+                            <a href="#forms" class="active"><span>Forms</span></a>
                             <a href="#guides"><span>Guides</span></a>
                             <a href="#schools"><span>Schools</span></a>
                             <a href="#canons"><span>Canons</span></a>
@@ -77,13 +78,13 @@
                         </div>
                     </div>
                     <div class="webpage--content">
-                        <section class="webpage--section active">
+                        <section class="webpage--section">
                             <div class="webpage--sub-menu">
                                 <button class="go-left" onclick="moveLeft(this)">
                                     <i class="fa-light fa-angles-left"></i>
                                 </button>
                                 <div class="webpage--sub-menu-links">
-                                    <a href="#rules" class="active">Rules</a>
+                                    <a href="#rules">Rules</a>
                                     <a href="#plot">Plot</a>
                                     <a href="#groups">Groups</a>
                                     <a href="#credits">Credits</a>
@@ -92,7 +93,7 @@
                                     <i class="fa-light fa-angles-right"></i>
                                 </button>
                             </div>
-                            <div class="webpage--tab active">
+                            <div class="webpage--tab">
                                 rules
                             </div>
                             <div class="webpage--tab">
@@ -103,6 +104,826 @@
                             </div>
                             <div class="webpage--tab">
                                 credits
+                            </div>
+                        </section>
+                        <section class="webpage--section active">
+                            <div class="webpage--sub-menu">
+                                <button class="go-left" onclick="moveLeft(this)">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div class="webpage--sub-menu-links">
+                                    <a href="#sorting" class="active">Sorting</a>
+                                </div>
+                                <button class="go-right" onclick="moveRight(this)">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div class="webpage--tab active">
+
+                                <form id="sort" class="grid twoCol">
+                                    <label>
+                                        <strong>Alias</strong>
+                                        <input type="text"
+                                            name="entry.1432517820"
+                                            id="sort-member"
+                                            required>
+                                    </label>
+                                    <label>
+                                        <strong>Character Name</strong>
+                                        <input   type="text"
+                                            name="entry.107957704"
+                                            id="sort-character"
+                                            required>
+                                    </label>
+                                    <label>
+                                        <strong>
+                                            Account ID
+                                            <button onclick="openHelp(this)">
+                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </strong>
+                                        <i class="help">Can be found by getting the numbers at the end of the URL of your main profile.</i>
+                                        <input   type="text"
+                                            name="entry.1642550285"
+                                            id="sort-id"
+                                            required>
+                                    </label>
+                                    <label>
+                                        <strong>Group</strong>
+                                        <select  name="entry.143362062"
+                                                id="sort-group"
+                                                required>
+                                            <option value="">(select)</option>
+                                            <optgroup label="Students">
+                                                <option value="7">Gryffindor</option>
+                                                <option value="9">Hufflepuff</option>
+                                                <option value="14">Ravenclaw</option>
+                                                <option value="16">Slytherin</option>
+                                            </optgroup>
+                                            <optgroup label="Adults">
+                                                <option value="18">Entertainment</option>
+                                                <option value="15">Healers</option>
+                                                <option value="8">Hogwarts Staff</option>
+                                                <option value="12">Ministry</option>
+                                                <option value="11">Press</option>
+                                                <option value="13">Quidditch</option>
+                                                <option value="17">Returners</option>
+                                                <option value="6">Adults</option>
+                                            </optgroup>
+                                        </select>
+                                    </label>
+                                    <label class="fullWidth">
+                                        <strong>Face Claim</strong>
+                                        <input   type="text"
+                                            name="entry.1726668460"
+                                            id="sort-face"
+                                            required>
+                                    </label>
+                                    <label>
+                                        <strong>Ability?</strong>
+                                        <select  name="entry.622253808"
+                                            id="sort-abilityexists"
+                                            required>
+                                            <option value="">(select)</option>
+                                            <option value="y">yes</option>
+                                            <option value="n">no</option>
+                                        </select>
+                                    </label>
+                                    <label>
+                                        <strong>Species</strong>
+                                        <select  name="entry.994119699"
+                                                id="sort-species">
+                                            <option value="">Not Applicable</option>
+                                            <option value="vampire">Vampire</option>
+                                            <option value="veela">Veela</option>
+                                            <option value="werewolf">Werewolf</option>
+                                        </select>
+                                    </label>
+                                    <div class="form-item hide ifAbilities fullWidth">
+                                        <strong>
+                                            Abilities
+                                            <button onclick="openHelp(this)">
+                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </strong>
+                                        <i class="help">Check all that apply. If multiple 'other' abilities, please make sure to separate them by a comma with a space after (e.g., ability 1, ability 2, ability 3). Wandless and non-verbal magic do not need to be claimed.</i>
+                                        <div class="form-flex">
+                                            <label>
+                                                <input   type="checkbox"
+                                                    name="abilities"
+                                                    id="sort-animagus"
+                                                    value="animagus">
+                                                <strong class="checkbox">Animagus</strong>
+                                            </label>
+                                            <label>
+                                                <input   type="checkbox"
+                                                    name="abilities"
+                                                    id="sort-metamorphmagus"
+                                                    value="metamorphmagus">
+                                                <strong class="checkbox">Metamorphmagus</strong>
+                                            </label>
+                                            <label>
+                                                <input   type="checkbox"
+                                                    name="abilities"
+                                                    id="sort-legilimens"
+                                                    value="legilimens">
+                                                <strong class="checkbox">Legilimens</strong>
+                                            </label>
+                                            <label>
+                                                <input   type="checkbox"
+                                                    name="abilities"
+                                                    id="sort-occlumens"
+                                                    value="occlumens">
+                                                <strong class="checkbox">Occlumens</strong>
+                                            </label>
+                                            <label>
+                                                <input   type="checkbox"
+                                                    name="abilities"
+                                                    id="sort-seer"
+                                                    value="seer">
+                                                <strong class="checkbox">Seer</strong>
+                                            </label>
+                                            <label>
+                                                <input   type="checkbox"
+                                                    name="abilities"
+                                                    id="sort-squib"
+                                                    value="squib">
+                                                <strong class="checkbox">Squib</strong>
+                                            </label>
+                                        </div>
+                                        <div class="grid twoCol">
+                                            <label>
+                                                <strong>Other Abilities</strong>
+                                                <input   type="text"
+                                                name="otherabilities"
+                                                id="sort-otherability">
+                                            </label>
+                                            <label class="hide ifAnimagus">
+                                                <strong>Animagus Form</strong>
+                                                <input   type="text"
+                                                name="animagusform"
+                                                id="sort-animagusform">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <label class="hide ifVeela fullWidth">
+                                        <strong>Veela Blood</strong>
+                                        <select  name="entry.2106914261"
+                                                id="sort-veelablood">
+                                            <option value="">(select)</option>
+                                            <option value="full">Full</option>
+                                            <option value="half">Half</option>
+                                            <option value="quarter">Quarter</option>
+                                            <option value="eighth">Eighth</option>
+                                            <option value="minimal">Minimal</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifAdult">
+                                        <strong>Employed?</strong>
+                                        <select  name="entry.1852737004"
+                                                id="sort-employed">
+                                            <option value="">(select)</option>
+                                            <option value="y">yes</option>
+                                            <option value="n">no</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifAdult">
+                                        <strong>University Student?</strong>
+                                        <select  name="entry.836822682"
+                                                id="sort-universitystudent">
+                                            <option value="">(select)</option>
+                                            <option value="y">yes</option>
+                                            <option value="n">no</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifJob">
+                                        <strong>Job Section</strong>
+                                        <select  name="entry.794218756"
+                                                id="sort-jobsection">
+                                            <option value="">(select)</option>
+                                            <option value="hogwarts">Hogwarts Castle</option>
+                                            <option value="ministry">Ministry of Magic</option>
+                                            <option value="mungos">St. Mungo's</option>
+                                            <option value="quidditch">Quidditch</option>
+                                            <option value="prophet">The Daily Prophet</option>
+                                            <option value="diagon">Diagon Alley</option>
+                                            <option value="horizon">Horizon Alley</option>
+                                            <option value="knockturn">Knockturn Alley</option>
+                                            <option value="mythic">Mythic Alley</option>
+                                            <option value="wizardlondon">Wizarding London (Other)</option>
+                                            <option value="mugglelondon">Muggle London (Other)</option>
+                                            <option value="hogsmeade">Hogsmeade</option>
+                                            <option value="ilkley">Ilkley</option>
+                                            <option value="elsewhere">Elsewhere</option>
+                                            <option value="selfemployed">Self-Employed</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifJob">
+                                        <strong>
+                                            Job Sub-Section
+                                            <button onclick="openHelp(this)">
+                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </strong>
+                                        <i class="help">Equivalent to the grouping underneath the main tab. For example, in the Ministry, these are overarching departments. In Diagon Alley, these are individual businesses. REQUIRED unless self-employed.</i>
+                                        <input   type="text"
+                                            name="entry.13065058"
+                                            id="sort-jobsubsection">
+                                    </label>
+                                    <label class="hide ifJob">
+                                        <strong>
+                                            Job Title
+                                            <button onclick="openHelp(this)">
+                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </strong>
+                                        <i class="help">The position your character holds - with ONE exception. For Hogwarts staff who teach specific years or manage a specific house (e.g., house parents), please put instead the years they teach or the house they manage. This will result in a more sensible order of information in the final claim.</i>
+                                        <input   type="text"
+                                            name="entry.437548501"
+                                            id="sort-jobtitle">
+                                    </label>
+                                    <label class="hide ifJob">
+                                        <strong>
+                                            Job Notes
+                                            <button onclick="openHelp(this)">
+                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </strong>
+                                        <i class="help">Not applicable to most characters. For Ministry personnel, if they are part of a specific sub-division or team under the overall department (e.g., the Hitwizard Team within Magical Law Enforcement), then specify that here. For Hogwarts staff that were exceptions to the Job Title above, please place either their speciality (for professors, e.g., 'Potions') or their actual job title here (e.g., 'house parent'). If they are a Quidditch player, please name their team. If they are self-employed and have a specific business name, you may mention it here as well, but in this instance it isn't required.</i>
+                                        <input   type="text"
+                                            name="entry.1508899464"
+                                            id="sort-jobnotes">
+                                    </label>
+                                    <label class="hide ifUni">
+                                        <strong>University/College</strong>
+                                        <input   type="text"
+                                            name="entry.1260116484"
+                                            id="sort-universityname">
+                                    </label>
+                                    <label class="hide ifUni">
+                                        <strong>Program</strong>
+                                        <input   type="text"
+                                            name="entry.1662751314"
+                                            id="sort-universityprogram">
+                                    </label>
+                                    <label class="hide ifUni">
+                                        <strong>Year</strong>
+                                        <select  name="entry.876623337"
+                                            id="sort-universityyear">
+                                            <option value="">(select)</option>
+                                            <option value="1">First Year</option>
+                                            <option value="2">Second Year</option>
+                                            <option value="3">Third Year</option>
+                                            <option value="4">Fourth Year</option>
+                                            <option value="post">Post-Grad</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifStudent">
+                                        <strong>Year</strong>
+                                        <select  name="entry.2066116776"
+                                                id="sort-hogwartsyear">
+                                            <option value="">(select)</option>
+                                            <option value="1">First Year</option>
+                                            <option value="2">Second Year</option>
+                                            <option value="3">Third Year</option>
+                                            <option value="4">Fourth Year</option>
+                                            <option value="5">Fifth Year</option>
+                                            <option value="6">Sixth Year</option>
+                                            <option value="7">Seventh Year</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifStudent">
+                                        <strong>
+                                            Preferred Dorm Arrangement
+                                            <button onclick="openHelp(this)">
+                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </strong>
+                                        <i class="help">If there is a specific room or dormmate you would like, please let us know. Otherwise, we will randomly assign characters to rooms. This occurs manually upon character sorting and so will NOT appear within 30-60s on the claims after submission.</i>
+                                        <input   type="text"
+                                            name="entry.1662751314"
+                                            id="sort-preferreddorm">
+                                    </label>
+                                    <label class="hide ifCore">
+                                        <strong>Astronomy</strong>
+                                        <select  name="entry.183274541"
+                                                id="sort-astronomy">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifCore">
+                                        <strong>Charms</strong>
+                                        <select  name="entry.1490442733"
+                                                id="sort-charms">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifCore">
+                                        <strong>Defence Against the Dark Arts</strong>
+                                        <select  name="entry.1393178788"
+                                                id="sort-dada">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifCore">
+                                        <strong>Games</strong>
+                                        <select  name="entry.967152081"
+                                                id="sort-games">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifCore">
+                                        <strong>Herbology</strong>
+                                        <select  name="entry.1098395938"
+                                                id="sort-herbology">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifCore">
+                                        <strong>History of Magic</strong>
+                                        <select  name="entry.1697474133"
+                                                id="sort-historyofmagic">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifStart">
+                                        <strong>Literacy</strong>
+                                        <select  name="entry.1903652715"
+                                                id="sort-literacy">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifStart">
+                                        <strong>Magical Theory</strong>
+                                        <select  name="entry.484032441"
+                                                id="sort-magicaltheory">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifStart">
+                                        <strong>Maths</strong>
+                                        <select  name="entry.135635464"
+                                                id="sort-maths">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifCore">
+                                        <strong>Potions</strong>
+                                        <select  name="entry.1264662180"
+                                                id="sort-potions">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifCore">
+                                        <strong>Transfiguration</strong>
+                                        <select  name="entry.1035411565"
+                                                id="sort-transfiguration">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifStart">
+                                        <strong>Culture Class</strong>
+                                        <select  name="entry.2142142079"
+                                                id="sort-culture">
+                                        <option value="">(select)</option>
+                                        <option value="muggle">Muggle Studies</option>
+                                        <option value="wizarding">Wizarding Culture</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifStart">
+                                        <strong>Culture Grade</strong>
+                                        <select  name="entry.698903169"
+                                                id="sort-culturegrade">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <strong class="hide ifElec fullWidth">Electives</strong>
+                                    <i class="hide ifElec fullWidth">Minimum of 2 electives for years 3 to 5. Minimum of 4 electives for years 6 and 7.</i>
+                                    <label class="hide ifElec">
+                                        <strong>Course</strong>
+                                        <select  name="entry.1299686648"
+                                                id="sort-elec1">
+                                            <option value="">(select)</option>
+                                            <option class="hide ifUpper" value="alchemy">Alchemy</option>
+                                            <option value="runes">Ancient Runes</option>
+                                            <option class="hide ifUpper" value="ancientstudies">Ancient Studies</option>
+                                            <option value="arithmancy">Arithmancy</option>
+                                            <option value="art">Art</option>
+                                            <option class="hide ifUpper" value="astronomy">Astronomy</option>
+                                            <option value="comc">Care of Magical Creatures</option>
+                                            <option class="hide ifUpper" value="charms">Charms</option>
+                                            <option class="hide ifUpper" value="dada">Defence Against the Dark Arts</option>
+                                            <option value="divination">Divination</option>
+                                            <option class="hide ifUpper" value="games">Games</option>
+                                            <option class="hide ifUpper" value="ghoulstudies">Ghoul Studies</option>
+                                            <option class="hide ifUpper" value="herbology">Herbology</option>
+                                            <option class="hide ifUpper" value="historyofmagic">History of Magic</option>
+                                            <option value="magicaltheory">Magical Theory</option>
+                                            <option value="mugglestudies">Muggle Studies</option>
+                                            <option value="music">Music</option>
+                                            <option class="hide ifUpper" value="potions">Potions</option>
+                                            <option class="hide ifUpper" value="transfiguration">Transfiguration</option>
+                                            <option class="hide ifUpper" value="xylomancy">Xylomancy</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifElec">
+                                        <strong>Grade</strong>
+                                        <select  name="entry.768681073"
+                                                id="sort-elec1grade">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifElec">
+                                        <strong>Course</strong>
+                                        <select  name="entry.671470831"
+                                                id="sort-elec2">
+                                            <option value="">(select)</option>
+                                            <option class="hide ifUpper" value="alchemy">Alchemy</option>
+                                            <option value="runes">Ancient Runes</option>
+                                            <option class="hide ifUpper" value="ancientstudies">Ancient Studies</option>
+                                            <option value="arithmancy">Arithmancy</option>
+                                            <option value="art">Art</option>
+                                            <option class="hide ifUpper" value="astronomy">Astronomy</option>
+                                            <option value="comc">Care of Magical Creatures</option>
+                                            <option class="hide ifUpper" value="charms">Charms</option>
+                                            <option class="hide ifUpper" value="dada">Defence Against the Dark Arts</option>
+                                            <option value="divination">Divination</option>
+                                            <option class="hide ifUpper" value="games">Games</option>
+                                            <option class="hide ifUpper" value="ghoulstudies">Ghoul Studies</option>
+                                            <option class="hide ifUpper" value="herbology">Herbology</option>
+                                            <option class="hide ifUpper" value="historyofmagic">History of Magic</option>
+                                            <option value="magicaltheory">Magical Theory</option>
+                                            <option value="mugglestudies">Muggle Studies</option>
+                                            <option value="music">Music</option>
+                                            <option class="hide ifUpper" value="potions">Potions</option>
+                                            <option class="hide ifUpper" value="transfiguration">Transfiguration</option>
+                                            <option class="hide ifUpper" value="xylomancy">Xylomancy</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifElec">
+                                        <strong>Grade</strong>
+                                        <select  name="entry.483899832"
+                                                id="sort-elec2grade">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifElec">
+                                        <strong>Course</strong>
+                                        <select  name="entry.1377650876"
+                                                id="sort-elec3">
+                                            <option value="">(select)</option>
+                                            <option class="hide ifUpper" value="alchemy">Alchemy</option>
+                                            <option value="runes">Ancient Runes</option>
+                                            <option class="hide ifUpper" value="ancientstudies">Ancient Studies</option>
+                                            <option value="arithmancy">Arithmancy</option>
+                                            <option value="art">Art</option>
+                                            <option class="hide ifUpper" value="astronomy">Astronomy</option>
+                                            <option value="comc">Care of Magical Creatures</option>
+                                            <option class="hide ifUpper" value="charms">Charms</option>
+                                            <option class="hide ifUpper" value="dada">Defence Against the Dark Arts</option>
+                                            <option value="divination">Divination</option>
+                                            <option class="hide ifUpper" value="games">Games</option>
+                                            <option class="hide ifUpper" value="ghoulstudies">Ghoul Studies</option>
+                                            <option class="hide ifUpper" value="herbology">Herbology</option>
+                                            <option class="hide ifUpper" value="historyofmagic">History of Magic</option>
+                                            <option value="magicaltheory">Magical Theory</option>
+                                            <option value="mugglestudies">Muggle Studies</option>
+                                            <option value="music">Music</option>
+                                            <option class="hide ifUpper" value="potions">Potions</option>
+                                            <option class="hide ifUpper" value="transfiguration">Transfiguration</option>
+                                            <option class="hide ifUpper" value="xylomancy">Xylomancy</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifElec">
+                                        <strong>Grade</strong>
+                                        <select  name="entry.261216209"
+                                                id="sort-elec3grade">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifElec">
+                                        <strong>Course</strong>
+                                        <select  name="entry.530618541"
+                                                id="sort-elec4">
+                                            <option value="">(select)</option>
+                                            <option class="hide ifUpper" value="alchemy">Alchemy</option>
+                                            <option value="runes">Ancient Runes</option>
+                                            <option class="hide ifUpper" value="ancientstudies">Ancient Studies</option>
+                                            <option value="arithmancy">Arithmancy</option>
+                                            <option value="art">Art</option>
+                                            <option class="hide ifUpper" value="astronomy">Astronomy</option>
+                                            <option value="comc">Care of Magical Creatures</option>
+                                            <option class="hide ifUpper" value="charms">Charms</option>
+                                            <option class="hide ifUpper" value="dada">Defence Against the Dark Arts</option>
+                                            <option value="divination">Divination</option>
+                                            <option class="hide ifUpper" value="games">Games</option>
+                                            <option class="hide ifUpper" value="ghoulstudies">Ghoul Studies</option>
+                                            <option class="hide ifUpper" value="herbology">Herbology</option>
+                                            <option class="hide ifUpper" value="historyofmagic">History of Magic</option>
+                                            <option value="magicaltheory">Magical Theory</option>
+                                            <option value="mugglestudies">Muggle Studies</option>
+                                            <option value="music">Music</option>
+                                            <option class="hide ifUpper" value="potions">Potions</option>
+                                            <option class="hide ifUpper" value="transfiguration">Transfiguration</option>
+                                            <option class="hide ifUpper" value="xylomancy">Xylomancy</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifElec">
+                                        <strong>Grade</strong>
+                                        <select  name="entry.1632241456"
+                                                id="sort-elec4grade">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifUpper">
+                                        <strong>Course</strong>
+                                        <select  name="entry.1399421084"
+                                                id="sort-elec5">
+                                            <option value="">(select)</option>
+                                            <option class="hide ifUpper" value="alchemy">Alchemy</option>
+                                            <option value="runes">Ancient Runes</option>
+                                            <option class="hide ifUpper" value="ancientstudies">Ancient Studies</option>
+                                            <option value="arithmancy">Arithmancy</option>
+                                            <option value="art">Art</option>
+                                            <option class="hide ifUpper" value="astronomy">Astronomy</option>
+                                            <option value="comc">Care of Magical Creatures</option>
+                                            <option class="hide ifUpper" value="charms">Charms</option>
+                                            <option class="hide ifUpper" value="dada">Defence Against the Dark Arts</option>
+                                            <option value="divination">Divination</option>
+                                            <option class="hide ifUpper" value="games">Games</option>
+                                            <option class="hide ifUpper" value="ghoulstudies">Ghoul Studies</option>
+                                            <option class="hide ifUpper" value="herbology">Herbology</option>
+                                            <option class="hide ifUpper" value="historyofmagic">History of Magic</option>
+                                            <option value="magicaltheory">Magical Theory</option>
+                                            <option value="mugglestudies">Muggle Studies</option>
+                                            <option value="music">Music</option>
+                                            <option class="hide ifUpper" value="potions">Potions</option>
+                                            <option class="hide ifUpper" value="transfiguration">Transfiguration</option>
+                                            <option class="hide ifUpper" value="xylomancy">Xylomancy</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifUpper">
+                                        <strong>Grade</strong>
+                                        <select  name="entry.1123859686"
+                                                id="sort-elec5grade">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifUpper">
+                                        <strong>Course</strong>
+                                        <select  name="entry.223598383"
+                                                id="sort-elec6">
+                                            <option value="">(select)</option>
+                                            <option class="hide ifUpper" value="alchemy">Alchemy</option>
+                                            <option value="runes">Ancient Runes</option>
+                                            <option class="hide ifUpper" value="ancientstudies">Ancient Studies</option>
+                                            <option value="arithmancy">Arithmancy</option>
+                                            <option value="art">Art</option>
+                                            <option class="hide ifUpper" value="astronomy">Astronomy</option>
+                                            <option value="comc">Care of Magical Creatures</option>
+                                            <option class="hide ifUpper" value="charms">Charms</option>
+                                            <option class="hide ifUpper" value="dada">Defence Against the Dark Arts</option>
+                                            <option value="divination">Divination</option>
+                                            <option class="hide ifUpper" value="games">Games</option>
+                                            <option class="hide ifUpper" value="ghoulstudies">Ghoul Studies</option>
+                                            <option class="hide ifUpper" value="herbology">Herbology</option>
+                                            <option class="hide ifUpper" value="historyofmagic">History of Magic</option>
+                                            <option value="magicaltheory">Magical Theory</option>
+                                            <option value="mugglestudies">Muggle Studies</option>
+                                            <option value="music">Music</option>
+                                            <option class="hide ifUpper" value="potions">Potions</option>
+                                            <option class="hide ifUpper" value="transfiguration">Transfiguration</option>
+                                            <option class="hide ifUpper" value="xylomancy">Xylomancy</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifUpper">
+                                        <strong>Course</strong>
+                                        <select  name="entry.76064911"
+                                                id="sort-elec7">
+                                            <option value="">(select)</option>
+                                            <option class="hide ifUpper" value="alchemy">Alchemy</option>
+                                            <option value="runes">Ancient Runes</option>
+                                            <option class="hide ifUpper" value="ancientstudies">Ancient Studies</option>
+                                            <option value="arithmancy">Arithmancy</option>
+                                            <option value="art">Art</option>
+                                            <option class="hide ifUpper" value="astronomy">Astronomy</option>
+                                            <option value="comc">Care of Magical Creatures</option>
+                                            <option class="hide ifUpper" value="charms">Charms</option>
+                                            <option class="hide ifUpper" value="dada">Defence Against the Dark Arts</option>
+                                            <option value="divination">Divination</option>
+                                            <option class="hide ifUpper" value="games">Games</option>
+                                            <option class="hide ifUpper" value="ghoulstudies">Ghoul Studies</option>
+                                            <option class="hide ifUpper" value="herbology">Herbology</option>
+                                            <option class="hide ifUpper" value="historyofmagic">History of Magic</option>
+                                            <option value="magicaltheory">Magical Theory</option>
+                                            <option value="mugglestudies">Muggle Studies</option>
+                                            <option value="music">Music</option>
+                                            <option class="hide ifUpper" value="potions">Potions</option>
+                                            <option class="hide ifUpper" value="transfiguration">Transfiguration</option>
+                                            <option class="hide ifUpper" value="xylomancy">Xylomancy</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifUpper">
+                                        <strong>Grade</strong>
+                                        <select  name="entry.1321648888"
+                                                id="sort-elec7grade">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifUpper">
+                                        <strong>Course</strong>
+                                        <select  name="entry.1638810127"
+                                                id="sort-elec8">
+                                        <option value="">(select)</option>
+                                        <option class="hide ifUpper" value="alchemy">Alchemy</option>
+                                        <option value="runes">Ancient Runes</option>
+                                        <option class="hide ifUpper" value="ancientstudies">Ancient Studies</option>
+                                        <option value="arithmancy">Arithmancy</option>
+                                        <option value="art">Art</option>
+                                        <option class="hide ifUpper" value="astronomy">Astronomy</option>
+                                        <option value="comc">Care of Magical Creatures</option>
+                                        <option class="hide ifUpper" value="charms">Charms</option>
+                                        <option class="hide ifUpper" value="dada">Defence Against the Dark Arts</option>
+                                        <option value="divination">Divination</option>
+                                        <option class="hide ifUpper" value="games">Games</option>
+                                        <option class="hide ifUpper" value="ghoulstudies">Ghoul Studies</option>
+                                        <option class="hide ifUpper" value="herbology">Herbology</option>
+                                        <option class="hide ifUpper" value="historyofmagic">History of Magic</option>
+                                        <option value="magicaltheory">Magical Theory</option>
+                                        <option value="mugglestudies">Muggle Studies</option>
+                                        <option value="music">Music</option>
+                                        <option class="hide ifUpper" value="potions">Potions</option>
+                                        <option class="hide ifUpper" value="transfiguration">Transfiguration</option>
+                                        <option class="hide ifUpper" value="xylomancy">Xylomancy</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifUpper">
+                                        <strong>Grade</strong>
+                                        <select  name="entry.1094021435"
+                                                id="sort-elec8grade">
+                                        <option value="">(select)</option>
+                                        <option value="o">Outstanding</option>
+                                        <option value="e">Exceeds Expectations</option>
+                                        <option value="a">Acceptable</option>
+                                        <option value="p">Poor</option>
+                                        <option value="d">Dreadful</option>
+                                        <option value="t">Troll</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifStudent">
+                                        <strong>Quidditch?</strong>
+                                        <select  name="entry.1025317984"
+                                                id="sort-quidditch">
+                                            <option value="">(select)</option>
+                                            <option value="y">yes</option>
+                                            <option value="n">no</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifLeadershipPossible">
+                                        <strong>Leadership?</strong>
+                                        <select  name="entry.1827293380"
+                                                id="sort-leadership">
+                                            <option value="">(select)</option>
+                                            <option value="y">yes</option>
+                                            <option value="n">no</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifQuidditch">
+                                        <strong>Quidditch Position</strong>
+                                        <input   type="text"
+                                                name="entry.1227238528"
+                                                id="sort-quidditchposition">
+                                    </label>
+                                    <label class="hide ifLeadership">
+                                        <strong>Leadership Position</strong>
+                                        <select  name="entry.878358884"
+                                                id="sort-leadershipposition">
+                                            <option value="">(select)</option>
+                                            <option value="prefect">Prefect</option>
+                                            <option value="head">Head Boy/Girl</option>
+                                        </select>
+                                    </label>
+                                    <div class="form-buttons fullWidth">
+                                        <button type="submit">Submit</button>
+                                        <button onclick="formReset()">Reset</button>
+                                    </div>
+                                </form>
+                                <div id="warning" style="margin-bottom: 50px;"></div>
+                                
                             </div>
                         </section>
                         <section class="webpage--section">
@@ -362,7 +1183,6 @@
         </main>
 
         <script>
-
             const url = `https://opensheet.elk.sh/1oxsI5jK9YnNMjo2DI_ocoP0DEPwG-yFJhS7HsRRyBQU/Info`;
             fetch(url)
             .then((response) => response.json())

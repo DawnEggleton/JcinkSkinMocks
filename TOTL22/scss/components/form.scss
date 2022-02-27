@@ -1,18 +1,160 @@
 #sort {
-    display: grid;
     grid-gap: 20px;
     
+    .form-item,
     label {
         display: grid;
-    }
-    .form-item {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
+        grid-template-rows: max-content max-content auto;
+        grid-gap: 5px;
 
-        & > strong,
-        & > i {
-            flex: 0 0 100%;
+        strong {
+            font-size: var(--xlBody);
+            font-family: var(--headerFont);
+            text-transform: lowercase;
+
+            button {
+                background: none;
+                border: none;
+                color: var(--accent);
+                font-size: var(--xlBody);
+                cursor: pointer;
+
+                .fa-circle-question {
+                    display: initial;
+                }
+
+                .fa-circle-xmark {
+                    display: none;
+                }
+
+                &.show {
+                    .fa-circle-question {
+                        display: none;
+                    }
+
+                    .fa-circle-xmark {
+                        display: initial;
+                    }
+                }
+            }
         }
+
+        i.help {
+            display: none;
+
+            &.show {
+                display: block;
+            }
+        }
+
+        select,
+        input {
+            border: 0;
+            background: var(--content);
+            font-size: var(--lBody);
+            padding: 8px 10px 9px;
+        }
+    }
+
+    .form-item {
+        .form-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+    
+            label {
+                grid-template-columns: max-content max-content;
+    
+                input[type="checkbox"] {
+                    display: none;
+
+                    &:checked {
+                        & + .checkbox {
+                            background: var(--accent);
+                
+                            &::before {
+                                width: 20px;
+                                margin-right: 3px;
+                            }
+                        }
+                    }
+                }
+    
+                .checkbox {
+                    font-weight: 500;
+                    background: var(--ltaccent);
+                    padding: 8px 13px;
+                    border-radius: 4px;
+                    font-size: var(--lBody);
+                    cursor: pointer;
+                    color: var(--accentColor);
+
+                    &::before {
+                        display: inline-block;
+                        width: 0;
+                        overflow: hidden;
+                        font-family: 'Font Awesome 6 Pro';
+                        font-weight: 700;
+                        bottom: -3px;
+                        position: relative;
+                        line-height: 100%;
+                    }
+            
+                    &:hover {
+                        background: var(--accent);
+            
+                        &::before {
+                            width: 20px;
+                            margin-right: 3px;
+                        }
+                    }
+                }
+    
+            }
+        }
+
+        .grid {
+            grid-gap: 20px;
+        }
+    }
+
+    .form-buttons {
+
+        button {
+            grid-column: 1 / -1;
+            background: var(--ltaccent);
+            border: none;
+            padding: 15px 20px;
+            width: max-content;
+            color: var(--accentColor);
+            font-family: var(--headerFont);
+            text-transform: lowercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: var(--xlBody);
+            cursor: pointer;
+    
+            &::after {
+                display: inline-block;
+                width: 0;
+                overflow: hidden;
+                font-family: 'Font Awesome 6 Pro';
+                font-weight: 300;
+                bottom: -3px;
+                position: relative;
+                line-height: 100%;
+            }
+    
+            &.active,
+            &:hover {
+                background: var(--accent);
+    
+                &::after {
+                    width: 20px;
+                    margin-left: 10px;
+                }
+            }
+        }
+
     }
 }

@@ -175,4 +175,136 @@ if($('body#Pages').length > 0) {
             section.style.minHeight = `calc(100vh - ${breadcrumbHeight - 1}px)`;
         })
     }, 400);
+
+
+    document.querySelector('#sort-group').addEventListener('change', () => {
+        let selected = document.querySelector('#sort-group').options[document.querySelector('#sort-group').selectedIndex].value;
+        switch (selected) {
+            case '18':
+            case '15':
+            case '8':
+            case '12':
+            case '11':
+            case '13':
+            case '6':
+                showFields('.ifAdult');
+                hideFields('.ifStudent, .ifLower, .ifUpper, .ifLeadership, .ifLeadershipPossible, .ifQuidditch, .ifElec, .ifStart, .ifCore');
+                checkEmployed();
+                removeRequired('#sort-hogwartsyear');
+                addRequired('#sort-employed');
+                addRequired('#sort-universitystudent');
+                break;
+            case '17':
+                showFields('.ifAdult');
+                hideFields('.ifStudent, .ifLower, .ifUpper, .ifLeadership, .ifLeadershipPossible, .ifQuidditch, .ifElec, .ifStart, .ifCore');
+                checkEmployed();
+                removeRequired('#sort-hogwartsyear');
+                addRequired('#sort-employed');
+                addRequired('#sort-universitystudent');
+                break;
+            case '7':
+            case '9':
+            case '14':
+            case '16':
+                hideFields('.ifAdult, .ifJob');
+                showFields('.ifStudent');
+                checkYear();
+                checkLeadPos();
+                checkQuid();   
+                addRequired('#sort-hogwartsyear');
+                removeRequired('#sort-employed');
+                removeRequired('#sort-universitystudent');
+                break;
+            default:
+                break;
+        }  
+    });
+
+    //Ability change
+    document.querySelector('#sort-abilityexists').addEventListener('change', () => {
+        let selected = document.querySelector('#sort-abilityexists').options[document.querySelector('#sort-abilityexists').selectedIndex].value;
+        if(selected == 'y') {
+            showFields('.ifAbilities');
+        } else {
+            hideFields('.ifAbilities');
+        }
+    });
+    document.querySelector('#sort-animagus').addEventListener('change', () => {
+        if(document.querySelector('#sort-animagus').checked) {
+            showFields('.ifAnimagus');
+        } else {
+            hideFields('.ifAnimagus');
+        }
+    })
+
+    //Species change
+    document.querySelector('#sort-species').addEventListener('change', () => {
+        let selected = document.querySelector('#sort-species').options[document.querySelector('#sort-species').selectedIndex].value;
+        if(selected == 'veela') {
+            showFields('.ifVeela');
+        } else {
+            hideFields('.ifVeela');
+        }
+    });
+
+    //Employed change
+    document.querySelector('#sort-employed').addEventListener('change', () => {
+        checkEmployed();
+    });
+
+    //University change
+    document.querySelector('#sort-universitystudent').addEventListener('change', () => {
+        checkUniversity();
+    });
+
+    //Year standing change
+    document.querySelector('#sort-hogwartsyear').addEventListener('change', () => {
+        checkYear();
+    });
+
+    //Student leadership change
+    document.querySelector('#sort-leadership').addEventListener('change', () => {
+        checkLeadPos();
+    });
+
+    //Student quidditch change
+    document.querySelector('#sort-quidditch').addEventListener('change', () => {
+        checkQuid();
+    });
+
+
+    let instance = [];
+    //update instance on change to reduce delay
+    document.querySelector('#sort-id').addEventListener('change', () => {
+        const url = `https://opensheet.elk.sh/1oxsI5jK9YnNMjo2DI_ocoP0DEPwG-yFJhS7HsRRyBQU/Info`;
+        let accountID = $("#sort-id").val();
+        fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            instance = data.filter(item => item.AccountID == accountID);
+            console.log(instance);
+            if(instance.length === 1) {
+                console.log('update');
+            } else if (instance.length === 0) {
+                console.log('add');
+            } else {
+                console.log('error! multiple ids exist');
+            }
+        });
+    });
+    //submit form - send data if character does not exist, stop submission if they do
+    document.querySelector('#sort').addEventListener('submit', e => {
+        e.preventDefault();
+        if(instance.length === 1) {
+            console.log('update');
+            document.querySelector('#warning').innerHTML = 'This character already exists in the claims! Please <a href="">update your claims</a> instead.';
+        } else if (instance.length === 0) {
+            postToGoogle('POST');
+            $('button[type="submit"]').val('Submitting...');
+        } else {
+            console.log('error! multiple instances of id');
+        }
+    });
+
 }

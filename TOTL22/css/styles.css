@@ -15,7 +15,8 @@
 .tracker--labels button::after,
 .stats--links a span::after,
 .webpage--main-menu a::after,
-.webpage--sub-menu-links a::after {
+.webpage--sub-menu-links a::after,
+#sort .form-buttons button::after {
   content: "\f178";
 }
 
@@ -25,6 +26,10 @@
 
 .webpage--sub-menu-links button.active::after {
   content: "\f176";
+}
+
+#sort .checkbox::before {
+  content: "\f00c";
 }
 
 /*******************************
@@ -2195,19 +2200,138 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
 }
 
 #sort {
-  display: grid;
   grid-gap: 20px;
 }
+#sort .form-item,
 #sort label {
   display: grid;
+  grid-template-rows: max-content max-content auto;
+  grid-gap: 5px;
 }
-#sort .form-item {
+#sort .form-item strong,
+#sort label strong {
+  font-size: var(--xlBody);
+  font-family: var(--headerFont);
+  text-transform: lowercase;
+}
+#sort .form-item strong button,
+#sort label strong button {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: var(--xlBody);
+  cursor: pointer;
+}
+#sort .form-item strong button .fa-circle-question,
+#sort label strong button .fa-circle-question {
+  display: initial;
+}
+#sort .form-item strong button .fa-circle-xmark,
+#sort label strong button .fa-circle-xmark {
+  display: none;
+}
+#sort .form-item strong button.show .fa-circle-question,
+#sort label strong button.show .fa-circle-question {
+  display: none;
+}
+#sort .form-item strong button.show .fa-circle-xmark,
+#sort label strong button.show .fa-circle-xmark {
+  display: initial;
+}
+#sort .form-item i.help,
+#sort label i.help {
+  display: none;
+}
+#sort .form-item i.help.show,
+#sort label i.help.show {
+  display: block;
+}
+#sort .form-item select,
+#sort .form-item input,
+#sort label select,
+#sort label input {
+  border: 0;
+  background: var(--content);
+  font-size: var(--lBody);
+  padding: 8px 10px 9px;
+}
+#sort .form-item .form-flex {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
-#sort .form-item > strong, #sort .form-item > i {
-  flex: 0 0 100%;
+#sort .form-item .form-flex label {
+  grid-template-columns: max-content max-content;
+}
+#sort .form-item .form-flex label input[type=checkbox] {
+  display: none;
+}
+#sort .form-item .form-flex label input[type=checkbox]:checked + .checkbox {
+  background: var(--accent);
+}
+#sort .form-item .form-flex label input[type=checkbox]:checked + .checkbox::before {
+  width: 20px;
+  margin-right: 3px;
+}
+#sort .form-item .form-flex label .checkbox {
+  font-weight: 500;
+  background: var(--ltaccent);
+  padding: 8px 13px;
+  border-radius: 4px;
+  font-size: var(--lBody);
+  cursor: pointer;
+  color: var(--accentColor);
+}
+#sort .form-item .form-flex label .checkbox::before {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 700;
+  bottom: -3px;
+  position: relative;
+  line-height: 100%;
+}
+#sort .form-item .form-flex label .checkbox:hover {
+  background: var(--accent);
+}
+#sort .form-item .form-flex label .checkbox:hover::before {
+  width: 20px;
+  margin-right: 3px;
+}
+#sort .form-item .grid {
+  grid-gap: 20px;
+}
+#sort .form-buttons button {
+  grid-column: 1/-1;
+  background: var(--ltaccent);
+  border: none;
+  padding: 15px 20px;
+  width: max-content;
+  color: var(--accentColor);
+  font-family: var(--headerFont);
+  text-transform: lowercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: var(--xlBody);
+  cursor: pointer;
+}
+#sort .form-buttons button::after {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 300;
+  bottom: -3px;
+  position: relative;
+  line-height: 100%;
+}
+#sort .form-buttons button.active, #sort .form-buttons button:hover {
+  background: var(--accent);
+}
+#sort .form-buttons button.active::after, #sort .form-buttons button:hover::after {
+  width: 20px;
+  margin-left: 10px;
 }
 
 .claim {

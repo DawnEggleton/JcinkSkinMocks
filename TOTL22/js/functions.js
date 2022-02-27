@@ -1032,6 +1032,10 @@ function postToGoogle() {
   return false;
 }
 
+function formReset() {
+    $('#sort').trigger('reset');
+}
+
 function tabbedContent(labels, tabs, remove = '') {
     let labelArray = document.querySelectorAll(labels);
     let tabArray = document.querySelectorAll(tabs);
@@ -1094,4 +1098,9 @@ function moveRight(e) {
 
 function cleanString(string) {
     return string.replaceAll(' ', '').replaceAll('(', '').replaceAll(')', '').replaceAll('.', '').replaceAll(`'`, '');
+}
+
+function openHelp(e) {
+    e.classList.toggle('show');
+    e.parentNode.parentNode.querySelector('.help').classList.toggle('show');
 }
