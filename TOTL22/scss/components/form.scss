@@ -157,4 +157,24 @@
         }
 
     }
+
+    #warning {
+        &:empty {
+
+            & + .form-buttons {
+                margin-top: -20px;
+            }
+        }
+    
+        &:not(:empty) {
+            background: var(--content);
+            padding: 20px;
+            font-family: var(--headerFont);
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: var(--xlBody);
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+    }
 }

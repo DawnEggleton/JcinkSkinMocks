@@ -2338,6 +2338,19 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   width: 20px;
   margin-left: 10px;
 }
+#sort #warning:empty + .form-buttons {
+  margin-top: -20px;
+}
+#sort #warning:not(:empty) {
+  background: var(--content);
+  padding: 20px;
+  font-family: var(--headerFont);
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: var(--xlBody);
+  grid-column: 1/-1;
+  text-align: center;
+}
 
 .claim {
   grid-gap: 20px;

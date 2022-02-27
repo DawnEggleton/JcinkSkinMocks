@@ -271,36 +271,18 @@ if($('body#Pages').length > 0) {
 
 
     let instance = [];
-    //update instance on change to reduce delay
-    document.querySelector('#sort-id').addEventListener('change', () => {
-        const url = `https://opensheet.elk.sh/1oxsI5jK9YnNMjo2DI_ocoP0DEPwG-yFJhS7HsRRyBQU/Info`;
-        let accountID = $("#sort-id").val();
-        fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-            instance = data.filter(item => item.AccountID == accountID);
-            console.log(instance);
-            if(instance.length === 1) {
-                console.log('update');
-            } else if (instance.length === 0) {
-                console.log('add');
-            } else {
-                console.log('error! multiple ids exist');
-            }
-        });
-    });
     //submit form - send data if character does not exist, stop submission if they do
     document.querySelector('#sort').addEventListener('submit', e => {
         e.preventDefault();
         if(instance.length === 1) {
             console.log('update');
-            document.querySelector('#warning').innerHTML = 'This character already exists in the claims! Please <a href="">update your claims</a> instead.';
+            document.querySelector('#warning').innerHTML = 'This character already exists in the claims! Please <a href="/">update your claims</a> instead.';
         } else if (instance.length === 0) {
             postToGoogle('POST');
-            $('button[type="submit"]').val('Submitting...');
+            $('button[type="submit"]').text('Submitting...');
         } else {
-            console.log('error! multiple instances of id');
+            console.log('Error! Multiple instances of id');
+            document.querySelector('#warning').innerHTML = 'Whoops! Somehow your character is already on the sheet - more than once! Please contact a member of staff to update the sheet.';
         }
     });
 

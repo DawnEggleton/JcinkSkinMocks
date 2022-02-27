@@ -1009,15 +1009,23 @@ function postToGoogle() {
     method: "POST",
     type: "POST",
     dataType: "json", 
-    success: function () {
-      console.log('success');
+    statusCode: {
+        404: function() {
+            document.querySelector('#warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again!`;
+        }
     },
-    error: function (data) {
-      console.log('error');
+    success: function () {
+        console.log('success');
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR.status);
+        if(jqXHR.status === 404) {
+            document.querySelector('#warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again!`;
+        }
     },
     complete: function () {
         formReset();
-        $('button[type="submit"]').val('Submit');
+        $('button[type="submit"]').text('Submit');
         document.querySelector('#warning').innerHTML = 'Success! Your character has been added to the sheet.';
     }
   });
