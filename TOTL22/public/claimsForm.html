@@ -67,14 +67,22 @@
                 <div class="webpage--wrapper">
                     <div class="webpage--main-menu">
                         <div class="webpage--sticky">
-                            <a href="#basics"><span>Basics</span></a>
-                            <a href="#forms" class="active"><span>Forms</span></a>
-                            <a href="#guides"><span>Guides</span></a>
-                            <a href="#schools"><span>Schools</span></a>
-                            <a href="#canons"><span>Canons</span></a>
-                            <a href="#claims"><span>Claims</span></a>
-                            <a href="#jobs"><span>Jobs</span></a>
-                            <a href="#students"><span>Students</span></a>
+                            <button class="go-left" onclick="moveLeft(this,'.webpage--main-menu-links')">
+                                <i class="fa-light fa-angles-left"></i>
+                            </button>
+                            <div class="webpage--main-menu-links">
+                                <a href="#basics"><span>Basics</span></a>
+                                <a href="#forms" class="active"><span>Forms</span></a>
+                                <a href="#guides"><span>Guides</span></a>
+                                <a href="#schools"><span>Schools</span></a>
+                                <a href="#canons"><span>Canons</span></a>
+                                <a href="#claims"><span>Claims</span></a>
+                                <a href="#jobs"><span>Jobs</span></a>
+                                <a href="#students"><span>Students</span></a>
+                            </div>
+                            <button class="go-right" onclick="moveRight(this,'.webpage--main-menu-links')">
+                                <i class="fa-light fa-angles-right"></i>
+                            </button>
                         </div>
                     </div>
                     <div class="webpage--content">
