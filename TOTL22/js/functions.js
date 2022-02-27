@@ -1016,14 +1016,7 @@ function postToGoogle() {
       console.log('error');
     },
     complete: function () {
-        $('#sort').trigger('reset');
-        hideFields('.ifAdult, .ifJob, .ifStudent, .ifLower, .ifUpper, .ifLeadership, .ifLeadershipPossible, .ifQuidditch, .ifElec, .ifStart, .ifCore, .ifAbilities, .ifAnimagus, .ifVeela');
-        checkYear();
-        checkLeadPos();
-        checkQuid();   
-        removeRequired('#sort-hogwartsyear');
-        removeRequired('#sort-employed');
-        removeRequired('#sort-universitystudent');
+        formReset();
         $('button[type="submit"]').val('Submit');
         document.querySelector('#warning').innerHTML = 'Success! Your character has been added to the sheet.';
     }
@@ -1034,6 +1027,13 @@ function postToGoogle() {
 
 function formReset() {
     $('#sort').trigger('reset');
+    hideFields('.ifAdult, .ifJob, .ifStudent, .ifLower, .ifUpper, .ifLeadership, .ifLeadershipPossible, .ifQuidditch, .ifElec, .ifStart, .ifCore, .ifAbilities, .ifAnimagus, .ifVeela, .ifUni');
+    checkYear();
+    checkLeadPos();
+    checkQuid();   
+    removeRequired('#sort-hogwartsyear');
+    removeRequired('#sort-employed');
+    removeRequired('#sort-universitystudent');
 }
 
 function tabbedContent(labels, tabs, remove = '') {
