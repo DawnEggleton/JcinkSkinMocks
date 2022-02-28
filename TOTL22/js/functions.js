@@ -65,10 +65,10 @@ function checkEmployed() {
     let selected = document.querySelector('#sort-employed').options[document.querySelector('#sort-employed').selectedIndex].value;
     if(selected == 'y') {
         showFields('.ifJob');
-        addRequired('#sort-jobtitle');
+        addRequired('#sort-jobnotes');
     } else {
         hideFields('.ifJob');
-        removeRequired('#sort-jobtitle');
+        removeRequired('#sort-jobnotes');
     }
 }
 function checkUniversity() {
