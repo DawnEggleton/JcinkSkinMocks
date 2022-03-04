@@ -331,40 +331,40 @@ function structureJobClaim (data, labelClip = '#jobsTabs', tabClip = '#jobs') {
             AccountID: character.AccountID,
             Section: character.JobSection,
             Subsection: character.JobSubsection,
-            Title: character.JobTitle,
-            Notes: character.JobNotes,
+            Line2: character.JobTitle,
+            Line1: character.JobNotes,
         });
-        if(character.Job2Title) {
+        if(character.Job2Notes) {
             employed.push({
                 Character: character.Character,
                 GroupID: character.GroupID,
                 AccountID: character.AccountID,
                 Section: character.Job2Section,
                 Subsection: character.Job2Subsection,
-                Title: character.Job2Title,
-                Notes: character.Job2Notes,
+                Line2: character.Job2Title,
+                Line1: character.Job2Notes,
             });
         }
-        if(character.Job3Title) {
+        if(character.Job3Notes) {
             employed.push({
                 Character: character.Character,
                 GroupID: character.GroupID,
                 AccountID: character.AccountID,
                 Section: character.Job3Section,
                 Subsection: character.Job3Subsection,
-                Title: character.Job3Title,
-                Notes: character.Job3Notes,
+                Line2: character.Job3Title,
+                Line1: character.Job3Notes,
             });
         }
-        if(character.Job4Title) {
+        if(character.Job4Notes) {
             employed.push({
                 Character: character.Character,
                 GroupID: character.GroupID,
                 AccountID: character.AccountID,
                 Section: character.Job4Section,
                 Subsection: character.Job4Subsection,
-                Title: character.Job4Title,
-                Notes: character.Job4Notes,
+                Line2: character.Job4Title,
+                Line1: character.Job4Notes,
             });
         }
     });
@@ -375,10 +375,10 @@ function structureJobClaim (data, labelClip = '#jobsTabs', tabClip = '#jobs') {
         bSection = b.Section;
         aSubsection = a.Subsection;
         bSubsection = b.Subsection;
-        aTitle = a.Title;
-        bTitle = b.Title;
-        aNotes = a.Notes;
-        bNotes = b.Notes;
+        aLine2 = a.Line2;
+        bLine2 = b.Line2;
+        aLine1 = a.Line1;
+        bLine1 = b.Line1;
         if (aSection < bSection) {
             return -1;
         } else if (aSection > bSection) {
@@ -387,13 +387,13 @@ function structureJobClaim (data, labelClip = '#jobsTabs', tabClip = '#jobs') {
             return -1;
         } else if (aSubsection > bSubsection) {
             return 1;
-        }  else if (aNotes < bNotes) {
+        }  else if (aLine1 < bLine1) {
             return -1;
-        } else if (aNotes > bNotes) {
+        } else if (aLine1 > bLine1) {
             return 1;
-        } else if (aTitle < bTitle) {
+        } else if (aLine2 < bLine2) {
             return -1;
-        } else if (aTitle > bTitle) {
+        } else if (aLine2 > bLine2) {
             return 1;
         }  else if (aName < bName) {
             return -1;
@@ -411,19 +411,19 @@ function structureJobClaim (data, labelClip = '#jobsTabs', tabClip = '#jobs') {
             body += claimTabStart();
             body += claimHeader(character.Section);
             body += claimSubheader(character.Subsection);
-            body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Notes, character.Title]);
+            body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         } else if(employed[i - 1].Section !== character.Section) {
             labels += claimTabLabel(character.Section);
             body += claimTabEnd();
             body += claimTabStart();
             body += claimHeader(character.Section);
             body += claimSubheader(character.Subsection);
-            body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Notes, character.Title]);
+            body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         }  else if(employed[i - 1].Section === character.Section && employed[i - 1].Subsection !== character.Subsection) {
             body += claimSubheader(character.Subsection);
-            body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Notes, character.Title]);
+            body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         } else {
-            body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Notes, character.Title]);
+            body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         }
     });
     body += claimTabEnd();
