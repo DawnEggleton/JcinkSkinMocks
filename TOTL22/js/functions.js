@@ -322,7 +322,7 @@ function structureAbilitiesClaim (data, labelClip = '#abilitiesTabs', tabClip = 
 }
 
 function structureJobClaim (data, labelClip = '#jobsTabs', tabClip = '#jobs') {
-    let array = data.filter(item => item.JobTitle);
+    let array = data.filter(item => item.JobNotes);
     let employed = [];
     array.forEach(character => {
         employed.push({
