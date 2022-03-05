@@ -2254,23 +2254,30 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   display: block;
 }
 
-#sort {
+#sort,
+#sort2 {
   grid-gap: 20px;
 }
 #sort .form-item,
-#sort label {
+#sort label,
+#sort2 .form-item,
+#sort2 label {
   display: grid;
   grid-template-rows: max-content max-content auto;
   grid-gap: 5px;
 }
 #sort .form-item strong,
-#sort label strong {
+#sort label strong,
+#sort2 .form-item strong,
+#sort2 label strong {
   font-size: var(--xlBody);
   font-family: var(--headerFont);
   text-transform: lowercase;
 }
 #sort .form-item strong button,
-#sort label strong button {
+#sort label strong button,
+#sort2 .form-item strong button,
+#sort2 label strong button {
   background: none;
   border: none;
   color: var(--accent);
@@ -2278,33 +2285,49 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   cursor: pointer;
 }
 #sort .form-item strong button .fa-circle-question,
-#sort label strong button .fa-circle-question {
+#sort label strong button .fa-circle-question,
+#sort2 .form-item strong button .fa-circle-question,
+#sort2 label strong button .fa-circle-question {
   display: initial;
 }
 #sort .form-item strong button .fa-circle-xmark,
-#sort label strong button .fa-circle-xmark {
+#sort label strong button .fa-circle-xmark,
+#sort2 .form-item strong button .fa-circle-xmark,
+#sort2 label strong button .fa-circle-xmark {
   display: none;
 }
 #sort .form-item strong button.show .fa-circle-question,
-#sort label strong button.show .fa-circle-question {
+#sort label strong button.show .fa-circle-question,
+#sort2 .form-item strong button.show .fa-circle-question,
+#sort2 label strong button.show .fa-circle-question {
   display: none;
 }
 #sort .form-item strong button.show .fa-circle-xmark,
-#sort label strong button.show .fa-circle-xmark {
+#sort label strong button.show .fa-circle-xmark,
+#sort2 .form-item strong button.show .fa-circle-xmark,
+#sort2 label strong button.show .fa-circle-xmark {
   display: initial;
 }
 #sort .form-item i.help,
-#sort label i.help {
+#sort label i.help,
+#sort2 .form-item i.help,
+#sort2 label i.help {
   display: none;
 }
 #sort .form-item i.help.show,
-#sort label i.help.show {
+#sort label i.help.show,
+#sort2 .form-item i.help.show,
+#sort2 label i.help.show {
   display: block;
 }
 #sort .form-item select,
 #sort .form-item input,
 #sort label select,
-#sort label input {
+#sort label input,
+#sort2 .form-item select,
+#sort2 .form-item input,
+#sort2 label select,
+#sort2 label input {
   border: 0;
   background: var(--content);
   font-size: var(--lBody);
@@ -2312,25 +2335,31 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   color: var(--text);
   height: max-content;
 }
-#sort .form-item .form-flex {
+#sort .form-item .form-flex,
+#sort2 .form-item .form-flex {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
-#sort .form-item .form-flex label {
+#sort .form-item .form-flex label,
+#sort2 .form-item .form-flex label {
   grid-template-columns: max-content max-content;
 }
-#sort .form-item .form-flex label input[type=checkbox] {
+#sort .form-item .form-flex label input[type=checkbox],
+#sort2 .form-item .form-flex label input[type=checkbox] {
   display: none;
 }
-#sort .form-item .form-flex label input[type=checkbox]:checked + .checkbox {
+#sort .form-item .form-flex label input[type=checkbox]:checked + .checkbox,
+#sort2 .form-item .form-flex label input[type=checkbox]:checked + .checkbox {
   background: var(--accent);
 }
-#sort .form-item .form-flex label input[type=checkbox]:checked + .checkbox::before {
+#sort .form-item .form-flex label input[type=checkbox]:checked + .checkbox::before,
+#sort2 .form-item .form-flex label input[type=checkbox]:checked + .checkbox::before {
   width: 20px;
   margin-right: 3px;
 }
-#sort .form-item .form-flex label .checkbox {
+#sort .form-item .form-flex label .checkbox,
+#sort2 .form-item .form-flex label .checkbox {
   font-weight: 500;
   background: var(--ltaccent);
   padding: 8px 13px;
@@ -2339,7 +2368,8 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   cursor: pointer;
   color: var(--accentColor);
 }
-#sort .form-item .form-flex label .checkbox::before {
+#sort .form-item .form-flex label .checkbox::before,
+#sort2 .form-item .form-flex label .checkbox::before {
   display: inline-block;
   width: 0;
   overflow: hidden;
@@ -2349,17 +2379,21 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   position: relative;
   line-height: 100%;
 }
-#sort .form-item .form-flex label .checkbox:hover {
+#sort .form-item .form-flex label .checkbox:hover,
+#sort2 .form-item .form-flex label .checkbox:hover {
   background: var(--accent);
 }
-#sort .form-item .form-flex label .checkbox:hover::before {
+#sort .form-item .form-flex label .checkbox:hover::before,
+#sort2 .form-item .form-flex label .checkbox:hover::before {
   width: 20px;
   margin-right: 3px;
 }
-#sort .form-item .grid {
+#sort .form-item .grid,
+#sort2 .form-item .grid {
   grid-gap: 20px;
 }
-#sort .form-buttons button {
+#sort .form-buttons button,
+#sort2 .form-buttons button {
   grid-column: 1/-1;
   background: var(--ltaccent);
   border: none;
@@ -2373,7 +2407,8 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   font-size: var(--xlBody);
   cursor: pointer;
 }
-#sort .form-buttons button::after {
+#sort .form-buttons button::after,
+#sort2 .form-buttons button::after {
   display: inline-block;
   width: 0;
   overflow: hidden;
@@ -2383,17 +2418,23 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   position: relative;
   line-height: 100%;
 }
-#sort .form-buttons button.active, #sort .form-buttons button:hover {
+#sort .form-buttons button.active, #sort .form-buttons button:hover,
+#sort2 .form-buttons button.active,
+#sort2 .form-buttons button:hover {
   background: var(--accent);
 }
-#sort .form-buttons button.active::after, #sort .form-buttons button:hover::after {
+#sort .form-buttons button.active::after, #sort .form-buttons button:hover::after,
+#sort2 .form-buttons button.active::after,
+#sort2 .form-buttons button:hover::after {
   width: 20px;
   margin-left: 10px;
 }
-#sort #warning:empty + .form-buttons {
+#sort #warning:empty + .form-buttons,
+#sort2 #warning:empty + .form-buttons {
   margin-top: -20px;
 }
-#sort #warning:not(:empty) {
+#sort #warning:not(:empty),
+#sort2 #warning:not(:empty) {
   background: var(--content);
   padding: 20px;
   font-family: var(--headerFont);

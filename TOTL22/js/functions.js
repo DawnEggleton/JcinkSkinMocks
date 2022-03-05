@@ -856,7 +856,7 @@ function characterBox(id, group, bold, lines = []) {
 }
                 
 
-function postToGoogle() {
+function postToGoogle(formtype = 'POST') {
   let member = $("#sort-member").val().toLowerCase();
   let character = $("#sort-character").val().toLowerCase();
   let accountID = $("#sort-id").val();
@@ -953,77 +953,71 @@ function postToGoogle() {
   if(leadershipposition == `(select)`) {leadershipposition = '';}
 
   $.ajax({
-    url: "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHej9BAllha02vmUwmNvXWlWpX_0ECX-zUq3bLO5gmSU3PBw/formResponse?embedded=true",
+      url: `https://script.google.com/macros/s/AKfycbx-Pa97Wz-MamFZ6MYpx2jHQFSM9JHx5ihMPrEF6AfmF-yA7FM4BeVxWOxxsK5f9oAylw/exec`,
+    //url: "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHej9BAllha02vmUwmNvXWlWpX_0ECX-zUq3bLO5gmSU3PBw/formResponse?embedded=true",
       
     //add your google form generated numbers below which are also the 'names' of your inputs     
     data: {
-      "entry.1432517820": member,
-      "entry.107957704": character,
-      "entry.1642550285": accountID,
-      "entry.143362062": group,
-      "entry.1355686451": groupID,
-      "entry.1726668460": face,
-      "entry.622253808": abilities,
-      "entry.994119699": (species === `Not Applicable`) ? `` : species,
-      "entry.2106914261": (veelablood === `(selected)`) ? `` : veelablood,
-      "entry.794218756": (jobsection === `(selected)`) ? `` : jobsection,
-      "entry.13065058": jobsubsection,
-      "entry.437548501": jobtitle,
-      "entry.1508899464": jobnotes,
-      "entry.1260116484": school,
-      "entry.1662751314": program,
-      "entry.876623337": (universityyear === `(selected)`) ? `` : universityyear,
-      "entry.2066116776": (hogwartsyear === `(selected)`) ? `` : hogwartsyear,
-      "entry.183274541": (astronomy === `(selected)`) ? `` : astronomy,
-      "entry.1490442733": (charms === `(selected)`) ? `` : charms,
-      "entry.1393178788": (dada === `(selected)`) ? `` : dada,
-      "entry.967152081": (games === `(selected)`) ? `` : games,
-      "entry.1098395938": (herbology === `(selected)`) ? `` : herbology,
-      "entry.1697474133": (historyofmagic === `(selected)`) ? `` : historyofmagic,
-      "entry.1903652715": (literacy === `(selected)`) ? `` : literacy,
-      "entry.484032441": (magicaltheory === `(selected)`) ? `` : magicaltheory,
-      "entry.135635464": (maths === `(selected)`) ? `` : maths,
-      "entry.1264662180": (potions === `(selected)`) ? `` : potions,
-      "entry.1035411565": (transfiguration === `(selected)`) ? `` : transfiguration,
-      "entry.2142142079": (culture === `(selected)`) ? `` : culture,
-      "entry.698903169": (culturegrade === `(selected)`) ? `` : culturegrade,
-      "entry.1299686648": (elec1 === `(selected)`) ? `` : elec1,
-      "entry.768681073": (elec1grade === `(selected)`) ? `` : elec1grade,
-      "entry.671470831": (elec2 === `(selected)`) ? `` : elec2,
-      "entry.483899832": (elec2grade === `(selected)`) ? `` : elec2grade,
-      "entry.1377650876": (elec3 === `(selected)`) ? `` : elec3,
-      "entry.261216209": (elec3grade === `(selected)`) ? `` : elec3grade,
-      "entry.530618541": (elec4 === `(selected)`) ? `` : elec4,
-      "entry.1632241456": (elec4grade === `(selected)`) ? `` : elec4grade,
-      "entry.1399421084": (elec5 === `(selected)`) ? `` : elec5,
-      "entry.1123859686": (elec5grade === `(selected)`) ? `` : elec5grade,
-      "entry.223598383": (elec6 === `(selected)`) ? `` : elec6,
-      "entry.1859311863": (elec6grade === `(selected)`) ? `` : elec6grade,
-      "entry.76064911": (elec7 === `(selected)`) ? `` : elec7,
-      "entry.1321648888": (elec7grade === `(selected)`) ? `` : elec7grade,
-      "entry.1638810127": (elec8 === `(selected)`) ? `` : elec8,
-      "entry.1094021435": (elec8grade === `(selected)`) ? `` : elec8grade,
-      "entry.1227238528": quidditchposition,
-      "entry.878358884": leadershipposition
+      "Member": member,
+      "Character": character,
+      "AccountID": accountID,
+      "GroupName": group,
+      "GroupID": groupID,
+      "Face": face,
+      "Abilities": abilities,
+      "Species": (species === `Not Applicable`) ? `` : species,
+      "VeelaBlood": (veelablood === `(selected)`) ? `` : veelablood,
+      "JobSection": (jobsection === `(selected)`) ? `` : jobsection,
+      "JobSubsection": jobsubsection,
+      "JobTitle": jobtitle,
+      "JobNotes": jobnotes,
+      "School": school,
+      "Program": program,
+      "UniversityYear": (universityyear === `(selected)`) ? `` : universityyear,
+      "HogwartsYear": (hogwartsyear === `(selected)`) ? `` : hogwartsyear,
+      "Astronomy": (astronomy === `(selected)`) ? `` : astronomy,
+      "Charms": (charms === `(selected)`) ? `` : charms,
+      "DADA": (dada === `(selected)`) ? `` : dada,
+      "Games": (games === `(selected)`) ? `` : games,
+      "Herbology": (herbology === `(selected)`) ? `` : herbology,
+      "HistoryOfMagic": (historyofmagic === `(selected)`) ? `` : historyofmagic,
+      "Literacy": (literacy === `(selected)`) ? `` : literacy,
+      "MagicalTheory": (magicaltheory === `(selected)`) ? `` : magicaltheory,
+      "Maths": (maths === `(selected)`) ? `` : maths,
+      "Potions": (potions === `(selected)`) ? `` : potions,
+      "Transfiguration": (transfiguration === `(selected)`) ? `` : transfiguration,
+      "Culture": (culture === `(selected)`) ? `` : culture,
+      "CultureGrade": (culturegrade === `(selected)`) ? `` : culturegrade,
+      "Elec1": (elec1 === `(selected)`) ? `` : elec1,
+      "Elec1Grade": (elec1grade === `(selected)`) ? `` : elec1grade,
+      "Elec2": (elec2 === `(selected)`) ? `` : elec2,
+      "Elec2Grade": (elec2grade === `(selected)`) ? `` : elec2grade,
+      "Elec3": (elec3 === `(selected)`) ? `` : elec3,
+      "Elec3Grade": (elec3grade === `(selected)`) ? `` : elec3grade,
+      "Elec4": (elec4 === `(selected)`) ? `` : elec4,
+      "Elec4Grade": (elec4grade === `(selected)`) ? `` : elec4grade,
+      "Elec5": (elec5 === `(selected)`) ? `` : elec5,
+      "Elec5Grade": (elec5grade === `(selected)`) ? `` : elec5grade,
+      "Elec6": (elec6 === `(selected)`) ? `` : elec6,
+      "Elec6Grade": (elec6grade === `(selected)`) ? `` : elec6grade,
+      "Elec7": (elec7 === `(selected)`) ? `` : elec7,
+      "Elec7Grade": (elec7grade === `(selected)`) ? `` : elec7grade,
+      "Elec8": (elec8 === `(selected)`) ? `` : elec8,
+      "Elec8Grade": (elec8grade === `(selected)`) ? `` : elec8grade,
+      "QuidditchPosition": quidditchposition,
+      "LeadershipPosition": leadershipposition
     },
-    method: "POST",
-    type: "POST",
+    method: formtype,
+    type: formtype,
     dataType: "json", 
-    statusCode: {
-        404: function() {
-            document.querySelector('#warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again!`;
-        }
-    },
     success: function () {
         console.log('success');
     },
     error: function (jqXHR, textStatus, errorThrown) {
-        console.log(jqXHR.status);
-        console.log(textStatus);
-        console.log(errorThrown);
-        if(jqXHR.status == 404) {
-            document.querySelector('#warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again!`;
-        }
+        console.log('error xhr: ' + jqXHR.status);
+        console.log('error status: ' + textStatus);
+        console.log('error text: ' + errorThrown);
+        document.querySelector('#warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again! If this persists, please open the console (ctrl + shift + J) and let Lux know the error xhr, error status, and error text values.`;
     },
     complete: function () {
         formReset();
