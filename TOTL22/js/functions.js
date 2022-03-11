@@ -283,14 +283,14 @@ function structureAbilitiesClaim (data, labelClip = '#abilitiesTabs', tabClip = 
     let labels = ``;
     abilities.forEach((character, i) => {
         if(i === 0) {
-            labels += claimTabLabel(character.Ability);
-            body += claimTabStart();
+            labels += claimTabLabel(character.Ability, "claims", "absp-claim");
+            body += claimTabStart(character.Ability);
             body += claimHeader(character.Ability);
             body += (character.AnimagusForm) ? characterBox(character.AccountID, character.GroupID, character.Character, [character.AnimagusForm]) : characterBox(character.AccountID, character.GroupID, character.Character);
         } else if(abilities[i - 1].Ability !== character.Ability) {
-            labels += claimTabLabel(character.Ability);
+            labels += claimTabLabel(character.Ability, "claims", "absp-claim");
             body += claimTabEnd();
-            body += claimTabStart();
+            body += claimTabStart(character.Ability);
             body += claimHeader(character.Ability);
             body += (character.AnimagusForm) ? characterBox(character.AccountID, character.GroupID, character.Character, [character.AnimagusForm]) : characterBox(character.AccountID, character.GroupID, character.Character);
         } else {
@@ -300,14 +300,14 @@ function structureAbilitiesClaim (data, labelClip = '#abilitiesTabs', tabClip = 
     body += claimTabEnd();
     charSpecies.forEach((character, i) => {
         if(i === 0) {
-            labels += claimTabLabel(character.Species);
-            body += claimTabStart();
+            labels += claimTabLabel(character.Species, "claims", "absp-claim");
+            body += claimTabStart(character.Species);
             body += claimHeader(character.Species);
             body += (character.VeelaBlood) ? characterBox(character.AccountID, character.GroupID, character.Character, [character.VeelaBlood]) : characterBox(character.AccountID, character.GroupID, character.Character);
         } else if(charSpecies[i - 1].Species !== character.Species) {
-            labels += claimTabLabel(character.Species);
+            labels += claimTabLabel(character.Species, "claims", "absp-claim");
             body += claimTabEnd();
-            body += claimTabStart();
+            body += claimTabStart(character.Species);
             body += claimHeader(character.Species);
             body += (character.VeelaBlood) ? characterBox(character.AccountID, character.GroupID, character.Character, [character.VeelaBlood]) : characterBox(character.AccountID, character.GroupID, character.Character);
         } else {
@@ -405,20 +405,26 @@ function structureJobClaim (data, labelClip = '#jobsTabs', tabClip = '#jobs') {
     let labels = ``;
     employed.forEach((character, i) => {
         if(i === 0) {
-            labels += claimTabLabel(character.Section);
-            body += claimTabStart();
+            labels += claimTabLabel(character.Section, "jobs");
+            body += claimTabStart(character.Section);
             body += claimHeader(character.Section);
-            body += claimSubheader(character.Subsection);
+            if(character.Subsection) {
+                body += claimSubheader(character.Subsection);
+            }
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         } else if(employed[i - 1].Section !== character.Section) {
-            labels += claimTabLabel(character.Section);
+            labels += claimTabLabel(character.Section, "jobs");
             body += claimTabEnd();
-            body += claimTabStart();
+            body += claimTabStart(character.Section);
             body += claimHeader(character.Section);
-            body += claimSubheader(character.Subsection);
+            if(character.Subsection) {
+                body += claimSubheader(character.Subsection);
+            }
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         }  else if(employed[i - 1].Section === character.Section && employed[i - 1].Subsection !== character.Subsection) {
-            body += claimSubheader(character.Subsection);
+            if(character.Subsection) {
+                body += claimSubheader(character.Subsection);
+            }
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         } else {
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
@@ -626,15 +632,15 @@ function structureClassClaim (data, labelClip = '#classTabs', tabClip = '#classe
     let labels = ``;
     students.forEach((character, i) => {
         if(i === 0) {
-            labels += claimTabLabel(character.HogwartsYear);
-            body += claimTabStart();
+            labels += claimTabLabel(character.HogwartsYear, "students", "classes");
+            body += claimTabStart(character.HogwartsYear);
             body += claimHeader(character.HogwartsYear);
             body += claimSubheader(character.ClassName);
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.ClassGrade]);
         } else if(students[i - 1].HogwartsYear !== character.HogwartsYear) {
-            labels += claimTabLabel(character.HogwartsYear);
+            labels += claimTabLabel(character.HogwartsYear, "students", "classes");
             body += claimTabEnd();
-            body += claimTabStart();
+            body += claimTabStart(character.HogwartsYear);
             body += claimHeader(character.HogwartsYear);
             body += claimSubheader(character.ClassName);
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.ClassGrade]);
@@ -690,15 +696,15 @@ function structureDormClaim (data, labelClip = '#dormTabs', tabClip = '#dorms') 
     let labels = ``;
     students.forEach((character, i) => {
         if(i === 0) {
-            labels += claimTabLabel(character.GroupName);
-            body += claimTabStart();
+            labels += claimTabLabel(character.GroupName, "students", "dorms");
+            body += claimTabStart(character.GroupName);
             body += claimHeader(character.HogwartsYear);
             body += claimSubheader(character.Dorm);
             body += characterBox(character.AccountID, character.GroupID, character.Character);
         } else if(students[i - 1].GroupName !== character.GroupName) {
-            labels += claimTabLabel(character.GroupName);
+            labels += claimTabLabel(character.GroupName, "students", "dorms");
             body += claimTabEnd();
-            body += claimTabStart();
+            body += claimTabStart(character.GroupName);
             body += claimHeader(character.HogwartsYear);
             body += claimSubheader(character.Dorm);
             body += characterBox(character.AccountID, character.GroupID, character.Character);
@@ -718,7 +724,7 @@ function structureDormClaim (data, labelClip = '#dormTabs', tabClip = '#dorms') 
     document.querySelector(tabClip).insertAdjacentHTML('beforeend', body);
 }
 
-function structureQuidditchClaim (data, infoClip = '#quidditch') {
+function structureQuidditchClaim (data, infoClip = '#StudentQuidditch') {
     let students = data.filter(item => item.QuidditchPosition);
     students.sort((a, b) => {
         aName = a.Character;
@@ -821,16 +827,19 @@ function structureLeadClaim (data, infoClip = '#leadership') {
     document.querySelector(infoClip).insertAdjacentHTML('beforeend', html);
 }
 
-function claimTabStart() {
-    return `<div class="claim--tab grid twoCol">`;
+function claimTabStart(data) {
+    return `<div class="claim--tab grid twoCol" data-tab="#${cleanString(data)}">`;
 }
 
 function claimTabEnd() {
     return `</div>`;
 }
 
-function claimTabLabel(label) {
-    return `<a href="#${cleanString(label)}">${label}</a>`;
+function claimTabLabel(label, category, subcategory = null) {
+    if(subcategory) {
+        return `<a href="#${cleanString(label)}" data-category="${category}" data-subcategory="${subcategory}">${label}</a>`;
+    }
+    return `<a href="#${cleanString(label)}" data-category="${category}">${label}</a>`;
 }
 
 function claimHeader(title) {
@@ -1102,7 +1111,6 @@ function openHelp(e) {
 }
 
 function webpageTabs() {
-    console.log('webpage tabs');
     let mainItems = document.querySelectorAll('.webpage--main-menu a');
     let mainTabs = document.querySelectorAll('.webpage--section');
 
@@ -1138,10 +1146,13 @@ function webpageTabs() {
     //sub menu - on link click, open content
     subItems.forEach((item, index) => {
         item.addEventListener('click', e => {
+            console.log('change content submenu');
             subItems.forEach(item => item.classList.remove('active'));
             innerTriggers.forEach(item => item.classList.remove('active'));
             innerItems.forEach(item => item.classList.remove('active'));
             webpageTabs.forEach(tab => tab.classList.remove('active'));
+            claimTabs.forEach(tab => tab.classList.remove('active'));
+            innerMenus.forEach(menu => menu.classList.remove('active'));
             e.currentTarget.classList.add('active');
             webpageTabs[index].classList.add('active');
         });
@@ -1152,10 +1163,64 @@ function webpageTabs() {
         item.addEventListener('click', e => {
             subItems.forEach(item => item.classList.remove('active'));
             innerItems.forEach(item => item.classList.remove('active'));
+            webpageTabs.forEach(tab => tab.classList.remove('active'));
             claimTabs.forEach(tab => tab.classList.remove('active'));
             e.currentTarget.classList.add('active');
             claimTabs[index].classList.add('active');
             claimTabs[index].parentNode.classList.add('active');
         });
     });
+
+
+    if (window.location.hash){
+        //get hash
+        let hash = $.trim( window.location.hash );
+        let selected = document.querySelector(`.webpage--sub-menu-links a[href="${hash}"]`);
+        let selectedCategory = selected.getAttribute('data-category');
+        //find the sub menu/inner menu link with the matching hash
+        if (hash) {
+            $(selected).trigger('click');
+        }
+        //select based on this
+        let hashMain = document.querySelector(`.webpage--main-menu-links a[data-group="${selectedCategory}"]`);
+
+        //Tabs
+        //Remove active from everything
+        mainItems.forEach(item => item.classList.remove('active'));
+        mainTabs.forEach(item => item.classList.remove('active'));
+        subItems.forEach(item => item.classList.remove('active'));
+        innerTriggers.forEach(item => item.classList.remove('active'));
+        innerItems.forEach(item => item.classList.remove('active'));
+        webpageTabs.forEach(tab => tab.classList.remove('active'));
+        claimTabs.forEach(tab => tab.classList.remove('active'));
+        //Add active
+        hashMain.classList.add('active');
+        selected.classList.add('active');
+        selected.closest('.webpage--section').classList.add('active');
+        if(selected.parentNode.classList.contains('claim--labels') && selected.closest('.webpage--pop-menu')) {
+            selected.closest('.webpage--pop-menu').classList.add('active');
+            let subcategory = selected.getAttribute('data-subcategory');
+            let button = document.querySelector(`.webpage--sub-menu-links button[data-subcategory="${subcategory}"]`);
+            let tabGroup = document.querySelector(`.claim--tabs[data-subcategory="${subcategory}"]`);
+            let tab = document.querySelector(`.claim--tab[data-tab="${hash}"]`);
+            button.classList.add('active');
+            tabGroup.classList.add('active');
+            tab.classList.add('active');
+        } else if(selected.parentNode.classList.contains('claim--labels')) {
+            console.log('claims tab not nested');
+            let tab = document.querySelector(`.claim--tab[data-tab="${hash}"]`);
+            tab.classList.add('active');
+            tab.parentNode.classList.add('active');
+
+        } else {
+            console.log('webpage tab');
+            let tab = document.querySelector(`.webpage--tab[data-tab="${hash}"]`);
+            tab.classList.add('active');
+        }
+    } else {
+        //Auto-select  tab without hashtag present
+        $('.web-mainNav a').first().addClass('active');
+        $('#sect1-menu').addClass('active');
+        $('#sect1-menu a').first().addClass('active');
+    }
 }

@@ -71,14 +71,14 @@
                                 <i class="fa-light fa-angles-left"></i>
                             </button>
                             <div class="webpage--main-menu-links">
-                                <a href="#basics"><span>Basics</span></a>
-                                <a href="#forms" class="active"><span>Forms</span></a>
-                                <a href="#guides"><span>Guides</span></a>
-                                <a href="#schools"><span>Schools</span></a>
-                                <a href="#canons"><span>Canons</span></a>
-                                <a href="#claims"><span>Claims</span></a>
-                                <a href="#jobs"><span>Jobs</span></a>
-                                <a href="#students"><span>Students</span></a>
+                                <a data-group="basics"><span>Basics</span></a>
+                                <a data-group="forms"><span>Forms</span></a>
+                                <a data-group="guides"><span>Guides</span></a>
+                                <a data-group="schools"><span>Schools</span></a>
+                                <a data-group="canons"><span>Canons</span></a>
+                                <a data-group="claims"><span>Claims</span></a>
+                                <a data-group="jobs"><span>Jobs</span></a>
+                                <a data-group="students"><span>Students</span></a>
                             </div>
                             <button class="go-right" onclick="moveRight(this,'.webpage--main-menu-links')">
                                 <i class="fa-light fa-angles-right"></i>
@@ -86,6 +86,7 @@
                         </div>
                     </div>
                     <div class="webpage--content">
+                        <!--Basics-->
                         <section class="webpage--section">
                             <div class="webpage--menu-sticky">
                                 <div class="webpage--sub-menu">
@@ -93,44 +94,45 @@
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links">
-                                        <a href="#rules">Rules</a>
-                                        <a href="#plot">Plot</a>
-                                        <a href="#groups">Groups</a>
-                                        <a href="#credits">Credits</a>
+                                        <a href="#rules" data-category="basics">Rules</a>
+                                        <a href="#plot" data-category="basics">Plot</a>
+                                        <a href="#groups" data-category="basics">Groups</a>
+                                        <a href="#credits" data-category="basics">Credits</a>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
                                     </button>
                                 </div>
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#rules">
                                 rules
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#plot">
                                 plot
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#groups">
                                 groups
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#credits">
                                 credits
                             </div>
                         </section>
-                        <section class="webpage--section active">
+                        <!--Forms-->
+                        <section class="webpage--section">
                             <div class="webpage--menu-sticky">
                                 <div class="webpage--sub-menu">
                                     <button class="go-left" onclick="moveLeft(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links">
-                                        <a href="#sorting" class="active">Sorting</a>
+                                        <a href="#sorting" data-category="forms">Sorting</a>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
                                     </button>
                                 </div>
                             </div>
-                            <div class="webpage--tab active">
+                            <div class="webpage--tab" data-tab="#sorting">
 
                                 <form id="sort" class="grid twoCol">
                                     <label>
@@ -958,6 +960,7 @@
 
                             </div>
                         </section>
+                        <!--Guides-->
                         <section class="webpage--section">
                             <div class="webpage--menu-sticky">
                                 <div class="webpage--sub-menu">
@@ -965,10 +968,10 @@
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links">
-                                        <button>Abilities & Species</button>
-                                        <button>Hogwarts</button>
-                                        <button>Locations</button>
-                                        <button>Society & Culture</button>
+                                        <button data-subcategory="absp">Abilities & Species</button>
+                                        <button data-subcategory="hogwartsinfo">Hogwarts</button>
+                                        <button data-subcategory="locations">Locations</button>
+                                        <button data-subcategory="societyculture">Society & Culture</button>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
@@ -979,11 +982,11 @@
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links claim--labels">
-                                        <a href="#Goblins">Goblins</a>
-                                        <a href="#HouseElves">House Elves</a>
-                                        <a href="#Seers">Seers</a>
-                                        <a href="#Vampires">Vampires</a>
-                                        <a href="#Werewolves">Werewolves</a>
+                                        <a href="#Goblins" data-category="guides" data-subcategory="absp">Goblins</a>
+                                        <a href="#HouseElves" data-category="guides" data-subcategory="absp">House Elves</a>
+                                        <a href="#Seers" data-category="guides" data-subcategory="absp">Seers</a>
+                                        <a href="#Vampires" data-category="guides" data-subcategory="absp">Vampires</a>
+                                        <a href="#Werewolves" data-category="guides" data-subcategory="absp">Werewolves</a>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
@@ -994,14 +997,14 @@
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links claim--labels">
-                                        <a href="#Summary">Summary</a>
-                                        <a href="#Curriculum">Curriculum</a>
-                                        <a href="#Healthcare">Healthcare</a>
-                                        <a href="#Quidditch">Quidditch</a>
-                                        <a href="#Religion">Religion</a>
-                                        <a href="#Scheduling">Scheduling</a>
-                                        <a href="#Staffing">Staffing</a>
-                                        <a href="#StudentLeads&Prefects">Student Leads & Prefects</a>
+                                        <a href="#Summary" data-category="guides" data-subcategory="hogwartsinfo">Summary</a>
+                                        <a href="#Curriculum" data-category="guides" data-subcategory="hogwartsinfo">Curriculum</a>
+                                        <a href="#Healthcare" data-category="guides" data-subcategory="hogwartsinfo">Healthcare</a>
+                                        <a href="#QuidditchInfo" data-category="guides" data-subcategory="hogwartsinfo">Quidditch</a>
+                                        <a href="#Religion" data-category="guides" data-subcategory="hogwartsinfo">Religion</a>
+                                        <a href="#Scheduling" data-category="guides" data-subcategory="hogwartsinfo">Scheduling</a>
+                                        <a href="#Staffing" data-category="guides" data-subcategory="hogwartsinfo">Staffing</a>
+                                        <a href="#StudentLeads&Prefects" data-category="guides" data-subcategory="hogwartsinfo">Student Leads & Prefects</a>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
@@ -1012,9 +1015,9 @@
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links claim--labels">
-                                        <a href="#DiagonAlley&Offshoots">Diagon Alley & Offshoots</a>
-                                        <a href="#Hogsmeade">Hogsmeade</a>
-                                        <a href="#Ilkley">Ilkley</a>
+                                        <a href="#DiagonAlley&Offshoots" data-category="guides" data-subcategory="locations">Diagon Alley & Offshoots</a>
+                                        <a href="#Hogsmeade" data-category="guides" data-subcategory="locations">Hogsmeade</a>
+                                        <a href="#Ilkley" data-category="guides" data-subcategory="locations">Ilkley</a>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
@@ -1025,47 +1028,48 @@
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links claim--labels">
-                                        <a href="#Guides&Scouts">Guides & Scouts</a>
-                                        <a href="#Magic">Magic</a>
-                                        <a href="#Politics">Politics</a>
-                                        <a href="#Purebloods">Purebloods</a>
-                                        <a href="#Returners">Returners</a>
+                                        <a href="#Guides&Scouts" data-category="guides" data-subcategory="societyculture">Guides & Scouts</a>
+                                        <a href="#Magic" data-category="guides" data-subcategory="societyculture">Magic</a>
+                                        <a href="#Politics" data-category="guides" data-subcategory="societyculture">Politics</a>
+                                        <a href="#Purebloods" data-category="guides" data-subcategory="societyculture">Purebloods</a>
+                                        <a href="#Returners" data-category="guides" data-subcategory="societyculture">Returners</a>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
                                     </button>
                                 </div>
                             </div>
-                            <div class="claim--tabs">
-                                <div class="claim--tab">goblins</div>
-                                <div class="claim--tab">house elves</div>
-                                <div class="claim--tab">seers</div>
-                                <div class="claim--tab">vampires</div>
-                                <div class="claim--tab">werewolves</div>
+                            <div class="claim--tabs" data-subcategory="absp">
+                                <div class="claim--tab" data-tab="#Goblins">goblins</div>
+                                <div class="claim--tab" data-tab="#HouseElves">house elves</div>
+                                <div class="claim--tab" data-tab="#Seers">seers</div>
+                                <div class="claim--tab" data-tab="#Vampires">vampires</div>
+                                <div class="claim--tab" data-tab="#Werewolves">werewolves</div>
                             </div>
-                            <div class="claim--tabs">
-                                <div class="claim--tab">hogwarts summary</div>
-                                <div class="claim--tab">curriculum</div>
-                                <div class="claim--tab">healthcare</div>
-                                <div class="claim--tab">quidditch</div>
-                                <div class="claim--tab">religion</div>
-                                <div class="claim--tab">scheduling</div>
-                                <div class="claim--tab">staffing</div>
-                                <div class="claim--tab">leads and prefects</div>
+                            <div class="claim--tabs" data-subcategory="hogwartsinfo">
+                                <div class="claim--tab" data-tab="#Summary">hogwarts summary</div>
+                                <div class="claim--tab" data-tab="#Curriculum">curriculum</div>
+                                <div class="claim--tab" data-tab="#Healthcare">healthcare</div>
+                                <div class="claim--tab" data-tab="#QuidditchInfo">quidditch</div>
+                                <div class="claim--tab" data-tab="#Religion">religion</div>
+                                <div class="claim--tab" data-tab="#Scheduling">scheduling</div>
+                                <div class="claim--tab" data-tab="#Staffing">staffing</div>
+                                <div class="claim--tab" data-tab="#StudentLeads&Prefects">leads and prefects</div>
                             </div>
-                            <div class="claim--tabs">
-                                <div class="claim--tab">diagon and offshoots</div>
-                                <div class="claim--tab">hogsmeade</div>
-                                <div class="claim--tab">ilkley</div>
+                            <div class="claim--tabs" data-subcategory="locations">
+                                <div class="claim--tab" data-tab="#DiagonAlley&Offshoots">diagon and offshoots</div>
+                                <div class="claim--tab" data-tab="#Hogsmeade">hogsmeade</div>
+                                <div class="claim--tab" data-tab="#Ilkley">ilkley</div>
                             </div>
-                            <div class="claim--tabs">
-                                <div class="claim--tab">guides and scouts</div>
-                                <div class="claim--tab">magic</div>
-                                <div class="claim--tab">politics</div>
-                                <div class="claim--tab">purebloods</div>
-                                <div class="claim--tab">returners</div>
+                            <div class="claim--tabs" data-subcategory="societyculture">
+                                <div class="claim--tab" data-tab="#Guides&Scouts">guides and scouts</div>
+                                <div class="claim--tab" data-tab="#Magic">magic</div>
+                                <div class="claim--tab" data-tab="#Politics">politics</div>
+                                <div class="claim--tab" data-tab="#Purebloods">purebloods</div>
+                                <div class="claim--tab" data-tab="#Returners">returners</div>
                             </div>
                         </section>
+                        <!--Schools-->
                         <section class="webpage--section">
                             <div class="webpage--menu-sticky">
                                 <div class="webpage--sub-menu">
@@ -1073,41 +1077,42 @@
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links">
-                                        <a href="#Africa">Africa</a>
-                                        <a href="#Asia">Asia</a>
-                                        <a href="#Australia">Australia</a>
-                                        <a href="#Europe">Europe</a>
-                                        <a href="#NorthAmerica">North America</a>
-                                        <a href="#SouthAmerica">South America</a>
-                                        <a href="#Post-Secondary">Post-Secondary</a>
+                                        <a href="#Africa" data-category="schools">Africa</a>
+                                        <a href="#Asia" data-category="schools">Asia</a>
+                                        <a href="#Australia" data-category="schools">Australia</a>
+                                        <a href="#Europe" data-category="schools">Europe</a>
+                                        <a href="#NorthAmerica" data-category="schools">North America</a>
+                                        <a href="#SouthAmerica" data-category="schools">South America</a>
+                                        <a href="#Post-Secondary" data-category="schools">Post-Secondary</a>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
                                     </button>
                                 </div>
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#Africa">
                                 africa
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#Asia">
                                 asia
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#Australia">
                                 australia
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#Europe">
                                 europe
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#NorthAmerica">
                                 north america
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#SouthAmerica">
                                 south america
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#Post-Secondary">
                                 post secondary
                             </div>
                         </section>
+                        <!--Canons-->
                         <section class="webpage--section">
                             <div class="webpage--menu-sticky">
                                 <div class="webpage--sub-menu">
@@ -1115,17 +1120,18 @@
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links">
-                                        <a href="#Canons">Overview</a>
+                                        <a href="#Canons" data-category="canons">Overview</a>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
                                     </button>
                                 </div>
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#Canons">
                                 just no i'm not touching these
                             </div>
                         </section>
+                        <!--Claims-->
                         <section class="webpage--section">
                             <div class="webpage--menu-sticky">
                                 <div class="webpage--sub-menu">
@@ -1133,10 +1139,10 @@
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links">
-                                        <a href="#Reserves">Reserves</a>
-                                        <a href="#ClaimedFaces">Claimed Faces</a>
-                                        <a href="#UniversityClaims">University Claims</a>
-                                        <button>Abilities & Species</button>
+                                        <a href="#Reserves" data-category="claims">Reserves</a>
+                                        <a href="#ClaimedFaces" data-category="claims">Claimed Faces</a>
+                                        <a href="#UniversityClaims" data-category="claims">University Claims</a>
+                                        <button data-subcategory="absp-claim">Abilities & Species</button>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
@@ -1152,17 +1158,18 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#Reserves">
                                 reserves
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#ClaimedFaces">
                                 <div id="faces" class="claim grid twoCol"></div>
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#UniversityClaims">
                                 <div id="university" class="claim grid twoCol"></div>
                             </div>
-                            <div id="abilities" class="claim--tabs"></div>
+                            <div id="abilities" class="claim--tabs" data-subcategory="absp-claim"></div>
                         </section>
+                        <!--Jobs-->
                         <section class="webpage--section">
                             <div class="webpage--menu-sticky">
                                 <div class="webpage--sub-menu">
@@ -1177,6 +1184,7 @@
                             </div>
                             <div id="jobs" class="claim--tabs"></div>
                         </section>
+                        <!--Students-->
                         <section class="webpage--section">
                             <div class="webpage--menu-sticky">
                                 <div class="webpage--sub-menu">
@@ -1184,10 +1192,10 @@
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links">
-                                        <button>Class Lists</button>
-                                        <button>Dormitories</button>
-                                        <a href="#Quidditch">Quidditch</a>
-                                        <a href="#Leadership">Leadership</a>
+                                        <button data-subcategory="classes">Class Lists</button>
+                                        <button data-subcategory="dorms">Dormitories</button>
+                                        <a href="#StudentQuidditch" data-category="students">Quidditch</a>
+                                        <a href="#leadership" data-category="students">Leadership</a>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
@@ -1212,12 +1220,12 @@
                                     </button>
                                 </div>
                             </div>
-                            <div id="classes" class="claim--tabs"></div>
-                            <div id="dorms" class="claim--tabs"></div>
-                            <div class="webpage--tab">
-                                <div id="quidditch" class="claim grid twoCol"></div>
+                            <div id="classes" class="claim--tabs" data-subcategory="classes"></div>
+                            <div id="dorms" class="claim--tabs" data-subcategory="dorms"></div>
+                            <div class="webpage--tab" data-tab="#StudentQuidditch">
+                                <div id="StudentQuidditch" class="claim grid twoCol"></div>
                             </div>
-                            <div class="webpage--tab">
+                            <div class="webpage--tab" data-tab="#leadership">
                                 <div id="leadership" class="claim grid twoCol"></div>
                             </div>
                         </section>
