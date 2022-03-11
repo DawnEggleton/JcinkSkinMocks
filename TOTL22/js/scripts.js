@@ -74,10 +74,10 @@ if($('.main-nav--content > .main-nav--code').length > 0) {
 //copy code to clipboard
 let clipboard = new Clipboard('.clipboard');
 clipboard.on('success', function(e) {
-    console.log(e);
+    console.log('clipboard success: ' + e);
 });
 clipboard.on('error', function(e) {
-    console.log(e);
+    console.log('clipboard error: ' + e);
 });
 let clipcode = new Clipboard('.codeclick', {
     target: function(trigger) {
@@ -174,7 +174,7 @@ if($('body#Pages').length > 0) {
             });
         } else {
             document.querySelector('.webpage--sticky').style.top = `0px`;
-            document.querySelector('.webpage--main-menu').style.top = `${breadcrumbHeight - 1}px`;
+            document.querySelector('.webpage--main-menu').style.top = `${breadcrumbHeight - 2}px`;
             document.querySelectorAll('.webpage--menu-sticky').forEach(submenu => {
                 submenu.style.top = `${breadcrumbHeight + mainMenuHeight - 2}px`;
             });
@@ -315,9 +315,8 @@ if($('body#Pages').length > 0) {
             .then((response) => response.json())
             .then(data => {
                 instance = data.filter(item => item.AccountID === document.querySelector('#sort-id').value);
-                console.log(instance);
                 if(instance.length === 1) {
-                    console.log('update');
+                    console.log('update form info');
                     document.querySelector('#warning').innerHTML = 'This character already exists in the claims! Please <a href="/">update your claims</a> instead.';
                 } else if (instance.length === 0) {
                     postToGoogle('POST');

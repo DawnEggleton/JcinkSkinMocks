@@ -2054,7 +2054,7 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   border-left: 1px solid var(--light);
   border-right: 1px solid var(--light);
   position: sticky;
-  z-index: 10;
+  z-index: 9;
 }
 .webpage--main-menu.scrolled {
   border-left-color: var(--webMenu);

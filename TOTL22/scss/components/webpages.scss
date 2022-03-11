@@ -37,7 +37,7 @@
         border-left: 1px solid var(--light);
         border-right: 1px solid var(--light);
         position: sticky;
-        z-index: 10;
+        z-index: 9;
 
         &.scrolled {
             border-left-color: var(--webMenu);

@@ -4,10 +4,8 @@ function toggleMenu() {
 
 
 function highlightCode() {
-    console.log('clicked');
     let clipcodeQuick = new Clipboard('.copyQuick', {
         target: function(trigger) {
-            console.log(trigger.nextElementSibling);
             return trigger.nextElementSibling.querySelector('textarea');
         }
     });
@@ -1011,7 +1009,7 @@ function postToGoogle(formtype = 'POST') {
     type: formtype,
     dataType: "json", 
     success: function () {
-        console.log('success');
+        console.log('form submitted successfully');
     },
     error: function (jqXHR, textStatus, errorThrown) {
         console.log('error xhr: ' + jqXHR.status);
@@ -1101,4 +1099,63 @@ function cleanString(string) {
 function openHelp(e) {
     e.classList.toggle('show');
     e.parentNode.parentNode.querySelector('.help').classList.toggle('show');
+}
+
+function webpageTabs() {
+    console.log('webpage tabs');
+    let mainItems = document.querySelectorAll('.webpage--main-menu a');
+    let mainTabs = document.querySelectorAll('.webpage--section');
+
+    let subItems = document.querySelectorAll('.webpage--sub-menu .webpage--sub-menu-links:not(.claim--labels) > a');
+    let innerTriggers = document.querySelectorAll('.webpage--sub-menu .webpage--sub-menu-links > button');
+
+    let innerMenus = document.querySelectorAll('.webpage--pop-menu');
+    let innerItems = document.querySelectorAll('.claim--labels > a');
+
+    let webpageTabs = document.querySelectorAll('.webpage--tab');
+    let claimTabs = document.querySelectorAll('.claim--tab');
+
+    //main menu - on click, change submenu
+    mainItems.forEach((item, index) => {
+        item.addEventListener('click', e => {
+            mainItems.forEach(item => item.classList.remove('active'));
+            mainTabs.forEach(tab => tab.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            mainTabs[index].classList.add('active');
+        });
+    });
+
+    //sub menu - on button click, open inner menu
+    innerTriggers.forEach((trigger, index) => {
+        trigger.addEventListener('click', e => {
+            innerTriggers.forEach(trigger => trigger.classList.remove('active'));
+            innerMenus.forEach(menu => menu.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            innerMenus[index].classList.add('active');
+        });
+    });
+
+    //sub menu - on link click, open content
+    subItems.forEach((item, index) => {
+        item.addEventListener('click', e => {
+            subItems.forEach(item => item.classList.remove('active'));
+            innerTriggers.forEach(item => item.classList.remove('active'));
+            innerItems.forEach(item => item.classList.remove('active'));
+            webpageTabs.forEach(tab => tab.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            webpageTabs[index].classList.add('active');
+        });
+    });
+
+    //inner menu/sub menu links - on click, change content
+    innerItems.forEach((item, index) => {
+        item.addEventListener('click', e => {
+            subItems.forEach(item => item.classList.remove('active'));
+            innerItems.forEach(item => item.classList.remove('active'));
+            claimTabs.forEach(tab => tab.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            claimTabs[index].classList.add('active');
+            claimTabs[index].parentNode.classList.add('active');
+        });
+    });
 }
