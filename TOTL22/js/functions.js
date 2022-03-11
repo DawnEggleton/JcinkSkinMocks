@@ -407,23 +407,27 @@ function structureJobClaim (data, labelClip = '#jobsTabs', tabClip = '#jobs') {
         if(i === 0) {
             labels += claimTabLabel(character.Section, "jobs");
             body += claimTabStart(character.Section);
-            body += claimHeader(character.Section);
             if(character.Subsection) {
-                body += claimSubheader(character.Subsection);
+                body += claimHeader(character.Subsection);
+            } else {
+                body += claimHeader('Self-employed');
             }
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         } else if(employed[i - 1].Section !== character.Section) {
             labels += claimTabLabel(character.Section, "jobs");
             body += claimTabEnd();
             body += claimTabStart(character.Section);
-            body += claimHeader(character.Section);
             if(character.Subsection) {
-                body += claimSubheader(character.Subsection);
+                body += claimHeader(character.Subsection);
+            } else {
+                body += claimHeader('Self-employed');
             }
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         }  else if(employed[i - 1].Section === character.Section && employed[i - 1].Subsection !== character.Subsection) {
             if(character.Subsection) {
-                body += claimSubheader(character.Subsection);
+                body += claimHeader(character.Subsection);
+            } else {
+                body += claimHeader('Self-employed');
             }
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         } else {
@@ -634,18 +638,16 @@ function structureClassClaim (data, labelClip = '#classTabs', tabClip = '#classe
         if(i === 0) {
             labels += claimTabLabel(character.HogwartsYear, "students", "classes");
             body += claimTabStart(character.HogwartsYear);
-            body += claimHeader(character.HogwartsYear);
-            body += claimSubheader(character.ClassName);
+            body += claimHeader(character.ClassName);
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.ClassGrade]);
         } else if(students[i - 1].HogwartsYear !== character.HogwartsYear) {
             labels += claimTabLabel(character.HogwartsYear, "students", "classes");
             body += claimTabEnd();
             body += claimTabStart(character.HogwartsYear);
-            body += claimHeader(character.HogwartsYear);
-            body += claimSubheader(character.ClassName);
+            body += claimHeader(character.ClassName);
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.ClassGrade]);
         }  else if(students[i - 1].HogwartsYear === character.HogwartsYear && students[i - 1].ClassName !== character.ClassName) {
-            body += claimSubheader(character.ClassName);
+            body += claimHeader(character.ClassName);
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.ClassGrade]);
         } else {
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.ClassGrade]);
@@ -793,7 +795,7 @@ function structureLeadClaim (data, infoClip = '#leadership') {
     (students.filter(student => student.HogwartsYear === 'seventh year').length > 0) ? sevenths = true : sevenths = false;
     let html = ``;
     if(heads) {
-        html += `<h3 class="fullWidth">student heads</h3>`;
+        html += `<h3 class="fullWidth"><hr />student heads<hr /></h3>`;
         students.forEach(character => {
             if(character.LeadershipPosition === 'head boy/girl') {
                 html += characterBox(character.AccountID, character.GroupID, character.Character);
@@ -801,7 +803,7 @@ function structureLeadClaim (data, infoClip = '#leadership') {
         });
     }
     if(sevenths) {
-        html += `<h3 class="fullWidth">seventh year prefects</h3>`;
+        html += `<h3 class="fullWidth"><hr />seventh year prefects<hr /></h3>`;
         students.forEach(character => {
             if(character.LeadershipPosition === 'prefect' && character.HogwartsYear === 'seventh year') {
                 html += characterBox(character.AccountID, character.GroupID, character.Character);
@@ -809,7 +811,7 @@ function structureLeadClaim (data, infoClip = '#leadership') {
         });
     }
     if(sixths) {
-        html += `<h3 class="fullWidth">sixth year prefects</h3>`;
+        html += `<h3 class="fullWidth"><hr />sixth year prefects<hr /></h3>`;
         students.forEach(character => {
             if(character.LeadershipPosition === 'prefect' && character.HogwartsYear === 'sixth year') {
                 html += characterBox(character.AccountID, character.GroupID, character.Character);
@@ -817,7 +819,7 @@ function structureLeadClaim (data, infoClip = '#leadership') {
         });
     }
     if(fifths) {
-        html += `<h3 class="fullWidth">fifth year prefects</h3>`;
+        html += `<h3 class="fullWidth"><hr />fifth year prefects<hr /></h3>`;
         students.forEach(character => {
             if(character.LeadershipPosition === 'prefect' && character.HogwartsYear === 'fifth year') {
                 html += characterBox(character.AccountID, character.GroupID, character.Character);
@@ -843,11 +845,11 @@ function claimTabLabel(label, category, subcategory = null) {
 }
 
 function claimHeader(title) {
-    return `<h3 class="fullWidth">${title}</h3>`;
+    return `<h3 class="fullWidth"><hr />${title}<hr /></h3>`;
 }
 
 function claimSubheader(title) {
-    return `<h4 class="fullWidth">${title}</h4>`;
+    return `<h4 class="fullWidth"><hr />${title}<hr /></h4>`;
 }
 
 function characterBox(id, group, bold, lines = []) {

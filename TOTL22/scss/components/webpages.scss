@@ -265,3 +265,93 @@
     }
 
 }
+
+//Headers
+.webpage--tab,
+.claim--tab {
+    h3 {
+        text-align: center;
+        font-family: var(--accentFont);
+        text-transform: capitalize;
+        font-size: 26px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        line-height: 26px;
+        grid-gap: 30px;
+        grid-template-columns: 50px auto 50px;
+        margin: 40px auto;
+
+        hr {
+            width: 100%;
+            min-width: 50px;
+            max-width: 300px;
+            margin-right: 0;
+            top: -3px;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                border: 1px solid var(--light);
+                top: -8px;
+                position: relative;
+                background: var(--background);
+                clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+                left: -8px;
+            }
+
+            &:last-child {
+                transform: rotate(180deg);
+                margin-right: auto;
+                margin-left: 0;
+            }
+        }
+
+        & + h4 {
+            margin-top: -20px;
+        }
+    }
+    h4 {
+        text-align: center;
+        font-family: var(--headerFont);
+        text-transform: capitalize;
+        font-size: var(--xlBody);
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        line-height: 26px;
+        grid-gap: 30px;
+        grid-template-columns: 50px auto 50px;
+        margin: 40px auto;
+        font-weight: 600;
+
+        hr {
+            width: 100%;
+            min-width: 50px;
+            margin-right: 0;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                border: 1px solid var(--light);
+                top: -8px;
+                position: relative;
+                background: var(--background);
+                clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+                left: -8px;
+            }
+
+            &:last-child {
+                transform: rotate(180deg);
+                margin-right: auto;
+                margin-left: 0;
+            }
+        }
+    }
+}
