@@ -1219,8 +1219,9 @@ function webpageTabs() {
         }
     } else {
         //Auto-select  tab without hashtag present
-        $('.web-mainNav a').first().addClass('active');
-        $('#sect1-menu').addClass('active');
-        $('#sect1-menu a').first().addClass('active');
+        document.querySelector('.webpage--main-menu-links a').classList.add('active');
+        document.querySelector('.webpage--section').classList.add('active');
+        document.querySelector('.webpage--section').querySelector('.webpage--sub-menu-links a').classList.add('active');
+        document.querySelector('.webpage--section').querySelector('.webpage--tab').classList.add('active');
     }
 }
