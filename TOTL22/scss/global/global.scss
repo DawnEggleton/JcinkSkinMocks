@@ -66,9 +66,9 @@ hr {
     width: 60%;
     height: 1px;
     border: none;
-    background: var(--light);
+    background: var(--lmGrey);
     margin: 10px auto;
-    opacity: 0.5;
+    opacity: var(--hrOpacity);
 }
 main {
     min-height: 100vh;

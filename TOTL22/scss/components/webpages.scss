@@ -295,12 +295,12 @@
                 width: 16px;
                 height: 16px;
                 border-radius: 50%;
-                border: 1px solid var(--light);
+                border: 1px solid var(--lmGrey);
                 top: -8px;
                 position: relative;
                 background: var(--background);
                 clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
-                left: -8px;
+                left: -16px;
             }
 
             &:last-child {
@@ -336,15 +336,15 @@
             &::before {
                 content: '';
                 display: block;
-                width: 16px;
-                height: 16px;
+                width: 12px;
+                height: 12px;
                 border-radius: 50%;
-                border: 1px solid var(--light);
-                top: -8px;
+                border: 1px solid var(--lmGrey);
+                top: -6px;
                 position: relative;
                 background: var(--background);
                 clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
-                left: -8px;
+                left: -12px;
             }
 
             &:last-child {
