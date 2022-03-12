@@ -101,7 +101,7 @@ $("table[id='CODE-WRAP']").each(function() {
  ******************/
 if($('body#Profile').length > 0) {
     setTimeout(() => {
-        document.querySelector('.profile--menu').style.top = `${breadcrumbHeight - 1}px`;
+        document.querySelector('.profile--menu').style.top = `${breadcrumbHeight - 2}px`;
         let submenuHeight = document.querySelector('.profile--menu').clientHeight;
         document.querySelectorAll('.anchorLink').forEach(link => {
             link.style.marginTop = `${(breadcrumbHeight + submenuHeight + 40) * -1}px`;
@@ -326,5 +326,23 @@ if($('body#Pages').length > 0) {
                     document.querySelector('#warning').innerHTML = 'Whoops! Somehow your character is already on the sheet - more than once! Please contact a member of staff to update the sheet.';
                 }
             });
+    });
+}
+
+
+
+
+/******************
+ Topic List ONLY
+******************/
+if($('body#SF').length > 0) {
+    document.querySelectorAll('.category.subforums .redirect').forEach(redirectForum => redirectForum.remove());
+    if(document.querySelector('.category.subforums .category--rows').innerText.trim() === '') {
+        document.querySelector('.category.subforums').remove();
+    }
+    document.querySelectorAll('.topic--extras').forEach(extra => {
+        if(extra.innerText.trim() === '') {
+            extra.querySelector('hr').remove();
+        }
     });
 }
