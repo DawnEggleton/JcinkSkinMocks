@@ -728,6 +728,18 @@ function structureDormClaim (data, labelClip = '#dormTabs', tabClip = '#dorms') 
 
 function structureQuidditchClaim (data, infoClip = '#StudentQuidditch') {
     let students = data.filter(item => item.QuidditchPosition);
+    students.forEach(student => {
+        student.Captain = student.QuidditchPosition.includes('captain');
+        if(student.Captain) {
+            student.QuidditchPosition = student.QuidditchPosition.split(', ').filter(item => item != 'captain')[0];
+        }
+    });
+    let captains = {
+        gryffindor: students.filter(item => item.Captain && item.GroupName === 'gryffindor') || null,
+        slytherin: students.filter(item => item.Captain && item.GroupName === 'slytherin') || null,
+        ravenclaw: students.filter(item => item.Captain && item.GroupName === 'ravenclaw') || null,
+        hufflepuff: students.filter(item => item.Captain && item.GroupName === 'hufflepuff') || null
+    }
     students.sort((a, b) => {
         aName = a.Character;
         bName = b.Character;
@@ -751,13 +763,24 @@ function structureQuidditchClaim (data, infoClip = '#StudentQuidditch') {
             return 0;
         }
     });
+
     let html = ``;
     students.forEach((character, i) => {
         if(i === 0) {
             html += claimHeader(character.GroupName);
+            if(captains[character.GroupName].length > 0) {
+                html += characterBox(captains[character.GroupName][0].AccountID, captains[character.GroupName][0].GroupID, captains[character.GroupName][0].Character, ['captain']);
+                html += `<span></span>`;
+                html += `<hr class="fullWidth" />`;
+            }
             html += characterBox(character.AccountID, character.GroupID, character.Character, [character.QuidditchPosition]);
         } else if(students[i - 1].GroupName !== character.GroupName) {
             html += claimHeader(character.GroupName);
+            if(captains[character.GroupName].length > 0) {
+                html += characterBox(captains[character.GroupName][0].AccountID, captains[character.GroupName][0].GroupID, captains[character.GroupName][0].Character, ['captain']);
+                html += `<span></span>`;
+                html += `<hr class="fullWidth" />`;
+            }
             html += characterBox(character.AccountID, character.GroupID, character.Character, [character.QuidditchPosition]);
         } else {
             html += characterBox(character.AccountID, character.GroupID, character.Character, [character.QuidditchPosition]);

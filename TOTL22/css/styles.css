@@ -48,42 +48,11 @@
   --xltGrey: rgba(170, 170, 170, 1);
   --offWhite: rgba(215, 215, 215, 1);
   --white: rgba(235, 235, 235, 1);
-}
-
-.smlFont {
-  --xsBody: 8px;
-  --sBody: 10px;
-  --mBody: 12px;
-  --lBody: 14px;
-  --xlBody: 16px;
-}
-
-.lrgFont {
-  --xsBody: 10px;
-  --sBody: 12px;
-  --mBody: 14px;
-  --lBody: 16px;
-  --xlBody: 18px;
-}
-
-.light {
-  --background: var(--offWhite);
-  --content: var(--white);
-  --dark: var(--mdGrey);
-  --headerText: var(--offWhite);
-  --text: var(--mdGrey);
-  --light: var(--ltGrey);
-  --overlayText: var(--mdGrey);
-  --opacityShift: 1;
-  --subHoverText: var(--mdGrey);
-  --menuLink: var(--mdGrey);
-  --menuBG: var(--dkGrey);
-  --imageFilter: grayscale(1) contrast(0.7) brightness(1.3);
-  --webMenu: rgba(40, 40, 40, 0.95);
-  --hrOpacity: 0.75;
   --accentColor: var(--black);
   --accent: rgba(87, 188, 210, 1);
+  --accent-70: rgba(87, 188, 210, 0.7);
   --ltaccent: rgba(87, 188, 210, 1);
+  --opacityShift: 1;
   /**************************
   Validating, Guests
   **************************/
@@ -136,134 +105,169 @@
   Members
   **************************/
 }
-.light .g-1,
-.light .g-2, .light.g-1, .light.g-2 {
+:root .g-1,
+:root .g-2, :root.g-1, :root.g-2 {
   --accentColor: var(--black);
   --accent: rgba(196, 177, 125, 1);
+  --accent-70: rgba(196, 177, 125, 0.7);
   --ltaccent: rgba(225, 210, 166, 1);
-  --opacityShift: 1;
 }
-.light .g-3, .light.g-3 {
+:root .g-3, :root.g-3 {
   --accentColor: var(--black);
   --accent: rgba(189, 133, 92, 1);
+  --accent-70: rgba(189, 133, 92, 0.7);
   --ltaccent: rgba(215, 159, 118, 1);
-  --opacityShift: 1;
 }
-.light .g-4, .light.g-4 {
+:root .g-4, :root.g-4 {
   --accentColor: var(--black);
   --accent: rgba(110, 130, 155, 1);
+  --accent-70: rgba(110, 130, 155, 0.7);
   --ltaccent: rgba(142, 161, 185, 1);
-  --opacityShift: 1;
 }
-.light .g-5,
-.light .g-10,
-.light .g-19, .light.g-5, .light.g-10, .light.g-19 {
+:root .g-5,
+:root .g-10,
+:root .g-19, :root.g-5, :root.g-10, :root.g-19 {
   --accentColor: var(--black);
   --accent: rgba(196, 196, 196, 1);
+  --accent-70: rgba(196, 196, 196, 0.7);
   --ltaccent: rgba(220, 220, 220, 1);
-  --opacityShift: 1;
 }
-.light adults,
-.light .adults,
-.light .g-6, .light.g-6 {
+:root adults,
+:root .adults,
+:root .g-6, :root.g-6 {
   --accentColor: var(--white);
   --accent: rgba(179, 73, 85, 1);
+  --accent-70: rgba(179, 73, 85, 0.7);
   --ltaccent: rgba(200, 107, 118, 1);
-  --opacityShift: 1;
 }
-.light gryffindor,
-.light .gryffindor,
-.light .g-7, .light.g-7 {
+:root gryffindor,
+:root .gryffindor,
+:root .g-7, :root.g-7 {
   --accentColor: var(--white);
   --accent: rgba(147, 42, 47, 1);
+  --accent-70: rgba(147, 42, 47, 0.7);
   --ltaccent: rgba(176, 58, 63, 1);
-  --opacityShift: 1;
 }
-.light hogwarts,
-.light .hogwarts,
-.light .g-8, .light.g-8 {
+:root hogwarts,
+:root .hogwarts,
+:root .g-8, :root.g-8 {
   --accentColor: var(--white);
   --accent: rgba(97, 86, 153, 1);
+  --accent-70: rgba(97, 86, 153, 0.7);
   --ltaccent: rgba(123, 113, 170, 1);
   --opacityShift: 0.7;
 }
-.light hufflepuff,
-.light .hufflepuff,
-.light .g-9, .light.g-9 {
+:root hufflepuff,
+:root .hufflepuff,
+:root .g-9, :root.g-9 {
   --accentColor: var(--black);
   --accent: rgba(183, 148, 117, 1);
+  --accent-70: rgba(183, 148, 117, 0.7);
   --ltaccent: rgba(213, 177, 146, 1);
-  --opacityShift: 1;
 }
-.light press,
-.light .press,
-.light .g-11, .light.g-11 {
+:root press,
+:root .press,
+:root .g-11, :root.g-11 {
   --accentColor: var(--black);
   --accent: rgba(176, 134, 84, 1);
+  --accent-70: rgba(176, 134, 84, 0.7);
   --ltaccent: rgba(200, 160, 112, 1);
-  --opacityShift: 1;
 }
-.light ministry,
-.light .ministry,
-.light .g-12, .light.g-12 {
+:root ministry,
+:root .ministry,
+:root .g-12, :root.g-12 {
   --accentColor: var(--white);
   --accent: rgba(78, 134, 126, 1);
+  --accent-70: rgba(78, 134, 126, 0.7);
   --ltaccent: rgba(101, 157, 149, 1);
-  --opacityShift: 1;
 }
-.light quidditch,
-.light .quidditch,
-.light .g-13, .light.g-13 {
+:root quidditch,
+:root .quidditch,
+:root .g-13, :root.g-13 {
   --accentColor: var(--black);
   --accent: rgba(146, 130, 157, 1);
+  --accent-70: rgba(146, 130, 157, 0.7);
   --ltaccent: rgba(166, 148, 179, 1);
-  --opacityShift: 1;
 }
-.light ravenclaw,
-.light .ravenclaw,
-.light .g-14, .light.g-14 {
+:root ravenclaw,
+:root .ravenclaw,
+:root .g-14, :root.g-14 {
   --accentColor: var(--white);
   --accent: rgba(65, 91, 142, 1);
+  --accent-70: rgba(65, 91, 142, 0.7);
   --ltaccent: rgba(86, 113, 166, 1);
-  --opacityShift: 1;
 }
-.light healers,
-.light .healers,
-.light .g-15, .light.g-15 {
+:root healers,
+:root .healers,
+:root .g-15, :root.g-15 {
   --accentColor: var(--white);
   --accent: rgba(88, 123, 83, 1);
+  --accent-70: rgba(88, 123, 83, 0.7);
   --ltaccent: rgba(102, 142, 96, 1);
-  --opacityShift: 1;
 }
-.light slytherin,
-.light .slytherin,
-.light .g-16, .light.g-16 {
+:root slytherin,
+:root .slytherin,
+:root .g-16, :root.g-16 {
   --accentColor: var(--white);
   --accent: rgba(45, 91, 61, 1);
+  --accent-70: rgba(45, 91, 61, 0.7);
   --ltaccent: rgba(60, 113, 78, 1);
-  --opacityShift: 1;
 }
-.light returners,
-.light .returners,
-.light .g-17, .light.g-17 {
+:root returners,
+:root .returners,
+:root .g-17, :root.g-17 {
   --accentColor: var(--white);
   --accent: rgba(90, 137, 151, 1);
+  --accent-70: rgba(90, 137, 151, 0.7);
   --ltaccent: rgba(105, 154, 168, 1);
-  --opacityShift: 1;
 }
-.light entertainment,
-.light .entertainment,
-.light .g-18, .light.g-18 {
+:root entertainment,
+:root .entertainment,
+:root .g-18, :root.g-18 {
   --accentColor: var(--black);
   --accent: rgba(82, 154, 162, 1);
+  --accent-70: rgba(82, 154, 162, 0.7);
   --ltaccent: rgba(108, 181, 189, 1);
-  --opacityShift: 1;
 }
-.light .g-20, .light.g-20 {
+:root .g-20, :root.g-20 {
   --accentColor: var(--black);
   --accent: rgba(97, 177, 202, 1);
+  --accent-70: rgba(97, 177, 202, 0.7);
   --ltaccent: rgba(130, 201, 223, 1);
   --opacityShift: 1;
+}
+
+.smlFont {
+  --xsBody: 8px;
+  --sBody: 10px;
+  --mBody: 12px;
+  --lBody: 14px;
+  --xlBody: 16px;
+}
+
+.lrgFont {
+  --xsBody: 10px;
+  --sBody: 12px;
+  --mBody: 14px;
+  --lBody: 16px;
+  --xlBody: 18px;
+}
+
+.light {
+  --background: var(--offWhite);
+  --content: var(--white);
+  --dark: var(--mdGrey);
+  --headerText: var(--offWhite);
+  --text: var(--mdGrey);
+  --light: var(--ltGrey);
+  --overlayText: var(--mdGrey);
+  --opacityShift: 1;
+  --subHoverText: var(--mdGrey);
+  --menuLink: var(--mdGrey);
+  --menuBG: var(--dkGrey);
+  --imageFilter: grayscale(1) contrast(0.7) brightness(1.3);
+  --webMenu: rgba(40, 40, 40, 0.95);
+  --hrOpacity: 0.75;
 }
 
 .dark {
@@ -281,9 +285,8 @@
   --imageFilter: grayscale(1) brightness(0.7) contrast(1.3);
   --webMenu: rgba(26, 26, 26, 0.7);
   --hrOpacity: 0.5;
-  --accentColor: var(--black);
-  --accent: rgba(87, 188, 210, 1);
-  --ltaccent: rgba(87, 188, 210, 1);
+  --opacityShift: 0.8;
+  --opacityShift: 0.8;
   /**************************
   Validating, Guests
   **************************/
@@ -341,19 +344,19 @@
   --accentColor: var(--black);
   --ltaccent: rgba(196, 177, 125, 1);
   --accent: rgba(225, 210, 166, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(225, 210, 166, 0.7);
 }
 .dark .g-3, .dark.g-3 {
   --accentColor: var(--black);
   --ltaccent: rgba(189, 133, 92, 1);
   --accent: rgba(215, 159, 118, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(215, 159, 118, 0.7);
 }
 .dark .g-4, .dark.g-4 {
   --accentColor: var(--black);
   --ltaccent: rgba(110, 130, 155, 1);
   --accent: rgba(97, 116, 140, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(97, 116, 140, 0.7);
 }
 .dark .g-5,
 .dark .g-10,
@@ -361,7 +364,7 @@
   --accentColor: var(--black);
   --ltaccent: rgba(196, 196, 196, 1);
   --accent: rgba(220, 220, 220, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(220, 220, 220, 0.7);
 }
 .dark adults,
 .dark .adults,
@@ -369,7 +372,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(179, 73, 85, 1);
   --accent: rgba(200, 107, 118, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(200, 107, 118, 0.7);
 }
 .dark gryffindor,
 .dark .gryffindor,
@@ -377,7 +380,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(147, 42, 47, 1);
   --accent: rgba(176, 58, 63, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(176, 58, 63, 0.7);
 }
 .dark hogwarts,
 .dark .hogwarts,
@@ -385,6 +388,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(97, 86, 153, 1);
   --accent: rgba(123, 113, 170, 1);
+  --accent-70: rgba(123, 113, 170, 0.7);
   --opacityShift: 0.8;
 }
 .dark hufflepuff,
@@ -393,7 +397,7 @@
   --accentColor: var(--black);
   --ltaccent: rgba(183, 148, 117, 1);
   --accent: rgba(213, 177, 146, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(213, 177, 146, 0.7);
 }
 .dark press,
 .dark .press,
@@ -401,7 +405,7 @@
   --accentColor: var(--black);
   --ltaccent: rgba(176, 134, 84, 1);
   --accent: rgba(200, 160, 112, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(200, 160, 112, 0.7);
 }
 .dark ministry,
 .dark .ministry,
@@ -409,7 +413,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(78, 134, 126, 1);
   --accent: rgba(101, 157, 149, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(101, 157, 149, 0.7);
 }
 .dark quidditch,
 .dark .quidditch,
@@ -417,7 +421,7 @@
   --accentColor: var(--black);
   --ltaccent: rgba(146, 130, 157, 1);
   --accent: rgba(166, 148, 179, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(166, 148, 179, 0.7);
 }
 .dark ravenclaw,
 .dark .ravenclaw,
@@ -425,7 +429,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(65, 91, 142, 1);
   --accent: rgba(86, 113, 166, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(86, 113, 166, 0.7);
 }
 .dark healers,
 .dark .healers,
@@ -433,7 +437,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(88, 123, 83, 1);
   --accent: rgba(102, 142, 96, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(102, 142, 96, 0.7);
 }
 .dark slytherin,
 .dark .slytherin,
@@ -441,7 +445,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(45, 91, 61, 1);
   --accent: rgba(60, 113, 78, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(60, 113, 78, 0.7);
 }
 .dark returners,
 .dark .returners,
@@ -449,7 +453,7 @@
   --accentColor: var(--white);
   --ltaccent: rgba(90, 137, 151, 1);
   --accent: rgba(105, 154, 168, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(105, 154, 168, 0.7);
 }
 .dark entertainment,
 .dark .entertainment,
@@ -457,13 +461,13 @@
   --accentColor: var(--black);
   --ltaccent: rgba(82, 154, 162, 1);
   --accent: rgba(108, 181, 189, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(108, 181, 189, 0.7);
 }
 .dark .g-20, .dark.g-20 {
   --accentColor: var(--black);
   --ltaccent: rgba(97, 177, 202, 1);
   --accent: rgba(130, 201, 223, 1);
-  --opacityShift: 0.8;
+  --accent-70: rgba(130, 201, 223, 0.7);
 }
 
 /*******************************
@@ -668,6 +672,58 @@ luxblock {
   display: none;
 }
 
+.macro--button {
+  text-align: center;
+  font-family: var(--accentFont);
+  text-transform: capitalize;
+  font-size: var(--xlBody);
+  display: inline-grid;
+  align-items: center;
+  justify-items: center;
+  line-height: var(--xlBody);
+  grid-gap: 15px;
+  grid-template-columns: 30px auto 30px;
+  margin-right: 10px;
+}
+.macro--button:hover hr::before {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  background: var(--accent-70);
+}
+.macro--button hr {
+  width: 30px;
+  margin-right: 0;
+  top: -2px;
+}
+.macro--button hr::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--lmGrey);
+  top: -5px;
+  position: relative;
+  background: var(--background);
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+  left: -10px;
+}
+.macro--button hr:last-child {
+  transform: rotate(180deg);
+  margin-right: auto;
+  margin-left: 0;
+}
+.macro--button hr:last-child::before {
+  top: -6px;
+}
+
+.subforums-macro,
+.newstext,
+#submenu,
+#userlinks,
+.hide {
+  display: none !important;
+}
+
 @media only screen and (max-width: 768px) {
   .notMobile {
     display: none !important;
@@ -678,14 +734,6 @@ luxblock {
     display: none !important;
   }
 }
-.subforums-macro,
-.newstext,
-#submenu,
-#userlinks,
-.hide {
-  display: none !important;
-}
-
 /*******************************
     Navigation
 ********************************/
@@ -1544,6 +1592,9 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
     grid-template-columns: 2fr 1fr;
   }
 }
+.topic--list {
+  margin-bottom: 10px;
+}
 .topic--stats {
   position: absolute;
   top: 0;
@@ -1581,7 +1632,7 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   left: 0;
   width: 100%;
   height: 8px;
-  background: var(--ltaccent);
+  background: var(--accent-70);
   opacity: var(--opacityShift);
 }
 .topic h3:hover::before {
@@ -1665,6 +1716,7 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   padding: 3px 8px;
   border-radius: 4px;
   background: var(--ltaccent);
+  color: var(--accentColor);
 }
 @media only screen and (min-width: 650px) {
   .topic--extras {
@@ -1675,6 +1727,67 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   .topic--extras hr {
     display: none;
   }
+}
+
+#SF main > table > tbody > tr,
+#SF form > table > tbody > tr {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: auto max-content;
+}
+#SF main > table > tbody > tr > td,
+#SF form > table > tbody > tr > td {
+  width: 100% !important;
+  display: flex;
+}
+#SF main > table > tbody > tr > td:last-child,
+#SF form > table > tbody > tr > td:last-child {
+  gap: 30px;
+}
+#SF main .goto-firstunread,
+#SF main .pagination,
+#SF form .goto-firstunread,
+#SF form .pagination {
+  font-size: 0;
+  display: flex;
+  gap: 3px;
+}
+#SF main .goto-firstunread .pagination_current,
+#SF main .goto-firstunread a,
+#SF main .pagination .pagination_current,
+#SF main .pagination a,
+#SF form .goto-firstunread .pagination_current,
+#SF form .goto-firstunread a,
+#SF form .pagination .pagination_current,
+#SF form .pagination a {
+  display: inline-grid;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  font-size: var(--lBody);
+  font-family: var(--headerFont);
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--ltaccent);
+  color: var(--accentColor);
+}
+#SF main .goto-firstunread .pagination_current,
+#SF main .goto-firstunread a:hover,
+#SF main .pagination .pagination_current,
+#SF main .pagination a:hover,
+#SF form .goto-firstunread .pagination_current,
+#SF form .goto-firstunread a:hover,
+#SF form .pagination .pagination_current,
+#SF form .pagination a:hover {
+  background: var(--dark);
+  color: var(--headerText);
+  font-weight: normal;
+}
+#SF main .goto-firstunread .pagination_pagetxt,
+#SF main .pagination .pagination_pagetxt,
+#SF form .goto-firstunread .pagination_pagetxt,
+#SF form .pagination .pagination_pagetxt {
+  display: none;
 }
 
 /*******************************
@@ -2421,6 +2534,11 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   grid-template-columns: 50px auto 50px;
   margin: 40px auto;
 }
+.webpage--tab h3:hover hr::before,
+.claim--tab h3:hover hr::before {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  background: var(--ltaccent);
+}
 .webpage--tab h3 hr,
 .claim--tab h3 hr {
   width: 100%;
@@ -2449,6 +2567,10 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   margin-right: auto;
   margin-left: 0;
 }
+.webpage--tab h3 hr:last-child::before,
+.claim--tab h3 hr:last-child::before {
+  top: -9px;
+}
 .webpage--tab h3 + h4,
 .claim--tab h3 + h4 {
   margin-top: -20px;
@@ -2474,6 +2596,10 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   min-width: 50px;
   margin-right: 0;
 }
+.webpage--tab h4 hr:hover hr::before,
+.claim--tab h4 hr:hover hr::before {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
 .webpage--tab h4 hr::before,
 .claim--tab h4 hr::before {
   content: "";
@@ -2493,6 +2619,10 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   transform: rotate(180deg);
   margin-right: auto;
   margin-left: 0;
+}
+.webpage--tab h4 hr:last-child::before,
+.claim--tab h4 hr:last-child::before {
+  top: -7px;
 }
 
 #sort,

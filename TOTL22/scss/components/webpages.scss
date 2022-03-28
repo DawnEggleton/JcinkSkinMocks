@@ -282,6 +282,11 @@
         grid-template-columns: 50px auto 50px;
         margin: 40px auto;
 
+        &:hover hr::before {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            background: var(--ltaccent);
+        }
+
         hr {
             width: 100%;
             min-width: 50px;
@@ -307,6 +312,10 @@
                 transform: rotate(180deg);
                 margin-right: auto;
                 margin-left: 0;
+
+                &::before {
+                    top: -9px;
+                }
             }
         }
 
@@ -333,6 +342,10 @@
             min-width: 50px;
             margin-right: 0;
 
+            &:hover hr::before {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
             &::before {
                 content: '';
                 display: block;
@@ -351,6 +364,10 @@
                 transform: rotate(180deg);
                 margin-right: auto;
                 margin-left: 0;
+
+                &::before {
+                    top: -7px;
+                }
             }
         }
     }

@@ -208,6 +208,65 @@ luxblock {
     display: none;
 }
 
+.macro {
+    &--button {
+        text-align: center;
+        font-family: var(--accentFont);
+        text-transform: capitalize;
+        font-size: var(--xlBody);
+        display: inline-grid;
+        align-items: center;
+        justify-items: center;
+        line-height: var(--xlBody);
+        grid-gap: 15px;
+        grid-template-columns: 30px auto 30px;
+        margin-right: 10px;
+
+        &:hover hr::before {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            background: var(--accent-70);
+        }
+
+        hr {
+            width: 30px;
+            margin-right: 0;
+            top: -2px;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                border: 1px solid var(--lmGrey);
+                top: -5px;
+                position: relative;
+                background: var(--background);
+                clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+                left: -10px;
+            }
+
+            &:last-child {
+                transform: rotate(180deg);
+                margin-right: auto;
+                margin-left: 0;
+
+                &::before {
+                    top: -6px;
+                }
+            }
+        }
+    }
+}
+
+.subforums-macro,
+.newstext,
+#submenu,
+#userlinks,
+.hide {
+    display: none !important;
+}
+
 @media only screen and (max-width: $md) {
     .notMobile {
         display: none !important;
@@ -218,12 +277,4 @@ luxblock {
     .mobileOnly {
         display: none !important;
     }
-}
-
-.subforums-macro,
-.newstext,
-#submenu,
-#userlinks,
-.hide {
-    display: none !important;
 }
