@@ -716,12 +716,37 @@ luxblock {
   top: -6px;
 }
 
+.wrapmini,
 .subforums-macro,
 .newstext,
 #submenu,
 #userlinks,
 .hide {
   display: none !important;
+}
+
+input,
+select {
+  background: var(--content);
+  line-height: 100%;
+  padding: 8px 15px;
+  border: 0;
+  font-size: var(--mBody);
+}
+
+input[type=submit],
+input[type=button] {
+  padding: 9.5px 15px;
+}
+
+#delcookiesrow,
+#mark-as-read-subto {
+  text-align: center;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -1730,24 +1755,51 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
 }
 
 #SF main > table > tbody > tr,
-#SF form > table > tbody > tr {
+#SF form > table > tbody > tr,
+#ST main > table > tbody > tr,
+#ST form > table > tbody > tr {
   display: grid;
   grid-gap: 30px;
-  grid-template-columns: auto max-content;
+  grid-template-columns: 1fr;
+}
+@media only screen and (min-width: 1024px) {
+  #SF main > table > tbody > tr,
+#SF form > table > tbody > tr,
+#ST main > table > tbody > tr,
+#ST form > table > tbody > tr {
+    grid-template-columns: auto max-content;
+  }
 }
 #SF main > table > tbody > tr > td,
-#SF form > table > tbody > tr > td {
+#SF form > table > tbody > tr > td,
+#ST main > table > tbody > tr > td,
+#ST form > table > tbody > tr > td {
   width: 100% !important;
   display: flex;
+  justify-content: end;
+}
+@media only screen and (min-width: 1024px) {
+  #SF main > table > tbody > tr > td,
+#SF form > table > tbody > tr > td,
+#ST main > table > tbody > tr > td,
+#ST form > table > tbody > tr > td {
+    justify-content: start;
+  }
 }
 #SF main > table > tbody > tr > td:last-child,
-#SF form > table > tbody > tr > td:last-child {
+#SF form > table > tbody > tr > td:last-child,
+#ST main > table > tbody > tr > td:last-child,
+#ST form > table > tbody > tr > td:last-child {
   gap: 30px;
 }
 #SF main .goto-firstunread,
 #SF main .pagination,
 #SF form .goto-firstunread,
-#SF form .pagination {
+#SF form .pagination,
+#ST main .goto-firstunread,
+#ST main .pagination,
+#ST form .goto-firstunread,
+#ST form .pagination {
   font-size: 0;
   display: flex;
   gap: 3px;
@@ -1759,7 +1811,15 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
 #SF form .goto-firstunread .pagination_current,
 #SF form .goto-firstunread a,
 #SF form .pagination .pagination_current,
-#SF form .pagination a {
+#SF form .pagination a,
+#ST main .goto-firstunread .pagination_current,
+#ST main .goto-firstunread a,
+#ST main .pagination .pagination_current,
+#ST main .pagination a,
+#ST form .goto-firstunread .pagination_current,
+#ST form .goto-firstunread a,
+#ST form .pagination .pagination_current,
+#ST form .pagination a {
   display: inline-grid;
   align-items: center;
   justify-items: center;
@@ -1778,7 +1838,15 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
 #SF form .goto-firstunread .pagination_current,
 #SF form .goto-firstunread a:hover,
 #SF form .pagination .pagination_current,
-#SF form .pagination a:hover {
+#SF form .pagination a:hover,
+#ST main .goto-firstunread .pagination_current,
+#ST main .goto-firstunread a:hover,
+#ST main .pagination .pagination_current,
+#ST main .pagination a:hover,
+#ST form .goto-firstunread .pagination_current,
+#ST form .goto-firstunread a:hover,
+#ST form .pagination .pagination_current,
+#ST form .pagination a:hover {
   background: var(--dark);
   color: var(--headerText);
   font-weight: normal;
@@ -1786,13 +1854,312 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
 #SF main .goto-firstunread .pagination_pagetxt,
 #SF main .pagination .pagination_pagetxt,
 #SF form .goto-firstunread .pagination_pagetxt,
-#SF form .pagination .pagination_pagetxt {
+#SF form .pagination .pagination_pagetxt,
+#ST main .goto-firstunread .pagination_pagetxt,
+#ST main .pagination .pagination_pagetxt,
+#ST form .goto-firstunread .pagination_pagetxt,
+#ST form .pagination .pagination_pagetxt {
   display: none;
+}
+#SF .wrapmini + div[align=right],
+#ST .wrapmini + div[align=right] {
+  font-size: 0;
+}
+#SF .wrapmini + div[align=right] input,
+#SF .wrapmini + div[align=right] select,
+#ST .wrapmini + div[align=right] input,
+#ST .wrapmini + div[align=right] select {
+  margin: 0 5px 5px 0;
 }
 
 /*******************************
     Post Row
 ********************************/
+#ST .maintitle {
+  background: var(--dark);
+  color: var(--headerText);
+  padding: 30px 30px 0;
+  font-size: 0;
+  display: grid;
+}
+#ST .maintitle .topic-title-space {
+  display: none;
+}
+#ST .maintitle .topic-title {
+  font-size: 28px;
+  font-family: var(--accentFont);
+  text-align: center;
+  border: 1px solid var(--light);
+  border-bottom: 0;
+  padding: 30px 30px 0;
+}
+#ST .maintitle .topic-desc {
+  font-size: var(--mBody);
+  text-align: center;
+  font-family: var(--headerFont);
+  text-transform: lowercase;
+  padding: 10px 30px 0;
+  border-left: 1px solid var(--light);
+  border-right: 1px solid var(--light);
+}
+#ST .postlinksbar {
+  background: var(--dark);
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+#ST .postlinksbar strong {
+  border: 1px solid var(--light);
+  border-top: 0;
+  display: block;
+  width: calc(100% - 60px);
+  margin: 0 30px;
+  font-size: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px 30px 30px;
+}
+#ST .postlinksbar strong a {
+  font-size: var(--xsBody);
+  color: var(--headerText);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.post {
+  background: var(--content);
+  margin-bottom: 30px;
+}
+.post--header {
+  background: var(--ltaccent);
+  padding: 30px 30px 0;
+  position: sticky;
+  z-index: 2;
+  border-top: 15px solid var(--background);
+}
+.post--header-inner {
+  border: 1px solid var(--content);
+  border-bottom: 0;
+  padding: 30px;
+  text-align: center;
+}
+.post--header-inner > a {
+  font-family: var(--accentFont);
+  font-size: 26px;
+  text-transform: capitalize;
+}
+.post--header-links {
+  margin-top: 15px;
+  font-family: var(--headerFont);
+  font-size: var(--mBody);
+  text-transform: lowercase;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.post--controls {
+  position: absolute;
+  top: 0;
+  right: -40px;
+  text-align: center;
+  width: 40px;
+  opacity: 0;
+  padding-left: 10px;
+  transition-duration: 0.5s;
+  border-top: 15px solid var(--background);
+  height: 100%;
+}
+.post--controls-inner {
+  position: sticky;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.post--controls-inner a {
+  background: var(--ltaccent);
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  display: grid;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  color: var(--accentColor);
+  border-radius: 3px;
+}
+.post--controls-inner a:hover {
+  background: var(--accent);
+}
+.post:hover .post--controls {
+  opacity: 1;
+}
+.post--sticky {
+  position: sticky;
+  background: #000;
+}
+.post--sticky::before, .post--sticky::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--ltaccent);
+}
+.dark .post--sticky::before, .dark .post--sticky::after {
+  opacity: 0.5;
+}
+.post--sticky::before {
+  top: -10px;
+  left: -10px;
+}
+.post--sticky::after {
+  bottom: -10px;
+  right: -10px;
+}
+.post--image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--black);
+}
+.post--image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.post--carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  z-index: 2;
+}
+.post--carousel-controls {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  gap: 10px;
+  padding-left: 10px;
+  z-index: 3;
+  transform: translateX(-50%);
+  height: 0;
+}
+.post--carousel-controls button {
+  bottom: 27px;
+  border: 0;
+  background: var(--white);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.post--carousel-controls button.active-slide, .post--carousel-controls button:hover {
+  opacity: 0.85;
+}
+.post--carousel-arrows {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 2;
+}
+.post--carousel-arrow {
+  bottom: 11px;
+  width: 20px;
+  height: 20px;
+  background: var(--white);
+  position: absolute;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 50%;
+  color: var(--black);
+  font-size: 12px;
+  z-index: 2;
+  opacity: 0.75;
+  cursor: pointer;
+  border: none;
+}
+.post--carousel-arrow.arrow-left {
+  left: 20px;
+}
+.post--carousel-arrow.arrow-right {
+  right: 10px;
+}
+.post--carousel-arrow:hover {
+  opacity: 0.85;
+}
+.post--slide {
+  flex: 0 0 100%;
+  left: 0;
+  padding: 30px 22px 53px 30px;
+  color: var(--white);
+  font-size: var(--mBody);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+.post--slide-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: var(--mBody);
+}
+.post--slide-item strong {
+  font-family: var(--headerFont);
+  font-size: var(--lBody);
+  max-width: max-content;
+  padding: 0 10px 0 5px;
+  line-height: 100%;
+}
+.post--slide-item strong::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--ltaccent);
+  opacity: 0.65;
+}
+.post--slide-item .scroll {
+  max-height: 60px;
+  text-align: justify;
+}
+.post--slide-item .scroll img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+.post--body {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 250px auto;
+  grid-gap: 40px;
+}
+.post--body .postcolor {
+  font-size: var(--lBody);
+  text-align: justify;
+  line-height: 200%;
+}
+.post--body .postcolor p:first-child {
+  margin-top: -15px;
+}
+.post--body .postcolor p:last-child {
+  margin-bottom: -15px;
+}
+
 /*******************************
     Member List
 ********************************/

@@ -346,3 +346,94 @@ if($('body#SF').length > 0) {
         }
     });
 }
+
+
+
+
+/******************
+ Topic View ONLY
+******************/
+if($('body#ST').length > 0) {
+    document.querySelectorAll('.post--header-inner > a').forEach(name => {
+        let newName = capitalize(name.innerHTML, [`'`, `-`]);
+        name.innerHTML = newName;
+    });
+
+    let top = document.querySelector('.breadcrumb-nav').clientHeight;
+    document.querySelectorAll('.post--header').forEach(header => header.style.top = `${top}px`);
+    document.querySelectorAll('.post--controls-inner').forEach(controls => controls.style.top = `${top + 15}px`);
+    document.querySelectorAll('.post--sticky').forEach(sticky => {
+        let header = sticky.parentElement.parentElement.parentElement.querySelector('.post--header').clientHeight;
+        sticky.style.height = `calc(100vh - ${header + top + 59}px)`;
+        sticky.style.top = `${top + header + 34}px`;
+    });
+
+    let carousels = document.querySelectorAll('.post--carousel');
+    let carouselControls = document.querySelectorAll('.post--carousel-controls');
+    let carouselArrows = document.querySelectorAll('.post--carousel-arrows');
+    let activeSlide = 0;
+    carousels.forEach((carousel, i) => {
+        let controls = carouselControls[i];
+        let arrows = carouselArrows[i];
+        controls.querySelectorAll('button').forEach((button, index) => {
+            button.addEventListener('click', () => {
+                controls.querySelectorAll('button').forEach(button => {
+                    button.classList.remove('active-slide');
+                });
+                button.classList.add('active-slide');
+                let slides = carousel.querySelectorAll('.post--slide');
+                slides.forEach(slide => {
+                    slide.classList.remove('active-slide');
+                    slide.style.left = `-${index * 100}%`;
+                });
+                slides[index].classList.add('active-slide');
+                if(index !== 0) {
+                    carousel.parentElement.querySelector('img').style.filter = `blur(3px)`;
+                    carousel.parentElement.querySelector('img').style.opacity = `0.25`;
+                    carousel.parentElement.querySelector('img').style.transform = `scale(1.05)`;
+                } else {
+                    carousel.parentElement.querySelector('img').style.filter = `blur(0)`;
+                    carousel.parentElement.querySelector('img').style.opacity = `1`;
+                    carousel.parentElement.querySelector('img').style.transform = `scale(1)`;
+                }
+                activeSlide = index;
+            });
+        });
+        arrows.querySelectorAll('.post--carousel-arrow').forEach(arrow => {
+            arrow.addEventListener('click', () => {
+                let slides = carousel.querySelectorAll('.post--slide');
+                let buttons = carouselControls[i].querySelectorAll('button');
+                slides.forEach(slide => slide.classList.remove('active-slide'));
+                if(arrow.classList.contains('arrow-left')) {
+                    if(activeSlide !== 0) {
+                        activeSlide -= 1;
+                    } else {
+                        activeSlide = slides.length - 1;
+                    }
+                }
+                if(arrow.classList.contains('arrow-right')) {
+                    if(activeSlide !== slides.length - 1) {
+                        activeSlide += 1;
+                    } else {
+                        activeSlide = 0;
+                    }
+                }
+                slides[activeSlide].classList.add('active-slide');
+                slides.forEach(slide => slide.style.left = `-${activeSlide * 100}%`);
+                if(activeSlide !== 0) {
+                    carousel.parentElement.querySelector('img').style.filter = `blur(3px)`;
+                    carousel.parentElement.querySelector('img').style.opacity = `0.25`;
+                    carousel.parentElement.querySelector('img').style.transform = `scale(1.05)`;
+                } else {
+                    carousel.parentElement.querySelector('img').style.filter = `blur(0)`;
+                    carousel.parentElement.querySelector('img').style.opacity = `1`;
+                    carousel.parentElement.querySelector('img').style.transform = `scale(1)`;
+                }
+                buttons.forEach(button => {
+                    button.classList.remove('active-slide');
+                });
+                buttons[activeSlide].classList.add('active-slide');
+            })
+        });
+    });
+}

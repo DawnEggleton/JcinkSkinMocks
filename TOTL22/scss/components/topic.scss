@@ -169,17 +169,27 @@
     }
 }
 
-#SF {
+#SF,
+#ST {
     main, 
     form {
         & > table > tbody > tr {
             display: grid;
             grid-gap: 30px;
-            grid-template-columns: auto max-content;
+            grid-template-columns: 1fr;
+
+            @media only screen and (min-width: $lg) {
+                grid-template-columns: auto max-content;
+            }
 
             & > td {
                 width: 100% !important;
                 display: flex;
+                justify-content: end;
+
+                @media only screen and (min-width: $lg) {
+                    justify-content: start;
+                }
 
                 &:last-child {
                     gap: 30px;
@@ -217,6 +227,15 @@
             .pagination_pagetxt {
                 display: none;
             }
+        }
+    }
+
+    .wrapmini + div[align="right"] {
+        font-size: 0;
+
+        input,
+        select {
+            margin: 0 5px 5px 0;
         }
     }
 }

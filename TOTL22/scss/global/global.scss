@@ -259,12 +259,35 @@ luxblock {
     }
 }
 
+.wrapmini,
 .subforums-macro,
 .newstext,
 #submenu,
 #userlinks,
 .hide {
     display: none !important;
+}
+
+input,
+select {
+    background: var(--content);
+    line-height: 100%;
+    padding: 8px 15px;
+    border: 0;
+    font-size: var(--mBody);
+}
+input[type="submit"],
+input[type="button"] {
+    padding: 9.5px 15px;
+}
+#delcookiesrow,
+#mark-as-read-subto {
+    text-align: center;
+    font-size: var(--xsBody);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 15px;
 }
 
 @media only screen and (max-width: $md) {
