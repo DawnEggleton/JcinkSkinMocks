@@ -378,18 +378,20 @@ if($('body#ST').length > 0) {
         sticky.style.height = `calc(100vh - ${header + top + 59}px)`;
         sticky.style.top = `${top + header + 34}px`;
     });
+    //remove charOnly from member accounts
+    document.querySelectorAll('.post.g-4 .charOnly').forEach(item => item.remove());
+    document.querySelectorAll('.post.g-3.acc-Member .charOnly').forEach(item => item.remove());
+    document.querySelectorAll('.post.g-1.acc-Member .charOnly').forEach(item => item.remove());
+    document.querySelectorAll('.post.g-5.acc-Member .charOnly').forEach(item => item.remove());
+    document.querySelectorAll('.post.g-2 .memOnly').forEach(item => item.remove());
 
+    //carousel for mini
     let carousels = document.querySelectorAll('.post--carousel');
     let carouselControls = document.querySelectorAll('.post--carousel-controls');
     let carouselArrows = document.querySelectorAll('.post--carousel-arrows');
-    let activeSlide = 0;
+
     carousels.forEach((carousel, i) => {
-        //remove charOnly from member accounts
-        document.querySelectorAll('.post.g-4 .charOnly').forEach(item => item.remove());
-        document.querySelectorAll('.post.g-3.acc-Member .charOnly').forEach(item => item.remove());
-        document.querySelectorAll('.post.g-1.acc-Member .charOnly').forEach(item => item.remove());
-        document.querySelectorAll('.post.g-5.acc-Member .charOnly').forEach(item => item.remove());
-        document.querySelectorAll('.post.g-2 .memOnly').forEach(item => item.remove());
+        let activeSlide = 0;
         let controls = carouselControls[i];
         let arrows = carouselArrows[i];
         controls.querySelectorAll('button').forEach((button, index) => {
