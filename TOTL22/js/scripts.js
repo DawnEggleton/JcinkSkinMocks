@@ -361,7 +361,18 @@ if($('body#ST').length > 0) {
 
     let top = document.querySelector('.breadcrumb-nav').clientHeight;
     document.querySelectorAll('.post--header').forEach(header => header.style.top = `${top}px`);
-    document.querySelectorAll('.post--controls-inner').forEach(controls => controls.style.top = `${top + 15}px`);
+    if($(window).innerWidth() >= 1024) {
+        document.querySelectorAll('.post--controls-inner').forEach(controls => controls.style.top = `${top + 15}px`);
+    } else {
+        document.querySelectorAll('.post--controls-inner').forEach(controls => controls.style.top = `0`);
+    }
+    $(window).on('resize', function() {
+        if($(window).innerWidth() >= 1024) {
+            document.querySelectorAll('.post--controls-inner').forEach(controls => controls.style.top = `${top + 15}px`);
+        } else {
+            document.querySelectorAll('.post--controls-inner').forEach(controls => controls.style.top = `0`);
+        }
+    });
     document.querySelectorAll('.post--sticky').forEach(sticky => {
         let header = sticky.parentElement.parentElement.parentElement.querySelector('.post--header').clientHeight;
         sticky.style.height = `calc(100vh - ${header + top + 59}px)`;
@@ -373,6 +384,12 @@ if($('body#ST').length > 0) {
     let carouselArrows = document.querySelectorAll('.post--carousel-arrows');
     let activeSlide = 0;
     carousels.forEach((carousel, i) => {
+        //remove charOnly from member accounts
+        document.querySelectorAll('.post.g-4 .charOnly').forEach(item => item.remove());
+        document.querySelectorAll('.post.g-3.acc-Member .charOnly').forEach(item => item.remove());
+        document.querySelectorAll('.post.g-1.acc-Member .charOnly').forEach(item => item.remove());
+        document.querySelectorAll('.post.g-5.acc-Member .charOnly').forEach(item => item.remove());
+        document.querySelectorAll('.post.g-2 .memOnly').forEach(item => item.remove());
         let controls = carouselControls[i];
         let arrows = carouselArrows[i];
         controls.querySelectorAll('button').forEach((button, index) => {
@@ -434,6 +451,16 @@ if($('body#ST').length > 0) {
                 });
                 buttons[activeSlide].classList.add('active-slide');
             })
+        });
+    });
+
+    let clippedURL = new Clipboard('.post-link');
+    document.querySelectorAll('.post-link').forEach(link => {
+        link.addEventListener('click', e => {
+            e.currentTarget.querySelector('.note').style.opacity = 1;
+            setTimeout(() => {
+                document.querySelectorAll('.note').forEach(note => note.style.opacity = 0);
+            }, 3000);
         });
     });
 }
