@@ -16,7 +16,9 @@
 .stats--links a span::after,
 .webpage--main-menu a::after,
 .webpage--sub-menu-links a::after,
-#sort .form-buttons button::after {
+#sort .form-buttons button::after,
+.post--header-links a::after,
+.postlinksbar strong a::after {
   content: "\f178";
 }
 
@@ -1644,6 +1646,7 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   padding: 0 40px 0 5px;
   line-height: 100%;
   font-family: var(--headerFont);
+  text-transform: capitalize;
 }
 .topic h3 i.fa-angles-right {
   font-size: 0.8em;
@@ -1916,7 +1919,6 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   font-size: 0;
   display: flex;
   justify-content: center;
-  gap: 15px;
   padding: 15px 30px 30px;
 }
 #ST .postlinksbar strong a {
@@ -1925,6 +1927,26 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
+  padding: 5px 8px;
+}
+#ST .postlinksbar strong a::after {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 300;
+  bottom: -1px;
+  position: relative;
+  line-height: 100%;
+  color: var(--accentColor);
+}
+#ST .postlinksbar strong a:hover {
+  background: var(--ltaccent);
+  color: var(--accentColor);
+}
+#ST .postlinksbar strong a:hover::after {
+  width: 20px;
+  color: var(--accentColor);
 }
 
 .post {
@@ -1937,6 +1959,11 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   position: sticky;
   z-index: 3;
   border-top: 15px solid var(--background);
+}
+@media only screen and (min-width: 1024px) {
+  .post--header {
+    z-index: 2;
+  }
 }
 .post--header-inner {
   border: 1px solid var(--content);
@@ -1957,13 +1984,33 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   font-weight: 600;
   display: flex;
   justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
 }
 .post:not(.g-2) .post--header-links {
   margin-top: 15px;
 }
 .post--header-links a {
+  padding: 8px 15px;
+  color: var(--accentColor);
+}
+.post--header-links a::after {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 300;
+  bottom: -3px;
+  position: relative;
+  line-height: 100%;
+  color: var(--accentColor);
+}
+.post--header-links a:hover {
+  background: var(--accent);
+  color: var(--accentColor);
+}
+.post--header-links a:hover::after {
+  width: 20px;
+  margin-left: 10px;
   color: var(--accentColor);
 }
 .post--header-links a[href=""] {
@@ -2170,6 +2217,7 @@ body:not(.g-4) .post--controls-inner label {
   flex-direction: column;
   gap: 10px;
   font-size: var(--mBody);
+  text-transform: capitalize;
 }
 .post--slide-item strong {
   font-family: var(--headerFont);
@@ -2191,6 +2239,7 @@ body:not(.g-4) .post--controls-inner label {
 .post--slide-item .scroll {
   max-height: 60px;
   text-align: justify;
+  text-transform: none;
 }
 .post--slide-item .scroll img {
   width: 16px;
@@ -2204,7 +2253,7 @@ body:not(.g-4) .post--controls-inner label {
 }
 @media only screen and (min-width: 1024px) {
   .post--body {
-    grid-template-columns: 250px auto;
+    grid-template-columns: 250px calc(100% - 290px);
   }
 }
 .post--body .postcolor {

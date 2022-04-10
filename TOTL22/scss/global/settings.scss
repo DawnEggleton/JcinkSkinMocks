@@ -15,7 +15,9 @@
 .stats--links a span::after,
 .webpage--main-menu a::after,
 .webpage--sub-menu-links a::after,
-#sort .form-buttons button::after {
+#sort .form-buttons button::after,
+.post--header-links a::after,
+.postlinksbar strong a::after {
   content: "\f178";
 }
 .webpage--sub-menu-links button::after {
