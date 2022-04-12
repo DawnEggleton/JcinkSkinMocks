@@ -751,6 +751,15 @@ input[type=button] {
   margin-bottom: 15px;
 }
 
+b {
+  display: inline-block;
+  background: var(--content);
+  padding: 0 8px;
+  border-radius: 3px;
+  font-family: var(--headerFont);
+  font-size: var(--mBody);
+}
+
 @media only screen and (max-width: 768px) {
   .notMobile {
     display: none !important;
@@ -3031,10 +3040,48 @@ body:not(.g-4) .post--controls-inner label {
 }
 .webpage--tab {
   display: none;
-  padding: 20px;
+  padding: clamp(20px, 4vw, 45px) clamp(20px, 6vw, 60px);
+  font-size: var(--lBody);
+  line-height: 200%;
 }
 .webpage--tab.active {
   display: block;
+}
+.webpage--tab p {
+  text-align: justify;
+}
+.webpage--tab hr {
+  margin: clamp(20px, 4vw, 45px) auto clamp(25px, 4vw, 50px);
+}
+.webpage--tab canonbranch {
+  display: block;
+  margin: 10px 0 10px 25px;
+  border-left: 2px solid var(--lmGrey);
+  padding: 10px 0 10px 15px;
+}
+.webpage--tab b {
+  margin: 0 30px 0 0;
+  line-height: calc(var(--mBody) * 2);
+}
+.webpage--tab b:not(:last-of-type) {
+  margin: 0 30px 10px 0;
+}
+.webpage--tab b::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -25px;
+  width: 15px;
+  height: 1px;
+  background: var(--lmGrey);
+  display: block;
+}
+.webpage--tab a b {
+  background: var(--ltaccent);
+  color: var(--accentColor);
+}
+#canons .webpage--tab {
+  line-height: calc((var(--mBody) * 2) + 4px);
 }
 
 .webpage--tab h3,

@@ -257,10 +257,58 @@
 
     &--tab {
         display: none;
-        padding: 20px;
+        padding: clamp(20px, 4vw, 45px) clamp(20px, 6vw, 60px);
+        font-size: var(--lBody);
+        line-height: 200%;
 
         &.active {
             display: block;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        hr {
+            margin: clamp(20px, 4vw, 45px) auto clamp(25px, 4vw, 50px);
+        }
+
+        canonbranch {
+            display: block;
+            margin: 10px 0 10px 25px;
+            border-left: 2px solid var(--lmGrey);
+            padding: 10px 0 10px 15px;
+        }
+
+        b {
+            margin: 0 30px 0 0;
+            line-height: calc(var(--mBody) * 2);
+
+            &:not(:last-of-type) {
+                margin: 0 30px 10px 0;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: -25px;
+                width: 15px;
+                height: 1px;
+                background: var(--lmGrey);
+                display: block;
+            }
+        }
+
+        a {
+            b {
+                background: var(--ltaccent);
+                color: var(--accentColor);
+            }
+        }
+
+        #canons & {
+            line-height: calc((var(--mBody) * 2) + 4px);
         }
     }
 
