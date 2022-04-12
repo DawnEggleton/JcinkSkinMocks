@@ -354,6 +354,12 @@ if($('body#SF').length > 0) {
  Topic View ONLY
 ******************/
 if($('body#ST').length > 0) {
+    let descript = $('.topic-desc').html();
+    if (descript != undefined) {
+      var newDescript = descript.replace(", ", "");
+      $('.topic-desc').html(newDescript);
+    }
+    
     document.querySelectorAll('.post--header-inner > a').forEach(name => {
         let newName = capitalize(name.innerHTML, [`'`, `-`]);
         name.innerHTML = newName;
