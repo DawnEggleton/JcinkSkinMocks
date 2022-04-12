@@ -3059,6 +3059,9 @@ body:not(.g-4) .post--controls-inner label {
   border-left: 2px solid var(--lmGrey);
   padding: 10px 0 10px 15px;
 }
+.webpage--tab canonbranch.closed-branch {
+  display: none;
+}
 .webpage--tab b {
   margin: 0 30px 0 0;
   line-height: calc(var(--mBody) * 2);
@@ -3082,6 +3085,40 @@ body:not(.g-4) .post--controls-inner label {
 }
 #canons .webpage--tab {
   line-height: calc((var(--mBody) * 2) + 4px);
+}
+.webpage--canon-expand-all, .webpage--canon-collapse-all {
+  border: 0;
+  background: var(--dark);
+  color: var(--headerText);
+  padding: 6px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 20px 0 0;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: inline-block;
+}
+.webpage--canon-expansion {
+  border: 0;
+  background: var(--dark);
+  color: var(--headerText);
+  padding: 6px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 20px 0 0;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: block;
+}
+.webpage--canon-expansion.closed-branch {
+  margin-bottom: 30px;
+}
+.webpage--canon-expansion:not(.closed-branch) .webpage--canon-expand, .webpage--canon-expansion.closed-branch .webpage--canon-collapse {
+  display: none;
 }
 
 .webpage--tab h3,

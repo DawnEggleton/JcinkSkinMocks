@@ -1250,3 +1250,39 @@ function webpageTabs() {
         document.querySelector('.webpage--section').querySelector('.webpage--tab').classList.add('active');
     }
 }
+
+
+function expandCanons(e) {
+    e.classList.toggle('closed-branch');
+    e.nextElementSibling.classList.toggle('closed-branch');
+}
+
+
+function expandAllCanons(e) {
+    e.parentNode.querySelectorAll('.webpage--canon-expansion').forEach(button => {
+        button.classList.remove('closed-branch');
+    });
+    e.parentNode.querySelectorAll('canonbranch').forEach(button => {
+        button.classList.remove('closed-branch');
+    });
+}
+
+
+function collapseAllCanons(e) {
+    e.parentNode.querySelectorAll('.webpage--canon-expansion').forEach(button => {
+        button.classList.add('closed-branch');
+    });
+    e.parentNode.querySelectorAll('canonbranch').forEach(button => {
+        button.classList.add('closed-branch');
+    });
+}
+
+
+function canonCollapse(e) {
+    document.querySelectorAll('.webpage--canon-expansion').forEach(button => {
+        button.classList.add('closed-branch');
+    });
+    document.querySelectorAll('canonbranch').forEach(button => {
+        button.classList.add('closed-branch');
+    });
+}
