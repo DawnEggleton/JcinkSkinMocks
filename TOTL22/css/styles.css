@@ -3057,19 +3057,18 @@ body:not(.g-4) .post--controls-inner label {
   display: block;
   margin: 10px 0 10px 25px;
   border-left: 2px solid var(--lmGrey);
-  padding: 10px 0 10px 15px;
+  padding: 10px 0 5px 15px;
 }
 .webpage--tab canonbranch.closed-branch {
   display: none;
 }
-.webpage--tab b {
-  margin: 0 30px 0 0;
+.webpage--tab canonbranch > b,
+.webpage--tab canonbranch > a b, .webpage--tab > b, .webpage--tab > a b {
+  margin: 0 30px 10px 0;
   line-height: calc(var(--mBody) * 2);
 }
-.webpage--tab b:not(:last-of-type) {
-  margin: 0 30px 10px 0;
-}
-.webpage--tab b::after {
+.webpage--tab canonbranch > b::after,
+.webpage--tab canonbranch > a b::after, .webpage--tab > b::after, .webpage--tab > a b::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -3079,7 +3078,7 @@ body:not(.g-4) .post--controls-inner label {
   background: var(--lmGrey);
   display: block;
 }
-.webpage--tab a b {
+.webpage--tab canonbranch > a b, .webpage--tab > a b {
   background: var(--ltaccent);
   color: var(--accentColor);
 }
@@ -3438,6 +3437,8 @@ body:not(.g-4) .post--controls-inner label {
   text-transform: lowercase;
   letter-spacing: 0;
   margin-bottom: 4px;
+  padding: 0;
+  background: none;
 }
 .claim--tabs {
   display: none;

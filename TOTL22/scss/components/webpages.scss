@@ -277,20 +277,19 @@
             display: block;
             margin: 10px 0 10px 25px;
             border-left: 2px solid var(--lmGrey);
-            padding: 10px 0 10px 15px;
+            padding: 10px 0 5px 15px;
 
             &.closed-branch {
                 display: none;
             }
         }
 
-        b {
-            margin: 0 30px 0 0;
+        canonbranch > b,
+        canonbranch > a b,
+        & > b,
+        & > a b {
+            margin: 0 30px 10px 0;
             line-height: calc(var(--mBody) * 2);
-
-            &:not(:last-of-type) {
-                margin: 0 30px 10px 0;
-            }
 
             &::after {
                 content: '';
@@ -304,11 +303,10 @@
             }
         }
 
-        a {
-            b {
-                background: var(--ltaccent);
-                color: var(--accentColor);
-            }
+        canonbranch > a b,
+        & > a b {
+            background: var(--ltaccent);
+            color: var(--accentColor);
         }
 
         #canons & {

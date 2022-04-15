@@ -201,7 +201,7 @@ m. <b>ORPINGTON, gwendolyn.</b> occupation. b. 1932.<br>
     </button>
     <canonbranch>
       <a href="?showuser=522" class="g-6"><b>ABBOTT-LLYWARCH, gawain.</b></a> cursebreaker. b. 1978. roe.<br>
-      <a href="?showuser=530" class="g-6"><b>ABBOTT-LLYWARCH, angharad.</b></a> cursebreaker. b. 1980. amy.<br><br>
+      <a href="?showuser=530" class="g-6"><b>ABBOTT-LLYWARCH, angharad.</b></a> cursebreaker. b. 1980. amy.<br>
       <b>ABBOTT-LLYWARCH, tristan.</b> occupation. b. 1982.<br>
     </canonbranch>
 
