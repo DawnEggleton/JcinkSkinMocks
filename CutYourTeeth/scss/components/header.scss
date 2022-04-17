@@ -8,8 +8,9 @@ header {
     justify-items: center;
     color: var(--white);
 
+    #Pages &,
     #Members & {
-        height: 55px;
+        height: 50px;
     }
 
     #idx & {

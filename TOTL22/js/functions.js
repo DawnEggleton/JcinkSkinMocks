@@ -985,10 +985,7 @@ function postToGoogle(formtype = 'POST') {
   if(leadershipposition == `(select)`) {leadershipposition = '';}
 
   $.ajax({
-      url: `https://script.google.com/macros/s/AKfycbx-Pa97Wz-MamFZ6MYpx2jHQFSM9JHx5ihMPrEF6AfmF-yA7FM4BeVxWOxxsK5f9oAylw/exec`,
-    //url: "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHej9BAllha02vmUwmNvXWlWpX_0ECX-zUq3bLO5gmSU3PBw/formResponse?embedded=true",
-      
-    //add your google form generated numbers below which are also the 'names' of your inputs     
+    url: `https://script.google.com/macros/s/AKfycbx-Pa97Wz-MamFZ6MYpx2jHQFSM9JHx5ihMPrEF6AfmF-yA7FM4BeVxWOxxsK5f9oAylw/exec`,   
     data: {
       "Member": member,
       "Character": character,

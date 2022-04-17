@@ -15,7 +15,7 @@
         
 
         <!--Icons-->
-		<link href="https://dawneggleton.github.io/css/all.css" rel="stylesheet" />
+        <link href="https://dawneggleton.github.io/JcinkSkinMocks/FA6/css/all.min.css" rel="stylesheet" />
 		<link href="https://files.jcink.net/uploads/totl/saturnicons.css" rel="stylesheet" />
 		<link href="https://files.jcink.net/uploads/totl/honeybee.css" rel="stylesheet" />
 		<link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
@@ -49,7 +49,510 @@
             <a name="top"></a>
             
             <!--Webpage-->
+            <div class="webpage">
+                <div class="webpage--main-menu">
+                    <div class="webpage--sticky">
+                        <a data-group="basics">Basics</a>
+                        <a data-group="guides">Guides</a>
+                        <a data-group="canons">Canons</a>
+                        <a data-group="forms">Forms</a>
+                        <a data-group="claims">Claims</a>
+                    </div>
+                </div>
+                <div class="webpage--sub-menu">
+                    <div class="webpage--sticky">
+                        <div class="webpage--sub-menu-section" data-category="basics">
+                            <a data-category="basics" href="#premise">Premise</a>
+                            <a data-category="basics" href="#etiquette">Etiquette</a>
+                            <a data-category="basics" href="#groups">Groups</a>
+                            <a data-category="basics" href="#credits">Credits</a>
+                        </div>
+                        <div class="webpage--sub-menu-section" data-category="guides">
+                            <a data-category="guides" href="#gettingstarted">Getting Started</a>
+                            <a data-category="guides" href="#applications">Applications</a>
+                            <a data-category="guides" href="#timeline">Timeline</a>
+                            <a data-category="guides" href="#setting">Setting</a>
+                        </div>
+                        <div class="webpage--sub-menu-section" data-category="canons">
+                            <a data-category="canons" href="#quantumbiomedical">Quantum Biomedical</a>
+                            <a data-category="canons" href="#thepack">The Pack</a>
+                            <a data-category="canons" href="#thedreamers">The Dreamers</a>
+                            <a data-category="canons" href="#theresistance">The Resistance</a>
+                        </div>
+                        <div class="webpage--sub-menu-section" data-category="forms">
+                            <a data-category="forms" href="#getsorted">Get Sorted</a>
+                            <a data-category="forms" href="#calldibs">Call Dibs</a>
+                            <a data-category="forms" href="#updateclaims">Update Claims</a>
+                        </div>
+                        <div class="webpage--sub-menu-section" data-category="claims">
+                            <a data-category="claims" href="#reserves">Reserves</a>
+                            <a data-category="claims" href="#faces">Faces</a>
+                            <a data-category="claims" href="#jobs">Jobs</a>
+                            <a data-category="claims" href="#powers">Powers</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="webpage--content">
+                    <!--Basics-->
+                    <section class="webpage--tab" data-tab="#premise">
+                        premise
+                    </section>
+                    <section class="webpage--tab" data-tab="#etiquette">
+                        etiquette
+                    </section>
+                    <section class="webpage--tab" data-tab="#groups">
+                        groups
+                    </section>
+                    <section class="webpage--tab" data-tab="#credits">
+                        credits
+                    </section>
+                    <!--Guides-->
+                    <section class="webpage--tab" data-tab="#gettingstarted">
+                        getting Started
+                    </section>
+                    <section class="webpage--tab" data-tab="#applications">
+                        applications
+                    </section>
+                    <section class="webpage--tab" data-tab="#timeline">
+                        timeline
+                    </section>
+                    <section class="webpage--tab" data-tab="#setting">
+                        setting
+                    </section>
+                    <!--Canons-->
+                    <section class="webpage--tab" data-tab="#quantumbiomedical">
+                        quantum
+                    </section>
+                    <section class="webpage--tab" data-tab="#thepack">
+                        the pack
+                    </section>
+                    <section class="webpage--tab" data-tab="#thedreamers">
+                        dreamers
+                    </section>
+                    <section class="webpage--tab" data-tab="#theresistance">
+                        resistance
+                    </section>
+                    <!--Forms-->
+                    <section class="webpage--tab" data-tab="#getsorted">
+                        <form id="sort" class="grid twoCol">
+                            <label>
+                                <strong><span>Alias</span></strong>
+                                <input type="text"
+                                    name="alias"
+                                    id="sort-member"
+                                    required>
+                            </label>
+                            <label>
+                                <strong>
+                                    <span>Account ID
+                                        <button onclick="openHelp(this)" type="button">
+                                            <i class="fa-solid fa-question"></i>
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </span>
+                                </strong>
+                                <i class="help">Can be found by getting the numbers at the end of the URL of your main profile.</i>
+                                <input   type="text"
+                                    name="account"
+                                    id="sort-id"
+                                    required>
+                            </label>
+                            <label>
+                                <strong><span>Character Name</span></strong>
+                                <input   type="text"
+                                    name="character"
+                                    id="sort-character"
+                                    required>
+                            </label>
+                            <label>
+                                <strong><span>Face Claim</span></strong>
+                                <input   type="text"
+                                    name="face"
+                                    id="sort-face"
+                                    required>
+                            </label>
+                            <label>
+                                <strong><span>Lives In</span></strong>
+                                <select  name="group"
+                                        id="sort-group"
+                                        required>
+                                    <option value="">(select)</option>
+                                    <option value="7">Central Davenport</option>
+                                    <option value="9">Coastline</option>
+                                    <option value="14">Old Town</option>
+                                    <option value="16">Outskirts</option>
+                                    <option value="16">River's Edge</option>
+                                </select>
+                            </label>
+                            <hr class="fullWidth" />
+                            <label>
+                                <strong><span>Metahuman?</span></strong>
+                                <select  name="meta"
+                                        id="sort-meta"
+                                        required>
+                                    <option value="">(select)</option>
+                                    <option value="y">Yes</option>
+                                    <option value="n">No</option>
+                                </select>
+                            </label>
+                            <label class="hide ifMeta">
+                                <strong><span>Power</span></strong>
+                                <input   type="text"
+                                    name="power1"
+                                    id="sort-power1">
+                            </label>
+                            <label class="hide ifMeta">
+                                <strong><span>Power</span></strong>
+                                <input   type="text"
+                                    name="power2"
+                                    id="sort-power2">
+                            </label>
+                            <label class="hide ifMeta">
+                                <strong><span>Power</span></strong>
+                                <input   type="text"
+                                    name="power3"
+                                    id="sort-power3">
+                            </label>
+                            <hr class="fullWidth" />
+                            <label>
+                                <strong><span>Employed?</span></strong>
+                                <select  name="job"
+                                        id="sort-job"
+                                        required>
+                                    <option value="">(select)</option>
+                                    <option value="y">Yes</option>
+                                    <option value="n">No</option>
+                                </select>
+                            </label>
+                            <label class="hide ifJob">
+                                <strong><span>Company</span></strong>
+                                <input   type="text"
+                                    name="company"
+                                    id="sort-company">
+                            </label>
+                            <label class="hide ifJob">
+                                <strong><span>Company Location</span></strong>
+                                <select  name="joblocation"
+                                        id="sort-joblocation">
+                                    <option value="">(select)</option>
+                                    <optgroup label="Central Davenport">
+                                        <option value="40">University of Davenport</option>
+                                        <option value="47">Business Skyline</option>
+                                        <option value="42">River's Walk</option>
+                                        <option value="37">Elsewhere in the District</option>
+                                    </optgroup>
+                                    <optgroup label="Coastline">
+                                        <option value="41">Entertainment District</option>
+                                        <option value="54">Bayside Market</option>
+                                        <option value="45">The Graveyard</option>
+                                        <option value="35">Elsewhere in the District</option>
+                                    </optgroup>
+                                    <optgroup label="Old Town">
+                                        <option value="44">Casino Row</option>
+                                        <option value="46">Red Light District</option>
+                                        <option value="43">The Dockyards</option>
+                                        <option value="36">Elsewhere in the District</option>
+                                    </optgroup>
+                                    <optgroup label="Outskirts">
+                                        <option value="48">Carnivale</option>
+                                        <option value="49">Witch's Hour</option>
+                                        <option value="50">The Wilds</option>
+                                        <option value="39">Elsewhere in the District</option>
+                                    </optgroup>
+                                    <optgroup label="River's Edge">
+                                        <option value="51">Willow Creek Gated Community</option>
+                                        <option value="53">Centennial Park</option>
+                                        <option value="52">Government Sector</option>
+                                        <option value="38">Elsewhere in the District</option>
+                                    </optgroup>
+                                </select>
+                            </label>
+                            <label class="hide ifJob">
+                                <strong><span>Position</span></strong>
+                                <input   type="text"
+                                    name="position"
+                                    id="sort-position">
+                            </label>
+                            <hr class="fullWidth" />
+                            <label>
+                                <strong><span>Student?</span></strong>
+                                <select  name="student"
+                                        id="sort-student"
+                                        required>
+                                    <option value="">(select)</option>
+                                    <option value="y">Yes</option>
+                                    <option value="n">No</option>
+                                </select>
+                            </label>
+                            <label class="hide ifStudent">
+                                <strong><span>Program</span></strong>
+                                <input   type="text"
+                                    name="program"
+                                    id="sort-program">
+                            </label>
+                            <hr class="fullWidth" />
+                            <label>
+                                <strong><span>Canon?</span></strong>
+                                <select  name="canon"
+                                        id="sort-canon"
+                                        required>
+                                    <option value="">(select)</option>
+                                    <option value="y">Yes</option>
+                                    <option value="n">No</option>
+                                </select>
+                            </label>
+                            <label class="hide ifCanon">
+                                <strong><span>Allegiance</span></strong>
+                                <select  name="allegiance"
+                                        id="sort-allegiance">
+                                    <option value="">(select)</option>
+                                    <option value="quantumprivate">Quantum Biomedical - Janus Project, Private</option>
+                                    <option value="quantumpublic">Quantum Biomedical - Janus Project, Public</option>
+                                    <option value="pack">The Pack</option>
+                                    <option value="dreamer">The Dreamer Movement</option>
+                                    <option value="resistance">The Resistance</option>
+                                    <option value="order">The Order of the White Knight</option>
+                                </select>
+                            </label>
+                            <label class="hide ifCanon">
+                                <strong><span>Role</span></strong>
+                                <input   type="text"
+                                    name="role"
+                                    id="sort-role">
+                            </label>
+                            <hr class="fullWidth" />
+                            <div id="warning"></div>
+                            <div class="form-buttons fullWidth">
+                                <button type="submit">Submit</button>
+                                <button onclick="formReset()">Reset</button>
+                            </div>
+                        </form>
+                    </section>
+                    <section class="webpage--tab" data-tab="#calldibs">
+                        <form id="reserve" class="grid twoCol">
+                            <label>
+                                <strong><span>Alias</span></strong>
+                                <input type="text"
+                                    name="alias"
+                                    id="reserve-member"
+                                    required>
+                            </label>
+                            <label>
+                                <strong><span>Face</span></strong>
+                                <input type="text"
+                                    name="face"
+                                    id="reserve-face"
+                                    required>
+                            </label>
+                            <hr class="fullWidth" />
+                            <div id="warning-reserves"></div>
+                            <div class="form-buttons fullWidth">
+                                <button type="submit">Submit</button>
+                                <button onclick="formReset()">Reset</button>
+                            </div>
+                        </form>
+                    </section>
+                    <section class="webpage--tab" data-tab="#updateclaims">
+                        <form id="update" class="grid twoCol">
+                            <label>
+                                <strong><span>Character</span></strong>
+                                <input type="text"
+                                    name="character"
+                                    id="update-character"
+                                    required>
+                            </label>
+                            <div class="form-item fullWidth">
+                                <strong><span>What needs updating?</span></strong>
+                                <div class="form-flex">
+                                    <label>
+                                        <input   type="checkbox"
+                                            name="update-type"
+                                            id="update-face"
+                                            value="face">
+                                        <strong class="checkbox">Change face</strong>
+                                    </label>
+                                    <label>
+                                        <input   type="checkbox"
+                                            name="update-type"
+                                            id="update-power"
+                                            value="power">
+                                        <strong class="checkbox">Change powers</strong>
+                                    </label>
+                                    <label>
+                                        <input   type="checkbox"
+                                            name="update-type"
+                                            id="update-job"
+                                            value="job">
+                                        <strong class="checkbox">Change or add job</strong>
+                                    </label>
+                                    <label>
+                                        <input   type="checkbox"
+                                            name="update-type"
+                                            id="update-unemploy"
+                                            value="unemploy">
+                                        <strong class="checkbox">Mark as unemployed</strong>
+                                    </label>
+                                    <label>
+                                        <input   type="checkbox"
+                                            name="update-type"
+                                            id="update-uni"
+                                            value="uni">
+                                        <strong class="checkbox">Change or add university program</strong>
+                                    </label>
+                                    <label>
+                                        <input   type="checkbox"
+                                            name="update-type"
+                                            id="update-canon"
+                                            value="canon">
+                                        <strong class="checkbox">Add to canon list</strong>
+                                    </label>
+                                </div>
+                            </div>
+                            <hr class="fullWidth hide ifFace updateField" />
+                            <label class="hide ifFace updateField">
+                                <strong><span>Alias</span></strong>
+                                <input type="text"
+                                    name="alias"
+                                    id="update-member">
+                            </label>
+                            <label class="hide ifFace updateField">
+                                <strong><span>Face Claim</span></strong>
+                                <input   type="text"
+                                    name="face"
+                                    id="update-face">
+                            </label>
+                            <hr class="fullWidth hide ifPower updateField" />
+                            <label class="hide ifPower updateField">
+                                <strong><span>Power</span></strong>
+                                <input   type="text"
+                                    name="power1"
+                                    id="update-power1">
+                            </label>
+                            <label class="hide ifPower updateField">
+                                <strong><span>Power</span></strong>
+                                <input   type="text"
+                                    name="power2"
+                                    id="update-power2">
+                            </label>
+                            <label class="hide ifPower updateField">
+                                <strong><span>Power</span></strong>
+                                <input   type="text"
+                                    name="power3"
+                                    id="update-power3">
+                            </label>
+                            <hr class="fullWidth hide ifJobUpdate updateField" />
+                            <label class="hide ifJobUpdate updateField">
+                                <strong><span>Company</span></strong>
+                                <input   type="text"
+                                    name="company"
+                                    id="update-company">
+                            </label>
+                            <label class="hide ifJobUpdate updateField">
+                                <strong><span>Company Location</span></strong>
+                                <select  name="joblocation"
+                                        id="update-joblocation">
+                                    <option value="">(select)</option>
+                                    <optgroup label="Central Davenport">
+                                        <option value="40">University of Davenport</option>
+                                        <option value="47">Business Skyline</option>
+                                        <option value="42">River's Walk</option>
+                                        <option value="37">Elsewhere in the District</option>
+                                    </optgroup>
+                                    <optgroup label="Coastline">
+                                        <option value="41">Entertainment District</option>
+                                        <option value="54">Bayside Market</option>
+                                        <option value="45">The Graveyard</option>
+                                        <option value="35">Elsewhere in the District</option>
+                                    </optgroup>
+                                    <optgroup label="Old Town">
+                                        <option value="44">Casino Row</option>
+                                        <option value="46">Red Light District</option>
+                                        <option value="43">The Dockyards</option>
+                                        <option value="36">Elsewhere in the District</option>
+                                    </optgroup>
+                                    <optgroup label="Outskirts">
+                                        <option value="48">Carnivale</option>
+                                        <option value="49">Witch's Hour</option>
+                                        <option value="50">The Wilds</option>
+                                        <option value="39">Elsewhere in the District</option>
+                                    </optgroup>
+                                    <optgroup label="River's Edge">
+                                        <option value="51">Willow Creek Gated Community</option>
+                                        <option value="53">Centennial Park</option>
+                                        <option value="52">Government Sector</option>
+                                        <option value="38">Elsewhere in the District</option>
+                                    </optgroup>
+                                </select>
+                            </label>
+                            <label class="hide ifJobUpdate updateField">
+                                <strong><span>Position</span></strong>
+                                <input   type="text"
+                                    name="position"
+                                    id="update-position">
+                            </label>
+                            <hr class="fullWidth hide ifUni updateField" />
+                            <label class="hide ifUni updateField">
+                                <strong><span>Program</span></strong>
+                                <input   type="text"
+                                    name="program"
+                                    id="update-program">
+                            </label>
+                            <hr class="fullWidth hide ifCanonAdd updateField" />
+                            <label class="hide ifCanonAdd updateField">
+                                <strong><span>Allegiance</span></strong>
+                                <select  name="allegiance"
+                                        id="update-allegiance">
+                                    <option value="">(select)</option>
+                                    <option value="quantumprivate">Quantum Biomedical - Janus Project, Private</option>
+                                    <option value="quantumpublic">Quantum Biomedical - Janus Project, Public</option>
+                                    <option value="pack">The Pack</option>
+                                    <option value="dreamer">The Dreamer Movement</option>
+                                    <option value="resistance">The Resistance</option>
+                                    <option value="order">The Order of the White Knight</option>
+                                </select>
+                            </label>
+                            <label class="hide ifCanonAdd updateField">
+                                <strong><span>Role</span></strong>
+                                <input   type="text"
+                                    name="role"
+                                    id="update-role">
+                            </label>
+                            <hr class="fullWidth" />
+                            <div id="warning"></div>
+                            <div class="form-buttons fullWidth">
+                                <button type="submit">Submit</button>
+                                <button onclick="formReset()">Reset</button>
+                            </div>
+                        </form>
+                    </section>
+                    <!--Claims-->
+                    <section class="webpage--tab" data-tab="#reserves" id="clip-reserves"></section>
+                    <section class="webpage--tab" data-tab="#faces" id="clip-faces"></section>
+                    <section class="webpage--tab" data-tab="#jobs" id="clip-jobs"></section>
+                    <section class="webpage--tab" data-tab="#powers" id="clip-powers"></section>
+                </div>
+            </div>
         </main>
+
+        <script>
+            const url = `https://opensheet.elk.sh/1kaQnQ4tiHE1mJ9HM7F0qcelJpiRvfWOd5pM2avW4NRo/Claims`;
+            const reserves = `https://opensheet.elk.sh/1VuKUhdeB_l_YRWS79Mim7sgIY_mXFZh2VmmRSdC1Na0/Reserves`;
+            fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                structureFaces(data);
+                structureJobs(data);
+                structurePowers(data);
+                fetch(reserves)
+                .then((response) => response.json())
+                .then((data) => {
+                    structureReserves(data);
+                })
+                .then(() => {
+                    webpageTabs();
+                });
+            });
+        </script>
 
         <!-- Copyright Information -->
         <div class="tableborder" align="center">

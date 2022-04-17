@@ -53,16 +53,6 @@ if($('.f-3').length > 0) {
 }
 
 
-//smooth scrolling anchors by name
-$('a[href^="#"]').click(function () {
-    $('html, body').animate({
-        scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top - $('nav').height()
-    }, 750);
-
-    return false;
-});
-
-
 //window resize functions
 window.addEventListener('resize', () => {
     if(document.querySelector('.controls.memOnly').classList.contains('active')) {
@@ -104,5 +94,73 @@ if($('body#ST').length > 0) {
         let string = $(this).text();
         let newString = string.replace('[', `<span class="threadDate">`).replace(']', `</span>`);
         $(this).html(newString);
+    });
+}
+
+
+//Webpage only
+if($('body#Pages').length > 0) {
+    document.querySelector('#sort').addEventListener('submit', e => {
+        e.preventDefault();
+        const url = `https://opensheet.elk.sh/1kaQnQ4tiHE1mJ9HM7F0qcelJpiRvfWOd5pM2avW4NRo/Claims`;
+        fetch(url)
+        .then((response) => response.json())
+        .then(data => {
+            instance = data.filter(item => item.AccountID === document.querySelector('#sort-id').value);
+            if(instance.length === 1) {
+                console.log('update form info');
+                document.querySelector('#warning').innerHTML = 'This character already exists in the claims! Please <a href="/">update your claims</a> instead.';
+            } else if (instance.length === 0) {
+                postToGoogle('POST');
+                $('button[type="submit"]').text('Submitting...');
+            } else {
+                console.log('Error! Multiple instances of id');
+                document.querySelector('#warning').innerHTML = 'Whoops! Somehow your character is already on the sheet - more than once! Please contact a member of staff to update the sheet.';
+            }
+        });
+    });
+    document.querySelector('#reserve').addEventListener('submit', e => {
+        e.preventDefault();
+        const url = `https://opensheet.elk.sh/1VuKUhdeB_l_YRWS79Mim7sgIY_mXFZh2VmmRSdC1Na0/Reserves`;
+        fetch(url)
+        .then((response) => response.json())
+        .then(data => {
+            postToReserve('POST');
+        });
+    });
+    document.querySelector('#update').addEventListener('submit', e => {
+        e.preventDefault();
+        postToUpdate('POST');
+    });
+    
+    let inputs = document.querySelectorAll('input[name="update-type"]');
+    let sections = document.querySelectorAll('.updateField');
+    inputs.forEach(input => {
+        input.addEventListener('change', () => {
+            sections.forEach(section => section.classList.add('hide'));
+            let selected = document.querySelectorAll('input[name="update-type"]:checked');
+            selected.forEach(checked => {
+                switch(checked.value) {
+                    case 'face':
+                        document.querySelectorAll('.ifFace').forEach(field => field.classList.remove('hide'));
+                        break;
+                    case 'power':
+                        document.querySelectorAll('.ifPower').forEach(field => field.classList.remove('hide'));
+                        break;
+                    case 'job':
+                        document.querySelectorAll('.ifJobUpdate').forEach(field => field.classList.remove('hide'));
+                        break;
+                    case 'uni':
+                        document.querySelectorAll('.ifUni').forEach(field => field.classList.remove('hide'));
+                        break;
+                    case 'canon':
+                        document.querySelectorAll('.ifCanonAdd').forEach(field => field.classList.remove('hide'));
+                        break;
+                    default:
+                        console.log(checked.value);
+                        break;
+                }
+            })
+        });
     });
 }
