@@ -210,7 +210,10 @@ function postToGoogle(formtype = 'POST') {
     let power3 = $("#sort-power3").val().toLowerCase();
     let employer = $("#sort-company").val().toLowerCase();
     let locationID = $("#sort-joblocation").find(":selected").val().toLowerCase();
-    let location = $("#sort-joblocation").find(":selected").text().toLowerCase();
+    let location = ``;
+    if(locationID) {
+        location = $("#sort-joblocation").find(":selected").text().toLowerCase();
+    }
     let career = $("#sort-position").val().toLowerCase();
     let program = $("#sort-program").val().toLowerCase();
     let canon = $("#sort-canon").find(":selected").val();
