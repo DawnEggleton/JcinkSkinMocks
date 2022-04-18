@@ -525,14 +525,88 @@ function openHelp(e) {
 }
 
 function structureReserves(data) {
-    console.log(data);
+    let current = new Date();
+    let active = data.filter(item => {
+        let time = new Date(item.Timestamp);
+        let difference = Math.floor(((current - time) / (1000*60*60*24)));
+        return difference < 8;
+    });
+    active.sort((a, b) => {
+        aValue = a.Face;
+        bValue = b.Face;
+        if (aValue < bValue) {
+            return -1;
+        } else if (aValue > bValue) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let html = ``;
+    active.forEach(reserve => {
+        let resDate = new Date(reserve.Timestamp);
+        resDate.setDate(resDate.getDate() + 7);
+        const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october',	'november', 'december'];
+        html += `<div class="claim-item">
+            <b>${reserve.Face}</b>
+            <span>Reserved by ${reserve.Member}</span>
+            <span>Expires ${months[resDate.getMonth()]} ${resDate.getDate()}, ${resDate.getFullYear()}</span>
+        </div>`;
+    });
+    document.querySelector('#clip-reserves').insertAdjacentHTML('beforeend', html);
 }
 function structureFaces(data) {
-    console.log(data);
+    data.sort((a, b) => {
+        aValue = a.Face;
+        bValue = b.Face;
+        if (aValue < bValue) {
+            return -1;
+        } else if (aValue > bValue) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let html = ``;
+    data.forEach(character => {
+        html += `<a class="g-${character.groupID}" href="?showuser=${character.AccountID}">
+            <div class="claim-item">
+                <b>${character.Face}</b>
+                <span>Played by ${character.Member}</span>
+            </div>
+        </a>`;
+    });
+    document.querySelector('#clip-faces').insertAdjacentHTML('beforeend', html);
 }
 function structureJobs(data) {
-    console.log(data);
+    let employed = data.filter(item => item.Employer);
+    let students = data.filter(item => item.Program);
+    console.log(employed);
+    console.log(students);
 }
 function structurePowers(data) {
-    console.log(data);
+    let metas = data.filter(item => item.Power1);
+    metas.sort((a, b) => {
+        aValue = a.Character;
+        bValue = b.Character;
+        if (aValue < bValue) {
+            return -1;
+        } else if (aValue > bValue) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let html = ``;
+    metas.forEach(character => {
+        html += `<a class="g-${character.groupID}" href="?showuser=${character.AccountID}">
+            <div class="claim-item">
+                <b>${character.Character}</b>
+                <span>${character.Power1}</span>
+                <span>${character.Power2}</span>
+                <span>${character.Power3}</span>
+            </div>
+        </a>`;
+    });
+    document.querySelector('#clip-powers').insertAdjacentHTML('beforeend', html);
 }
