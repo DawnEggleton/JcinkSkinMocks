@@ -338,6 +338,14 @@
             }
         }
 
+        .claim-notice {
+            font-size: 24px;
+            font-family: var(--serif);
+            text-align: center;
+            grid-column: 1 / -1;
+            margin: 40px auto;
+        }
+
         .claim-item {
             border: 1px solid var(--accent-75);
             display: flex;

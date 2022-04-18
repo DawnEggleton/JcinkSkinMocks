@@ -561,6 +561,9 @@ function structureReserves(data) {
             <span>Expires ${months[resDate.getMonth()]} ${resDate.getDate()}, ${resDate.getFullYear()}</span>
         </div>`;
     });
+    if (html === ``) {
+        html = `<b class="claim-notice">No active reservations.</b>`;
+    }
     document.querySelector('#clip-reserves').insertAdjacentHTML('beforeend', html);
 }
 function structureFaces(data) {

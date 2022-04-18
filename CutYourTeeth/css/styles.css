@@ -3819,6 +3819,13 @@ header .skip:after {
   max-width: max-content;
   font-weight: 600;
 }
+.webpage--tab .claim-notice {
+  font-size: 24px;
+  font-family: var(--serif);
+  text-align: center;
+  grid-column: 1/-1;
+  margin: 40px auto;
+}
 .webpage--tab .claim-item {
   border: 1px solid var(--accent-75);
   display: flex;
