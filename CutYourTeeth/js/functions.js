@@ -209,7 +209,8 @@ function postToGoogle(formtype = 'POST') {
     let power2 = $("#sort-power1").val().toLowerCase();
     let power3 = $("#sort-power1").val().toLowerCase();
     let employer = $("#sort-company").val().toLowerCase();
-    let location = $("#sort-joblocation").find(":selected").val().toLowerCase();
+    let locationID = $("#sort-joblocation").find(":selected").val().toLowerCase();
+    let location = $("#sort-joblocation").find(":selected").text().toLowerCase();
     let career = $("#sort-position").val().toLowerCase();
     let program = $("#sort-program").val().toLowerCase();
     let canon = $("#sort-canon").find(":selected").val();
@@ -236,6 +237,7 @@ function postToGoogle(formtype = 'POST') {
         "Power3": power3,
         "Employer": employer,
         "Location": location,
+        "LocationID": locationID,
         "Career": career,
         "Program": program,
       },
@@ -304,6 +306,7 @@ function postToUpdate(formtype = 'POST') {
     let power2 = $("#update-power1").val().toLowerCase();
     let power3 = $("#update-power1").val().toLowerCase();
     let employer = $("#update-company").val().toLowerCase();
+    let locationID = $("#update-joblocation").find(":selected").val().toLowerCase();
     let location = $("#update-joblocation").find(":selected").val().toLowerCase();
     let career = $("#update-position").val().toLowerCase();
     let program = $("#update-program").val().toLowerCase();
@@ -323,7 +326,7 @@ function postToUpdate(formtype = 'POST') {
         message += `, ${power2}`;
     }
     if(employer) {
-        message += `\n**Employment:** Works for *${employer}* (located in forum ${location}) as ${career}`;
+        message += `\n**Employment:** Works for *${employer}*, located in forum ${location} (${locationID}), as ${career}`;
     }
     if(program) {
         message += `\n**University Program:** ${program}`;
@@ -581,8 +584,90 @@ function structureFaces(data) {
 function structureJobs(data) {
     let employed = data.filter(item => item.Employer);
     let students = data.filter(item => item.Program);
-    console.log(employed);
-    console.log(students);
+    employed.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        aEmployer = a.Employer;
+        bEmployer = b.Employer;
+        aPosition = a.Career;
+        bPosition = b.Career;
+        if (aEmployer < bEmployer) {
+            return -1;
+        } else if (aEmployer > bEmployer) {
+            return 1;
+        } else if (aPosition < bPosition) {
+            return -1;
+        } else if (aPosition > bPosition) {
+            return 1;
+        } else if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    students.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        aProgram = a.Program;
+        bProgram = b.Program;
+        if (aProgram < bProgram) {
+            return -1;
+        } else if (aProgram > bProgram) {
+            return 1;
+        } else if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let html = ``;
+    employed.forEach((character, i) => {
+        if(i === 0) {
+            html += `<h2>${character.Employer}</h2>`;
+            html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a>`;
+            html += `<a class="g-${character.groupID}" href="?showuser=${character.AccountID}">
+                <div class="claim-item">
+                    <b>${character.Character}</b>
+                    <span>${character.Career}</span>
+                </div>
+            </a>`;
+        } else if(employed[i - 1].Employer !== character.Employer) {
+            if(employed[i - 1].Employer === 'university of davenport') {
+                html += `<h3>Student Roster</h3>`;
+                students.forEach(student => {
+                    html += `<a class="g-${student.groupID}" href="?showuser=${student.AccountID}">
+                        <div class="claim-item">
+                            <b>${student.Character}</b>
+                            <span>${student.Program}</span>
+                        </div>
+                    </a>`;
+                });
+            }
+            html += `<h2>${character.Employer}</h2>`;
+            html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a>`;
+            if(character.Employer === 'university of davenport') {
+                html += `<h3>Faculty & Staff</h3>`;
+            }
+            html += `<a class="g-${character.groupID}" href="?showuser=${character.AccountID}">
+                <div class="claim-item">
+                    <b>${character.Character}</b>
+                    <span>${character.Career}</span>
+                </div>
+            </a>`;
+        } else {
+            html += `<a class="g-${character.groupID}" href="?showuser=${character.AccountID}">
+                <div class="claim-item">
+                    <b>${character.Character}</b>
+                    <span>${character.Career}</span>
+                </div>
+            </a>`;
+        }
+    });
+    document.querySelector('#clip-jobs').insertAdjacentHTML('beforeend', html);
 }
 function structurePowers(data) {
     let metas = data.filter(item => item.Power1);
