@@ -206,8 +206,8 @@ function postToGoogle(formtype = 'POST') {
     let groupID = $("#sort-group").val();
     let face = $("#sort-face").val().toLowerCase();
     let power1 = $("#sort-power1").val().toLowerCase();
-    let power2 = $("#sort-power1").val().toLowerCase();
-    let power3 = $("#sort-power1").val().toLowerCase();
+    let power2 = $("#sort-power2").val().toLowerCase();
+    let power3 = $("#sort-power3").val().toLowerCase();
     let employer = $("#sort-company").val().toLowerCase();
     let locationID = $("#sort-joblocation").find(":selected").val().toLowerCase();
     let location = $("#sort-joblocation").find(":selected").text().toLowerCase();
@@ -220,7 +220,7 @@ function postToGoogle(formtype = 'POST') {
     if(canon === 'y') {
         message += `**Allegiance:** ${allegiance}\n`;
         message += `**Role:** ${role}\n`;
-        message += `\`\`\`<a href="showuser=${accountID}" class="g-${groupID}">Played by ${character}</a>\`\`\``;
+        message += `\`\`\`<a href="showuser=${accountID}" class="g-${GroupID}">Played by ${character}</a>\`\`\``;
     }
   
     $.ajax({
@@ -302,6 +302,8 @@ function postToUpdate(formtype = 'POST') {
     let member = $("#update-member").val().toLowerCase();
     let character = $("#update-character").val().toLowerCase();
     let face = $("#update-face").val().toLowerCase();
+    let group = $("#update-group").find(":selected").text().toLowerCase();
+    let groupID = $("#update-group").find(":selected").val();
     let power1 = $("#update-power1").val().toLowerCase();
     let power2 = $("#update-power1").val().toLowerCase();
     let power3 = $("#update-power1").val().toLowerCase();
@@ -315,6 +317,9 @@ function postToUpdate(formtype = 'POST') {
     let message = `**${member}** has requested updates/additions to the claims list for **${character}**.`;
     if(face) {
         message += `\n**Face:** ${face}`;
+    }
+    if(group) {
+        message += `\n**New Group:** ${group} (${groupID})`;
     }
     if(power1) {
         message += `\n**Powers:** ${power1}`;
@@ -572,7 +577,7 @@ function structureFaces(data) {
     });
     let html = ``;
     data.forEach(character => {
-        html += `<a class="g-${character.groupID}" href="?showuser=${character.AccountID}">
+        html += `<a class="g-${character.GroupID}" href="?showuser=${character.AccountID}">
             <div class="claim-item">
                 <b>${character.Face}</b>
                 <span>Played by ${character.Member}</span>
@@ -627,9 +632,9 @@ function structureJobs(data) {
     let html = ``;
     employed.forEach((character, i) => {
         if(i === 0) {
-            html += `<h2>${character.Employer}</h2>`;
-            html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a>`;
-            html += `<a class="g-${character.groupID}" href="?showuser=${character.AccountID}">
+            html += `<div class="claim-header"><h2>${character.Employer}</h2>`;
+            html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a></div>`;
+            html += `<a class="g-${character.GroupID}" href="?showuser=${character.AccountID}">
                 <div class="claim-item">
                     <b>${character.Character}</b>
                     <span>${character.Career}</span>
@@ -639,7 +644,7 @@ function structureJobs(data) {
             if(employed[i - 1].Employer === 'university of davenport') {
                 html += `<h3>Student Roster</h3>`;
                 students.forEach(student => {
-                    html += `<a class="g-${student.groupID}" href="?showuser=${student.AccountID}">
+                    html += `<a class="g-${student.GroupID}" href="?showuser=${student.AccountID}">
                         <div class="claim-item">
                             <b>${student.Character}</b>
                             <span>${student.Program}</span>
@@ -647,19 +652,19 @@ function structureJobs(data) {
                     </a>`;
                 });
             }
-            html += `<h2>${character.Employer}</h2>`;
-            html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a>`;
+            html += `<div class="claim-header"><h2>${character.Employer}</h2>`;
+            html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a></div>`;
             if(character.Employer === 'university of davenport') {
                 html += `<h3>Faculty & Staff</h3>`;
             }
-            html += `<a class="g-${character.groupID}" href="?showuser=${character.AccountID}">
+            html += `<a class="g-${character.GroupID}" href="?showuser=${character.AccountID}">
                 <div class="claim-item">
                     <b>${character.Character}</b>
                     <span>${character.Career}</span>
                 </div>
             </a>`;
         } else {
-            html += `<a class="g-${character.groupID}" href="?showuser=${character.AccountID}">
+            html += `<a class="g-${character.GroupID}" href="?showuser=${character.AccountID}">
                 <div class="claim-item">
                     <b>${character.Character}</b>
                     <span>${character.Career}</span>
@@ -684,13 +689,18 @@ function structurePowers(data) {
     });
     let html = ``;
     metas.forEach(character => {
-        html += `<a class="g-${character.groupID}" href="?showuser=${character.AccountID}">
+        html += `<a class="g-${character.GroupID}" href="?showuser=${character.AccountID}">
             <div class="claim-item">
                 <b>${character.Character}</b>
                 <span>${character.Power1}</span>
-                <span>${character.Power2}</span>
-                <span>${character.Power3}</span>
-            </div>
+        `;
+        if(character.Power2) {
+            html += `<span>${character.Power2}</span>`;
+        }
+        if(character.Power3) {
+            html += `<span>${character.Power3}</span>`;
+        }
+        html += `</div>
         </a>`;
     });
     document.querySelector('#clip-powers').insertAdjacentHTML('beforeend', html);

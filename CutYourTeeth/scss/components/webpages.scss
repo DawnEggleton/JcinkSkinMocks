@@ -104,6 +104,29 @@
 
         &.active {
             display: block;
+
+            &.claim {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: 30px;
+
+                @media only screen and (min-width: $md) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @media only screen and (min-width: $lg) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                a {
+                    color: var(--white);
+                }
+
+                .claim-header,
+                h3 {
+                    grid-column: 1 / -1;
+                }
+            }
         }
 
         form {
@@ -289,6 +312,50 @@
                     border-radius: 3px;
                     margin-right: 5px;
                 }
+            }
+        }
+
+        .claim-header {
+            h2 {
+                margin: 0;
+                font-family: var(--serif);
+                text-transform: capitalize;
+                font-size: 24px;
+            }
+            a {
+                text-transform: uppercase;
+                font-size: var(--xsBody);
+                letter-spacing: 1px;
+                margin: 10px 0 -15px 0;
+                display: block;
+                background: var(--light);
+                color: var(--dark) !important;
+                padding: 6px 8px;
+                border-radius: 3px;
+                line-height: 100%;
+                max-width: max-content;
+                font-weight: 600;
+            }
+        }
+
+        .claim-item {
+            border: 1px solid var(--accent-75);
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background: var(--accent-50);
+            border-radius: 3px;
+
+            b {
+                font-family: var(--serif);
+                font-size: var(--xlBody);
+                text-transform: capitalize;
+            }
+
+            span {
+                text-transform: uppercase;
+                font-size: var(--xsBody);
+                letter-spacing: 1px;
             }
         }
     }

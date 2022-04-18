@@ -3621,6 +3621,28 @@ header .skip:after {
 .webpage--tab.active {
   display: block;
 }
+.webpage--tab.active.claim {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 30px;
+}
+@media only screen and (min-width: 800px) {
+  .webpage--tab.active.claim {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .webpage--tab.active.claim {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.webpage--tab.active.claim a {
+  color: var(--white);
+}
+.webpage--tab.active.claim .claim-header,
+.webpage--tab.active.claim h3 {
+  grid-column: 1/-1;
+}
 .webpage--tab form {
   grid-gap: 15px;
 }
@@ -3776,6 +3798,44 @@ header .skip:after {
   padding: 8px 15px;
   border-radius: 3px;
   margin-right: 5px;
+}
+.webpage--tab .claim-header h2 {
+  margin: 0;
+  font-family: var(--serif);
+  text-transform: capitalize;
+  font-size: 24px;
+}
+.webpage--tab .claim-header a {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  margin: 10px 0 -15px 0;
+  display: block;
+  background: var(--light);
+  color: var(--dark) !important;
+  padding: 6px 8px;
+  border-radius: 3px;
+  line-height: 100%;
+  max-width: max-content;
+  font-weight: 600;
+}
+.webpage--tab .claim-item {
+  border: 1px solid var(--accent-75);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: var(--accent-50);
+  border-radius: 3px;
+}
+.webpage--tab .claim-item b {
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  text-transform: capitalize;
+}
+.webpage--tab .claim-item span {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
 }
 
 /*******************************

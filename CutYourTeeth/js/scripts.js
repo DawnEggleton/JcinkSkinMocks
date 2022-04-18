@@ -144,6 +144,9 @@ if($('body#Pages').length > 0) {
                     case 'face':
                         document.querySelectorAll('.ifFace').forEach(field => field.classList.remove('hide'));
                         break;
+                    case 'location':
+                        document.querySelectorAll('.ifMoved').forEach(field => field.classList.remove('hide'));
+                        break;
                     case 'power':
                         document.querySelectorAll('.ifPower').forEach(field => field.classList.remove('hide'));
                         break;

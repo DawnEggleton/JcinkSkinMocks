@@ -177,11 +177,11 @@
                                         id="sort-group"
                                         required>
                                     <option value="">(select)</option>
-                                    <option value="7">Central Davenport</option>
-                                    <option value="9">Coastline</option>
-                                    <option value="14">Old Town</option>
-                                    <option value="16">Outskirts</option>
-                                    <option value="16">River's Edge</option>
+                                    <option value="12">Central Davenport</option>
+                                    <option value="10">Coastline</option>
+                                    <option value="11">Old Town</option>
+                                    <option value="13">Outskirts</option>
+                                    <option value="9">River's Edge</option>
                                 </select>
                             </label>
                             <hr class="fullWidth" />
@@ -374,6 +374,13 @@
                                     <label>
                                         <input   type="checkbox"
                                             name="update-type"
+                                            id="update-location"
+                                            value="location">
+                                        <strong class="checkbox">Change group</strong>
+                                    </label>
+                                    <label>
+                                        <input   type="checkbox"
+                                            name="update-type"
                                             id="update-power"
                                             value="power">
                                         <strong class="checkbox">Change powers</strong>
@@ -420,6 +427,20 @@
                                 <input   type="text"
                                     name="face"
                                     id="update-face">
+                            </label>
+                            <hr class="fullWidth hide ifMoved updateField" />
+                            <label class="hide ifMoved updateField">
+                                <strong><span>Lives In</span></strong>
+                                <select  name="group"
+                                        id="update-group"
+                                        required>
+                                    <option value="">(select)</option>
+                                    <option value="12">Central Davenport</option>
+                                    <option value="10">Coastline</option>
+                                    <option value="11">Old Town</option>
+                                    <option value="13">Outskirts</option>
+                                    <option value="9">River's Edge</option>
+                                </select>
                             </label>
                             <hr class="fullWidth hide ifPower updateField" />
                             <label class="hide ifPower updateField">
@@ -526,10 +547,10 @@
                         </form>
                     </section>
                     <!--Claims-->
-                    <section class="webpage--tab" data-tab="#reserves" id="clip-reserves"></section>
-                    <section class="webpage--tab" data-tab="#faces" id="clip-faces"></section>
-                    <section class="webpage--tab" data-tab="#jobs" id="clip-jobs"></section>
-                    <section class="webpage--tab" data-tab="#powers" id="clip-powers"></section>
+                    <section class="webpage--tab claim" data-tab="#reserves" id="clip-reserves"></section>
+                    <section class="webpage--tab claim" data-tab="#faces" id="clip-faces"></section>
+                    <section class="webpage--tab claim" data-tab="#jobs" id="clip-jobs"></section>
+                    <section class="webpage--tab claim" data-tab="#powers" id="clip-powers"></section>
                 </div>
             </div>
         </main>
