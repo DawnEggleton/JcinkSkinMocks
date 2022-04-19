@@ -98,6 +98,205 @@ if($('body#ST').length > 0) {
 }
 
 
+//Main Profile only
+if($('body#Profile').length > 0) {
+    //member account only scripts
+    if('<!-- |g_id| -->' == '4' || '<!-- |g_id| -->' == '6' || '<!-- |field_39| -->' == 'member') {
+        document.querySelector('.prof.charOnly').remove();
+
+        // SUBACCOUNTS PROFILE DISPLAY SCRIPT (ABC ORDER) by tonya aka wildflower
+        $('select[name=showuser] option').each(function () {
+            if ($(this).val() != `-------------------`) {
+                let id = $(this).val();
+                let name = $(this).text().replace(`»`, ``).trim();
+                let imageDiv = `<div class="prof--sub-image" style="background:url(https://files.jcink.net/uploads2/playedgod//av-${id}.png), url(https://files.jcink.net/uploads2/playedgod//av-${id}.gif), url(https://files.jcink.net/uploads2/playedgod//av-${id}.jpg), url(https://files.jcink.net/uploads2/playedgod//av-${id}.jpeg), url(https://files.jcink.net/uploads2/playedgod/2021/Screenshot_2021_08_14_at_17_43_09_Play_God.png); background-size: cover; background-position: center;"></div>`;
+
+                $('#prof--subs').append(`<div class="prof--sub">${imageDiv}<b>${name}</b><a href="?showuser=${id}">view profile</a></div>`);
+            }
+        });
+
+        function Alpha(a, b) {
+            return $(`b`, a).text() > $(`b`, b).text() ? 1 : -1;
+        }
+        
+        $('#prof--subs div.prof--sub').sort(Alpha).appendTo('#prof--subs');
+    } else {
+        document.querySelector('.prof.memOnly').remove();
+
+        contentTabs('.charOnly .prof--tab', '.charOnly .prof--label', 'v');
+
+        //Print href to links
+        if(`<!-- |field_31| -->` != `` && `<!-- |field_31| -->` != `<i>No Information</i>`) {
+        document.querySelector('.link-dev').setAttribute('href', `<!-- |field_31| -->`);
+        }
+        if(`<!-- |field_30| -->` != `` && `<!-- |field_30| -->` != `<i>No Information</i>`) {
+        document.querySelector('.link-track').setAttribute('href', `<!-- |field_30| -->`);
+        }
+        if(`<!-- |field_32| -->` != `` && `<!-- |field_32| -->` != `<i>No Information</i>`) {
+        document.querySelector('.link-want').setAttribute('href', `<!-- |field_32| -->`);
+        }
+        if(`<!-- |field_34| -->` != `` && `<!-- |field_34| -->` != `<i>No Information</i>`) {
+        document.querySelector('.link-custom').setAttribute('href', `<!-- |field_34| -->`);
+        }
+
+        //print correct image layout
+        if('<!-- |field_55| -->' == 'Unset' || '<!-- |field_55| -->' == 'Single' || '<!-- |field_55| -->' == '') {
+        document.querySelector('.prof--image').innerHTML = `
+            <img src="<!-- |field_46| -->" style="object-position: <!-- |field_53| -->;" />
+        `;
+        } else if ('<!-- |field_55| -->' == 'Left Grid') {
+        document.querySelector('.prof--image').classList.add('lGrid')
+        document.querySelector('.prof--image').innerHTML = `
+            <img src="<!-- |field_56| -->" class="mainImg" />
+            <img src="<!-- |field_57| -->" class="wideImg" />
+            <img src="<!-- |field_58| -->" />
+            <img src="<!-- |field_59| -->" />
+        `;
+        } else if ('<!-- |field_55| -->' == 'Right Grid') {
+        document.querySelector('.prof--image').classList.add('rGrid')
+        document.querySelector('.prof--image').innerHTML = `
+            <img src="<!-- |field_56| -->" class="mainImg" />
+            <img src="<!-- |field_57| -->" class="wideImg" />
+            <img src="<!-- |field_58| -->" />
+            <img src="<!-- |field_59| -->" />
+        `;
+        } else if ('<!-- |field_55| -->' == 'Masonry') {
+        document.querySelector('.prof--image').classList.add('mason')
+        document.querySelector('.prof--image').innerHTML = `
+            <img src="<!-- |field_60| -->" />
+            <img src="<!-- |field_61| -->" />
+            <img src="<!-- |field_62| -->" />
+            <img src="<!-- |field_63| -->" />
+        `;
+        } else if ('<!-- |field_55| -->' == 'Large Masonry') {
+        document.querySelector('.prof--image').classList.add('lgMason')
+        document.querySelector('.prof--image').innerHTML = `
+            <img src="<!-- |field_64| -->" />
+            <img src="<!-- |field_65| -->" />
+            <img src="<!-- |field_66| -->" />
+            <img src="<!-- |field_67| -->" />
+            <img src="<!-- |field_68| -->" />
+            <img src="<!-- |field_69| -->" />
+            <img src="<!-- |field_70| -->" />
+            <img src="<!-- |field_71| -->" />
+        `;
+        }
+
+        //print group label
+        if('<!-- |g_id| -->' == '9' ||
+        '<!-- |g_id| -->' == '10' ||
+        '<!-- |g_id| -->' == '11' ||
+        '<!-- |g_id| -->' == '12' ||
+        '<!-- |g_id| -->' == '13' ) {
+            document.querySelector('#groupClip').innerHTML = 'city district';
+        } else {
+            document.querySelector('#groupClip').innerHTML = 'group';
+        }
+
+        //print abilities/limits/skills/weaknesses
+        if('<!-- |field_51| -->' == 'yes' ) {
+        document.querySelector('#skillClip').innerHTML = 'abilities';
+        document.querySelector('#weakClip').innerHTML = 'limitations';
+        } else {
+        document.querySelector('#skillClip').innerHTML = 'skills';
+        document.querySelector('#weakClip').innerHTML = 'weaknesses';
+        }
+
+        //print freeform overflow
+        if(`<!-- |field_45| -->` != `` && `<!-- |field_45| -->` != `<i>No Information</i>`) {
+        document.querySelector('#freeClip').innerHTML = `<!-- |field_45| -->`;
+        }
+
+        //calculate and append age
+        bYear = `<!-- |field_49| -->`;
+        bDay = `<!-- |field_50| -->`;
+        switch (`<!-- |field_48| -->`) {
+        case 'January':
+            bMonth = 1;
+            break;
+        case 'February':
+            bMonth = 2;
+            break;
+        case 'March':
+            bMonth = 3;
+            break;
+        case 'April':
+            bMonth = 4;
+            break;
+        case 'May':
+            bMonth = 5;
+            break;
+        case 'June':
+            bMonth = 6;
+            break;
+        case 'July':
+            bMonth = 7;
+            break;
+        case 'August':
+            bMonth = 8;
+            break;
+        case 'September':
+            bMonth = 9;
+            break;
+        case 'October':
+            bMonth = 10;
+            break;
+        case 'November':
+            bMonth = 11;
+            break;
+        case 'December':
+            bMonth = 12;
+            break;
+        default:
+            bMonth = -1;
+            break;
+        }
+        if(year != '') {
+        if(month < bMonth || (month == bMonth && day < bDay)) {
+            age = `${year - 1 - bYear} years old`;
+        } else {
+            age = `${year - bYear} years old`;
+        }
+        } else {
+        age = 'Immortal'
+        }
+        $('#ageClip').html(age);
+    }
+
+
+    // print ratings
+    if('<!-- |field_5| -->' == 'none') {
+        $('.rate-l').html('0');
+    } else if('<!-- |field_5| -->' == 'mild') {
+        $('.rate-l').html('1');
+    } else if('<!-- |field_5| -->' == 'with limits') {
+        $('.rate-l').html('2');
+    }else if('<!-- |field_5| -->' == 'all') {
+        $('.rate-l').html('3');
+    }
+
+    if('<!-- |field_6| -->' == 'none') {
+        $('.rate-s').html('0');
+    } else if('<!-- |field_6| -->' == 'mild') {
+        $('.rate-s').html('1');
+    } else if('<!-- |field_6| -->' == 'with limits') {
+        $('.rate-s').html('2');
+    }else if('<!-- |field_6| -->' == 'all') {
+        $('.rate-s').html('3');
+    }
+
+    if('<!-- |field_7| -->' == 'none') {
+        $('.rate-v').html('0');
+    } else if('<!-- |field_7| -->' == 'mild') {
+        $('.rate-v').html('1');
+    } else if('<!-- |field_7| -->' == 'with limits') {
+        $('.rate-v').html('2');
+    }else if('<!-- |field_7| -->' == 'all') {
+        $('.rate-v').html('3');
+    }
+}
+
+
 //Webpage only
 if($('body#Pages').length > 0) {
     document.querySelector('#sort').addEventListener('submit', e => {
@@ -165,5 +364,43 @@ if($('body#Pages').length > 0) {
                 }
             })
         });
+    });
+
+
+    $('.web-slideTab').on('click', function() {
+        let num = $(this).index();
+        let percent = num * 100;
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+        $(this).parent().siblings('.web-slideBoxes').children().css({'left': (-1 * percent) + '%'});
+    });
+
+
+    $('.map-tab').on('click', function() {
+        let selector = $(this).attr('id');
+        $('.map-tab').removeClass('active');
+        $(this).addClass('active');
+        $('.web-maps').toggleClass('landmarks');
+    });
+    
+    $descriptionReg = $(".region-desc");
+    $descriptionLand = $(".landmark-desc");
+    
+    $('.landmark').hover(function(e) {
+        let loc = $(this).attr('data-hover');
+        let region = $(this).attr('data-region');
+        $descriptionLand.attr('class', 'landmark-desc active ' + region);
+        $descriptionLand.html(loc);
+    }, function() {
+        $descriptionLand.removeClass('active');
+    });
+    
+    $('.region').hover(function(e) {
+        let loc = $(this).attr('data-hover');
+        let region = $(this).attr('data-region');
+        $descriptionReg.attr('class', 'region-desc active ' + region);
+        $descriptionReg.html(loc);
+    }, function() {
+        $descriptionReg.removeClass('active');
     });
 }

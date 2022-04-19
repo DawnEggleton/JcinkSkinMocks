@@ -13,6 +13,19 @@
     opacity: 0;
     grid-template-columns: auto 250px;
 
+    #Pages & {
+        top: 80px !important;
+        height: calc(100vh - 80px) !important;
+
+        &--site {
+            height: calc(100vh - 180px) !important;
+        }
+
+        &--site-links .scroll {
+            max-height: calc(100vh - 230px) !important;
+        }
+    }
+
     &.active {
         display: block;
         transform: scaleY(1);
