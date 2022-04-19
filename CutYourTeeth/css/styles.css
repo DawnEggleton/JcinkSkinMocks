@@ -3643,8 +3643,21 @@ header .skip:after {
 .webpage--tab.active.claim h3 {
   grid-column: 1/-1;
 }
+.webpage--tab.active.claim .claim-header:not(:first-child) {
+  margin-top: 20px;
+}
+.webpage--tab.active.claim h3 {
+  font-family: var(--serif);
+  font-size: var(--lBody);
+  margin: 0 0 -20px;
+}
 .webpage--tab form {
   grid-gap: 15px;
+}
+@media only screen and (max-width: 1024px) {
+  .webpage--tab form {
+    grid-template-columns: 100%;
+  }
 }
 .webpage--tab form label {
   flex-direction: column;

@@ -126,11 +126,25 @@
                 h3 {
                     grid-column: 1 / -1;
                 }
+
+                .claim-header:not(:first-child) {
+                    margin-top: 20px;
+                }
+
+                h3 {
+                    font-family: var(--serif);
+                    font-size: var(--lBody);
+                    margin: 0 0 -20px;
+                }
             }
         }
 
         form {
             grid-gap: 15px;
+
+            @media only screen and (max-width: $lg) {
+                grid-template-columns: 100%;
+            }
 
             label {
                 flex-direction: column;

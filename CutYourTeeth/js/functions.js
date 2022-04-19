@@ -209,9 +209,12 @@ function postToGoogle(formtype = 'POST') {
     let power2 = $("#sort-power2").val().toLowerCase();
     let power3 = $("#sort-power3").val().toLowerCase();
     let employer = $("#sort-company").val().toLowerCase();
+    if($("#sort-job").find(":selected").val() === 'n') {
+        employer = 'unemployed';
+    }
     let locationID = $("#sort-joblocation").find(":selected").val().toLowerCase();
     let location = ``;
-    if(locationID) {
+    if(locationID && parseInt(locationID) !== 0) {
         location = $("#sort-joblocation").find(":selected").text().toLowerCase();
     }
     let career = $("#sort-position").val().toLowerCase();
@@ -223,7 +226,7 @@ function postToGoogle(formtype = 'POST') {
     if(canon === 'y') {
         message += `**Allegiance:** ${allegiance}\n`;
         message += `**Role:** ${role}\n`;
-        message += `\`\`\`<a href="showuser=${accountID}" class="g-${GroupID}">Played by ${character}</a>\`\`\``;
+        message += `\`\`\`<a href="showuser=${accountID}" class="g-${groupID}">Played by ${character}</a>\`\`\``;
     }
   
     $.ajax({
@@ -595,11 +598,14 @@ function structureFaces(data) {
 function structureJobs(data) {
     let employed = data.filter(item => item.Employer);
     let students = data.filter(item => item.Program);
-    employed.sort((a, b) => {
+    let selfemployed = employed.filter(item => item.Employer === 'self-employed');
+    let unemployed = employed.filter(item => item.Employer === 'unemployed' && !item.Program);
+    let hired = employed.filter(item => item.Employer !== 'self-employed' && item.Employer !== 'unemployed');
+    hired.sort((a, b) => {
         aName = a.Character;
         bName = b.Character;
-        aEmployer = a.Employer;
-        bEmployer = b.Employer;
+        aEmployer = a.Employer.replace('the ', '');
+        bEmployer = b.Employer.replace('the ', '');
         aPosition = a.Career;
         bPosition = b.Career;
         if (aEmployer < bEmployer) {
@@ -635,8 +641,31 @@ function structureJobs(data) {
             return 0;
         }
     });
+    selfemployed.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    unemployed.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
     let html = ``;
-    employed.forEach((character, i) => {
+    hired.forEach((character, i) => {
+        console.log(character);
         if(i === 0) {
             html += `<div class="claim-header"><h2>${character.Employer}</h2>`;
             html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a></div>`;
@@ -646,8 +675,8 @@ function structureJobs(data) {
                     <span>${character.Career}</span>
                 </div>
             </a>`;
-        } else if(employed[i - 1].Employer !== character.Employer) {
-            if(employed[i - 1].Employer === 'university of davenport') {
+        } else if(hired[i - 1].Employer.trim() !== character.Employer.trim()) {
+            if(hired[i - 1].Employer === 'university of davenport') {
                 html += `<h3>Student Roster</h3>`;
                 students.forEach(student => {
                     html += `<a class="g-${student.GroupID}" href="?showuser=${student.AccountID}">
@@ -677,6 +706,27 @@ function structureJobs(data) {
                 </div>
             </a>`;
         }
+    });
+    selfemployed.forEach((character, i) => {
+        if(i === 0) {
+            html += `<div class="claim-header"><h2>Self-Employed</h2></div>`;
+        }
+        html += `<a class="g-${character.GroupID}" href="?showuser=${character.AccountID}">
+            <div class="claim-item">
+                <b>${character.Character}</b>
+                <span>${character.Career}</span>
+            </div>
+        </a>`;
+    });
+    unemployed.forEach((character, i) => {
+        if(i === 0) {
+            html += `<div class="claim-header"><h2>Unemployed</h2></div>`;
+        }
+        html += `<a class="g-${character.GroupID}" href="?showuser=${character.AccountID}">
+            <div class="claim-item">
+                <b>${character.Character}</b>
+            </div>
+        </a>`;
     });
     document.querySelector('#clip-jobs').insertAdjacentHTML('beforeend', html);
 }

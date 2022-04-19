@@ -366,13 +366,15 @@ function structureJobClaim (data, labelClip = '#jobsTabs', tabClip = '#jobs') {
             });
         }
     });
-    employed.sort((a, b) => {
+    let selfemployed = employed.filter(item => item.Section === 'self-employed');
+    let other = employed.filter(item => item.Section !== 'self-employed');
+    other.sort((a, b) => {
         aName = a.Character;
         bName = b.Character;
         aSection = a.Section;
         bSection = b.Section;
-        aSubsection = a.Subsection;
-        bSubsection = b.Subsection;
+        aSubsection = a.Subsection.replace('the ', '');
+        bSubsection = b.Subsection.replace('the ', '');
         aLine2 = a.Line2;
         bLine2 = b.Line2;
         aLine1 = a.Line1;
@@ -401,39 +403,66 @@ function structureJobClaim (data, labelClip = '#jobsTabs', tabClip = '#jobs') {
             return 0;
         }
     });
+    selfemployed.sort((a, b) => {
+        aName = a.Character;
+        bName = b.Character;
+        aLine2 = a.Line2;
+        bLine2 = b.Line2;
+        aLine1 = a.Line1;
+        bLine1 = b.Line1;
+        if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else if (aLine1 < bLine1) {
+            return -1;
+        } else if (aLine1 > bLine1) {
+            return 1;
+        } else if (aLine2 < bLine2) {
+            return -1;
+        } else if (aLine2 > bLine2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
     let body = ``;
     let labels = ``;
-    employed.forEach((character, i) => {
+    other.forEach((character, i) => {
         if(i === 0) {
             labels += claimTabLabel(character.Section, "jobs");
             body += claimTabStart(character.Section);
             if(character.Subsection) {
                 body += claimHeader(character.Subsection);
-            } else {
-                body += claimHeader('Self-employed');
             }
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
-        } else if(employed[i - 1].Section !== character.Section) {
+        } else if(other[i - 1].Section !== character.Section) {
             labels += claimTabLabel(character.Section, "jobs");
             body += claimTabEnd();
             body += claimTabStart(character.Section);
             if(character.Subsection) {
                 body += claimHeader(character.Subsection);
-            } else {
-                body += claimHeader('Self-employed');
             }
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
-        }  else if(employed[i - 1].Section === character.Section && employed[i - 1].Subsection !== character.Subsection) {
+        }  else if(other[i - 1].Section === character.Section && other[i - 1].Subsection !== character.Subsection) {
             if(character.Subsection) {
                 body += claimHeader(character.Subsection);
-            } else {
-                body += claimHeader('Self-employed');
             }
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         } else {
             body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
         }
     });
+    body += claimTabEnd();
+    selfemployed.forEach((character, i) => {
+        if(i === 0) {
+            labels += claimTabLabel(character.Section, "jobs");
+            body += claimTabEnd();
+            body += claimTabStart(character.Section);
+            body += claimHeader('self-employed');
+        }
+        body += characterBox(character.AccountID, character.GroupID, character.Character, [character.Line1, character.Line2]);
+    })
     body += claimTabEnd();
     document.querySelector(labelClip).insertAdjacentHTML('beforeend', labels);
     document.querySelector(tabClip).insertAdjacentHTML('beforeend', body);
