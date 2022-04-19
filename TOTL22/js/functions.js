@@ -371,8 +371,8 @@ function structureJobClaim (data, labelClip = '#jobsTabs', tabClip = '#jobs') {
     other.sort((a, b) => {
         aName = a.Character;
         bName = b.Character;
-        aSection = a.Section;
-        bSection = b.Section;
+        aSection = a.Section.replace('the ', '');
+        bSection = b.Section.replace('the ', '');
         aSubsection = a.Subsection.replace('the ', '');
         bSubsection = b.Subsection.replace('the ', '');
         aLine2 = a.Line2;

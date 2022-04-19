@@ -305,27 +305,29 @@ function postToReserve(formtype = 'POST') {
 }
 
 function postToUpdate(formtype = 'POST') {
-    let member = $("#update-member").val().toLowerCase();
     let character = $("#update-character").val().toLowerCase();
-    let face = $("#update-face").val().toLowerCase();
+    let face = $("#update-facename").val().toLowerCase();
+    let member = $("#update-member").val().toLowerCase();
     let group = $("#update-group").find(":selected").text().toLowerCase();
     let groupID = $("#update-group").find(":selected").val();
     let power1 = $("#update-power1").val().toLowerCase();
-    let power2 = $("#update-power1").val().toLowerCase();
-    let power3 = $("#update-power1").val().toLowerCase();
+    let power2 = $("#update-power2").val().toLowerCase();
+    let power3 = $("#update-power3").val().toLowerCase();
+    let jobtype = $("#update-jobtype").find(":selected").val().toLowerCase();
     let employer = $("#update-company").val().toLowerCase();
     let locationID = $("#update-joblocation").find(":selected").val().toLowerCase();
-    let location = $("#update-joblocation").find(":selected").val().toLowerCase();
+    let location = $("#update-joblocation").find(":selected").text().toLowerCase();
     let career = $("#update-position").val().toLowerCase();
     let program = $("#update-program").val().toLowerCase();
     let allegiance = $("#update-allegiance").find(":selected").text().toLowerCase();
     let role = $("#update-role").val().toLowerCase();
-    let message = `**${member}** has requested updates/additions to the claims list for **${character}**.`;
+    let message = `Claims updates requested for **${capitalize(character)}**.`;
     if(face) {
-        message += `\n**Face:** ${face}`;
+        message += `\n**Member:** ${capitalize(member)}`;
+        message += `\n**Face:** ${capitalize(face)}`;
     }
-    if(group) {
-        message += `\n**New Group:** ${group} (${groupID})`;
+    if(groupID) {
+        message += `\n**New Group:** ${capitalize(group)} (${groupID})`;
     }
     if(power1) {
         message += `\n**Powers:** ${power1}`;
@@ -337,12 +339,16 @@ function postToUpdate(formtype = 'POST') {
         message += `, ${power2}`;
     }
     if(employer) {
-        message += `\n**Employment:** Works for *${employer}*, located in forum ${location} (${locationID}), as ${career}`;
+        message += `\n**${capitalize(jobtype)} Employment:** Works for ${capitalize(employer)}`;
+        if(parseInt(locationID) !== 0) {
+            message += `, located in forum ${capitalize(location)} (${locationID}),`
+        }
+        message += ` as ${career}`;
     }
     if(program) {
-        message += `\n**University Program:** ${program}`;
+        message += `\n**University Program:** ${capitalize(program)}`;
     }
-    if(allegiance) {
+    if(allegiance !== '(select)') {
         message += `\n**Canon Addition:** Aligned with ${allegiance} as ${role}`;
     }
     if(document.querySelector('input[value="unemploy"]:checked')) {
@@ -596,7 +602,52 @@ function structureFaces(data) {
     document.querySelector('#clip-faces').insertAdjacentHTML('beforeend', html);
 }
 function structureJobs(data) {
-    let employed = data.filter(item => item.Employer);
+    let employed = [];
+    data.forEach(character => {
+        employed.push({
+            Character: character.Character,
+            GroupID: character.GroupID,
+            AccountID: character.AccountID,
+            Employer: character.Employer,
+            Location: character.Location,
+            LocationID: character.LocationID,
+            Career: character.Career,
+        });
+        if(character.Employer2) {
+            employed.push({
+                Character: character.Character,
+                GroupID: character.GroupID,
+                AccountID: character.AccountID,
+                Employer: character.Employer2,
+                Location: character.Location2,
+                LocationID: character.LocationID2,
+                Career: character.Career2,
+            });
+        }
+        if(character.Employer3) {
+            employed.push({
+                Character: character.Character,
+                GroupID: character.GroupID,
+                AccountID: character.AccountID,
+                Employer: character.Employer3,
+                Location: character.Location3,
+                LocationID: character.LocationID3,
+                Career: character.Career3,
+            });
+        }
+        if(character.Employer4) {
+            employed.push({
+                Character: character.Character,
+                GroupID: character.GroupID,
+                AccountID: character.AccountID,
+                Employer: character.Employer4,
+                Location: character.Location4,
+                LocationID: character.LocationID4,
+                Career: character.Career4,
+            });
+        }
+    });
+    console.log(employed);
     let students = data.filter(item => item.Program);
     let selfemployed = employed.filter(item => item.Employer === 'self-employed');
     let unemployed = employed.filter(item => item.Employer === 'unemployed' && !item.Program);
@@ -665,10 +716,12 @@ function structureJobs(data) {
     });
     let html = ``;
     hired.forEach((character, i) => {
-        console.log(character);
         if(i === 0) {
             html += `<div class="claim-header"><h2>${character.Employer}</h2>`;
-            html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a></div>`;
+            if(character.LocationID && parseInt(character.LocationID) !== 0) {
+                html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a>`;
+            }
+            html += `</div>`;
             html += `<a class="g-${character.GroupID}" href="?showuser=${character.AccountID}">
                 <div class="claim-item">
                     <b>${character.Character}</b>
@@ -688,7 +741,10 @@ function structureJobs(data) {
                 });
             }
             html += `<div class="claim-header"><h2>${character.Employer}</h2>`;
-            html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a></div>`;
+            if(character.LocationID && parseInt(character.LocationID) !== 0) {
+                html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a>`;
+            }
+            html += `</div>`;
             if(character.Employer === 'university of davenport') {
                 html += `<h3>Faculty & Staff</h3>`;
             }

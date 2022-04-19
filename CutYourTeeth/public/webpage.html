@@ -225,7 +225,15 @@
                                 </select>
                             </label>
                             <label class="hide ifJob">
-                                <strong><span>Company</span></strong>
+                                <strong>
+                                    <span>Company
+                                        <button onclick="openHelp(this)" type="button">
+                                            <i class="fa-solid fa-question"></i>
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </span>
+                                </strong>
+                                <i class="help">If self-employed, use 'self-employed' instead and select 'No Location' in the next field.</i>
                                 <input   type="text"
                                     name="company"
                                     id="sort-company">
@@ -427,14 +435,13 @@
                                 <strong><span>Face Claim</span></strong>
                                 <input   type="text"
                                     name="face"
-                                    id="update-face">
+                                    id="update-facename">
                             </label>
                             <hr class="fullWidth hide ifMoved updateField" />
                             <label class="hide ifMoved updateField">
                                 <strong><span>Lives In</span></strong>
                                 <select  name="group"
-                                        id="update-group"
-                                        required>
+                                        id="update-group">
                                     <option value="">(select)</option>
                                     <option value="12">Central Davenport</option>
                                     <option value="10">Coastline</option>
@@ -464,7 +471,24 @@
                             </label>
                             <hr class="fullWidth hide ifJobUpdate updateField" />
                             <label class="hide ifJobUpdate updateField">
-                                <strong><span>Company</span></strong>
+                                <strong><span>Employment Update</span></strong>
+                                <select  name="job"
+                                        id="update-jobtype">
+                                    <option value="">(select)</option>
+                                    <option value="update">Update current job</option>
+                                    <option value="add">Add additional job</option>
+                                </select>
+                            </label>
+                            <label class="hide ifJobUpdate updateField">
+                                <strong>
+                                    <span>Company
+                                        <button onclick="openHelp(this)" type="button">
+                                            <i class="fa-solid fa-question"></i>
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </span>
+                                </strong>
+                                <i class="help">If self-employed, use 'self-employed' instead and select 'No Location' in the next field.</i>
                                 <input   type="text"
                                     name="company"
                                     id="update-company">
