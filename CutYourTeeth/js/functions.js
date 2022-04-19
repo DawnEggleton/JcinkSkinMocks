@@ -612,6 +612,7 @@ function structureJobs(data) {
             Location: character.Location,
             LocationID: character.LocationID,
             Career: character.Career,
+            Program: character.Program,
         });
         if(character.Employer2) {
             employed.push({
@@ -622,6 +623,7 @@ function structureJobs(data) {
                 Location: character.Location2,
                 LocationID: character.LocationID2,
                 Career: character.Career2,
+                Program: character.Program,
             });
         }
         if(character.Employer3) {
@@ -633,6 +635,7 @@ function structureJobs(data) {
                 Location: character.Location3,
                 LocationID: character.LocationID3,
                 Career: character.Career3,
+                Program: character.Program,
             });
         }
         if(character.Employer4) {
@@ -644,10 +647,10 @@ function structureJobs(data) {
                 Location: character.Location4,
                 LocationID: character.LocationID4,
                 Career: character.Career4,
+                Program: character.Program,
             });
         }
     });
-    console.log(employed);
     let students = data.filter(item => item.Program);
     let selfemployed = employed.filter(item => item.Employer === 'self-employed');
     let unemployed = employed.filter(item => item.Employer === 'unemployed' && !item.Program);
