@@ -327,6 +327,24 @@ if($('body#Pages').length > 0) {
                 }
             });
     });
+
+
+    document.querySelector('#wipadd').addEventListener('submit', e => {
+        e.preventDefault();
+        const url = `https://opensheet.elk.sh/1W-Ffhi7pIe4X1X_tt1SoYaasEewx7Hk5IPd5EJZllOI/Sheet1`;
+            fetch(url)
+            .then((response) => response.json())
+            .then(data => {
+                let face = $("#wip-face").val();
+                instance = data.filter(item => item.Face.toLowerCase() === face.toLowerCase());
+                if(instance.length === 1) {
+                    document.querySelector('#wip-warning').innerHTML = `${instance[0].Member} is already making a character using ${face}. Sorry!`;
+                } else if (instance.length === 0) {
+                    postToWIP();
+                    $('button[type="submit"]').text('Submitting...');
+                }
+            });
+    });
 }
 
 

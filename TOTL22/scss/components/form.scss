@@ -1,5 +1,4 @@
-#sort,
-#sort2 {
+.webpage--tab form {
     grid-gap: 20px;
     
     .form-item,
@@ -161,7 +160,7 @@
 
     }
 
-    #warning {
+    .form-warning {
         &:empty {
 
             & + .form-buttons {

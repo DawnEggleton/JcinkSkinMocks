@@ -125,7 +125,8 @@
                                         <i class="fa-light fa-angles-left"></i>
                                     </button>
                                     <div class="webpage--sub-menu-links">
-                                        <a href="#sorting" data-category="forms">Sorting</a>
+                                        <a href="#sorting" data-category="forms">Get Sorted</a>
+                                        <a href="#wipclaim" data-category="forms">Add to Upcoming Faces</a>
                                     </div>
                                     <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
                                         <i class="fa-light fa-angles-right"></i>
@@ -951,10 +952,35 @@
                                             <option value="head">Head Boy/Girl</option>
                                         </select>
                                     </label>
-                                    <div id="warning"></div>
+                                    <div id="warning" class="form-warning"></div>
                                     <div class="form-buttons fullWidth">
                                         <button type="submit">Submit</button>
-                                        <button onclick="formReset()">Reset</button>
+                                        <button onclick="formReset('#sort')">Reset</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="webpage--tab" data-tab="#wipclaim">
+
+                                <form id="wipadd" class="grid twoCol">
+                                    <label>
+                                        <strong>Alias</strong>
+                                        <input type="text"
+                                            name="wip-alias"
+                                            id="wip-alias"
+                                            required>
+                                    </label>
+                                    <label>
+                                        <strong>Face</strong>
+                                        <input   type="text"
+                                            name="wip-face"
+                                            id="wip-face"
+                                            required>
+                                    </label>
+                                    <div id="wip-warning" class="form-warning"></div>
+                                    <div class="form-buttons fullWidth">
+                                        <button type="submit">Submit</button>
+                                        <button onclick="formReset('#wipadd')">Reset</button>
                                     </div>
                                 </form>
 
@@ -1141,6 +1167,7 @@
                                     <div class="webpage--sub-menu-links">
                                         <a href="#Reserves" data-category="claims">Reserves</a>
                                         <a href="#ClaimedFaces" data-category="claims">Claimed Faces</a>
+                                        <a href="#UpcomingFaces" data-category="forms">Upcoming Faces</a>
                                         <a href="#UniversityClaims" data-category="claims">University Claims</a>
                                         <button data-subcategory="absp-claim">Abilities & Species</button>
                                     </div>
@@ -1163,6 +1190,9 @@
                             </div>
                             <div class="webpage--tab" data-tab="#ClaimedFaces">
                                 <div id="faces" class="claim grid twoCol"></div>
+                            </div>
+                            <div class="webpage--tab" data-tab="#UpcomingFaces">
+                                <div id="upcomingfaces" class="claim grid twoCol"></div>
                             </div>
                             <div class="webpage--tab" data-tab="#UniversityClaims">
                                 <div id="university" class="claim grid twoCol"></div>
@@ -1236,6 +1266,7 @@
 
         <script>
             const url = `https://opensheet.elk.sh/1MQsi3iyJDhtlSiLRvOvmYxiBWZBHjCr7QGbnXyb_u-s/Sheet1`;
+            const upcomingurl = `https://opensheet.elk.sh/1W-Ffhi7pIe4X1X_tt1SoYaasEewx7Hk5IPd5EJZllOI/Sheet1`;
             fetch(url)
             .then((response) => response.json())
             .then((data) => {
@@ -1247,9 +1278,15 @@
                 structureDormClaim(data);
                 structureQuidditchClaim(data);
                 structureLeadClaim(data);
-            }).then(() => {
-                webpageTabs();
-                canonCollapse();
+
+                fetch(upcomingurl)
+                .then((response) => response.json())
+                .then((data) => {
+                    structureUpcomingFaces(data);
+                }).then(() => {
+                    webpageTabs();
+                    canonCollapse();
+                })
             });
         </script>
 

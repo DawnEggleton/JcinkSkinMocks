@@ -915,6 +915,14 @@ function characterBox(id, group, bold, lines = []) {
     box += `</a>`;
     return box;
 }
+
+function simpleBox(face, member) {
+    let box = `<div class="claim--item">
+    <b>${face}</b>
+    <span>being worked on by ${member}</span>
+    </div>`;
+    return box;
+}
                 
 
 function postToGoogle(formtype = 'POST') {
@@ -1078,7 +1086,7 @@ function postToGoogle(formtype = 'POST') {
         document.querySelector('#warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again! If this persists, please open the console (ctrl + shift + J) and let Lux know the error xhr, error status, and error text values.`;
     },
     complete: function () {
-        formReset();
+        formReset('#sort');
         $('button[type="submit"]').text('Submit');
         document.querySelector('#warning').innerHTML = 'Success! Your character has been added to the sheet.';
     }
@@ -1087,15 +1095,47 @@ function postToGoogle(formtype = 'POST') {
   return false;
 }
 
-function formReset() {
-    $('#sort').trigger('reset');
-    hideFields('.ifAdult, .ifJob, .ifStudent, .ifLower, .ifUpper, .ifLeadership, .ifLeadershipPossible, .ifQuidditch, .ifElec, .ifStart, .ifCore, .ifAbilities, .ifAnimagus, .ifVeela, .ifUni');
-    checkYear();
-    checkLeadPos();
-    checkQuid();   
-    removeRequired('#sort-hogwartsyear');
-    removeRequired('#sort-employed');
-    removeRequired('#sort-universitystudent');
+function postToWIP() {
+    let face = $("#wip-face").val().toLowerCase();
+    let member = $("#wip-alias").val().toLowerCase();
+
+    $.ajax({
+        url: `https://script.google.com/macros/s/AKfycbwx2Xq5YNuWCR-Hb9IA0WoVWDS2IstKhS2AQUjLQUcwqtJs5NmV68hAhSDuYB1Dws7nzw/exec`,   
+        data: {
+          "Member": member,
+          "Face": face,
+        },
+        method: 'POST',
+        type: 'POST',
+        dataType: "json", 
+        success: function () {
+            console.log('form submitted successfully');
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('error xhr: ' + jqXHR.status);
+            console.log('error status: ' + textStatus);
+            console.log('error text: ' + errorThrown);
+            document.querySelector('#wip-warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again! If this persists, please open the console (ctrl + shift + J) and let Lux know the error xhr, error status, and error text values.`;
+        },
+        complete: function () {
+            formReset('#wipadd');
+            $('button[type="submit"]').text('Submit');
+            document.querySelector('#wip-warning').innerHTML = 'Success! Your face has been added to the sheet.';
+        }
+      });
+}
+
+function formReset(form) {
+    $(form).trigger('reset');
+    if(form === '#sort') {
+        hideFields('.ifAdult, .ifJob, .ifStudent, .ifLower, .ifUpper, .ifLeadership, .ifLeadershipPossible, .ifQuidditch, .ifElec, .ifStart, .ifCore, .ifAbilities, .ifAnimagus, .ifVeela, .ifUni');
+        checkYear();
+        checkLeadPos();
+        checkQuid();   
+        removeRequired('#sort-hogwartsyear');
+        removeRequired('#sort-employed');
+        removeRequired('#sort-universitystudent');
+    }
 }
 
 function tabbedContent(labels, tabs, remove = '') {
@@ -1311,4 +1351,34 @@ function canonCollapse(e) {
     document.querySelectorAll('canonbranch').forEach(button => {
         button.classList.add('closed-branch');
     });
+}
+
+
+
+function structureUpcomingFaces (data, infoClip = '#upcomingfaces') {
+    console.log(data);
+    data.sort((a, b) => {
+        aValue = a.Face;
+        bValue = b.Face;
+        if (aValue < bValue) {
+            return -1;
+        } else if (aValue > bValue) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    let html = ``;
+    data.forEach((character, i) => {
+        if(i === 0) {
+            html += claimHeader(character.Face[0]);
+            html += simpleBox(character.Face, character.Member);
+        } else if(data[i - 1].Face[0] !== character.Face[0]) {
+            html += claimHeader(character.Face[0]);
+            html += simpleBox(character.Face, character.Member);
+        } else {
+            html += simpleBox(character.Face, character.Member);
+        }
+    });
+    document.querySelector(infoClip).insertAdjacentHTML('beforeend', html);
 }
