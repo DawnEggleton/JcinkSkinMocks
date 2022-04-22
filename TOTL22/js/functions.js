@@ -1358,8 +1358,8 @@ function canonCollapse(e) {
 function structureUpcomingFaces (data, infoClip = '#upcomingfaces') {
     console.log(data);
     data.sort((a, b) => {
-        aValue = a.Face;
-        bValue = b.Face;
+        aValue = a.Face.toLowerCase();
+        bValue = b.Face.toLowerCase();
         if (aValue < bValue) {
             return -1;
         } else if (aValue > bValue) {
