@@ -212,6 +212,7 @@ if($('body#Pages').length > 0) {
 
     document.querySelector('#sort-group').addEventListener('change', () => {
         let selected = document.querySelector('#sort-group').options[document.querySelector('#sort-group').selectedIndex].value;
+        checkCanon();
         switch (selected) {
             case '18':
             case '15':
@@ -303,6 +304,11 @@ if($('body#Pages').length > 0) {
     //Student quidditch change
     document.querySelector('#sort-quidditch').addEventListener('change', () => {
         checkQuid();
+    });
+
+    //Canon change
+    document.querySelector('#sort-canon').addEventListener('change', () => {
+        checkCanon();
     });
 
 

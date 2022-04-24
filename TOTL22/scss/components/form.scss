@@ -48,13 +48,15 @@
         }
 
         select,
-        input {
+        input,
+        textarea {
             border: 0;
             background: var(--content);
             font-size: var(--lBody);
             padding: 8px 10px 9px;
             color: var(--text);
             height: max-content;
+            font-family: var(--body);
         }
     }
 

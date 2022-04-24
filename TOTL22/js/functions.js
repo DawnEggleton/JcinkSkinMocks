@@ -69,6 +69,30 @@ function checkEmployed() {
         removeRequired('#sort-jobnotes');
     }
 }
+function checkCanon() {
+    let selected = document.querySelector('#sort-canon').options[document.querySelector('#sort-canon').selectedIndex].value;
+    let group = document.querySelector('#sort-group').options[document.querySelector('#sort-group').selectedIndex].value;
+    if(selected === 'y' && parseInt(group) === 17) {
+        showFields('.ifCanon, .ifReturn');
+        addRequired('#sort-canonRelation');
+        addRequired('#sort-birth');
+        addRequired('#sort-death');
+        addRequired('#sort-return');
+    } else if (selected === 'y' && parseInt(group) !== 17) {
+        showFields('.ifCanon');
+        hideFields('.ifReturn');
+        addRequired('#sort-canonRelation');
+        addRequired('#sort-birth');
+        removeRequired('#sort-death');
+        removeRequired('#sort-return');
+    } else {
+        hideFields('.ifCanon, .ifReturn');
+        removeRequired('#sort-canonRelation');
+        removeRequired('#sort-birth');
+        removeRequired('#sort-death');
+        removeRequired('#sort-return');
+    }
+}
 function checkUniversity() {
     let selected = document.querySelector('#sort-universitystudent').options[document.querySelector('#sort-universitystudent').selectedIndex].value;
     if(selected == 'y') {
@@ -928,6 +952,8 @@ function simpleBox(face, member) {
 function postToGoogle(formtype = 'POST') {
   let member = $("#sort-member").val().toLowerCase();
   let character = $("#sort-character").val().toLowerCase();
+  let firstName = character.split(' ')[0].trim().toLowerCase();
+  let lastName = character.split(' ').splice(1).join(' ').trim().toUpperCase();
   let accountID = $("#sort-id").val();
   let group = $("#sort-group").find(":selected").text().toLowerCase();
   let groupID = $("#sort-group").val();
@@ -1020,6 +1046,26 @@ function postToGoogle(formtype = 'POST') {
   let quidditchposition = $("#sort-quidditchposition").val().toLowerCase();
   let leadershipposition = $("#sort-leadershipposition").find(":selected").text().toLowerCase();
   if(leadershipposition == `(select)`) {leadershipposition = '';}
+  let canon = $('#sort-canon').find(":selected").val().toLowerCase();
+  let relation = $('#sort-canonRelation').val();
+  let birthYear = $('#sort-birth').val();
+  let deathYear = $('#sort-death').val();
+  let returnYear = $('#sort-return').val();
+  let dorm = $('#sort-preferreddorm').val();
+  let capitalizedGroup = `${group[0].toUpperCase()}${group.substring(1).toLowerCase()}`
+
+  let message = `**${member}** has requested sorting for **${character}**.\n**View Profile:** https://playedgod.jcink.net/?showuser=${accountID}\n**Sort Into:** ${capitalizedGroup}`;
+  if(dorm !== ``) {
+      message += `\n**Dorm Request:** ${dorm}`
+  }
+  if(canon === 'y') {
+      message += `\n**Relation to Canon:**\n\`\`\`${relation}\`\`\``;
+      if(parseInt(groupID) === 17) {
+        message += `\n**Canon Code:**\n\`\`\`<a href="?showuser=${accountID}" class="g-${groupID}"><b>${lastName.toUpperCase()}, ${firstName.toLowerCase()}.</b></a> ${jobtitle}. b. ${birthYear}. d. ${deathYear}. r. ${returnYear}. ${member}.<br>\`\`\``;
+      } else {
+        message += `\n**Canon Code:**\n\`\`\`<a href="?showuser=${accountID}" class="g-${groupID}"><b>${lastName.toUpperCase()}, ${firstName.toLowerCase()}.</b></a> ${jobtitle}. b. ${birthYear}. ${member}.<br>\`\`\``;
+      }
+  }
 
   $.ajax({
     url: `https://script.google.com/macros/s/AKfycbx-Pa97Wz-MamFZ6MYpx2jHQFSM9JHx5ihMPrEF6AfmF-yA7FM4BeVxWOxxsK5f9oAylw/exec`,   
@@ -1078,6 +1124,7 @@ function postToGoogle(formtype = 'POST') {
     dataType: "json", 
     success: function () {
         console.log('form submitted successfully');
+        sendSortRequest(message);
     },
     error: function (jqXHR, textStatus, errorThrown) {
         console.log('error xhr: ' + jqXHR.status);
@@ -1381,4 +1428,44 @@ function structureUpcomingFaces (data, infoClip = '#upcomingfaces') {
         }
     });
     document.querySelector(infoClip).insertAdjacentHTML('beforeend', html);
+}
+
+
+/******DISCORD WEBHOOKS *******/
+
+function sendSortRequest(message) {
+    const request = new XMLHttpRequest();
+    request.open("POST", "https://discord.com/api/webhooks/967898592922730556/ls_rZ4-t-Mz6UHrp2g5CA5hnELU5Y6WwYXFsr7EM0hO8JPPB224kjuUla_zv314ibR8A");
+
+    request.setRequestHeader('Content-type', 'application/json');
+
+    const params = {
+        content: message
+    }
+
+    request.send(JSON.stringify(params));
+}
+function sendReserveRequest(message) {
+    const request = new XMLHttpRequest();
+    request.open("POST", "https://discord.com/api/webhooks/967898737097723924/AleSNIkieXgwG1i7XL7CdLLaF7sTuEZfUcLXQMLoY3idT_1AZJww-XGt0r_YY4SbqNrN");
+
+    request.setRequestHeader('Content-type', 'application/json');
+
+    const params = {
+        content: message
+    }
+
+    request.send(JSON.stringify(params));
+}
+function sendUpdateRequest(message) {
+    const request = new XMLHttpRequest();
+    request.open("POST", "https://discord.com/api/webhooks/967898902684643398/mdDTpl1PiX7EJtEIrGQj0iGPHHf-C0wD-Te0nPz4_-gVafrVCfXUUWLwmnT1gw2-c8El");
+
+    request.setRequestHeader('Content-type', 'application/json');
+
+    const params = {
+        content: message
+    }
+
+    request.send(JSON.stringify(params));
 }

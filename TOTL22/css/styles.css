@@ -2571,10 +2571,9 @@ body:not(.g-4) .post--controls-inner label {
 .profile--sub {
   background: var(--content);
   display: grid;
-  grid-template-columns: 5px auto;
   grid-template-rows: 1fr 1fr;
   grid-gap: 5px 20px;
-  padding: 0 20px 0 0;
+  padding: 20px;
   min-height: 75px;
 }
 .profile--sub.with-image {
@@ -2595,6 +2594,8 @@ body:not(.g-4) .post--controls-inner label {
 .profile--sub b {
   align-self: end;
   font-family: var(--headerFont);
+  font-size: var(--xlBody);
+  padding: 0;
 }
 .profile--sub a {
   max-width: max-content;
@@ -3287,14 +3288,17 @@ body:not(.g-4) .post--controls-inner label {
 }
 .webpage--tab form .form-item select,
 .webpage--tab form .form-item input,
+.webpage--tab form .form-item textarea,
 .webpage--tab form label select,
-.webpage--tab form label input {
+.webpage--tab form label input,
+.webpage--tab form label textarea {
   border: 0;
   background: var(--content);
   font-size: var(--lBody);
   padding: 8px 10px 9px;
   color: var(--text);
   height: max-content;
+  font-family: var(--body);
 }
 .webpage--tab form .form-item .form-flex {
   display: flex;
