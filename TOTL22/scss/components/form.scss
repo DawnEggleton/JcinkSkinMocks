@@ -163,12 +163,6 @@
     }
 
     .form-warning {
-        &:empty {
-
-            & + .form-buttons {
-                margin-top: -20px;
-            }
-        }
     
         &:not(:empty) {
             background: var(--content);

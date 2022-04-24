@@ -3378,9 +3378,6 @@ body:not(.g-4) .post--controls-inner label {
   width: 20px;
   margin-left: 10px;
 }
-.webpage--tab form .form-warning:empty + .form-buttons {
-  margin-top: -20px;
-}
 .webpage--tab form .form-warning:not(:empty) {
   background: var(--content);
   padding: 20px;
