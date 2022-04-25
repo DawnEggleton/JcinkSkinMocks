@@ -1054,7 +1054,7 @@ function postToGoogle(formtype = 'POST') {
   let dorm = $('#sort-preferreddorm').val();
   let capitalizedGroup = `${group[0].toUpperCase()}${group.substring(1).toLowerCase()}`
 
-  let message = `**${member}** has requested sorting for **${character}**.\n**View Profile:** https://playedgod.jcink.net/?showuser=${accountID}\n**Sort Into:** ${capitalizedGroup}`;
+  let message = `**${member}** has requested sorting for **${character}**.\n**View Profile:** https://totl.jcink.net/?showuser=${accountID}\n**Sort Into:** ${capitalizedGroup}`;
   if(dorm !== ``) {
       message += `\n**Dorm Request:** ${dorm}`
   }
