@@ -1,0 +1,97 @@
+#posting-form {
+    & > tbody > tr {
+        border-bottom: 1px solid var(--midGrey-70);
+        display: block;
+        padding: 20px;
+
+        &:first-child {
+            border-top: 1px solid var(--midGrey-70);
+        }
+
+        &:not(#code-buttons) > td {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        &#post-options > td {
+            gap: 20px;
+
+            label {
+                font-size: var(--xlBody);
+                font-family: var(--serif);
+                cursor: pointer;
+            }
+
+            input {
+                display: none;
+
+                & + span {
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    background: var(--light);
+                    margin-right: 5px;
+                    border-radius: 3px;
+                    color: transparent;
+                    margin-top: 10px;
+                    font-family: 'Font Awesome 6 Pro';
+                    line-height: 16px;
+                    font-size: 12px;
+                    text-align: center;
+                    justify-items: center;
+                    align-items: center;
+                }
+                &:checked + span {
+                    color: var(--dark);
+                }
+            }
+        }
+    }
+    #post-icon-options,
+    #topic-settings-header,
+    #code-buttons-header,
+    #code-buttons .pformleft,
+    #enter-your-post-header,
+    #post-as-header,
+    #post-options .pformleft,
+    #post-icon-options .pformleft,
+    #enter-your-post .pformleft,
+    #post-as .pformleft,
+    #topic-title .pformleft,
+    #topic-desc .pformleft {
+        display: none !important;
+    }
+    #topic-title input,
+    #topic-desc input {
+        width: 100%;
+        font-size: var(--xlBody);
+        font-family: var(--serif);
+        padding: 10px 15px;
+        margin: 0;
+    }
+    .maintitle {
+        font-family: var(--serif);
+        font-size: 20px;
+    }
+    #code-buttons {
+        font-size: 0;
+
+        #bbcode-buttons a {
+            color: var(--white);
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 1px;
+        }
+        & > .pformright > input {
+            display: none;
+        }
+    }
+    #enter-your-post textarea {
+        width: 100%;
+        border-radius: 3px;
+        border: 0;
+        background: var(--light);
+        margin: 0;
+        padding: 15px;
+    }
+}

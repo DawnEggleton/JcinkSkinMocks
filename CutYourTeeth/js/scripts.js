@@ -42,8 +42,13 @@ window.onscroll = function() {
 
 
 //append recent topics
-if($('body#idx').length > 0) {
+if($('body#idx').length > 0 || $('body#SC').length > 0) {
     document.querySelector('#recent-topics-clip').append(document.querySelector('#recent-topics'));
+    document.querySelectorAll('.forum-links').forEach(linkList => {
+	  let html = linkList.innerHTML;
+	  linkList.nextElementSibling.innerHTML = html;
+	  linkList.remove();
+    });
 }
 
 
@@ -80,6 +85,11 @@ if($('body#SF').length > 0) {
         let string = $(this).text();
         let newString = string.replace('[', `<span class="threadDate">`).replace(']', `</span>`);
         $(this).html(newString);
+    });
+    document.querySelectorAll('.forum-links').forEach(linkList => {
+	  let html = linkList.innerHTML;
+	  linkList.nextElementSibling.innerHTML = html;
+	  linkList.remove();
     });
 
 }
