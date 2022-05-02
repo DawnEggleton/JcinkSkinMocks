@@ -167,7 +167,7 @@
                             </span>
                         </td>
                         <td width="80%" align="right">
-                            <a href="?act=Post&amp;CODE=00&amp;f=1"><span class="macro--button">New Topic</span></a>
+                            <a href="defaults/newpost.html"><span class="macro--button">New Topic</span></a>
                         </td>
                     </tr>
                 </tbody>
@@ -336,7 +336,7 @@
                                 </span>
                             </td>
                             <td width="80%" align="right">
-                                <a href="?act=Post&amp;CODE=00&amp;f=1"><span class="macro--button">New Topic</span></a>
+                                <a href="defaults/newpost.html"><span class="macro--button">New Topic</span></a>
                             </td>
                         </tr>
                     </tbody>
@@ -388,7 +388,7 @@
                     <br>
                     <br>
 
-                    <form onsubmit="if(document.jumpmenu.f.value == -1){return false;}" action="?act=SF" method="get" name="jumpmenu">
+                    <form action="?act=SF" method="get" name="jumpmenu">
                         <input type="hidden" name="act" value="SF">
                         <input type="hidden" name="s" value="">
                         <select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.jumpmenu.submit() }" class="forminput">

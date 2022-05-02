@@ -463,6 +463,7 @@ function webpageTabs() {
         hashSection.classList.add('active');
         hashContent.classList.add('active');
     } else {
+	console.log('run??');
         //Auto-select tab without hashtag present
         document.querySelector('.webpage--main-menu a').classList.add('active');
         document.querySelector('.webpage--sub-menu-section').classList.add('active');
@@ -722,7 +723,7 @@ function structureJobs(data) {
         if(i === 0) {
             html += `<div class="claim-header"><h2>${character.Employer}</h2>`;
             if(character.LocationID && parseInt(character.LocationID) !== 0) {
-                html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a>`;
+                html += `<a href="?showforum=${character.LocationID}">Visit — ${character.Location}</a>`;
             }
             html += `</div>`;
             html += `<a class="g-${character.GroupID}" href="?showuser=${character.AccountID}">
@@ -745,7 +746,7 @@ function structureJobs(data) {
             }
             html += `<div class="claim-header"><h2>${character.Employer}</h2>`;
             if(character.LocationID && parseInt(character.LocationID) !== 0) {
-                html += `<a href="?showforum=${character.LocationID}">Visit &mdash; ${character.Location}</a>`;
+                html += `<a href="?showforum=${character.LocationID}">Visit — ${character.Location}</a>`;
             }
             html += `</div>`;
             if(character.Employer === 'university of davenport') {

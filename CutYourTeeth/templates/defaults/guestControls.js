@@ -1,12 +1,12 @@
 const guestControlsTemplate = `
 <div class="controls--user">
     <div class="controls--user-left">
-        <a href="profile.html"><img src="http://placehold.it/100" /></a>
+        <a href="../profile.html"><img src="http://placehold.it/100" /></a>
     </div>
     <div class="controls--user-right">
         <a class="name">Welcome to Play God!</a>
-        <a href="defaults/register.html">Register</a>
-        <a href="defaults/login.html">Login</a>
+        <a href="?act=Reg&CODE=00">Register</a>
+        <a href="?act=Login&CODE=00">Login</a>
     </div>
 </div>
 <div class="controls--site">

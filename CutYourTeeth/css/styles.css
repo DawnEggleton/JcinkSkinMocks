@@ -314,8 +314,7 @@
 table,
 tbody,
 tr,
-td,
-th {
+td {
   all: unset;
 }
 
@@ -343,7 +342,7 @@ body {
   font-size: var(--mBody);
   font-family: var(--body);
   font-weight: 400;
-  color: var(--dark);
+  color: var(--light);
   background-image: var(--headerImage);
   background-size: cover;
   background-repeat: no-repeat;
@@ -449,10 +448,11 @@ body.lgFont .smallOnly,
 
 main {
   transition-duration: 0.75s;
+  min-height: calc(100vh - 129px);
 }
 main.controls-open > * {
-  opacity: 0;
-  transition-duration: 0.75s;
+  opacity: 0 !important;
+  transition-duration: 0.75s !important;
 }
 main.controls-open ~ * {
   height: 0 !important;
@@ -883,6 +883,10 @@ ul.timeline li.event {
 #posting-form > tbody > tr {
   border-bottom: 1px solid var(--midGrey-70);
   display: block;
+  padding: 20px;
+}
+#posting-form > tbody > tr:first-child {
+  border-top: 1px solid var(--midGrey-70);
 }
 #posting-form > tbody > tr:not(#code-buttons) > td {
   width: 100%;
@@ -895,6 +899,10 @@ ul.timeline li.event {
 #posting-form > tbody > tr#post-options > td label {
   font-size: var(--xlBody);
   font-family: var(--serif);
+  cursor: pointer;
+}
+#posting-form > tbody > tr#post-options > td input {
+  display: none;
 }
 #posting-form > tbody > tr#post-options > td input + span {
   display: inline-block;
@@ -907,10 +915,15 @@ ul.timeline li.event {
   margin-top: 10px;
   font-family: "Font Awesome 6 Pro";
   line-height: 16px;
+  font-size: 12px;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
 }
 #posting-form > tbody > tr#post-options > td input:checked + span {
   color: var(--dark);
 }
+#posting-form #post-icon-options,
 #posting-form #topic-settings-header,
 #posting-form #code-buttons-header,
 #posting-form #code-buttons .pformleft,
@@ -930,11 +943,14 @@ ul.timeline li.event {
   font-size: var(--xlBody);
   font-family: var(--serif);
   padding: 10px 15px;
+  margin: 0;
 }
 #posting-form .maintitle {
-  border-top: 1px solid var(--midGrey-70);
   font-family: var(--serif);
   font-size: 20px;
+}
+#posting-form #code-buttons {
+  font-size: 0;
 }
 #posting-form #code-buttons #bbcode-buttons a {
   color: var(--white);
@@ -950,6 +966,114 @@ ul.timeline li.event {
   border-radius: 3px;
   border: 0;
   background: var(--light);
+  margin: 0;
+  padding: 15px;
+}
+
+#UserCP main > table,
+#UserCP main > table > tbody,
+#UserCP main > table > tbody > tr,
+#UserCP main > table > tbody > tr > td,
+#Msg main > table,
+#Msg main > table > tbody,
+#Msg main > table > tbody > tr,
+#Msg main > table > tbody > tr > td,
+#store main > table,
+#store main > table > tbody,
+#store main > table > tbody > tr,
+#store main > table > tbody > tr > td,
+#modcp main > table,
+#modcp main > table > tbody,
+#modcp main > table > tbody > tr,
+#modcp main > table > tbody > tr > td {
+  position: relative;
+}
+#UserCP main > table ~ div[align=right],
+#Msg main > table ~ div[align=right],
+#store main > table ~ div[align=right],
+#modcp main > table ~ div[align=right] {
+  padding: 20px 15px 15px 20px;
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#UserCP main > table > tbody > tr,
+#Msg main > table > tbody > tr,
+#store main > table > tbody > tr,
+#modcp main > table > tbody > tr {
+  display: grid;
+  grid-template-columns: 200px 0 auto;
+  border-top: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child,
+#UserCP #ucpmenu,
+#Msg main > table:first-child > tbody > tr > td:first-child,
+#Msg #ucpmenu,
+#store main > table:first-child > tbody > tr > td:first-child,
+#store #ucpmenu,
+#modcp main > table:first-child > tbody > tr > td:first-child,
+#modcp #ucpmenu {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-right: 1px solid var(--midGrey-70);
+  gap: 5px;
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child b,
+#UserCP #ucpmenu b,
+#Msg main > table:first-child > tbody > tr > td:first-child b,
+#Msg #ucpmenu b,
+#store main > table:first-child > tbody > tr > td:first-child b,
+#store #ucpmenu b,
+#modcp main > table:first-child > tbody > tr > td:first-child b,
+#modcp #ucpmenu b {
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  margin-top: 20px;
+  color: var(--white);
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child b:first-child,
+#UserCP #ucpmenu b:first-child,
+#Msg main > table:first-child > tbody > tr > td:first-child b:first-child,
+#Msg #ucpmenu b:first-child,
+#store main > table:first-child > tbody > tr > td:first-child b:first-child,
+#store #ucpmenu b:first-child,
+#modcp main > table:first-child > tbody > tr > td:first-child b:first-child,
+#modcp #ucpmenu b:first-child {
+  margin-top: 0;
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child a,
+#UserCP #ucpmenu a,
+#Msg main > table:first-child > tbody > tr > td:first-child a,
+#Msg #ucpmenu a,
+#store main > table:first-child > tbody > tr > td:first-child a,
+#store #ucpmenu a,
+#modcp main > table:first-child > tbody > tr > td:first-child a,
+#modcp #ucpmenu a {
+  background: var(--light);
+  color: var(--dark);
+  padding: 10px 20px;
+  font-size: var(--mBody);
+  font-family: var(--serif);
+  text-transform: capitalize;
+  border-radius: 2px;
+  text-align: center;
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child a:hover,
+#UserCP #ucpmenu a:hover,
+#Msg main > table:first-child > tbody > tr > td:first-child a:hover,
+#Msg #ucpmenu a:hover,
+#store main > table:first-child > tbody > tr > td:first-child a:hover,
+#store #ucpmenu a:hover,
+#modcp main > table:first-child > tbody > tr > td:first-child a:hover,
+#modcp #ucpmenu a:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child,
+#Msg main > table:first-child > tbody > tr > td:first-child,
+#store main > table:first-child > tbody > tr > td:first-child,
+#modcp main > table:first-child > tbody > tr > td:first-child {
+  width: auto !important;
 }
 
 /*******************************

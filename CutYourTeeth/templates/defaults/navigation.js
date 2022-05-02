@@ -1,6 +1,6 @@
 const navTemplate = `
 <div id="navstrip" align="left">
-    <a href="index.html">Play God</a>
+    <a href="../index.html">Play God</a>
 </div>
 
 <!--Desktop Menu-->
@@ -10,12 +10,12 @@ const navTemplate = `
             <a href="webpage.html">Guide</a>
             <ul>
                 <span>
-                    <li><a href="webpage.html#premise">Premise</a></li>
-                    <li><a href="webpage.html#etiquette">Etiquette</a></li>
-                    <li><a href="webpage.html#timeline">Timeline</a></li>
-                    <li><a href="webpage.html#setting">Setting</a></li>
-                    <li><a href="webpage.html#canons">Canons</a></li>
-                    <li><a href="webpage.html#claims">Claims</a></li>
+                    <li><a href="../webpage.html#premise">Premise</a></li>
+                    <li><a href="../webpage.html#etiquette">Etiquette</a></li>
+                    <li><a href="../webpage.html#timeline">Timeline</a></li>
+                    <li><a href="../webpage.html#setting">Setting</a></li>
+                    <li><a href="../webpage.html#canons">Canons</a></li>
+                    <li><a href="../webpage.html#claims">Claims</a></li>
                 </span>
             </ul>
         </li>
@@ -44,7 +44,7 @@ const navTemplate = `
             <ul class="staff">
                 <span>
                     <li><a href="#">Admin CP</a></li>
-                    <li><a href="modcp/mod.html">Mod CP</a></li>
+                    <li><a href="../modcp/mod.html">Mod CP</a></li>
                     <li><a href="https://docs.google.com/spreadsheets/d/1egWN7GbLdcKs_T9eKQTE0viNMbua7b7A5ebbBUpyPMo/edit#gid=0">Activity</a></li>
                 </span>
             </ul>
@@ -62,15 +62,15 @@ const navTemplate = `
         <div class="scroll">
             <li class="name">Navigation</li>
             <li>
-                <a href="webpage.html">Guide</a>
+                <a href="../webpage.html">Guide</a>
                 <ul>
                     <span>
-                        <li><a href="webpage.html#premise">Premise</a></li>
-                        <li><a href="webpage.html#etiquette">Etiquette</a></li>
-                        <li><a href="webpage.html#timeline">Timeline</a></li>
-                        <li><a href="webpage.html#setting">Setting</a></li>
-                        <li><a href="webpage.html#canons">Canons</a></li>
-                        <li><a href="webpage.html#claims">Claims</a></li>
+                        <li><a href="../webpage.html#premise">Premise</a></li>
+                        <li><a href="../webpage.html#etiquette">Etiquette</a></li>
+                        <li><a href="../webpage.html#timeline">Timeline</a></li>
+                        <li><a href="../webpage.html#setting">Setting</a></li>
+                        <li><a href="../webpage.html#canons">Canons</a></li>
+                        <li><a href="../webpage.html#claims">Claims</a></li>
                     </span>
                 </ul>
             </li>
@@ -111,13 +111,12 @@ const navTemplate = `
                     </form>
                 </span>
             </li>
-            <li class="memOnly"><a href="">Edit Profile</a></li>
-            <li class="memOnly"><a href="">Inbox (0)</a></li>
-            <li class="memOnly"><a href="">Alerts (0)</a></li>
-            <li class="memOnly"><a href="">Logout</a></li>
+            <li class="memOnly"><a href="../usercp/user-edit.html">Edit Profile</a></li>
+            <li class="memOnly"><a href="../usercp/user-alerts.html">Alerts (0)</a></li>
+            <li class="memOnly"><a href="../defaults/logout.html">Logout</a></li>
             <li class="name guestOnly">Visitor</li>
-            <li class="guestOnly"><a href="">Register</a></li>
-            <li class="guestOnly"><a href="">Login</a></li>
+            <li class="guestOnly"><a href="../defaults/register.html">Register</a></li>
+            <li class="guestOnly"><a href="../defaults/login.html">Login</a></li>
             <hr class="memOnly">
             <li class="name memOnly">Personal Links</li>
             <li class="memOnly"><a href="">Personal</a></li>

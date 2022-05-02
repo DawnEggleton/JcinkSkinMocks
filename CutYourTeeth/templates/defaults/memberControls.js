@@ -1,7 +1,7 @@
 const memControlsTemplate = `
 <div class="controls--user">
     <div class="controls--user-left">
-        <a href="profile.html"><img src="https://64.media.tumblr.com/b8fb1f7acf637dd06f881a35b253f132/tumblr_p8q8bhKscU1qee9ito4_400.gif" /></a>
+        <a href="../profile.html"><img src="https://64.media.tumblr.com/b8fb1f7acf637dd06f881a35b253f132/tumblr_p8q8bhKscU1qee9ito4_400.gif" /></a>
         <span id="subaccounts_menu">
             <form action="https://playedgod.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
                 <input type="hidden" name="auth_key" value="67b665903a8fc5105c6bbb3892012108">
@@ -22,10 +22,10 @@ const memControlsTemplate = `
         </span>
     </div>
     <div class="controls--user-right">
-        <a href="profile.html" class="name">Duncan O'Donnelly-Taggart</a>
-        <a href="usercp/user-home.html">Controls</a>
-        <a href="usercp/user-alerts.html">Alerts (0)</a>
-        <a href="defaults/logout.html">Logout</a>
+        <a href="../profile.html" class="name">Duncan O'Donnelly-Taggart</a>
+        <a href="../usercp/user-home.html">Controls</a>
+        <a href="../usercp/user-alerts.html">Alerts (0)</a>
+        <a href="../defaults/logout.html">Logout</a>
     </div>
 </div>
 <div class="controls--site">

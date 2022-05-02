@@ -1,6 +1,12 @@
 /*******************************
     Global
 ********************************/
+table,
+tbody,
+tr,
+td {
+    all: unset;
+}
 
 * {
     position: relative;
@@ -126,10 +132,11 @@ body.lgFont .smallOnly,
 
 main {
     transition-duration: 0.75s;
+    min-height: calc(100vh - 129px);
 
     &.controls-open > * {
-        opacity: 0;
-        transition-duration: 0.75s;
+        opacity: 0 !important;
+        transition-duration: 0.75s !important;
     }
     &.controls-open ~ * {
         height: 0 !important;
