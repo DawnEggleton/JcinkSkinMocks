@@ -6,6 +6,7 @@ tbody,
 tr,
 td {
     all: unset;
+    position: relative;
 }
 
 * {
@@ -46,9 +47,22 @@ img {
     max-width: 100%;
     object-fit: cover;
 }
+textarea,
 input,
 select {
     max-width: 100%;
+}
+textarea {
+    background: var(--light);
+    border: 0;
+    padding: 15px;
+    border-radius: 2px;
+    color: var(--dark);
+    font-size: var(--mBody);
+    font-family: var(--body);
+    font-weight: 500;
+    line-height: 200%;
+    margin: 0 5px 5px 0;
 }
 input[type="text"] {
     background: var(--light);
@@ -476,5 +490,5 @@ ul.timeline {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }

@@ -1,6 +1,42 @@
 /***********************************
 	Global, Load ALWAYS
 ***********************************/
+//Variables
+//User CP Edit Profile Alterations
+const toggleFields = [document.querySelector('#field_39_input'), document.querySelector('#field_55_input')];
+
+const charOnly = ['#field_42', '#field_10', '#field_11', '#field_12', '#field_13', '#field_14', '#field_22', '#field_23', '#field_15', '#field_43', '#field_20', '#field_21', '#field_44', '#field_37', '#field_38', '#field_16', '#field_18', '#field_17', '#field_19', '#field_24', '#field_25', '#field_45', '#field_27', '#field_28', '#field_29', '#field_26', '#field_31', '#field_30', '#field_32', '#field_33', '#field_34', '#field_48', '#field_49', '#field_50', '#field_51', '#field_55', '#field_72', '#field_46', '#field_53'];
+const memImg = ['#field_35', '#field_52', '#field_47', '#field_54'];
+const basicImg = ['#field_46', '#field_53'];
+const sideGrid = ['#field_56', '#field_57', '#field_58', '#field_59'];
+const masonImg = ['#field_60', '#field_61', '#field_62', '#field_63'];
+const lgMasonImg = ['#field_64', '#field_65', '#field_66', '#field_67', '#field_68', '#field_69', '#field_70', '#field_71'];
+
+
+const allHeaders = [
+    {'title': 'Player', 'insertBefore': '#field_1'},
+    {'title': 'Images', 'insertBefore': '#field_55'},
+];
+const charHeaders = [
+    {'title': 'Introduction', 'insertBefore': '#field_42'},
+    {'title': 'Context', 'insertBefore': '#field_51'},
+    {'title': 'Synopsis', 'insertBefore': '#field_24'},
+    {'title': 'Relationships', 'insertBefore': '#field_27'},
+    {'title': 'Links', 'insertBefore': '#field_31'},
+];
+
+const sliders = [
+    $('#field_16_input'),
+    $('#field_17_input'),
+    $('#field_18_input'),
+    $('#field_19_input')
+];
+let vals = [
+    sliders[0].val(),
+    sliders[1].val(),
+    sliders[2].val(),
+    sliders[3].val()
+];
 
 //Toggles
 /* Original Cookie Script by Essi - sourced.jcink.net */
@@ -232,21 +268,30 @@ if($('body#Pages').length > 0) {
 
 //UCP Only
 if($('body#UserCP').length > 0) {
-    document.querySelector('#ucpmenu').innerHTML = `<b>Account</b>
-    <a href="user-edit.html">Edit Profile</a>
-    <a href="user-avatar.html">Update Avatar</a>
-    <a href="user-accounts.html">Sub-accounts</a>
-    <a href="user-name.html">Edit Username</a>
-    <a href="user-pass.html">Change Password</a>
-    <a href="user-email.html">Update Email</a>
-    <b>Tracking</b>
-    <a href="user-alerts.html">Alerts</a>
-    <a href="user-forums.html">Forums</a>
-    <a href="user-topics.html">Topics</a>
-    <b>Settings</b>
-    <a href="user-boardset.html">Board</a>
-    <a href="user-alertset.html">Alerts</a>
-    <a href="user-emailset.html">Emails</a>`;
+    document.querySelector('#ucpmenu').innerHTML = `
+    <button class="ucp-menu-toggle" onClick="openUserMenu(this)">
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+    </button>
+    <div class="ucp-menu scroll">
+        <button class="ucp-menu-toggle" onClick="closeUserMenu(this)">
+            <i class="fa-solid fa-times"></i>
+        </button>
+        <b>Account</b>
+        <a href="user-edit.html">Edit Profile</a>
+        <a href="user-avatar.html">Update Avatar</a>
+        <a href="user-accounts.html">Sub-accounts</a>
+        <a href="user-name.html">Edit Username</a>
+        <a href="user-pass.html">Change Password</a>
+        <a href="user-email.html">Update Email</a>
+        <b>Tracking</b>
+        <a href="user-alerts.html">Alerts</a>
+        <a href="user-forums.html">Forums</a>
+        <a href="user-topics.html">Topics</a>
+        <b>Settings</b>
+        <a href="user-boardset.html">Board</a>
+        <a href="user-alertset.html">Alerts</a>
+        <a href="user-emailset.html">Emails</a>
+    </div>`;
 
     // If using menu replacement in live skin, remove the above and uncomment the below:
     /*
@@ -266,47 +311,55 @@ if($('body#UserCP').length > 0) {
     <a href="?act=UserCP&CODE=alerts_settings">Alerts</a>
     <a href="?act=UserCP&CODE=02">Emails</a>`;
     */
+
+
+
+	//Edit Profile Edits
+	if($('body.code-01').length > 0) {
+	
+		cpShift();
+		splitProfile();
+	
+		toggleFields.forEach(toggle => {
+			toggle.addEventListener('change', () => {
+				cpShift();
+				splitProfile();
+			});
+		});
+		
+		for (var i = 0; i < sliders.length; i++) {
+			sliders[i].prop('type','range').attr({min:0,max:100,step:1}).after('<span class="fieldVal">unset</span>');
+			sliders[i].next().attr('id',sliders[i].attr('id')).text(`${vals[i]}%`);
+			if(vals[i] == '') {
+				sliders[i].next().text('n/a');
+			}
+			
+			$(sliders[i]).on('change', function(){
+				this.setAttribute('value',this.value);
+				vals[i] = this.value;
+				this.nextSibling.innerHTML = `${vals[i]}%`;
+			});
+				
+		}
+
+        document.querySelectorAll('#ucpcontent .cp-sect input[type="text"]').forEach(input => {
+            let label = input.getAttribute('id');
+            if(document.querySelector('label[for="' + label + '"]')) {
+                input.setAttribute('placeholder', document.querySelector('label[for="' + label + '"]').innerText);
+            }
+        });
+
+        document.querySelectorAll('#ucpcontent .cp-sect textarea').forEach(input => {
+            let label = input.getAttribute('id');
+            if(document.querySelector('label[for="' + label + '"]')) {
+                input.setAttribute('placeholder', document.querySelector('label[for="' + label + '"]').innerText);
+            }
+        });
+	}
 }
 
 
-//Store Only
-if($('body#store').length > 0) {
-    document.querySelector('#ucpmenu').innerHTML = `<b>Personal</b>
-    <a href="store-inventory.html">Inventory</a>
-    <a href="store-sendmoney.html">Send Money</a>
-    <a href="store-senditem.html">Send Item</a>
-    <b>Shop</b>
-    <a href="store-category.html">Category Name</a>
-    <b class="staffOnly">Staff</b>
-    <a href="store-fine.html" class="staffOnly">Fine</a>
-    <a href="store-editpoints.html" class="staffOnly">Edit Points</a>
-    <a href="store-edititems.html" class="staffOnly">Edit Inventory</a>`;
-
-    // If using menu replacement in live skin, remove the above and uncomment the below:
-    /*
-    document.querySelector('#ucpmenu').innerHTML = `<b>Personal</b>
-    <a href="?act=store&CODE=inventory">Inventory</a>
-    <a href="?act=store&code=donate_money">Send Money</a>
-    <a href="?act=store&code=donate_item">Send Item</a>
-    <b>Shop</b>
-    <a href="?act=store&code=shop&category=5">Appreciation</a>
-    <a href="?act=store&code=shop&category=2">Education</a>
-    <a href="?act=store&code=shop&category=6" class="staffOnly">Events</a>
-    <a href="?act=store&code=shop&category=1">Features & Occupations</a>
-    <a href="?act=store&code=shop&category=7" class="staffOnly">Longevity</a>
-    <a href="?act=store&code=shop&category=9" class="staffOnly">Posting</a>
-    <a href="?act=store&code=shop&category=8" class="staffOnly">Productivity</a>
-    <a href="?act=store&code=shop&category=3">Relationship Status</a>
-    <a href="?act=store&code=shop&category=4">Traits & Other</a>
-    <b class="staffOnly">Staff</b>
-    <a href="?act=store&code=fine" class="staffOnly">Fine</a>
-    <a href="?act=store&code=edit_points" class="staffOnly">Edit Points</a>
-    <a href="?act=store&code=edit_inventory" class="staffOnly">Edit Inventory</a>`;
-    */
-}
-
-
-//Store Only
+//ModCP Only
 if($('body#modcp').length > 0) {
     document.querySelector('#modcp main > table:first-child > tbody > tr > td:first-child').innerHTML = `<b>Forums & Posts</b>
     <a href="mod-queue.html">Queue</a>

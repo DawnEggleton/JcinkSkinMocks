@@ -821,3 +821,106 @@ function structurePowers(data) {
     });
     document.querySelector('#clip-powers').insertAdjacentHTML('beforeend', html);
 }
+
+
+function adjustCP(show, hide, headers) {
+	show.forEach(field => {
+		showAccField(field);
+	});
+	hide.forEach(field => {
+		hideAccField(field);
+	});
+	document.querySelectorAll('.cp-header').forEach(header => {
+		header.remove();
+	});
+	headers.forEach(header => {
+		insertCPHeader(header['title'], header['insertBefore']);
+	});
+}
+
+function cpShift() {
+	let imageSet = document.querySelector('#field_55_input').value,
+	    account = document.querySelector('#field_39_input').value,
+	    showFields = [],
+	    hideFields = [],
+	    showHeaders = allHeaders;
+
+	if(account == 'character') {
+
+		if(imageSet == 'single') {
+			showFields = charOnly.concat(memImg).concat(basicImg);
+			hideFields = sideGrid.concat(masonImg).concat(lgMasonImg);
+		}
+		else if(imageSet == 'lGrid' || imageSet == 'rGrid') {
+			showFields = charOnly.concat(memImg).concat(sideGrid);
+			hideFields = basicImg.concat(masonImg).concat(lgMasonImg);
+		}
+		else if(imageSet == 'mason') {
+			showFields = charOnly.concat(memImg).concat(masonImg);
+			hideFields = basicImg.concat(sideGrid).concat(lgMasonImg);
+		}
+		else if(imageSet == 'lgMason') {
+			showFields = charOnly.concat(memImg).concat(lgMasonImg);
+			hideFields = basicImg.concat(sideGrid).concat(masonImg);
+		}
+		else {
+			showFields = charOnly;
+			hideFields = basicImg.concat(sideGrid).concat(masonImg).concat(lgMasonImg).concat(memImg);
+		}
+
+		showHeaders = showHeaders.concat(charHeaders);
+		adjustCP(showFields, hideFields, showHeaders);
+
+	} else {
+
+		showFields = memImg;
+		hideFields = charOnly.concat(basicImg).concat(sideGrid).concat(masonImg).concat(lgMasonImg);
+		adjustCP(showFields, hideFields, showHeaders);
+	}
+}
+
+
+function hideAccField(field) {
+	document.querySelector(field).classList.add('hide');
+}
+
+
+function showAccField(field) {
+	document.querySelector(field).classList.remove('hide');
+}
+
+
+function insertCPHeader (title, field, identifier) {
+	$(field).before(`<tr class="pformstrip cp-header"><td>${title}</td></tr>`);
+}
+
+
+function removeMenuItem(menuItem, content) {
+	if(menuItem.innerHTML == content) {
+		menuItem.remove();
+	}
+}
+
+function splitProfile() {
+	if($('.cp-sect').length > 0) {
+		  if ( $('form > table tr').parent().is( "div" ) ) {
+		  	$('form > table tr').unwrap();
+		  }
+	}
+	let headers = $('.cp-header');
+	headers.each(function (index, el) {
+		if(index == headers.length - 1) {
+			$(this).nextUntil('tr:last-child').wrapAll('<div class="cp-sect"></div>');
+		} else {
+			$(this).nextUntil('.cp-header').wrapAll('<div class="cp-sect"></div>');
+		}
+	});
+}
+
+function openUserMenu (e) {
+    e.classList.add('is-open');
+}
+
+function closeUserMenu (e) {
+    e.parentNode.previousElementSibling.classList.remove('is-open');
+}

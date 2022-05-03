@@ -30,7 +30,7 @@
         <script type='text/javascript' src='../../js/settings.js'></script>
         <link rel="stylesheet" href="../../css/settings.css" />
     </head>
-    <body id="UserCP" class="dark g-4">
+    <body id="UserCP" class="dark g-4 code-01">
         
         <!--Header-->
         <header></header>
@@ -46,7 +46,758 @@
 
         <!--Main Body-->
         <main>
+            <a name="top"></a>
             
+<!--
+TABLE TO FIX IE/6 ISSUE
+The one where 23% margin + 100% table = 123% in IE6 o_O
+-->
+<table width="100%" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td id="ucpmenu" valign="top">
+    <div class="maintitle">Menu</div>
+     <!--IBF.TSLLINKS-->
+	 <!-- Messenger -->
+	 <div class="pformstrip">Messenger</div>
+	 <p>
+	 · <a href="https://playedgod.jcink.net/index.php?act=Msg&amp;CODE=04"><strong>Compose New Message</strong></a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=Msg&amp;CODE=01"><strong>Go to Inbox</strong></a><br>
+	 &nbsp; '— <a href="https://playedgod.jcink.net/index.php?act=Msg&amp;CODE=01&amp;VID=sent">Sent Items</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=Msg&amp;CODE=delete">Empty PM Folders</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=Msg&amp;CODE=07">Edit Storage Folders</a><br>
+	 · <a href="javascript:window.open('index.php?showuser=1&amp;CODE=friends','Friends','width=620,height=460,resizable=yes,scrollbars=yes');void(0);">My Friends/Contacts</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=Msg&amp;CODE=14">Archive Messages</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=Msg&amp;CODE=20">Saved (Unsent) PMs</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=Msg&amp;CODE=30">Message Tracker</a><br>
+	 </p>
+	 <!-- End Messenger -->
+	 <!-- Topic Tracker -->
+	 <div class="pformstrip">Subscriptions</div>
+	 <p>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=26">View Topics</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=50">View Forums</a><br>
+	 </p>
+	 <!-- Profile -->
+	 <div class="pformstrip">Personal Profile</div>
+	 <p>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=01">Edit Profile info</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=22">Edit Signature</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=54">Edit Sub-accounts</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=24">Edit Avatar Settings</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=52">Change Username</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=photo">Change Personal Photo</a><br>
+	 </p>
+	 <!-- Options -->
+	 <div class="pformstrip">Options</div>
+	 <p>
+	 <!--IBF.OPTION_LINKS-->
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=alerts_settings">Alert Settings</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=02">Email Settings</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=04">Board Settings</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=40">Shoutbox Settings</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=06">Skin and Languages</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=08">Change Email Address</a><br>
+	 · <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=28">Change Password</a>
+	 </p>
+ </td>
+ <td style="padding:2px"><!-- --></td>
+<!-- Start main CP area -->
+ <td id="ucpcontent" valign="top">
+  <div class="maintitle">Welcome to your control panel </div>            
+			     <script language="javascript" type="text/javascript">
+
+var LocationMax  = "50000";
+var InterestMax  = "50000";
+
+function CheckLength(Type) {
+    LocationLength  = document.theForm.Location.value.length;
+    InterestLength  = document.theForm.Interests.value.length;
+    message  = "";
+
+    if (Type == "location") {
+        if (LocationMax !=0) {
+            message = "Location: The maximum allowed length is " + LocationMax + " characters.";
+        } else {
+            message = "";
+        }
+        alert(message + "  You have used " + LocationLength + " characters so far.");
+    }
+    if (Type == "interest") {
+        if (InterestMax !=0) {
+            message = "Interests: The maximum allowed length is " + InterestMax + " characters.";
+        } else {
+            message = "";
+        }
+        alert(message + "  You have used " + InterestLength + " characters so far.");
+    }
+    
+}
+
+function ValidateProfile() {
+
+    LocationLength  = document.theForm.Location.value.length;
+    InterestLength  = document.theForm.Interests.value.length;
+
+    errors = "";
+
+    if (LocationMax !=0) {
+        if (LocationLength > LocationMax) {
+            errors = "Location:  The maximum allowed length is " + LocationMax + " characters.  You have used: " + LocationLength;
+        }
+    }
+    if (InterestMax !=0) {
+        if (InterestLength > InterestMax) {
+            errors = errors + "  Interests:  The maximum allowed length is " + InterestMax + " characters.  You have used: " + InterestLength;
+        }
+    } 
+    
+    if (errors != "") {
+        alert(errors);
+        return false;
+    } else {
+        return true;
+    }
+}
+//-->
+</script>
+<form action="https://playedgod.jcink.net/index.php?auth_key=67b665903a8fc5105c6bbb3892012108" method="post" name="theForm">
+<input type="hidden" name="act" value="UserCP">
+<input type="hidden" name="CODE" value="21">
+
+<!--{REQUIRED.FIELDS}-->
+<div class="pformstrip">Your personal profile, this section is optional</div>
+<table width="100%">
+<!--{MEMBERTITLE}-->
+  <tbody><tr>
+  <td class="pformleft"><b>Date of Birth</b></td>
+  <td class="pformright">
+  <select name="day" class="forminput"><option value="0">--</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select> 
+  <select name="month" class="forminput"><option value="0">--</option><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select> 
+  <select name="year" class="forminput"><option value="0">--</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option><option value="1986">1986</option><option value="1985">1985</option><option value="1984">1984</option><option value="1983">1983</option><option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option><option value="1979">1979</option><option value="1978">1978</option><option value="1977">1977</option><option value="1976">1976</option><option value="1975">1975</option><option value="1974">1974</option><option value="1973">1973</option><option value="1972">1972</option><option value="1971">1971</option><option value="1970">1970</option><option value="1969">1969</option><option value="1968">1968</option><option value="1967">1967</option><option value="1966">1966</option><option value="1965">1965</option><option value="1964">1964</option><option value="1963">1963</option><option value="1962">1962</option><option value="1961">1961</option><option value="1960">1960</option><option value="1959">1959</option><option value="1958">1958</option><option value="1957">1957</option><option value="1956">1956</option><option value="1955">1955</option><option value="1954">1954</option><option value="1953">1953</option><option value="1952">1952</option><option value="1951">1951</option><option value="1950">1950</option><option value="1949">1949</option><option value="1948">1948</option><option value="1947">1947</option><option value="1946">1946</option><option value="1945">1945</option><option value="1944">1944</option><option value="1943">1943</option><option value="1942">1942</option><option value="1941">1941</option><option value="1940">1940</option><option value="1939">1939</option><option value="1938">1938</option><option value="1937">1937</option><option value="1936">1936</option><option value="1935">1935</option><option value="1934">1934</option><option value="1933">1933</option><option value="1932">1932</option><option value="1931">1931</option><option value="1930">1930</option><option value="1929">1929</option><option value="1928">1928</option><option value="1927">1927</option><option value="1926">1926</option><option value="1925">1925</option><option value="1924">1924</option><option value="1923">1923</option><option value="1922">1922</option><option value="1921">1921</option><option value="1920">1920</option><option value="1919">1919</option><option value="1918">1918</option><option value="1917">1917</option><option value="1916">1916</option><option value="1915">1915</option><option value="1914">1914</option><option value="1913">1913</option><option value="1912">1912</option><option value="1911">1911</option><option value="1910">1910</option><option value="1909">1909</option><option value="1908">1908</option></select>
+  </td>
+  </tr>
+<tr id="field-website">
+  <td class="pformleft"><b>Website URL</b></td>
+  <td class="pformright"><input type="text" size="40" maxlength="1200" name="WebSite" value="http://" class="forminput"></td>
+</tr> 
+<!-- 
+<tr id='field-gtalk'>
+  <td class='pformleft'><b></b></td>
+  <td class='pformright'><input type='text' size='40' maxlength='30' name='ICQNumber' value='' class='forminput' /></td>
+</tr>
+<tr id='field-aim'>
+  <td class='pformleft'></td>
+  <td class='pformright'><input type='text' size='40' maxlength='30' name='AOLName' value='' class='forminput' /></td>
+</tr>
+<tr id='field-yim'>
+  <td class='pformleft'></td>
+  <td class='pformright'><input type='text' size='40' maxlength='30' name='YahooName' value='' class='forminput' /></td>
+</tr>
+<tr id='field-msn'>
+  <td class='pformleft'></td>
+  <td class='pformright'><input type='text' size='40' maxlength='30' name='MSNName' value='' class='forminput' /></td>
+</tr>
+<tr id='field-skype'>
+  <td class='pformleft'><b></b></td>
+  <td class='pformright'><input type='text' size='40' maxlength='30' name='integ_msg' value='' class='forminput' /></td>
+</tr>
+-->
+<tr id="field-location">
+  <td class="pformleft"><b>Location</b></td>
+  <td class="pformright"><input type="text" size="40" name="Location" value="" class="forminput"></td>
+</tr>
+<tr id="field-interests">
+  <td class="pformleft" valign="top"><b>Interests</b><br>(<a href="javascript:CheckLength(&quot;interest&quot;);">Check Length</a>)</td>
+  <td class="pformright"><textarea cols="60" rows="10" name="Interests" class="forminput" wrap="soft"></textarea></td>
+</tr>
+
+  <tr id="field_1">
+  <td class="pformleft" valign="top">
+	<label for="field_1_input" style="font-weight: bold;">Member Alias</label>
+	<br>What would you like us to call you?</td>
+	<td class="pformright">            <input type="text" size="50" name="field_1" value="Lux" class="forminput" id="field_1_input"></td>
+  </tr>  <tr id="field_9">
+  <td class="pformleft" valign="top">
+	<label for="field_9_input" style="font-weight: bold;">Please Avoid</label>
+	<br>Please list everything you would prefer to avoid; we won't question it and it doesn't have to be only triggers. Will be prefaced by "[name] will not write" and ended in a period.</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_9" class="forminput" id="field_9_input" wrap="soft">detailed, mature sexual content</textarea></td>
+  </tr>  <tr id="field_2">
+  <td class="pformleft" valign="top">
+	<label for="field_2_input" style="font-weight: bold;">Member Pronouns</label>
+	<br>What pronouns do you use?</td>
+	<td class="pformright">            <input type="text" size="50" name="field_2" value="she/her" class="forminput" id="field_2_input"></td>
+  </tr>  <tr id="field_3">
+  <td class="pformleft" valign="top">
+	<label for="field_3_input" style="font-weight: bold;">Member Age</label>
+	<br>In numbers, please!</td>
+	<td class="pformright">            <input type="text" size="50" name="field_3" value="29" class="forminput" id="field_3_input"></td>
+  </tr>  <tr id="field_4">
+  <td class="pformleft" valign="top">
+	<label for="field_4_input" style="font-weight: bold;">Timezone</label>
+	<br>You don't have to update this with Daylight Savings - it's just for an approximation!</td>
+	<td class="pformright">            <select name="field_4" class="forminput" id="field_4_input"><option value="unset">unset</option>
+<option value="a">GMT-12</option>
+<option value="b">GMT-11</option>
+<option value="c">GMT-10</option>
+<option value="d">GMT-9</option>
+<option value="e">GMT-8</option>
+<option value="f">GMT-7</option>
+<option value="g">GMT-6</option>
+<option value="h" selected="">GMT-5</option>
+<option value="i">GMT-4</option>
+<option value="j">GMT-3:30</option>
+<option value="k">GMT-3</option>
+<option value="l">GMT-2</option>
+<option value="m">GMT-1</option>
+<option value="n">GMT</option>
+<option value="o">GMT+1</option>
+<option value="p">GMT+2</option>
+<option value="q">GMT+3</option>
+<option value="r">GMT+3:30</option>
+<option value="s">GMT+4</option>
+<option value="t">GMT+5</option>
+<option value="u">GMT+5:30</option>
+<option value="v">GMT+6</option>
+<option value="w">GMT+7</option>
+<option value="x">GMT+8</option>
+<option value="y">GMT+9</option>
+<option value="z">GMT+9:30</option>
+<option value="aa">GMT+10</option>
+<option value="ab">GMT+11</option>
+<option value="ac">GMT+12</option>
+</select></td>
+  </tr>  <tr id="field_5">
+  <td class="pformleft" valign="top">
+	<label for="field_5_input" style="font-weight: bold;">Mature Themes and Language Preference</label>
+	<br>Our rating preferences use the RPG Rating system. Learn more here: https://rpgrating.com/</td>
+	<td class="pformright">            <select name="field_5" class="forminput" id="field_5_input"><option value="unset">unset</option>
+<option value="a">none</option>
+<option value="b">mild</option>
+<option value="c">with limits</option>
+<option value="d" selected="">all</option>
+</select></td>
+  </tr>  <tr id="field_6">
+  <td class="pformleft" valign="top">
+	<label for="field_6_input" style="font-weight: bold;">Sexual Content Preference</label>
+	<br>Our rating preferences use the RPG Rating system. Learn more here: https://rpgrating.com/</td>
+	<td class="pformright">            <select name="field_6" class="forminput" id="field_6_input"><option value="unset">unset</option>
+<option value="a">none</option>
+<option value="b">mild</option>
+<option value="c" selected="">with limits</option>
+<option value="d">all</option>
+</select></td>
+  </tr>  <tr id="field_7">
+  <td class="pformleft" valign="top">
+	<label for="field_7_input" style="font-weight: bold;">Violent Content Preference</label>
+	<br>Our rating preferences use the RPG Rating system. Learn more here: https://rpgrating.com/</td>
+	<td class="pformright">            <select name="field_7" class="forminput" id="field_7_input"><option value="unset">unset</option>
+<option value="a">none</option>
+<option value="b">mild</option>
+<option value="c">with limits</option>
+<option value="d" selected="">all</option>
+</select></td>
+  </tr>  <tr id="field_8">
+  <td class="pformleft" valign="top">
+	<label for="field_8_input" style="font-weight: bold;">Writing Tense</label>
+	<br>Which writing tense do you use for posts?</td>
+	<td class="pformright">            <select name="field_8" class="forminput" id="field_8_input"><option value="unset">unset</option>
+<option value="a" selected="">Past</option>
+<option value="b">Present</option>
+<option value="c">Future</option>
+</select></td>
+  </tr>  <tr id="field_40">
+  <td class="pformleft" valign="top">
+	<label for="field_40_input" style="font-weight: bold;">Writing Point of View</label>
+	<br>Which point of view do you write in for posts?</td>
+	<td class="pformright">            <select name="field_40" class="forminput" id="field_40_input"><option value="unset">unset</option>
+<option value="a" selected="">Third</option>
+<option value="b">Second</option>
+<option value="c">First</option>
+</select></td>
+  </tr>  <tr id="field_41">
+  <td class="pformleft" valign="top">
+	<label for="field_41_input" style="font-weight: bold;">Posting Frequency</label>
+	<br>Assuming an average month, how frequently can you be expected to post?</td>
+	<td class="pformright">            <select name="field_41" class="forminput" id="field_41_input"><option value="unset">unset</option>
+<option value="a">Daily</option>
+<option value="b">More than once a week</option>
+<option value="c">Weekly</option>
+<option value="d" selected="">Every 1 to 2 weeks</option>
+<option value="e">Every 2 to 3 weeks</option>
+<option value="f">Monthly</option>
+</select></td>
+  </tr>  <tr id="field_36">
+  <td class="pformleft" valign="top">
+	<label for="field_36_input" style="font-weight: bold;">Personal Quick Links</label>
+	<br>Want easy access to specific pages? Add links here using &lt;a href="URL"&gt;link name&lt;/a&gt; and it'll get added to the popout navigation!</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_36" class="forminput" id="field_36_input" wrap="soft">&lt;a href="?act=Members&amp;name=&amp;name_box=contains&amp;filter=ALL&amp;sort_key=name&amp;sort_order=asc&amp;max_results=1000"&gt;members&lt;/a&gt;
+&lt;a href="?act=Online&amp;CODE=listall&amp;sort_key=click"&gt;online by click&lt;/a&gt;
+&lt;a href="?act=Pages&amp;kid=guide"&gt;guidebook&lt;/a&gt;
+&lt;u class="g-9"&gt;river's edge (#9)&lt;/u&gt;
+&lt;u class="g-10"&gt;coastline (#10)&lt;/u&gt;
+&lt;u class="g-11"&gt;old town (#11)&lt;/u&gt;
+&lt;u class="g-12"&gt;central (#12)&lt;/u&gt;
+&lt;u class="g-13"&gt;outskirts (#13)&lt;/u&gt;</textarea></td>
+  </tr>  <tr id="field_39">
+  <td class="pformleft" valign="top">
+	<label for="field_39_input" style="font-weight: bold;">Account Type</label>
+	<br>Is this a member account or a character account?</td>
+	<td class="pformright">            <select name="field_39" class="forminput" id="field_39_input"><option value="member" selected="">Member</option>
+<option value="character">Character</option>
+</select></td>
+  </tr>  <tr id="field_42">
+  <td class="pformleft" valign="top">
+	<label for="field_42_input" style="font-weight: bold;">Quote</label>
+	<br>This quote will be featured on your main profile and has a character limit of 300</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_42" class="forminput" id="field_42_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_10">
+  <td class="pformleft" valign="top">
+	<label for="field_10_input" style="font-weight: bold;">Content Warnings</label>
+	<br>Be as thorough as possible with potential triggers that are present in your profile as a whole and, if someone asks you to add one, please do so! Will be prefaced by "WARNING! This app contains" and end in a period.</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_10" class="forminput" id="field_10_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_11">
+  <td class="pformleft" valign="top">
+	<label for="field_11_input" style="font-weight: bold;">Full Name</label>
+	<br>Your character's full name.</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_11" class="forminput" id="field_11_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_12">
+  <td class="pformleft" valign="top">
+	<label for="field_12_input" style="font-weight: bold;">Nickname(s)</label>
+	<br>Nicknames your character has, if any</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_12" class="forminput" id="field_12_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_13">
+  <td class="pformleft" valign="top">
+	<label for="field_13_input" style="font-weight: bold;">Pronouns</label>
+	<br>The pronouns your character uses.  Please note that throughout character development in posts, these CAN change!</td>
+	<td class="pformright">            <input type="text" size="50" name="field_13" value="" class="forminput" id="field_13_input"></td>
+  </tr>  <tr id="field_14">
+  <td class="pformleft" valign="top">
+	<label for="field_14_input" style="font-weight: bold;">Gender</label>
+	<br>Which gender does your character identify as? Please note that throughout character development in posts, this CAN change!</td>
+	<td class="pformright">            <input type="text" size="50" name="field_14" value="" class="forminput" id="field_14_input"></td>
+  </tr>  <tr id="field_50">
+  <td class="pformleft" valign="top">
+	<label for="field_50_input" style="font-weight: bold;">Birth Day</label>
+	<br>As we can have characters older than the default drop down accounts for, we have our own birthday fields. These will auto-age your character for you once you set them!</td>
+	<td class="pformright">            <input type="text" size="50" name="field_50" value="" class="forminput" id="field_50_input"></td>
+  </tr>  <tr id="field_48">
+  <td class="pformleft" valign="top">
+	<label for="field_48_input" style="font-weight: bold;">Birth Month</label>
+	<br>As we can have characters older than the default drop down accounts for, we have our own birthday fields. These will auto-age your character for you once you set them!</td>
+	<td class="pformright">            <select name="field_48" class="forminput" id="field_48_input"><option value="z" selected="">unset</option>
+<option value="a">January</option>
+<option value="b">February</option>
+<option value="c">March</option>
+<option value="d">April</option>
+<option value="e">May</option>
+<option value="f">June</option>
+<option value="g">July</option>
+<option value="h">August</option>
+<option value="i">September</option>
+<option value="j">October</option>
+<option value="k">November</option>
+<option value="l">December</option>
+</select></td>
+  </tr>  <tr id="field_49">
+  <td class="pformleft" valign="top">
+	<label for="field_49_input" style="font-weight: bold;">Birth Year</label>
+	<br>As we can have characters older than the default drop down accounts for, we have our own birthday fields. These will auto-age your character for you once you set them!</td>
+	<td class="pformright">            <input type="text" size="50" name="field_49" value="" class="forminput" id="field_49_input"></td>
+  </tr>  <tr id="field_72">
+  <td class="pformleft" valign="top">
+	<label for="field_72_input" style="font-weight: bold;">Immortal?</label>
+	<br>Is your character an immortal?</td>
+	<td class="pformright">            <select name="field_72" class="forminput" id="field_72_input"><option value="no" selected="">No</option>
+<option value="imm">Yes</option>
+</select></td>
+  </tr>  <tr id="field_22">
+  <td class="pformleft" valign="top">
+	<label for="field_22_input" style="font-weight: bold;">Height</label>
+	<br>In feet and inches, please!</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_22" class="forminput" id="field_22_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_23">
+  <td class="pformleft" valign="top">
+	<label for="field_23_input" style="font-weight: bold;">Weight</label>
+	<br>In pounds OR generalized (e.g., 'average'); if weight is a triggering topic and you are uncomfortable doing either, please feel free to leave blank. https://healthyeater.com/ideal-body-weight-calculator</td>
+	<td class="pformright">            <input type="text" size="50" name="field_23" value="" class="forminput" id="field_23_input"></td>
+  </tr>  <tr id="field_15">
+  <td class="pformleft" valign="top">
+	<label for="field_15_input" style="font-weight: bold;">Occupation</label>
+	<br>What job(s) does your character have? If none, please put 'unemployed' rather than leaving blank.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_15" value="" class="forminput" id="field_15_input"></td>
+  </tr>  <tr id="field_43">
+  <td class="pformleft" valign="top">
+	<label for="field_43_input" style="font-weight: bold;">Face Claim</label>
+	<br>Who does your character look like?</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_43" class="forminput" id="field_43_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_20">
+  <td class="pformleft" valign="top">
+	<label for="field_20_input" style="font-weight: bold;">Relationship Status</label>
+	<br>In order to be able to sort by relationship status, we provide these only as a dropdown. Need an unavailable option? Reach out to Lux and she'll add it ASAP!</td>
+	<td class="pformright">            <select name="field_20" class="forminput" id="field_20_input"><option value="unset" selected="">unset</option>
+<option value="a">Single</option>
+<option value="b">Dating</option>
+<option value="c">Engaged</option>
+<option value="d">Married</option>
+<option value="e">Separated</option>
+<option value="f">Divorced</option>
+<option value="g">Widowed</option>
+<option value="h">It's complicated</option>
+</select></td>
+  </tr>  <tr id="field_21">
+  <td class="pformleft" valign="top">
+	<label for="field_21_input" style="font-weight: bold;">Partner(s)</label>
+	<br>Please LINK each partner with &lt;a href="URL"&gt;name&lt;/a&gt;. Will look best in a comma-separated list.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_21" value="" class="forminput" id="field_21_input"></td>
+  </tr>  <tr id="field_44">
+  <td class="pformleft" valign="top">
+	<label for="field_44_input" style="font-weight: bold;">Born In</label>
+	<br>Which city, province/state/region, and country was your character born in?</td>
+	<td class="pformright">            <input type="text" size="50" name="field_44" value="" class="forminput" id="field_44_input"></td>
+  </tr>  <tr id="field_51">
+  <td class="pformleft" valign="top">
+	<label for="field_51_input" style="font-weight: bold;">Metahuman?</label>
+	<br>Is your character a metahuman or not?</td>
+	<td class="pformright">            <select name="field_51" class="forminput" id="field_51_input"><option value="a" selected="">unset</option>
+<option value="b">yes</option>
+<option value="c">no</option>
+</select></td>
+  </tr>  <tr id="field_37">
+  <td class="pformleft" valign="top">
+	<label for="field_37_input" style="font-weight: bold;">Abilities / Skills</label>
+	<br>For metas, please list their powers and the details of these abilities. For non-metas, please list their general skills of note (details appreciated, particularly for vaguer skill sets).</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_37" class="forminput" id="field_37_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_38">
+  <td class="pformleft" valign="top">
+	<label for="field_38_input" style="font-weight: bold;">Limitations / Weaknesses</label>
+	<br>For metas, please list the limits to each of their powers. For non-metas, please list their weaknesses - things they're notably bad at.</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_38" class="forminput" id="field_38_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_16">
+  <td class="pformleft" valign="top">
+	<label for="field_16_input" style="font-weight: bold;">Access to Resources</label>
+	<br>High access to resources is equal to a high percentage on this scale (slider moved towards the right)</td>
+	<td class="pformright">            <input type="text" size="50" name="field_16" value="50" class="forminput" id="field_16_input"></td>
+  </tr>  <tr id="field_18">
+  <td class="pformleft" valign="top">
+	<label for="field_18_input" style="font-weight: bold;">Desire for Socioeconomical Change</label>
+	<br>High desire for socioeconomic change is equal to a high percentage on this scale (slider moved towards the right)</td>
+	<td class="pformright">            <input type="text" size="50" name="field_18" value="50" class="forminput" id="field_18_input"></td>
+  </tr>  <tr id="field_17">
+  <td class="pformleft" valign="top">
+	<label for="field_17_input" style="font-weight: bold;">Community Influence</label>
+	<br>High community influence is equal to a high percentage on this scale (slider moved towards the right)</td>
+	<td class="pformright">            <input type="text" size="50" name="field_17" value="50" class="forminput" id="field_17_input"></td>
+  </tr>  <tr id="field_19">
+  <td class="pformleft" valign="top">
+	<label for="field_19_input" style="font-weight: bold;">Opinion on Metahumans</label>
+	<br>A strong positive opinion of metahumans is equal to a high percentage on this scale (slider moved towards the right)</td>
+	<td class="pformright">            <input type="text" size="50" name="field_19" value="50" class="forminput" id="field_19_input"></td>
+  </tr>  <tr id="field_24">
+  <td class="pformleft" valign="top">
+	<label for="field_24_input" style="font-weight: bold;">Quick Facts</label>
+	<br>Style how you wish. Pre-styled elements will be provided for convenience. Use this to jot down out of character facts that are important, such as languages spoken, personality traits, ailments, scars, etc that may not feature in your freeform.</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_24" class="forminput" id="field_24_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_25">
+  <td class="pformleft" valign="top">
+	<label for="field_25_input" style="font-weight: bold;">Freeform</label>
+	<br>Style how you wish. Pre-styled elements will be provided for convenience.</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_25" class="forminput" id="field_25_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_45">
+  <td class="pformleft" valign="top">
+	<label for="field_45_input" style="font-weight: bold;">Freeform Overflow</label>
+	<br>ONLY use if needed! Otherwise, leave this BLANK!</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_45" class="forminput" id="field_45_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_27">
+  <td class="pformleft" valign="top">
+	<label for="field_27_input" style="font-weight: bold;">Character Overview</label>
+	<br>This is the start of your shipper; as such, please provide a brief overview of your character, how they might interact with other characters, and any generalized information that would be helpful for plotting. YOU WILL NEED TO USE &lt;p&gt; TAGS!</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_27" class="forminput" id="field_27_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_28">
+  <td class="pformleft" valign="top">
+	<label for="field_28_input" style="font-weight: bold;">Desired Plots</label>
+	<br>What sort of plots are you wanting for this character? Be as specific as you want!</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_28" class="forminput" id="field_28_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_29">
+  <td class="pformleft" valign="top">
+	<label for="field_29_input" style="font-weight: bold;">Avoided Plots</label>
+	<br>What sort of plots are you NOT wanting for this character? Be as specific as you want!</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_29" class="forminput" id="field_29_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_26">
+  <td class="pformleft" valign="top">
+	<label for="field_26_input" style="font-weight: bold;">Relationships</label>
+	<br>Style how you wish. Pre-styled elements will be provided for convenience. Please include important NPCs as well.</td>
+	<td class="pformright">            <textarea cols="60" rows="5" name="field_26" class="forminput" id="field_26_input" wrap="soft"></textarea></td>
+  </tr>  <tr id="field_31">
+  <td class="pformleft" valign="top">
+	<label for="field_31_input" style="font-weight: bold;">Development</label>
+	<br>The URL of your development board/thread</td>
+	<td class="pformright">            <input type="text" size="50" name="field_31" value="" class="forminput" id="field_31_input"></td>
+  </tr>  <tr id="field_30">
+  <td class="pformleft" valign="top">
+	<label for="field_30_input" style="font-weight: bold;">Tracker</label>
+	<br>The URL of your thread tracker</td>
+	<td class="pformright">            <input type="text" size="50" name="field_30" value="" class="forminput" id="field_30_input"></td>
+  </tr>  <tr id="field_32">
+  <td class="pformleft" valign="top">
+	<label for="field_32_input" style="font-weight: bold;">Wanted Ad</label>
+	<br>The URL of a wanted ad</td>
+	<td class="pformright">            <input type="text" size="50" name="field_32" value="" class="forminput" id="field_32_input"></td>
+  </tr>  <tr id="field_33">
+  <td class="pformleft" valign="top">
+	<label for="field_33_input" style="font-weight: bold;">Custom Link - Title</label>
+	<br>Want a custom link? Put the title here! It could be anything- a second wanted, a link to a pinterest board, etc</td>
+	<td class="pformright">            <input type="text" size="50" name="field_33" value="" class="forminput" id="field_33_input"></td>
+  </tr>  <tr id="field_34">
+  <td class="pformleft" valign="top">
+	<label for="field_34_input" style="font-weight: bold;">Custom Link - URL</label>
+	<br>The URL for your custom link</td>
+	<td class="pformright">            <input type="text" size="50" name="field_34" value="" class="forminput" id="field_34_input"></td>
+  </tr>  <tr id="field_55">
+  <td class="pformleft" valign="top">
+	<label for="field_55_input" style="font-weight: bold;">Profile Image Style</label>
+	<br>Pick what image style you'd like for your main profile! Samples are available in the Guidebook's Application page!</td>
+	<td class="pformright">            <select name="field_55" class="forminput" id="field_55_input"><option value="unset">Unset</option>
+<option value="single" selected="">Single</option>
+<option value="lGrid">Left Grid</option>
+<option value="rGrid">Right Grid</option>
+<option value="mason">Masonry</option>
+<option value="lgMason">Large Masonry</option>
+</select></td>
+  </tr>  <tr id="field_35">
+  <td class="pformleft" valign="top">
+	<label for="field_35_input" style="font-weight: bold;">Posting Avatar - 250 x 450</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_35" value="https://dawneggleton.github.io/images/photo/eq/2017-despook2.jpg" class="forminput" id="field_35_input"></td>
+  </tr>  <tr id="field_52">
+  <td class="pformleft" valign="top">
+	<label for="field_52_input" style="font-weight: bold;">Posting Avatar - Position</label>
+	<br>Which part of the image do you want the cropping to base off of?</td>
+	<td class="pformright">            <select name="field_52" class="forminput" id="field_52_input"><option value="a" selected="">center center</option>
+<option value="b">top left</option>
+<option value="c">top center</option>
+<option value="d">top right</option>
+<option value="e">center left</option>
+<option value="f">center right</option>
+<option value="g">bottom left</option>
+<option value="h">bottom center</option>
+<option value="i">bottom right</option>
+</select></td>
+  </tr>  <tr id="field_47">
+  <td class="pformleft" valign="top">
+	<label for="field_47_input" style="font-weight: bold;">Member List Image - 570 x 200</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_47" value="https://dawneggleton.github.io/images/photo/eq/2017-despook4.jpg" class="forminput" id="field_47_input"></td>
+  </tr>  <tr id="field_54">
+  <td class="pformleft" valign="top">
+	<label for="field_54_input" style="font-weight: bold;">Member List Image - Position</label>
+	<br>Which part of the image do you want the cropping to base off of?</td>
+	<td class="pformright">            <select name="field_54" class="forminput" id="field_54_input"><option value="a" selected="">center center</option>
+<option value="b">top left</option>
+<option value="c">top center</option>
+<option value="d">top right</option>
+<option value="e">center left</option>
+<option value="f">center right</option>
+<option value="g">bottom left</option>
+<option value="h">bottom center</option>
+<option value="i">bottom right</option>
+</select></td>
+  </tr>  <tr id="field_46">
+  <td class="pformleft" valign="top">
+	<label for="field_46_input" style="font-weight: bold;">Basic Profile Image - 450 x 700</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_46" value="" class="forminput" id="field_46_input"></td>
+  </tr>  <tr id="field_53">
+  <td class="pformleft" valign="top">
+	<label for="field_53_input" style="font-weight: bold;">Basic Profile Image - Position</label>
+	<br>Which part of the image do you want the cropping to base off of?</td>
+	<td class="pformright">            <select name="field_53" class="forminput" id="field_53_input"><option value="a" selected="">center center</option>
+<option value="b">top left</option>
+<option value="c">top center</option>
+<option value="d">top right</option>
+<option value="e">center left</option>
+<option value="f">center right</option>
+<option value="g">bottom left</option>
+<option value="h">bottom center</option>
+<option value="i">bottom right</option>
+</select></td>
+  </tr>  <tr id="field_56">
+  <td class="pformleft" valign="top">
+	<label for="field_56_input" style="font-weight: bold;">Grid Profile Image #1 - 225 x 475</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_56" value="" class="forminput" id="field_56_input"></td>
+  </tr>  <tr id="field_57">
+  <td class="pformleft" valign="top">
+	<label for="field_57_input" style="font-weight: bold;">Grid Profile Image #2 - 450 x 230</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_57" value="" class="forminput" id="field_57_input"></td>
+  </tr>  <tr id="field_58">
+  <td class="pformleft" valign="top">
+	<label for="field_58_input" style="font-weight: bold;">Grid Profile Image #3 - 230 x 230</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_58" value="" class="forminput" id="field_58_input"></td>
+  </tr>  <tr id="field_59">
+  <td class="pformleft" valign="top">
+	<label for="field_59_input" style="font-weight: bold;">Grid Profile Image #4 - 230 x 230</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_59" value="" class="forminput" id="field_59_input"></td>
+  </tr>  <tr id="field_60">
+  <td class="pformleft" valign="top">
+	<label for="field_60_input" style="font-weight: bold;">Masonry Profile Image #1 - 225 x 475</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_60" value="" class="forminput" id="field_60_input"></td>
+  </tr>  <tr id="field_61">
+  <td class="pformleft" valign="top">
+	<label for="field_61_input" style="font-weight: bold;">Masonry Profile Image #2 - 230 x 230</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_61" value="" class="forminput" id="field_61_input"></td>
+  </tr>  <tr id="field_62">
+  <td class="pformleft" valign="top">
+	<label for="field_62_input" style="font-weight: bold;">Masonry Profile Image #3 - 225 x 475</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_62" value="" class="forminput" id="field_62_input"></td>
+  </tr>  <tr id="field_63">
+  <td class="pformleft" valign="top">
+	<label for="field_63_input" style="font-weight: bold;">Masonry Profile Image #4 - 230 x 230</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_63" value="" class="forminput" id="field_63_input"></td>
+  </tr>  <tr id="field_64">
+  <td class="pformleft" valign="top">
+	<label for="field_64_input" style="font-weight: bold;">Large Masonry Profile Image #1 - 300 x 135</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_64" value="" class="forminput" id="field_64_input"></td>
+  </tr>  <tr id="field_65">
+  <td class="pformleft" valign="top">
+	<label for="field_65_input" style="font-weight: bold;">Large Masonry Profile Image #2 - 145 x 275</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_65" value="" class="forminput" id="field_65_input"></td>
+  </tr>  <tr id="field_66">
+  <td class="pformleft" valign="top">
+	<label for="field_66_input" style="font-weight: bold;">Large Masonry Profile Image #3 - 145 x 275</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_66" value="" class="forminput" id="field_66_input"></td>
+  </tr>  <tr id="field_67">
+  <td class="pformleft" valign="top">
+	<label for="field_67_input" style="font-weight: bold;">Large Masonry Profile Image #4 - 145 x 145</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_67" value="" class="forminput" id="field_67_input"></td>
+  </tr>  <tr id="field_68">
+  <td class="pformleft" valign="top">
+	<label for="field_68_input" style="font-weight: bold;">Large Masonry Profile Image #5 - 145 x 145</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_68" value="" class="forminput" id="field_68_input"></td>
+  </tr>  <tr id="field_69">
+  <td class="pformleft" valign="top">
+	<label for="field_69_input" style="font-weight: bold;">Large Masonry Profile Image #6 - 145 x 275</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_69" value="" class="forminput" id="field_69_input"></td>
+  </tr>  <tr id="field_70">
+  <td class="pformleft" valign="top">
+	<label for="field_70_input" style="font-weight: bold;">Large Masonry Profile Image #7 - 300 x 300</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_70" value="" class="forminput" id="field_70_input"></td>
+  </tr>  <tr id="field_71">
+  <td class="pformleft" valign="top">
+	<label for="field_71_input" style="font-weight: bold;">Large Masonry Profile Image #8 - 145 x 145</label>
+	<br>Will center, resize, and crop as needed. Please make sure the image is AT LEAST the dimensions requested.</td>
+	<td class="pformright">            <input type="text" size="50" name="field_71" value="" class="forminput" id="field_71_input"></td>
+  </tr>
+<tr>
+  <td class="pformstrip" colspan="2" align="center"><input type="submit" value="Amend my profile" class="forminput"></td>
+</tr>
+</tbody></table>
+</form> </td>
+</tr>
+</tbody></table>
+<!-- end main CP area -->
+<br clear="all"><div align="right"><form action="https://playedgod.jcink.net/index.php?act=SF" method="get" name="jumpmenu">
+			             <input type="hidden" name="act" value="SF">
+<input type="hidden" name="s" value="">
+			             <select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.jumpmenu.submit() }" class="forminput">
+			             <optgroup label="Site Jump">
+			              <option value="sj_home">Forum Home</option>
+			              <option value="sj_search">Search</option>
+			              <option value="sj_help">Help</option>
+			             </optgroup>
+			             <optgroup label="Forum Jump"><option value="-1">introduction</option>
+<option value="3">&nbsp;&nbsp;- Guidebook  (Redirect Forum)</option><!--fx:3-->
+<option value="32">&nbsp;&nbsp;- Announcements </option><!--fx:32-->
+<option value="33">&nbsp;&nbsp;- Get Help </option><!--fx:33-->
+<option value="34">&nbsp;&nbsp;- Templates </option><!--fx:34-->
+<option value="1">&nbsp;&nbsp;- Staff Board </option><!--fx:1-->
+<option value="-1">characters</option>
+<option value="19">&nbsp;&nbsp;- Register </option><!--fx:19-->
+<option value="20">&nbsp;&nbsp;- Claims  (Redirect Forum)</option><!--fx:20-->
+<option value="21">&nbsp;&nbsp;- Members  (Redirect Forum)</option><!--fx:21-->
+<option value="22">&nbsp;&nbsp;- Wanted </option><!--fx:22-->
+<option value="24">  ---- Platonic</option>
+<option value="25">  ---- Romantic</option>
+<option value="28">  ---- Familial</option>
+<option value="26">  ---- Antagonistic</option>
+<option value="27">  ---- Professional</option>
+<option value="29">  ---- Miscellaneous</option>
+<option value="30">  ---- Filled</option>
+<option value="23">&nbsp;&nbsp;- Development </option><!--fx:23-->
+<option value="31">  ---- Lux</option>
+<option value="55">  ------ Brennan Cormac</option>
+<option value="70">  ------ Cynbel Edevane</option>
+<option value="56">  ------ Hayden Donovan</option>
+<option value="72">  ------ Jesse Dunn</option>
+<option value="71">  ------ Madison McKinley</option>
+<option value="57">  ------ Malcolm Murdock</option>
+<option value="69">  ------ Nikolas Kovac</option>
+<option value="58">  ------ Satiah El Masry</option>
+<option value="68">  ------ Sterling De Mitri</option>
+<option value="-1">communications</option>
+<option value="17">&nbsp;&nbsp;- Cell Phones </option><!--fx:17-->
+<option value="18">&nbsp;&nbsp;- Social Media </option><!--fx:18-->
+<option value="-1">davenport, maine</option>
+<option value="36">&nbsp;&nbsp;- Old Town </option><!--fx:36-->
+<option value="44">  ---- Casino Row</option>
+<option value="46">  ---- Red Light District</option>
+<option value="43">  ---- The Dockyards</option>
+<option value="35">&nbsp;&nbsp;- Coastline </option><!--fx:35-->
+<option value="41">  ---- Entertainment District</option>
+<option value="54">  ---- Bayside Market</option>
+<option value="45">  ---- The Graveyard</option>
+<option value="37">&nbsp;&nbsp;- Central Davenport </option><!--fx:37-->
+<option value="40">  ---- University of Davenport</option>
+<option value="47">  ---- Business Skyline</option>
+<option value="42">  ---- River's Walk</option>
+<option value="38">&nbsp;&nbsp;- River's Edge </option><!--fx:38-->
+<option value="51">  ---- Willow Creek Gated Community</option>
+<option value="53">  ---- Centennial Park</option>
+<option value="52">  ---- Government Sector</option>
+<option value="39">&nbsp;&nbsp;- Outskirts </option><!--fx:39-->
+<option value="48">  ---- Carnivale</option>
+<option value="49">  ---- Witch's Hour</option>
+<option value="50">  ---- The Wilds</option>
+<option value="-1">outside davenport</option>
+<option value="13">&nbsp;&nbsp;- Out of Town </option><!--fx:13-->
+<option value="14">&nbsp;&nbsp;- In the Past </option><!--fx:14-->
+<option value="15">&nbsp;&nbsp;- In the Future </option><!--fx:15-->
+<option value="16">&nbsp;&nbsp;- In Another Life </option><!--fx:16-->
+<option value="-1">community</option>
+<option value="4">&nbsp;&nbsp;- Absences </option><!--fx:4-->
+<option value="5">&nbsp;&nbsp;- Archives </option><!--fx:5-->
+<option value="10">  ---- Out of Character</option>
+<option value="11">  ---- Characters &amp; Development</option>
+<option value="59">  ------ Jules</option>
+<option value="60">  -------- Cassian Vale</option>
+<option value="61">  ------ Simone</option>
+<option value="62">  -------- Trackers</option>
+<option value="63">  -------- Shippers</option>
+<option value="64">  -------- Codes</option>
+<option value="66">  ------ Ellis</option>
+<option value="67">  -------- Hector Selwyn</option>
+<option value="12">  ---- In Character</option>
+<option value="65">  ------ Prologue</option>
+<option value="2">  ---- Trash Can</option>
+<option value="6">&nbsp;&nbsp;- Advertising </option><!--fx:6-->
+<option value="9">  ---- Member Sites</option>
+<option value="7">  ---- First Links</option>
+<option value="8">  ---- Link Backs &amp; Accepted</option>
+</optgroup>
+</select>&nbsp;<input type="submit" value="Go" class="forminput"></form></div> 
         </main>
 
         <!-- Copyright Information -->
