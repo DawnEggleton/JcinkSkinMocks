@@ -31,6 +31,14 @@
         .pagination_pagetxt {
             display: none;
         }
+
+        .pagination_current {
+            display: inline-block;
+            background: var(--accent);
+            padding: 5px 10px;
+            margin: 0 5px;
+            border-radius: 3px;
+        }
     }
 
     .bar {

@@ -30,7 +30,7 @@
         <script type='text/javascript' src='../js/settings.js'></script>
         <link rel="stylesheet" href="../../css/settings.css" />
     </head>
-    <body id="UserCP" class="dark g-4 code-26">
+    <body id="UserCP" class="dark g-4 code-50">
         
         <!--Header-->
         <header></header>
@@ -104,102 +104,23 @@ The one where 23% margin + 100% table = 123% in IE6 o_O
 <!-- Start main CP area -->
  <td id="ucpcontent" valign="top">
   <div class="maintitle">Welcome to your control panel </div>            
-			     <!-- inbox folder -->
-  <script language="JavaScript" type="text/javascript">
-  function CheckAll(cb) {
-	  var fmobj = document.mutliact;
-	  for (var i=0;i<fmobj.elements.length;i++) {
-		  var e = fmobj.elements[i];
-		  if ((e.name != 'allbox') && (e.type=='checkbox') && (!e.disabled)) {
-			  e.checked = fmobj.allbox.checked;
-		  }
-	  }
-  }
-  function CheckCheckAll(cb) {	
-	  var fmobj = document.mutliact;
-	  var TotalBoxes = 0;
-	  var TotalOn = 0;
-	  for (var i=0;i<fmobj.elements.length;i++) {
-		  var e = fmobj.elements[i];
-		  if ((e.name != 'allbox') && (e.type=='checkbox')) {
-			  TotalBoxes++;
-			  if (e.checked) {
-				  TotalOn++;
-			  }
-		  }
-	  }
-	  if (TotalBoxes==TotalOn) {fmobj.allbox.checked=true;}
-	  else {fmobj.allbox.checked=false;}
-  }
-  //-->
-  </script>
-
-<div class="pformstrip">Current Subscriptions <span style="float: right;">Sort by: [ <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=26&amp;sort_by=last_post">Last Post</a> | <a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=26&amp;f=all">Forum &amp; Last Post</a> ]</span></div>
-
-
-<form action="https://playedgod.jcink.net/index.php?" name="mutliact" method="post">
-<input type="hidden" name="act" value="UserCP">
-<input type="hidden" name="CODE" value="27">
-
+			     
+<div class="pformstrip">Your Forum Subscriptions</div>
 <br>
-<div class="tableborder" align="center">
-<table width="100%" cellspacing="1" cellpadding="4">
-<tbody><tr>
-  <td class="titlemedium" width="5%" align="left">&nbsp;</td>
-  <th class="titlemedium" width="55%" align="left">Topic</th>
-  <th class="titlemedium" width="5%" align="center">Replies</th>
-  <th class="titlemedium" width="5%" align="center">Views</th>
-  <th class="titlemedium" width="25%" align="left">Last Post</th>
-  <td class="titlemedium" width="5%" align="center"><input name="allbox" type="checkbox" value="Check All" onclick="CheckAll();"></td>
-</tr>                 <tr>
-                   <td colspan="6" class="darkrow3" align="left"><b>Get Help</b></td>
-                 </tr><tr>
-  <td class="row3" width="5%" align="center"></td>
-  <td class="row3" align="left"><a href="https://playedgod.jcink.net/index.php?act=ST&amp;f=33&amp;t=7">Moderation Requests</a> ( <a href="https://playedgod.jcink.net/index.php?act=ST&amp;f=33&amp;t=7" target="_blank">New Window</a> )<br><span class="desc">Subscribed on 3 minutes ago</span></td>
-  <td class="row3" align="center">0</td>
-  <td class="row3" align="center">28</td>
-  <td class="row3" align="left">August 4 2021, 6:00 PM<br>By: <b><a href="https://playedgod.jcink.net/index.php?act=Profile&amp;CODE=03&amp;MID=1">Lux</a></b></td>
-  <td class="row2" align="center"><input type="checkbox" name="id-13" value="yes" class="forminput"></td>
-</tr>                 <tr>
-                   <td colspan="6" class="darkrow3" align="left"><b>Templates</b></td>
-                 </tr><tr>
-  <td class="row3" width="5%" align="center"></td>
-  <td class="row3" align="left"><a href="https://playedgod.jcink.net/index.php?act=ST&amp;f=34&amp;t=15">Posting Templates</a> ( <a href="https://playedgod.jcink.net/index.php?act=ST&amp;f=34&amp;t=15" target="_blank">New Window</a> )<br><span class="desc">Subscribed on 2 minutes ago</span></td>
-  <td class="row3" align="center">2</td>
-  <td class="row3" align="center">129</td>
-  <td class="row3" align="left">August 14 2021, 11:54 AM<br>By: <b><a href="https://playedgod.jcink.net/index.php?act=Profile&amp;CODE=03&amp;MID=1">Lux</a></b></td>
-  <td class="row2" align="center"><input type="checkbox" name="id-14" value="yes" class="forminput"></td>
-</tr><tr>
-  <td class="row3" width="5%" align="center"></td>
-  <td class="row3" align="left"><a href="https://playedgod.jcink.net/index.php?act=ST&amp;f=34&amp;t=1">Available BBCodes</a> ( <a href="https://playedgod.jcink.net/index.php?act=ST&amp;f=34&amp;t=1" target="_blank">New Window</a> )<br><span class="desc">Subscribed on July 28 2021, 7:10 PM</span></td>
-  <td class="row3" align="center">0</td>
-  <td class="row3" align="center">480</td>
-  <td class="row3" align="left">May 27 2021, 8:48 PM<br>By: <b><a href="https://playedgod.jcink.net/index.php?act=Profile&amp;CODE=03&amp;MID=1">Lux</a></b></td>
-  <td class="row2" align="center"><input type="checkbox" name="id-3" value="yes" class="forminput"></td>
-</tr><tr>
- <td class="titlemedium" colspan="6" valign="middle" align="center"><input type="submit" class="forminput" value="Unsubscribe">&nbsp;&nbsp;with selected</td>
+<div class="tableborder">
+  <table width="100%" cellspacing="1" cellpadding="4" align="center">
+  <tbody><tr>
+    <td class="titlemedium" width="5%" align="left">&nbsp;</td>
+    <th class="titlemedium" width="50%" align="left">Forum</th>
+    <th class="titlemedium" width="5%" align="center">Topics</th>
+    <th class="titlemedium" width="5%" align="center">Replies</th>
+    <th class="titlemedium" width="35%" align="center">Last Post</th>
+  </tr>	<tr>
+	  <td class="row1" colspan="5" align="center">You are not subscribed to any forums at present</td>
+	</tr><tr>
+ <td class="titlemedium" colspan="5" valign="middle" align="right"><a href="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=51&amp;f=all">Unsubscribe from all forums</a></td>
 </tr>
 </tbody></table>
-</div>
-</form>
-
-<div style="padding:5px" align="right"><i>Subscribed areas are delivered as email or alert notifications per your preferences.</i></div>
-<div style="padding:5px" align="right">
- 	<form action="https://playedgod.jcink.net/index.php?act=UserCP&amp;CODE=26" method="post">
-	<input type="hidden" name="sort_by" value="">
- 	Show topics from: <select class="forminput" name="datecut"><option value="1">Last day</option>
-<option value="1">Last 1 days</option>
-<option value="7">Last 7 days</option>
-<option value="14">Last 14 days</option>
-<option value="21">Last 21 days</option>
-<option value="30">Last 30 days</option>
-<option value="60">Last 60 days</option>
-<option value="90">Last 90 days</option>
-<option value="365">Last 365 days</option>
-<option value="1000">the beginning</option>
-</select>
- 	<input type="submit" class="forminput" value="Go">
- 	</form>
 </div> </td>
 </tr>
 </tbody></table>
