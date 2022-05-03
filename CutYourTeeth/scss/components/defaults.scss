@@ -112,19 +112,34 @@
         border-bottom: 1px solid var(--midGrey-70);
     }
 
-    #ucpcontent > table > tbody > tr:last-child > td > input,
-    #ucpcontent > form > table > tbody > tr:last-child > td > input {
+    #ucpcontent table > tbody > tr:last-child > td.pformstrip,
+    #ucpcontent form > table > tbody > tr:last-child > td.pformstrip,
+    #ucpcontent table + div.pformstrip:last-child,
+    #ucpcontent form > table + div.pformstrip:last-child {
+        display: flex;
         margin: 0;
-        width: 100%;
-        border-radius: 0;
+        padding: 0;
+        border-bottom: 0;
+
+        & > input {
+            margin: 0;
+            width: 100%;
+            border-radius: 0;
+            padding: 30px;
+            font-family: var(--serif);
+            font-size: 24px;
+            text-transform: capitalize;
+            letter-spacing: 0;
+            background: var(--black);
+            color: var(--white);
+            cursor: pointer;
+        }
+    }
+
+    #ucpcontent > table > tbody,
+    #ucpcontent > form > table > tbody {
+        display: table;
         padding: 30px;
-        font-family: var(--serif);
-        font-size: 24px;
-        text-transform: capitalize;
-        letter-spacing: 0;
-        background: var(--black);
-        color: var(--white);
-        cursor: pointer;
     }
 
     main > table > tbody > tr {
@@ -255,7 +270,6 @@
     }
 
     #ucpcontent {
-        padding: 30px;
 
         &::before {
             content: "";
@@ -279,17 +293,22 @@
 
             & + .pformstrip {
                 margin-top: 0;
+                border-top: 0;
             }
         }
 
         .pformstrip {
             font-family: var(--serif);
             font-size: var(--xlBody);
-            margin: 30px 0 15px;
+            background: var(--black);
+            padding: 30px;
             color: var(--white);
+            border-top: 1px solid var(--midGrey-70);
+            border-bottom: 1px solid var(--midGrey-70);
 
             &:first-child {
                 margin-top: 0;
+                border-top: 0;
             }
         }
     }
@@ -311,6 +330,7 @@
 }
 
 #UserCP {
+    //home
     &.code-00 {
         #ucpcontent {
             th,
@@ -339,8 +359,13 @@
             }
         }
     }
+    //edit profile
     &.code-01 {
         #ucpcontent {
+            padding: 0;
+        }
+        #ucpcontent > form > table > tbody {
+            display: block;
             padding: 0;
         }
         form[name="theForm"] {
@@ -358,11 +383,12 @@
                 margin: 0 !important;
                 padding: 15px 30px;
                 border-bottom: 1px solid var(--midGrey-70);
+                border-top: 1px solid var(--midGrey-70);
                 font-size: 24px !important;
                 text-align: center;
 
-                &:not(:nth-child(5)) {
-                    border-top: 1px solid var(--midGrey-70);
+                &:nth-child(5) {
+                    border-top: 0 !important;
                 }
             }
 
@@ -405,6 +431,175 @@
                                 letter-spacing: 0;
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+    //avatar
+    &.code-22 {
+        #gallery_form {
+            display: none;
+        }
+
+        #ucpcontent {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: max-content max-content 82px auto;
+
+            .pformstrip:nth-child(3) {
+                grid-column: 1 / 3;
+                grid-row: 1 / 2;
+                border-top: 0;
+
+                & + p {
+                    grid-column: 1 / 3;
+                    grid-row: 2 / 3;
+                    padding: 30px;
+                    line-height: 200%;
+                }
+            }
+            .pformstrip:nth-child(5) {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+                height: max-content;
+            }
+            .tablepad {
+                grid-column: 1 / 2;
+                grid-row: 4 / 5;
+                padding: 30px;
+            }
+            form {
+                grid-column: 2 / 3;
+                grid-row: 3 / 5;
+                display: grid;
+                grid-template-rows: max-content max-content auto max-content;
+
+                tr {
+                    display: grid;
+                    grid-gap: 20px;
+                }
+
+                .pformstrip:last-child {
+                    border-left: 1px solid var(--midGrey-70);
+                }
+            }
+        }
+    }
+    //subaccounts
+    &.code-54 {
+        #ucpcontent {
+            & > p {
+                padding: 30px;
+                line-height: 200%;
+
+                & ~ br {
+                    display: none;
+                }
+    
+                & + div {
+                    br {
+                        display: none;
+
+                        & + .tableborder {
+                            form > table {
+                                tr:not(:last-child) {
+                                    grid-template-columns: 1fr 1fr;
+                                    border-top: 0;
+                                }
+                            }
+                        }
+                    }
+                    form > table {
+                        width: 100%;
+        
+                        tr {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 21px;
+                            border-bottom: 1px solid var(--midGrey-70);
+                            padding: 15px;
+                            align-items: center;
+        
+                            a,
+                            td {
+                                color: var(--white);
+                                font-weight: normal;
+                                text-transform: uppercase;
+                                font-size: var(--xsBody);
+                                letter-spacing: 2px;
+                                font-family: var(--body);
+
+                                &.pformright {
+                                    input {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+        
+                            &:not(.dlight) {
+                                border-top: 1px solid var(--midGrey-70);
+                                font-family: var(--serif);
+                                font-size: var(--xlBody);
+                                text-align: left;
+        
+                                th {
+                                    padding: 0;
+                                }
+                            }
+        
+                            &:last-child {
+                                text-align: center;
+                                border-top: 0;
+                                grid-template-columns: auto;
+
+                                .titlemedium > div {
+                                    display: flex;
+                                    margin: 0;
+                                    padding: 0;
+                                    border-bottom: 0;
+                            
+                                    & > input {
+                                        margin: 0;
+                                        width: 100%;
+                                        border-radius: 0;
+                                        padding: 30px;
+                                        font-family: var(--serif);
+                                        font-size: 24px;
+                                        text-transform: capitalize;
+                                        letter-spacing: 0;
+                                        background: var(--black);
+                                        color: var(--white);
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                        }
+
+                        & > tbody > tr:last-child {
+                            padding: 0;
+
+                            & > td.pformstrip {
+                                display: flex;
+                                margin: 0;
+                                padding: 0;
+                                border-bottom: 0;
+                        
+                                & > input {
+                                    margin: 0;
+                                    width: 100%;
+                                    border-radius: 0;
+                                    padding: 30px;
+                                    font-family: var(--serif);
+                                    font-size: 24px;
+                                    text-transform: capitalize;
+                                    letter-spacing: 0;
+                                    background: var(--black);
+                                    color: var(--white);
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        
                     }
                 }
             }

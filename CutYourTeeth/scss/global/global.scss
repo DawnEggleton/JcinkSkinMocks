@@ -93,6 +93,9 @@ select {
     line-height: var(--sBody);
     margin: 0 5px 5px 0;
 }
+option {
+    font-size: var(--lBody);
+}
 .scroll {
     overflow: auto;
     padding-right: 10px;
