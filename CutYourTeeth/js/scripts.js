@@ -388,3 +388,25 @@ if($('body#modcp').length > 0) {
     <a href="?act=modcp&CODE=validating">Validation</a>`
     */
 }
+
+
+//Login Only
+if($('#Login').length > 0) {
+    let textNodes = getAllTextNodes(document.querySelector('main'));
+    textNodes.forEach(node => {
+        const paragraph = document.createElement('p');
+        node.after(paragraph);
+        paragraph.appendChild(node);
+    });
+}
+
+
+//Login Only
+if($('#Reg').length > 0) {
+    let textNodes = getAllTextNodes(document.querySelector('main > form'));
+    textNodes.forEach(node => {
+        const paragraph = document.createElement('p');
+        node.after(paragraph);
+        paragraph.appendChild(node);
+    });
+}

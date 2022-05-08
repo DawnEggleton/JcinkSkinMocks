@@ -924,3 +924,7 @@ function openUserMenu (e) {
 function closeUserMenu (e) {
     e.parentNode.previousElementSibling.classList.remove('is-open');
 }
+
+function getAllTextNodes(element) {
+  return Array.from(element.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+}

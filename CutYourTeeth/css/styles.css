@@ -2589,6 +2589,255 @@ ul.timeline li.event {
   border-top: 1px solid var(--midGrey-70);
 }
 
+#Post #topic-summary > .tableborder > .pformstrip {
+  padding: 15px;
+  border-bottom: 1px solid var(--midGrey-70);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+}
+#Post #topic-summary tr {
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Post #topic-summary tr:nth-child(odd) {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+  background: var(--black);
+}
+#Post #topic-summary tr:nth-child(odd) strong {
+  font-weight: normal;
+}
+#Post #topic-summary tr:nth-child(odd) b {
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  text-transform: capitalize;
+  display: block;
+  margin-bottom: 5px;
+  letter-spacing: 0;
+  color: var(--white);
+}
+#Post #topic-summary tr:nth-child(even) {
+  display: block;
+  padding: 30px;
+  background: var(--black-50);
+  font-size: var(--mBody);
+  line-height: 200%;
+}
+#Post #topic-summary tr:nth-child(even) td:first-child {
+  display: none;
+}
+
+#Login main > p {
+  margin: 0;
+  padding: 30px 30px 0;
+}
+#Login main > p:first-of-type {
+  border-top: 1px solid var(--midGrey-70);
+}
+#Login main > p:last-of-type {
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Login main > b {
+  display: block;
+  padding: 30px;
+  border-bottom: 1px solid var(--midGrey-70);
+  font-family: var(--serif);
+  font-size: var(--lBody);
+  text-align: center;
+}
+#Login main > b a {
+  color: var(--white);
+}
+#Login main form .maintitle,
+#Login main form .pformstrip:not(:last-child) {
+  display: none;
+}
+#Login main form .pformstrip:last-child {
+  background: var(--black);
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Login main form .pformstrip:last-child input {
+  margin: 0;
+  padding: 30px;
+  font-family: var(--serif);
+  font-size: 24px;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  background: none;
+  border-radius: 0;
+  color: var(--white);
+  cursor: pointer;
+  width: 100%;
+}
+#Login main form tr {
+  display: block;
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 15px 30px;
+  line-height: 200%;
+}
+#Login main form tr td {
+  display: block;
+}
+#Login main form table:first-of-type tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  grid-gap: 30px;
+}
+#Login main form table:first-of-type tr td:first-child {
+  text-align: right;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#Login main form table:first-of-type tr input {
+  width: 250px;
+  background: var(--light);
+  border: 0;
+  padding: 5px 10px;
+  border-radius: 2px;
+  color: var(--dark);
+  font-size: var(--sBody);
+  letter-spacing: 1px;
+  font-family: var(--body);
+  font-weight: 500;
+  line-height: var(--sBody);
+  margin: 0 5px 5px 0;
+}
+
+#Reg form > b {
+  display: block;
+  border-top: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 50px;
+  text-transform: capitalize;
+  font-family: var(--serif);
+  font-size: 24px;
+  text-align: center;
+}
+#Reg form > p {
+  margin: 0 30px;
+}
+#Reg form > .tableborder > .pformstrip {
+  display: none;
+}
+#Reg form fieldset {
+  border: 1px solid var(--midGrey-70);
+  padding: 15px;
+}
+#Reg form fieldset legend {
+  padding: 0 15px;
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+}
+#Reg form fieldset .warning {
+  background: var(--accent-25) !important;
+  border: 1px solid var(--accent-75) !important;
+  padding: 10px 15px !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+  margin: 0 0 15px 0 !important;
+}
+#Reg form fieldset tbody {
+  display: grid;
+  grid-gap: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+}
+#Reg form fieldset:nth-of-type(2) tr, #Reg form fieldset:nth-of-type(3) tr {
+  display: grid;
+  grid-template-columns: 250px 250px;
+  grid-gap: 15px;
+}
+#Reg form .desc {
+  padding: 30px 0;
+  font-family: var(--serif);
+  text-transform: capitalize;
+  font-size: var(--xlBody);
+}
+#Reg form input[type=submit] {
+  font-family: var(--serif);
+  text-transform: capitalize;
+  font-size: 24px;
+  padding: 20px;
+  letter-spacing: 0;
+}
+#Reg .maintitle {
+  border-top: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 50px;
+  text-transform: capitalize;
+  font-family: var(--serif);
+  font-size: 24px;
+  text-align: center;
+}
+#Reg .maintitle ~ .pformstrip {
+  padding: 30px 30px 0;
+}
+#Reg .maintitle ~ .tablepad {
+  padding: 30px;
+}
+#Reg .maintitle ~ .row2:not(:last-child) {
+  padding: 0 30px 30px;
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Reg .maintitle ~ .row2:last-child {
+  background: var(--black);
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Reg .maintitle ~ .row2:last-child input {
+  margin: 0;
+  padding: 30px;
+  font-family: var(--serif);
+  font-size: 24px;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  background: none;
+  border-radius: 0;
+  color: var(--white);
+  cursor: pointer;
+  width: 100%;
+}
+
+#redirect-screen {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  color: var(--white);
+  font-family: "Montserrat", sans-serif;
+}
+#redirect-screen .tablefill {
+  background: var(--black-50);
+  border: 1px solid var(--midGrey-70);
+  display: block;
+  padding: 30px;
+  font-size: var(--mBody);
+  line-height: 200%;
+}
+#redirect-screen .tablefill a {
+  color: var(--white);
+}
+#redirect-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--headerOverlay);
+  mix-blend-mode: var(--headerBlend);
+  opacity: var(--headerOpacity);
+}
+
 /*******************************
     Navigation
 ********************************/
