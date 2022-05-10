@@ -1,0 +1,37 @@
+/******* Settings ********/
+:root {
+  --sidebarWidth: 300px;
+}
+@media only screen and (max-width: 375px) {
+  :root {
+    --sidebarWidth: 250px;
+  }
+}
+
+.main-nav--links a::after,
+.forum--subforums a::after,
+.profile--header-links a::after,
+.profile--sub a::after,
+.tracker--labels button::after,
+.stats--links a span::after,
+.webpage--main-menu a::after,
+.webpage--sub-menu-links a::after,
+#sort .form-buttons button::after,
+.post--header-links a::after,
+.postlinksbar strong a::after {
+  content: "\f178";
+}
+
+.webpage--sub-menu-links button::after {
+  content: "\f175";
+}
+
+.webpage--sub-menu-links button.active::after {
+  content: "\f176";
+}
+
+#sort .checkbox::before {
+  content: "\f00c";
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3Njc3MvZ2xvYmFsL3NldHRpbmdzLnNjc3MiLCIuLi9zZXR0aW5ncy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsMEJBQUE7QUFDQTtFQUNJLHFCQUFBO0FDQ0o7QURDSTtFQUhKO0lBSVEscUJBQUE7RUNFTjtBQUNGOztBRENBOzs7Ozs7Ozs7OztFQVdFLGdCQUFBO0FDRUY7O0FEQUE7RUFDRSxnQkFBQTtBQ0dGOztBRERBO0VBQ0UsZ0JBQUE7QUNJRjs7QURGQTtFQUNFLGdCQUFBO0FDS0YiLCJmaWxlIjoic2V0dGluZ3MuY3NzIn0= */

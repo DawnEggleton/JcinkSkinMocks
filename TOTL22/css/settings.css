@@ -1,0 +1,37 @@
+/******* Settings ********/
+:root {
+  --sidebarWidth: 300px;
+}
+@media only screen and (max-width: 375px) {
+  :root {
+    --sidebarWidth: 250px;
+  }
+}
+
+.main-nav--links a::after,
+.forum--subforums a::after,
+.profile--header-links a::after,
+.profile--sub a::after,
+.tracker--labels button::after,
+.stats--links a span::after,
+.webpage--main-menu a::after,
+.webpage--sub-menu-links a::after,
+#sort .form-buttons button::after,
+.post--header-links a::after,
+.postlinksbar strong a::after {
+  content: "\f178";
+}
+
+.webpage--sub-menu-links button::after {
+  content: "\f175";
+}
+
+.webpage--sub-menu-links button.active::after {
+  content: "\f176";
+}
+
+#sort .checkbox::before {
+  content: "\f00c";
+}
+
+/*# sourceMappingURL=settings.css.map */

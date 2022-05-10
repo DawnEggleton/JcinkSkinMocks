@@ -173,21 +173,42 @@ luxblock {
 .fa-solid,
 .fa-regular,
 .fa-light,
-.fa-thin {
+.fa-thin,
+.fa-brand,
+.fas,
+.far,
+.fal,
+.fab {
     font-style: normal !important;
+}
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin {
     font-family: 'Font Awesome 6 Pro' !important;
 }
+.fas,
+.far,
+.fal,
+.fab {
+    font-family: 'Font Awesome 5 Pro' !important;
+}
 .fa-brand {
-    font-style: normal !important;
     font-family: 'Font Awesome 6 Brands' !important;
 }
-.fa-solid {
+.fab {
+    font-family: 'Font Awesome 5 Brands' !important;
+}
+.fa-solid,
+.fas {
     font-weight: 700 !important;
 }
-.fa-regular {
+.fa-regular,
+.far {
     font-weight: 500 !important;
 }
-.fa-light {
+.fa-light,
+.fal {
     font-weight: 300 !important;
 }
 .fa-thin {
