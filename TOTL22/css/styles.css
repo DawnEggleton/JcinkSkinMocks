@@ -419,57 +419,57 @@ body:not(.g-4) .staffOnly {
  * ----------------------------------------
  */
 @-webkit-keyframes shake-lr {
-  0%, 70% {
+  0%, 50% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
   }
-  7% {
+  5% {
     -webkit-transform: rotate(8deg);
     transform: rotate(8deg);
   }
-  14%, 28%, 42% {
+  10%, 20%, 30% {
     -webkit-transform: rotate(-10deg);
     transform: rotate(-10deg);
   }
-  21%, 35%, 49% {
+  15%, 25%, 35% {
     -webkit-transform: rotate(10deg);
     transform: rotate(10deg);
   }
-  56% {
+  40% {
     -webkit-transform: rotate(-8deg);
     transform: rotate(-8deg);
   }
-  63% {
+  45% {
     -webkit-transform: rotate(8deg);
     transform: rotate(8deg);
   }
 }
 @keyframes shake-lr {
-  0%, 70% {
+  0%, 50% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
   }
-  7% {
+  5% {
     -webkit-transform: rotate(8deg);
     transform: rotate(8deg);
   }
-  14%, 28%, 42% {
+  10%, 20%, 30% {
     -webkit-transform: rotate(-10deg);
     transform: rotate(-10deg);
   }
-  21%, 35%, 49% {
+  15%, 25%, 35% {
     -webkit-transform: rotate(10deg);
     transform: rotate(10deg);
   }
-  56% {
+  40% {
     -webkit-transform: rotate(-8deg);
     transform: rotate(-8deg);
   }
-  63% {
+  45% {
     -webkit-transform: rotate(8deg);
     transform: rotate(8deg);
   }

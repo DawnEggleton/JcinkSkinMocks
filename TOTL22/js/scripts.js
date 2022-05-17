@@ -2,7 +2,7 @@ $(window).on('load', function() {
     if($('body#Pages').length === 0) {
         //document.querySelector('#loading').remove();
     }
-})
+});
 
 //Adjust navstrip to remove nbsp
 $('#navstrip').html($('#navstrip').html().replace(/(?:^(?:&nbsp;)+)|(?:(?:&nbsp;)+$)/g, ''));
