@@ -1,6 +1,6 @@
 $(window).on('load', function() {
     if($('body#Pages').length === 0) {
-        //document.querySelector('#loading').remove();
+        document.querySelector('#loading').remove();
     }
 });
 

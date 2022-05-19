@@ -1284,7 +1284,6 @@ function webpageTabs() {
     //sub menu - on link click, open content
     subItems.forEach((item, index) => {
         item.addEventListener('click', e => {
-            console.log('change content submenu');
             subItems.forEach(item => item.classList.remove('active'));
             innerTriggers.forEach(item => item.classList.remove('active'));
             innerItems.forEach(item => item.classList.remove('active'));
@@ -1468,4 +1467,25 @@ function sendUpdateRequest(message) {
     }
 
     request.send(JSON.stringify(params));
+}
+
+
+
+function memberTabs() {
+    let innerTriggers = document.querySelectorAll('.ml--sub-menu .ml--sub-menu-links > button');
+
+    let innerMenus = document.querySelectorAll('.ml--pop-menu');
+    
+    console.log(innerTriggers);
+
+    //sub menu - on button click, open inner menu
+    innerTriggers.forEach((trigger, index) => {
+        trigger.addEventListener('click', e => {
+            console.log(trigger);
+            innerTriggers.forEach(trigger => trigger.classList.remove('active'));
+            innerMenus.forEach(menu => menu.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            innerMenus[index].classList.add('active');
+        });
+    });
 }

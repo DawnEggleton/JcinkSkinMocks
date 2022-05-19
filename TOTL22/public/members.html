@@ -28,6 +28,7 @@
         <script src="../js/clipboard.js"></script>
 
         <!--Settings-->
+        <script src="../js/functions.js"></script>
         <script type='text/javascript' src='../js/settings.js'></script>
         <link rel="stylesheet" href="../css/settings.css" />
     </head>
@@ -55,9 +56,454 @@
                 <i class="fa-regular fa-wand-sparkles"></i>
                 <p>Accio!</p>
             </div>
-            <form action='index.php' method='get'>
-                <input type='hidden' name='act' value='Members' />
-            </form>
+            
+            <section class="ml">
+                <div class="ml--header header">
+                    <div class="header--deco">
+                        <div class="header--deco-accent left"></div>
+                        <div class="header--deco-accent right"></div>
+                        <h1>Accounts</h1>
+                    </div>
+                </div>
+                <div class="ml--wrapper">
+                    <div class="ml--main-menu">
+                        <div class="ml--sticky">
+                            <button class="go-left" onclick="moveLeft(this,'.ml--main-menu-links')">
+                                <i class="fa-light fa-angles-left"></i>
+                            </button>
+                            <div class="ml--main-menu-links">
+                                <input id="quicksearch" class="forminput memberlist-namesearch" type="text" size="25" name="name" value="" placeholder="Filter by name...">
+                                <button type="button" class="ml--sort" data-sort="name">Name (A -> Z)</button>
+                                <button type="button" class="ml--sort" data-sort="nameDesc">Name (Z -> A)</button>
+                                <button type="button" class="ml--sort" data-sort="age">Age (Asc)</button>
+                                <button type="button" class="ml--sort" data-sort="ageDesc">Age (Desc)</button>
+                            </div>
+                            <button class="go-right" onclick="moveRight(this,'.ml--main-menu-links')">
+                                <i class="fa-light fa-angles-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ml--content">
+                        <div class="ml--menu-sticky">
+                            <div class="ml--sub-menu">
+                                <button class="go-left" onclick="moveLeft(this,'.ml--sub-menu-links')">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div class="ml--sub-menu-links">
+                                    <button data-subcategory="member">Member</button>
+                                    <button data-subcategory="group">Group</button>
+                                    <button data-subcategory="age">Age</button>
+                                    <button data-subcategory="blood">Blood Status</button>
+                                </div>
+                                <button class="go-right" onclick="moveRight(this,'.ml--sub-menu-links')">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ml--filters">
+                            <div class="ml--pop-menu">
+                                <button class="go-left" onclick="moveLeft(this,'.ml--sub-menu-links')">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div class="ml--sub-menu-links claim--labels ml--filtergroup ml-memberlist" data-filter-group="member">
+                                    <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all members</label>          
+                                    <label><input type="checkbox" value=".amy">amy</label>
+                                    <label><input type="checkbox" value=".bea">bea</label>
+                                    <label><input type="checkbox" value=".bells">bells</label>
+                                    <label><input type="checkbox" value=".chels">chels</label>
+                                    <label><input type="checkbox" value=".holly">holly</label>
+                                    <label><input type="checkbox" value=".kay">kay</label>
+                                    <label><input type="checkbox" value=".kelsa">kelsa</label>
+                                    <label><input type="checkbox" value=".lux">lux</label>
+                                    <label><input type="checkbox" value=".meriel">meriel</label>
+                                    <label><input type="checkbox" value=".roe">roe</label>
+                                </div>
+                                <button class="go-right" onclick="moveRight(this,'.ml--sub-menu-links')">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div class="ml--pop-menu">
+                                <button class="go-left" onclick="moveLeft(this,'.ml--sub-menu-links')">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div class="ml--sub-menu-links claim--labels ml--filtergroup ml-memberlist" data-filter-group="group">
+                                    <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all groups</label>
+                                    <label><input type="checkbox" value=".g-6">adults</label>
+                                    <label><input type="checkbox" value=".g-18">entertainment</label>
+                                    <label><input type="checkbox" value=".g-7">gryffindor</label>
+                                    <label><input type="checkbox" value=".g-15">healers</label>
+                                    <label><input type="checkbox" value=".g-8">hogwarts staff</label>
+                                    <label><input type="checkbox" value=".g-9">hufflepuff</label>
+                                    <label><input type="checkbox" value=".g-12">ministry</label>
+                                    <label><input type="checkbox" value=".g-11">press</label>
+                                    <label><input type="checkbox" value=".g-13">quidditch</label>
+                                    <label><input type="checkbox" value=".g-14">ravenclaw</label>
+                                    <label><input type="checkbox" value=".g-17">returners</label>
+                                    <label><input type="checkbox" value=".g-16">slytherin</label>
+                                    <label><input type="checkbox" value=".g-4">site staff</label>
+                                    <label><input type="checkbox" value=".g-20">members</label>
+                                    <label><input type="checkbox" value=".g-3">unsorted</label>
+                                    <label><input type="checkbox" value=".g-19">hiatus</label>
+                                    <label><input type="checkbox" value=".g-10">inactive</label>
+                                </div>
+                                <button class="go-right" onclick="moveRight(this,'.ml--sub-menu-links')">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div class="ml--pop-menu">
+                                <button class="go-left" onclick="moveLeft(this,'.ml--sub-menu-links')">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div class="ml--sub-menu-links claim--labels ml--filtergroup ml-memberlist" data-filter-group="age">
+                                    <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all ages</label>
+                                    <label><input type="checkbox" value=".Teen">Teens</label>
+                                    <label><input type="checkbox" value=".20s">20 - 29</label>
+                                    <label><input type="checkbox" value=".30s">30 - 39</label>
+                                    <label><input type="checkbox" value=".40s">40 - 49</label>
+                                    <label><input type="checkbox" value=".50">50+</label>
+                                </div>
+                                <button class="go-right" onclick="moveRight(this,'.ml--sub-menu-links')">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                            <div class="ml--pop-menu">
+                                <button class="go-left" onclick="moveLeft(this,'.ml--sub-menu-links')">
+                                    <i class="fa-light fa-angles-left"></i>
+                                </button>
+                                <div class="ml--sub-menu-links claim--labels ml--filtergroup ml-memberlist" data-filter-group="blood">
+                                    <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all types</label>
+                                    <label><input type="checkbox" value=".pureblood">pureblood</label>
+                                    <label><input type="checkbox" value=".halfblood">halfblood</label>
+                                    <label><input type="checkbox" value=".muggleborn">muggleborn</label>
+                                    <label><input type="checkbox" value=".squib">squib</label>
+                                    <label><input type="checkbox" value=".muggle">muggle</label>
+                                    <label><input type="checkbox" value=".other">other</label>
+                                </div>
+                                <button class="go-right" onclick="moveRight(this,'.ml--sub-menu-links')">
+                                    <i class="fa-light fa-angles-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ml--members">
+                            <form action='index.php' method='get'>
+                                <input type='hidden' name='act' value='Members' />
+                                
+                                <div id="ml--rows"><div class="grid-sizer"></div></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <script>    
+                    memberTabs();
+                    let accounts = [], members = [];
+                    let $container = $('#ml--rows');
+                    var filters = {};
+                    let charAge = `0`, ageClass = ``;
+
+                    function populatePage(array) {
+                        let html = ``;
+                        let members = [];
+                        let membersClean = [];
+                        for (let i = 0; i < array.length; i++) {
+                            //Make Member Array
+                            let member = {raw: array[i].rawAlias, clean: array[i].alias};
+                            if(jQuery.inArray(member.clean, membersClean) == -1 && member.clean != '') {
+                                membersClean.push(member.clean);
+                                members.push(member);
+                            }
+                            switch(array[i].groupID) {
+                                //member only
+                                case 4:
+                                case 6:
+                                    html += `<div class="ml--member member grid-item g-${array[i].groupID} ${array[i].alias}">
+                                        <div class="mem">
+                                            <div class="mem--top">
+                                                <img src="${array[i].image}" />
+                                                <a href="?showuser=${array[i].id}" class="name">${array[i].name}</a>
+                                                <span>${array[i].groupName}</span>
+                                            </div>
+                                            <div class="mem--info">
+                                                <span class="fullWidth">${array[i].pronouns}</span>
+                                                <span>${array[i].timezone}</span>
+                                                <span>${array[i].contact}</span>
+                                            </div>
+                                            <div class="mem--overview">
+                                                <div class="scroll">${array[i].triggers}</div>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                                    break;
+                                //depends on type
+                                case 1:
+                                case 5:
+                                case 7:
+                                case 8:
+                                case 3:
+                                    if(array[i].type == `member`) {
+                                        //member
+                                        html += `<div class="ml--member member grid-item g-${array[i].groupID} ${array[i].alias}">
+                                        <div class="mem">
+                                            <div class="mem--top">
+                                                <img src="${array[i].image}" />
+                                                <a href="?showuser=${array[i].id}" class="name">${array[i].name}</a>
+                                                <span>${array[i].groupName}</span>
+                                            </div>
+                                            <div class="mem--info">
+                                                <span class="fullWidth">${array[i].pronouns}</span>
+                                                <span>${array[i].timezone}</span>
+                                                <span>${array[i].contact}</span>
+                                            </div>
+                                            <div class="mem--overview">
+                                                <div class="scroll">${array[i].triggers}</div>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                                    } else {
+                                        //character
+                                        html += `<div class="ml--member character grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].bloodStatus} ${array[i].alias}">
+                                        <div class="mem">
+                                            <div class="mem--top">
+                                                <img src="${array[i].image}" />
+                                                <a href="?showuser=${array[i].id}" class="name">${array[i].name}</a>
+                                                <span>Played by ${array[i].rawAlias}</span>
+                                            </div>
+                                            <div class="mem--info">
+                                                <span class="fullWidth">${array[i].groupName}</span>
+                                                <span>${array[i].bloodStatus}</span>
+                                                <span><span class="age">${array[i].age}</span> years</span>
+                                            </div>
+                                            <div class="mem--overview">
+                                                <div class="scroll">${array[i].overview}</div>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                                    }
+                                    break;
+                                //character only
+                                default: 
+                                    html += `<div class="ml--member character  grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].bloodStatus} ${array[i].alias}">
+                                        <div class="mem">
+                                            <div class="mem--top">
+                                                <img src="${array[i].image}" />
+                                                <a href="?showuser=${array[i].id}" class="name">${array[i].name}</a>
+                                                <span>Played by ${array[i].rawAlias}</span>
+                                            </div>
+                                            <div class="mem--info">
+                                                <span class="fullWidth">${array[i].groupName}</span>
+                                                <span>${array[i].bloodStatus}</span>
+                                                <span><span class="age">${array[i].age}</span> years</span>
+                                            </div>
+                                            <div class="mem--overview">
+                                                <div class="scroll">${array[i].overview}</div>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                                    break;
+                            }
+                        }
+                        document.querySelector('#ml--rows').innerHTML = html;
+
+                        //sort member array
+                        members.sort();
+
+                        //Append Array
+                        members.forEach(member => {
+                        document.querySelector('.ml-memberlist').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${member.clean}"/>${member.raw}</label>`);
+                        });
+                    }
+
+                    function setCustomFilter() {
+                        //get search value
+                        qsRegex = document.querySelector('#quicksearch').value;
+                        
+                        //add show class to all items to reset
+                        elements.forEach(el => el.classList.add('show'));
+                        
+                        //filter by nothing
+                        let searchFilter = '';
+                        
+                        //check each item
+                        elements.forEach(el => {
+                            let name = el.querySelector('.mem--top a').textContent;
+                            if(!name.toLowerCase().includes(qsRegex)) {
+                                el.classList.remove('show');
+                                searchFilter = '.show';
+                            }
+                        });
+                    
+                        let filterGroups = document.querySelectorAll('.ml--filtergroup');
+                        let groups = [];
+                        let checkFilters;
+                        filterGroups.forEach(group => {
+                            let filters = [];
+                            group.querySelectorAll('label.is-checked input').forEach(filter => {
+                                if(filter.value) {
+                                    filters.push(filter.value);
+                                }
+                            });
+                            groups.push({group: group.dataset.filterGroup, selected: filters});
+                        });
+                    
+                        let filterCount = 0;
+                        let comboFilters = [];
+                        groups.forEach(group => {
+                            // skip to next filter group if it doesn't have any values
+                            if ( group.selected.length > 0 ) {
+                                if ( filterCount === 0 ) {
+                                    // copy groups to comboFilters
+                                    comboFilters = group.selected;
+                                } else {
+                                    var filterSelectors = [];
+                                    var groupCombo = comboFilters;
+                                    // merge filter Groups
+                                    for (var k = 0; k < group.selected.length; k++) {
+                                        for (var j = 0; j < groupCombo.length; j++) {
+                                            //accommodate weirdness with object vs not
+                                            if(groupCombo[j].selected) {
+                                                if(groupCombo[j].selected != group.selected[k]) {
+                                                    filterSelectors.push( groupCombo[j].selected + group.selected[k] );
+                                                }
+                                            } else if (!groupCombo[j].selected && group.selected[k]) {
+                                                if(groupCombo[j] != group.selected[k]) {
+                                                    filterSelectors.push( groupCombo[j] + group.selected[k] );
+                                                }
+                                            }
+                                        }
+                                    }
+                                    // apply filter selectors to combo filters for next group
+                                    comboFilters = filterSelectors;
+                                }
+                                filterCount++;
+                            }
+                        });
+                        
+                        //set filter to blank
+                        let filter = [];
+                        //check if it's only search
+                        if(qsRegex.length > 0 && comboFilters.length === 0) {
+                            filter = ['.show'];
+                        }
+                        //check if it's only checkboxes
+                        else if(qsRegex.length === 0 && comboFilters.length > 0) {
+                            let combos = comboFilters.join(',').split(',');
+                            filter = [...combos];
+                        }
+                        //check if it's both
+                        else if (qsRegex.length > 0 && comboFilters.length > 0) {
+                            let dualFilters = comboFilters.map(filter => filter + '.show');
+                            filter = [...dualFilters];
+                        }
+                    
+                        //join array into string
+                        filter = filter.join(', ');
+                        
+                        //render isotope
+                        $container.isotope({
+                            filter: filter
+                        });
+                    }
+                
+                    // debounce so filtering doesn't happen every millisecond
+                    function debounce(fn, threshold) {
+                        var timeout;
+                        return function debounced() {
+                            if (timeout) {
+                            clearTimeout(timeout);
+                            }
+                    
+                            function delayed() {
+                            fn();
+                            timeout = null;
+                            }
+                            setTimeout(delayed, threshold || 100);
+                        };
+                    }
+
+                    accounts = fakeAccounts;
+
+                    populatePage(accounts);
+
+                    //initialize isotope
+                    // quick search regex
+                    let qsRegex;
+                    let elements = document.querySelectorAll('.grid-item');
+                    
+                    // init Isotope
+                    $container.isotope({
+                        itemSelector: '.grid-item',
+                        percentPosition: true,
+                        filter: '.character',
+                        getSortData: {
+                            name: '.name',
+                            nameDesc: '.name',
+                            age: '.age parseInt',
+                            ageDesc: '.age parseInt',
+                        },
+                        sortAscending: {
+                            name: true,
+                            nameDesc: false,
+                            age: true,
+                            ageDesc: false,
+                        }
+                    });
+                
+                    //use value of input select to filter
+                    let checkboxes = document.querySelectorAll('.ml--filtergroup input');
+                    checkboxes.forEach(checkbox => {
+                        checkbox.addEventListener('change', e => {
+                            if(e.currentTarget.classList.contains('all')) {
+                                e.currentTarget.checked = true;
+                                e.currentTarget.parentElement.classList.add('is-checked');
+                                e.currentTarget.parentElement.parentElement.querySelectorAll('input:not(.all)').forEach(input => {
+                                    input.checked = false;
+                                    input.parentElement.classList.remove('is-checked');
+                                });
+                            } else {
+                                if(e.currentTarget.parentElement.classList.contains('is-checked')) {
+                                    e.currentTarget.checked = false;
+                                    e.currentTarget.parentElement.classList.remove('is-checked');
+                                } else {
+                                    e.currentTarget.checked = true;
+                                    e.currentTarget.parentElement.classList.add('is-checked');
+                                    e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = false;
+                                    e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.remove('is-checked');
+                                }
+                            }
+                            let labels = e.currentTarget.parentElement.parentElement.querySelectorAll('label');
+                            let checked = 0;
+                            labels.forEach(label => {
+                                if(label.classList.contains('is-checked')) {
+                                    checked++;
+                                }
+                            });
+                            if(checked === 0) {
+                                e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = true;
+                                e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.add('is-checked');
+                            }
+                            //set filters
+                            setCustomFilter();
+                        });
+                    });
+                    
+                    // use value of search field to filter
+                    document.querySelector('#quicksearch').addEventListener('keyup', e => {
+                        setCustomFilter();
+                    });
+
+                    // bind sort button click
+                    let sortButtons = document.querySelectorAll('.ml--main-menu-links button');
+                    sortButtons.forEach(button => {
+                        button.addEventListener('click', e => {
+                            let sortValue = e.currentTarget.dataset.sort;
+                            $container.isotope({ sortBy: sortValue });
+                            sortButtons.forEach(button => {
+                                button.classList.remove('is-checked');
+                            });
+                            e.currentTarget.classList.add('is-checked');
+                        });
+                    });
+                </script>
+            </section>
         </main>
 
         <!-- Copyright Information -->
@@ -85,7 +531,6 @@
         <script type="text/javascript" src="../templates/controls.js"></script>
 
         <!--Scripts-->
-        <script src="../js/functions.js"></script>
         <script src="../js/scripts.js"></script>
     </body>
 </html>

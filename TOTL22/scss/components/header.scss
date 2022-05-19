@@ -2,14 +2,16 @@
     Header
 ********************************/
 #Profile header,
-#Pages header {
+#Pages header,
+#Members header {
     display: none;
 }
 .header {
 
     header &,
     &.profile--header,
-    &.webpage--header {
+    &.webpage--header,
+    &.ml--header {
         background: var(--dark);
         padding: 50px 0 0 50px;
         left: 0;
