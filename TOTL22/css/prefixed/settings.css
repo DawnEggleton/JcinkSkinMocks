@@ -19,7 +19,8 @@
 .ml--sub-menu-links > button::after,
 #sort .form-buttons button::after,
 .post--header-links a::after,
-.postlinksbar strong a::after {
+.postlinksbar strong a::after,
+.mem--overview .scroll a:last-child::after {
   content: "\f178";
 }
 

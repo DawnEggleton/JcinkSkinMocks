@@ -214,16 +214,14 @@
                             switch(array[i].groupID) {
                                 //member only
                                 case 4:
-                                case 6:
+                                case 20:
                                     html += `<div class="ml--member member grid-item g-${array[i].groupID} ${array[i].alias}">
                                         <div class="mem">
                                             <div class="mem--top">
                                                 <img src="${array[i].image}" />
                                                 <a href="?showuser=${array[i].id}" class="name">${array[i].name}</a>
                                                 <span>${array[i].groupName}</span>
-                                            </div>
-                                            <div class="mem--info">
-                                                <span class="fullWidth">${array[i].pronouns}</span>
+                                                <span>${array[i].pronouns}</span>
                                                 <span>${array[i].timezone}</span>
                                                 <span>${array[i].contact}</span>
                                             </div>
@@ -235,10 +233,11 @@
                                     break;
                                 //depends on type
                                 case 1:
-                                case 5:
-                                case 7:
-                                case 8:
                                 case 3:
+                                case 5:
+                                case 10:
+                                case 19:
+                                case 21:
                                     if(array[i].type == `member`) {
                                         //member
                                         html += `<div class="ml--member member grid-item g-${array[i].groupID} ${array[i].alias}">
@@ -247,9 +246,7 @@
                                                 <img src="${array[i].image}" />
                                                 <a href="?showuser=${array[i].id}" class="name">${array[i].name}</a>
                                                 <span>${array[i].groupName}</span>
-                                            </div>
-                                            <div class="mem--info">
-                                                <span class="fullWidth">${array[i].pronouns}</span>
+                                                <span>${array[i].pronouns}</span>
                                                 <span>${array[i].timezone}</span>
                                                 <span>${array[i].contact}</span>
                                             </div>
@@ -266,9 +263,7 @@
                                                 <img src="${array[i].image}" />
                                                 <a href="?showuser=${array[i].id}" class="name">${array[i].name}</a>
                                                 <span>Played by ${array[i].rawAlias}</span>
-                                            </div>
-                                            <div class="mem--info">
-                                                <span class="fullWidth">${array[i].groupName}</span>
+                                                <span>${array[i].groupName}</span>
                                                 <span>${array[i].bloodStatus}</span>
                                                 <span><span class="age">${array[i].age}</span> years</span>
                                             </div>
@@ -287,9 +282,7 @@
                                                 <img src="${array[i].image}" />
                                                 <a href="?showuser=${array[i].id}" class="name">${array[i].name}</a>
                                                 <span>Played by ${array[i].rawAlias}</span>
-                                            </div>
-                                            <div class="mem--info">
-                                                <span class="fullWidth">${array[i].groupName}</span>
+                                                <span>${array[i].groupName}</span>
                                                 <span>${array[i].bloodStatus}</span>
                                                 <span><span class="age">${array[i].age}</span> years</span>
                                             </div>

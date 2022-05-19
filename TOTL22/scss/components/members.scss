@@ -246,4 +246,120 @@
         }
     }
 
+    &--members {
+        padding: 20px;
+    }
+
+    &--member {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+}
+
+.mem {
+    display: grid;
+    height: 310px;
+    grid-template-rows: 150px 150px;
+    grid-gap: 10px;
+
+    @media only screen and (min-width: $md) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 150px;
+        height: 150px;
+    }
+
+    &--top {
+        display: grid;
+        grid-template-columns: 105px auto;
+        grid-template-rows: 1fr max-content max-content max-content 1fr;
+        grid-gap: 5px 20px;
+        height: 150px;
+        background: var(--content);
+
+        img {
+            width: 105px;
+            height: 150px;
+            object-fit: cover;
+            grid-row: span 5;
+            border-right: 10px solid var(--accent);
+        }
+
+        a {
+            align-self: end;
+            font-family: var(--headerFont);
+            font-size: var(--xlBody);
+            text-transform: lowercase;
+            letter-spacing: 0;
+            font-weight: 700;
+            padding-top: 20px;
+        }
+
+        span {
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 1px;
+
+            &:last-child {
+                padding-bottom: 20px;
+            }
+        }
+    }
+
+    &--overview {
+        background: var(--content);
+        height: 150px;
+        padding: 20px;
+        font-size: var(--mBody);
+        line-height: 200%;
+        text-align: justify;
+
+        .scroll {
+            max-height: 110px;
+            & > a:last-child {
+                font-weight: bold;
+                display: block;
+                text-align: right;
+    
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background: linear-gradient(to bottom, transparent, var(--content));
+                    width: 100%;
+                    left: 0;
+                    height: 40px;
+                    top: -40px;
+                }
+    
+                &::after {
+                    display: inline-block;
+                    width: 0;
+                    overflow: hidden;
+                    font-family: "Font Awesome 6 Pro";
+                    font-weight: 300;
+                    bottom: -3px;
+                    position: relative;
+                    line-height: 100%;
+                }
+    
+                &:hover {
+                    &::after {
+                        width: 20px;
+                    }
+                }
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        h7,
+        h8,
+        br {
+            display: none;
+        }
+    }
 }
