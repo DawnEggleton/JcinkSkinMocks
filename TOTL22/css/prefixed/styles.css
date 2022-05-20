@@ -731,12 +731,20 @@ luxblock {
 }
 
 input,
-select {
+select,
+textarea {
   background: var(--content);
   line-height: 100%;
   padding: 8px 15px;
   border: 0;
   font-size: var(--mBody);
+  font-family: var(--bodyFont);
+  color: var(--text);
+}
+
+textarea {
+  padding: 15px;
+  line-height: 200%;
 }
 
 input[type=submit],
@@ -3857,6 +3865,37 @@ body:not(.g-4) .post--controls-inner label {
   margin: 0;
 }
 
+#UserCP input,
+#UserCP select,
+#UserCP textarea,
+#Msg input,
+#Msg select,
+#Msg textarea,
+#store input,
+#store select,
+#store textarea,
+#modcp input,
+#modcp select,
+#modcp textarea {
+  background: var(--background);
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  #UserCP input,
+#UserCP select,
+#UserCP textarea,
+#Msg input,
+#Msg select,
+#Msg textarea,
+#store input,
+#store select,
+#store textarea,
+#modcp input,
+#modcp select,
+#modcp textarea {
+    max-width: 600px;
+  }
+}
 #UserCP header .header,
 #Msg header .header,
 #store header .header,
@@ -4265,9 +4304,72 @@ body:not(.g-4) .post--controls-inner label {
 #UserCP.code-01 #ucpcontent {
   padding: 0;
 }
-#UserCP.code-01 #ucpcontent > form > table > tbody {
-  display: block;
-  padding: 0;
+#UserCP.code-01 #ucpcontent form > table > tbody {
+  display: grid;
+  padding: 20px;
+  grid-gap: 20px;
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-01 #ucpcontent form > table > tbody {
+    padding: 50px;
+  }
+}
+#UserCP.code-01 #ucpcontent form > table > tbody > tr {
+  background: var(--content);
+  display: grid;
+  grid-template-columns: 100%;
+  padding: 20px;
+  grid-gap: 30px;
+}
+@media only screen and (min-width: 1024px) {
+  #UserCP.code-01 #ucpcontent form > table > tbody > tr {
+    grid-template-columns: 350px auto;
+  }
+}
+#UserCP.code-01 #ucpcontent form > table > tbody > tr .pformleft {
+  font-size: var(--mBody);
+  line-height: 200%;
+  text-align: justify;
+  padding: 0 15px 30px 15px;
+  border-bottom: 1px solid var(--lmGrey);
+}
+@media only screen and (min-width: 1024px) {
+  #UserCP.code-01 #ucpcontent form > table > tbody > tr .pformleft {
+    padding: 15px 30px 15px 0;
+    border-right: 1px solid var(--lmGrey);
+    border-bottom: 0;
+  }
+}
+#UserCP.code-01 #ucpcontent form > table > tbody > tr .pformleft label,
+#UserCP.code-01 #ucpcontent form > table > tbody > tr .pformleft b {
+  font-family: var(--headerFont);
+  font-size: var(--xlBody);
+  text-transform: lowercase;
+}
+#UserCP.code-01 #ucpcontent form > table > tbody > tr .pformright {
+  padding: 0 15px;
+}
+@media only screen and (min-width: 1024px) {
+  #UserCP.code-01 #ucpcontent form > table > tbody > tr .pformright {
+    padding: 15px 0;
+  }
+}
+#UserCP.code-01 #ucpcontent form > table > tbody > tr.cp-header {
+  background: none;
+  grid-template-columns: 100%;
+  letter-spacing: 10px;
+  font-size: 20px !important;
+  font-weight: 100;
+  margin: 45px auto !important;
+  text-transform: uppercase;
+  color: var(--text);
+}
+@media only screen and (min-width: 1024px) {
+  #UserCP.code-01 #ucpcontent form > table > tbody > tr.cp-header {
+    letter-spacing: 20px;
+    font-size: 28px !important;
+    margin: 85px auto !important;
+  }
 }
 #UserCP.code-01 form[name=theForm] .pformstrip:not(td):not(.cp-header), #UserCP.code-01 form[name=theForm] > table > tbody > tr:first-child,
 #UserCP.code-01 form[name=theForm] #field-website,

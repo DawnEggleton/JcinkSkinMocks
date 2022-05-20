@@ -677,9 +677,6 @@ if($('body#UserCP').length > 0 || $('body#Msg').length > 0) {
 
 	//Edit Profile Edits
 	if($('body.code-01').length > 0) {
-        $('#UserCP.code-01 form > table > tbody > tr:first-child').attr('id', 'field_dob');
-        $('#field_36').before($('#field_dob'));
-
         const toggleFields = [document.querySelector('#field_74_input'), document.querySelector('#field_75_input')];
       
         cpShift();

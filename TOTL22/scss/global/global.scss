@@ -385,12 +385,19 @@ luxblock {
 }
 
 input,
-select {
+select,
+textarea {
     background: var(--content);
     line-height: 100%;
     padding: 8px 15px;
     border: 0;
     font-size: var(--mBody);
+    font-family: var(--bodyFont);
+    color: var(--text);
+}
+textarea {
+    padding: 15px;
+    line-height: 200%;
 }
 input[type="submit"],
 input[type="button"] {
