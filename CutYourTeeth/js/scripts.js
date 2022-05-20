@@ -82,7 +82,11 @@ if($('body#idx').length > 0 || $('body#SC').length > 0) {
     document.querySelector('#recent-topics-clip').append(document.querySelector('#recent-topics'));
     document.querySelectorAll('.forum-links').forEach(linkList => {
 	  let html = linkList.innerHTML;
-	  linkList.nextElementSibling.innerHTML = html;
+	  if(linkList.nextElementSibling.querySelector('.subforums')) {
+	  	linkList.nextElementSibling.querySelector('.subforums').insertAdjacentHTML('beforeend', html);
+	  } else {
+	  	linkList.nextElementSibling.insertAdjacentHTML('beforeend', html);
+	  }
 	  linkList.remove();
     });
 }
@@ -277,41 +281,21 @@ if($('body#UserCP').length > 0) {
             <i class="fa-solid fa-times"></i>
         </button>
         <b>Account</b>
-        <a href="user-edit.html">Edit Profile</a>
-        <a href="user-avatar.html">Update Avatar</a>
-        <a href="user-accounts.html">Sub-accounts</a>
-        <a href="user-name.html">Edit Username</a>
-        <a href="user-pass.html">Change Password</a>
-        <a href="user-email.html">Update Email</a>
+        <a href="?act=UserCP&CODE=01">Edit Profile</a>
+        <a href="?act=UserCP&CODE=22">Update Avatar</a>
+        <a href="?act=UserCP&CODE=54">Sub-accounts</a>
+        <a href="?act=UserCP&CODE=52">Edit Username</a>
+        <a href="?act=UserCP&CODE=28">Change Password</a>
+        <a href="?act=UserCP&CODE=08">Update Email</a>
         <b>Tracking</b>
-        <a href="user-alerts.html">Alerts</a>
-        <a href="user-forums.html">Forums</a>
-        <a href="user-topics.html">Topics</a>
+        <a href="?act=UserCP&CODE=alerts">Alerts</a>
+        <a href="?act=UserCP&CODE=50">Forums</a>
+        <a href="?act=UserCP&CODE=26">Topics</a>
         <b>Settings</b>
-        <a href="user-boardset.html">Board</a>
-        <a href="user-alertset.html">Alerts</a>
-        <a href="user-emailset.html">Emails</a>
+        <a href="?act=UserCP&CODE=04">Board</a>
+        <a href="?act=UserCP&CODE=alerts_settings">Alerts</a>
+        <a href="?act=UserCP&CODE=02">Emails</a>
     </div>`;
-
-    // If using menu replacement in live skin, remove the above and uncomment the below:
-    /*
-    document.querySelector('#ucpmenu').innerHTML = `<b>Account</b>
-    <a href="?act=UserCP&CODE=01">Edit Profile</a>
-    <a href="?act=UserCP&CODE=22">Update Avatar</a>
-    <a href="?act=UserCP&CODE=54">Sub-accounts</a>
-    <a href="?act=UserCP&CODE=52">Edit Username</a>
-    <a href="?act=UserCP&CODE=28">Change Password</a>
-    <a href="?act=UserCP&CODE=08">Update Email</a>
-    <b>Tracking</b>
-    <a href="?act=UserCP&CODE=alerts">Alerts</a>
-    <a href="?act=UserCP&CODE=50">Forums</a>
-    <a href="?act=UserCP&CODE=26">Topics</a>
-    <b>Settings</b>
-    <a href="?act=UserCP&CODE=04">Board</a>
-    <a href="?act=UserCP&CODE=alerts_settings">Alerts</a>
-    <a href="?act=UserCP&CODE=02">Emails</a>`;
-    */
-
 
 
 	//Edit Profile Edits

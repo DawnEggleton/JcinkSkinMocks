@@ -24,6 +24,50 @@ td {
         width: 6px;
     }
 }
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin,
+.fa-brand,
+.fas,
+.far,
+.fal,
+.fab {
+    font-style: normal !important;
+}
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin {
+    font-family: 'Font Awesome 6 Pro' !important;
+}
+.fas,
+.far,
+.fal,
+.fab {
+    font-family: 'Font Awesome 5 Pro' !important;
+}
+.fa-brand {
+    font-family: 'Font Awesome 6 Brands' !important;
+}
+.fab {
+    font-family: 'Font Awesome 5 Brands' !important;
+}
+.fa-solid,
+.fas {
+    font-weight: 700 !important;
+}
+.fa-regular,
+.far {
+    font-weight: 500 !important;
+}
+.fa-light,
+.fal {
+    font-weight: 300 !important;
+}
+.fa-thin {
+    font-weight: 100 !important;
+}
 a {
     text-decoration: none;
 }
@@ -273,6 +317,118 @@ main {
         margin: 0;
         padding: 0;
         list-style-type: none;
+
+        //Bullet Colors
+        &[data-bullet-color="main"],
+        &[data-bullet-color="Main"] {
+            li::before {
+                color: var(--light);
+            }
+        }
+        li[data-bullet-color="main"],
+        li[data-bullet-color="Main"] {
+            &::before {
+                color: var(--light) !important;
+            }
+        }
+        &[data-bullet-color="alt"],
+        &[data-bullet-color="Alt"] {
+            li::before {
+                color: var(--dark);
+            }
+        }
+        li[data-bullet-color="alt"],
+        li[data-bullet-color="Alt"] {
+            &::before {
+                color: var(--dark) !important;
+            }
+        }
+        &[data-bullet-color="accent"],
+        &[data-bullet-color="Accent"] {
+            li::before {
+                color: var(--accent);
+            }
+        }
+        li[data-bullet-color="accent"],
+        li[data-bullet-color="Accent"] {
+            &::before {
+                color: var(--accent) !important;
+            }
+        }
+
+        //Bullet BG Colors
+        &[data-bullet-bg="main"],
+        &[data-bullet-bg="Main"] {
+            li::before {
+                background: var(--dark);
+            }
+        }
+        li[data-bullet-bg="main"],
+        li[data-bullet-bg="Main"] {
+            &::before {
+                background: var(--dark) !important;
+            }
+        }
+        &[data-bullet-bg="alt"],
+        &[data-bullet-bg="Alt"] {
+            li::before {
+                background: var(--light);
+            }
+        }
+        li[data-bullet-bg="alt"],
+        li[data-bullet-bg="Alt"] {
+            &::before {
+                background: var(--light) !important;
+            }
+        }
+        &[data-bullet-bg="accent"],
+        &[data-bullet-bg="Accent"] {
+            li::before {
+                background: var(--accent);
+            }
+        }
+        li[data-bullet-bg="accent"],
+        li[data-bullet-bg="Accent"] {
+            &::before {
+                background: var(--accent) !important;
+            }
+        }
+        &[data-bullet-bg="accent75"],
+        &[data-bullet-bg="Accent75"] {
+            li::before {
+                background: var(--accent-75);
+            }
+        }
+        li[data-bullet-bg="accent75"],
+        li[data-bullet-bg="Accent75"] {
+            &::before {
+                background: var(--accent-75) !important;
+            }
+        }
+        &[data-bullet-bg="accent50"],
+        &[data-bullet-bg="Accent50"] {
+            li::before {
+                background: var(--accent-50);
+            }
+        }
+        li[data-bullet-bg="accent50"],
+        li[data-bullet-bg="Accent50"] {
+            &::before {
+                background: var(--accent-50) !important;
+            }
+        }
+        &[data-bullet-bg="accent25"],
+        &[data-bullet-bg="Accent25"] {
+            li::before {
+                background: var(--accent-25);
+            }
+        }
+        li[data-bullet-bg="accent25"],
+        li[data-bullet-bg="Accent25"] {
+            &::before {
+                background: var(--accent-25) !important;
+            }
+        }
     
         li {
             margin-bottom: 20px;
@@ -290,6 +446,7 @@ main {
                 text-align: center;
                 justify-items: center;
                 line-height: 22px;
+                color: var(--white);
             }
         }
     
@@ -310,17 +467,34 @@ main {
             display: none;
         }
     
-        &[data-align="center"] {
+        &[data-align="center"],
+        &[data-align="Center"] {
             text-align: center;
             margin: 20px auto;
         }
     
-        &[data-align="right"] {
+        &[data-align="right"],
+        &[data-align="Right"] {
             text-align: right;
         }
     
         &:first-child {
             margin-top: 0;
+        }
+
+        &[data-color="main"],
+        &[data-color="Main"] {
+            color: var(--white);
+        }
+
+        &[data-color="alt"],
+        &[data-color="Alt"] {
+            color: var(--black);
+        }
+
+        &[data-color="accent"],
+        &[data-color="Accent"] {
+            color: var(--accent);
         }
     }
     tag-xl,
@@ -396,10 +570,101 @@ main {
             background: var(--accent-50);
             border-color: var(--accent-75);
         }
+
+        &[data-bg="main"],
+        &[data-bg="Main"] {
+            background: var(--light);
+        }
+        &[data-bg="alt"],
+        &[data-bg="Alt"] {
+            background: var(--dark);
+        }
+        &[data-bg="accent"],
+        &[data-bg="Accent"] {
+            background: var(--accent);
+        }
+        &[data-bg="accent75"],
+        &[data-bg="Accent75"] {
+            background: var(--accent-75);
+        }
+        &[data-bg="accent50"],
+        &[data-bg="Accent50"] {
+            background: var(--accent-50);
+        }
+        &[data-bg="accent25"],
+        &[data-bg="Accent25"] {
+            background: var(--accent-25);
+        }
+
+        &[data-border="main"],
+        &[data-border="Main"] {
+            border-color: var(--dark);
+        }
+        &[data-border="alt"],
+        &[data-border="Alt"] {
+            border-color: var(--light);
+        }
+        &[data-border="accent"],
+        &[data-border="Accent"] {
+            border-color: var(--accent);
+        }
+        &[data-border="accent75"],
+        &[data-border="Accent75"] {
+            border-color: var(--accent-75);
+        }
+        &[data-border="accent50"],
+        &[data-border="Accent50"] {
+            border-color: var(--accent-50);
+        }
+        &[data-border="accent25"],
+        &[data-border="Accent25"] {
+            border-color: var(--accent-25);
+        }
+
+        &[data-color="main"],
+        &[data-color="Main"] {
+            background: var(--dark);
+        }
+        &[data-color="alt"],
+        &[data-color="Alt"] {
+            background: var(--light);
+        }
+        &[data-color="accent"],
+        &[data-color="Accent"] {
+            background: var(--accent);
+        }
+    }
+}
+.codeblock {
+    background: var(--light);
+    border-radius: 3px;
+    color: var(--dark);
+    padding: 15px;
+    font-size: var(--xsBody);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    .c-title b {
+        text-transform: capitalize;
+        background: var(--accent);
+        padding: 5px 8px;
+        border-radius: 3px;
+        font-size: var(--mBody);
+        color: var(--white);
+    }
+    .codecon {
+        display: block;
+        max-height: 50px;
+        overflow: auto;
+
+        code {
+            white-space: pre-wrap;
+        }
     }
 }
 .prof--tab .item .scroll a,
-.webpage--tab:not(.claim) a {
+.webpage--tab:not(.claim) a,
+.post--main-inner a {
     text-transform: uppercase;
     font-size: var(--xsBody);
     color: var(--dark);
@@ -459,12 +724,22 @@ ul.timeline {
         }
 
         &.event {
-            margin: 0 0 0 15px;
+            margin: 0 0 15px 15px;
             background: var(--accent-25);
             border: 1px solid var(--accent-50);
             padding: 20px;
             border-radius: 3px;
         }
+    }
+}
+.quick-edit {
+    .right-buttons {
+        max-width: max-content;
+        float: right;
+      }
+    .buttons a {
+        background: none;
+        color: var(--white);
     }
 }
 .ratio {
@@ -493,6 +768,14 @@ ul.timeline {
         font-family: var(--serif);
         font-size: var(--xlBody);
         background: var(--black-50);
+    }
+    &--message {
+        padding: 50px;
+        text-align: center;
+        font-family: var(--serif);
+        font-size: 20px;
+        background: var(--black-50);
+        border-bottom: 1px solid var(--midGrey-70);
     }
 }
 

@@ -287,7 +287,7 @@
             display: block;
             grid-template: none;
             position: sticky;
-            top: 175px;
+            top: 170px;
         }
     }
 
@@ -309,7 +309,7 @@
             display: flex;
 
             @media only screen and (min-width: $lg) {
-                height: calc(100vh - 235px);
+                height: calc(100vh - 230px);
                 border-bottom: 1px solid var(--midGrey-70);
                 border-right: 0;
             }
@@ -556,7 +556,7 @@
         }
 
         &-inner {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             z-index: 2;
         }

@@ -481,6 +481,7 @@
                     // quick search regex
                     let qsRegex;
                     let elements = document.querySelectorAll('.grid-item');
+
                     
                     // init Isotope
                     $container.isotope({
@@ -509,6 +510,7 @@
                     let checkboxes = document.querySelectorAll('.ml--filtergroup input');
                     checkboxes.forEach(checkbox => {
                         checkbox.addEventListener('change', e => {
+                            const url = new URL(window.location.href);
                             if(e.currentTarget.classList.contains('all')) {
                                 e.currentTarget.checked = true;
                                 e.currentTarget.parentElement.classList.add('is-checked');

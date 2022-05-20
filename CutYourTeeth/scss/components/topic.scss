@@ -113,6 +113,41 @@
     padding: 30px;
     border-bottom: 1px solid var(--midGrey-70);
 
+    &--modbox {
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        label {
+            & > input {
+                display: none;
+
+                &:checked + div {
+                    color: var(--dark);
+                }
+            }
+            & > div {
+                width: 16px;
+                height: 16px;
+                border-radius: 2px;
+                background: var(--light);
+                display: grid;
+                justify-items: center;
+                align-items: center;
+                text-align: center;
+                font-size: 12px;
+                font-weight: bold;
+                color: transparent;
+                cursor: pointer;
+
+                i.fa-times {
+                    left: 1px;
+                }
+            }
+        }
+    }
+
     &--stats {
         text-transform: uppercase;
         font-size: var(--xsBody);
@@ -200,6 +235,7 @@
             letter-spacing: 1px;
             padding: 2px 5px;
             border-radius: 2px;
+            margin-right: 5px;
         }
     }
 

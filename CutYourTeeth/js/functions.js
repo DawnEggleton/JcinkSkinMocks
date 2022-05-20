@@ -360,7 +360,7 @@ function postToUpdate(formtype = 'POST') {
 }
 function sendSortRequest(message) {
     const request = new XMLHttpRequest();
-    request.open("POST", "https://discord.com/api/webhooks/965361289700462693/khcio9iJC4dYKOGP8Mn8_5WNPNLvesu96dE1F7jdOSNSANVEXGzSMaNiHpBrA19NDq4z");
+    request.open("POST", "urlhere");
 
     request.setRequestHeader('Content-type', 'application/json');
 
@@ -374,7 +374,7 @@ function sendSortRequest(message) {
 }
 function sendReserveRequest(message) {
     const request = new XMLHttpRequest();
-    request.open("POST", "https://discord.com/api/webhooks/965379200976556042/pwWq2vj00H_Mfbvy5nPy0zVDsYsM1jwqrcXaVxhiA-X9f0JzQEo1bz7SaZoNTZ5B7oRr");
+    request.open("POST", "urlhere");
 
     request.setRequestHeader('Content-type', 'application/json');
 
@@ -386,7 +386,7 @@ function sendReserveRequest(message) {
 }
 function sendUpdateRequest(message) {
     const request = new XMLHttpRequest();
-    request.open("POST", "https://discord.com/api/webhooks/965397095639048212/JYuWMzUQtCd4MTdfYH5K0Z0KsNyd9LKE2HLu_nAGhuoCHjo5sNvNhv3ofjau6_RltJHV");
+    request.open("POST", "urlhere");
 
     request.setRequestHeader('Content-type', 'application/json');
 
