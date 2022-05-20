@@ -102,6 +102,44 @@
                 flex-direction: column;
                 gap: 5px;
             }
+
+            .pagination {
+                display: flex;
+                margin-right: 5px;
+                padding: 3px 0;
+
+                &_pagetxt {
+                    display: none;
+                }
+
+                &_current {
+                    display: block;
+                    margin-right: 5px;
+
+                    b {
+                        background: var(--accent);
+                        color: var(--accentColor);
+                        font-size: var(--xlBody);
+                        padding: 5px 10px;
+                    }
+                }
+
+                &_page {
+                    font-size: var(--lBody);
+                    font-family: var(--headerFont);
+                    background: var(--dkGrey);
+                    border-radius: 3px;
+                    padding: 5px 10px;
+                    color: var(--headerText);
+                    margin-right: 5px;
+
+                    &:hover {
+                        background: var(--accent);
+                        color: var(--accentColor);
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
 

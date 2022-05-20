@@ -1,6 +1,6 @@
 $(window).on('load', function() {
     if($('body#Pages').length === 0) {
-        document.querySelector('#loading').remove();
+        //document.querySelector('#loading').remove();
     }
 });
 
@@ -500,5 +500,136 @@ if($('body#ST').length > 0) {
                 document.querySelectorAll('.note').forEach(note => note.style.opacity = 0);
             }, 3000);
         });
+    });
+}
+
+
+
+
+//UCP Only
+if($('body#UserCP').length > 0) {
+    document.querySelector('#ucpmenu').innerHTML = `
+    <button class="ucp-menu-toggle" onClick="openUserMenu(this)">
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+    </button>
+    <div class="ucp-menu scroll">
+        <button class="ucp-menu-toggle" onClick="closeUserMenu(this)">
+            <i class="fa-solid fa-times"></i>
+        </button>
+        <b>Account</b>
+        <a href="?act=UserCP&CODE=01">Edit Profile</a>
+        <a href="?act=UserCP&CODE=22">Update Avatar</a>
+        <a href="?act=UserCP&CODE=54">Sub-accounts</a>
+        <a href="?act=UserCP&CODE=52">Edit Username</a>
+        <a href="?act=UserCP&CODE=28">Change Password</a>
+        <a href="?act=UserCP&CODE=08">Update Email</a>
+        <b>Messages</b>
+        <a href="?act=Msg&CODE=01">Inbox</a>
+        <a href="?act=Msg&CODE=04">Send Message</a>
+        <b>Tracking</b>
+        <a href="?act=UserCP&CODE=alerts">Alerts</a>
+        <a href="?act=UserCP&CODE=50">Forums</a>
+        <a href="?act=UserCP&CODE=26">Topics</a>
+        <b>Settings</b>
+        <a href="?act=UserCP&CODE=04">Board</a>
+        <a href="?act=UserCP&CODE=alerts_settings">Alerts</a>
+        <a href="?act=UserCP&CODE=02">Emails</a>
+    </div>`;
+
+
+	//Edit Profile Edits
+	if($('body.code-01').length > 0) {
+	
+		cpShift();
+		splitProfile();
+	
+		toggleFields.forEach(toggle => {
+			toggle.addEventListener('change', () => {
+				cpShift();
+				splitProfile();
+			});
+		});
+		
+		for (var i = 0; i < sliders.length; i++) {
+			sliders[i].prop('type','range').attr({min:0,max:100,step:1}).after('<span class="fieldVal">unset</span>');
+			sliders[i].next().attr('id',sliders[i].attr('id')).text(`${vals[i]}%`);
+			if(vals[i] == '') {
+				sliders[i].next().text('n/a');
+			}
+			
+			$(sliders[i]).on('change', function(){
+				this.setAttribute('value',this.value);
+				vals[i] = this.value;
+				this.nextSibling.innerHTML = `${vals[i]}%`;
+			});
+				
+		}
+
+        document.querySelectorAll('#ucpcontent .cp-sect input[type="text"]').forEach(input => {
+            let label = input.getAttribute('id');
+            if(document.querySelector('label[for="' + label + '"]')) {
+                input.setAttribute('placeholder', document.querySelector('label[for="' + label + '"]').innerText);
+            }
+        });
+
+        document.querySelectorAll('#ucpcontent .cp-sect textarea').forEach(input => {
+            let label = input.getAttribute('id');
+            if(document.querySelector('label[for="' + label + '"]')) {
+                input.setAttribute('placeholder', document.querySelector('label[for="' + label + '"]').innerText);
+            }
+        });
+	}
+}
+
+
+//ModCP Only
+if($('body#modcp').length > 0) {
+    document.querySelector('#modcp main > table:first-child > tbody > tr > td:first-child').innerHTML = `<b>Forums & Posts</b>
+    <a href="mod-queue.html">Queue</a>
+    <a href="mod-reported.html">Reported</a>
+    <a href="mod-postlogs.html">Logs</a>
+    <a href="mod-prune.html">Prune</a>
+    <b>Users</b>
+    <a href="mod-edit.html">Edit</a>
+    <a href="mod-warn.html">Warn</a>
+    <a href="mod-userlogs.html">Logs</a>
+    <a href="mod-ip.html">IP Tools</a>
+    <a href="mod-validate.html">Validaion</a>`;
+
+    // If using menu replacement in live skin, remove the above and uncomment the below:
+    /*
+    document.querySelector('#modcp main > table:first-child > tbody > tr > td:first-child').innerHTML = `<b>Forums & Posts</b>
+    <a href="?act=modcp&CODE=queue">Queue</a>
+    <a href="?act=modcp&CODE=reported">Reported</a>
+    <a href="?act=modcp&CODE=modlogs">Logs</a>
+    <a href="?act=modcp&CODE=prune">Prune</a>
+    <b>Users</b>
+    <a href="?act=modcp&CODE=members">Edit</a>
+    <a href="?act=modcp&CODE=warnpanel">Warn</a>
+    <a href="?act=modcp&CODE=warnlogs">Logs</a>
+    <a href="?act=modcp&CODE=ip">IP Tools</a>
+    <a href="?act=modcp&CODE=validating">Validation</a>`
+    */
+}
+
+
+//Login Only
+if($('#Login').length > 0) {
+    let textNodes = getAllTextNodes(document.querySelector('main'));
+    textNodes.forEach(node => {
+        const paragraph = document.createElement('p');
+        node.after(paragraph);
+        paragraph.appendChild(node);
+    });
+}
+
+
+//Login Only
+if($('#Reg').length > 0) {
+    let textNodes = getAllTextNodes(document.querySelector('main > form'));
+    textNodes.forEach(node => {
+        const paragraph = document.createElement('p');
+        node.after(paragraph);
+        paragraph.appendChild(node);
     });
 }

@@ -152,3 +152,44 @@ let fakeAccounts = [
         triggers: `please tag for emotional abuse and body horror. please do not ask me to get involved in any closeted relationships plots - if i want one, i will suggest it with certain provisions. please do not refer to me or my characters as babygirl, ever.`,
     }
 ];
+
+
+
+/******DISCORD WEBHOOKS *******/
+
+function sendSortRequest(message) {
+    const request = new XMLHttpRequest();
+    request.open("POST", "https://discord.com/api/webhooks/967898592922730556/ls_rZ4-t-Mz6UHrp2g5CA5hnELU5Y6WwYXFsr7EM0hO8JPPB224kjuUla_zv314ibR8A");
+
+    request.setRequestHeader('Content-type', 'application/json');
+
+    const params = {
+        content: message
+    }
+
+    request.send(JSON.stringify(params));
+}
+function sendReserveRequest(message) {
+    const request = new XMLHttpRequest();
+    request.open("POST", "https://discord.com/api/webhooks/967898737097723924/AleSNIkieXgwG1i7XL7CdLLaF7sTuEZfUcLXQMLoY3idT_1AZJww-XGt0r_YY4SbqNrN");
+
+    request.setRequestHeader('Content-type', 'application/json');
+
+    const params = {
+        content: message
+    }
+
+    request.send(JSON.stringify(params));
+}
+function sendUpdateRequest(message) {
+    const request = new XMLHttpRequest();
+    request.open("POST", "https://discord.com/api/webhooks/967898902684643398/mdDTpl1PiX7EJtEIrGQj0iGPHHf-C0wD-Te0nPz4_-gVafrVCfXUUWLwmnT1gw2-c8El");
+
+    request.setRequestHeader('Content-type', 'application/json');
+
+    const params = {
+        content: message
+    }
+
+    request.send(JSON.stringify(params));
+}

@@ -1,3 +1,29 @@
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10000000000000000;
+  background: var(--content, #ebebeb);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#loading i {
+  font-size: 100px;
+  color: var(--accent);
+  -webkit-animation: shake-lr 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s infinite both;
+  animation: shake-lr 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s infinite both;
+}
+
+#loading p {
+  font-size: 50px;
+  font-family: var(--accentFont);
+}
+
 /*******************************
     Variables
 ********************************/
@@ -2394,6 +2420,38 @@ body:not(.g-4) .post--controls-inner label {
     gap: 5px;
   }
 }
+.ml--main-menu-links .pagination {
+  display: flex;
+  margin-right: 5px;
+  padding: 3px 0;
+}
+.ml--main-menu-links .pagination_pagetxt {
+  display: none;
+}
+.ml--main-menu-links .pagination_current {
+  display: block;
+  margin-right: 5px;
+}
+.ml--main-menu-links .pagination_current b {
+  background: var(--accent);
+  color: var(--accentColor);
+  font-size: var(--xlBody);
+  padding: 5px 10px;
+}
+.ml--main-menu-links .pagination_page {
+  font-size: var(--lBody);
+  font-family: var(--headerFont);
+  background: var(--dkGrey);
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: var(--headerText);
+  margin-right: 5px;
+}
+.ml--main-menu-links .pagination_page:hover {
+  background: var(--accent);
+  color: var(--accentColor);
+  cursor: pointer;
+}
 .ml--sticky {
   padding: 15px;
   position: sticky;
@@ -3729,6 +3787,1906 @@ body:not(.g-4) .post--controls-inner label {
 }
 .claim--tab:not(:last-child) {
   margin-bottom: 20px;
+}
+
+/*******************************
+    Defaults
+********************************/
+#posting-form > tbody > tr {
+  display: block;
+}
+#posting-form > tbody > tr:not(#code-buttons) > td {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#posting-form > tbody > tr#post-options > td label {
+  cursor: pointer;
+}
+#posting-form > tbody > tr#post-options > td input {
+  display: none;
+}
+#posting-form > tbody > tr#post-options > td input + span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: var(--ltaccent);
+  margin-right: 5px;
+  border-radius: 3px;
+  color: transparent;
+  margin-top: 10px;
+  font-family: "Font Awesome 6 Pro";
+  line-height: 16px;
+  font-size: 12px;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+}
+#posting-form > tbody > tr#post-options > td input:checked + span {
+  background: var(--accent);
+  color: var(--accentColor);
+}
+#posting-form #post-icon-options,
+#posting-form #topic-settings-header,
+#posting-form #code-buttons-header,
+#posting-form #code-buttons .pformdeft,
+#posting-form #enter-your-post-header,
+#posting-form #post-as-header,
+#posting-form #post-options .pformdeft,
+#posting-form #post-icon-options .pformdeft,
+#posting-form #enter-your-post .pformdeft,
+#posting-form #post-as .pformdeft,
+#posting-form #topic-title .pformdeft,
+#posting-form #topic-desc .pformdeft {
+  display: none !important;
+}
+#posting-form #topic-title input,
+#posting-form #topic-desc input {
+  width: 100%;
+  margin: 0;
+}
+#posting-form #code-buttons {
+  font-size: 0;
+}
+#posting-form #code-buttons > .pformright > input {
+  display: none;
+}
+#posting-form #enter-your-post textarea {
+  width: 100%;
+  border: 0;
+  margin: 0;
+}
+
+#UserCP main > table,
+#UserCP main > table > tbody,
+#UserCP main > table > tbody > tr,
+#UserCP main > table > tbody > tr > td,
+#Msg main > table,
+#Msg main > table > tbody,
+#Msg main > table > tbody > tr,
+#Msg main > table > tbody > tr > td,
+#store main > table,
+#store main > table > tbody,
+#store main > table > tbody > tr,
+#store main > table > tbody > tr > td,
+#modcp main > table,
+#modcp main > table > tbody,
+#modcp main > table > tbody > tr,
+#modcp main > table > tbody > tr > td {
+  position: relative;
+}
+#UserCP #ucpcontent table > tbody > tr:last-child > td.pformstrip,
+#UserCP #ucpcontent form > table > tbody > tr:last-child > td.pformstrip,
+#UserCP #ucpcontent table + div.pformstrip:last-child,
+#UserCP #ucpcontent form > table + div.pformstrip:last-child,
+#Msg #ucpcontent table > tbody > tr:last-child > td.pformstrip,
+#Msg #ucpcontent form > table > tbody > tr:last-child > td.pformstrip,
+#Msg #ucpcontent table + div.pformstrip:last-child,
+#Msg #ucpcontent form > table + div.pformstrip:last-child,
+#store #ucpcontent table > tbody > tr:last-child > td.pformstrip,
+#store #ucpcontent form > table > tbody > tr:last-child > td.pformstrip,
+#store #ucpcontent table + div.pformstrip:last-child,
+#store #ucpcontent form > table + div.pformstrip:last-child,
+#modcp #ucpcontent table > tbody > tr:last-child > td.pformstrip,
+#modcp #ucpcontent form > table > tbody > tr:last-child > td.pformstrip,
+#modcp #ucpcontent table + div.pformstrip:last-child,
+#modcp #ucpcontent form > table + div.pformstrip:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+#UserCP #ucpcontent table > tbody > tr:last-child > td.pformstrip > input,
+#UserCP #ucpcontent form > table > tbody > tr:last-child > td.pformstrip > input,
+#UserCP #ucpcontent table + div.pformstrip:last-child > input,
+#UserCP #ucpcontent form > table + div.pformstrip:last-child > input,
+#Msg #ucpcontent table > tbody > tr:last-child > td.pformstrip > input,
+#Msg #ucpcontent form > table > tbody > tr:last-child > td.pformstrip > input,
+#Msg #ucpcontent table + div.pformstrip:last-child > input,
+#Msg #ucpcontent form > table + div.pformstrip:last-child > input,
+#store #ucpcontent table > tbody > tr:last-child > td.pformstrip > input,
+#store #ucpcontent form > table > tbody > tr:last-child > td.pformstrip > input,
+#store #ucpcontent table + div.pformstrip:last-child > input,
+#store #ucpcontent form > table + div.pformstrip:last-child > input,
+#modcp #ucpcontent table > tbody > tr:last-child > td.pformstrip > input,
+#modcp #ucpcontent form > table > tbody > tr:last-child > td.pformstrip > input,
+#modcp #ucpcontent table + div.pformstrip:last-child > input,
+#modcp #ucpcontent form > table + div.pformstrip:last-child > input {
+  margin: 0;
+  width: 100%;
+  cursor: pointer;
+}
+#UserCP #ucpcontent > table > tbody,
+#UserCP #ucpcontent > form > table > tbody,
+#Msg #ucpcontent > table > tbody,
+#Msg #ucpcontent > form > table > tbody,
+#store #ucpcontent > table > tbody,
+#store #ucpcontent > form > table > tbody,
+#modcp #ucpcontent > table > tbody,
+#modcp #ucpcontent > form > table > tbody {
+  display: table;
+}
+#UserCP main > table > tbody > tr,
+#Msg main > table > tbody > tr,
+#store main > table > tbody > tr,
+#modcp main > table > tbody > tr {
+  display: grid;
+  grid-template-columns: 70px 0 auto;
+}
+@media only screen and (min-width: 768px) {
+  #UserCP main > table > tbody > tr,
+#Msg main > table > tbody > tr,
+#store main > table > tbody > tr,
+#modcp main > table > tbody > tr {
+    grid-template-columns: 200px 0 auto;
+  }
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child,
+#UserCP #ucpmenu,
+#Msg main > table:first-child > tbody > tr > td:first-child,
+#Msg #ucpmenu,
+#store main > table:first-child > tbody > tr > td:first-child,
+#store #ucpmenu,
+#modcp main > table:first-child > tbody > tr > td:first-child,
+#modcp #ucpmenu {
+  border-right: 1px solid var(--midGrey-70);
+  padding: 20px;
+}
+#UserCP .ucp-menu-toggle,
+#Msg .ucp-menu-toggle,
+#store .ucp-menu-toggle,
+#modcp .ucp-menu-toggle {
+  background: var(--light);
+  color: var(--dark);
+  border: 0;
+  width: 100%;
+  height: 29px;
+  border-radius: 2px;
+  cursor: pointer;
+  position: sticky;
+  top: 70px;
+}
+#UserCP .ucp-menu-toggle.is-open + .ucp-menu,
+#Msg .ucp-menu-toggle.is-open + .ucp-menu,
+#store .ucp-menu-toggle.is-open + .ucp-menu,
+#modcp .ucp-menu-toggle.is-open + .ucp-menu {
+  left: 0;
+}
+@media only screen and (min-width: 768px) {
+  #UserCP .ucp-menu-toggle,
+#Msg .ucp-menu-toggle,
+#store .ucp-menu-toggle,
+#modcp .ucp-menu-toggle {
+    display: none;
+  }
+}
+#UserCP nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
+#UserCP nav.scrolled ~ main .ucp-menu,
+#Msg nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
+#Msg nav.scrolled ~ main .ucp-menu,
+#store nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
+#store nav.scrolled ~ main .ucp-menu,
+#modcp nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
+#modcp nav.scrolled ~ main .ucp-menu {
+  top: 50px !important;
+  max-height: calc(100vh - 50px) !important;
+}
+@media only screen and (min-width: 768px) {
+  #UserCP nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
+#UserCP nav.scrolled ~ main .ucp-menu,
+#Msg nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
+#Msg nav.scrolled ~ main .ucp-menu,
+#store nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
+#store nav.scrolled ~ main .ucp-menu,
+#modcp nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
+#modcp nav.scrolled ~ main .ucp-menu {
+    max-height: calc(100vh - 70px) !important;
+    padding: 15px 0 0;
+  }
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child,
+#UserCP .ucp-menu,
+#Msg main > table:first-child > tbody > tr > td:first-child,
+#Msg .ucp-menu,
+#store main > table:first-child > tbody > tr > td:first-child,
+#store .ucp-menu,
+#modcp main > table:first-child > tbody > tr > td:first-child,
+#modcp .ucp-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: fixed;
+  top: 80px;
+  max-height: calc(100vh - 80px);
+  width: 200px;
+  left: -200px;
+  padding: 20px;
+  background: var(--black);
+  transition-duration: 0.75s;
+  z-index: 3;
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child .ucp-menu-toggle,
+#UserCP .ucp-menu .ucp-menu-toggle,
+#Msg main > table:first-child > tbody > tr > td:first-child .ucp-menu-toggle,
+#Msg .ucp-menu .ucp-menu-toggle,
+#store main > table:first-child > tbody > tr > td:first-child .ucp-menu-toggle,
+#store .ucp-menu .ucp-menu-toggle,
+#modcp main > table:first-child > tbody > tr > td:first-child .ucp-menu-toggle,
+#modcp .ucp-menu .ucp-menu-toggle {
+  width: 29px;
+  flex: 0 0 29px;
+  background: var(--accent);
+  color: var(--white);
+  margin: 0 0 0 auto;
+  position: relative;
+  top: auto;
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child b,
+#UserCP .ucp-menu b,
+#Msg main > table:first-child > tbody > tr > td:first-child b,
+#Msg .ucp-menu b,
+#store main > table:first-child > tbody > tr > td:first-child b,
+#store .ucp-menu b,
+#modcp main > table:first-child > tbody > tr > td:first-child b,
+#modcp .ucp-menu b {
+  font-family: var(--serif);
+  font-size: var(--lBody);
+  margin-top: 20px;
+  color: var(--white);
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child b:first-of-type,
+#UserCP .ucp-menu b:first-of-type,
+#Msg main > table:first-child > tbody > tr > td:first-child b:first-of-type,
+#Msg .ucp-menu b:first-of-type,
+#store main > table:first-child > tbody > tr > td:first-child b:first-of-type,
+#store .ucp-menu b:first-of-type,
+#modcp main > table:first-child > tbody > tr > td:first-child b:first-of-type,
+#modcp .ucp-menu b:first-of-type {
+  margin-top: 0;
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child a,
+#UserCP .ucp-menu a,
+#Msg main > table:first-child > tbody > tr > td:first-child a,
+#Msg .ucp-menu a,
+#store main > table:first-child > tbody > tr > td:first-child a,
+#store .ucp-menu a,
+#modcp main > table:first-child > tbody > tr > td:first-child a,
+#modcp .ucp-menu a {
+  background: var(--accent);
+  color: var(--white);
+  padding: 10px 20px;
+  font-size: var(--mBody);
+  font-family: var(--serif);
+  text-transform: capitalize;
+  border-radius: 2px;
+  text-align: center;
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child a:hover,
+#UserCP .ucp-menu a:hover,
+#Msg main > table:first-child > tbody > tr > td:first-child a:hover,
+#Msg .ucp-menu a:hover,
+#store main > table:first-child > tbody > tr > td:first-child a:hover,
+#store .ucp-menu a:hover,
+#modcp main > table:first-child > tbody > tr > td:first-child a:hover,
+#modcp .ucp-menu a:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+@media only screen and (min-width: 768px) {
+  #UserCP main > table:first-child > tbody > tr > td:first-child,
+#UserCP .ucp-menu,
+#Msg main > table:first-child > tbody > tr > td:first-child,
+#Msg .ucp-menu,
+#store main > table:first-child > tbody > tr > td:first-child,
+#store .ucp-menu,
+#modcp main > table:first-child > tbody > tr > td:first-child,
+#modcp .ucp-menu {
+    position: sticky;
+    top: 100px;
+    left: auto;
+    width: auto;
+    padding: 0;
+    background: none;
+    height: max-content;
+    max-height: calc(100vh - 120px) !important;
+  }
+  #UserCP main > table:first-child > tbody > tr > td:first-child b,
+#UserCP .ucp-menu b,
+#Msg main > table:first-child > tbody > tr > td:first-child b,
+#Msg .ucp-menu b,
+#store main > table:first-child > tbody > tr > td:first-child b,
+#store .ucp-menu b,
+#modcp main > table:first-child > tbody > tr > td:first-child b,
+#modcp .ucp-menu b {
+    text-align: center;
+  }
+  #UserCP main > table:first-child > tbody > tr > td:first-child a,
+#UserCP .ucp-menu a,
+#Msg main > table:first-child > tbody > tr > td:first-child a,
+#Msg .ucp-menu a,
+#store main > table:first-child > tbody > tr > td:first-child a,
+#store .ucp-menu a,
+#modcp main > table:first-child > tbody > tr > td:first-child a,
+#modcp .ucp-menu a {
+    background: var(--light);
+    color: var(--dark);
+  }
+}
+#UserCP main > table:first-child > tbody > tr > td:first-child,
+#Msg main > table:first-child > tbody > tr > td:first-child,
+#store main > table:first-child > tbody > tr > td:first-child,
+#modcp main > table:first-child > tbody > tr > td:first-child {
+  width: auto !important;
+}
+#UserCP #ucpcontent::before,
+#Msg #ucpcontent::before,
+#store #ucpcontent::before,
+#modcp #ucpcontent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--headerOverlay);
+  mix-blend-mode: var(--headerBlend);
+  z-index: 1;
+  opacity: 0.5;
+}
+#UserCP #ucpcontent > *,
+#Msg #ucpcontent > *,
+#store #ucpcontent > *,
+#modcp #ucpcontent > * {
+  z-index: 2;
+}
+#UserCP #ucpcontent .maintitle,
+#Msg #ucpcontent .maintitle,
+#store #ucpcontent .maintitle,
+#modcp #ucpcontent .maintitle {
+  display: none;
+}
+#UserCP #ucpcontent .maintitle + .pformstrip,
+#Msg #ucpcontent .maintitle + .pformstrip,
+#store #ucpcontent .maintitle + .pformstrip,
+#modcp #ucpcontent .maintitle + .pformstrip {
+  margin-top: 0;
+  border-top: 0;
+}
+#UserCP #ucpcontent .pformstrip,
+#Msg #ucpcontent .pformstrip,
+#store #ucpcontent .pformstrip,
+#modcp #ucpcontent .pformstrip {
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  background: var(--black);
+  padding: 30px;
+  color: var(--white);
+  border-top: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#UserCP #ucpcontent .pformstrip a,
+#Msg #ucpcontent .pformstrip a,
+#store #ucpcontent .pformstrip a,
+#modcp #ucpcontent .pformstrip a {
+  color: var(--white);
+}
+#UserCP #ucpcontent .pformstrip:first-child,
+#Msg #ucpcontent .pformstrip:first-child,
+#store #ucpcontent .pformstrip:first-child,
+#modcp #ucpcontent .pformstrip:first-child {
+  margin-top: 0;
+  border-top: 0;
+}
+#UserCP:not(.code-01) #ucpcontent table,
+#Msg:not(.code-01) #ucpcontent table,
+#store:not(.code-01) #ucpcontent table,
+#modcp:not(.code-01) #ucpcontent table {
+  display: table;
+}
+#UserCP:not(.code-01) #ucpcontent tr,
+#Msg:not(.code-01) #ucpcontent tr,
+#store:not(.code-01) #ucpcontent tr,
+#modcp:not(.code-01) #ucpcontent tr {
+  display: table-row;
+}
+#UserCP:not(.code-01) #ucpcontent th,
+#UserCP:not(.code-01) #ucpcontent td,
+#Msg:not(.code-01) #ucpcontent th,
+#Msg:not(.code-01) #ucpcontent td,
+#store:not(.code-01) #ucpcontent th,
+#store:not(.code-01) #ucpcontent td,
+#modcp:not(.code-01) #ucpcontent th,
+#modcp:not(.code-01) #ucpcontent td {
+  display: table-cell;
+}
+
+#UserCP.code-00 #ucpcontent th,
+#UserCP.code-00 #ucpcontent td {
+  padding: 10px 40px 10px 0;
+}
+#UserCP.code-00 #ucpcontent th:first-child,
+#UserCP.code-00 #ucpcontent td:first-child {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--xsBody);
+  text-align: right;
+  top: -2px;
+}
+#UserCP.code-00 #ucpcontent th:first-child::after,
+#UserCP.code-00 #ucpcontent td:first-child::after {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: var(--accent);
+  display: block;
+  position: absolute;
+  top: 19px;
+  right: 10px;
+}
+#UserCP.code-00 #ucpcontent textarea {
+  width: calc(100% - 40px);
+  margin: 0 20px 20px;
+}
+#UserCP.code-01 #ucpcontent {
+  padding: 0;
+}
+#UserCP.code-01 #ucpcontent > form > table > tbody {
+  display: block;
+  padding: 0;
+}
+#UserCP.code-01 form[name=theForm] .pformstrip:not(td):not(.cp-header), #UserCP.code-01 form[name=theForm] > table > tbody > tr:first-child,
+#UserCP.code-01 form[name=theForm] #field-website,
+#UserCP.code-01 form[name=theForm] #field-location,
+#UserCP.code-01 form[name=theForm] #field-interests {
+  display: none !important;
+}
+#UserCP.code-01 form[name=theForm] .cp-header {
+  background: var(--black);
+  display: block;
+  margin: 0 !important;
+  padding: 15px 30px;
+  border-bottom: 1px solid var(--midGrey-70);
+  border-top: 1px solid var(--midGrey-70);
+  font-size: 24px !important;
+  text-align: center;
+}
+#UserCP.code-01 form[name=theForm] .cp-header:nth-child(5) {
+  border-top: 0 !important;
+}
+#UserCP.code-01 form[name=theForm] .cp-sect tr {
+  display: grid;
+  grid-gap: 15px 30px;
+  padding: 30px;
+}
+#UserCP.code-01 form[name=theForm] .cp-sect tr:not(:last-child) {
+  border-bottom: 1px solid var(--midGrey-70);
+}
+@media only screen and (min-width: 768px) {
+  #UserCP.code-01 form[name=theForm] .cp-sect tr {
+    grid-template-columns: 250px auto;
+  }
+}
+#UserCP.code-01 form[name=theForm] .cp-sect tr textarea,
+#UserCP.code-01 form[name=theForm] .cp-sect tr input {
+  width: 100%;
+  max-width: 600px;
+}
+#UserCP.code-01 form[name=theForm] .cp-sect tr textarea {
+  height: 200px;
+}
+#UserCP.code-01 form[name=theForm] .cp-sect tr td:first-child {
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 200%;
+  text-align: justify;
+}
+#UserCP.code-01 form[name=theForm] .cp-sect tr td:first-child label {
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  text-transform: capitalize;
+  letter-spacing: 0;
+}
+#UserCP.code-22 #gallery_form {
+  display: none;
+}
+#UserCP.code-22 #ucpcontent {
+  display: grid;
+}
+#UserCP.code-22 #ucpcontent .pformstrip:nth-child(3) {
+  border-top: 0;
+}
+#UserCP.code-22 #ucpcontent .pformstrip:nth-child(3) + p {
+  padding: 30px;
+  line-height: 200%;
+}
+#UserCP.code-22 #ucpcontent .tablepad {
+  padding: 30px;
+}
+#UserCP.code-22 #ucpcontent form {
+  display: grid;
+  grid-template-rows: max-content max-content auto max-content;
+}
+#UserCP.code-22 #ucpcontent form tr {
+  display: grid;
+  grid-gap: 20px;
+}
+@media only screen and (min-width: 768px) {
+  #UserCP.code-22 #ucpcontent {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content max-content 82px auto;
+  }
+  #UserCP.code-22 #ucpcontent .pformstrip:nth-child(3) {
+    grid-column: 1/3;
+    grid-row: 1/2;
+  }
+  #UserCP.code-22 #ucpcontent .pformstrip:nth-child(3) + p {
+    grid-column: 1/3;
+    grid-row: 2/3;
+  }
+  #UserCP.code-22 #ucpcontent .pformstrip:nth-child(5) {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    height: max-content;
+  }
+  #UserCP.code-22 #ucpcontent .tablepad {
+    grid-column: 1/2;
+    grid-row: 4/5;
+  }
+  #UserCP.code-22 #ucpcontent form {
+    grid-column: 2/3;
+    grid-row: 3/5;
+  }
+  #UserCP.code-22 #ucpcontent form .tablebasic,
+#UserCP.code-22 #ucpcontent form .pformstrip:last-child {
+    border-left: 1px solid var(--midGrey-70);
+  }
+}
+#UserCP.code-54 #ucpcontent > p {
+  padding: 30px;
+  line-height: 200%;
+}
+#UserCP.code-54 #ucpcontent > p ~ br {
+  display: none;
+}
+@media only screen and (max-width: 480px) {
+  #UserCP.code-54 #ucpcontent > p + div .tableborder:first-child form > table tr:not(:last-child) {
+    grid-template-columns: 1fr 21px;
+  }
+  #UserCP.code-54 #ucpcontent > p + div .tableborder:first-child form > table tr:not(:last-child) th:nth-child(2),
+#UserCP.code-54 #ucpcontent > p + div .tableborder:first-child form > table tr:not(:last-child) td:nth-child(2) {
+    display: none;
+  }
+}
+#UserCP.code-54 #ucpcontent > p + div br {
+  display: none;
+}
+#UserCP.code-54 #ucpcontent > p + div br + .tableborder form > table tr:not(:last-child) {
+  grid-template-columns: 1fr 1fr;
+  border-top: 0;
+}
+#UserCP.code-54 #ucpcontent > p + div form > table {
+  width: 100%;
+}
+#UserCP.code-54 #ucpcontent > p + div form > table tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 21px;
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 15px;
+  align-items: center;
+}
+#UserCP.code-54 #ucpcontent > p + div form > table tr a,
+#UserCP.code-54 #ucpcontent > p + div form > table tr td {
+  color: var(--white);
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+  font-family: var(--body);
+}
+#UserCP.code-54 #ucpcontent > p + div form > table tr a.pformright input,
+#UserCP.code-54 #ucpcontent > p + div form > table tr td.pformright input {
+  width: 100%;
+}
+#UserCP.code-54 #ucpcontent > p + div form > table tr:not(.dlight) {
+  border-top: 1px solid var(--midGrey-70);
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  text-align: left;
+}
+#UserCP.code-54 #ucpcontent > p + div form > table tr:not(.dlight) th {
+  padding: 0;
+}
+#UserCP.code-54 #ucpcontent > p + div form > table tr:last-child {
+  text-align: center;
+  border-top: 0;
+  grid-template-columns: auto;
+}
+#UserCP.code-54 #ucpcontent > p + div form > table tr:last-child .titlemedium > div {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+}
+#UserCP.code-54 #ucpcontent > p + div form > table tr:last-child .titlemedium > div > input {
+  margin: 0;
+  width: 100%;
+  border-radius: 0;
+  padding: 30px;
+  font-family: var(--serif);
+  font-size: 24px;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  background: var(--black);
+  color: var(--white);
+  cursor: pointer;
+}
+#UserCP.code-54 #ucpcontent > p + div form > table > tbody > tr:last-child {
+  padding: 0;
+}
+#UserCP.code-54 #ucpcontent > p + div form > table > tbody > tr:last-child > td.pformstrip {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+}
+#UserCP.code-54 #ucpcontent > p + div form > table > tbody > tr:last-child > td.pformstrip > input {
+  margin: 0;
+  width: 100%;
+  border-radius: 0;
+  padding: 30px;
+  font-family: var(--serif);
+  font-size: 24px;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  background: var(--black);
+  color: var(--white);
+  cursor: pointer;
+}
+#UserCP.code-52 #ucpcontent form > .pformstrip {
+  border-top: 0;
+}
+#UserCP.code-52 #ucpcontent form .row2 {
+  padding: 30px;
+  line-height: 200%;
+}
+#UserCP.code-52 #ucpcontent form .row2 + table {
+  display: block;
+  width: 100%;
+}
+#UserCP.code-52 #ucpcontent form .row2 + table tbody {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+#UserCP.code-52 #ucpcontent form .row2 + table tr:first-child {
+  padding: 30px 30px 15px;
+  display: grid;
+  grid-gap: 15px;
+}
+#UserCP.code-52 #ucpcontent form .row2 + table tr:nth-child(2) {
+  display: grid;
+  padding: 0 30px 30px;
+  grid-gap: 15px;
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-52 #ucpcontent form .row2 + table tr:first-child {
+    grid-template-columns: 1fr 1fr;
+  }
+  #UserCP.code-52 #ucpcontent form .row2 + table tr:nth-child(2) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+#UserCP.code-52 #ucpcontent form .row2 + table tr:last-child {
+  display: block;
+  border-top: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#UserCP.code-28 form > p, #UserCP.code-08 form > p {
+  padding: 30px;
+  line-height: 200%;
+}
+#UserCP.code-28 form > table, #UserCP.code-08 form > table {
+  display: block;
+  width: 100%;
+}
+#UserCP.code-28 form > table tbody, #UserCP.code-08 form > table tbody {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+#UserCP.code-28 form > table tr, #UserCP.code-08 form > table tr {
+  padding: 15px 30px;
+  display: grid !important;
+  grid-gap: 15px;
+}
+#UserCP.code-28 form > table tr:first-child, #UserCP.code-08 form > table tr:first-child {
+  padding: 0 30px;
+}
+#UserCP.code-28 form > table tr:last-child, #UserCP.code-08 form > table tr:last-child {
+  padding: 0 30px 30px;
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-28 form > table tr, #UserCP.code-08 form > table tr {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+#UserCP.code-28 form > table + .pformstrip, #UserCP.code-08 form > table + .pformstrip {
+  border-bottom: 1px solid var(--midGrey-70) !important;
+}
+#UserCP.code-alerts #ucpcontent > form + div[align=right] {
+  padding: 15px !important;
+}
+#UserCP.code-alerts #ucpcontent > form + div[align=right], #UserCP.code-alerts #ucpcontent > table {
+  position: relative;
+  background: var(--black-50);
+  display: block;
+  padding: 0;
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  color: var(--white);
+}
+#UserCP.code-alerts #ucpcontent > form + div[align=right] br, #UserCP.code-alerts #ucpcontent > table br {
+  display: none;
+}
+#UserCP.code-alerts #ucpcontent > form + div[align=right] a, #UserCP.code-alerts #ucpcontent > table a {
+  color: var(--white);
+}
+#UserCP.code-alerts #ucpcontent > form + div[align=right] > tbody, #UserCP.code-alerts #ucpcontent > table > tbody {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+#UserCP.code-alerts #ucpcontent > form + div[align=right] > tbody > tr, #UserCP.code-alerts #ucpcontent > table > tbody > tr {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+#UserCP.code-alerts #ucpcontent > form + div[align=right] > tbody > tr > td:last-child, #UserCP.code-alerts #ucpcontent > table > tbody > tr > td:last-child {
+  display: flex;
+  gap: 20px;
+}
+#UserCP.code-alerts #ucpcontent > form + div[align=right] .pagination_pagetxt, #UserCP.code-alerts #ucpcontent > table .pagination_pagetxt {
+  display: none;
+}
+#UserCP.code-alerts #ucpcontent > form + div[align=right] .pagination_current, #UserCP.code-alerts #ucpcontent > table .pagination_current {
+  display: inline-block;
+  background: var(--accent);
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 3px;
+}
+#UserCP.code-alerts #ucpcontent > form + div[align=right] .pagination_page, #UserCP.code-alerts #ucpcontent > table .pagination_page {
+  padding: 5px;
+  margin: 0 5px;
+}
+#UserCP.code-alerts #ucpcontent form .tableborder table,
+#UserCP.code-alerts #ucpcontent form .tableborder tbody {
+  display: block;
+  padding: 0;
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr {
+  display: grid;
+  grid-template-columns: 80px auto 200px 30px;
+  grid-gap: 15px;
+  border-bottom: 1px solid var(--midGrey-70);
+  height: 80px;
+  align-items: center;
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr:nth-child(2) {
+  border-top: 1px solid var(--midGrey-70);
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr:not(:last-child) td:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--headerOverlay);
+  mix-blend-mode: var(--headerBlend);
+  opacity: var(--headerOpacity);
+  z-index: 2;
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr td {
+  max-height: 80px;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr td img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr td.alert-text img {
+  display: none;
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr td a {
+  color: var(--white);
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr:first-child {
+  display: none;
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr:last-child {
+  display: block;
+  height: auto;
+  padding: 30px;
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr:last-child td {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (min-width: 768px) {
+  #UserCP.code-alerts #ucpcontent form .tableborder tr:last-child input,
+#UserCP.code-alerts #ucpcontent form .tableborder tr:last-child select {
+    margin-bottom: 0;
+  }
+}
+@media only screen and (max-width: 480px) {
+  #UserCP.code-alerts #ucpcontent form .tableborder tr {
+    grid-template-columns: auto 150px 30px;
+  }
+  #UserCP.code-alerts #ucpcontent form .tableborder tr td:first-child:not(:only-child),
+#UserCP.code-alerts #ucpcontent form .tableborder tr th:first-child:not(:only-child) {
+    display: none;
+  }
+  #UserCP.code-alerts #ucpcontent form .tableborder tr td:nth-child(2),
+#UserCP.code-alerts #ucpcontent form .tableborder tr th:nth-child(2) {
+    padding-left: 30px;
+  }
+}
+#UserCP.code-50 #ucpcontent > .pformstrip + br {
+  display: none;
+}
+#UserCP.code-50 #ucpcontent .tableborder table,
+#UserCP.code-50 #ucpcontent .tableborder tbody {
+  display: block;
+  width: 100%;
+}
+#UserCP.code-50 #ucpcontent .tableborder tr {
+  display: grid;
+  grid-template-columns: 0 auto 70px 70px 200px;
+  border-bottom: 1px solid var(--midGrey-70);
+  grid-gap: 15px;
+}
+#UserCP.code-50 #ucpcontent .tableborder tr td:only-child {
+  grid-column: 1/-1;
+  padding: 15px 30px;
+  background: var(--black-50);
+  font-family: var(--serif);
+  font-size: var(--lBody) !important;
+  text-transform: capitalize !important;
+  letter-spacing: 0 !important;
+}
+#UserCP.code-50 #ucpcontent .tableborder tr:first-child {
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+}
+#UserCP.code-50 #ucpcontent .tableborder tr td,
+#UserCP.code-50 #ucpcontent .tableborder tr th {
+  text-align: left;
+  width: 100% !important;
+  padding: 15px;
+  box-sizing: border-box;
+}
+#UserCP.code-50 #ucpcontent .tableborder tr td a,
+#UserCP.code-50 #ucpcontent .tableborder tr th a {
+  color: var(--white);
+}
+#UserCP.code-50 #ucpcontent .tableborder tr td:nth-child(3), #UserCP.code-50 #ucpcontent .tableborder tr td:nth-child(4),
+#UserCP.code-50 #ucpcontent .tableborder tr th:nth-child(3),
+#UserCP.code-50 #ucpcontent .tableborder tr th:nth-child(4) {
+  text-align: center;
+}
+#UserCP.code-50 #ucpcontent .tableborder tr td.row1,
+#UserCP.code-50 #ucpcontent .tableborder tr th.row1 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+}
+#UserCP.code-50 #ucpcontent .tableborder tr td.row1 b,
+#UserCP.code-50 #ucpcontent .tableborder tr th.row1 b {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+}
+#UserCP.code-50 #ucpcontent .tableborder tr td.row1 b:first-child a,
+#UserCP.code-50 #ucpcontent .tableborder tr th.row1 b:first-child a {
+  font-family: var(--serif);
+  font-size: var(--lBody);
+  text-transform: capitalize;
+}
+#UserCP.code-50 #ucpcontent .tableborder tr td.row1:not(:last-child) br,
+#UserCP.code-50 #ucpcontent .tableborder tr th.row1:not(:last-child) br {
+  display: none;
+}
+#UserCP.code-50 #ucpcontent .tableborder tr td.row1 .desc,
+#UserCP.code-50 #ucpcontent .tableborder tr th.row1 .desc {
+  display: block;
+  margin: 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+}
+@media only screen and (max-width: 768px) {
+  #UserCP.code-50 #ucpcontent .tableborder tr {
+    grid-template-columns: 0 auto 200px;
+  }
+  #UserCP.code-50 #ucpcontent .tableborder tr td:nth-child(3),
+#UserCP.code-50 #ucpcontent .tableborder tr td:nth-child(4),
+#UserCP.code-50 #ucpcontent .tableborder tr th:nth-child(3),
+#UserCP.code-50 #ucpcontent .tableborder tr th:nth-child(4) {
+    display: none;
+  }
+}
+@media only screen and (max-width: 480px) {
+  #UserCP.code-50 #ucpcontent .tableborder tr {
+    grid-template-columns: 0 1fr;
+  }
+  #UserCP.code-50 #ucpcontent .tableborder tr:first-child {
+    display: none;
+  }
+  #UserCP.code-50 #ucpcontent .tableborder tr td:last-child:not(:only-child),
+#UserCP.code-50 #ucpcontent .tableborder tr th:last-child:not(:only-child) {
+    grid-column: 1/-1;
+    padding-top: 0;
+    padding-left: 30px;
+  }
+}
+#UserCP.code-26 #ucpcontent form > br {
+  display: none;
+}
+#UserCP.code-26 #ucpcontent form table,
+#UserCP.code-26 #ucpcontent form tbody {
+  display: block;
+  width: 100%;
+}
+#UserCP.code-26 #ucpcontent form tr {
+  display: grid;
+  grid-template-columns: 0 auto 70px 70px 200px 30px;
+  border-bottom: 1px solid var(--midGrey-70);
+  grid-gap: 15px;
+}
+#UserCP.code-26 #ucpcontent form tr td:only-child {
+  grid-column: 1/-1;
+  padding: 15px 30px;
+  background: var(--black-50);
+  font-family: var(--serif);
+  font-size: var(--lBody) !important;
+  text-transform: capitalize !important;
+  letter-spacing: 0 !important;
+}
+#UserCP.code-26 #ucpcontent form tr td:last-child:not(:only-child) {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#UserCP.code-26 #ucpcontent form tr:first-child {
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+}
+#UserCP.code-26 #ucpcontent form tr td,
+#UserCP.code-26 #ucpcontent form tr th {
+  text-align: left;
+  width: 100% !important;
+  padding: 15px;
+  box-sizing: border-box;
+}
+#UserCP.code-26 #ucpcontent form tr td a,
+#UserCP.code-26 #ucpcontent form tr th a {
+  color: var(--white);
+}
+#UserCP.code-26 #ucpcontent form tr td:nth-child(3), #UserCP.code-26 #ucpcontent form tr td:nth-child(4),
+#UserCP.code-26 #ucpcontent form tr th:nth-child(3),
+#UserCP.code-26 #ucpcontent form tr th:nth-child(4) {
+  text-align: center;
+}
+#UserCP.code-26 #ucpcontent form tr td.row3,
+#UserCP.code-26 #ucpcontent form tr th.row3 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+}
+#UserCP.code-26 #ucpcontent form tr td.row3:nth-child(2),
+#UserCP.code-26 #ucpcontent form tr th.row3:nth-child(2) {
+  font-size: 0;
+}
+#UserCP.code-26 #ucpcontent form tr td.row3:not(:nth-last-child(2)) a,
+#UserCP.code-26 #ucpcontent form tr th.row3:not(:nth-last-child(2)) a {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+}
+#UserCP.code-26 #ucpcontent form tr td.row3:not(:nth-last-child(2)) a:first-child,
+#UserCP.code-26 #ucpcontent form tr th.row3:not(:nth-last-child(2)) a:first-child {
+  font-family: var(--serif);
+  font-size: var(--lBody);
+  text-transform: capitalize;
+}
+#UserCP.code-26 #ucpcontent form tr td.row3:not(:nth-last-child(2)) a:nth-child(2),
+#UserCP.code-26 #ucpcontent form tr th.row3:not(:nth-last-child(2)) a:nth-child(2) {
+  margin: 10px 0;
+}
+#UserCP.code-26 #ucpcontent form tr td.row3:not(:nth-last-child(2)) br,
+#UserCP.code-26 #ucpcontent form tr th.row3:not(:nth-last-child(2)) br {
+  display: none;
+}
+#UserCP.code-26 #ucpcontent form tr td.row3 .desc,
+#UserCP.code-26 #ucpcontent form tr th.row3 .desc {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+}
+@media only screen and (max-width: 768px) {
+  #UserCP.code-26 #ucpcontent form tr {
+    grid-template-columns: 0 auto 200px 30px;
+  }
+  #UserCP.code-26 #ucpcontent form tr td:nth-child(3),
+#UserCP.code-26 #ucpcontent form tr td:nth-child(4),
+#UserCP.code-26 #ucpcontent form tr th:nth-child(3),
+#UserCP.code-26 #ucpcontent form tr th:nth-child(4) {
+    display: none;
+  }
+}
+@media only screen and (max-width: 480px) {
+  #UserCP.code-26 #ucpcontent form tr {
+    grid-template-columns: 0 1fr;
+  }
+  #UserCP.code-26 #ucpcontent form tr:first-child {
+    display: none;
+  }
+  #UserCP.code-26 #ucpcontent form tr td:nth-child(2),
+#UserCP.code-26 #ucpcontent form tr th:nth-child(2) {
+    width: 100%;
+  }
+  #UserCP.code-26 #ucpcontent form tr td:nth-last-child(2),
+#UserCP.code-26 #ucpcontent form tr th:nth-last-child(2) {
+    grid-column: 1/-1;
+    padding-top: 0;
+    padding-left: 30px;
+  }
+  #UserCP.code-26 #ucpcontent form tr td:last-child:not(:only-child),
+#UserCP.code-26 #ucpcontent form tr th:last-child:not(:only-child) {
+    grid-column: 1/-1;
+    padding: 0 30px;
+    margin-bottom: 15px;
+  }
+}
+#UserCP.code-04 #ucpcontent form > p {
+  padding: 30px;
+  line-height: 200%;
+}
+#UserCP.code-04 #ucpcontent form > p select {
+  max-width: 200px;
+}
+#UserCP.code-04 #ucpcontent form table,
+#UserCP.code-04 #ucpcontent form tbody {
+  display: block;
+  padding: 0;
+}
+#UserCP.code-04 #ucpcontent form tr {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: 30px;
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 15px;
+}
+#UserCP.code-04 #ucpcontent form tr input,
+#UserCP.code-04 #ucpcontent form tr select {
+  margin: 0;
+}
+#UserCP.code-04 #ucpcontent form .desc {
+  padding: 15px 30px 30px;
+  display: block;
+}
+#UserCP.code-04 #ucpcontent form .desc + .pformstrip {
+  padding: 0;
+}
+#UserCP.code-04 #ucpcontent form .desc + .pformstrip input {
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+  color: var(--white);
+  font-size: 20px;
+  font-family: var(--serif);
+  text-transform: capitalize;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 30px;
+}
+#UserCP.code-alerts_settings #ucpcontent form table,
+#UserCP.code-alerts_settings #ucpcontent form tbody {
+  display: block;
+  padding: 0;
+}
+#UserCP.code-alerts_settings #ucpcontent form table + .pformstrip {
+  padding: 0;
+}
+#UserCP.code-alerts_settings #ucpcontent form table + .pformstrip input {
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+  color: var(--white);
+  font-size: 20px;
+  font-family: var(--serif);
+  text-transform: capitalize;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 30px;
+}
+#UserCP.code-alerts_settings #ucpcontent form tr {
+  display: grid;
+  grid-template-columns: auto 100px 100px;
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 15px;
+}
+#UserCP.code-alerts_settings #ucpcontent form tr:first-child, #UserCP.code-alerts_settings #ucpcontent form tr:nth-last-child(4) {
+  background: var(--black);
+}
+#UserCP.code-alerts_settings #ucpcontent form tr:first-child td, #UserCP.code-alerts_settings #ucpcontent form tr:nth-last-child(4) td {
+  border-top: 0;
+  border-bottom: 0;
+  padding: 0;
+}
+#UserCP.code-alerts_settings #ucpcontent form tr td:nth-child(2),
+#UserCP.code-alerts_settings #ucpcontent form tr td:nth-child(3) {
+  text-align: center;
+}
+#UserCP.code-alerts_settings #ucpcontent form tr input,
+#UserCP.code-alerts_settings #ucpcontent form tr select {
+  margin: 0;
+}
+#UserCP.code-02 #ucpcontent form table,
+#UserCP.code-02 #ucpcontent form tbody {
+  display: block;
+  padding: 0;
+}
+#UserCP.code-02 #ucpcontent form table + br {
+  display: none;
+}
+#UserCP.code-02 #ucpcontent form table + br + .pformstrip:last-child {
+  padding: 0;
+}
+#UserCP.code-02 #ucpcontent form table + br + .pformstrip:last-child input {
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+  color: var(--white);
+  font-size: 20px;
+  font-family: var(--serif);
+  text-transform: capitalize;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 30px;
+}
+#UserCP.code-02 #ucpcontent form tr {
+  display: grid;
+  grid-template-columns: 30px auto;
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 15px;
+  align-items: center;
+}
+#UserCP.code-02 #ucpcontent form tr input,
+#UserCP.code-02 #ucpcontent form tr select {
+  margin: 0;
+}
+#UserCP.code-02 #ucpcontent form tr:last-child {
+  border-bottom: 0;
+}
+
+#Online .maintitle {
+  border-top: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
+  margin: 0;
+  padding: 70px 30px;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 36px;
+  text-transform: capitalize;
+  color: var(--white);
+}
+#Online .maintitle + table > tbody {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media only screen and (min-width: 480px) {
+  #Online .maintitle + table > tbody {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #Online .maintitle + table > tbody {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+#Online .maintitle + table > tbody > tr {
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 30px;
+  display: grid;
+  grid-gap: 5px;
+}
+#Online .maintitle + table > tbody > tr:first-child {
+  display: none;
+}
+#Online .maintitle + table > tbody > tr:last-child {
+  grid-column: 1/-1;
+  border-top: 1px solid var(--midGrey-70);
+  border-right: 0;
+  text-align: center;
+}
+#Online .maintitle + table > tbody > tr:nth-last-child(2) {
+  border-bottom: 0;
+}
+@media only screen and (min-width: 480px) {
+  #Online .maintitle + table > tbody > tr {
+    border-right: 1px solid var(--midGrey-70);
+  }
+  #Online .maintitle + table > tbody > tr:nth-last-child(2), #Online .maintitle + table > tbody > tr:nth-last-child(3):nth-last-child(2n+1) {
+    border-bottom: 0;
+  }
+  #Online .maintitle + table > tbody > tr:nth-child(2n+1) {
+    border-right: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #Online .maintitle + table > tbody > tr:nth-last-child(2), #Online .maintitle + table > tbody > tr:nth-last-child(3):nth-last-child(2n+1) {
+    border-bottom: 1px solid var(--midGrey-70);
+  }
+  #Online .maintitle + table > tbody > tr:nth-child(2n+1) {
+    border-right: 1px solid var(--midGrey-70);
+  }
+  #Online .maintitle + table > tbody > tr:nth-last-child(2), #Online .maintitle + table > tbody > tr:nth-last-child(3):nth-last-child(3n), #Online .maintitle + table > tbody > tr:nth-last-child(4):nth-last-child(3n+1) {
+    border-bottom: 0;
+  }
+  #Online .maintitle + table > tbody > tr:nth-child(3n+1) {
+    border-right: 0;
+  }
+}
+#Online .maintitle + table > tbody > tr .row1 {
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#Online .maintitle + table > tbody > tr .row1 a {
+  color: var(--white);
+}
+#Online .maintitle + table > tbody > tr .row1:first-child {
+  font-size: 0;
+}
+#Online .maintitle + table > tbody > tr .row1:first-child a {
+  display: block;
+  font-size: var(--xsBody);
+}
+#Online .maintitle + table > tbody > tr .row1:first-child a:first-child {
+  font-family: var(--serif);
+  text-transform: capitalize;
+  font-size: var(--xlBody);
+  margin-bottom: 5px;
+}
+
+#Search.code-getactive main > form > div {
+  width: 100% !important;
+  border-top: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 50px;
+  text-align: center;
+}
+#Search.code-getactive main > form > div:first-child {
+  display: none;
+}
+#Search.code-getactive main > form > div fieldset {
+  border: 0;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#Search.code-getactive main > form > div fieldset legend {
+  margin: 0 auto 10px;
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  text-transform: none;
+  letter-spacing: 0;
+}
+#Search.code-getactive main #active-topics .maintitle {
+  display: none;
+}
+#Search.code-getactive main #active-topics .maintitle ~ .titlemedium {
+  padding: 15px;
+  border-bottom: 1px solid var(--midGrey-70);
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media only screen and (min-width: 480px) {
+  #Search.code-getactive main #active-topics .maintitle + table > tbody {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #Search.code-getactive main #active-topics .maintitle + table > tbody {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr {
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 30px;
+  display: grid;
+  grid-gap: 5px;
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr:first-child {
+  display: none;
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr:last-child {
+  border-bottom: 0;
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr a {
+  color: var(--white);
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(1), #Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(2) {
+  display: none;
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(3) {
+  display: grid;
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(3) > table {
+  font-family: var(--serif);
+  font-size: var(--lBody);
+  text-transform: capitalize;
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(3) .desc {
+  display: block;
+  margin-top: 5px;
+  border-bottom: 1px solid var(--midGrey-70);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(4):before {
+  content: "posted in ";
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(5):before {
+  content: "started by ";
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(6):after {
+  content: " replies";
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(7):after {
+  content: " views";
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(8) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(8) > a, #Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(8) > b {
+  order: -1;
+}
+@media only screen and (min-width: 480px) {
+  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr {
+    border-right: 1px solid var(--midGrey-70);
+  }
+  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(2n):not(:nth-child(2n+1)) {
+    border-bottom: 0;
+  }
+  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-child(2n+1) {
+    border-right: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-child(2n+1) {
+    border-right: 1px solid var(--midGrey-70);
+  }
+  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(2n):not(:nth-child(2n+1)) {
+    border-bottom: 1px solid var(--midGrey-70);
+  }
+  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(3n+2):not(:nth-child(3n+1)), #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-last-child(3):nth-last-child(3n):not(:nth-child(3n)):not(:nth-child(3n+1)) {
+    border-bottom: 0 !important;
+  }
+  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-child(3n+1) {
+    border-right: 0;
+  }
+}
+#Search.code-getactive main #active-topics .maintitle ~ .titlemedium {
+  border-top: 1px solid var(--midGrey-70);
+}
+#Search.code-show main > a[name=top] + div {
+  position: relative;
+  background: var(--black-50);
+  display: block;
+  padding: 15px;
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  color: var(--white);
+  border-top: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Search.code-show main > a[name=top] + div br {
+  display: none;
+}
+#Search.code-show main > a[name=top] + div a {
+  color: var(--white);
+}
+#Search.code-show main > a[name=top] + div > tbody {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+#Search.code-show main > a[name=top] + div > tbody > tr {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+#Search.code-show main > a[name=top] + div > tbody > tr > td:last-child {
+  display: flex;
+  gap: 20px;
+}
+#Search.code-show main > a[name=top] + div .pagination_pagetxt {
+  display: none;
+}
+#Search.code-show main > a[name=top] + div .pagination_current {
+  display: inline-block;
+  background: var(--accent);
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 3px;
+}
+#Search.code-show main > a[name=top] + div .pagination_page {
+  padding: 5px;
+  margin: 0 5px;
+}
+#Search.code-show main > .tableborder .maintitle {
+  text-align: center;
+  padding: 50px;
+  border-bottom: 1px solid var(--midGrey-70);
+  font-family: var(--serif);
+  font-size: 24px;
+  text-transform: capitalize;
+  color: var(--white);
+}
+#Search.code-show main > .tableborder .maintitle a {
+  color: var(--white);
+}
+#Search.code-show main > .tableborder tr {
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Search.code-show main > .tableborder tr:first-child {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+  background: var(--black);
+}
+#Search.code-show main > .tableborder tr:first-child strong {
+  font-weight: normal;
+}
+#Search.code-show main > .tableborder tr:first-child a {
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  text-transform: capitalize;
+  display: block;
+  margin-bottom: 5px;
+  letter-spacing: 0;
+  color: var(--white);
+}
+#Search.code-show main > .tableborder tr:nth-child(2) {
+  display: block;
+  padding: 30px;
+  background: var(--black-50);
+  font-size: var(--mBody);
+  line-height: 200%;
+}
+#Search.code-show main > .tableborder tr:nth-child(2) td:first-child {
+  display: none;
+}
+#Search.code-show main > .tableborder tr:nth-child(3) {
+  display: block;
+  padding: 15px;
+  background: var(--black);
+  font-size: var(--xsBody);
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#Search.code-show main > .tableborder tr:nth-child(3) a {
+  color: var(--white);
+}
+#Search.code-show main #search-topics .maintitle {
+  display: none;
+}
+#Search.code-show main #search-topics .maintitle ~ .titlemedium {
+  padding: 15px;
+  border-bottom: 1px solid var(--midGrey-70);
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+#Search.code-show main #search-topics .maintitle + table > tbody {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media only screen and (min-width: 480px) {
+  #Search.code-show main #search-topics .maintitle + table > tbody {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #Search.code-show main #search-topics .maintitle + table > tbody {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr {
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 30px;
+  display: grid;
+  grid-gap: 5px;
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr:first-child {
+  display: none;
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr:last-child {
+  border-bottom: 0;
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr a {
+  color: var(--white);
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(1), #Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(2) {
+  display: none;
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(3) {
+  display: grid;
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(3) > table {
+  font-family: var(--serif);
+  font-size: var(--lBody);
+  text-transform: capitalize;
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(3) .desc {
+  display: block;
+  margin-top: 5px;
+  border-bottom: 1px solid var(--midGrey-70);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(4):before {
+  content: "posted in ";
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(5):before {
+  content: "started by ";
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(6):after {
+  content: " replies";
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(7):after {
+  content: " views";
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(8) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(8) > a, #Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(8) > b {
+  order: -1;
+}
+@media only screen and (min-width: 480px) {
+  #Search.code-show main #search-topics .maintitle + table > tbody > tr {
+    border-right: 1px solid var(--midGrey-70);
+  }
+  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(2n):not(:nth-child(2n+1)) {
+    border-bottom: 0;
+  }
+  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-child(2n+1) {
+    border-right: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-child(2n+1) {
+    border-right: 1px solid var(--midGrey-70);
+  }
+  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(2n):not(:nth-child(2n+1)) {
+    border-bottom: 1px solid var(--midGrey-70);
+  }
+  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(3n+2):not(:nth-child(3n+1)), #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-last-child(3):nth-last-child(3n):not(:nth-child(3n)):not(:nth-child(3n+1)) {
+    border-bottom: 0 !important;
+  }
+  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-child(3n+1) {
+    border-right: 0;
+  }
+}
+#Search.code-show main #search-topics .maintitle ~ .titlemedium {
+  border-top: 1px solid var(--midGrey-70);
+}
+
+#Post #topic-summary > .tableborder > .pformstrip {
+  padding: 15px;
+  border-bottom: 1px solid var(--midGrey-70);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+}
+#Post #topic-summary tr {
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Post #topic-summary tr:nth-child(odd) {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 2px;
+  background: var(--black);
+}
+#Post #topic-summary tr:nth-child(odd) strong {
+  font-weight: normal;
+}
+#Post #topic-summary tr:nth-child(odd) b {
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+  text-transform: capitalize;
+  display: block;
+  margin-bottom: 5px;
+  letter-spacing: 0;
+  color: var(--white);
+}
+#Post #topic-summary tr:nth-child(even) {
+  display: block;
+  padding: 30px;
+  background: var(--black-50);
+  font-size: var(--mBody);
+  line-height: 200%;
+}
+#Post #topic-summary tr:nth-child(even) td:first-child {
+  display: none;
+}
+
+#Login main > p {
+  margin: 0;
+  padding: 30px 30px 0;
+}
+#Login main > p:first-of-type {
+  border-top: 1px solid var(--midGrey-70);
+}
+#Login main > p:last-of-type {
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Login main > b {
+  display: block;
+  padding: 30px;
+  border-bottom: 1px solid var(--midGrey-70);
+  font-family: var(--serif);
+  font-size: var(--lBody);
+  text-align: center;
+}
+#Login main > b a {
+  color: var(--white);
+}
+#Login main form .maintitle,
+#Login main form .pformstrip:not(:last-child) {
+  display: none;
+}
+#Login main form .pformstrip:last-child {
+  background: var(--black);
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Login main form .pformstrip:last-child input {
+  margin: 0;
+  padding: 30px;
+  font-family: var(--serif);
+  font-size: 24px;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  background: none;
+  border-radius: 0;
+  color: var(--white);
+  cursor: pointer;
+  width: 100%;
+}
+#Login main form tr {
+  display: block;
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 15px 30px;
+  line-height: 200%;
+}
+#Login main form tr td {
+  display: block;
+}
+#Login main form table:first-of-type tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  grid-gap: 30px;
+}
+#Login main form table:first-of-type tr td:first-child {
+  text-align: right;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#Login main form table:first-of-type tr input {
+  width: 250px;
+  background: var(--light);
+  border: 0;
+  padding: 5px 10px;
+  border-radius: 2px;
+  color: var(--dark);
+  font-size: var(--sBody);
+  letter-spacing: 1px;
+  font-family: var(--body);
+  font-weight: 500;
+  line-height: var(--sBody);
+  margin: 0 5px 5px 0;
+}
+
+#Reg form > b {
+  display: block;
+  border-top: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 50px;
+  text-transform: capitalize;
+  font-family: var(--serif);
+  font-size: 24px;
+  text-align: center;
+}
+#Reg form > p {
+  margin: 0 30px;
+}
+#Reg form > .tableborder > .pformstrip {
+  display: none;
+}
+#Reg form fieldset {
+  border: 1px solid var(--midGrey-70);
+  padding: 15px;
+}
+#Reg form fieldset legend {
+  padding: 0 15px;
+  font-family: var(--serif);
+  font-size: var(--xlBody);
+}
+#Reg form fieldset .warning {
+  background: var(--accent-25) !important;
+  border: 1px solid var(--accent-75) !important;
+  padding: 10px 15px !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+  margin: 0 0 15px 0 !important;
+}
+#Reg form fieldset tbody {
+  display: grid;
+  grid-gap: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--xsBody);
+}
+#Reg form fieldset:nth-of-type(2) tr, #Reg form fieldset:nth-of-type(3) tr {
+  display: grid;
+  grid-template-columns: 250px 250px;
+  grid-gap: 15px;
+}
+#Reg form .desc {
+  padding: 30px 0;
+  font-family: var(--serif);
+  text-transform: capitalize;
+  font-size: var(--xlBody);
+}
+#Reg form input[type=submit] {
+  font-family: var(--serif);
+  text-transform: capitalize;
+  font-size: 24px;
+  padding: 20px;
+  letter-spacing: 0;
+}
+#Reg .maintitle {
+  border-top: 1px solid var(--midGrey-70);
+  border-bottom: 1px solid var(--midGrey-70);
+  padding: 50px;
+  text-transform: capitalize;
+  font-family: var(--serif);
+  font-size: 24px;
+  text-align: center;
+}
+#Reg .maintitle ~ .pformstrip {
+  padding: 30px 30px 0;
+}
+#Reg .maintitle ~ .tablepad {
+  padding: 30px;
+}
+#Reg .maintitle ~ .row2:not(:last-child) {
+  padding: 0 30px 30px;
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Reg .maintitle ~ .row2:last-child {
+  background: var(--black);
+  border-bottom: 1px solid var(--midGrey-70);
+}
+#Reg .maintitle ~ .row2:last-child input {
+  margin: 0;
+  padding: 30px;
+  font-family: var(--serif);
+  font-size: 24px;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  background: none;
+  border-radius: 0;
+  color: var(--white);
+  cursor: pointer;
+  width: 100%;
+}
+
+#redirect-screen {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  color: var(--white);
+  font-family: "Montserrat", sans-serif;
+}
+#redirect-screen .tablefill {
+  background: var(--black-50);
+  border: 1px solid var(--midGrey-70);
+  display: block;
+  padding: 30px;
+  font-size: var(--mBody);
+  line-height: 200%;
+}
+#redirect-screen .tablefill a {
+  color: var(--white);
+}
+#redirect-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--headerOverlay);
+  mix-blend-mode: var(--headerBlend);
+  opacity: var(--headerOpacity);
 }
 
 /*******************************
