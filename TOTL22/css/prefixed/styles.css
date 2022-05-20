@@ -3857,10 +3857,25 @@ body:not(.g-4) .post--controls-inner label {
   margin: 0;
 }
 
-#UserCP main > table,
-#UserCP main > table > tbody,
-#UserCP main > table > tbody > tr,
-#UserCP main > table > tbody > tr > td,
+#UserCP .header--info,
+#Msg .header--info,
+#store .header--info,
+#modcp .header--info {
+  display: none;
+}
+#UserCP .header--deco,
+#Msg .header--deco,
+#store .header--deco,
+#modcp .header--deco {
+  padding-bottom: 50px;
+}
+#UserCP main,
+#Msg main,
+#store main,
+#modcp main {
+  padding: 0;
+}
+#UserCP main > table, #UserCP main > table > tbody, #UserCP main > table > tbody > tr, #UserCP main > table > tbody > tr > td,
 #Msg main > table,
 #Msg main > table > tbody,
 #Msg main > table > tbody > tr,
@@ -3874,6 +3889,13 @@ body:not(.g-4) .post--controls-inner label {
 #modcp main > table > tbody > tr,
 #modcp main > table > tbody > tr > td {
   position: relative;
+}
+#UserCP main > table > tbody > tr,
+#Msg main > table > tbody > tr,
+#store main > table > tbody > tr,
+#modcp main > table > tbody > tr {
+  display: grid;
+  grid-template-rows: max-content 0 max-content;
 }
 #UserCP #ucpcontent table > tbody > tr:last-child > td.pformstrip,
 #UserCP #ucpcontent form > table > tbody > tr:last-child > td.pformstrip,
@@ -3916,8 +3938,7 @@ body:not(.g-4) .post--controls-inner label {
   width: 100%;
   cursor: pointer;
 }
-#UserCP #ucpcontent > table > tbody,
-#UserCP #ucpcontent > form > table > tbody,
+#UserCP #ucpcontent > table > tbody, #UserCP #ucpcontent > form > table > tbody,
 #Msg #ucpcontent > table > tbody,
 #Msg #ucpcontent > form > table > tbody,
 #store #ucpcontent > table > tbody,
@@ -3926,152 +3947,209 @@ body:not(.g-4) .post--controls-inner label {
 #modcp #ucpcontent > form > table > tbody {
   display: table;
 }
-#UserCP main > table > tbody > tr,
-#Msg main > table > tbody > tr,
-#store main > table > tbody > tr,
-#modcp main > table > tbody > tr {
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu,
+#store #ucpmenu .ucp--menu .ucp--main-menu,
+#store #ucpmenu .ucp--menu .ucp--sub-menu,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu {
+  background: var(--accent);
   display: grid;
-  grid-template-columns: 70px 0 auto;
+  grid-template-columns: 30px auto 30px;
+  padding: 10px;
 }
-@media only screen and (min-width: 768px) {
-  #UserCP main > table > tbody > tr,
-#Msg main > table > tbody > tr,
-#store main > table > tbody > tr,
-#modcp main > table > tbody > tr {
-    grid-template-columns: 200px 0 auto;
-  }
-}
-#UserCP main > table:first-child > tbody > tr > td:first-child,
-#UserCP #ucpmenu,
-#Msg main > table:first-child > tbody > tr > td:first-child,
-#Msg #ucpmenu,
-#store main > table:first-child > tbody > tr > td:first-child,
-#store #ucpmenu,
-#modcp main > table:first-child > tbody > tr > td:first-child,
-#modcp #ucpmenu {
-  border-right: 1px solid var(--midGrey-70);
-  padding: 20px;
-}
-#UserCP .ucp-menu-toggle,
-#Msg .ucp-menu-toggle,
-#store .ucp-menu-toggle,
-#modcp .ucp-menu-toggle {
-  background: var(--light);
-  color: var(--dark);
-  border: 0;
-  width: 100%;
-  height: 29px;
-  border-radius: 2px;
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu button,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu button,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu button,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu button,
+#store #ucpmenu .ucp--menu .ucp--main-menu button,
+#store #ucpmenu .ucp--menu .ucp--sub-menu button,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu button,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu button {
+  background: transparent;
+  border: none;
+  height: max-content;
   cursor: pointer;
-  position: sticky;
-  top: 70px;
 }
-#UserCP .ucp-menu-toggle.is-open + .ucp-menu,
-#Msg .ucp-menu-toggle.is-open + .ucp-menu,
-#store .ucp-menu-toggle.is-open + .ucp-menu,
-#modcp .ucp-menu-toggle.is-open + .ucp-menu {
-  left: 0;
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu button.go-left,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu button.go-left,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu button.go-left,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu button.go-left,
+#store #ucpmenu .ucp--menu .ucp--main-menu button.go-left,
+#store #ucpmenu .ucp--menu .ucp--sub-menu button.go-left,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu button.go-left,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu button.go-left {
+  padding: 10px 10px 10px 0;
+  border-right: 1px solid var(--accentColor);
 }
-@media only screen and (min-width: 768px) {
-  #UserCP .ucp-menu-toggle,
-#Msg .ucp-menu-toggle,
-#store .ucp-menu-toggle,
-#modcp .ucp-menu-toggle {
-    display: none;
-  }
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu button.go-right,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu button.go-right,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu button.go-right,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu button.go-right,
+#store #ucpmenu .ucp--menu .ucp--main-menu button.go-right,
+#store #ucpmenu .ucp--menu .ucp--sub-menu button.go-right,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu button.go-right,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu button.go-right {
+  padding: 10px 0 10px 10px;
+  border-left: 1px solid var(--accentColor);
 }
-#UserCP nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
-#UserCP nav.scrolled ~ main .ucp-menu,
-#Msg nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
-#Msg nav.scrolled ~ main .ucp-menu,
-#store nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
-#store nav.scrolled ~ main .ucp-menu,
-#modcp nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
-#modcp nav.scrolled ~ main .ucp-menu {
-  top: 50px !important;
-  max-height: calc(100vh - 50px) !important;
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu-links,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu-links,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu-links,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu-links,
+#store #ucpmenu .ucp--menu .ucp--main-menu-links,
+#store #ucpmenu .ucp--menu .ucp--sub-menu-links,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu-links,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu-links {
+  padding: 0 10px;
+  white-space: nowrap;
+  font-size: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
 }
-@media only screen and (min-width: 768px) {
-  #UserCP nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
-#UserCP nav.scrolled ~ main .ucp-menu,
-#Msg nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
-#Msg nav.scrolled ~ main .ucp-menu,
-#store nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
-#store nav.scrolled ~ main .ucp-menu,
-#modcp nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
-#modcp nav.scrolled ~ main .ucp-menu {
-    max-height: calc(100vh - 70px) !important;
-    padding: 15px 0 0;
-  }
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu-links button,
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu-links a,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu-links button,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu-links a,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu-links button,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu-links a,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu-links button,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu-links a,
+#store #ucpmenu .ucp--menu .ucp--main-menu-links button,
+#store #ucpmenu .ucp--menu .ucp--main-menu-links a,
+#store #ucpmenu .ucp--menu .ucp--sub-menu-links button,
+#store #ucpmenu .ucp--menu .ucp--sub-menu-links a,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu-links button,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu-links a,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu-links button,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu-links a {
+  display: inline-block;
+  background: var(--ltaccent);
+  border-radius: 4px;
+  padding: 10px;
+  font-size: var(--mBody);
+  text-transform: lowercase;
+  font-family: var(--headerFont);
+  margin: 0 10px 0 0;
+  color: var(--accentColor);
+}
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu-links button::after,
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu-links a::after,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu-links button::after,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu-links a::after,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu-links button::after,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu-links a::after,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu-links button::after,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu-links a::after,
+#store #ucpmenu .ucp--menu .ucp--main-menu-links button::after,
+#store #ucpmenu .ucp--menu .ucp--main-menu-links a::after,
+#store #ucpmenu .ucp--menu .ucp--sub-menu-links button::after,
+#store #ucpmenu .ucp--menu .ucp--sub-menu-links a::after,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu-links button::after,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu-links a::after,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu-links button::after,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu-links a::after {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 300;
+  bottom: -3px;
+  position: relative;
+  line-height: 100%;
+}
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu-links button:hover::after, #UserCP #ucpmenu .ucp--menu .ucp--main-menu-links button.active::after,
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu-links a:hover::after,
+#UserCP #ucpmenu .ucp--menu .ucp--main-menu-links a.active::after,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu-links button:hover::after,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu-links button.active::after,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu-links a:hover::after,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu-links a.active::after,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu-links button:hover::after,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu-links button.active::after,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu-links a:hover::after,
+#Msg #ucpmenu .ucp--menu .ucp--main-menu-links a.active::after,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu-links button:hover::after,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu-links button.active::after,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu-links a:hover::after,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu-links a.active::after,
+#store #ucpmenu .ucp--menu .ucp--main-menu-links button:hover::after,
+#store #ucpmenu .ucp--menu .ucp--main-menu-links button.active::after,
+#store #ucpmenu .ucp--menu .ucp--main-menu-links a:hover::after,
+#store #ucpmenu .ucp--menu .ucp--main-menu-links a.active::after,
+#store #ucpmenu .ucp--menu .ucp--sub-menu-links button:hover::after,
+#store #ucpmenu .ucp--menu .ucp--sub-menu-links button.active::after,
+#store #ucpmenu .ucp--menu .ucp--sub-menu-links a:hover::after,
+#store #ucpmenu .ucp--menu .ucp--sub-menu-links a.active::after,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu-links button:hover::after,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu-links button.active::after,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu-links a:hover::after,
+#modcp #ucpmenu .ucp--menu .ucp--main-menu-links a.active::after,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu-links button:hover::after,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu-links button.active::after,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu-links a:hover::after,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu-links a.active::after {
+  width: 20px;
+  margin-left: 10px;
+}
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu,
+#store #ucpmenu .ucp--menu .ucp--sub-menu,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu {
+  display: none;
+  background: var(--ltaccent);
+}
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu-links button,
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu-links a,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu-links button,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu-links a,
+#store #ucpmenu .ucp--menu .ucp--sub-menu-links button,
+#store #ucpmenu .ucp--menu .ucp--sub-menu-links a,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu-links button,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu-links a {
+  background: var(--accent);
+}
+#UserCP #ucpmenu .ucp--menu .ucp--sub-menu.active,
+#Msg #ucpmenu .ucp--menu .ucp--sub-menu.active,
+#store #ucpmenu .ucp--menu .ucp--sub-menu.active,
+#modcp #ucpmenu .ucp--menu .ucp--sub-menu.active {
+  display: grid;
 }
 #UserCP main > table:first-child > tbody > tr > td:first-child,
-#UserCP .ucp-menu,
 #Msg main > table:first-child > tbody > tr > td:first-child,
-#Msg .ucp-menu,
 #store main > table:first-child > tbody > tr > td:first-child,
-#store .ucp-menu,
-#modcp main > table:first-child > tbody > tr > td:first-child,
-#modcp .ucp-menu {
+#modcp main > table:first-child > tbody > tr > td:first-child {
+  position: sticky;
+  top: 100px;
+  left: auto;
+  width: auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  position: fixed;
-  top: 80px;
-  max-height: calc(100vh - 80px);
-  width: 200px;
-  left: -200px;
-  padding: 20px;
-  background: var(--black);
-  transition-duration: 0.75s;
   z-index: 3;
 }
-#UserCP main > table:first-child > tbody > tr > td:first-child .ucp-menu-toggle,
-#UserCP .ucp-menu .ucp-menu-toggle,
-#Msg main > table:first-child > tbody > tr > td:first-child .ucp-menu-toggle,
-#Msg .ucp-menu .ucp-menu-toggle,
-#store main > table:first-child > tbody > tr > td:first-child .ucp-menu-toggle,
-#store .ucp-menu .ucp-menu-toggle,
-#modcp main > table:first-child > tbody > tr > td:first-child .ucp-menu-toggle,
-#modcp .ucp-menu .ucp-menu-toggle {
-  width: 29px;
-  flex: 0 0 29px;
-  background: var(--accent);
-  color: var(--white);
-  margin: 0 0 0 auto;
-  position: relative;
-  top: auto;
-}
 #UserCP main > table:first-child > tbody > tr > td:first-child b,
-#UserCP .ucp-menu b,
 #Msg main > table:first-child > tbody > tr > td:first-child b,
-#Msg .ucp-menu b,
 #store main > table:first-child > tbody > tr > td:first-child b,
-#store .ucp-menu b,
-#modcp main > table:first-child > tbody > tr > td:first-child b,
-#modcp .ucp-menu b {
+#modcp main > table:first-child > tbody > tr > td:first-child b {
   font-family: var(--serif);
   font-size: var(--lBody);
   margin-top: 20px;
   color: var(--white);
 }
 #UserCP main > table:first-child > tbody > tr > td:first-child b:first-of-type,
-#UserCP .ucp-menu b:first-of-type,
 #Msg main > table:first-child > tbody > tr > td:first-child b:first-of-type,
-#Msg .ucp-menu b:first-of-type,
 #store main > table:first-child > tbody > tr > td:first-child b:first-of-type,
-#store .ucp-menu b:first-of-type,
-#modcp main > table:first-child > tbody > tr > td:first-child b:first-of-type,
-#modcp .ucp-menu b:first-of-type {
+#modcp main > table:first-child > tbody > tr > td:first-child b:first-of-type {
   margin-top: 0;
 }
 #UserCP main > table:first-child > tbody > tr > td:first-child a,
-#UserCP .ucp-menu a,
 #Msg main > table:first-child > tbody > tr > td:first-child a,
-#Msg .ucp-menu a,
 #store main > table:first-child > tbody > tr > td:first-child a,
-#store .ucp-menu a,
-#modcp main > table:first-child > tbody > tr > td:first-child a,
-#modcp .ucp-menu a {
+#modcp main > table:first-child > tbody > tr > td:first-child a {
   background: var(--accent);
   color: var(--white);
   padding: 10px 20px;
@@ -4082,55 +4160,11 @@ body:not(.g-4) .post--controls-inner label {
   text-align: center;
 }
 #UserCP main > table:first-child > tbody > tr > td:first-child a:hover,
-#UserCP .ucp-menu a:hover,
 #Msg main > table:first-child > tbody > tr > td:first-child a:hover,
-#Msg .ucp-menu a:hover,
 #store main > table:first-child > tbody > tr > td:first-child a:hover,
-#store .ucp-menu a:hover,
-#modcp main > table:first-child > tbody > tr > td:first-child a:hover,
-#modcp .ucp-menu a:hover {
+#modcp main > table:first-child > tbody > tr > td:first-child a:hover {
   background: var(--accent);
   color: var(--white);
-}
-@media only screen and (min-width: 768px) {
-  #UserCP main > table:first-child > tbody > tr > td:first-child,
-#UserCP .ucp-menu,
-#Msg main > table:first-child > tbody > tr > td:first-child,
-#Msg .ucp-menu,
-#store main > table:first-child > tbody > tr > td:first-child,
-#store .ucp-menu,
-#modcp main > table:first-child > tbody > tr > td:first-child,
-#modcp .ucp-menu {
-    position: sticky;
-    top: 100px;
-    left: auto;
-    width: auto;
-    padding: 0;
-    background: none;
-    height: max-content;
-    max-height: calc(100vh - 120px) !important;
-  }
-  #UserCP main > table:first-child > tbody > tr > td:first-child b,
-#UserCP .ucp-menu b,
-#Msg main > table:first-child > tbody > tr > td:first-child b,
-#Msg .ucp-menu b,
-#store main > table:first-child > tbody > tr > td:first-child b,
-#store .ucp-menu b,
-#modcp main > table:first-child > tbody > tr > td:first-child b,
-#modcp .ucp-menu b {
-    text-align: center;
-  }
-  #UserCP main > table:first-child > tbody > tr > td:first-child a,
-#UserCP .ucp-menu a,
-#Msg main > table:first-child > tbody > tr > td:first-child a,
-#Msg .ucp-menu a,
-#store main > table:first-child > tbody > tr > td:first-child a,
-#store .ucp-menu a,
-#modcp main > table:first-child > tbody > tr > td:first-child a,
-#modcp .ucp-menu a {
-    background: var(--light);
-    color: var(--dark);
-  }
 }
 #UserCP main > table:first-child > tbody > tr > td:first-child,
 #Msg main > table:first-child > tbody > tr > td:first-child,
@@ -4502,8 +4536,6 @@ body:not(.g-4) .post--controls-inner label {
 }
 #UserCP.code-52 #ucpcontent form .row2 + table tr:last-child {
   display: block;
-  border-top: 1px solid var(--midGrey-70);
-  border-bottom: 1px solid var(--midGrey-70);
 }
 #UserCP.code-28 form > p, #UserCP.code-08 form > p {
   padding: 30px;

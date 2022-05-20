@@ -19,7 +19,11 @@
 #sort .form-buttons button::after,
 .post--header-links a::after,
 .postlinksbar strong a::after,
-.mem--overview .scroll a:last-child::after {
+.mem--overview .scroll a:last-child::after,
+.ucp--main-menu-links a::after,
+.ucp--main-menu-links button::after,
+.ucp--sub-menu-links a::after,
+.ucp--sub-menu-links button::after {
   content: "\f178";
 }
 .webpage--sub-menu-links button::after {

@@ -1449,3 +1449,89 @@ function memberTabs() {
         });
     });
 }
+
+function cpShift() {
+	let appType = document.querySelector('#field_75_input').value,
+	    account = document.querySelector('#field_74_input').value,
+	    showFields = [],
+	    hideFields = [],
+	    showHeaders = allHeaders;
+
+	if(account == 'char') {
+
+		if(appType == 'trad') {
+			showFields = charAll.concat(charTrad).concat(hasFreeform);
+			hideFields = charBasic;
+			showHeaders = showHeaders.concat(tradHeaders);
+		}
+		else if(appType == 'sim') {
+			showFields = charAll.concat(charBasic).concat(hasFreeform);
+			hideFields = charTrad;
+			showHeaders = showHeaders.concat(simHeaders);
+			$('#field_50').addClass('removeBottomBorder');
+			$('#field_16').addClass('removeBottomBorder');
+		}
+		else if(appType == 'bas') {
+			showFields = charAll.concat(charBasic);
+			hideFields = charTrad.concat(hasFreeform);
+			showHeaders = showHeaders.concat(basicHeaders);
+			$('#field_50').addClass('removeBottomBorder');
+			$('#field_16').addClass('removeBottomBorder');
+		}
+		else {
+			showFields = [];
+			hideFields = charAll.concat(charTrad).concat(charBasic).concat(hasFreeform);
+		}
+
+		showHeaders = showHeaders.concat(charHeaders);
+		adjustCP(showFields, hideFields, showHeaders);
+
+	} else {
+		showFields = [];
+		hideFields = charAll.concat(charTrad).concat(charBasic).concat(hasFreeform);
+		adjustCP(showFields, hideFields, showHeaders);
+	}
+}
+
+function adjustCP(show, hide, headers) {
+	show.forEach(field => {
+		showAccField(field);
+	});
+	hide.forEach(field => {
+		hideAccField(field);
+	});
+	document.querySelectorAll('.cp-header').forEach(header => {
+		header.remove();
+	});
+	headers.forEach(header => {
+		insertCPHeader(header['title'], header['insertBefore']);
+	});
+}
+
+function hideAccField(field) {
+	document.querySelector(field).classList.add('hide');
+}
+
+function showAccField(field) {
+	document.querySelector(field).classList.remove('hide');
+}
+
+function insertCPHeader (title, field, identifier) {
+	$(field).before(`<tr class="pformstrip cp-header"><td>${title}</td></tr>`);
+}
+
+function splitProfile() {
+	if($('.cp-sect').length > 0) {
+		  if ( $('form > table tr').parent().is( "div" ) ) {
+		  	$('form > table tr').unwrap();
+		  }
+	}
+	let headers = $('.cp-header');
+	headers.each(function (index, el) {
+		if(index == headers.length - 1) {
+			$(this).nextUntil('tr:last-child').wrapAll('<div class="cp-sect"></div>');
+		} else {
+			$(this).nextUntil('.cp-header').wrapAll('<div class="cp-sect"></div>');
+		}
+	});
+}

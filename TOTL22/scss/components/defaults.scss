@@ -84,109 +84,140 @@
 #Msg,
 #store,
 #modcp {
-    main > table,
-    main > table > tbody,
-    main > table > tbody > tr,
-    main > table > tbody > tr > td {
-        position: relative;
+    .header--info {
+        display: none;
     }
-
-    main > table  ~ div[align="right"] {
+    .header--deco {
+        padding-bottom: 50px;
     }
-
-    #ucpcontent table > tbody > tr:last-child > td.pformstrip,
-    #ucpcontent form > table > tbody > tr:last-child > td.pformstrip,
-    #ucpcontent table + div.pformstrip:last-child,
-    #ucpcontent form > table + div.pformstrip:last-child {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0;
+    main {
         padding: 0;
+        
+        & > table,
+        & > table > tbody,
+        & > table > tbody > tr,
+        & > table > tbody > tr > td {
+            position: relative;
+        }
+        &> table > tbody > tr {
+            display: grid;
+            grid-template-rows: max-content 0 max-content;
+        }
+    }
 
-        & > input {
+    #ucpcontent {
+        table > tbody > tr:last-child > td.pformstrip,
+        form > table > tbody > tr:last-child > td.pformstrip,
+        table + div.pformstrip:last-child,
+        form > table + div.pformstrip:last-child {
+            display: flex;
+            flex-wrap: wrap;
             margin: 0;
-            width: 100%;
-            cursor: pointer;
-        }
-    }
-
-    #ucpcontent > table > tbody,
-    #ucpcontent > form > table > tbody {
-        display: table;
-    }
-
-    main > table > tbody > tr {
-        display: grid;
-        grid-template-columns: 70px 0 auto;
-
-        @media only screen and (min-width: $md) {
-            grid-template-columns: 200px 0 auto;
-        }
-    }
-
-    main > table:first-child > tbody > tr > td:first-child,
-    #ucpmenu {
-        border-right: 1px solid var(--midGrey-70);
-        padding: 20px;
-    }
-
-    .ucp-menu-toggle {
-        background: var(--light);
-        color: var(--dark);
-        border: 0;
-        width: 100%;
-        height: 29px;
-        border-radius: 2px;
-        cursor: pointer;
-        position: sticky;
-        top: 70px;
-
-        &.is-open {
-            & + .ucp-menu {
-                left: 0;
+            padding: 0;
+    
+            & > input {
+                margin: 0;
+                width: 100%;
+                cursor: pointer;
             }
         }
-
-        @media only screen and (min-width: $md) {
-            display: none;
+        & > table > tbody,
+        & > form > table > tbody {
+            display: table;
         }
     }
 
-    nav.scrolled ~ main > table:first-child > tbody > tr > td:first-child,
-    nav.scrolled ~ main .ucp-menu {
-        top: 50px !important;
-        max-height: calc(100vh - 50px) !important;
+    #ucpmenu {
+        .ucp--menu {
+            .ucp--main-menu,
+            .ucp--sub-menu {
+                background: var(--accent);
+                display: grid;
+                grid-template-columns: 30px auto 30px;
+                padding: 10px;
 
-        @media only screen and (min-width: $md) {
-            max-height: calc(100vh - 70px) !important;
-            padding: 15px 0 0;
+                button {
+                    background: transparent;
+                    border: none;
+                    height: max-content;
+                    cursor: pointer;
+
+                    &.go-left {
+                        padding: 10px 10px 10px 0;
+                        border-right: 1px solid var(--accentColor);
+                    }
+
+                    &.go-right {
+                        padding: 10px 0 10px 10px;
+                        border-left: 1px solid var(--accentColor);
+                    }
+                }
+
+                &-links {
+                    padding: 0 10px;
+                    white-space: nowrap;
+                    font-size: 0;
+                    overflow-x: auto;
+                    scrollbar-width: none;
+                    scroll-behavior: smooth;
+
+                    button,
+                    a {
+                        display: inline-block;
+                        background: var(--ltaccent);
+                        border-radius: 4px;
+                        padding: 10px;
+                        font-size: var(--mBody);
+                        text-transform: lowercase;
+                        font-family: var(--headerFont);
+                        margin: 0 10px 0 0;
+                        color: var(--accentColor);
+
+                        &::after {
+                            display: inline-block;
+                            width: 0;
+                            overflow: hidden;
+                            font-family: "Font Awesome 6 Pro";
+                            font-weight: 300;
+                            bottom: -3px;
+                            position: relative;
+                            line-height: 100%;
+                        }
+                        &:hover::after,
+                        &.active::after {
+                            width: 20px;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+            .ucp--sub-menu {
+                display: none;
+                background: var(--ltaccent);
+
+                &-links {
+                    button,
+                    a {
+                        background: var(--accent);
+                    }
+                }
+
+                &.active {
+                    display: grid;
+                }
+            }
         }
     }
 
-    main > table:first-child > tbody > tr > td:first-child,
-    .ucp-menu {
+    main > table:first-child > tbody > tr > td:first-child {
+        position: sticky;
+        top: 100px;
+        left: auto;
+        width: auto;
         display: flex;
         flex-direction: column;
         gap: 5px;
-        position: fixed;
-        top: 80px;
-        max-height: calc(100vh - 80px);
-        width: 200px;
-        left: -200px;
-        padding: 20px;
-        background: var(--black);
-        transition-duration: 0.75s;
         z-index: 3;
-
-        .ucp-menu-toggle {
-            width: 29px;
-            flex: 0 0 29px;
-            background: var(--accent);
-            color: var(--white);
-            margin: 0 0 0 auto;
-            position: relative;
-            top: auto;
-        }
 
         b {
             font-family: var(--serif);
@@ -212,26 +243,6 @@
             &:hover {
                 background: var(--accent);
                 color: var(--white);
-            }
-        }
-
-        @media only screen and (min-width: $md) {
-            position: sticky;
-            top: 100px;
-            left: auto;
-            width: auto;
-            padding: 0;
-            background: none;
-            height: max-content;
-            max-height: calc(100vh - 120px) !important;
-
-            b {
-                text-align: center;
-            }
-
-            a {
-                background: var(--light);
-                color: var(--dark);
             }
         }
     }
@@ -656,8 +667,6 @@
                     }
                     tr:last-child {
                         display: block;
-                        border-top: 1px solid var(--midGrey-70);
-                        border-bottom: 1px solid var(--midGrey-70);
                     }
                 }
             }

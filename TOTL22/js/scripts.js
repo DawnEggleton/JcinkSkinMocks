@@ -507,76 +507,205 @@ if($('body#ST').length > 0) {
 
 
 //UCP Only
-if($('body#UserCP').length > 0) {
+
+if($('body#UserCP').length > 0 || $('body#Msg').length > 0) {
+    setTimeout(() => {
+        breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight;
+        if(document.querySelector('#UserCP')) {
+            document.querySelector('#UserCP main > table:first-child > tbody > tr > td').style.top = `${breadcrumbHeight}px`;
+        } else {
+            document.querySelector('#Msg main > table:first-child > tbody > tr > td').style.top = `${breadcrumbHeight}px`;
+        }
+    }, 400);
     document.querySelector('#ucpmenu').innerHTML = `
-    <button class="ucp-menu-toggle" onClick="openUserMenu(this)">
-        <i class="fa-solid fa-ellipsis-vertical"></i>
-    </button>
-    <div class="ucp-menu scroll">
-        <button class="ucp-menu-toggle" onClick="closeUserMenu(this)">
-            <i class="fa-solid fa-times"></i>
-        </button>
-        <b>Account</b>
-        <a href="?act=UserCP&CODE=01">Edit Profile</a>
-        <a href="?act=UserCP&CODE=22">Update Avatar</a>
-        <a href="?act=UserCP&CODE=54">Sub-accounts</a>
-        <a href="?act=UserCP&CODE=52">Edit Username</a>
-        <a href="?act=UserCP&CODE=28">Change Password</a>
-        <a href="?act=UserCP&CODE=08">Update Email</a>
-        <b>Messages</b>
-        <a href="?act=Msg&CODE=01">Inbox</a>
-        <a href="?act=Msg&CODE=04">Send Message</a>
-        <b>Tracking</b>
-        <a href="?act=UserCP&CODE=alerts">Alerts</a>
-        <a href="?act=UserCP&CODE=50">Forums</a>
-        <a href="?act=UserCP&CODE=26">Topics</a>
-        <b>Settings</b>
-        <a href="?act=UserCP&CODE=04">Board</a>
-        <a href="?act=UserCP&CODE=alerts_settings">Alerts</a>
-        <a href="?act=UserCP&CODE=02">Emails</a>
+    <div class="ucp--menu">
+        <div class="ucp--main-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--main-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--main-menu-links">
+                <button data-subcategory="account" class="active">Account</button>
+                <button data-subcategory="messages">Messages</button>
+                <button data-subcategory="tracking">Tracking</button>
+                <button data-subcategory="settings">Settings</button>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--main-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu active">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="account">
+                <a href="user-edit.html">Edit Profile</a>
+                <a href="user-avatar.html">Update Avatar</a>
+                <a href="user-accounts.html">Sub-accounts</a>
+                <a href="user-name.html">Edit Username</a>
+                <a href="user-pass.html">Change Password</a>
+                <a href="user-email.html">Update Email</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="messages">
+                <a href="user-inbox.html">Inbox</a>
+                <a href="user-message.html">Send Message</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="tracking">
+                <a href="user-alerts.html">Alerts</a>
+                <a href="user-forums.html">Forums</a>
+                <a href="user-topics.html">Topics</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="settings">
+                <a href="user-boardset.html">Board</a>
+                <a href="user-alertset.html">Alerts</a>
+                <a href="user-emailset.html">Emails</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
     </div>`;
+
+    /*
+    document.querySelector('#ucpmenu').innerHTML = `
+    <div class="ucp--menu">
+        <div class="ucp--main-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--main-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--main-menu-links">
+                <button data-subcategory="account" class="active">Account</button>
+                <button data-subcategory="messages">Messages</button>
+                <button data-subcategory="tracking">Tracking</button>
+                <button data-subcategory="settings">Settings</button>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--main-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu active">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="account">
+                <a href="?act=UserCP&CODE=01">Edit Profile</a>
+                <a href="?act=UserCP&CODE=22">Update Avatar</a>
+                <a href="?act=UserCP&CODE=54">Sub-accounts</a>
+                <a href="?act=UserCP&CODE=52">Edit Username</a>
+                <a href="?act=UserCP&CODE=28">Change Password</a>
+                <a href="?act=UserCP&CODE=08">Update Email</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="messages">
+                <a href="?act=Msg&CODE=01">Inbox</a>
+                <a href="?act=Msg&CODE=04">Send Message</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="tracking">
+                <a href="?act=UserCP&CODE=alerts">Alerts</a>
+                <a href="?act=UserCP&CODE=50">Forums</a>
+                <a href="?act=UserCP&CODE=26">Topics</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="settings">
+                <a href="?act=UserCP&CODE=04">Board</a>
+                <a href="?act=UserCP&CODE=alerts_settings">Alerts</a>
+                <a href="?act=UserCP&CODE=02">Emails</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+    </div>`;
+    */
+
+    let menuTriggers = document.querySelectorAll('.ucp--main-menu-links > button');
+
+    let menuSections = document.querySelectorAll('.ucp--sub-menu');
+
+    //sub menu - on button click, open inner menu
+    menuTriggers.forEach((trigger, index) => {
+        trigger.addEventListener('click', e => {
+            console.log(trigger);
+            menuTriggers.forEach(trigger => trigger.classList.remove('active'));
+            menuSections.forEach(menu => menu.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            menuSections[index].classList.add('active');
+        });
+    });
 
 
 	//Edit Profile Edits
 	if($('body.code-01').length > 0) {
-	
-		cpShift();
-		splitProfile();
-	
-		toggleFields.forEach(toggle => {
-			toggle.addEventListener('change', () => {
-				cpShift();
-				splitProfile();
-			});
-		});
-		
-		for (var i = 0; i < sliders.length; i++) {
-			sliders[i].prop('type','range').attr({min:0,max:100,step:1}).after('<span class="fieldVal">unset</span>');
-			sliders[i].next().attr('id',sliders[i].attr('id')).text(`${vals[i]}%`);
-			if(vals[i] == '') {
-				sliders[i].next().text('n/a');
-			}
-			
-			$(sliders[i]).on('change', function(){
-				this.setAttribute('value',this.value);
-				vals[i] = this.value;
-				this.nextSibling.innerHTML = `${vals[i]}%`;
-			});
-				
-		}
+        $('#UserCP.code-01 form > table > tbody > tr:first-child').attr('id', 'field_dob');
+        $('#field_36').before($('#field_dob'));
 
-        document.querySelectorAll('#ucpcontent .cp-sect input[type="text"]').forEach(input => {
-            let label = input.getAttribute('id');
-            if(document.querySelector('label[for="' + label + '"]')) {
-                input.setAttribute('placeholder', document.querySelector('label[for="' + label + '"]').innerText);
-            }
+        const toggleFields = [document.querySelector('#field_74_input'), document.querySelector('#field_75_input')];
+      
+        cpShift();
+        
+        toggleFields.forEach(toggle => {
+            toggle.addEventListener('change', () => {
+                cpShift();
+            });
         });
 
-        document.querySelectorAll('#ucpcontent .cp-sect textarea').forEach(input => {
+        document.querySelectorAll('#ucpcontent form[name="theForm"] input[type="text"]').forEach(input => {
             let label = input.getAttribute('id');
-            if(document.querySelector('label[for="' + label + '"]')) {
-                input.setAttribute('placeholder', document.querySelector('label[for="' + label + '"]').innerText);
-            }
+        if(document.querySelector('label[for="' + label + '"]')) {
+                input.setAttribute('placeholder', document.querySelector('label[for="' + label + '"]').innerText.toLowerCase());
+        }
+        });
+
+        document.querySelectorAll('#ucpcontent form[name="theForm"] textarea').forEach(input => {
+            let label = input.getAttribute('id');
+        if(document.querySelector('label[for="' + label + '"]')) {
+                input.setAttribute('placeholder', document.querySelector('label[for="' + label + '"]').innerText.toLowerCase());
+        }
         });
 	}
 }
