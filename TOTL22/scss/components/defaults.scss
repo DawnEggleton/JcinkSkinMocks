@@ -128,6 +128,14 @@
     }
 
     #ucpmenu {
+        position: sticky;
+        left: auto;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        z-index: 3;
+        
         .ucp--menu {
             .ucp--main-menu,
             .ucp--sub-menu {
@@ -205,44 +213,6 @@
                 &.active {
                     display: grid;
                 }
-            }
-        }
-    }
-
-    main > table:first-child > tbody > tr > td:first-child {
-        position: sticky;
-        top: 100px;
-        left: auto;
-        width: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        z-index: 3;
-
-        b {
-            font-family: var(--serif);
-            font-size: var(--lBody);
-            margin-top: 20px;
-            color: var(--white);
-
-            &:first-of-type {
-                margin-top: 0;
-            }
-        }
-
-        a {
-            background: var(--accent);
-            color: var(--white);
-            padding: 10px 20px;
-            font-size: var(--mBody);
-            font-family: var(--serif);
-            text-transform: capitalize;
-            border-radius: 2px;
-            text-align: center;
-
-            &:hover {
-                background: var(--accent);
-                color: var(--white);
             }
         }
     }

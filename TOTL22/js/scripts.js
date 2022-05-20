@@ -511,11 +511,7 @@ if($('body#ST').length > 0) {
 if($('body#UserCP').length > 0 || $('body#Msg').length > 0) {
     setTimeout(() => {
         breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight;
-        if(document.querySelector('#UserCP')) {
-            document.querySelector('#UserCP main > table:first-child > tbody > tr > td').style.top = `${breadcrumbHeight}px`;
-        } else {
-            document.querySelector('#Msg main > table:first-child > tbody > tr > td').style.top = `${breadcrumbHeight}px`;
-        }
+        document.querySelector('#ucpmenu').style.top = `${breadcrumbHeight}px`;
     }, 400);
     document.querySelector('#ucpmenu').innerHTML = `
     <div class="ucp--menu">
