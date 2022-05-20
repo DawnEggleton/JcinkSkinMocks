@@ -3857,6 +3857,12 @@ body:not(.g-4) .post--controls-inner label {
   margin: 0;
 }
 
+#UserCP header .header,
+#Msg header .header,
+#store header .header,
+#modcp header .header {
+  margin-bottom: 0;
+}
 #UserCP .header--info,
 #Msg .header--info,
 #store .header--info,
@@ -3890,12 +3896,22 @@ body:not(.g-4) .post--controls-inner label {
 #modcp main > table > tbody > tr > td {
   position: relative;
 }
+#UserCP main > table, #UserCP main > table > tbody,
+#Msg main > table,
+#Msg main > table > tbody,
+#store main > table,
+#store main > table > tbody,
+#modcp main > table,
+#modcp main > table > tbody {
+  display: block;
+}
 #UserCP main > table > tbody > tr,
 #Msg main > table > tbody > tr,
 #store main > table > tbody > tr,
 #modcp main > table > tbody > tr {
   display: grid;
   grid-template-rows: max-content 0 max-content;
+  grid-template-columns: 100%;
 }
 #UserCP #ucpcontent table > tbody > tr:last-child > td.pformstrip,
 #UserCP #ucpcontent form > table > tbody > tr:last-child > td.pformstrip,
