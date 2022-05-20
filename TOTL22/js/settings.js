@@ -8,6 +8,7 @@ const charBasic = ['#field_76', '#field_77'];
 
 
 const allHeaders = [
+    {'title': 'Edit Profile', 'insertBefore': '#field_32'},
     {'title': 'Images (Required)', 'insertBefore': '#field_5'},
     {'title': 'Links (Directory Required)', 'insertBefore': '#field_18'},
     {'title': 'Player (Required)', 'insertBefore': '#field_8'},

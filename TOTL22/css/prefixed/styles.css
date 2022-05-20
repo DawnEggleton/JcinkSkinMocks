@@ -3865,37 +3865,6 @@ body:not(.g-4) .post--controls-inner label {
   margin: 0;
 }
 
-#UserCP input,
-#UserCP select,
-#UserCP textarea,
-#Msg input,
-#Msg select,
-#Msg textarea,
-#store input,
-#store select,
-#store textarea,
-#modcp input,
-#modcp select,
-#modcp textarea {
-  background: var(--background);
-  width: 100%;
-}
-@media only screen and (min-width: 1024px) {
-  #UserCP input,
-#UserCP select,
-#UserCP textarea,
-#Msg input,
-#Msg select,
-#Msg textarea,
-#store input,
-#store select,
-#store textarea,
-#modcp input,
-#modcp select,
-#modcp textarea {
-    max-width: 600px;
-  }
-}
 #UserCP header .header,
 #Msg header .header,
 #store header .header,
@@ -3952,6 +3921,56 @@ body:not(.g-4) .post--controls-inner label {
   grid-template-rows: max-content 0 max-content;
   grid-template-columns: 100%;
 }
+#UserCP #ucpcontent > *,
+#Msg #ucpcontent > *,
+#store #ucpcontent > *,
+#modcp #ucpcontent > * {
+  z-index: 2;
+}
+#UserCP #ucpcontent .maintitle,
+#Msg #ucpcontent .maintitle,
+#store #ucpcontent .maintitle,
+#modcp #ucpcontent .maintitle {
+  display: none;
+}
+#UserCP #ucpcontent .maintitle + .pformstrip,
+#Msg #ucpcontent .maintitle + .pformstrip,
+#store #ucpcontent .maintitle + .pformstrip,
+#modcp #ucpcontent .maintitle + .pformstrip {
+  margin-top: 0;
+  border-top: 0;
+}
+#UserCP #ucpcontent input,
+#UserCP #ucpcontent select,
+#UserCP #ucpcontent textarea,
+#Msg #ucpcontent input,
+#Msg #ucpcontent select,
+#Msg #ucpcontent textarea,
+#store #ucpcontent input,
+#store #ucpcontent select,
+#store #ucpcontent textarea,
+#modcp #ucpcontent input,
+#modcp #ucpcontent select,
+#modcp #ucpcontent textarea {
+  background: var(--background);
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  #UserCP #ucpcontent input,
+#UserCP #ucpcontent select,
+#UserCP #ucpcontent textarea,
+#Msg #ucpcontent input,
+#Msg #ucpcontent select,
+#Msg #ucpcontent textarea,
+#store #ucpcontent input,
+#store #ucpcontent select,
+#store #ucpcontent textarea,
+#modcp #ucpcontent input,
+#modcp #ucpcontent select,
+#modcp #ucpcontent textarea {
+    max-width: 600px;
+  }
+}
 #UserCP #ucpcontent table > tbody > tr:last-child > td.pformstrip,
 #UserCP #ucpcontent form > table > tbody > tr:last-child > td.pformstrip,
 #UserCP #ucpcontent table + div.pformstrip:last-child,
@@ -4001,6 +4020,55 @@ body:not(.g-4) .post--controls-inner label {
 #modcp #ucpcontent > table > tbody,
 #modcp #ucpcontent > form > table > tbody {
   display: table;
+}
+#UserCP #ucpcontent .pformstrip,
+#Msg #ucpcontent .pformstrip,
+#store #ucpcontent .pformstrip,
+#modcp #ucpcontent .pformstrip {
+  background: none;
+  letter-spacing: 10px;
+  font-size: 20px !important;
+  font-weight: 100;
+  margin: 45px auto !important;
+  text-transform: uppercase;
+  color: var(--text);
+  text-align: center;
+}
+@media only screen and (min-width: 480px) {
+  #UserCP #ucpcontent .pformstrip,
+#Msg #ucpcontent .pformstrip,
+#store #ucpcontent .pformstrip,
+#modcp #ucpcontent .pformstrip {
+    letter-spacing: 20px;
+    font-size: 28px !important;
+  }
+}
+#UserCP #ucpcontent .pformstrip a,
+#Msg #ucpcontent .pformstrip a,
+#store #ucpcontent .pformstrip a,
+#modcp #ucpcontent .pformstrip a {
+  color: var(--white);
+}
+#UserCP #ucpcontent .pformstrip:first-child,
+#Msg #ucpcontent .pformstrip:first-child,
+#store #ucpcontent .pformstrip:first-child,
+#modcp #ucpcontent .pformstrip:first-child {
+  margin-top: 0;
+  border-top: 0;
+}
+#UserCP #ucpcontent .pformstrip:last-child input[type=submit],
+#Msg #ucpcontent .pformstrip:last-child input[type=submit],
+#store #ucpcontent .pformstrip:last-child input[type=submit],
+#modcp #ucpcontent .pformstrip:last-child input[type=submit] {
+  width: max-content !important;
+  border-radius: 3px;
+  background: var(--ltaccent) !important;
+  color: var(--accentColor);
+  text-transform: lowercase;
+  font-weight: 600;
+  font-family: var(--headerFont);
+  font-size: var(--lBody);
+  line-height: var(--xlBody);
 }
 #UserCP #ucpmenu,
 #Msg #ucpmenu,
@@ -4191,65 +4259,6 @@ body:not(.g-4) .post--controls-inner label {
 #modcp main > table:first-child > tbody > tr > td:first-child {
   width: auto !important;
 }
-#UserCP #ucpcontent::before,
-#Msg #ucpcontent::before,
-#store #ucpcontent::before,
-#modcp #ucpcontent::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--headerOverlay);
-  mix-blend-mode: var(--headerBlend);
-  z-index: 1;
-  opacity: 0.5;
-}
-#UserCP #ucpcontent > *,
-#Msg #ucpcontent > *,
-#store #ucpcontent > *,
-#modcp #ucpcontent > * {
-  z-index: 2;
-}
-#UserCP #ucpcontent .maintitle,
-#Msg #ucpcontent .maintitle,
-#store #ucpcontent .maintitle,
-#modcp #ucpcontent .maintitle {
-  display: none;
-}
-#UserCP #ucpcontent .maintitle + .pformstrip,
-#Msg #ucpcontent .maintitle + .pformstrip,
-#store #ucpcontent .maintitle + .pformstrip,
-#modcp #ucpcontent .maintitle + .pformstrip {
-  margin-top: 0;
-  border-top: 0;
-}
-#UserCP #ucpcontent .pformstrip,
-#Msg #ucpcontent .pformstrip,
-#store #ucpcontent .pformstrip,
-#modcp #ucpcontent .pformstrip {
-  font-family: var(--serif);
-  font-size: var(--xlBody);
-  background: var(--black);
-  padding: 30px;
-  color: var(--white);
-  border-top: 1px solid var(--midGrey-70);
-  border-bottom: 1px solid var(--midGrey-70);
-}
-#UserCP #ucpcontent .pformstrip a,
-#Msg #ucpcontent .pformstrip a,
-#store #ucpcontent .pformstrip a,
-#modcp #ucpcontent .pformstrip a {
-  color: var(--white);
-}
-#UserCP #ucpcontent .pformstrip:first-child,
-#Msg #ucpcontent .pformstrip:first-child,
-#store #ucpcontent .pformstrip:first-child,
-#modcp #ucpcontent .pformstrip:first-child {
-  margin-top: 0;
-  border-top: 0;
-}
 #UserCP:not(.code-01) #ucpcontent table,
 #Msg:not(.code-01) #ucpcontent table,
 #store:not(.code-01) #ucpcontent table,
@@ -4368,7 +4377,6 @@ body:not(.g-4) .post--controls-inner label {
   #UserCP.code-01 #ucpcontent form > table > tbody > tr.cp-header {
     letter-spacing: 20px;
     font-size: 28px !important;
-    margin: 85px auto !important;
   }
 }
 #UserCP.code-01 form[name=theForm] .pformstrip:not(td):not(.cp-header), #UserCP.code-01 form[name=theForm] > table > tbody > tr:first-child,
@@ -4424,60 +4432,44 @@ body:not(.g-4) .post--controls-inner label {
   text-transform: capitalize;
   letter-spacing: 0;
 }
-#UserCP.code-22 #gallery_form {
+#UserCP.code-24 #ucpcontent {
+  display: grid;
+  grid-template-columns: 450px auto;
+  grid-template-rows: max-content 1fr;
+  background: var(--content);
+  margin: 20px;
+  padding: 20px;
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-24 #ucpcontent {
+    margin: 50px;
+  }
+}
+#UserCP.code-24 #ucpcontent .maintitle + script + .pformstrip,
+#UserCP.code-24 #ucpcontent .maintitle + script + .pformstrip + p,
+#UserCP.code-24 #ucpcontent #gallery_form {
   display: none;
 }
-#UserCP.code-22 #ucpcontent {
-  display: grid;
+#UserCP.code-24 #ucpcontent .pformstrip {
+  font-family: var(--headerFont);
+  text-transform: capitalize;
+  font-weight: 700;
+  letter-spacing: 0;
+  font-size: var(--xlBody) !important;
+  text-align: left;
+  margin: 10px auto 20px 10px !important;
 }
-#UserCP.code-22 #ucpcontent .pformstrip:nth-child(3) {
-  border-top: 0;
+#UserCP.code-24 #ucpcontent .tablepad {
+  text-align: left;
+  font-size: 0;
+  padding: 0 10px;
 }
-#UserCP.code-22 #ucpcontent .pformstrip:nth-child(3) + p {
-  padding: 30px;
-  line-height: 200%;
+#UserCP.code-24 #ucpcontent form {
+  grid-column: 2/3;
+  grid-row: 1/3;
 }
-#UserCP.code-22 #ucpcontent .tablepad {
-  padding: 30px;
-}
-#UserCP.code-22 #ucpcontent form {
-  display: grid;
-  grid-template-rows: max-content max-content auto max-content;
-}
-#UserCP.code-22 #ucpcontent form tr {
-  display: grid;
-  grid-gap: 20px;
-}
-@media only screen and (min-width: 768px) {
-  #UserCP.code-22 #ucpcontent {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: max-content max-content 82px auto;
-  }
-  #UserCP.code-22 #ucpcontent .pformstrip:nth-child(3) {
-    grid-column: 1/3;
-    grid-row: 1/2;
-  }
-  #UserCP.code-22 #ucpcontent .pformstrip:nth-child(3) + p {
-    grid-column: 1/3;
-    grid-row: 2/3;
-  }
-  #UserCP.code-22 #ucpcontent .pformstrip:nth-child(5) {
-    grid-column: 1/2;
-    grid-row: 3/4;
-    height: max-content;
-  }
-  #UserCP.code-22 #ucpcontent .tablepad {
-    grid-column: 1/2;
-    grid-row: 4/5;
-  }
-  #UserCP.code-22 #ucpcontent form {
-    grid-column: 2/3;
-    grid-row: 3/5;
-  }
-  #UserCP.code-22 #ucpcontent form .tablebasic,
-#UserCP.code-22 #ucpcontent form .pformstrip:last-child {
-    border-left: 1px solid var(--midGrey-70);
-  }
+#UserCP.code-24 #ucpcontent form .tablebasic tr {
+  display: grid !important;
 }
 #UserCP.code-54 #ucpcontent > p {
   padding: 30px;
@@ -4713,18 +4705,6 @@ body:not(.g-4) .post--controls-inner label {
 }
 #UserCP.code-alerts #ucpcontent form .tableborder tr:nth-child(2) {
   border-top: 1px solid var(--midGrey-70);
-}
-#UserCP.code-alerts #ucpcontent form .tableborder tr:not(:last-child) td:first-child::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--headerOverlay);
-  mix-blend-mode: var(--headerBlend);
-  opacity: var(--headerOpacity);
-  z-index: 2;
 }
 #UserCP.code-alerts #ucpcontent form .tableborder tr td {
   max-height: 80px;
@@ -5790,17 +5770,6 @@ body:not(.g-4) .post--controls-inner label {
 }
 #redirect-screen .tablefill a {
   color: var(--white);
-}
-#redirect-screen::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--headerOverlay);
-  mix-blend-mode: var(--headerBlend);
-  opacity: var(--headerOpacity);
 }
 
 /*******************************
