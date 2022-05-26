@@ -23,7 +23,7 @@
             display: none;
         }
     }
-    &:not(.app-Traditional) {
+    &:not(.app-Traditional):not(.app-) {
         .fullOnly {
             display: none;
         }

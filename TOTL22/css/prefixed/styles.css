@@ -1981,11 +1981,6 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   z-index: 3;
   border-top: 15px solid var(--background);
 }
-@media only screen and (min-width: 1024px) {
-  .post--header {
-    z-index: 2;
-  }
-}
 .post--header-inner {
   border: 1px solid var(--content);
   border-bottom: 0;
@@ -2699,7 +2694,7 @@ body:not(.g-4) .post--controls-inner label {
 .profile:not(.app-Basic):not(.app-Simplified) .basicOnly {
   display: none;
 }
-.profile:not(.app-Traditional) .fullOnly {
+.profile:not(.app-Traditional):not(.app-) .fullOnly {
   display: none;
 }
 .profile.app-Basic .notBasic {
@@ -3664,7 +3659,7 @@ body:not(.g-4) .post--controls-inner label {
   padding: 8px 10px 9px;
   color: var(--text);
   height: max-content;
-  font-family: var(--body);
+  font-family: var(--bodyFont);
 }
 .webpage--tab form .form-item .form-flex {
   display: flex;
@@ -3920,6 +3915,20 @@ body:not(.g-4) .post--controls-inner label {
   display: grid;
   grid-template-rows: max-content 0 max-content;
   grid-template-columns: 100%;
+}
+#UserCP br[clear=all] + div[align=right],
+#Msg br[clear=all] + div[align=right],
+#store br[clear=all] + div[align=right],
+#modcp br[clear=all] + div[align=right] {
+  margin: 0 20px;
+}
+@media only screen and (min-width: 480px) {
+  #UserCP br[clear=all] + div[align=right],
+#Msg br[clear=all] + div[align=right],
+#store br[clear=all] + div[align=right],
+#modcp br[clear=all] + div[align=right] {
+    margin: 0 50px;
+  }
 }
 #UserCP #ucpcontent > *,
 #Msg #ucpcontent > *,
@@ -4471,6 +4480,16 @@ body:not(.g-4) .post--controls-inner label {
 #UserCP.code-24 #ucpcontent form .tablebasic tr {
   display: grid !important;
 }
+#UserCP.code-54 #ucpcontent {
+  margin: 20px;
+  padding: 20px;
+  background: var(--content);
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-54 #ucpcontent {
+    margin: 50px;
+  }
+}
 #UserCP.code-54 #ucpcontent > p {
   padding: 30px;
   line-height: 200%;
@@ -4496,6 +4515,7 @@ body:not(.g-4) .post--controls-inner label {
 }
 #UserCP.code-54 #ucpcontent > p + div form > table {
   width: 100%;
+  max-width: 700px;
 }
 #UserCP.code-54 #ucpcontent > p + div form > table tr {
   display: grid;
@@ -4506,20 +4526,19 @@ body:not(.g-4) .post--controls-inner label {
 }
 #UserCP.code-54 #ucpcontent > p + div form > table tr a,
 #UserCP.code-54 #ucpcontent > p + div form > table tr td {
-  color: var(--white);
+  color: var(--text);
   font-weight: normal;
   text-transform: uppercase;
   font-size: var(--xsBody);
   letter-spacing: 2px;
-  font-family: var(--body);
+  font-family: var(--bodyFont);
 }
 #UserCP.code-54 #ucpcontent > p + div form > table tr a.pformright input,
 #UserCP.code-54 #ucpcontent > p + div form > table tr td.pformright input {
   width: 100%;
 }
 #UserCP.code-54 #ucpcontent > p + div form > table tr:not(.dlight) {
-  border-top: 1px solid var(--midGrey-70);
-  font-family: var(--serif);
+  font-family: var(--headerFont);
   font-size: var(--xlBody);
   text-align: left;
 }
@@ -4537,19 +4556,20 @@ body:not(.g-4) .post--controls-inner label {
   margin: 0;
   padding: 0;
   border-bottom: 0;
+  justify-content: center;
 }
 #UserCP.code-54 #ucpcontent > p + div form > table tr:last-child .titlemedium > div > input {
-  margin: 0;
-  width: 100%;
-  border-radius: 0;
-  padding: 30px;
-  font-family: var(--serif);
-  font-size: 24px;
-  text-transform: capitalize;
+  margin: 0 5px 0 0;
+  padding: 10px 15px;
+  font-family: var(--headerFont);
+  font-size: var(--mBody);
+  text-transform: lowercase;
   letter-spacing: 0;
-  background: var(--black);
-  color: var(--white);
+  background: var(--accent);
+  color: var(--accentColor);
   cursor: pointer;
+  width: auto;
+  border-radius: 3px;
 }
 #UserCP.code-54 #ucpcontent > p + div form > table > tbody > tr:last-child {
   padding: 0;
@@ -4563,16 +4583,42 @@ body:not(.g-4) .post--controls-inner label {
 }
 #UserCP.code-54 #ucpcontent > p + div form > table > tbody > tr:last-child > td.pformstrip > input {
   margin: 0;
-  width: 100%;
-  border-radius: 0;
-  padding: 30px;
-  font-family: var(--serif);
-  font-size: 24px;
-  text-transform: capitalize;
+  padding: 10px 15px;
+  font-family: var(--headerFont);
+  font-size: var(--mBody);
+  text-transform: lowercase;
   letter-spacing: 0;
-  background: var(--black);
-  color: var(--white);
+  background: var(--accent);
+  color: var(--accentColor);
   cursor: pointer;
+  width: auto;
+  border-radius: 3px;
+}
+#UserCP.code-54 #ucpcontent tr:not(:first-child) td {
+  text-align: left;
+}
+#UserCP.code-54 #ucpcontent tr:not(:first-child) b {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+#UserCP.code-54 #ucpcontent tr:not(:first-child) b a {
+  color: var(--text);
+  font-size: var(--lBody);
+  font-family: var(--accentFont);
+  text-transform: capitalize;
+  font-weight: bold;
+  letter-spacing: 0;
+}
+#UserCP.code-52 #ucpcontent {
+  margin: 20px;
+  padding: 20px;
+  background: var(--content);
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-52 #ucpcontent {
+    margin: 50px;
+  }
 }
 #UserCP.code-52 #ucpcontent form > .pformstrip {
   border-top: 0;
@@ -4610,6 +4656,16 @@ body:not(.g-4) .post--controls-inner label {
 }
 #UserCP.code-52 #ucpcontent form .row2 + table tr:last-child {
   display: block;
+}
+#UserCP.code-28 #ucpcontent, #UserCP.code-08 #ucpcontent {
+  margin: 20px;
+  padding: 20px;
+  background: var(--content);
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-28 #ucpcontent, #UserCP.code-08 #ucpcontent {
+    margin: 50px;
+  }
 }
 #UserCP.code-28 form > p, #UserCP.code-08 form > p {
   padding: 30px;
@@ -5649,7 +5705,7 @@ body:not(.g-4) .post--controls-inner label {
   color: var(--dark);
   font-size: var(--sBody);
   letter-spacing: 1px;
-  font-family: var(--body);
+  font-family: var(--bodyFont);
   font-weight: 500;
   line-height: var(--sBody);
   margin: 0 5px 5px 0;

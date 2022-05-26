@@ -94,10 +94,6 @@
         z-index: 3;
         border-top: 15px solid var(--background);
 
-        @media only screen and (min-width: $lg) {
-            z-index: 2;
-        }
-
         &-inner {
             border: 1px solid var(--content);
             border-bottom: 0;

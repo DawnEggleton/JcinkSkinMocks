@@ -1435,8 +1435,6 @@ function memberTabs() {
     let innerTriggers = document.querySelectorAll('.ml--sub-menu .ml--sub-menu-links > button');
 
     let innerMenus = document.querySelectorAll('.ml--pop-menu');
-    
-    console.log(innerTriggers);
 
     //sub menu - on button click, open inner menu
     innerTriggers.forEach((trigger, index) => {

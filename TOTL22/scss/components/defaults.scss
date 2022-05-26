@@ -113,6 +113,14 @@
         }
     }
 
+    br[clear="all"] + div[align="right"] {
+        margin: 0 20px;
+
+        @media only screen and (min-width: $sm) {
+            margin: 0 50px;
+        }
+    }
+
     #ucpcontent {
 
         & > * {
@@ -526,6 +534,14 @@
     //subaccounts
     &.code-54 {
         #ucpcontent {
+            margin: 20px;
+            padding: 20px;
+            background: var(--content);
+
+            @media only screen and (min-width: $sm) {
+                margin: 50px;
+            }
+
             & > p {
                 padding: 30px;
                 line-height: 200%;
@@ -564,6 +580,7 @@
                     }
                     form > table {
                         width: 100%;
+                        max-width: 700px;
         
                         tr {
                             display: grid;
@@ -574,12 +591,12 @@
         
                             a,
                             td {
-                                color: var(--white);
+                                color: var(--text);
                                 font-weight: normal;
                                 text-transform: uppercase;
                                 font-size: var(--xsBody);
                                 letter-spacing: 2px;
-                                font-family: var(--body);
+                                font-family: var(--bodyFont);
 
                                 &.pformright {
                                     input {
@@ -589,8 +606,7 @@
                             }
         
                             &:not(.dlight) {
-                                border-top: 1px solid var(--midGrey-70);
-                                font-family: var(--serif);
+                                font-family: var(--headerFont);
                                 font-size: var(--xlBody);
                                 text-align: left;
         
@@ -610,19 +626,20 @@
                                     margin: 0;
                                     padding: 0;
                                     border-bottom: 0;
+                                    justify-content: center;
                             
                                     & > input {
-                                        margin: 0;
-                                        width: 100%;
-                                        border-radius: 0;
-                                        padding: 30px;
-                                        font-family: var(--serif);
-                                        font-size: 24px;
-                                        text-transform: capitalize;
+                                        margin: 0 5px 0 0;
+                                        padding: 10px 15px;
+                                        font-family: var(--headerFont);
+                                        font-size: var(--mBody);
+                                        text-transform: lowercase;
                                         letter-spacing: 0;
-                                        background: var(--black);
-                                        color: var(--white);
+                                        background: var(--accent);
+                                        color: var(--accentColor);
                                         cursor: pointer;
+                                        width: auto;
+                                        border-radius: 3px;
                                     }
                                 }
                             }
@@ -640,16 +657,16 @@
                         
                                 & > input {
                                     margin: 0;
-                                    width: 100%;
-                                    border-radius: 0;
-                                    padding: 30px;
-                                    font-family: var(--serif);
-                                    font-size: 24px;
-                                    text-transform: capitalize;
+                                    padding: 10px 15px;
+                                    font-family: var(--headerFont);
+                                    font-size: var(--mBody);
+                                    text-transform: lowercase;
                                     letter-spacing: 0;
-                                    background: var(--black);
-                                    color: var(--white);
+                                    background: var(--accent);
+                                    color: var(--accentColor);
                                     cursor: pointer;
+                                    width: auto;
+                                    border-radius: 3px;
                                 }
                             }
                         }
@@ -657,49 +674,81 @@
                     }
                 }
             }
+
+            tr:not(:first-child) {
+
+                td {
+                    text-align: left;
+                }
+
+                b {
+                    background: none;
+                    padding: 0;
+                    border-radius: 0;
+
+                    a {
+                        color: var(--text);
+                        font-size: var(--lBody);
+                        font-family: var(--accentFont);
+                        text-transform: capitalize;
+                        font-weight: bold;
+                        letter-spacing: 0;
+                    }
+                }
+            }
         }
     }
     //edit username
     &.code-52 {
-        #ucpcontent form {
-            & > .pformstrip {
-                border-top: 0;
+        #ucpcontent {
+            margin: 20px;
+            padding: 20px;
+            background: var(--content);
+
+            @media only screen and (min-width: $sm) {
+                margin: 50px;
             }
-            .row2 {
-                padding: 30px;
-                line-height: 200%;
 
-                & + table {
-                    display: block;
-                    width: 100%;
+            form {
+                & > .pformstrip {
+                    border-top: 0;
+                }
+                .row2 {
+                    padding: 30px;
+                    line-height: 200%;
 
-                    tbody {
+                    & + table {
                         display: block;
                         width: 100%;
-                        padding: 0;
-                    }
 
-                    tr:first-child {
-                        padding: 30px 30px 15px;
-                        display: grid;
-                        grid-gap: 15px;
-                    }
-                    tr:nth-child(2) {
-                        display: grid;
-                        padding: 0 30px 30px;
-                        grid-gap: 15px;
-                    }
+                        tbody {
+                            display: block;
+                            width: 100%;
+                            padding: 0;
+                        }
 
-                    @media only screen and (min-width: $sm) {
                         tr:first-child {
-                            grid-template-columns: 1fr 1fr;
+                            padding: 30px 30px 15px;
+                            display: grid;
+                            grid-gap: 15px;
                         }
                         tr:nth-child(2) {
-                            grid-template-columns: 1fr 1fr;
+                            display: grid;
+                            padding: 0 30px 30px;
+                            grid-gap: 15px;
                         }
-                    }
-                    tr:last-child {
-                        display: block;
+
+                        @media only screen and (min-width: $sm) {
+                            tr:first-child {
+                                grid-template-columns: 1fr 1fr;
+                            }
+                            tr:nth-child(2) {
+                                grid-template-columns: 1fr 1fr;
+                            }
+                        }
+                        tr:last-child {
+                            display: block;
+                        }
                     }
                 }
             }
@@ -708,6 +757,15 @@
     //change password or email
     &.code-28,
     &.code-08 {
+        #ucpcontent {
+            margin: 20px;
+            padding: 20px;
+            background: var(--content);
+
+            @media only screen and (min-width: $sm) {
+                margin: 50px;
+            }
+        }
         form {
             & > p {
                 padding: 30px;
@@ -1984,7 +2042,7 @@
                         color: var(--dark);
                         font-size: var(--sBody);
                         letter-spacing: 1px;
-                        font-family: var(--body);
+                        font-family: var(--bodyFont);
                         font-weight: 500;
                         line-height: var(--sBody);
                         margin: 0 5px 5px 0;
