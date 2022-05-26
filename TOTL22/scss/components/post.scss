@@ -180,7 +180,7 @@
                 align-items: center;
                 justify-items: center;
                 color: var(--accentColor);
-                border-radius: 3px;
+                border-radius: 4px;
     
                 &:hover {
                     background: var(--accent);
@@ -239,7 +239,7 @@
             background: var(--ltaccent);
             color: var(--accentColor);
             padding: 8px 15px;
-            border-radius: 3px;
+            border-radius: 4px;
             opacity: 0;
 
             @media only screen and (min-width: $lg) {

@@ -766,7 +766,7 @@ b {
   display: inline-block;
   background: var(--content);
   padding: 0 8px;
-  border-radius: 3px;
+  border-radius: 4px;
   font-family: var(--headerFont);
   font-size: var(--mBody);
 }
@@ -2057,7 +2057,7 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   align-items: center;
   justify-items: center;
   color: var(--accentColor);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 .post--controls-inner label > input + div:hover,
 .post--controls-inner a:hover {
@@ -2104,7 +2104,7 @@ body:not(.g-4) .post--controls-inner label {
   background: var(--ltaccent);
   color: var(--accentColor);
   padding: 8px 15px;
-  border-radius: 3px;
+  border-radius: 4px;
   opacity: 0;
 }
 @media only screen and (min-width: 1024px) {
@@ -2445,7 +2445,7 @@ body:not(.g-4) .post--controls-inner label {
   font-size: var(--lBody);
   font-family: var(--headerFont);
   background: var(--dkGrey);
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 5px 10px;
   color: var(--headerText);
   margin-right: 5px;
@@ -3465,7 +3465,7 @@ body:not(.g-4) .post--controls-inner label {
   background: var(--dark);
   color: var(--headerText);
   padding: 6px 8px;
-  border-radius: 3px;
+  border-radius: 4px;
   text-transform: uppercase;
   font-weight: 600;
   margin: 20px 0 0;
@@ -3479,7 +3479,7 @@ body:not(.g-4) .post--controls-inner label {
   background: var(--dark);
   color: var(--headerText);
   padding: 6px 8px;
-  border-radius: 3px;
+  border-radius: 4px;
   text-transform: uppercase;
   font-weight: 600;
   margin: 20px 0 0;
@@ -3815,7 +3815,7 @@ body:not(.g-4) .post--controls-inner label {
   height: 16px;
   background: var(--ltaccent);
   margin-right: 5px;
-  border-radius: 3px;
+  border-radius: 4px;
   color: transparent;
   margin-top: 10px;
   font-family: "Font Awesome 6 Pro";
@@ -3930,6 +3930,56 @@ body:not(.g-4) .post--controls-inner label {
     margin: 0 50px;
   }
 }
+#UserCP .pagination,
+#Msg .pagination,
+#store .pagination,
+#modcp .pagination {
+  display: flex;
+  margin-right: 5px;
+  padding: 3px 0;
+}
+#UserCP .pagination_pagetxt,
+#Msg .pagination_pagetxt,
+#store .pagination_pagetxt,
+#modcp .pagination_pagetxt {
+  display: none;
+}
+#UserCP .pagination_current,
+#Msg .pagination_current,
+#store .pagination_current,
+#modcp .pagination_current {
+  display: block;
+  margin-right: 5px;
+}
+#UserCP .pagination_current b,
+#Msg .pagination_current b,
+#store .pagination_current b,
+#modcp .pagination_current b {
+  background: var(--accent);
+  color: var(--accentColor);
+  font-size: var(--xlBody);
+  padding: 5px 10px;
+}
+#UserCP .pagination_page,
+#Msg .pagination_page,
+#store .pagination_page,
+#modcp .pagination_page {
+  font-size: var(--lBody);
+  font-family: var(--headerFont);
+  background: var(--dkGrey);
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: var(--headerText);
+  margin-right: 5px;
+}
+#UserCP .pagination_page:hover,
+#Msg .pagination_page:hover,
+#store .pagination_page:hover,
+#modcp .pagination_page:hover {
+  background: var(--accent);
+  color: var(--accentColor);
+  cursor: pointer;
+}
 #UserCP #ucpcontent > *,
 #Msg #ucpcontent > *,
 #store #ucpcontent > *,
@@ -4042,14 +4092,23 @@ body:not(.g-4) .post--controls-inner label {
   text-transform: uppercase;
   color: var(--text);
   text-align: center;
+  word-break: break-word;
 }
 @media only screen and (min-width: 480px) {
   #UserCP #ucpcontent .pformstrip,
 #Msg #ucpcontent .pformstrip,
 #store #ucpcontent .pformstrip,
 #modcp #ucpcontent .pformstrip {
-    letter-spacing: 20px;
     font-size: 28px !important;
+    word-break: normal;
+  }
+}
+@media only screen and (min-width: 768px) {
+  #UserCP #ucpcontent .pformstrip,
+#Msg #ucpcontent .pformstrip,
+#store #ucpcontent .pformstrip,
+#modcp #ucpcontent .pformstrip {
+    letter-spacing: 20px;
   }
 }
 #UserCP #ucpcontent .pformstrip a,
@@ -4070,7 +4129,7 @@ body:not(.g-4) .post--controls-inner label {
 #store #ucpcontent .pformstrip:last-child input[type=submit],
 #modcp #ucpcontent .pformstrip:last-child input[type=submit] {
   width: max-content !important;
-  border-radius: 3px;
+  border-radius: 4px;
   background: var(--ltaccent) !important;
   color: var(--accentColor);
   text-transform: lowercase;
@@ -4443,8 +4502,6 @@ body:not(.g-4) .post--controls-inner label {
 }
 #UserCP.code-24 #ucpcontent {
   display: grid;
-  grid-template-columns: 450px auto;
-  grid-template-rows: max-content 1fr;
   background: var(--content);
   margin: 20px;
   padding: 20px;
@@ -4452,6 +4509,16 @@ body:not(.g-4) .post--controls-inner label {
 @media only screen and (min-width: 480px) {
   #UserCP.code-24 #ucpcontent {
     margin: 50px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #UserCP.code-24 #ucpcontent {
+    grid-template-columns: 450px auto;
+    grid-template-rows: max-content 1fr;
+  }
+  #UserCP.code-24 #ucpcontent form {
+    grid-column: 2/3;
+    grid-row: 1/3;
   }
 }
 #UserCP.code-24 #ucpcontent .maintitle + script + .pformstrip,
@@ -4473,10 +4540,6 @@ body:not(.g-4) .post--controls-inner label {
   font-size: 0;
   padding: 0 10px;
 }
-#UserCP.code-24 #ucpcontent form {
-  grid-column: 2/3;
-  grid-row: 1/3;
-}
 #UserCP.code-24 #ucpcontent form .tablebasic tr {
   display: grid !important;
 }
@@ -4497,7 +4560,7 @@ body:not(.g-4) .post--controls-inner label {
 #UserCP.code-54 #ucpcontent > p ~ br {
   display: none;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
   #UserCP.code-54 #ucpcontent > p + div .tableborder:first-child form > table tr:not(:last-child) {
     grid-template-columns: 1fr 21px;
   }
@@ -4520,7 +4583,6 @@ body:not(.g-4) .post--controls-inner label {
 #UserCP.code-54 #ucpcontent > p + div form > table tr {
   display: grid;
   grid-template-columns: 1fr 1fr 21px;
-  border-bottom: 1px solid var(--midGrey-70);
   padding: 15px;
   align-items: center;
 }
@@ -4557,6 +4619,7 @@ body:not(.g-4) .post--controls-inner label {
   padding: 0;
   border-bottom: 0;
   justify-content: center;
+  gap: 5px;
 }
 #UserCP.code-54 #ucpcontent > p + div form > table tr:last-child .titlemedium > div > input {
   margin: 0 5px 0 0;
@@ -4569,7 +4632,7 @@ body:not(.g-4) .post--controls-inner label {
   color: var(--accentColor);
   cursor: pointer;
   width: auto;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 #UserCP.code-54 #ucpcontent > p + div form > table > tbody > tr:last-child {
   padding: 0;
@@ -4592,7 +4655,7 @@ body:not(.g-4) .post--controls-inner label {
   color: var(--accentColor);
   cursor: pointer;
   width: auto;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 #UserCP.code-54 #ucpcontent tr:not(:first-child) td {
   text-align: left;
@@ -4604,7 +4667,7 @@ body:not(.g-4) .post--controls-inner label {
 }
 #UserCP.code-54 #ucpcontent tr:not(:first-child) b a {
   color: var(--text);
-  font-size: var(--lBody);
+  font-size: var(--xlBody);
   font-family: var(--accentFont);
   text-transform: capitalize;
   font-weight: bold;
@@ -4699,23 +4762,37 @@ body:not(.g-4) .post--controls-inner label {
 #UserCP.code-28 form > table + .pformstrip, #UserCP.code-08 form > table + .pformstrip {
   border-bottom: 1px solid var(--midGrey-70) !important;
 }
+#UserCP.code-alerts #ucpcontent {
+  margin: 20px;
+  padding: 20px;
+  background: var(--content);
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-alerts #ucpcontent {
+    margin: 50px;
+  }
+}
+#UserCP.code-alerts #ucpcontent > table {
+  font-family: var(--headerFont);
+  text-transform: lowercase;
+  font-size: var(--lBody);
+}
+#UserCP.code-alerts #ucpcontent > table b {
+  font-size: var(--lBody);
+}
+#UserCP.code-alerts #ucpcontent > table img {
+  display: none;
+}
 #UserCP.code-alerts #ucpcontent > form + div[align=right] {
   padding: 15px !important;
 }
 #UserCP.code-alerts #ucpcontent > form + div[align=right], #UserCP.code-alerts #ucpcontent > table {
   position: relative;
-  background: var(--black-50);
   display: block;
   padding: 0;
-  font-family: var(--serif);
-  font-size: var(--xlBody);
-  color: var(--white);
 }
 #UserCP.code-alerts #ucpcontent > form + div[align=right] br, #UserCP.code-alerts #ucpcontent > table br {
   display: none;
-}
-#UserCP.code-alerts #ucpcontent > form + div[align=right] a, #UserCP.code-alerts #ucpcontent > table a {
-  color: var(--white);
 }
 #UserCP.code-alerts #ucpcontent > form + div[align=right] > tbody, #UserCP.code-alerts #ucpcontent > table > tbody {
   width: 100%;
@@ -4726,25 +4803,11 @@ body:not(.g-4) .post--controls-inner label {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 30px;
+  gap: 0px;
 }
 #UserCP.code-alerts #ucpcontent > form + div[align=right] > tbody > tr > td:last-child, #UserCP.code-alerts #ucpcontent > table > tbody > tr > td:last-child {
   display: flex;
   gap: 20px;
-}
-#UserCP.code-alerts #ucpcontent > form + div[align=right] .pagination_pagetxt, #UserCP.code-alerts #ucpcontent > table .pagination_pagetxt {
-  display: none;
-}
-#UserCP.code-alerts #ucpcontent > form + div[align=right] .pagination_current, #UserCP.code-alerts #ucpcontent > table .pagination_current {
-  display: inline-block;
-  background: var(--accent);
-  padding: 5px 10px;
-  margin: 0 5px;
-  border-radius: 3px;
-}
-#UserCP.code-alerts #ucpcontent > form + div[align=right] .pagination_page, #UserCP.code-alerts #ucpcontent > table .pagination_page {
-  padding: 5px;
-  margin: 0 5px;
 }
 #UserCP.code-alerts #ucpcontent form .tableborder table,
 #UserCP.code-alerts #ucpcontent form .tableborder tbody {
@@ -4753,31 +4816,60 @@ body:not(.g-4) .post--controls-inner label {
 }
 #UserCP.code-alerts #ucpcontent form .tableborder tr {
   display: grid;
-  grid-template-columns: 80px auto 200px 30px;
-  grid-gap: 15px;
-  border-bottom: 1px solid var(--midGrey-70);
-  height: 80px;
+  grid-template-columns: auto 30px;
+  grid-template-rows: max-content max-content;
   align-items: center;
+  grid-gap: 5px 20px;
+  grid-template-areas: "topic check" "date check";
+  margin-bottom: 20px;
 }
-#UserCP.code-alerts #ucpcontent form .tableborder tr:nth-child(2) {
-  border-top: 1px solid var(--midGrey-70);
+@media only screen and (min-width: 480px) {
+  #UserCP.code-alerts #ucpcontent form .tableborder tr {
+    grid-template-columns: 50px auto 30px;
+    grid-template-rows: max-content max-content;
+    grid-template-areas: "image topic check" "image date check";
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #UserCP.code-alerts #ucpcontent form .tableborder tr {
+    grid-template-columns: 50px auto 200px 30px;
+    grid-template-rows: 50px;
+    grid-template-areas: "image topic date check";
+  }
 }
 #UserCP.code-alerts #ucpcontent form .tableborder tr td {
-  max-height: 80px;
+  max-height: 50px;
   font-size: var(--xsBody);
   text-transform: uppercase;
   letter-spacing: 2px;
+  padding: 0;
+  text-align: left;
 }
 #UserCP.code-alerts #ucpcontent form .tableborder tr td img {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 100%;
   object-fit: cover;
 }
 #UserCP.code-alerts #ucpcontent form .tableborder tr td.alert-text img {
   display: none;
 }
-#UserCP.code-alerts #ucpcontent form .tableborder tr td a {
-  color: var(--white);
+#UserCP.code-alerts #ucpcontent form .tableborder tr td:nth-child(1) {
+  grid-area: image;
+  display: none;
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-alerts #ucpcontent form .tableborder tr td:nth-child(1) {
+    display: block;
+  }
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr td:nth-child(2) {
+  grid-area: topic;
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr td:nth-child(3) {
+  grid-area: date;
+}
+#UserCP.code-alerts #ucpcontent form .tableborder tr td:nth-child(4) {
+  grid-area: check;
 }
 #UserCP.code-alerts #ucpcontent form .tableborder tr:first-child {
   display: none;
@@ -4791,24 +4883,44 @@ body:not(.g-4) .post--controls-inner label {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 5px;
 }
-@media only screen and (min-width: 768px) {
-  #UserCP.code-alerts #ucpcontent form .tableborder tr:last-child input,
-#UserCP.code-alerts #ucpcontent form .tableborder tr:last-child select {
-    margin-bottom: 0;
-  }
+#UserCP.code-alerts #ucpcontent form .tableborder tr:last-child td input,
+#UserCP.code-alerts #ucpcontent form .tableborder tr:last-child td select {
+  width: auto;
 }
-@media only screen and (max-width: 480px) {
-  #UserCP.code-alerts #ucpcontent form .tableborder tr {
-    grid-template-columns: auto 150px 30px;
-  }
-  #UserCP.code-alerts #ucpcontent form .tableborder tr td:first-child:not(:only-child),
-#UserCP.code-alerts #ucpcontent form .tableborder tr th:first-child:not(:only-child) {
-    display: none;
-  }
-  #UserCP.code-alerts #ucpcontent form .tableborder tr td:nth-child(2),
-#UserCP.code-alerts #ucpcontent form .tableborder tr th:nth-child(2) {
-    padding-left: 30px;
+#UserCP.code-alerts #ucpcontent form .tableborder tr:last-child td input {
+  margin: 0;
+  padding: 10px 15px;
+  font-family: var(--headerFont);
+  font-size: var(--mBody);
+  text-transform: lowercase;
+  letter-spacing: 0;
+  background: var(--accent);
+  color: var(--accentColor);
+  cursor: pointer;
+  width: auto;
+  border-radius: 4px;
+}
+#UserCP.code-alerts #ucpcontent form + div {
+  font-family: var(--headerFont);
+  text-transform: lowercase;
+  font-size: var(--lBody);
+}
+#UserCP.code-alerts #ucpcontent form + div b {
+  font-size: var(--lBody);
+}
+#UserCP.code-alerts #ucpcontent form + div img {
+  display: none;
+}
+#UserCP.code-50 #ucpcontent {
+  margin: 20px;
+  padding: 20px;
+  background: var(--content);
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-50 #ucpcontent {
+    margin: 50px;
   }
 }
 #UserCP.code-50 #ucpcontent > .pformstrip + br {
@@ -4822,21 +4934,23 @@ body:not(.g-4) .post--controls-inner label {
 #UserCP.code-50 #ucpcontent .tableborder tr {
   display: grid;
   grid-template-columns: 0 auto 70px 70px 200px;
-  border-bottom: 1px solid var(--midGrey-70);
-  grid-gap: 15px;
+  grid-gap: 20px;
 }
 #UserCP.code-50 #ucpcontent .tableborder tr td:only-child {
   grid-column: 1/-1;
-  padding: 15px 30px;
-  background: var(--black-50);
-  font-family: var(--serif);
-  font-size: var(--lBody) !important;
-  text-transform: capitalize !important;
-  letter-spacing: 0 !important;
+}
+#UserCP.code-50 #ucpcontent .tableborder tr td:only-child a {
+  font-family: var(--headerFont);
+  background: var(--accent);
+  color: var(--accentColor);
+  text-transform: lowercase;
+  letter-spacing: 0;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: var(--mBody);
 }
 #UserCP.code-50 #ucpcontent .tableborder tr:first-child {
-  font-family: var(--serif);
-  font-size: var(--xlBody);
+  display: none;
 }
 #UserCP.code-50 #ucpcontent .tableborder tr td,
 #UserCP.code-50 #ucpcontent .tableborder tr th {
@@ -4845,14 +4959,14 @@ body:not(.g-4) .post--controls-inner label {
   padding: 15px;
   box-sizing: border-box;
 }
-#UserCP.code-50 #ucpcontent .tableborder tr td a,
-#UserCP.code-50 #ucpcontent .tableborder tr th a {
-  color: var(--white);
-}
 #UserCP.code-50 #ucpcontent .tableborder tr td:nth-child(3), #UserCP.code-50 #ucpcontent .tableborder tr td:nth-child(4),
 #UserCP.code-50 #ucpcontent .tableborder tr th:nth-child(3),
 #UserCP.code-50 #ucpcontent .tableborder tr th:nth-child(4) {
   text-align: center;
+}
+#UserCP.code-50 #ucpcontent .tableborder tr td.darkrow3 b,
+#UserCP.code-50 #ucpcontent .tableborder tr th.darkrow3 b {
+  font-size: 20px;
 }
 #UserCP.code-50 #ucpcontent .tableborder tr td.row1,
 #UserCP.code-50 #ucpcontent .tableborder tr th.row1 {
@@ -4863,15 +4977,18 @@ body:not(.g-4) .post--controls-inner label {
 #UserCP.code-50 #ucpcontent .tableborder tr td.row1 b,
 #UserCP.code-50 #ucpcontent .tableborder tr th.row1 b {
   display: block;
+  background: none;
+  font-size: var(--xlBody);
+  font-family: var(--headerFont);
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: var(--xsBody);
 }
 #UserCP.code-50 #ucpcontent .tableborder tr td.row1 b:first-child a,
 #UserCP.code-50 #ucpcontent .tableborder tr th.row1 b:first-child a {
-  font-family: var(--serif);
   font-size: var(--lBody);
-  text-transform: capitalize;
+  text-transform: lowercase;
+  letter-spacing: 0;
 }
 #UserCP.code-50 #ucpcontent .tableborder tr td.row1:not(:last-child) br,
 #UserCP.code-50 #ucpcontent .tableborder tr th.row1:not(:last-child) br {
@@ -4885,7 +5002,11 @@ body:not(.g-4) .post--controls-inner label {
   letter-spacing: 2px;
   font-size: var(--xsBody);
 }
-@media only screen and (max-width: 768px) {
+#UserCP.code-50 #ucpcontent .tableborder tr td.row1 a,
+#UserCP.code-50 #ucpcontent .tableborder tr th.row1 a {
+  max-width: max-content;
+}
+@media only screen and (max-width: 1024px) {
   #UserCP.code-50 #ucpcontent .tableborder tr {
     grid-template-columns: 0 auto 200px;
   }
@@ -4896,7 +5017,7 @@ body:not(.g-4) .post--controls-inner label {
     display: none;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
   #UserCP.code-50 #ucpcontent .tableborder tr {
     grid-template-columns: 0 1fr;
   }
@@ -4910,6 +5031,30 @@ body:not(.g-4) .post--controls-inner label {
     padding-left: 30px;
   }
 }
+#UserCP.code-26 #ucpcontent {
+  margin: 20px;
+  padding: 20px;
+  background: var(--content);
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-26 #ucpcontent {
+    margin: 50px;
+  }
+}
+#UserCP.code-26 #ucpcontent > .pformstrip span {
+  display: block;
+  font-size: var(--xsBody);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 20px;
+}
+#UserCP.code-26 #ucpcontent > .pformstrip span a {
+  color: var(--text);
+}
+#UserCP.code-26 #ucpcontent form ~ div input,
+#UserCP.code-26 #ucpcontent form ~ div select {
+  width: auto;
+}
 #UserCP.code-26 #ucpcontent form > br {
   display: none;
 }
@@ -4921,17 +5066,21 @@ body:not(.g-4) .post--controls-inner label {
 #UserCP.code-26 #ucpcontent form tr {
   display: grid;
   grid-template-columns: 0 auto 70px 70px 200px 30px;
-  border-bottom: 1px solid var(--midGrey-70);
-  grid-gap: 15px;
+  grid-gap: 20px;
 }
 #UserCP.code-26 #ucpcontent form tr td:only-child {
   grid-column: 1/-1;
-  padding: 15px 30px;
-  background: var(--black-50);
-  font-family: var(--serif);
-  font-size: var(--lBody) !important;
-  text-transform: capitalize !important;
-  letter-spacing: 0 !important;
+}
+#UserCP.code-26 #ucpcontent form tr td:only-child b {
+  text-transform: lowercase;
+  font-size: 20px;
+}
+#UserCP.code-26 #ucpcontent form tr td:only-child input,
+#UserCP.code-26 #ucpcontent form tr td:only-child select {
+  width: auto;
+}
+#UserCP.code-26 #ucpcontent form tr:first-child {
+  display: none;
 }
 #UserCP.code-26 #ucpcontent form tr td:last-child:not(:only-child) {
   padding: 0;
@@ -4939,20 +5088,12 @@ body:not(.g-4) .post--controls-inner label {
   justify-content: center;
   align-items: center;
 }
-#UserCP.code-26 #ucpcontent form tr:first-child {
-  font-family: var(--serif);
-  font-size: var(--xlBody);
-}
 #UserCP.code-26 #ucpcontent form tr td,
 #UserCP.code-26 #ucpcontent form tr th {
   text-align: left;
   width: 100% !important;
   padding: 15px;
   box-sizing: border-box;
-}
-#UserCP.code-26 #ucpcontent form tr td a,
-#UserCP.code-26 #ucpcontent form tr th a {
-  color: var(--white);
 }
 #UserCP.code-26 #ucpcontent form tr td:nth-child(3), #UserCP.code-26 #ucpcontent form tr td:nth-child(4),
 #UserCP.code-26 #ucpcontent form tr th:nth-child(3),
@@ -4978,9 +5119,9 @@ body:not(.g-4) .post--controls-inner label {
 }
 #UserCP.code-26 #ucpcontent form tr td.row3:not(:nth-last-child(2)) a:first-child,
 #UserCP.code-26 #ucpcontent form tr th.row3:not(:nth-last-child(2)) a:first-child {
-  font-family: var(--serif);
+  font-family: var(--headerFont);
   font-size: var(--lBody);
-  text-transform: capitalize;
+  text-transform: lowercase;
 }
 #UserCP.code-26 #ucpcontent form tr td.row3:not(:nth-last-child(2)) a:nth-child(2),
 #UserCP.code-26 #ucpcontent form tr th.row3:not(:nth-last-child(2)) a:nth-child(2) {
@@ -5032,12 +5173,22 @@ body:not(.g-4) .post--controls-inner label {
     margin-bottom: 15px;
   }
 }
+#UserCP.code-04 #ucpcontent {
+  margin: 20px;
+  padding: 20px;
+  background: var(--content);
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-04 #ucpcontent {
+    margin: 50px;
+  }
+}
+#UserCP.code-04 #ucpcontent form input[type=checkbox] {
+  width: auto;
+}
 #UserCP.code-04 #ucpcontent form > p {
   padding: 30px;
   line-height: 200%;
-}
-#UserCP.code-04 #ucpcontent form > p select {
-  max-width: 200px;
 }
 #UserCP.code-04 #ucpcontent form table,
 #UserCP.code-04 #ucpcontent form tbody {
@@ -5047,8 +5198,7 @@ body:not(.g-4) .post--controls-inner label {
 #UserCP.code-04 #ucpcontent form tr {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  grid-gap: 30px;
-  border-bottom: 1px solid var(--midGrey-70);
+  grid-gap: 20px;
   padding: 15px;
 }
 #UserCP.code-04 #ucpcontent form tr input,
@@ -5065,14 +5215,20 @@ body:not(.g-4) .post--controls-inner label {
 #UserCP.code-04 #ucpcontent form .desc + .pformstrip input {
   width: 100%;
   height: 100%;
-  background: var(--black);
-  color: var(--white);
-  font-size: 20px;
-  font-family: var(--serif);
-  text-transform: capitalize;
-  letter-spacing: 0;
+  font-size: var(--mBody);
+  font-family: var(--headerFont);
   margin: 0;
-  padding: 30px;
+  padding: 10px;
+}
+#UserCP.code-alerts_settings #ucpcontent {
+  margin: 20px;
+  padding: 20px;
+  background: var(--content);
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-alerts_settings #ucpcontent {
+    margin: 50px;
+  }
 }
 #UserCP.code-alerts_settings #ucpcontent form table,
 #UserCP.code-alerts_settings #ucpcontent form tbody {
@@ -5083,25 +5239,32 @@ body:not(.g-4) .post--controls-inner label {
   padding: 0;
 }
 #UserCP.code-alerts_settings #ucpcontent form table + .pformstrip input {
-  width: 100%;
-  height: 100%;
-  background: var(--black);
-  color: var(--white);
-  font-size: 20px;
-  font-family: var(--serif);
-  text-transform: capitalize;
+  width: auto;
+  background: var(--accent);
+  color: var(--accentColor);
+  font-size: var(--mBody);
+  font-family: var(--headerFont);
+  text-transform: lowercase;
   letter-spacing: 0;
   margin: 0;
-  padding: 30px;
+  padding: 10px;
+  border-radius: 4px;
 }
 #UserCP.code-alerts_settings #ucpcontent form tr {
   display: grid;
-  grid-template-columns: auto 100px 100px;
-  border-bottom: 1px solid var(--midGrey-70);
+  grid-template-columns: auto 130px 130px;
   padding: 15px;
 }
-#UserCP.code-alerts_settings #ucpcontent form tr:first-child, #UserCP.code-alerts_settings #ucpcontent form tr:nth-last-child(4) {
-  background: var(--black);
+#UserCP.code-alerts_settings #ucpcontent form tr td.pformstrip {
+  font-size: var(--xlBody) !important;
+  letter-spacing: 3px;
+  width: 100%;
+  margin: 0 auto !important;
+  align-self: end;
+  text-align: left;
+}
+#UserCP.code-alerts_settings #ucpcontent form tr td {
+  width: 100%;
 }
 #UserCP.code-alerts_settings #ucpcontent form tr:first-child td, #UserCP.code-alerts_settings #ucpcontent form tr:nth-last-child(4) td {
   border-top: 0;
@@ -5116,6 +5279,16 @@ body:not(.g-4) .post--controls-inner label {
 #UserCP.code-alerts_settings #ucpcontent form tr select {
   margin: 0;
 }
+#UserCP.code-02 #ucpcontent {
+  margin: 20px;
+  padding: 20px;
+  background: var(--content);
+}
+@media only screen and (min-width: 480px) {
+  #UserCP.code-02 #ucpcontent {
+    margin: 50px;
+  }
+}
 #UserCP.code-02 #ucpcontent form table,
 #UserCP.code-02 #ucpcontent form tbody {
   display: block;
@@ -5128,16 +5301,15 @@ body:not(.g-4) .post--controls-inner label {
   padding: 0;
 }
 #UserCP.code-02 #ucpcontent form table + br + .pformstrip:last-child input {
-  width: 100%;
-  height: 100%;
-  background: var(--black);
-  color: var(--white);
-  font-size: 20px;
-  font-family: var(--serif);
-  text-transform: capitalize;
+  width: auto;
+  background: var(--accent);
+  color: var(--accentColor);
+  font-size: var(--mBody);
+  font-family: var(--headerFont);
+  text-transform: lowercase;
   letter-spacing: 0;
   margin: 0;
-  padding: 30px;
+  padding: 10px;
 }
 #UserCP.code-02 #ucpcontent form tr {
   display: grid;
@@ -5152,6 +5324,107 @@ body:not(.g-4) .post--controls-inner label {
 }
 #UserCP.code-02 #ucpcontent form tr:last-child {
   border-bottom: 0;
+}
+
+#Msg #ucpcontent {
+  background: var(--content);
+  padding: 20px;
+  margin: 20px;
+}
+@media only screen and (min-width: 480px) {
+  #Msg #ucpcontent {
+    margin: 50px;
+  }
+}
+#Msg.code-01 #ucpcontent > table:first-of-type {
+  display: block;
+}
+#Msg.code-01 #ucpcontent > table:first-of-type > tbody {
+  display: block;
+}
+#Msg.code-01 #ucpcontent > table:first-of-type > tbody > tr {
+  display: block;
+}
+#Msg.code-01 #ucpcontent > table:first-of-type > tbody > tr > td:first-child,
+#Msg.code-01 #ucpcontent > table:first-of-type > tbody > tr form {
+  display: none;
+}
+#Msg.code-01 #ucpcontent > form table .titlemedium {
+  text-align: left;
+}
+#Msg.code-01 #ucpcontent > form table .titlemedium b {
+  padding: 0;
+  background: none;
+}
+#Msg.code-01 #ucpcontent > form table tr.dlight {
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#Msg.code-01 #ucpcontent > form table tr:last-child td {
+  font-size: 0;
+  text-align: right;
+}
+#Msg.code-01 #ucpcontent > form table tr:last-child td div:first-child,
+#Msg.code-01 #ucpcontent > form table tr:last-child td input:not(:last-of-type),
+#Msg.code-01 #ucpcontent > form table tr:last-child td select {
+  display: none;
+}
+#Msg.code-01 #ucpcontent > form table tr:last-child td input:last-of-type {
+  font-size: var(--mBody);
+  font-family: var(--headerFont);
+  text-transform: lowercase;
+  letter-spacing: 0;
+  background: var(--accent);
+  color: var(--accentColor);
+  font-weight: 600;
+  border-radius: 4px;
+  width: auto;
+}
+#Msg.code-04 #ucpcontent .pformstrip {
+  font-size: var(--xlBody) !important;
+  letter-spacing: 3px;
+  padding: 45px 0;
+}
+#Msg.code-04 #ucpcontent tr:first-child > .pformstrip {
+  padding-top: 25px;
+}
+#Msg.code-04 #ucpcontent tr:not(:first-child) {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+#Msg.code-04 #ucpcontent tr:not(:first-child) td:only-child {
+  grid-column: 1/-1;
+}
+#Msg.code-04 #ucpcontent tr:not(:first-child) .pformstrip {
+  padding: 0;
+  margin: 0;
+}
+#Msg.code-04 #ucpcontent tr:not(:first-child):nth-last-child(2) .pformleft {
+  display: none;
+}
+#Msg.code-04 #ucpcontent tr:not(:first-child):nth-last-child(2) .pformright {
+  grid-column: 1/-1;
+  display: block;
+}
+#Msg.code-04 #ucpcontent tr:not(:first-child):nth-last-child(2) .pformright input {
+  width: auto;
+}
+#Msg.code-04 #ucpcontent tr:not(:first-child):last-child td {
+  grid-column: 1/-1;
+  display: flex;
+  gap: 5px;
+}
+#Msg.code-04 #ucpcontent #code-buttons-header,
+#Msg.code-04 #ucpcontent #code-buttons {
+  display: none;
+}
+#Msg.code-04 #ucpcontent #enter-your-post-header + tr .pformleft {
+  display: none;
+}
+#Msg.code-04 #ucpcontent #enter-your-post-header + tr .pformright {
+  grid-column: span 2;
+  text-align: center;
 }
 
 #Online .maintitle {
@@ -5416,7 +5689,7 @@ body:not(.g-4) .post--controls-inner label {
   background: var(--accent);
   padding: 5px 10px;
   margin: 0 5px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 #Search.code-show main > a[name=top] + div .pagination_page {
   padding: 5px;

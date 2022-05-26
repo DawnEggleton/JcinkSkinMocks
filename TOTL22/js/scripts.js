@@ -520,7 +520,7 @@ if($('body#UserCP').length > 0 || $('body#Msg').length > 0) {
                 <i class="fa-light fa-angles-left"></i>
             </button>
             <div class="ucp--main-menu-links">
-                <button data-subcategory="account" class="active">Account</button>
+                <button data-subcategory="account">Account</button>
                 <button data-subcategory="messages">Messages</button>
                 <button data-subcategory="tracking">Tracking</button>
                 <button data-subcategory="settings">Settings</button>
@@ -529,7 +529,7 @@ if($('body#UserCP').length > 0 || $('body#Msg').length > 0) {
                 <i class="fa-light fa-angles-right"></i>
             </button>
         </div>
-        <div class="ucp--sub-menu active">
+        <div class="ucp--sub-menu">
             <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
                 <i class="fa-light fa-angles-left"></i>
             </button>
@@ -673,6 +673,28 @@ if($('body#UserCP').length > 0 || $('body#Msg').length > 0) {
             menuSections[index].classList.add('active');
         });
     });
+    if($('body#Msg').length > 0) {
+        if(document.querySelector('body').classList.contains('code-01') ||
+        document.querySelector('body').classList.contains('code-04')){
+            menuTriggers[1].classList.add('active');
+            menuSections[1].classList.add('active');
+        }
+    } else {
+        if(document.querySelector('body').classList.contains('code-alerts') ||
+        document.querySelector('body').classList.contains('code-50') ||
+        document.querySelector('body').classList.contains('code-26')) {
+            menuTriggers[2].classList.add('active');
+            menuSections[2].classList.add('active');
+        } else if(document.querySelector('body').classList.contains('code-04') ||
+        document.querySelector('body').classList.contains('code-alerts_settings') ||
+        document.querySelector('body').classList.contains('code-02')) {
+            menuTriggers[3].classList.add('active');
+            menuSections[3].classList.add('active');
+        } else {
+            menuTriggers[0].classList.add('active');
+            menuSections[0].classList.add('active');
+        }
+    }
 
 
 	//Edit Profile Edits
@@ -701,6 +723,42 @@ if($('body#UserCP').length > 0 || $('body#Msg').length > 0) {
         }
         });
 	}
+
+    //forum subs
+    if($('body.code-50').length > 0) {
+        document.querySelectorAll('.row1:nth-child(3)').forEach(row => {
+            if(row.innerText == '1') {
+                row.innerText = `${row.innerHTML} topic`;
+            } else {
+                row.innerText = `${row.innerHTML} topics`;
+            }
+        });
+        document.querySelectorAll('.row1:nth-child(4)').forEach(row => {
+            if(row.innerText == '1') {
+                row.innerText = `${row.innerHTML} reply`;
+            } else {
+                row.innerText = `${row.innerHTML} replies`;
+            }
+        });
+    }
+
+    //topic subs
+    if($('body.code-26').length > 0) {
+        document.querySelectorAll('.row3:nth-child(3)').forEach(row => {
+            if(row.innerText == '1') {
+                row.innerText = `${row.innerHTML} reply`;
+            } else {
+                row.innerText = `${row.innerHTML} replies`;
+            }
+        });
+        document.querySelectorAll('.row3:nth-child(4)').forEach(row => {
+            if(row.innerText == '1') {
+                row.innerText = `${row.innerHTML} view`;
+            } else {
+                row.innerText = `${row.innerHTML} views`;
+            }
+        });
+    }
 }
 
 
