@@ -3930,6 +3930,19 @@ body:not(.g-4) .post--controls-inner label {
     margin: 0 50px;
   }
 }
+#UserCP #ucpcontent input[type=submit],
+#Msg #ucpcontent input[type=submit],
+#store #ucpcontent input[type=submit],
+#modcp #ucpcontent input[type=submit] {
+  background: var(--accent);
+  padding: 10px;
+  border-radius: 4px;
+  font-family: var(--headerFont);
+  font-size: var(--mBody);
+  letter-spacing: 0;
+  text-transform: lowercase;
+  color: var(--accentColor);
+}
 #UserCP .pagination,
 #Msg .pagination,
 #store .pagination,
@@ -5047,6 +5060,7 @@ body:not(.g-4) .post--controls-inner label {
   font-weight: 600;
   letter-spacing: 1px;
   margin-top: 20px;
+  float: none !important;
 }
 #UserCP.code-26 #ucpcontent > .pformstrip span a {
   color: var(--text);
@@ -5385,6 +5399,9 @@ body:not(.g-4) .post--controls-inner label {
   font-size: var(--xlBody) !important;
   letter-spacing: 3px;
   padding: 45px 0;
+}
+#Msg.code-04 #ucpcontent tbody {
+  display: block;
 }
 #Msg.code-04 #ucpcontent tr:first-child > .pformstrip {
   padding-top: 25px;

@@ -121,6 +121,17 @@
         }
     }
 
+    #ucpcontent input[type="submit"] {
+        background: var(--accent);
+        padding: 10px;
+        border-radius: 4px;
+        font-family: var(--headerFont);
+        font-size: var(--mBody);
+        letter-spacing: 0;
+        text-transform: lowercase;
+        color: var(--accentColor);
+    }
+
     .pagination {
         display: flex;
         margin-right: 5px;
@@ -1179,6 +1190,7 @@
                     font-weight: 600;
                     letter-spacing: 1px;
                     margin-top: 20px;
+                    float: none !important;
 
                     a {
                         color: var(--text);
@@ -1586,6 +1598,10 @@
                 font-size: var(--xlBody) !important;
                 letter-spacing: 3px;
                 padding: 45px 0;
+            }
+
+            tbody {
+                display: block;
             }
 
             tr {
