@@ -81,6 +81,60 @@
             }
         }
     }
+    .activeuserstrip,
+    .activeuserstrip + .row2 {
+        background: var(--content);
+        text-align: center;
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 0 20px;
+    }
+    section + .activeuserstrip {
+        padding-top: 20px;
+    }
+    .row2 + .activeuserstrip {
+        padding-bottom: 20px;
+    }
+    #qr_open,
+    #topic_open {
+        .maintitle {
+            background: none;
+            font-size: 20px;
+            letter-spacing: 10px;
+            color: var(--text);
+            text-transform: uppercase;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .tablepad {
+            background: var(--content);
+            padding: 20px;
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 200%;
+
+            textarea,
+            select {
+                background: var(--background);
+            }
+
+            input {
+                background: var(--accent);
+                border-radius: 4px;
+                font-family: var(--headerFont);
+                text-transform: lowercase;
+                font-weight: 600;
+                color: var(--accentColor);
+            }
+
+            b {
+                padding: 0;
+            }
+        }
+    }
 }
 
 .post {
@@ -494,6 +548,36 @@
     @media only screen and (max-width: $lg) {
         &--mini {
             display: none;
+        }
+    }
+}
+
+#CODE-WRAP {
+    background: var(--background);
+    padding: 20px;
+    max-width: 370px;
+    
+    .codeclick {
+        cursor: pointer;
+    }
+
+    pre {
+        margin: 20px 0 0 0;
+        background: var(--content);
+        padding: 10px;
+        border-radius: 4px;
+
+        code {
+            white-space: pre-wrap;
+            max-height: 100px;
+            display: block;
+            overflow-y: scroll;
+            padding-right: 10px;
+            font-family: var(--bodyFont);
+            font-size: var(--sBody);
+            line-height: 160%;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) transparent;
         }
     }
 }

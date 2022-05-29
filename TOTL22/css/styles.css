@@ -670,6 +670,20 @@ luxblock {
   scrollbar-color: var(--accent) transparent;
 }
 
+#CODE-WRAP pre code::-webkit-scrollbar,
+.scroll::-webkit-scrollbar {
+  width: 5px;
+}
+#CODE-WRAP pre code::-webkit-scrollbar-track,
+.scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+#CODE-WRAP pre code::-webkit-scrollbar-thumb,
+.scroll::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
+
 .dark .lightOnly,
 .light .darkOnly,
 .lrgFont .smallOnly,
@@ -999,6 +1013,9 @@ nav {
 .breadcrumb-nav #navstrip {
   max-height: max-content;
 }
+.breadcrumb-nav #navstrip i {
+  padding: 0 5px;
+}
 .breadcrumb-nav #navstrip ~ br {
   display: none;
 }
@@ -1205,6 +1222,7 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: var(--sBody);
+  border-radius: 0;
 }
 .header--calendar {
   display: grid;
@@ -1337,6 +1355,15 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   line-height: 200%;
   display: flex;
   gap: 10px;
+}
+.forum--stats b {
+  font-family: var(--bodyFont);
+  font-size: var(--xsBody);
+  font-weight: 700;
+  padding: 0;
+  background: none;
+  display: inline;
+  border-radius: 0;
 }
 .forum h3 {
   margin: 0 0 15px 0;
@@ -1659,6 +1686,15 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   display: flex;
   gap: 10px;
 }
+.topic--stats b {
+  font-family: var(--bodyFont);
+  font-size: var(--xsBody);
+  font-weight: 700;
+  padding: 0;
+  background: none;
+  display: inline;
+  border-radius: 0;
+}
 .topic h3 {
   margin: 0 0 15px 0;
   font-size: 18px;
@@ -1728,12 +1764,18 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   font-size: var(--mBody);
   font-weight: 600;
   margin-bottom: 4px;
+  color: var(--accent);
 }
 .topic--poster.topic--starter a::before {
   content: "started by ";
+  color: var(--text);
 }
 .topic--poster.topic--latest a::before {
   content: "last post by ";
+  color: var(--text);
+}
+.topic--poster.topic--latest a:first-child {
+  display: none;
 }
 .topic--poster span {
   opacity: 0.7;
@@ -1776,6 +1818,36 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   .topic--extras hr {
     display: none;
   }
+}
+
+.topics-sort {
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--content);
+  padding: 10px;
+  margin-top: 20px;
+}
+.topics-sort select {
+  background: var(--background);
+}
+.topics-sort input {
+  background: var(--accent);
+  color: var(--accentColor);
+  font-family: var(--headerFont);
+  font-size: var(--mBody);
+  text-transform: lowercase;
+  border-radius: 4px;
+  padding: 10px;
+}
+.topics-active {
+  background: var(--content);
+  text-align: center;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 #SF main > table > tbody > tr,
@@ -1854,6 +1926,27 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
   border-radius: 4px;
   background: var(--ltaccent);
   color: var(--accentColor);
+}
+#SF main .goto-firstunread .pagination_current b,
+#SF main .goto-firstunread a b,
+#SF main .pagination .pagination_current b,
+#SF main .pagination a b,
+#SF form .goto-firstunread .pagination_current b,
+#SF form .goto-firstunread a b,
+#SF form .pagination .pagination_current b,
+#SF form .pagination a b,
+#ST main .goto-firstunread .pagination_current b,
+#ST main .goto-firstunread a b,
+#ST main .pagination .pagination_current b,
+#ST main .pagination a b,
+#ST form .goto-firstunread .pagination_current b,
+#ST form .goto-firstunread a b,
+#ST form .pagination .pagination_current b,
+#ST form .pagination a b {
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-size: var(--lBody);
 }
 #SF main .goto-firstunread .pagination_current,
 #SF main .goto-firstunread a:hover,
@@ -1968,6 +2061,60 @@ body:not(#idx):not(#Profile) header .header p, body:not(#idx):not(#Profile) .hea
 #ST .postlinksbar strong a:hover::after {
   width: 20px;
   color: var(--accentColor);
+}
+#ST .activeuserstrip,
+#ST .activeuserstrip + .row2 {
+  background: var(--content);
+  text-align: center;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0 20px;
+}
+#ST section + .activeuserstrip {
+  padding-top: 20px;
+}
+#ST .row2 + .activeuserstrip {
+  padding-bottom: 20px;
+}
+#ST #qr_open .maintitle,
+#ST #topic_open .maintitle {
+  background: none;
+  font-size: 20px;
+  letter-spacing: 10px;
+  color: var(--text);
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 30px;
+}
+#ST #qr_open .tablepad,
+#ST #topic_open .tablepad {
+  background: var(--content);
+  padding: 20px;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 200%;
+}
+#ST #qr_open .tablepad textarea,
+#ST #qr_open .tablepad select,
+#ST #topic_open .tablepad textarea,
+#ST #topic_open .tablepad select {
+  background: var(--background);
+}
+#ST #qr_open .tablepad input,
+#ST #topic_open .tablepad input {
+  background: var(--accent);
+  border-radius: 4px;
+  font-family: var(--headerFont);
+  text-transform: lowercase;
+  font-weight: 600;
+  color: var(--accentColor);
+}
+#ST #qr_open .tablepad b,
+#ST #topic_open .tablepad b {
+  padding: 0;
 }
 
 .post {
@@ -2324,6 +2471,33 @@ body:not(.g-4) .post--controls-inner label {
   .post--mini {
     display: none;
   }
+}
+
+#CODE-WRAP {
+  background: var(--background);
+  padding: 20px;
+  max-width: 370px;
+}
+#CODE-WRAP .codeclick {
+  cursor: pointer;
+}
+#CODE-WRAP pre {
+  margin: 20px 0 0 0;
+  background: var(--content);
+  padding: 10px;
+  border-radius: 4px;
+}
+#CODE-WRAP pre code {
+  white-space: pre-wrap;
+  max-height: 100px;
+  display: block;
+  overflow-y: scroll;
+  padding-right: 10px;
+  font-family: var(--bodyFont);
+  font-size: var(--sBody);
+  line-height: 160%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
 }
 
 /*******************************
@@ -3805,6 +3979,13 @@ body:not(.g-4) .post--controls-inner label {
 }
 #posting-form > tbody > tr#post-options > td label {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  font-family: var(--headerFont);
+  font-size: var(--mBody);
+  text-transform: lowercase;
+  font-weight: bold;
 }
 #posting-form > tbody > tr#post-options > td input {
   display: none;
@@ -3817,7 +3998,6 @@ body:not(.g-4) .post--controls-inner label {
   margin-right: 5px;
   border-radius: 4px;
   color: transparent;
-  margin-top: 10px;
   font-family: "Font Awesome 6 Pro";
   line-height: 16px;
   font-size: 12px;
@@ -3829,24 +4009,43 @@ body:not(.g-4) .post--controls-inner label {
   background: var(--accent);
   color: var(--accentColor);
 }
+#posting-form #edit-by-line,
+#posting-form #upload-files-header,
+#posting-form #upload-files,
 #posting-form #post-icon-options,
 #posting-form #topic-settings-header,
 #posting-form #code-buttons-header,
-#posting-form #code-buttons .pformdeft,
+#posting-form #code-buttons .pformleft,
 #posting-form #enter-your-post-header,
 #posting-form #post-as-header,
-#posting-form #post-options .pformdeft,
-#posting-form #post-icon-options .pformdeft,
-#posting-form #enter-your-post .pformdeft,
-#posting-form #post-as .pformdeft,
-#posting-form #topic-title .pformdeft,
-#posting-form #topic-desc .pformdeft {
+#posting-form #post-options .pformleft,
+#posting-form #post-icon-options .pformleft,
+#posting-form #enter-your-post .pformleft,
+#posting-form #post-as .pformleft,
+#posting-form #topic-title .pformleft,
+#posting-form #topic-desc .pformleft {
   display: none !important;
 }
 #posting-form #topic-title input,
 #posting-form #topic-desc input {
   width: 100%;
-  margin: 0;
+  margin: 0 0 20px 0;
+  background: var(--content);
+  padding: 10px 15px;
+  font-size: var(--mBody);
+  text-transform: none;
+}
+#posting-form #topic-title input {
+  font-size: var(--xlBody);
+  font-family: var(--headerFont);
+}
+#posting-form .maintitle {
+  margin: 40px auto;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 5px;
+  font-size: 16px;
+  text-align: center;
 }
 #posting-form #code-buttons {
   font-size: 0;
@@ -3854,10 +4053,105 @@ body:not(.g-4) .post--controls-inner label {
 #posting-form #code-buttons > .pformright > input {
   display: none;
 }
+#posting-form #code-buttons #bbcode-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+#posting-form #code-buttons #bbcode-buttons a,
+#posting-form #code-buttons #bbcode-buttons br {
+  display: none;
+}
 #posting-form #enter-your-post textarea {
   width: 100%;
   border: 0;
   margin: 0;
+  font-size: var(--lBody);
+  line-height: 200%;
+  height: 500px;
+}
+#posting-form #post-options {
+  margin: 20px 0;
+  background: var(--content);
+  padding: 20px;
+}
+#posting-form #post-options .pformright {
+  display: flex;
+  gap: 20px;
+}
+#posting-form #post-as {
+  margin-bottom: 20px;
+}
+#posting-form #post-as #post_as_selector {
+  display: block;
+  width: 100%;
+}
+#posting-form #post-as #post_as_selector select {
+  width: 100%;
+  padding: 10px 15px;
+  font-family: var(--headerFont);
+  font-size: var(--xlBody);
+}
+#posting-form tr:last-child input {
+  background: var(--ltaccent);
+  color: var(--accentColor);
+  font-family: var(--mBody);
+  text-transform: lowercase;
+  font-family: var(--headerFont);
+  border-radius: 4px;
+  cursor: pointer;
+}
+#posting-form tr:last-child input:hover {
+  background: var(--accent);
+}
+#posting-form tr:nth-last-child(2):not(#post-as) {
+  margin-bottom: 20px;
+  background: var(--content);
+  padding: 10px;
+}
+#posting-form tr:nth-last-child(2):not(#post-as) .pformleft {
+  display: none;
+}
+#posting-form tr:nth-last-child(2):not(#post-as) select {
+  background: var(--background);
+}
+#posting-form tr:nth-last-child(3):not(#post-as) {
+  display: none;
+}
+
+.quick-edit {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: max-content max-content;
+}
+.quick-edit .editor {
+  grid-column: span 2;
+}
+.quick-edit .buttons,
+.quick-edit .right-buttons {
+  float: none !important;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.quick-edit .buttons input,
+.quick-edit .buttons a,
+.quick-edit .right-buttons input,
+.quick-edit .right-buttons a {
+  background: var(--accent);
+  font-size: var(--mBody);
+  text-transform: lowercase;
+  border-radius: 4px;
+  font-family: var(--headerFont);
+  font-weight: 600;
+  padding: 10px;
+  height: 32px;
+  display: inline-block;
+}
+.quick-edit textarea {
+  background: var(--background);
+  padding: 20px;
 }
 
 #UserCP header .header,
@@ -5445,19 +5739,19 @@ body:not(.g-4) .post--controls-inner label {
 }
 
 #Online .maintitle {
-  border-top: 1px solid var(--midGrey-70);
-  border-bottom: 1px solid var(--midGrey-70);
   margin: 0;
-  padding: 70px 30px;
   text-align: center;
-  font-family: var(--serif);
-  font-size: 36px;
-  text-transform: capitalize;
-  color: var(--white);
+  margin: 40px auto;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 5px;
+  font-size: 16px;
+  text-align: center;
 }
 #Online .maintitle + table > tbody {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  grid-gap: 20px;
 }
 @media only screen and (min-width: 480px) {
   #Online .maintitle + table > tbody {
@@ -5470,55 +5764,35 @@ body:not(.g-4) .post--controls-inner label {
   }
 }
 #Online .maintitle + table > tbody > tr {
-  border-bottom: 1px solid var(--midGrey-70);
-  padding: 30px;
   display: grid;
   grid-gap: 5px;
+  background: var(--content);
+  padding: 10px;
+}
+#Online .maintitle + table > tbody > tr select {
+  background: var(--background);
+}
+#Online .maintitle + table > tbody > tr input {
+  background: var(--accent);
+  color: var(--accentColor);
+  text-transform: lowercase;
+  font-family: var(--headerFont);
+  font-weight: 600;
+  font-size: var(--mBody);
+  border-radius: 4px;
 }
 #Online .maintitle + table > tbody > tr:first-child {
   display: none;
 }
 #Online .maintitle + table > tbody > tr:last-child {
   grid-column: 1/-1;
-  border-top: 1px solid var(--midGrey-70);
-  border-right: 0;
   text-align: center;
-}
-#Online .maintitle + table > tbody > tr:nth-last-child(2) {
-  border-bottom: 0;
-}
-@media only screen and (min-width: 480px) {
-  #Online .maintitle + table > tbody > tr {
-    border-right: 1px solid var(--midGrey-70);
-  }
-  #Online .maintitle + table > tbody > tr:nth-last-child(2), #Online .maintitle + table > tbody > tr:nth-last-child(3):nth-last-child(2n+1) {
-    border-bottom: 0;
-  }
-  #Online .maintitle + table > tbody > tr:nth-child(2n+1) {
-    border-right: 0;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  #Online .maintitle + table > tbody > tr:nth-last-child(2), #Online .maintitle + table > tbody > tr:nth-last-child(3):nth-last-child(2n+1) {
-    border-bottom: 1px solid var(--midGrey-70);
-  }
-  #Online .maintitle + table > tbody > tr:nth-child(2n+1) {
-    border-right: 1px solid var(--midGrey-70);
-  }
-  #Online .maintitle + table > tbody > tr:nth-last-child(2), #Online .maintitle + table > tbody > tr:nth-last-child(3):nth-last-child(3n), #Online .maintitle + table > tbody > tr:nth-last-child(4):nth-last-child(3n+1) {
-    border-bottom: 0;
-  }
-  #Online .maintitle + table > tbody > tr:nth-child(3n+1) {
-    border-right: 0;
-  }
 }
 #Online .maintitle + table > tbody > tr .row1 {
   font-size: var(--xsBody);
   text-transform: uppercase;
   letter-spacing: 2px;
-}
-#Online .maintitle + table > tbody > tr .row1 a {
-  color: var(--white);
+  text-align: left;
 }
 #Online .maintitle + table > tbody > tr .row1:first-child {
   font-size: 0;
@@ -5528,17 +5802,19 @@ body:not(.g-4) .post--controls-inner label {
   font-size: var(--xsBody);
 }
 #Online .maintitle + table > tbody > tr .row1:first-child a:first-child {
-  font-family: var(--serif);
+  font-family: var(--headerFont);
+  font-weight: 600;
+  letter-spacing: 0;
   text-transform: capitalize;
   font-size: var(--xlBody);
   margin-bottom: 5px;
 }
+#Online .maintitle + table > tbody > tr .row1:last-child {
+  display: none;
+}
 
 #Search.code-getactive main > form > div {
   width: 100% !important;
-  border-top: 1px solid var(--midGrey-70);
-  border-bottom: 1px solid var(--midGrey-70);
-  padding: 50px;
   text-align: center;
 }
 #Search.code-getactive main > form > div:first-child {
@@ -5552,17 +5828,18 @@ body:not(.g-4) .post--controls-inner label {
 }
 #Search.code-getactive main > form > div fieldset legend {
   margin: 0 auto 10px;
-  font-family: var(--serif);
   font-size: var(--xlBody);
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+#Search.code-getactive main > form > div fieldset legend strong {
+  font-weight: 300;
 }
 #Search.code-getactive main #active-topics .maintitle {
   display: none;
 }
 #Search.code-getactive main #active-topics .maintitle ~ .titlemedium {
-  padding: 15px;
-  border-bottom: 1px solid var(--midGrey-70);
+  padding: 20px;
   font-size: var(--xsBody);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -5571,6 +5848,7 @@ body:not(.g-4) .post--controls-inner label {
 #Search.code-getactive main #active-topics .maintitle + table > tbody {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  grid-gap: 20px;
 }
 @media only screen and (min-width: 480px) {
   #Search.code-getactive main #active-topics .maintitle + table > tbody {
@@ -5583,13 +5861,12 @@ body:not(.g-4) .post--controls-inner label {
   }
 }
 #Search.code-getactive main #active-topics .maintitle + table > tbody > tr {
-  border-bottom: 1px solid var(--midGrey-70);
-  padding: 30px;
   display: grid;
-  grid-gap: 5px;
   text-transform: uppercase;
   font-size: var(--xsBody);
   letter-spacing: 2px;
+  background: var(--content);
+  grid-template-rows: auto max-content max-content max-content max-content max-content max-content;
 }
 #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:first-child {
   display: none;
@@ -5597,26 +5874,38 @@ body:not(.g-4) .post--controls-inner label {
 #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:last-child {
   border-bottom: 0;
 }
-#Search.code-getactive main #active-topics .maintitle + table > tbody > tr a {
-  color: var(--white);
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td {
+  width: 100%;
+  text-align: left;
+  padding: 5px 10px;
 }
 #Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(1), #Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(2) {
   display: none;
 }
 #Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(3) {
   display: grid;
+  background: var(--ltaccent);
+  color: var(--accentColor);
+  padding: 10px;
+  grid-template-rows: auto max-content;
+  align-items: start;
+  grid-gap: 5px;
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(3) a {
+  color: var(--accentColor);
+  letter-spacing: 0;
+  font-weight: 600;
 }
 #Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(3) > table {
-  font-family: var(--serif);
   font-size: var(--lBody);
-  text-transform: capitalize;
+  text-transform: lowercase;
+  font-family: var(--headerFont);
 }
 #Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(3) .desc {
   display: block;
-  margin-top: 5px;
-  border-bottom: 1px solid var(--midGrey-70);
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+}
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(4) {
+  padding-top: 10px;
 }
 #Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(4):before {
   content: "posted in ";
@@ -5634,54 +5923,55 @@ body:not(.g-4) .post--controls-inner label {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  padding-bottom: 10px;
 }
 #Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(8) > a, #Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(8) > b {
   order: -1;
 }
-@media only screen and (min-width: 480px) {
-  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr {
-    border-right: 1px solid var(--midGrey-70);
-  }
-  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(2n):not(:nth-child(2n+1)) {
-    border-bottom: 0;
-  }
-  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-child(2n+1) {
-    border-right: 0;
-  }
+#Search.code-getactive main #active-topics .maintitle + table > tbody > tr > td:nth-child(8) b {
+  background: none;
+  padding: 0;
+  width: 100%;
 }
-@media only screen and (min-width: 1024px) {
-  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-child(2n+1) {
-    border-right: 1px solid var(--midGrey-70);
-  }
-  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(2n):not(:nth-child(2n+1)) {
-    border-bottom: 1px solid var(--midGrey-70);
-  }
-  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(3n+2):not(:nth-child(3n+1)), #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-last-child(3):nth-last-child(3n):not(:nth-child(3n)):not(:nth-child(3n+1)) {
-    border-bottom: 0 !important;
-  }
-  #Search.code-getactive main #active-topics .maintitle + table > tbody > tr:nth-child(3n+1) {
-    border-right: 0;
-  }
+#Search.code-show .pagination {
+  display: flex;
+  margin-right: 5px;
+  padding: 3px 0;
 }
-#Search.code-getactive main #active-topics .maintitle ~ .titlemedium {
-  border-top: 1px solid var(--midGrey-70);
+#Search.code-show .pagination_pagetxt {
+  display: none;
+}
+#Search.code-show .pagination_current {
+  display: block;
+  margin-right: 5px;
+}
+#Search.code-show .pagination_current b {
+  background: var(--accent);
+  color: var(--accentColor);
+  font-size: var(--xlBody);
+  padding: 5px 10px;
+}
+#Search.code-show .pagination_page {
+  font-size: var(--lBody);
+  font-family: var(--headerFont);
+  background: var(--dkGrey);
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: var(--headerText);
+  margin-right: 5px;
+}
+#Search.code-show .pagination_page:hover {
+  background: var(--accent);
+  color: var(--accentColor);
+  cursor: pointer;
 }
 #Search.code-show main > a[name=top] + div {
   position: relative;
-  background: var(--black-50);
   display: block;
-  padding: 15px;
-  font-family: var(--serif);
   font-size: var(--xlBody);
-  color: var(--white);
-  border-top: 1px solid var(--midGrey-70);
-  border-bottom: 1px solid var(--midGrey-70);
 }
 #Search.code-show main > a[name=top] + div br {
   display: none;
-}
-#Search.code-show main > a[name=top] + div a {
-  color: var(--white);
 }
 #Search.code-show main > a[name=top] + div > tbody {
   width: 100%;
@@ -5692,90 +5982,101 @@ body:not(.g-4) .post--controls-inner label {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 30px;
 }
 #Search.code-show main > a[name=top] + div > tbody > tr > td:last-child {
   display: flex;
-  gap: 20px;
-}
-#Search.code-show main > a[name=top] + div .pagination_pagetxt {
-  display: none;
-}
-#Search.code-show main > a[name=top] + div .pagination_current {
-  display: inline-block;
-  background: var(--accent);
-  padding: 5px 10px;
-  margin: 0 5px;
-  border-radius: 4px;
-}
-#Search.code-show main > a[name=top] + div .pagination_page {
-  padding: 5px;
-  margin: 0 5px;
 }
 #Search.code-show main > .tableborder .maintitle {
   text-align: center;
-  padding: 50px;
-  border-bottom: 1px solid var(--midGrey-70);
-  font-family: var(--serif);
-  font-size: 24px;
-  text-transform: capitalize;
-  color: var(--white);
+  background: var(--ltaccent);
+  padding: 20px 20px 0;
+  font-size: 0;
 }
 #Search.code-show main > .tableborder .maintitle a {
-  color: var(--white);
+  display: block;
+  border: 1px solid var(--content);
+  font-size: 30px;
+  font-weight: 300;
+  padding: 45px 45px 0;
+  border-bottom: 0;
+  text-transform: capitalize;
+  font-family: var(--accentFont);
+  color: var(--accentColor);
 }
-#Search.code-show main > .tableborder tr {
-  border-bottom: 1px solid var(--midGrey-70);
+#Search.code-show main > .tableborder table,
+#Search.code-show main > .tableborder tbody {
+  display: block;
 }
 #Search.code-show main > .tableborder tr:first-child {
   display: flex;
   flex-direction: column;
-  padding: 15px;
   text-transform: uppercase;
   font-size: var(--xsBody);
   letter-spacing: 2px;
-  background: var(--black);
+  padding: 0 20px;
+  background: var(--ltaccent);
 }
-#Search.code-show main > .tableborder tr:first-child strong {
-  font-weight: normal;
+#Search.code-show main > .tableborder tr:first-child b {
+  background: none;
+  padding: 0;
 }
 #Search.code-show main > .tableborder tr:first-child a {
-  font-family: var(--serif);
   font-size: var(--xlBody);
-  text-transform: capitalize;
-  display: block;
+  font-weight: 600;
+  text-transform: lowercase;
   margin-bottom: 5px;
   letter-spacing: 0;
-  color: var(--white);
+}
+#Search.code-show main > .tableborder tr:first-child a:before {
+  content: "written by ";
+}
+#Search.code-show main > .tableborder tr:first-child td {
+  width: 100%;
+  border-left: 1px solid var(--content);
+  border-right: 1px solid var(--content);
+  padding: 0 20px 5px;
+}
+#Search.code-show main > .tableborder tr:first-child td:first-child {
+  padding-top: 20px;
+}
+#Search.code-show main > .tableborder tr:first-child td:last-child {
+  padding-bottom: 20px;
 }
 #Search.code-show main > .tableborder tr:nth-child(2) {
   display: block;
-  padding: 30px;
-  background: var(--black-50);
   font-size: var(--mBody);
   line-height: 200%;
+  background: var(--content);
+  padding: 30px;
 }
 #Search.code-show main > .tableborder tr:nth-child(2) td:first-child {
   display: none;
 }
 #Search.code-show main > .tableborder tr:nth-child(3) {
   display: block;
-  padding: 15px;
-  background: var(--black);
   font-size: var(--xsBody);
   text-align: right;
   text-transform: uppercase;
   letter-spacing: 2px;
+  background: var(--ltaccent);
+  color: var(--accentColor);
+  padding: 0 20px 20px;
 }
-#Search.code-show main > .tableborder tr:nth-child(3) a {
-  color: var(--white);
+#Search.code-show main > .tableborder tr:nth-child(3) td:first-child {
+  display: none;
+}
+#Search.code-show main > .tableborder tr:nth-child(3) td:last-child {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--content);
+  border-top: 0;
+  padding: 20px;
 }
 #Search.code-show main #search-topics .maintitle {
   display: none;
 }
 #Search.code-show main #search-topics .maintitle ~ .titlemedium {
-  padding: 15px;
-  border-bottom: 1px solid var(--midGrey-70);
+  padding: 20px;
   font-size: var(--xsBody);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -5784,6 +6085,7 @@ body:not(.g-4) .post--controls-inner label {
 #Search.code-show main #search-topics .maintitle + table > tbody {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  grid-gap: 20px;
 }
 @media only screen and (min-width: 480px) {
   #Search.code-show main #search-topics .maintitle + table > tbody {
@@ -5796,13 +6098,12 @@ body:not(.g-4) .post--controls-inner label {
   }
 }
 #Search.code-show main #search-topics .maintitle + table > tbody > tr {
-  border-bottom: 1px solid var(--midGrey-70);
-  padding: 30px;
   display: grid;
-  grid-gap: 5px;
   text-transform: uppercase;
   font-size: var(--xsBody);
   letter-spacing: 2px;
+  background: var(--content);
+  grid-template-rows: auto max-content max-content max-content max-content max-content max-content;
 }
 #Search.code-show main #search-topics .maintitle + table > tbody > tr:first-child {
   display: none;
@@ -5810,26 +6111,38 @@ body:not(.g-4) .post--controls-inner label {
 #Search.code-show main #search-topics .maintitle + table > tbody > tr:last-child {
   border-bottom: 0;
 }
-#Search.code-show main #search-topics .maintitle + table > tbody > tr a {
-  color: var(--white);
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td {
+  width: 100%;
+  text-align: left;
+  padding: 5px 10px;
 }
 #Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(1), #Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(2) {
   display: none;
 }
 #Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(3) {
   display: grid;
+  background: var(--ltaccent);
+  color: var(--accentColor);
+  padding: 10px;
+  grid-template-rows: auto max-content;
+  align-items: start;
+  grid-gap: 5px;
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(3) a {
+  color: var(--accentColor);
+  letter-spacing: 0;
+  font-weight: 600;
 }
 #Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(3) > table {
-  font-family: var(--serif);
   font-size: var(--lBody);
-  text-transform: capitalize;
+  text-transform: lowercase;
+  font-family: var(--headerFont);
 }
 #Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(3) .desc {
   display: block;
-  margin-top: 5px;
-  border-bottom: 1px solid var(--midGrey-70);
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+}
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(4) {
+  padding-top: 10px;
 }
 #Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(4):before {
   content: "posted in ";
@@ -5847,48 +6160,25 @@ body:not(.g-4) .post--controls-inner label {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  padding-bottom: 10px;
 }
 #Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(8) > a, #Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(8) > b {
   order: -1;
 }
-@media only screen and (min-width: 480px) {
-  #Search.code-show main #search-topics .maintitle + table > tbody > tr {
-    border-right: 1px solid var(--midGrey-70);
-  }
-  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(2n):not(:nth-child(2n+1)) {
-    border-bottom: 0;
-  }
-  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-child(2n+1) {
-    border-right: 0;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-child(2n+1) {
-    border-right: 1px solid var(--midGrey-70);
-  }
-  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(2n):not(:nth-child(2n+1)) {
-    border-bottom: 1px solid var(--midGrey-70);
-  }
-  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-last-child(2):nth-last-child(3n+2):not(:nth-child(3n+1)), #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-last-child(3):nth-last-child(3n):not(:nth-child(3n)):not(:nth-child(3n+1)) {
-    border-bottom: 0 !important;
-  }
-  #Search.code-show main #search-topics .maintitle + table > tbody > tr:nth-child(3n+1) {
-    border-right: 0;
-  }
-}
-#Search.code-show main #search-topics .maintitle ~ .titlemedium {
-  border-top: 1px solid var(--midGrey-70);
+#Search.code-show main #search-topics .maintitle + table > tbody > tr > td:nth-child(8) b {
+  background: none;
+  padding: 0;
+  width: 100%;
 }
 
 #Post #topic-summary > .tableborder > .pformstrip {
-  padding: 15px;
-  border-bottom: 1px solid var(--midGrey-70);
+  padding: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: var(--xsBody);
 }
 #Post #topic-summary tr {
-  border-bottom: 1px solid var(--midGrey-70);
+  background: var(--content);
 }
 #Post #topic-summary tr:nth-child(odd) {
   display: flex;
@@ -5897,26 +6187,30 @@ body:not(.g-4) .post--controls-inner label {
   text-transform: uppercase;
   font-size: var(--xsBody);
   letter-spacing: 2px;
-  background: var(--black);
+  background: var(--ltaccent);
+  color: var(--accentColor);
+}
+#Post #topic-summary tr:nth-child(odd) td:first-child {
+  padding-bottom: 0;
 }
 #Post #topic-summary tr:nth-child(odd) strong {
   font-weight: normal;
 }
 #Post #topic-summary tr:nth-child(odd) b {
-  font-family: var(--serif);
-  font-size: var(--xlBody);
+  font-size: 20px;
+  font-weight: 600;
   text-transform: capitalize;
   display: block;
-  margin-bottom: 5px;
   letter-spacing: 0;
-  color: var(--white);
+  padding: 0;
+  background: none;
 }
 #Post #topic-summary tr:nth-child(even) {
   display: block;
   padding: 30px;
-  background: var(--black-50);
   font-size: var(--mBody);
   line-height: 200%;
+  margin-bottom: 20px;
 }
 #Post #topic-summary tr:nth-child(even) td:first-child {
   display: none;
@@ -5924,54 +6218,50 @@ body:not(.g-4) .post--controls-inner label {
 
 #Login main > p {
   margin: 0;
-  padding: 30px 30px 0;
-}
-#Login main > p:first-of-type {
-  border-top: 1px solid var(--midGrey-70);
+  padding: 20px 20px 0;
 }
 #Login main > p:last-of-type {
-  padding-bottom: 30px;
-  border-bottom: 1px solid var(--midGrey-70);
+  padding-bottom: 20px;
 }
 #Login main > b {
   display: block;
   padding: 30px;
-  border-bottom: 1px solid var(--midGrey-70);
-  font-family: var(--serif);
   font-size: var(--lBody);
   text-align: center;
+  border-radius: 0;
 }
 #Login main > b a {
-  color: var(--white);
+  color: var(--accent);
+}
+#Login main form {
+  background: var(--content);
+  padding: 20px;
 }
 #Login main form .maintitle,
 #Login main form .pformstrip:not(:last-child) {
   display: none;
 }
-#Login main form .pformstrip:last-child {
-  background: var(--black);
-  border-bottom: 1px solid var(--midGrey-70);
-}
 #Login main form .pformstrip:last-child input {
   margin: 0;
-  padding: 30px;
-  font-family: var(--serif);
-  font-size: 24px;
-  text-transform: capitalize;
-  letter-spacing: 0;
-  background: none;
-  border-radius: 0;
-  color: var(--white);
+  padding: 10px;
+  border-radius: 4px;
+  background: var(--accent);
+  color: var(--accentColor);
+  text-transform: lowercase;
+  font-family: var(--headerFont);
+  font-size: var(--mBody);
   cursor: pointer;
-  width: 100%;
+  width: auto;
 }
 #Login main form tr {
   display: block;
-  border-bottom: 1px solid var(--midGrey-70);
-  padding: 15px 30px;
   line-height: 200%;
 }
 #Login main form tr td {
+  display: block;
+}
+#Login main form table,
+#Login main form tbody {
   display: block;
 }
 #Login main form table:first-of-type tr {
@@ -5988,11 +6278,11 @@ body:not(.g-4) .post--controls-inner label {
 }
 #Login main form table:first-of-type tr input {
   width: 250px;
-  background: var(--light);
+  background: var(--background);
   border: 0;
   padding: 5px 10px;
   border-radius: 2px;
-  color: var(--dark);
+  color: var(--text);
   font-size: var(--sBody);
   letter-spacing: 1px;
   font-family: var(--bodyFont);
@@ -6000,16 +6290,30 @@ body:not(.g-4) .post--controls-inner label {
   line-height: var(--sBody);
   margin: 0 5px 5px 0;
 }
+#Login main form table:last-of-type b {
+  padding: 0;
+}
+#Login main form table:last-of-type tr:last-child {
+  display: none;
+}
 
+#Reg main > .tableborder {
+  background: var(--content);
+  padding: 20px;
+}
+#Reg form {
+  background: var(--content);
+  padding: 20px;
+}
 #Reg form > b {
   display: block;
-  border-top: 1px solid var(--midGrey-70);
-  border-bottom: 1px solid var(--midGrey-70);
-  padding: 50px;
-  text-transform: capitalize;
-  font-family: var(--serif);
-  font-size: 24px;
+  margin: 40px auto;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 5px;
+  font-size: 16px;
   text-align: center;
+  background: none;
 }
 #Reg form > p {
   margin: 0 30px;
@@ -6017,9 +6321,84 @@ body:not(.g-4) .post--controls-inner label {
 #Reg form > .tableborder > .pformstrip {
   display: none;
 }
+#Reg form > .tableborder table,
+#Reg form > .tableborder tbody,
+#Reg form > .tableborder tr,
+#Reg form > .tableborder td {
+  display: block;
+}
+#Reg form > .tableborder > .tablepad tr:first-child {
+  display: grid;
+}
+#Reg form > .tableborder > .tablepad tr:first-child td {
+  width: 100%;
+}
+#Reg form > .tableborder > .tablepad tr:first-child td:last-child > div > b {
+  display: none;
+}
+#Reg form > .tableborder > .tablepad tr:first-child input,
+#Reg form > .tableborder > .tablepad tr:first-child select,
+#Reg form > .tableborder > .tablepad tr:first-child textarea {
+  background: var(--background);
+  width: 100%;
+}
+#Reg form > .tableborder > .tablepad tr legend {
+  max-width: max-content;
+  padding: 0 20px 0 5px;
+  line-height: 100%;
+}
+#Reg form > .tableborder > .tablepad tr legend::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background: var(--ltaccent);
+  opacity: var(--opacityShift);
+}
+#Reg form > .tableborder > .tablepad tr legend b {
+  padding: 0;
+  margin: 0;
+  background: none;
+  font-family: var(--headerFont);
+  font-size: var(--xlBody);
+}
 #Reg form fieldset {
   border: 1px solid var(--midGrey-70);
   padding: 15px;
+}
+#Reg form fieldset.notifications {
+  font-size: 0;
+}
+#Reg form fieldset.notifications input {
+  display: none;
+}
+#Reg form fieldset.notifications .staffWrap,
+#Reg form fieldset.notifications .memWrap {
+  font-size: var(--lBody);
+}
+#Reg form fieldset.notifications .staffWrap input + span,
+#Reg form fieldset.notifications .memWrap input + span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: var(--ltaccent);
+  margin-right: 5px;
+  border-radius: 4px;
+  color: transparent;
+  font-family: "Font Awesome 6 Pro";
+  line-height: 16px;
+  font-size: 12px;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  cursor: pointer;
+}
+#Reg form fieldset.notifications .staffWrap input:checked + span,
+#Reg form fieldset.notifications .memWrap input:checked + span {
+  background: var(--accent);
+  color: var(--accentColor);
 }
 #Reg form fieldset legend {
   padding: 0 15px;
@@ -6044,57 +6423,61 @@ body:not(.g-4) .post--controls-inner label {
 }
 #Reg form fieldset:nth-of-type(2) tr, #Reg form fieldset:nth-of-type(3) tr {
   display: grid;
-  grid-template-columns: 250px 250px;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
 }
 #Reg form .desc {
-  padding: 30px 0;
-  font-family: var(--serif);
-  text-transform: capitalize;
-  font-size: var(--xlBody);
+  padding: 10px 0;
+  font-size: var(--lBody);
+  line-height: 200%;
 }
 #Reg form input[type=submit] {
-  font-family: var(--serif);
-  text-transform: capitalize;
-  font-size: 24px;
-  padding: 20px;
-  letter-spacing: 0;
+  padding: 10px;
+  background: var(--accent);
+  color: var(--accentColor);
+  text-transform: lowercase;
+  font-family: var(--headerFont);
+  font-weight: 600;
+  border-radius: 4px;
 }
 #Reg .maintitle {
-  border-top: 1px solid var(--midGrey-70);
-  border-bottom: 1px solid var(--midGrey-70);
-  padding: 50px;
-  text-transform: capitalize;
-  font-family: var(--serif);
-  font-size: 24px;
+  margin: 40px auto;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 5px;
+  font-size: 16px;
   text-align: center;
 }
 #Reg .maintitle ~ .pformstrip {
-  padding: 30px 30px 0;
+  padding: 20px 20px 0;
 }
 #Reg .maintitle ~ .tablepad {
-  padding: 30px;
+  padding: 20px;
+}
+#Reg .maintitle ~ .tablepad b {
+  margin: 0;
+  padding: 0;
+}
+#Reg .maintitle ~ .tablepad b + br {
+  display: none;
 }
 #Reg .maintitle ~ .row2:not(:last-child) {
-  padding: 0 30px 30px;
-  border-bottom: 1px solid var(--midGrey-70);
-}
-#Reg .maintitle ~ .row2:last-child {
-  background: var(--black);
-  border-bottom: 1px solid var(--midGrey-70);
+  padding: 0 20px 20px;
 }
 #Reg .maintitle ~ .row2:last-child input {
   margin: 0;
-  padding: 30px;
-  font-family: var(--serif);
-  font-size: 24px;
-  text-transform: capitalize;
+  padding: 10px;
+  font-family: var(--headerFont);
+  font-size: var(--mBody);
+  text-transform: lowercase;
   letter-spacing: 0;
-  background: none;
+  background: var(--accent);
   border-radius: 0;
-  color: var(--white);
+  color: var(--accentColor);
   cursor: pointer;
-  width: 100%;
+  width: auto;
+  font-weight: 600;
+  border-radius: 4px;
 }
 
 #redirect-screen {
@@ -6103,19 +6486,17 @@ body:not(.g-4) .post--controls-inner label {
   align-items: center;
   justify-items: center;
   text-align: center;
-  color: var(--white);
+  background: #d7d7d7;
   font-family: "Montserrat", sans-serif;
+  color: #282828;
 }
 #redirect-screen .tablefill {
-  background: var(--black-50);
-  border: 1px solid var(--midGrey-70);
+  background: #ebebeb;
   display: block;
   padding: 30px;
-  font-size: var(--mBody);
+  font-size: 12px;
   line-height: 200%;
-}
-#redirect-screen .tablefill a {
-  color: var(--white);
+  width: max-content;
 }
 
 /*******************************

@@ -68,6 +68,16 @@
         line-height: 200%;
         display: flex;
         gap: 10px;
+
+        b {
+            font-family: var(--bodyFont);
+            font-size: var(--xsBody);
+            font-weight: 700;
+            padding: 0;
+            background: none;
+            display: inline;
+            border-radius: 0;
+        }
     }
 
     h3 {

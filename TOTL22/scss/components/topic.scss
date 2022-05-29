@@ -36,6 +36,16 @@
         line-height: 200%;
         display: flex;
         gap: 10px;
+
+        b {
+            font-family: var(--bodyFont);
+            font-size: var(--xsBody);
+            font-weight: 700;
+            padding: 0;
+            background: none;
+            display: inline;
+            border-radius: 0;
+        }
     }
 
     h3 {
@@ -111,14 +121,20 @@
             font-size: var(--mBody);
             font-weight: 600;
             margin-bottom: 4px;
+            color: var(--accent);
         }
 
         &.topic--starter a::before {
             content: 'started by ';
+            color: var(--text);
         }
 
         &.topic--latest a::before {
             content: 'last post by ';
+            color: var(--text);
+        }
+        &.topic--latest a:first-child {
+            display: none;
         }
 
         span {
@@ -170,6 +186,40 @@
     }
 }
 
+.topics {
+    &-sort {
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: var(--content);
+        padding: 10px;
+        margin-top: 20px;
+
+        select {
+            background: var(--background);
+        }
+
+        input {
+            background: var(--accent);
+            color: var(--accentColor);
+            font-family: var(--headerFont);
+            font-size: var(--mBody);
+            text-transform: lowercase;
+            border-radius: 4px;
+            padding: 10px;
+        }
+    }
+    &-active {
+        background: var(--content);
+        text-align: center;
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 20px;
+        padding: 10px;
+    }
+}
+
 #SF,
 #ST {
     main, 
@@ -216,6 +266,13 @@
                 border-radius: 4px;
                 background: var(--ltaccent);
                 color: var(--accentColor);
+
+                b {
+                    background: none;
+                    padding: 0;
+                    margin: 0;
+                    font-size: var(--lBody);
+                }
             }
 
             .pagination_current,

@@ -1,6 +1,8 @@
 $(window).on('load', function() {
     if($('body#Pages').length === 0) {
-        document.querySelector('#loading').remove();
+        if(document.querySelector('#loading')) {
+            document.querySelector('#loading').remove();
+        }
     }
 });
 
@@ -762,6 +764,24 @@ if($('body#UserCP').length > 0 || $('body#Msg').length > 0) {
 }
 
 
+
+
+//Posting only
+if($('body#Post').length > 0) {
+    if(document.querySelector('body.code-00')) {
+        document.querySelector('#topic-title input').setAttribute('placeholder', 'Topic Title');
+        document.querySelector('#topic-desc input').setAttribute('placeholder', 'Topic Description');
+    }
+    $('#post-options .pformright input').first().wrap('<label class="emoteWrap"></label>');
+    $('.emoteWrap').append('<span><i class="fa-solid fa-check"></i></span> Enable Emojis');
+    $('#post-options .pformright input').last().wrap('<label class="repWrap"></label>');
+    $('.repWrap').append('<span><i class="fa-solid fa-check"></i></span> Enable Notifications');
+    let save = $('.emoteWrap, .repWrap').detach();
+    $('#post-options .pformright').empty().append(save);
+    document.querySelector('#bbcode-buttons').innerHTML = document.querySelector('#bbcode-buttons').innerHTML.replace(/&nbsp;/g,'');
+}
+
+
 //ModCP Only
 if($('body#modcp').length > 0) {
     document.querySelector('#modcp main > table:first-child > tbody > tr > td:first-child').innerHTML = `<b>Forums & Posts</b>
@@ -804,12 +824,35 @@ if($('#Login').length > 0) {
 }
 
 
-//Login Only
+//Register Only
 if($('#Reg').length > 0) {
     let textNodes = getAllTextNodes(document.querySelector('main > form'));
-    textNodes.forEach(node => {
-        const paragraph = document.createElement('p');
-        node.after(paragraph);
-        paragraph.appendChild(node);
-    });
+    if(textNodes) {
+        textNodes.forEach(node => {
+            const paragraph = document.createElement('p');
+            node.after(paragraph);
+            paragraph.appendChild(node);
+        });
+    }
+
+    if(document.querySelector('input[name="read_tos"][type="checkbox"]')) {
+        $('input[name="read_tos"][type="checkbox"]').wrap('<label class="tosWrap"></label>');
+        $('.tosWrap').append(document.querySelector('.tosWrap + b'));
+    }
+
+    if(document.querySelector('input[name="allow_admin_mail"][type="checkbox"]')) {
+        $('input[name="allow_admin_mail"][type="checkbox"]').wrap('<label class="staffWrap"></label>');
+        $('.staffWrap').append('<span><i class="fa-solid fa-check"></i></span> Receive email from staff');
+        $('input[name="allow_member_mail"][type="checkbox"]').wrap('<label class="memWrap"></label>');
+        $('.memWrap').append('<span><i class="fa-solid fa-check"></i></span> Receive email from other members');
+        $('.staffWrap').parent().addClass('notifications');
+    }
+
+    if(document.querySelectorAll('legend')) {
+        document.querySelectorAll('legend').forEach(legend => {
+            if(!legend.querySelector('b')) {
+                legend.innerHTML = `<b>${legend.innerHTML}</b>`;
+            }
+        })
+    }
 }

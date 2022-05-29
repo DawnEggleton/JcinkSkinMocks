@@ -317,6 +317,20 @@ luxblock {
     scrollbar-color: var(--accent) transparent;
 }
 
+#CODE-WRAP pre code,
+.scroll {
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 3px;
+    }
+}
+
 .dark .lightOnly,
 .light .darkOnly,
 .lrgFont .smallOnly,

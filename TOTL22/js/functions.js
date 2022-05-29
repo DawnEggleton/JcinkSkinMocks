@@ -1533,3 +1533,11 @@ function splitProfile() {
 		}
 	});
 }
+
+
+
+function getAllTextNodes(element) {
+    if(element) {
+        return Array.from(element.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+    }
+  }

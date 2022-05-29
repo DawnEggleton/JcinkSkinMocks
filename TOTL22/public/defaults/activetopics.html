@@ -31,7 +31,7 @@
         <script type='text/javascript' src='../../js/settings.js'></script>
         <link rel="stylesheet" href="../../css/settings.css" />
     </head>
-    <body id="idx" class="light smlFont g-4">
+    <body id="Search" class="dark g-4 code-getactive">
         <!--Header-->
         <header></header>
 
@@ -280,51 +280,6 @@ Expand=""
 	 </td>
    </tr>
   </tbody></table>
-  <script>
-
-function read_alerts() {
-	$('#recent-alerts').slideToggle('slow');
-	$.get( "index.php?recent_alerts=1&read=1", function( data ) {
-		$( "#recent_alerts_data" ).html( data );
-	});
-	$( ".alerts-indicator" ).html( "Alerts (0)");
-}
-
-
-function load_alerts() {
-
-		alert_link = $('.alerts-indicator').position().left-350;
-		
-		$('#recent-alerts').css({
-			left: alert_link + "px",
-		});
-		
-		if($('#recent-alerts').is(':visible')) {
-			$('#recent-alerts').slideToggle('slow');
-		} else {
-			$.get( "index.php?recent_alerts=1", function( data ) {
-				$( "#recent-alerts-data" ).html( data );
-			});
-			$("#recent-alerts").slideToggle('slow');
-		}
-}
-	
-</script>
-
-<style>
-  #recent-alerts {
-	position: absolute; 
-	width:400px;
-	z-index: 999;
-	text-align: left;
-  }
-</style>
- 
-<br>
-
-			<!-- Copyright Information -->
-
-<div class="tableborder" align="center"><div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;"><div class="copyright" align="center">Powered by <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a> (<a href="http://jcink.com" target="_blank">Jcink.com </a> <a href="https://jcink.com" target="_blank">Forum Hosting</a>) © 2022 &nbsp;<a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a> <br>Page creation time: 0.1309 <!-- http://totl.b1.jcink.com -->   · <a href="index.php?act=privacy">Privacy Policy</a></div></div></div> <script src="//files.jcink.net/html/quickedit/qe.js?v=1.01"></script> 
 		</main>
 
         <!-- Copyright Information -->
@@ -346,13 +301,13 @@ function load_alerts() {
         </div> 
 
         <!--Templates-->
-        <script type="text/javascript" src="../../templates/header.js"></script>
-        <script type="text/javascript" src="../../templates/calendar.js"></script>
-        <script type="text/javascript" src="../../templates/nav.js"></script>
-        <script type="text/javascript" src="../../templates/controls.js"></script>
+        <script type="text/javascript" src="../../templates/defaults/navigation.js"></script>
+        <script type="text/javascript" src="../../templates/defaults/header.js"></script>
+        <script type="text/javascript" src="../../templates/defaults/memberControls.js"></script>
+        <script type="text/javascript" src="../../templates/defaults/guestControls.js"></script>
 
         <!--Scripts-->
-        <script type="text/javascript" src="../../js/functions.js"></script>
-        <script type="text/javascript" src="../../js/scripts.js"></script>
+        <script src="../../js/functions.js"></script>
+        <script src="../../js/scripts.js"></script>
     </body>
 </html>

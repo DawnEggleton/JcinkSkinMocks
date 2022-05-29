@@ -249,6 +249,10 @@ nav {
     #navstrip {
         max-height: max-content;
 
+        i {
+            padding: 0 5px;
+        }
+
         & ~ br {
             display: none;
         }
