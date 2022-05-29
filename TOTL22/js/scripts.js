@@ -856,3 +856,126 @@ if($('#Reg').length > 0) {
         })
     }
 }
+
+
+//ModCP Only
+if($('body#store').length > 0) {
+    document.querySelector('#ucpmenu').innerHTML = `
+    <div class="ucp--menu">
+        <div class="ucp--main-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--main-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--main-menu-links">
+                <button data-subcategory="personal">Personal</button>
+                <button data-subcategory="shop">Shop</button>
+                <button data-subcategory="staff" class="staffOnly">Management</button>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--main-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="personal">
+                <a href="store-inventory.html">Inventory</a>
+                <a href="store-sendmoney.html">Send Galleons</a>
+                <a href="store-senditem.html">Gift Awards</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="shop">
+                <a href="store.html">Categories</a>
+                <a href="store-category.html">Appreciation</a>
+                <a href="store-category.html">Education</a>
+                <a href="store-category.html" class="staffOnly">Events</a>
+                <a href="store-category.html">Features & Occupations</a>
+                <a href="store-category.html" class="staffOnly">Longevity</a>
+                <a href="store-category.html" class="staffOnly">Posting</a>
+                <a href="store-category.html" class="staffOnly">Productivity</a>
+                <a href="store-category.html">Relationship Status</a>
+                <a href="store-category.html">Traits & Other</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="staff">
+                <a href="store-fine.html">Fine Members</a>
+                <a href="store-editpoints.html">Edit Galleons</a>
+                <a href="store-edititems.html">Edit Inventory</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+    </div>`;
+
+    // If using menu replacement in live skin, remove the above and uncomment the below:
+    /*
+    document.querySelector('#modcp main > table:first-child > tbody > tr > td:first-child').innerHTML = `<b>Forums & Posts</b>
+    <a href="?act=modcp&CODE=queue">Queue</a>
+    <a href="?act=modcp&CODE=reported">Reported</a>
+    <a href="?act=modcp&CODE=modlogs">Logs</a>
+    <a href="?act=modcp&CODE=prune">Prune</a>
+    <b>Users</b>
+    <a href="?act=modcp&CODE=members">Edit</a>
+    <a href="?act=modcp&CODE=warnpanel">Warn</a>
+    <a href="?act=modcp&CODE=warnlogs">Logs</a>
+    <a href="?act=modcp&CODE=ip">IP Tools</a>
+    <a href="?act=modcp&CODE=validating">Validation</a>`
+    */
+
+
+    let menuTriggers = document.querySelectorAll('.ucp--main-menu-links > button');
+
+    let menuSections = document.querySelectorAll('.ucp--sub-menu');
+
+    //sub menu - on button click, open inner menu
+    menuTriggers.forEach((trigger, index) => {
+        trigger.addEventListener('click', e => {
+            console.log(trigger);
+            menuTriggers.forEach(trigger => trigger.classList.remove('active'));
+            menuSections.forEach(menu => menu.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            menuSections[index].classList.add('active');
+        });
+    });
+    if(document.querySelector('body').classList.contains('store-fine') ||
+    document.querySelector('body').classList.contains('store-edit_inventory') ||
+    document.querySelector('body').classList.contains('store-edit_points')) {
+        menuTriggers[2].classList.add('active');
+        menuSections[2].classList.add('active');
+    } else if(document.querySelector('body').classList.contains('store-inventory') ||
+    document.querySelector('body').classList.contains('store-donate_item') ||
+    document.querySelector('body').classList.contains('store-donate_money')) {
+        menuTriggers[0].classList.add('active');
+        menuSections[0].classList.add('active');
+    } else {
+        menuTriggers[1].classList.add('active');
+        menuSections[1].classList.add('active');
+    }
+
+    //shop categories
+    if($('body.store-shop').length > 0) {
+        document.querySelectorAll('.row4:nth-child(4)').forEach(row => row.innerHTML = `<b>${row.innerHTML}</b> owned`);
+        document.querySelectorAll('.row4:nth-child(5)').forEach(row => row.innerHTML = `<b>${row.innerHTML}</b> in stock`);
+    }
+
+    //shop categories
+    if($('body.store-inventory').length > 0) {
+        document.querySelectorAll('.row4:nth-child(4)').forEach(row => row.innerHTML = `<b>${row.innerHTML}</b> owned`);
+    }
+}
