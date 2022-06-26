@@ -136,6 +136,20 @@
         }
     }
 }
+#post-preview {
+    .pformstrip {
+        font-size: 20px;
+        font-weight: 200;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 15px;
+        margin: 0 auto 40px;
+    }
+    .row1 {
+        background: var(--content);
+        padding: 20px !important;
+    }
+}
 
 .post {
     background: var(--content);
@@ -491,11 +505,8 @@
             line-height: 200%;
 
             p {
-                &:first-child {
-                    margin-top: -15px;
-                }
-                &:last-child {
-                    margin-bottom: -15px;
+                &:not(:first-child) {
+                    margin-top: 20px;
                 }
             }
         }

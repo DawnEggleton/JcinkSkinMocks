@@ -301,6 +301,10 @@ nav {
             opacity: 1;
             font-size: calc(var(--mBody) + 3px);
         }
+
+        &.new {
+            color: #c8ff78;
+        }
     }
 
     button {

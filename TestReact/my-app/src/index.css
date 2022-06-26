@@ -1,0 +1,271 @@
+:root {
+  --primary: #4caf50;
+  --secondary: #ffc107;
+  --light-gray: #dadce0;
+  --dark: #222;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 30px;
+}
+
+.ui-link {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.ui-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.ui-textfield {
+  padding: 12px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--light-gray);
+  font-size: 16px;
+}
+
+.ui-button {
+  background-color: var(--primary);
+  color: white;
+  border: 0;
+  padding: 15px 20px;
+  min-width: 150px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: opacity 200ms ease-out;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.ui-button:hover {
+  opacity: 0.8;
+}
+
+.ui-button:disabled {
+  opacity: 0.4;
+  cursor: disabled;
+}
+
+[class^="ui-"] {
+  margin: 10px;
+}
+
+label {
+  display: inline-block;
+  min-width: 100px;
+  margin: 5px 0;
+}
+
+.btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  min-width: 100px;
+  border: 0;
+  border-radius: 3px;
+  font-size: 16px;
+  color: white;
+  transition: opacity 180ms ease-out, transform 180ms ease-out;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn:active {
+  transform: translate(1px, 1px);
+}
+.btn-primary {
+  background-color: var(--primary);
+}
+.btn-outline {
+  border: 1px solid var(--dark);
+  color: var(--dark);
+}
+.btn-delete {
+  margin-top: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.store-front {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 20px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.validation-message {
+  color: red;
+}
+
+.textfield {
+  width: 100%;
+  padding: 12px;
+  border-radius: 2px;
+  border: 1px solid var(--light-gray);
+  font-size: 16px;
+  transition: opacity 200ms ease-out;
+  margin: 5px 0 15px;
+}
+
+form {
+  background-color: var(--light-gray);
+  padding: 20px;
+  border-radius: 3px;
+}
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product {
+  background-color: #ececec;
+  border-radius: 4px;
+  display: grid;
+  min-height: 110px;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+.product img {
+  padding: 10px 20px;
+  box-sizing: content-box;
+}
+.product-info {
+  padding: 10px;
+}
+.product-info h2 {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: normal;
+}
+.product-count {
+  margin: 0;
+  font-weight: normal;
+  font-size: 16px;
+}
+.product-info p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+.product-buttons {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+.product-sub,
+.product-add {
+  box-shadow: none;
+  border: 0;
+  transition: opacity 180ms ease-out;
+  padding: 5px;
+  font-size: 16px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+.product-sub {
+  border-radius: 0 3px 0 0;
+  background-color: var(--secondary);
+}
+.product-add {
+  border-radius: 0 0 3px 0;
+  background-color: var(--primary);
+  color: white;
+}
+.product-buttons button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+
+/*Map Only*/
+#re-render {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+#map {
+  height: 100vh;
+  width: 100%;
+}
+.map-overlay {
+  position: absolute;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.8);
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mapboxgl-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.spinner {
+  animation: rotator 1.4s ilnear infinite;
+}
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}

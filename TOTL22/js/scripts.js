@@ -103,6 +103,11 @@ $("table[id='CODE-WRAP']").each(function() {
 });
 
 
+//allow border behind headers
+document.querySelectorAll('.profile .scroll h3, .webpage h3, .postcolor > h3, .postcolor > p > h3').forEach(header => header.innerHTML = `<span>${header.innerHTML}</span>`);
+document.querySelectorAll('.profile .scroll h4, .webpage h4, .postcolor > h4, .postcolor > p > h4').forEach(header => header.innerHTML = `<span>${header.innerHTML}</span>`);
+
+
 
 /******************
  PROFILE ONLY
@@ -513,7 +518,7 @@ if($('body#ST').length > 0) {
 if($('body#UserCP').length > 0 || $('body#Msg').length > 0) {
     setTimeout(() => {
         breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight;
-        document.querySelector('#ucpmenu').style.top = `${breadcrumbHeight}px`;
+        document.querySelector('#ucpmenu').style.top = `${breadcrumbHeight - 3}px`;
     }, 400);
     document.querySelector('#ucpmenu').innerHTML = `
     <div class="ucp--menu">
@@ -779,7 +784,30 @@ if($('body#Post').length > 0) {
     let save = $('.emoteWrap, .repWrap').detach();
     $('#post-options .pformright').empty().append(save);
     document.querySelector('#bbcode-buttons').innerHTML = document.querySelector('#bbcode-buttons').innerHTML.replace(/&nbsp;/g,'');
+
+
+    let labels = document.querySelectorAll('tag-label');
+    let tabs = document.querySelectorAll('tag-tab');
+    labels[0].classList.add('active');
+    tabs[0].classList.add('active');
+    labels.forEach((label, index) => {
+        label.addEventListener('click', e => {
+            labels.forEach(label => label.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+            labels[index].classList.add('active');
+            tabs[index].classList.add('active');
+        });
+    });
 }
+
+
+//easy to select account swap
+document.querySelectorAll('select[name="sub_id"] option').forEach(account => {
+    account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g,'');
+});
+document.querySelectorAll('#post_as_menu option').forEach(account => {
+    account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g,'');
+});
 
 
 //ModCP Only
@@ -858,8 +886,12 @@ if($('#Reg').length > 0) {
 }
 
 
-//ModCP Only
+//Store Only
 if($('body#store').length > 0) {
+    setTimeout(() => {
+        breadcrumbHeight = document.querySelector('.breadcrumb-nav').clientHeight;
+        document.querySelector('#ucpmenu').style.top = `${breadcrumbHeight - 3}px`;
+    }, 400);
     document.querySelector('#ucpmenu').innerHTML = `
     <div class="ucp--menu">
         <div class="ucp--main-menu">
@@ -925,17 +957,68 @@ if($('body#store').length > 0) {
 
     // If using menu replacement in live skin, remove the above and uncomment the below:
     /*
-    document.querySelector('#modcp main > table:first-child > tbody > tr > td:first-child').innerHTML = `<b>Forums & Posts</b>
-    <a href="?act=modcp&CODE=queue">Queue</a>
-    <a href="?act=modcp&CODE=reported">Reported</a>
-    <a href="?act=modcp&CODE=modlogs">Logs</a>
-    <a href="?act=modcp&CODE=prune">Prune</a>
-    <b>Users</b>
-    <a href="?act=modcp&CODE=members">Edit</a>
-    <a href="?act=modcp&CODE=warnpanel">Warn</a>
-    <a href="?act=modcp&CODE=warnlogs">Logs</a>
-    <a href="?act=modcp&CODE=ip">IP Tools</a>
-    <a href="?act=modcp&CODE=validating">Validation</a>`
+    document.querySelector('#ucpmenu').innerHTML = `
+    <div class="ucp--menu">
+        <div class="ucp--main-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--main-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--main-menu-links">
+                <button data-subcategory="personal">Personal</button>
+                <button data-subcategory="shop">Shop</button>
+                <button data-subcategory="staff" class="staffOnly">Management</button>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--main-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="personal">
+                <a href="?act=store&CODE=inventory">Inventory</a>
+                <a href="?act=store&code=donate_money">Send Galleons</a>
+                <a href="?act=store&code=donate_item">Gift Awards</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="shop">
+                <a href="store.html">Categories</a>
+                <a href="?act=store&code=shop&category=5">Appreciation</a>
+                <a href="?act=store&code=shop&category=2">Education</a>
+                <a href="?act=store&code=shop&category=6" class="staffOnly">Events</a>
+                <a href="?act=store&code=shop&category=1">Features & Occupations</a>
+                <a href="?act=store&code=shop&category=7" class="staffOnly">Longevity</a>
+                <a href="?act=store&code=shop&category=9" class="staffOnly">Posting</a>
+                <a href="?act=store&code=shop&category=8" class="staffOnly">Productivity</a>
+                <a href="?act=store&code=shop&category=3">Relationship Status</a>
+                <a href="?act=store&code=shop&category=4">Traits & Other</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+        <div class="ucp--sub-menu">
+            <button class="go-left" onclick="moveLeft(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-left"></i>
+            </button>
+            <div class="ucp--sub-menu-links claim--labels" data-filter-group="staff">
+                <a href="?act=store&code=fine">Fine Members</a>
+                <a href="?act=store&code=edit_points">Edit Galleons</a>
+                <a href="?act=store&code=edit_inventory">Edit Inventory</a>
+            </div>
+            <button class="go-right" onclick="moveRight(this,'.ucp--sub-menu-links')">
+                <i class="fa-light fa-angles-right"></i>
+            </button>
+        </div>
+    </div>`;
     */
 
 
