@@ -39,13 +39,13 @@
     }
 
     h2 {
-        font-family: var(--font-accent);
+        font-family: var(--font-accent-bold);
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: 5px;
-        font-size: 20px;
+        font-size: calc(20px + var(--sizeBoost));
         text-align: center;
-        color: var(--accent);
+        color: var(--text-header-accent);
         display: grid;
         grid-template-columns: 1fr max-content 1fr;
         align-items: center;
@@ -57,7 +57,7 @@
             content: '';
             height: 1px;
             width: 100%;
-            background: var(--ltgrey);
+            background: var(--border-main);
             display: block;
         }
     }
@@ -79,8 +79,12 @@
         &  > a {
             font-family: var(--font-accent-bold);
             font-weight: 500;
-            font-size: 22px;
-            color: var(--accent);
+            font-size: calc(22px + var(--sizeBoost));
+            color: var(--text-content-accent);
+        }
+
+        .new & {
+            border-color: var(--text-content-accent);
         }
     }
 
@@ -94,7 +98,8 @@
         & > a {
             font-size: var(--sBody);
             display: block;
-            font-weight: 500;
+            font-weight: 700;
+            font-family: var(--font-accent-bold);
         }
 
         span a {
@@ -111,7 +116,7 @@
         letter-spacing: 1px;
 
         b {
-            color: var(--accent);
+            color: var(--text-content-accent);
             font-weight: 900;
         }
     }
@@ -128,8 +133,15 @@
         letter-spacing: 1px;
         font-size: var(--xsBody);
 
+        .subforums {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         a {
-            color: var(--dkGrey);
+            color: var(--text-body);
         }
 
         &:empty {

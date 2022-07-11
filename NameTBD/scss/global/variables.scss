@@ -11,32 +11,84 @@
     --mBody: 12px;
     --lBody: 14px;
     --xlBody: 16px;
+    --sizeBoost: 0px;
 
     --white: #f7f7f7;
     --offwhite: #ececec;
     --ltgrey: #c1c1c1;
-    --dkGrey: #646464;
+    --midgrey: #808080;
+    --dkgrey: #646464;
+    --offblack: #4d4d4d;
 
-    --accent: #989f7d;
+    --accent-light: #b3b99e;
+    --accent-mid: #989f7d;
+    --accent-dark: #878c74;
+    --accent-opaque: rgba(152,159,125, 0.5);
 
     --bg-body: var(--offwhite);
     --bg-content: var(--white);
     --border-main: var(--ltgrey);
-    --text-body: var(--dkGrey);
+    --text-body: var(--dkgrey);
+    --text-header-accent: var(--accent-mid);
+    --text-content-accent: var(--accent-mid);
 }
 
-.smlFont {
+.smFont {
     --xsBody: 8px;
     --sBody: 10px;
     --mBody: 12px;
     --lBody: 14px;
     --xlBody: 16px;
+    --sizeBoost: 0px;
 }
 
-.lrgFont {
+.mdFont {
     --xsBody: 10px;
     --sBody: 12px;
     --mBody: 14px;
     --lBody: 16px;
     --xlBody: 18px;
+    --sizeBoost: 2px;
+}
+
+.lgFont {
+    --xsBody: 12px;
+    --sBody: 14px;
+    --mBody: 16px;
+    --lBody: 18px;
+    --xlBody: 20px;
+    --sizeBoost: 4px;
+}
+
+.light {
+    --bg-body: var(--offwhite);
+    --bg-content: var(--white);
+    --bg-accent: var(--accent-mid);
+    --border-main: var(--ltgrey);
+    --text-body: var(--dkgrey);
+    --text-header-accent: var(--accent-mid);
+    --text-content-accent: var(--accent-mid);
+    --opacity-slider: 0.5;
+}
+
+.medium {
+    --bg-body: var(--midgrey);
+    --bg-content: var(--ltgrey);
+    --bg-accent: var(--accent-mid);
+    --border-main: var(--offwhite);
+    --text-body: var(--dkgrey);
+    --text-header-accent: var(--accent-light);
+    --text-content-accent: var(--accent-dark);
+    --opacity-slider: 1;
+}
+
+.dark {
+    --bg-body: var(--offblack);
+    --bg-content: var(--dkgrey);
+    --bg-accent: var(--accent-light);
+    --border-main: var(--midgrey);
+    --text-body: var(--ltgrey);
+    --text-header-accent: var(--accent-light);
+    --text-content-accent: var(--accent-light);
+    --opacity-slider: 0.5;
 }

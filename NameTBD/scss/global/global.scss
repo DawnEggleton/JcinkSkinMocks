@@ -8,17 +8,45 @@
 }
 a {
     text-decoration: none;
-    color: var(--accent);
+    color: var(--text-content-accent);
 }
 body {
     padding: 0;
     margin: 0;
     background: var(--bg-body);
     font-family: var(--font-body);
-    font-weight: 300;
+    font-weight: 400;
     font-size: var(--mBody);
     color: var(--text-body);
 }
 main {
     margin: 50px;
+}
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin,
+.fa-brand {
+    font-style: normal !important;
+}
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin {
+    font-family: 'Font Awesome 6 Pro' !important;
+}
+.fa-brand {
+    font-family: 'Font Awesome 6 Brands' !important;
+}
+.fa-solid {
+    font-weight: 700 !important;
+}
+.fa-regular {
+    font-weight: 500 !important;
+}
+.fa-light {
+    font-weight: 300 !important;
+}
+.fa-thin {
+    font-weight: 100 !important;
 }
