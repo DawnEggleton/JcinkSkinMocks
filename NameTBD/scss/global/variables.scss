@@ -1,4 +1,42 @@
 /*******************************
     Variables
 ********************************/
+:root {
+    --font-accent: 'Palanquin';
+    --font-accent-bold: 'Palanquin Dark';
+    --font-body: 'Roboto';
 
+    --xsBody: 8px;
+    --sBody: 10px;
+    --mBody: 12px;
+    --lBody: 14px;
+    --xlBody: 16px;
+
+    --white: #f7f7f7;
+    --offwhite: #ececec;
+    --ltgrey: #c1c1c1;
+    --dkGrey: #646464;
+
+    --accent: #989f7d;
+
+    --bg-body: var(--offwhite);
+    --bg-content: var(--white);
+    --border-main: var(--ltgrey);
+    --text-body: var(--dkGrey);
+}
+
+.smlFont {
+    --xsBody: 8px;
+    --sBody: 10px;
+    --mBody: 12px;
+    --lBody: 14px;
+    --xlBody: 16px;
+}
+
+.lrgFont {
+    --xsBody: 10px;
+    --sBody: 12px;
+    --mBody: 14px;
+    --lBody: 16px;
+    --xlBody: 18px;
+}

@@ -8,8 +8,17 @@
 }
 a {
     text-decoration: none;
+    color: var(--accent);
 }
 body {
     padding: 0;
     margin: 0;
+    background: var(--bg-body);
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: var(--mBody);
+    color: var(--text-body);
+}
+main {
+    margin: 50px;
 }
