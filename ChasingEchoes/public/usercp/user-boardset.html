@@ -1,46 +1,108 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Site Name</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+      <title>Site Name</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!--Styles-->
-        <link rel="stylesheet" href="../../css/styles.css" />
+      <!--Styles-->
+      <link rel="stylesheet" href="../css/styles.css" />
+      <link rel="stylesheet" href="../css/prefixed/splide-core.min.css" />
 
-        <!--Fonts-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        
+      <!--Fonts-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"> 
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+      
+      <!--Icons-->
+  <link href="https://dawneggleton.github.io/JcinkSkinMocks/FA6/css/all.min.css" rel="stylesheet" />
+  <link href="https://files.jcink.net/uploads/totl/saturnicons.css" rel="stylesheet" />
+  <link href="https://files.jcink.net/uploads/totl/honeybee.css" rel="stylesheet" />
+  <link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
 
-        <!--Icons-->
-		<link href="https://dawneggleton.github.io/JcinkSkinMocks/FA6/css/all.min.css" rel="stylesheet" />
-		<link href="https://files.jcink.net/uploads/totl/saturnicons.css" rel="stylesheet" />
-		<link href="https://files.jcink.net/uploads/totl/honeybee.css" rel="stylesheet" />
-		<link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
+      <!--Script Libraries-->
+  <script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+  <script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
+      <script src="../js/clipboard.js"></script>
 
-        <!--Script Libraries-->
-		<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
-		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
-		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-        <script src="../../js/clipboard.js"></script>
-
-        <!--Settings-->
-        <script type='text/javascript' src='../../js/settings.js'></script>
-        <link rel="stylesheet" href="../../css/settings.css" />
-    </head>
+      <!--Settings-->
+      <script type='text/javascript' src='../js/settings.js'></script>
+      <link rel="stylesheet" href="../css/settings.css" />
+  </head>
     <body id="UserCP" class="dark g-4 code-04">
         <!--Background Elements-->
         
         <!--Header-->
-        <header>
-        </header>
+        <header class="splide" role="group">
+          <div class="splide__track">
+              <ul class="splide__list">
+                  <li class="splide__slide slide--title">
+                      <div class="splide__border">
+                          <h1>
+                              Chasing
+                              <span class="accent">Echoes</span>
+                              <span class="description">A site description in here like this</span>
+                          </h1>
+                      </div>
+                  </li>
+                  <li class="splide__slide">
+                      <div class="splide__border">
+                          Slide #2
+                      </div>
+                  </li>
+                  <li class="splide__slide">
+                      <div class="splide__border">
+                          Slide #3
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </header>
 
-        <!--Navigation-->
-        <nav>
-            <div id="navstrip" align="left">
-                <a href="../index.html">My Community</a>
-            </div>
-        </nav>
+      <!--Navigation-->
+      <nav>
+          <div class="nav--popout">
+              <div class="main-menu">
+                  <button onClick="toggleMenu()">
+                      <i class="fa-solid fa-bars"></i>
+                      <i class="fa-solid fa-xmark"></i>
+                  </button>
+                  <div class="sub-menu">
+                      <a href="">guidebook</a>
+                      <a href="">claims</a>
+                      <a href="">members</a>
+                  </div>
+              </div>
+          </div>
+          <div id="navstrip" align="left">
+              <a href="index.html">My Community</a>
+          </div>
+          <div class="nav--controls">
+              <a href="index.html"><i class="fa-solid fa-home"></i></a>
+              <a href="profile.html" class="memOnly"><i class="fa-solid fa-user"></i></a>
+              <a href="usercp/user-edit.html" class="memOnly"><i class="fa-solid fa-gear"></i></a>
+              <a href="usercp/user-inbox.html" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
+              <a href="usercp/user-alerts.html" class="memOnly"><i class="fa-solid fa-bell"></i></a>
+              <a href="defaults/login.html" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
+              <a href="defaults/register1.html" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
+              <a href="defaults/login.html" class="guestOnly"><i class="fa-solid fa-sign-in"></i></a>
+              <a href="#"><i class="fa-brand fa-discord"></i></a>
+              <div class="border-vertical"></div>
+              <a href="/admin.php" target="_blank" class="staffOnly"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+              <div class="border-vertical staffOnly"></div>
+              <div class="nav--setting">
+                  <i class="fa-solid fa-sun-bright"></i>
+                  <input type="range" min="1" max="3" value="1" name="setting-brightness" />
+              </div>
+              <div class="nav--setting">
+                  <i class="fa-solid fa-text-size"></i>
+                  <input type="range" min="1" max="3" value="1" name="setting-size" />
+              </div>
+          </div>
+      </nav>
 
         <!--Main Body-->
         <main>

@@ -31,6 +31,7 @@
     --text-body: var(--dkgrey);
     --text-header-accent: var(--accent-mid);
     --text-content-accent: var(--accent-mid);
+    --text-on-accent: var(--offwhite);
 }
 
 .smFont {
@@ -68,7 +69,8 @@
     --text-body: var(--dkgrey);
     --text-header-accent: var(--accent-mid);
     --text-content-accent: var(--accent-mid);
-    --opacity-slider: 0.5;
+    --text-on-accent: var(--offwhite);
+    --filter-forum-image: none;
 }
 
 .medium {
@@ -79,7 +81,8 @@
     --text-body: var(--dkgrey);
     --text-header-accent: var(--accent-light);
     --text-content-accent: var(--accent-dark);
-    --opacity-slider: 1;
+    --text-on-accent: var(--offwhite);
+    --filter-forum-image: grayscale(0.5);
 }
 
 .dark {
@@ -90,5 +93,6 @@
     --text-body: var(--ltgrey);
     --text-header-accent: var(--accent-light);
     --text-content-accent: var(--accent-light);
-    --opacity-slider: 0.5;
+    --text-on-accent: var(--dkgrey);
+    --filter-forum-image: grayscale(0.75) contrast(1.5);
 }
