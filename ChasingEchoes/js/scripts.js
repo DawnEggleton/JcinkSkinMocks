@@ -31,7 +31,8 @@ document.querySelectorAll('.manual-links').forEach(linkset => {
 
 document.addEventListener( 'DOMContentLoaded', function() {
     var splide = new Splide('.splide', {
-        type: 'loop'
+        type: 'loop',
+        speed: '750'
     });
     splide.mount();
 });

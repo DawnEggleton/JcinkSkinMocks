@@ -4,7 +4,7 @@
 header {
     margin: 43px auto 0;
     max-width: 1100px;
-    padding: 50px 0 0;
+    padding: 50px 50px 0;
 }
 
 .splide {
@@ -68,8 +68,8 @@ header {
         z-index: 2;
         display: flex;
         justify-content: space-between;
-        width: calc(100% - 35px);
-        left: 17.5px;
+        width: calc(100% - 135px);
+        left: 67.5px;
     }
     &__arrow {
         border: 0;
