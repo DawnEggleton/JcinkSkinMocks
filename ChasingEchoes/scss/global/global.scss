@@ -20,7 +20,11 @@ body {
     color: var(--text-body);
 }
 main {
-    margin: 50px;
+    margin: 10px;
+
+    @media only screen and (min-width: $sm) {
+        margin: 50px;
+    }
 }
 .fa-solid,
 .fa-regular,

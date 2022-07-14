@@ -63,10 +63,10 @@
         </header>
 
         <!--Navigation-->
-        <nav>
+        <nav class="nav--desktop">
             <div class="nav--popout">
                 <div class="main-menu">
-                    <button onClick="toggleMenu()">
+                    <button onClick="toggleMenu(this)">
                         <i class="fa-solid fa-bars"></i>
                         <i class="fa-solid fa-xmark"></i>
                     </button>
@@ -100,6 +100,51 @@
                 <div class="nav--setting">
                     <i class="fa-solid fa-text-size"></i>
                     <input type="range" min="1" max="3" value="1" name="setting-size" />
+                </div>
+            </div>
+        </nav>
+        <nav class="nav--mobile">
+            <div class="nav--popout">
+                <div class="main-menu">
+                    <button onClick="toggleMenu(this)">
+                        <i class="fa-solid fa-bars"></i>
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="sub-menu">
+                        <a href="">index</a>
+                        <a href="">guidebook</a>
+                        <a href="">claims</a>
+                        <a href="">members</a>
+                        <a href="#">Discord</a>
+                        <a href="/admin.php" target="_blank" class="staffOnly">Admin</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav--popout">
+                <div class="main-menu">
+                    <button onClick="toggleMenu(this)">
+                        <i class="fa-solid fa-user-gear"></i>
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="sub-menu">
+                        <div class="nav--mobile-settings">
+                            <div class="nav--setting">
+                                <i class="fa-solid fa-sun-bright"></i>
+                                <input type="range" min="1" max="3" value="1" name="setting-brightness" />
+                            </div>
+                            <div class="nav--setting">
+                                <i class="fa-solid fa-text-size"></i>
+                                <input type="range" min="1" max="3" value="1" name="setting-size" />
+                            </div>
+                        </div>
+                        <a href="profile.html" class="memOnly">First Last</a>
+                        <a href="usercp/user-edit.html" class="memOnly">Edit Profile</a>
+                        <a href="usercp/user-inbox.html" class="memOnly">Inbox (0)</a>
+                        <a href="usercp/user-alerts.html" class="memOnly">Alerts (0)</a>
+                        <a href="defaults/login.html" class="memOnly">Logout</a>
+                        <a href="defaults/register1.html" class="guestOnly">Register</a>
+                        <a href="defaults/login.html" class="guestOnly">Login</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -227,6 +272,33 @@
                         </div>
                     </div>
                     <img src="https://picsum.photos/1000/500" class="forum--image" />
+                    <span class="manual-links">
+                        <a href="post.html">important topic</a>
+                        <a href="webpage.html">webpage</a>
+                    </span>
+                </div>
+
+                <div class="forum">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">This is a Forum Title</a>
+                            <div class="forum--latest">
+                                <a href="post.html">This is a Topic Title</a>
+                                <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
+                                month dd, yyyy at hh:mm am/pm</span>
+                            </div>
+                            <div class="forum--stats">
+                                <span><b>00</b> topics</span>
+                                <span><b>00</b> replies</span>
+                            </div>
+                            <div class="forum--links">
+                                <span class="subforums">
+                                    <a href="topiclist.html">subforum</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="https://picsum.photos/1000/1000" class="forum--image" />
                     <span class="manual-links">
                         <a href="post.html">important topic</a>
                         <a href="webpage.html">webpage</a>

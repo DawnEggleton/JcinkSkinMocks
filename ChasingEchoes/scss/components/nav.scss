@@ -14,6 +14,22 @@ nav {
     grid-gap: 30px;
     z-index: 10;
     box-shadow: 0 3px 3px var(--bg-body);
+
+    &.nav--desktop {
+        display: none;
+    }
+    &.nav--mobile {
+        grid-template-columns: auto max-content;
+    }
+
+    @media only screen and (min-width: $md) {
+        &.nav--desktop {
+            display: grid;
+        }
+        &.nav--mobile {
+            display: none;
+        }
+    }
 }
 
 #navstrip {
@@ -57,6 +73,23 @@ nav {
         display: flex;
         align-items: center;
         padding: 6px 0 0 5px;
+
+        & + .nav--popout {
+            padding: 6px 5px 0 0;
+
+            .sub-menu {
+                left: auto;
+                right: -350px;
+                box-shadow: -3px 0 3px var(--border-main);
+            }
+
+            &.is-open {
+                .sub-menu {
+                    left: auto;
+                    right: 0;
+                }
+            }
+        }
         
         .main-menu {
             button {
@@ -76,6 +109,12 @@ nav {
                 .fa-xmark {
                     display: none;
                 }
+
+                .nav--mobile & {
+                    width: 20px;
+                    height: 20px;
+                    font-size: 20px;
+                }
             }
         }
 
@@ -84,6 +123,7 @@ nav {
             left: -350px;
             top: 0;
             width: 330px;
+            max-width: 100vw;
             height: 100vh;
             background: var(--bg-content);
             box-shadow: 3px 0 3px var(--border-main);
@@ -115,7 +155,8 @@ nav {
         &.is-open {
             .main-menu  {
                 button {
-                    .fa-bars {
+                    .fa-bars,
+                    .fa-user-gear {
                         display: none;
                     }
                     .fa-xmark {
@@ -211,5 +252,12 @@ nav {
                 border: none;
             }
         }
+    }
+
+    &--mobile-settings {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 5px;
+        padding: 0 10px 10px;
     }
 }

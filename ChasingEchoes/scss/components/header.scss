@@ -2,12 +2,13 @@
     Header
 ********************************/
 header {
-    margin: 43px auto 0;
+    margin: 53px 10px 0;
     max-width: 1100px;
     padding: 10px 10px 0;
 
     @media only screen and (min-width: $sm) {
         padding: 50px 50px 0;
+        margin: 43px auto 0;
     }
 }
 
@@ -17,7 +18,11 @@ header {
     }
     &__slide {
         background: var(--bg-content);
-        padding: 30px;
+        padding: 15px;
+
+        @media only screen and (min-width: $sm) {
+            padding: 30px;
+        }
 
         &.slide--title {
             h1 {
@@ -37,7 +42,7 @@ header {
                         color: var(--text-content-accent);
                         font-size: clamp(40px, 13vw, 170px);
                         display: block;
-                        margin: 1vw -1rem 2.5rem 0;
+                        margin: 1vw -0.5rem 2.5rem 0;
                         letter-spacing: 0.6rem;
 
                         @media only screen and (min-width: $md) {
@@ -73,12 +78,18 @@ header {
     }
     &__arrows {
         position: absolute;
-        bottom: 20px;
         z-index: 2;
         display: flex;
         justify-content: space-between;
-        width: calc(100% - 135px);
-        left: 67.5px;
+        bottom: -13px;
+        width: calc(100% - -6px);
+        left: -3px;
+
+        @media only screen and (min-width: $sm) {
+            bottom: 20px;
+            width: calc(100% - 135px);
+            left: 67.5px;
+        }
     }
     &__arrow {
         border: 0;
@@ -107,7 +118,7 @@ header {
     }
     &__pagination {
         position: absolute;
-        bottom: 23px;
+        bottom: 8px;
         z-index: 2;
         width: 100%;
         left: 0;
@@ -115,6 +126,10 @@ header {
         justify-content: center;
         gap: 10px;
         padding: 0;
+
+        @media only screen and (min-width: $sm) {
+            bottom: 23px;
+        }
 
         & button {
             border: 0;

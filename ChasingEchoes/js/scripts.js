@@ -1,15 +1,19 @@
 //Toggles
 setBrightness();
 setSize();
-document.querySelector('input[name="setting-brightness"]').addEventListener('change', e => {
-    let value = e.target.value;
-    localStorage.setItem('brightness', value);
-    setBrightness();
+document.querySelectorAll('input[name="setting-brightness"]').forEach(slider => {
+    slider.addEventListener('change', e => {
+        let value = e.target.value;
+        localStorage.setItem('brightness', value);
+        setBrightness();
+    });
 });
-document.querySelector('input[name="setting-size"]').addEventListener('change', e => {
-    let value = e.target.value;
-    localStorage.setItem('size', value);
-    setSize();
+document.querySelectorAll('input[name="setting-size"]').forEach(slider => {
+    slider.addEventListener('change', e => {
+        let value = e.target.value;
+        localStorage.setItem('size', value);
+        setSize();
+    });
 });
 
 //Manual Links
