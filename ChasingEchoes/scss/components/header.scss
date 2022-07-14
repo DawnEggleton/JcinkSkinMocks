@@ -4,7 +4,11 @@
 header {
     margin: 43px auto 0;
     max-width: 1100px;
-    padding: 50px 50px 0;
+    padding: 10px 10px 0;
+
+    @media only screen and (min-width: $sm) {
+        padding: 50px 50px 0;
+    }
 }
 
 .splide {
@@ -33,11 +37,11 @@ header {
                         color: var(--text-content-accent);
                         font-size: clamp(40px, 13vw, 170px);
                         display: block;
-                        margin: 1vw 0 2.5rem;
+                        margin: 1vw -1rem 2.5rem 0;
                         letter-spacing: 0.6rem;
 
                         @media only screen and (min-width: $md) {
-                            margin: 1vw 0 3.5rem;
+                            margin: 1vw -1rem 3.5rem 0;
                         }
                     }
                     &.description {
@@ -52,6 +56,11 @@ header {
                         width: max(13.5vw, 150px);
                         line-height: var(--mBody);
                         text-align: right;
+                        display: none;
+
+                        @media only screen and (min-width: $sm) {
+                            display: initial;
+                        }
                     }
                 }
             }
@@ -105,6 +114,7 @@ header {
         display: flex;
         justify-content: center;
         gap: 10px;
+        padding: 0;
 
         & button {
             border: 0;
