@@ -439,7 +439,7 @@ body:not(#idx) .splide {
 .splide__slide.slide--title h1 span.description {
   position: absolute;
   bottom: 58%;
-  right: min(42vw, 440px);
+  right: min(44vw, 480px);
   text-transform: uppercase;
   font-size: var(--xsBody);
   letter-spacing: 1px;
@@ -573,7 +573,7 @@ body:not(#idx) .splide {
 @media only screen and (min-width: 768px) {
   .category.c-2 .forum {
     grid-template-columns: 1fr 1.5fr;
-    grid-template-rows: auto;
+    grid-template-rows: min-content;
     align-items: center;
   }
   .category.c-2 .forum--main {
