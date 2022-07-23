@@ -32,11 +32,33 @@ document.querySelectorAll('.manual-links').forEach(linkset => {
     }
 });
 
+//Manual Descriptions
+document.querySelectorAll('.forum--text').forEach(text => {
+    if(text.previousElementSibling.classList.contains('forum--image')) {
+        text.previousElementSibling.previousElementSibling.querySelector('.forum--links .subforums').insertAdjacentHTML('afterbegin', `<p>${text.innerHTML}</p>`);
+        text.remove();
+    } else {
+        text.previousElementSibling.querySelector('.forum--links').insertAdjacentHTML('afterbegin', `<p>${text.innerHTML}</p>`);
+        text.remove();
+    }
+});
 
+//Header Slider
 document.addEventListener( 'DOMContentLoaded', function() {
     var splide = new Splide('.splide', {
         type: 'loop',
         speed: '750'
     });
     splide.mount();
+});
+
+//Remove navstrip linebreaks
+document.querySelectorAll('#navstrip ~ br').forEach(linebreak => linebreak.remove());
+
+//easy to select account swap
+document.querySelectorAll('select[name="sub_id"] option').forEach(account => {
+    account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g,'');
+});
+document.querySelectorAll('#post_as_menu option').forEach(account => {
+    account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g,'');
 });

@@ -54,3 +54,17 @@ main {
 .fa-thin {
     font-weight: 100 !important;
 }
+.newstext,
+#logostrip,
+#submenu,
+#submenu + div[align="center"],
+#userlinks,
+body:not(.g-2) .guestOnly,
+body:not(.g-4) .staffOnly {
+    display: none;
+}
+.scroll {
+    overflow: auto;
+    scrollbar-color: var(--bg-accent) transparent;
+    scrollbar-width: thin;
+}

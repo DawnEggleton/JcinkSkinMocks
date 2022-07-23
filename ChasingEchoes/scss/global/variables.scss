@@ -13,20 +13,24 @@
     --xlBody: 16px;
     --sizeBoost: 0px;
 
-    --white: #f7f7f7;
-    --offwhite: #ececec;
-    --ltgrey: #c1c1c1;
-    --midgrey: #808080;
-    --dkgrey: #646464;
-    --offblack: #4d4d4d;
+    --white: rgba(247,247,247,1);
+    --white-35: rgba(247,247,247,0.35);
+    --offwhite: rgba(236,236,236,1);
+    --ltgrey: rgba(193,193,193,1);
+    --midgrey: rgba(128,128,128,1);
+    --dkgrey: rgba(100,100,100,1);
+    --offblack: rgba(77,77,77,1);
+    --offblack-55: rgba(77,77,77,0.55);
 
-    --accent-light: #b3b99e;
-    --accent-mid: #989f7d;
-    --accent-dark: #878c74;
-    --accent-opaque: rgba(152,159,125, 0.5);
+    --accent-light: rgba(179,185,158,1);
+    --accent-mid: rgba(152,159,125,1);
+    --accent-dark: rgba(135,140,116,1);
+    --accent-35: rgba(152,159,125,0.35);
 
     --bg-body: var(--offwhite);
     --bg-content: var(--white);
+    --bg-opaque: var(--white-35);
+    --bg-opaque-accent: var(--accent-35);
     --border-main: var(--ltgrey);
     --text-body: var(--dkgrey);
     --text-header-accent: var(--accent-mid);
@@ -65,6 +69,7 @@
     --bg-body: var(--offwhite);
     --bg-content: var(--white);
     --bg-accent: var(--accent-mid);
+    --bg-opaque: var(--white-35);
     --border-main: var(--ltgrey);
     --text-body: var(--dkgrey);
     --text-header-accent: var(--accent-mid);
@@ -77,6 +82,7 @@
     --bg-body: var(--midgrey);
     --bg-content: var(--ltgrey);
     --bg-accent: var(--accent-mid);
+    --bg-opaque: var(--white-35);
     --border-main: var(--offwhite);
     --text-body: var(--dkgrey);
     --text-header-accent: var(--accent-light);
@@ -89,6 +95,7 @@
     --bg-body: var(--offblack);
     --bg-content: var(--dkgrey);
     --bg-accent: var(--accent-light);
+    --bg-opaque: var(--offblack-55);
     --border-main: var(--midgrey);
     --text-body: var(--ltgrey);
     --text-header-accent: var(--accent-light);

@@ -6,7 +6,7 @@
 
         <!--Styles-->
         <link rel="stylesheet" href="../css/styles.css" />
-        <link rel="stylesheet" href="../css/prefixed/splide-core.min.css" />
+        <link rel="stylesheet" href="../css/packages/splide-core.min.css" />
 
         <!--Fonts-->
         <link rel="stylesheet" href="https://use.typekit.net/mfe3rag.css">
@@ -43,20 +43,39 @@
                     <li class="splide__slide slide--title">
                         <div class="splide__border">
                             <h1>
-                                Til We're
-                                <span class="accent">Legend</span>
+                                Chasing
+                                <span class="accent">Echoes</span>
                                 <span class="description">A site description in here like this</span>
                             </h1>
                         </div>
                     </li>
-                    <li class="splide__slide">
+                    <li class="splide__slide slide--info">
                         <div class="splide__border">
-                            Slide #2
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <div class="splide__border">
-                            Slide #3
+                            <div class="info--summary">
+                                <div class="scroll">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                </div>
+                            </div>
+                            <div class="info--staff">
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/125" />
+                                    <a href="?showuser=1"><span>A</span></a>
+                                </div>
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/100" />
+                                    <a href="?showuser=00"><span>B</span></a>
+                                </div>
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/150" />
+                                    <a href="?showuser=00"><span>C</span></a>
+                                </div>
+                            </div>
+                            <div class="info--news">
+                                <u>News Reel</u>
+                                <div class="scroll">
+                                    <a href="#">a linked announcement</a>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -84,6 +103,24 @@
             <div class="nav--controls">
                 <a href="index.html"><i class="fa-solid fa-home"></i></a>
                 <a href="profile.html" class="memOnly"><i class="fa-solid fa-user"></i></a>
+                <button onclick="switchAccount(this)">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    <i class="fa-solid fa-xmark"></i>
+                    <div class="nav--switch">
+                        <span id="subaccounts_menu">
+                            <form action="https://playedgod.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
+                            <input type="hidden" name="auth_key" value="67b665903a8fc5105c6bbb3892012108">
+                            <input type="hidden" name="UserName" value="subacct">
+                            <input type="hidden" name="PassWord" value="subacct">
+                            <input type="hidden" name="referer" value="">
+                            <select class="forminput" name="sub_id" onchange="this.form.submit()">
+                            <option value="------------" selected="selected">Switch Account</option>
+                            <option value="4">&nbsp;&nbsp;» Brennan Cormac </option><option value="43">&nbsp;&nbsp;» Cynbel Edevane </option><option value="2">&nbsp;&nbsp;» Hayden Donovan </option><option value="50">&nbsp;&nbsp;» Jesse Dunn </option><option value="45">&nbsp;&nbsp;» Madison Mckinley </option><option value="3">&nbsp;&nbsp;» Malcolm Murdock </option><option value="35">&nbsp;&nbsp;» Nikolas Kovac </option><option value="15">&nbsp;&nbsp;» Satiah El Masry </option><option value="36">&nbsp;&nbsp;» Sterling Di Mitri </option>
+                            </select>
+                            </form>
+                        </span>
+                    </div>
+                </button>
                 <a href="usercp/user-edit.html" class="memOnly"><i class="fa-solid fa-gear"></i></a>
                 <a href="usercp/user-inbox.html" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
                 <a href="usercp/user-alerts.html" class="memOnly"><i class="fa-solid fa-bell"></i></a>
@@ -138,6 +175,18 @@
                                 <input type="range" min="1" max="3" name="setting-size" />
                             </div>
                         </div>
+                        <span id="subaccounts_menu">
+                            <form action="https://playedgod.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
+                            <input type="hidden" name="auth_key" value="67b665903a8fc5105c6bbb3892012108">
+                            <input type="hidden" name="UserName" value="subacct">
+                            <input type="hidden" name="PassWord" value="subacct">
+                            <input type="hidden" name="referer" value="">
+                            <select class="forminput" name="sub_id" onchange="this.form.submit()">
+                            <option value="------------" selected="selected">Switch Account</option>
+                            <option value="4">&nbsp;&nbsp;» Brennan Cormac </option><option value="43">&nbsp;&nbsp;» Cynbel Edevane </option><option value="2">&nbsp;&nbsp;» Hayden Donovan </option><option value="50">&nbsp;&nbsp;» Jesse Dunn </option><option value="45">&nbsp;&nbsp;» Madison Mckinley </option><option value="3">&nbsp;&nbsp;» Malcolm Murdock </option><option value="35">&nbsp;&nbsp;» Nikolas Kovac </option><option value="15">&nbsp;&nbsp;» Satiah El Masry </option><option value="36">&nbsp;&nbsp;» Sterling Di Mitri </option>
+                            </select>
+                            </form>
+                        </span>
                         <a href="profile.html" class="memOnly">First Last</a>
                         <a href="usercp/user-edit.html" class="memOnly">Edit Profile</a>
                         <a href="usercp/user-inbox.html" class="memOnly">Inbox (0)</a>
@@ -156,12 +205,33 @@
 
             <!--Category-->
             <section class="category c-1">
-                <h2>Out of Character Category</h2>
+                <h2>Getting Started</h2>
 
-                <div class="forum new">
+                <div class="forum redirect f-1">
                     <div class="forum--main">
                         <div class="forum--border">
-                            <a href="topiclist.html">This is a Forum Title</a>
+                            <a href="topiclist.html">Guidebook</a>
+                            <div class="forum--latest"></div>
+                            <div class="forum--stats">
+                                <span><b>00</b> redirects</span>
+                            </div>
+                            <div class="forum--links"></div>
+                        </div>
+                    </div>
+                    <span class="manual-links">
+                        <a href="#">link</a>
+                        <a href="#">link</a>
+                        <a href="#">link</a>
+                        <a href="#">link</a>
+                        <a href="#">link</a>
+                        <a href="#">link</a>
+                    </span>
+                </div>
+
+                <div class="forum f-3">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Announcements</a>
                             <div class="forum--latest">
                                 <a href="post.html">This is a Topic Title</a>
                                 <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
@@ -171,19 +241,15 @@
                                 <span><b>00</b> topics</span>
                                 <span><b>00</b> replies</span>
                             </div>
-                            <div class="forum--links">
-                                <span class="subforums">
-                                    <a href="topiclist.html">subforum</a>
-                                </span>
-                            </div>
+                            <div class="forum--links"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="forum">
+                <div class="forum f-4">
                     <div class="forum--main">
                         <div class="forum--border">
-                            <a href="topiclist.html">This is a Forum Title</a>
+                            <a href="topiclist.html">Templates</a>
                             <div class="forum--latest">
                                 <a href="post.html">This is a Topic Title</a>
                                 <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
@@ -197,15 +263,56 @@
                         </div>
                     </div>
                     <span class="manual-links">
-                        <a href="post.html">important topic</a>
-                        <a href="webpage.html">webpage</a>
+                        <a href="#">link</a>
                     </span>
                 </div>
 
-                <div class="forum">
+                <div class="forum redirect f-5">
                     <div class="forum--main">
                         <div class="forum--border">
-                            <a href="topiclist.html">This is a Forum Title</a>
+                            <a href="topiclist.html">Registration</a>
+                            <div class="forum--latest"></div>
+                            <div class="forum--stats">
+                                <span><b>00</b> redirects</span>
+                            </div>
+                            <div class="forum--links"></div>
+                        </div>
+                    </div>
+                    <span class="manual-links">
+                        <a href="webpage.html">how to apply</a>
+                        <a href="webpage.html">sort a character</a>
+                        <a href="webpage.html">register a horse</a>
+                    </span>
+                </div>
+                
+            </section>
+
+            <!--Category-->
+            <section class="category c-2">
+                <h2>Character Managements</h2>
+
+                <div class="forum redirect f-44">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Records</a>
+                            <div class="forum--latest"></div>
+                            <div class="forum--stats">
+                                <span><b>00</b> redirects</span>
+                            </div>
+                            <div class="forum--links"></div>
+                        </div>
+                    </div>
+                    <span class="manual-links">
+                        <a href="webpage.html">members</a>
+                        <a href="webpage.html">faces</a>
+                        <a href="webpage.html">stables</a>
+                    </span>
+                </div>
+
+                <div class="forum f-6">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Requests</a>
                             <div class="forum--latest">
                                 <a href="post.html">This is a Topic Title</a>
                                 <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
@@ -217,21 +324,23 @@
                             </div>
                             <div class="forum--links">
                                 <span class="subforums">
-                                    <a href="topiclist.html">subforum</a>
+                                    <a href="topiclist.html">platonic</a>
+                                    <a href="topiclist.html">romantic</a>
+                                    <a href="topiclist.html">familial</a>
+                                    <a href="topiclist.html">antagonistic</a>
+                                    <a href="topiclist.html">professional</a>
+                                    <a href="topiclist.html">miscellaneous</a>
+                                    <a href="topiclist.html">filled</a>
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <span class="manual-links">
-                        <a href="post.html">important topic</a>
-                        <a href="webpage.html">webpage</a>
-                    </span>
                 </div>
 
-                <div class="forum">
+                <div class="forum f-7">
                     <div class="forum--main">
                         <div class="forum--border">
-                            <a href="topiclist.html">This is a Forum Title</a>
+                            <a href="topiclist.html">Development</a>
                             <div class="forum--latest">
                                 <a href="post.html">This is a Topic Title</a>
                                 <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
@@ -241,7 +350,82 @@
                                 <span><b>00</b> topics</span>
                                 <span><b>00</b> replies</span>
                             </div>
-                            <div class="forum--links"></div>
+                            <div class="forum--links">
+                                <span class="subforums">
+                                    <a href="topiclist.html">Lux</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum f-8">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Purchase</a>
+                            <div class="forum--latest">
+                                <a href="post.html">This is a Topic Title</a>
+                                <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
+                                month dd, yyyy at hh:mm am/pm</span>
+                            </div>
+                            <div class="forum--stats">
+                                <span><b>00</b> topics</span>
+                                <span><b>00</b> replies</span>
+                            </div>
+                            <div class="forum--links">
+                                <span class="subforums">
+                                    <a href="topiclist.html">Sales</a>
+                                    <a href="topiclist.html">Leases</a>
+                                    <a href="topiclist.html">Auctions</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum f-9">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Breed</a>
+                            <div class="forum--latest">
+                                <a href="post.html">This is a Topic Title</a>
+                                <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
+                                month dd, yyyy at hh:mm am/pm</span>
+                            </div>
+                            <div class="forum--stats">
+                                <span><b>00</b> topics</span>
+                                <span><b>00</b> replies</span>
+                            </div>
+                            <div class="forum--links">
+                                <span class="subforums">
+                                    <a href="topiclist.html">Studbook</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum f-10">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Show</a>
+                            <div class="forum--latest">
+                                <a href="post.html">This is a Topic Title</a>
+                                <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
+                                month dd, yyyy at hh:mm am/pm</span>
+                            </div>
+                            <div class="forum--stats">
+                                <span><b>00</b> topics</span>
+                                <span><b>00</b> replies</span>
+                            </div>
+                            <div class="forum--links">
+                                <span class="subforums">
+                                    <a href="topiclist.html">Register</a>
+                                    <a href="topiclist.html">Entries</a>
+                                    <a href="topiclist.html">Results</a>
+                                    <a href="topiclist.html">Year End</a>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -249,7 +433,54 @@
             </section>
 
             <!--Category-->
-            <section class="category c-2">
+            <section class="category c-3">
+                <h2>Communications</h2>
+
+                <div class="forum f-11">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Calls & Texts</a>
+                            <div class="forum--latest">
+                                <a href="post.html">This is a Topic Title</a>
+                                <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
+                                month dd, yyyy at hh:mm am/pm</span>
+                            </div>
+                            <div class="forum--stats">
+                                <span><b>00</b> topics</span>
+                                <span><b>00</b> replies</span>
+                            </div>
+                            <div class="forum--links"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum f-12">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Social Media</a>
+                            <div class="forum--latest">
+                                <a href="post.html">This is a Topic Title</a>
+                                <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
+                                month dd, yyyy at hh:mm am/pm</span>
+                            </div>
+                            <div class="forum--stats">
+                                <span><b>00</b> topics</span>
+                                <span><b>00</b> replies</span>
+                            </div>
+                            <div class="forum--links">
+                                <span class="subforums">
+                                    <a href="topiclist.html">profiles</a>
+                                    <a href="topiclist.html">messages</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!--Category-->
+            <section class="category c-4">
                 <h2>In Character Category</h2>
 
                 <div class="forum">
@@ -304,6 +535,100 @@
                         <a href="post.html">important topic</a>
                         <a href="webpage.html">webpage</a>
                     </span>
+                </div>
+                
+            </section>
+
+            <!--Category-->
+            <section class="category c-5">
+                <h2>Out of Character</h2>
+
+                <div class="forum f-13">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Get Help</a>
+                            <div class="forum--latest">
+                                <a href="post.html">This is a Topic Title</a>
+                                <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
+                                month dd, yyyy at hh:mm am/pm</span>
+                            </div>
+                            <div class="forum--stats">
+                                <span><b>00</b> topics</span>
+                                <span><b>00</b> replies</span>
+                            </div>
+                            <div class="forum--links"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum f-14">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Absences</a>
+                            <div class="forum--latest">
+                                <a href="post.html">This is a Topic Title</a>
+                                <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
+                                month dd, yyyy at hh:mm am/pm</span>
+                            </div>
+                            <div class="forum--stats">
+                                <span><b>00</b> topics</span>
+                                <span><b>00</b> replies</span>
+                            </div>
+                            <div class="forum--links"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum f-15">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Advertising</a>
+                            <div class="forum--latest">
+                                <a href="post.html">This is a Topic Title</a>
+                                <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
+                                month dd, yyyy at hh:mm am/pm</span>
+                            </div>
+                            <div class="forum--stats">
+                                <span><b>00</b> topics</span>
+                                <span><b>00</b> replies</span>
+                            </div>
+                            <div class="forum--links">
+                                <span class="subforums">
+                                    <a href="topiclist.html">member sites</a>
+                                    <a href="topiclist.html">resource sites</a>
+                                    <a href="topiclist.html">link backs</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="forum--text">
+                        Legends does not accept first links at this time unless you are an active member or staff on a resource site.
+                    </span>
+                </div>
+
+                <div class="forum f-16">
+                    <div class="forum--main">
+                        <div class="forum--border">
+                            <a href="topiclist.html">Archives</a>
+                            <div class="forum--latest">
+                                <a href="post.html">This is a Topic Title</a>
+                                <span>written by <a href="profile.html">duncan o'donnelly-taggart</a><br>
+                                month dd, yyyy at hh:mm am/pm</span>
+                            </div>
+                            <div class="forum--stats">
+                                <span><b>00</b> topics</span>
+                                <span><b>00</b> replies</span>
+                            </div>
+                            <div class="forum--links">
+                                <span class="subforums">
+                                    <a href="topiclist.html">characters & development</a>
+                                    <a href="topiclist.html">shows</a>
+                                    <a href="topiclist.html">communications</a>
+                                    <a href="topiclist.html">in character</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
             </section>

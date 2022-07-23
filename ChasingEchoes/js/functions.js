@@ -1,4 +1,3 @@
-
 function setBrightness() {
     if(localStorage.getItem('brightness') !== null) {
         switch(localStorage.getItem('brightness')) {
@@ -65,6 +64,13 @@ function toggleMenu(e) {
     if (menu.classList.contains('is-open')) {
         menu.classList.remove('is-open');
     } else {
+        document.querySelectorAll('.nav--popout').forEach(menu => {
+            menu.classList.remove('is-open');
+        });
         menu.classList.add('is-open');
     }
+}
+
+function switchAccount(e) {
+    e.classList.toggle('is-open');
 }

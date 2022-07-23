@@ -177,9 +177,31 @@ nav {
         height: 100%;
         padding-top: 6px;
     
+        button,
         a {
             align-self: center;
             padding: 5px 0;
+        }
+        button {
+            border: none;
+            background: none;
+            color: var(--text-content-accent);
+            font-size: var(--sBody);
+            cursor: pointer;
+            width: var(--sBody);
+
+            .fa-xmark {
+                display: none;
+            }
+    
+            &.is-open {
+                .fa-xmark {
+                    display: initial;
+                }
+                .fa-arrow-right-arrow-left {
+                    display: none;
+                }
+            }
         }
 
         .border-vertical {
@@ -187,7 +209,6 @@ nav {
             background: var(--border-main);
         }
     }
-    
     &--setting {
         display: flex;
         align-items: center;
@@ -253,11 +274,60 @@ nav {
             }
         }
     }
-
     &--mobile-settings {
         display: flex;
         justify-content: space-around;
         margin-bottom: 5px;
         padding: 0 10px 10px;
+    }
+    &--switch {
+        position: absolute;
+        bottom: calc((var(--sBody) + 36px + var(--sizeBoost)) * -1);
+        background: var(--bg-content);
+        left: -5px;
+        overflow: hidden;
+        height: 0;
+        transition-duration: 0.5s;
+
+        .is-open & {
+            overflow: visible;
+            height: auto;
+        }
+
+        #subaccounts_menu select {
+            background: var(--bg-body);
+            border: 1px solid var(--border-main);
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--font-accent), sans-serif;
+            font-weight: 600;
+            padding: 5px 10px;
+            line-height: var(--xsBody);
+            margin: 5px;
+
+            option {
+                font-size: var(--mBody);
+            }
+        }
+    }
+    &--mobile {
+        #subaccounts_menu select {
+            width: 100%;
+            border: 1px solid var(--border-main);
+            background: none;
+            padding: 5px;
+            text-align: center;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-family: var(--font-accent-bold), sans-serif;
+            text-transform: uppercase;
+            font-size: var(--mBody);
+            color: var(--text-content-accent);
+
+            option {
+                color: var(--text-body);
+            }
+        }
     }
 }
