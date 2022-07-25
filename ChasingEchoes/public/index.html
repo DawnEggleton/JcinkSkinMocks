@@ -26,7 +26,7 @@
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
 		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
+        <script src="../js/splide.min.js"></script>
         <script src="../js/clipboard.js"></script>
 
         <!--Settings-->
@@ -37,7 +37,7 @@
         <!--Background Elements-->
         
         <!--Header-->
-        <header class="splide" role="group">
+        <header id="desktop-splide" class="splide" role="group">
             <div class="splide__track">
                 <ul class="splide__list">
                     <li class="splide__slide slide--title">
@@ -74,6 +74,54 @@
                                 <u>News Reel</u>
                                 <div class="scroll">
                                     <a href="#">a linked announcement</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <header id="mobile-splide" class="splide" role="group">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide slide--title">
+                        <div class="splide__border">
+                            <h1>
+                                Chasing
+                                <span class="accent">Echoes</span>
+                                <span class="description">A site description in here like this</span>
+                            </h1>
+                        </div>
+                    </li>
+                    <li class="splide__slide slide--info">
+                        <div class="splide__border">
+                            <div class="info--summary">
+                                <div class="scroll">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                </div>
+                            </div>
+                            <div class="info--news">
+                                <u>News Reel</u>
+                                <div class="scroll">
+                                    <a href="#">a linked announcement</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="splide__slide slide--staff">
+                        <div class="splide__border">
+                            <div class="info--staff">
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/125" />
+                                    <a href="?showuser=1"><span>A</span></a>
+                                </div>
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/100" />
+                                    <a href="?showuser=00"><span>B</span></a>
+                                </div>
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/150" />
+                                    <a href="?showuser=00"><span>C</span></a>
                                 </div>
                             </div>
                         </div>
@@ -779,6 +827,62 @@
 
             <!--Stats-->
             <section class="stats">
+                <h2>About</h2>
+                <div class="stats--main">
+                    <div class="stats--border">
+                        <div class="stats--now">
+                            <div class="stats--newest">
+                                <b>Welcome</b>
+                                <span>to <a href="">first last</a></span>
+                            </div>
+                            <div class="stats--online">
+                                <span><b>00</b> online</span>
+                                <span><b>00</b> members</span>
+                                <span><b>00</b> guests</span>
+                            </div>
+                            <div class="scroll">
+                                <a title="Last Active: Today at 08:02 am" href="https://totl.jcink.net/index.php?showuser=21"><span>andromeda tonks</span></a>, 
+                                <a title="Last Active: Today at 07:04 pm" href="https://totl.jcink.net/index.php?showuser=381"><span>chels</span></a>, 
+                                <a title="Last Active: Today at 04:27 am" href="https://totl.jcink.net/index.php?showuser=1700"><span>geneva slughorn</span></a>, 
+                                <a title="Last Active: 34 minutes ago" href="https://totl.jcink.net/index.php?showuser=1"><span>helga hufflepuff</span></a>, 
+                                <a title="Last Active: Today at 12:03 pm" href="https://totl.jcink.net/index.php?showuser=1497"><span>lucinda doge</span></a>, 
+                                <a title="Last Active: 3 minutes ago" href="https://totl.jcink.net/index.php?showuser=1699"><span>madelyn babbling</span></a>, 
+                                <a title="Last Active: Today at 08:34 am" href="https://totl.jcink.net/index.php?showuser=1656"><span>primrose march</span></a>, 
+                                <a title="Last Active: Today at 04:52 pm" href="https://totl.jcink.net/index.php?showuser=445"><span>roe</span></a>, 
+                                <a title="Last Active: Today at 12:08 pm" href="https://totl.jcink.net/index.php?showuser=305"><span>rowena ravenclaw</span></a>, 
+                                <a title="Last Active: 1 seconds ago" href="https://totl.jcink.net/index.php?showuser=309"><span>salazar slytherin</span></a>
+                            </div>
+                        </div>
+                        <div class="stats--today">
+                            <div class="scroll">
+                                <a title="Last Active: Today at 08:02 am" href="https://totl.jcink.net/index.php?showuser=21"><span>andromeda tonks</span></a>, 
+                                <a title="Last Active: Today at 07:04 pm" href="https://totl.jcink.net/index.php?showuser=381"><span>chels</span></a>, 
+                                <a title="Last Active: Today at 04:27 am" href="https://totl.jcink.net/index.php?showuser=1700"><span>geneva slughorn</span></a>, 
+                                <a title="Last Active: 34 minutes ago" href="https://totl.jcink.net/index.php?showuser=1"><span>helga hufflepuff</span></a>, 
+                                <a title="Last Active: Today at 12:03 pm" href="https://totl.jcink.net/index.php?showuser=1497"><span>lucinda doge</span></a>, 
+                                <a title="Last Active: 3 minutes ago" href="https://totl.jcink.net/index.php?showuser=1699"><span>madelyn babbling</span></a>, 
+                                <a title="Last Active: Today at 08:34 am" href="https://totl.jcink.net/index.php?showuser=1656"><span>primrose march</span></a>, 
+                                <a title="Last Active: Today at 04:52 pm" href="https://totl.jcink.net/index.php?showuser=445"><span>roe</span></a>, 
+                                <a title="Last Active: Today at 12:08 pm" href="https://totl.jcink.net/index.php?showuser=305"><span>rowena ravenclaw</span></a>, 
+                                <a title="Last Active: 1 seconds ago" href="https://totl.jcink.net/index.php?showuser=309"><span>salazar slytherin</span></a>
+                            </div>
+                        </div>
+                        <div class="stats--aside">
+                            <div class="stats--stats">
+                                <u>Site Stats</u>
+                                <span><b>000</b> Accounts</span>
+                                <span><b>0000</b> Posts</span>
+                            </div>
+                            <div class="stats--links">
+                                <u>Site Links</u>
+                                <a href="">Last Click</a>
+                                <a href="">All Members</a>
+                                <a href="">Active Topics</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats--recent"></div>
             </section>
 
             <!--Defaults-->

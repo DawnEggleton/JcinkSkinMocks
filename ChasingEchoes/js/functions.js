@@ -23,10 +23,12 @@ function setBrightness() {
             document.querySelector('body').classList.remove('light');
             document.querySelector('body').classList.remove('medium');
             document.querySelector('body').classList.add('dark');
+            localStorage.setItem('brightness', '1');
         } else {
             document.querySelector('body').classList.add('light');
             document.querySelector('body').classList.remove('medium');
             document.querySelector('body').classList.remove('dark');
+            localStorage.setItem('brightness', '3');
         }
     }
     document.querySelectorAll('input[name="setting-brightness"]').forEach(slider => slider.value = localStorage.getItem('brightness'));
@@ -55,6 +57,7 @@ function setSize() {
         document.querySelector('body').classList.add('smFont');
         document.querySelector('body').classList.remove('mdFont');
         document.querySelector('body').classList.remove('lgFont');
+        localStorage.setItem('size', '1');
     }
     document.querySelectorAll('input[name="setting-size"]').forEach(slider => slider.value = localStorage.getItem('size'));
 }

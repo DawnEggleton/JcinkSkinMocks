@@ -1,4 +1,294 @@
 /*******************************
     Board Stats
 ********************************/
+.stats {
+    display: grid;
+    grid-gap: 15px 30px;
+    max-width: 1100px;
+    margin: 0 auto;
 
+    @media only screen and (min-width: $lg) {
+        grid-template-columns: auto 325px;
+    }
+
+    h2 {
+        font-family: var(--font-accent-bold);
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: var(--lBody);
+        text-align: center;
+        color: var(--text-header-accent);
+        grid-column: 1 / -1;
+        display: grid;
+        align-items: center;
+        grid-gap: 20px;
+        letter-spacing: 3px;
+        margin: 20px -20px 5px;
+
+        &::before,
+        &::after {
+            content: '';
+            height: 1px;
+            width: 100%;
+            background: var(--border-main);
+            display: block;
+        }
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: 1fr max-content 1fr;
+            margin: 50px 50px 80px;
+            letter-spacing: 5px;
+            grid-gap: 30px;
+            font-size: calc(20px + var(--sizeBoost));
+        }
+    }
+
+    &--main {
+        background: var(--bg-content);
+        padding: 15px;
+    }
+
+    &--border {
+        height: 100%;
+        border: 1px solid var(--border-main);
+        padding: 15px;
+        display: grid;
+        grid-gap: 5px 15px;
+
+        @media only screen and (min-width: $sm) {
+            grid-template-columns: auto 200px;
+            grid-template-rows: 80px calc(208px + (var(--sizeBoost) * 9));
+        }
+    }
+
+    &--newest {
+        text-align: center;
+
+        b {
+            font-size: 30px;
+            text-transform: uppercase;
+            display: block;
+            font-family: var(--font-accent-bold);
+            font-weight: 700;
+        }
+
+        span {
+            text-transform: uppercase;
+            font-family: var(--font-accent-bold);
+            display: block;
+            margin-top: -20px;
+            font-size: 20px;
+            color: var(--text-content-accent);
+            font-weight: 600;
+        }
+    }
+
+    &--online {
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--border-main);
+        margin: 5px 0 15px;
+    }
+
+    &--now {
+        grid-row: span 2;
+
+        .scroll {
+            font-size: var(--lBody);
+            font-family: var(--font-accent);
+            text-transform: capitalize;
+            font-weight: 700;
+            padding: 0 15px;
+            text-align: justify;
+
+            @media only screen and (min-width: $sm) {
+                height: calc(177px + (var(--sizeBoost) * 8));
+            }
+        }
+    }
+
+    &--today {
+        background: var(--bg-opaque-accent);
+        border-radius: 5px;
+        padding: 5px 10px;
+        text-transform: uppercase;
+        font-family: var(--font-accent);
+        font-size: var(--xsBody);
+        letter-spacing: 1px;
+        font-weight: 700;
+        line-height: 200%;
+
+        .scroll {
+            height: 70px;
+        }
+
+        a {
+            color: var(--text-body);
+        }
+    }
+
+    &--stats {
+        u {
+            display: grid;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: var(--font-accent-bold);
+            font-weight: 700;
+            color: var(--text-content-accent);
+            text-align: center;
+            grid-template-columns: 1fr max-content 1fr;
+            align-items: center;
+            grid-gap: 15px;
+            margin-bottom: 5px;
+            font-size: 12px;
+
+            &::before,
+            &::after {
+                content: '';
+                width: 100%;
+                height: 1px;
+                background: var(--border-main);
+            }
+        }
+        span {
+            display: block;
+            border: 1px solid var(--border-main);
+            padding: 5px 10px;
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 1px;
+            text-align: center;
+            color: var(--text-body);
+            font-family: var(--font-accent-bold);
+            transition-duration: 0.5s;
+            margin-bottom: 5px;
+        }
+    }
+
+    &--links {
+        u {
+            display: grid;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: var(--font-accent-bold);
+            font-weight: 700;
+            color: var(--text-content-accent);
+            text-align: center;
+            grid-template-columns: 1fr max-content 1fr;
+            align-items: center;
+            grid-gap: 15px;
+            margin-bottom: 5px;
+            font-size: 12px;
+
+            &::before,
+            &::after {
+                content: '';
+                width: 100%;
+                height: 1px;
+                background: var(--border-main);
+            }
+        }
+        a {
+            display: block;
+            border: 1px solid var(--border-main);
+            padding: 5px 10px;
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 1px;
+            text-align: center;
+            color: var(--text-body);
+            font-family: var(--font-accent-bold);
+            transition-duration: 0.5s;
+
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+
+            &:hover {
+                background: var(--bg-accent);
+                color: var(--text-on-accent);
+            }
+        }
+    }
+
+    &--recent {
+        background: var(--bg-content);
+        padding: 15px;
+
+        .maintitle {
+            display: none;
+        }
+
+        table {
+            display: block;
+            border: 1px solid var(--border-main);
+            padding: 15px;
+
+            tbody {
+                display: block;
+                overflow: auto;
+                padding-right: 15px;
+                scrollbar-color: var(--bg-accent) transparent;
+                scrollbar-width: thin;
+                height: calc(294px + (var(--sizeBoost) * 9));
+
+                tr {
+                    display: grid;
+                    text-align: center;
+                    
+                    &:not(:last-child) {
+                        margin-bottom: 15px;
+                    }
+                    
+                    &:not(:first-child) {
+                        border-top: 1px solid var(--border-main);
+                        padding-top: 15px;
+                    }
+
+                    .recent-topics-info {
+                        width: 100%;
+                        font-size: 0;
+                        padding: 0;
+
+                        a {
+                            font-size: var(--xsBody);
+                            text-transform: uppercase;
+                            display: block;
+                            letter-spacing: 1px;
+                            color: var(--text-body);
+                            font-family: var(--font-accent);
+                            font-weight: 700;
+
+                            &:first-child {
+                                font-size: var(--mBody);
+                                font-family: var(--font-accent-bold);
+                                color: var(--text-content-accent);
+                                margin-bottom: -2px;
+                            }
+
+                            &:nth-child(2) {
+                                &::before {
+                                    content: 'written by ';
+                                }
+                            }
+                        }
+                    }
+
+                    .recent-topics-date {
+                        width: 100%;
+                        font-size: var(--xsBody);
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        font-family: var(--font-accent);
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}

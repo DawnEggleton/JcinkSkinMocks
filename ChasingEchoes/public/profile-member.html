@@ -109,9 +109,9 @@
             <a name="top"></a>
 
             <!--Profile-->
-            <section class="profile g-7">
+            <section class="profile g-4">
                 <div class="profile--border">
-                    <h1>Duncan O'donnelly-taggart</h1>
+                    <h1>Lux</h1>
                     <div class="profile--links">
                         <a href="#" class="charOnly">directory</a>
                         <a href="#" class="charOnly">development</a>
@@ -180,27 +180,27 @@
                     </div>
                     <div class="profile--stats charOnly">
                         <div class="profile--stat">
-                            <b>Stat</b>
+                            <b>Handling</b>
                             <span>00</span>
                         </div>
                         <div class="profile--stat">
-                            <b>Stat</b>
+                            <b>Training</b>
                             <span>00</span>
                         </div>
                         <div class="profile--stat">
-                            <b>Stat</b>
+                            <b>Equitation</b>
                             <span>00</span>
                         </div>
                         <div class="profile--stat">
-                            <b>Stat</b>
+                            <b>Jumping</b>
                             <span>00</span>
                         </div>
                         <div class="profile--stat">
-                            <b>Stat</b>
+                            <b>Western</b>
                             <span>00</span>
                         </div>
                         <div class="profile--stat">
-                            <b>Stat</b>
+                            <b>Other</b>
                             <span>00</span>
                         </div>
                     </div>
@@ -315,18 +315,6 @@
                     </form>
                 </span>
                 <script>
-                    let nameArray = document.querySelector('.profile h1').innerText.split(' ');
-                    let name = ``;
-                    nameArray.forEach((part, i) => {
-                        if (i === 1) {
-                            name += `<span>${part}`;
-                        } else if (i === (nameArray.length - 1) && i !== 0) {
-                            name += `${part}</span>`;
-                        }else {
-                            name += part;
-                        }
-                    });
-                    document.querySelector('.profile h1').innerHTML = name;
                     // SUBACCOUNTS PROFILE DISPLAY SCRIPT (ABC ORDER) by tonya aka wildflower
                     $('select[name=showuser] option').each(function () {
                         if ($(this).val() != `-------------------`) {

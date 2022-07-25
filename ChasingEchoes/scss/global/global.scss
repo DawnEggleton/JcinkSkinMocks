@@ -68,3 +68,36 @@ body:not(.g-4) .staffOnly {
     scrollbar-color: var(--bg-accent) transparent;
     scrollbar-width: thin;
 }
+ul:not(.splide__list):not(.splide__pagination) {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    li {
+        &::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--text-content-accent);
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 0.5px;
+        }
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+}
+.hide {
+    display: none !important;
+}
+.effect-grayscale img,
+img.effect-grayscale {
+    filter: grayscale(1);
+    transition-duration: 0.5s;
+
+    &:hover {
+        filter: grayscale(0);
+    }
+}

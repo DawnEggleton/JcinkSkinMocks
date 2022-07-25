@@ -43,17 +43,11 @@ document.querySelectorAll('.forum--text').forEach(text => {
     }
 });
 
-//Header Slider
-document.addEventListener( 'DOMContentLoaded', function() {
-    var splide = new Splide('.splide', {
-        type: 'loop',
-        speed: '750'
-    });
-    splide.mount();
-});
-
 //Remove navstrip linebreaks
 document.querySelectorAll('#navstrip ~ br').forEach(linebreak => linebreak.remove());
+
+//Adjust navstrip to remove nbsp
+$('#navstrip').html($('#navstrip').html().replace(/(?:^(?:&nbsp;)+)|(?:(?:&nbsp;)+$)/g, ''));
 
 //easy to select account swap
 document.querySelectorAll('select[name="sub_id"] option').forEach(account => {
@@ -62,3 +56,29 @@ document.querySelectorAll('select[name="sub_id"] option').forEach(account => {
 document.querySelectorAll('#post_as_menu option').forEach(account => {
     account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g,'');
 });
+
+
+
+
+/******************
+ INDEX/SC ONLY
+******************/
+if($('body#idx').length > 0 || $('body#SC').length > 0) {
+    //Header Slider
+    document.addEventListener( 'DOMContentLoaded', function() {
+        var desktopSplide = new Splide('#desktop-splide', {
+            type: 'loop',
+            speed: '750'
+        });
+        desktopSplide.mount();
+        var mobileSplide = new Splide('#mobile-splide', {
+            type: 'loop',
+            speed: '750'
+        });
+        mobileSplide.mount();
+    });
+
+    //recent topics clip
+    $('.stats--recent').append($('#recent-topics').html());
+    $('#recent-topics').remove();
+}
