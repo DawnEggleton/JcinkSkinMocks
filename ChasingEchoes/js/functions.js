@@ -77,3 +77,59 @@ function toggleMenu(e) {
 function switchAccount(e) {
     e.classList.toggle('is-open');
 }
+
+function cpShift() {
+	let appType = document.querySelector('#field_27_input').value,
+	    account = document.querySelector('#field_1_input').value,
+	    showFields = [],
+	    hideFields = hideAlways,
+	    showHeaders = allHeaders;
+
+	if(account == 'B') {
+		if(appType == 'a') {
+            //equestrian
+			showFields = charFields.concat(eqFields);
+			hideFields = hideAlways;
+			showHeaders = allHeaders.concat(charHeaders).concat(eqHeaders);
+		}
+		else {
+            //non-equestrian
+			showFields = charFields;
+			hideFields = hideAlways.concat(eqFields);
+			showHeaders = allHeaders.concat(charHeaders);
+		}
+	} else {
+		showFields = [];
+		hideFields = hideAlways.concat(charFields).concat(eqFields);
+        showHeaders = allHeaders;
+	}
+    adjustCP(showFields, hideFields, showHeaders);
+}
+
+function adjustCP(show, hide, headers) {
+	show.forEach(field => {
+		showAccField(field);
+	});
+	hide.forEach(field => {
+		hideAccField(field);
+	});
+	document.querySelectorAll('.cp-header').forEach(header => {
+		header.remove();
+	});
+	headers.forEach(header => {
+		insertCPHeader(header['title'], header['insertBefore']);
+	});
+}
+function hideAccField(field) {
+	if(document.querySelector(field)) {
+		document.querySelector(field).classList.add('hide');
+	}
+}
+function showAccField(field) {
+	if(document.querySelector(field)) {
+		document.querySelector(field).classList.remove('hide');
+	}
+}
+function insertCPHeader (title, field, identifier) {
+	$(field).before(`<tr class="pformstrip cp-header"><td>${title}</td></tr>`);
+}

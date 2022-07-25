@@ -61,7 +61,7 @@ main {
 #userlinks,
 body:not(.g-2) .guestOnly,
 body:not(.g-4) .staffOnly {
-    display: none;
+    display: none !important;
 }
 .scroll {
     overflow: auto;

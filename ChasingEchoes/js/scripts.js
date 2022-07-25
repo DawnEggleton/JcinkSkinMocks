@@ -82,3 +82,23 @@ if($('body#idx').length > 0 || $('body#SC').length > 0) {
     $('.stats--recent').append($('#recent-topics').html());
     $('#recent-topics').remove();
 }
+
+
+/****************
+ UCP ONLY
+*****************/
+if($('body#UserCP').length > 0) {
+	//Edit Profile Edits
+	if($('body.code-01').length > 0) {
+        const toggleFields = [document.querySelector('#field_1_input'), document.querySelector('#field_27_input')];
+	    $('#field-birthday').insertAfter('#field_14');
+      
+        cpShift();
+        
+        toggleFields.forEach(toggle => {
+            toggle.addEventListener('change', () => {
+                cpShift();
+            });
+        });
+    }
+}

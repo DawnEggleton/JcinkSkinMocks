@@ -1,6 +1,7 @@
 //UCP Only
 if($('body#UserCP').length > 0) {
-    document.querySelector('#ucpmenu').innerHTML = `<b>Account</b>
+    document.querySelector('#ucpmenu').innerHTML = `<div class="ucp--sticky">
+    <b>Account</b>
     <a href="user-edit.html">Edit Profile</a>
     <a href="user-avatar.html">Update Avatar</a>
     <a href="user-accounts.html">Sub-accounts</a>
@@ -14,7 +15,8 @@ if($('body#UserCP').length > 0) {
     <b>Settings</b>
     <a href="user-boardset.html">Board</a>
     <a href="user-alertset.html">Alerts</a>
-    <a href="user-emailset.html">Emails</a>`;
+    <a href="user-emailset.html">Emails</a>
+    </div>`;
 
     // If using menu replacement in live skin, remove the above and uncomment the below:
     /*

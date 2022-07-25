@@ -1,4 +1,215 @@
 /*******************************
     Jcink Defaults
 ********************************/
+#UserCP {
+    main {
+        & > table {
+            display: block;
+            margin-top: 93px;
+    
+            & > tbody {
+                display: block;
+    
+                & > tr {
+                    display: grid;
+                    grid-template-columns: 200px 0 auto;
+                    grid-gap: 0 25px;
+                }
+            }
+        }
+    }
+}
+.ucp {
+    &--sticky {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        position: sticky;
+        top: 50px;
 
+        b {
+            display: grid;
+            grid-template-columns: 1fr max-content 1fr;
+            align-items: center;
+            grid-gap: 10px;
+            font-family: var(--font-accent-bold);
+            text-transform: uppercase;
+            color: var(--text-header-accent);
+
+            &::before,
+            &::after {
+                content: '';
+                width: 100%;
+                height: 1px;
+                background: var(--border-main);
+            }
+        }
+        a {
+            border: 1px solid var(--border-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: var(--xsBody);
+            font-family: var(--font-accent);
+            font-weight: 700;
+            color: var(--text-body);
+            text-align: center;
+            padding: 5px 15px;
+            transition-duration: 0.5s;
+
+            &:hover {
+                background: var(--bg-accent);
+                color: var(--text-on-accent);
+            }
+        }
+    }
+}
+
+#ucpcontent {
+    .code-01 & {
+        top: calc(-6px - (var(--sizeBoost) / 2));
+
+        .maintitle {
+            display: none;
+        }
+
+        form > table > tbody > tr:nth-child(4) {
+            padding-top: 0;
+        }
+    }
+    form {
+        & > .pformstrip {
+            display: none;
+        }
+        & > table {
+            & > tbody {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 15px;
+
+                & > tr {
+                    background: var(--bg-content);
+                    width: 100%;
+                    display: grid;
+                    padding: 10px;
+                    grid-template-rows: max-content auto;
+
+                    &.cp-header,
+                    &#field_27,
+                    &#field_28,
+                    &#field_29,
+                    &#field_30,
+                    &#field_36,
+                    &#field_17,
+                    &:last-child {
+                        grid-column: 1 / -1;
+                    }
+
+                    &.cp-header {
+                        background: none;
+                        display: grid;
+                        grid-template-columns: 1fr max-content 1fr;
+                        grid-gap: 30px;
+                        align-items: center;
+                        font-size: var(--xlBody);
+                        font-family: var(--font-accent-bold);
+                        text-transform: uppercase;
+                        color: var(--text-header-accent);
+                        letter-spacing: 5px;
+                        font-weight: 700;
+
+                        &:not(:nth-child(4)) {
+                            margin-top: 30px;
+                        }
+
+                        &::before,
+                        &::after {
+                            content: '';
+                            width: 100%;
+                            height: 1px;
+                            background: var(--border-main);
+                        }
+                    }
+
+                    &:last-child {
+                        background: none;
+
+                        .pformstrip {
+                            display: flex;
+                            justify-content: center;
+                            gap: 15px;
+
+                            input[type="submit"] {
+                                background: var(--bg-accent);
+                                color: var(--text-on-accent);
+                                text-transform: uppercase;
+                                font-family: var(--font-accent-bold);
+                                font-weight: 700;
+                                border: 0;
+                                padding: 5px 15px;
+                                border-radius: 5px;
+                                font-size: var(--xlBody);
+                                letter-spacing: 3px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    &#field-birthday .pformright {
+                        display: flex;
+                        gap: 5px;
+                    }
+
+                    .pformleft {
+                        border: 1px solid var(--border-main);
+                        border-bottom: 0;
+                        padding: 15px 15px 8px;
+                        font-size: var(--xsBody);
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        font-family: var(--font-accent);
+                        font-weight: 700;
+
+                        b,
+                        label {
+                            display: grid;
+                            grid-template-columns: 20px max-content 1fr;
+                            align-items: center;
+                            grid-gap: 15px;
+                            font-family: var(--font-accent-bold);
+                            text-transform: uppercase;
+                            color: var(--text-content-accent);
+                            font-size: var(--mBody);
+
+                            &::before,
+                            &::after {
+                                content: '';
+                                width: 100%;
+                                height: 1px;
+                                background: var(--border-main);
+                            }
+                        }
+
+                        br {
+                            display: none;
+                        }
+                    }
+
+                    .pformright {
+                        border: 1px solid var(--border-main);
+                        border-top: 0;
+                        padding: 0 15px 15px;
+
+                        input,
+                        select,
+                        textarea {
+                            border: 1px solid var(--border-main);
+                            padding: 5px 10px;
+                            width: 100%;
+                            background: var(--bg-body);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
