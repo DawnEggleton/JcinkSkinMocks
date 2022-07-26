@@ -26,11 +26,13 @@
     --accent-mid: rgba(152,159,125,1);
     --accent-dark: rgba(135,140,116,1);
     --accent-35: rgba(152,159,125,0.35);
+    --accent-50: rgba(152,159,125,0.5);
 
     --bg-body: var(--offwhite);
     --bg-content: var(--white);
     --bg-opaque: var(--white-35);
     --bg-opaque-accent: var(--accent-35);
+    --bg-opaque-accent2: var(--accent-50);
     --border-main: var(--ltgrey);
     --text-body: var(--dkgrey);
     --text-header-accent: var(--accent-mid);

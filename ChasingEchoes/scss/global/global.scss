@@ -101,3 +101,17 @@ img.effect-grayscale {
         filter: grayscale(0);
     }
 }
+input,
+select,
+textarea {
+    border: 1px solid var(--border-main);
+    padding: 5px 10px;
+    width: 100%;
+    background: var(--bg-content);
+    font-family: var(--font-body);
+    font-size: var(--mBody);
+}
+textarea {
+    padding: 9px 10px;
+    line-height: 200%;
+}

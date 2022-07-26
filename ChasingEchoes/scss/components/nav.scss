@@ -288,6 +288,7 @@ nav {
         overflow: hidden;
         height: 0;
         transition-duration: 0.5s;
+        box-shadow: 3px 3px 3px var(--bg-body);
 
         .is-open & {
             overflow: visible;
@@ -305,6 +306,7 @@ nav {
             padding: 5px 10px;
             line-height: var(--xsBody);
             margin: 5px;
+            width: 165px;
 
             option {
                 font-size: var(--mBody);

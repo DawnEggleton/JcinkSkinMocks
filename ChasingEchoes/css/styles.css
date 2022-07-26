@@ -23,10 +23,12 @@
   --accent-mid: rgba(152,159,125,1);
   --accent-dark: rgba(135,140,116,1);
   --accent-35: rgba(152,159,125,0.35);
+  --accent-50: rgba(152,159,125,0.5);
   --bg-body: var(--offwhite);
   --bg-content: var(--white);
   --bg-opaque: var(--white-35);
   --bg-opaque-accent: var(--accent-35);
+  --bg-opaque-accent2: var(--accent-50);
   --border-main: var(--ltgrey);
   --text-body: var(--dkgrey);
   --text-header-accent: var(--accent-mid);
@@ -214,6 +216,22 @@ img.effect-grayscale {
 .effect-grayscale img:hover,
 img.effect-grayscale:hover {
   filter: grayscale(0);
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--border-main);
+  padding: 5px 10px;
+  width: 100%;
+  background: var(--bg-content);
+  font-family: var(--font-body);
+  font-size: var(--mBody);
+}
+
+textarea {
+  padding: 9px 10px;
+  line-height: 200%;
 }
 
 /*******************************
@@ -467,6 +485,7 @@ nav.nav--mobile {
   overflow: hidden;
   height: 0;
   transition-duration: 0.5s;
+  box-shadow: 3px 3px 3px var(--bg-body);
 }
 .is-open .nav--switch {
   overflow: visible;
@@ -483,6 +502,7 @@ nav.nav--mobile {
   padding: 5px 10px;
   line-height: var(--xsBody);
   margin: 5px;
+  width: 165px;
 }
 .nav--switch #subaccounts_menu select option {
   font-size: var(--mBody);
@@ -762,7 +782,7 @@ body:not(#idx) .splide {
   display: flex;
   justify-content: space-between;
   bottom: -13px;
-  width: calc(100% + 6px);
+  width: calc(100% - -6px);
   left: -3px;
 }
 @media only screen and (min-width: 600px) {
@@ -1164,7 +1184,7 @@ body:not(#idx) .splide {
 @media only screen and (min-width: 600px) {
   .stats--border {
     grid-template-columns: auto 200px;
-    grid-template-rows: 80px calc(208px + var(--sizeBoost) * 9);
+    grid-template-rows: 80px calc(208px + (var(--sizeBoost) * 9));
   }
 }
 .stats--newest {
@@ -1210,7 +1230,7 @@ body:not(#idx) .splide {
 }
 @media only screen and (min-width: 600px) {
   .stats--now .scroll {
-    height: calc(177px + var(--sizeBoost) * 8);
+    height: calc(177px + (var(--sizeBoost) * 8));
   }
 }
 .stats--today {
@@ -1320,7 +1340,7 @@ body:not(#idx) .splide {
   padding-right: 15px;
   scrollbar-color: var(--bg-accent) transparent;
   scrollbar-width: thin;
-  height: calc(294px + var(--sizeBoost) * 9);
+  height: calc(294px + (var(--sizeBoost) * 9));
 }
 .stats--recent table tbody tr {
   display: grid;
@@ -1808,6 +1828,105 @@ body:not(#idx) .splide {
 /*******************************
     Templates
 ********************************/
+tag-xl, tag-lg, tag-md {
+  font-family: var(--font-accent-bold);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+tag-xl {
+  display: block;
+  font-size: calc(30px + var(--sizeBoost));
+  margin: 0 auto 10px;
+  max-width: max-content;
+}
+tag-lg, tag-md {
+  display: grid;
+  color: var(--text-content-accent);
+  align-items: center;
+  grid-gap: 15px;
+  text-align: center;
+}
+tag-lg::before, tag-lg::after, tag-md::before, tag-md::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: var(--border-main);
+}
+tag-lg {
+  font-size: calc(18px + var(--sizeBoost));
+  margin-bottom: 5px;
+}
+@media only screen and (min-width: 480px) {
+  tag-lg {
+    grid-template-columns: minmax(20px, 1fr) minmax(0, max-content) minmax(20px, 1fr);
+  }
+}
+tag-md {
+  font-size: var(--sBody);
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+@media only screen and (min-width: 480px) {
+  tag-md {
+    grid-template-columns: 20px max-content 1fr;
+  }
+}
+tag-sm, tag-xs {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 700;
+  max-width: calc(300px + (var(--sizeBoost) * 20));
+  margin: 0 auto;
+}
+tag-sm {
+  font-size: calc(var(--xsBody) + 0.5px);
+  font-family: var(--font-accent-bold);
+  letter-spacing: 3px;
+  line-height: 160%;
+  margin-bottom: 4px;
+}
+tag-xs {
+  font-size: var(--xsBody);
+  font-family: var(--font-accent);
+  letter-spacing: 1px;
+  color: var(--text-content-accent);
+  line-height: 200%;
+}
+tag-xs::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  margin-right: 10px;
+  background: var(--border-main);
+  display: inline-block;
+  margin-bottom: calc((var(--xsBody) / 2) - 1.5px);
+}
+tag-xl[data-align=left], tag-lg[data-align=left], tag-md[data-align=left], tag-sm[data-align=left], tag-xs[data-align=left] {
+  margin-left: 0;
+}
+tag-xl[data-align=center], tag-lg[data-align=center], tag-md[data-align=center], tag-sm[data-align=center], tag-xs[data-align=center] {
+  margin-left: auto;
+  margin-right: auto;
+}
+tag-xl[data-align=right], tag-lg[data-align=right], tag-md[data-align=right], tag-sm[data-align=right], tag-xs[data-align=right] {
+  margin-right: 0;
+}
+tag-xl[data-color=body], tag-lg[data-color=body], tag-md[data-color=body], tag-sm[data-color=body], tag-xs[data-color=body] {
+  color: var(--text-body);
+}
+tag-xl[data-color=accent], tag-lg[data-color=accent], tag-md[data-color=accent], tag-sm[data-color=accent], tag-xs[data-color=accent] {
+  color: var(--text-content-accent);
+}
+tag-xl:not(:first-child), tag-lg:not(:first-child), tag-md:not(:first-child), tag-sm:not(:first-child), tag-xs:not(:first-child) {
+  margin-top: 15px;
+}
+tag-xl + tag-xl, tag-xl + tag-lg, tag-xl + tag-md, tag-xl + tag-sm, tag-xl + tag-xs .profile--freeform tag-xl + br + tag-xl, .profile--freeform tag-xl + br + tag-lg, .profile--freeform tag-xl + br + tag-md, .profile--freeform tag-xl + br + tag-sm, .profile--freeform tag-xl + br + tag-xs, tag-lg + tag-xl, tag-lg + tag-lg, tag-lg + tag-md, tag-lg + tag-sm, tag-xl + tag-xs .profile--freeform tag-lg + br + tag-xl, .profile--freeform tag-lg + br + tag-lg, .profile--freeform tag-lg + br + tag-md, .profile--freeform tag-lg + br + tag-sm, .profile--freeform tag-lg + br + tag-xs, tag-md + tag-xl, tag-md + tag-lg, tag-md + tag-md, tag-md + tag-sm, tag-xl + tag-xs .profile--freeform tag-md + br + tag-xl, .profile--freeform tag-md + br + tag-lg, .profile--freeform tag-md + br + tag-md, .profile--freeform tag-md + br + tag-sm, .profile--freeform tag-md + br + tag-xs, tag-sm + tag-xl, tag-sm + tag-lg, tag-sm + tag-md, tag-sm + tag-sm, tag-xl + tag-xs .profile--freeform tag-sm + br + tag-xl, .profile--freeform tag-sm + br + tag-lg, .profile--freeform tag-sm + br + tag-md, .profile--freeform tag-sm + br + tag-sm, .profile--freeform tag-sm + br + tag-xs, tag-xs + tag-xl, tag-xs + tag-lg, tag-xs + tag-md, tag-xs + tag-sm, tag-xl + tag-xs .profile--freeform tag-xs + br + tag-xl, .profile--freeform tag-xs + br + tag-lg, .profile--freeform tag-xs + br + tag-md, .profile--freeform tag-xs + br + tag-sm, .profile--freeform tag-xs + br + tag-xs, tag-lg + tag-xs .profile--freeform tag-xl + br + tag-xl, tag-lg + tag-xs .profile--freeform tag-lg + br + tag-xl, tag-lg + tag-xs .profile--freeform tag-md + br + tag-xl, tag-lg + tag-xs .profile--freeform tag-sm + br + tag-xl, tag-lg + tag-xs .profile--freeform tag-xs + br + tag-xl, tag-md + tag-xs .profile--freeform tag-xl + br + tag-xl, tag-md + tag-xs .profile--freeform tag-lg + br + tag-xl, tag-md + tag-xs .profile--freeform tag-md + br + tag-xl, tag-md + tag-xs .profile--freeform tag-sm + br + tag-xl, tag-md + tag-xs .profile--freeform tag-xs + br + tag-xl, tag-sm + tag-xs .profile--freeform tag-xl + br + tag-xl, tag-sm + tag-xs .profile--freeform tag-lg + br + tag-xl, tag-sm + tag-xs .profile--freeform tag-md + br + tag-xl, tag-sm + tag-xs .profile--freeform tag-sm + br + tag-xl, tag-sm + tag-xs .profile--freeform tag-xs + br + tag-xl, tag-xs + tag-xs .profile--freeform tag-xl + br + tag-xl, tag-xs + tag-xs .profile--freeform tag-lg + br + tag-xl, tag-xs + tag-xs .profile--freeform tag-md + br + tag-xl, tag-xs + tag-xs .profile--freeform tag-sm + br + tag-xl, tag-xs + tag-xs .profile--freeform tag-xs + br + tag-xl {
+  margin-top: 0;
+}
+tag-lg[data-border=accent]::before, tag-lg[data-border=accent]::after, tag-md[data-border=accent]::before, tag-md[data-border=accent]::after, tag-xs[data-border=accent]::before, tag-xs[data-border=accent]::after {
+  background-color: var(--bg-opaque-accent2);
+}
+
 /*******************************
     Jcink Defaults
 ********************************/
@@ -1864,7 +1983,7 @@ body:not(#idx) .splide {
 }
 
 .code-01 #ucpcontent {
-  top: calc(-6px - var(--sizeBoost) / 2);
+  top: calc(-6px - (var(--sizeBoost) / 2));
 }
 .code-01 #ucpcontent .maintitle {
   display: none;
@@ -1887,8 +2006,11 @@ body:not(#idx) .splide {
   padding: 10px;
   grid-template-rows: max-content auto;
 }
-#ucpcontent form > table > tbody > tr.cp-header, #ucpcontent form > table > tbody > tr#field_27, #ucpcontent form > table > tbody > tr#field_28, #ucpcontent form > table > tbody > tr#field_29, #ucpcontent form > table > tbody > tr#field_30, #ucpcontent form > table > tbody > tr#field_36, #ucpcontent form > table > tbody > tr#field_17, #ucpcontent form > table > tbody > tr:last-child {
+#ucpcontent form > table > tbody > tr.cp-header, #ucpcontent form > table > tbody > tr#field_27, #ucpcontent form > table > tbody > tr#field_28, #ucpcontent form > table > tbody > tr#field_29, #ucpcontent form > table > tbody > tr#field_30, #ucpcontent form > table > tbody > tr#field_36, #ucpcontent form > table > tbody > tr#field_17, #ucpcontent form > table > tbody > tr#field_43, #ucpcontent form > table > tbody > tr#field_31, #ucpcontent form > table > tbody > tr:last-child {
   grid-column: 1/-1;
+}
+#ucpcontent form > table > tbody > tr#field_28 textarea, #ucpcontent form > table > tbody > tr#field_29 textarea, #ucpcontent form > table > tbody > tr#field_30 textarea, #ucpcontent form > table > tbody > tr#field_31 textarea {
+  height: 225px;
 }
 #ucpcontent form > table > tbody > tr.cp-header {
   background: none;
@@ -1977,8 +2099,6 @@ body:not(#idx) .splide {
 #ucpcontent form > table > tbody > tr .pformright input,
 #ucpcontent form > table > tbody > tr .pformright select,
 #ucpcontent form > table > tbody > tr .pformright textarea {
-  border: 1px solid var(--border-main);
-  padding: 5px 10px;
   width: 100%;
   background: var(--bg-body);
 }

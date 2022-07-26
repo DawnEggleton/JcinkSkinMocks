@@ -100,8 +100,19 @@
                     &#field_30,
                     &#field_36,
                     &#field_17,
+                    &#field_43,
+                    &#field_31,
                     &:last-child {
                         grid-column: 1 / -1;
+                    }
+
+                    &#field_28,
+                    &#field_29,
+                    &#field_30,
+                    &#field_31 {
+                        textarea {
+                            height: 225px;
+                        }
                     }
 
                     &.cp-header {
@@ -202,8 +213,6 @@
                         input,
                         select,
                         textarea {
-                            border: 1px solid var(--border-main);
-                            padding: 5px 10px;
                             width: 100%;
                             background: var(--bg-body);
                         }
