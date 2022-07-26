@@ -57,6 +57,24 @@ document.querySelectorAll('#post_as_menu option').forEach(account => {
     account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g,'');
 });
 
+if(document.querySelectorAll('tag-tabs').length > 0) {
+    document.querySelectorAll('tag-tabs').forEach(tabset => {
+        let labels = tabset.querySelectorAll('tag-label');
+        let tabs = tabset.querySelectorAll('tag-tab');
+        labels.forEach((label, i) => {
+            label.addEventListener('click', () => {
+                labels.forEach(label => label.classList.remove('is-active'));
+                tabs.forEach(tab => {
+                    tab.classList.remove('is-active');
+                    tab.style.left = `${-100 * i}%`;
+                });
+                labels[i].classList.add('is-active');
+                tabs[i].classList.add('is-active');
+            })
+        });
+    })
+}
+
 
 
 

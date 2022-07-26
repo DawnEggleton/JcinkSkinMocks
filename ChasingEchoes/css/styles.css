@@ -1698,7 +1698,8 @@ body:not(#idx) .splide {
   text-transform: uppercase;
   font-family: var(--font-accent-bold);
   display: block;
-  margin-top: -20px;
+  margin: -20px auto 0;
+  max-width: max-content;
   font-size: 30px;
   color: var(--text-content-accent);
   font-weight: 600;
@@ -1828,6 +1829,10 @@ body:not(#idx) .splide {
 /*******************************
     Templates
 ********************************/
+tag {
+  /* Headers */
+  /* Tabs */
+}
 tag-xl, tag-lg, tag-md {
   font-family: var(--font-accent-bold);
   text-transform: uppercase;
@@ -1925,6 +1930,81 @@ tag-xl + tag-xl, tag-xl + tag-lg, tag-xl + tag-md, tag-xl + tag-sm, tag-xl + tag
 }
 tag-lg[data-border=accent]::before, tag-lg[data-border=accent]::after, tag-md[data-border=accent]::before, tag-md[data-border=accent]::after, tag-xs[data-border=accent]::before, tag-xs[data-border=accent]::after {
   background-color: var(--bg-opaque-accent2);
+}
+tag-tabs {
+  display: grid;
+  height: 100%;
+  grid-template-rows: 37px calc(100% - 52px);
+  grid-gap: 15px;
+}
+tag-labels {
+  display: grid;
+  font-family: var(--font-accent-bold);
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  grid-template-columns: 33px calc(100% - 66px) 33px;
+  line-height: var(--xsBody);
+  overflow: hidden;
+  scrollbar-width: thin;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border-main);
+  padding-bottom: 15px;
+}
+tag-labels button {
+  background: var(--bg-opaque-accent);
+  border: 0;
+  border-radius: 5px;
+  color: var(--text-body);
+  font-size: var(--xsBody);
+  padding: 0 8px;
+  width: max-content;
+  cursor: pointer;
+}
+tag-labels button:last-child {
+  justify-self: end;
+}
+tag-labelset {
+  display: flex;
+  gap: 10px;
+  overflow: auto;
+  padding: 0 10px;
+  border: 1px solid var(--border-main);
+  border-top: 0;
+  border-bottom: 0;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+tag-label {
+  border: 1px solid var(--border-main);
+  padding: 5px;
+  opacity: 0.75;
+  cursor: pointer;
+}
+tag-label.is-active {
+  color: var(--text-on-accent) !important;
+  opacity: 1;
+  cursor: default;
+  background: var(--bg-accent);
+}
+tag-label:hover {
+  border-color: var(--bg-opaque-accent);
+  color: var(--text-content-accent);
+  opacity: 1;
+}
+tag-tabset {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+tag-tab {
+  flex: 0 0 calc(100% - 20px);
+  max-height: 100%;
+  overflow: auto;
+  padding-right: 15px;
+  transition-duration: 0.5s;
+  left: 0;
+  margin: 0 10px;
 }
 
 /*******************************

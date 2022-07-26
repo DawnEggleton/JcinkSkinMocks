@@ -2,6 +2,7 @@
     Templates
 ********************************/
 tag {
+    /* Headers */
     &-xl,
     &-lg,
     &-md {
@@ -131,5 +132,86 @@ tag {
                 background-color: var(--bg-opaque-accent2);
             }
         }
+    }
+
+    /* Tabs */
+    &-tabs {
+        display: grid;
+        height: 100%;
+        grid-template-rows: 37px calc(100% - 52px);
+        grid-gap: 15px;
+    }
+    &-labels {
+        display: grid;
+        font-family: var(--font-accent-bold);
+        text-transform: uppercase;
+        font-size: var(--xsBody);
+        letter-spacing: 1px;
+        grid-template-columns: 33px calc(100% - 66px) 33px;
+        line-height: var(--xsBody);
+        overflow: hidden;
+        scrollbar-width: thin;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--border-main);
+        padding-bottom: 15px;
+
+        button {
+            background: var(--bg-opaque-accent);
+            border: 0;
+            border-radius: 5px;
+            color: var(--text-body);
+            font-size: var(--xsBody);
+            padding: 0 8px;
+            width: max-content;
+            cursor: pointer;
+
+            &:last-child {
+                justify-self: end;
+            }
+        }
+    }
+    &-labelset {
+        display: flex;
+        gap: 10px;
+        overflow: auto;
+        padding: 0 10px;
+        border: 1px solid var(--border-main);
+        border-top: 0;
+        border-bottom: 0;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+    }
+    &-label {
+        border: 1px solid var(--border-main);
+        padding: 5px;
+        opacity: 0.75;
+        cursor: pointer;
+
+        &.is-active {
+            color: var(--text-on-accent) !important;
+            opacity: 1;
+            cursor: default;
+            background: var(--bg-accent);
+        }
+
+        &:hover {
+            border-color: var(--bg-opaque-accent);
+            color: var(--text-content-accent);
+            opacity: 1;
+        }
+    }
+    &-tabset {
+        display: flex;
+        height: 100%;
+        overflow: hidden;
+    }
+    &-tab {
+        flex: 0 0 calc(100% - 20px);
+        max-height: 100%;
+        overflow: auto;
+        padding-right: 15px;
+        transition-duration: 0.5s;
+        left: 0;
+        margin: 0 10px;
     }
 }

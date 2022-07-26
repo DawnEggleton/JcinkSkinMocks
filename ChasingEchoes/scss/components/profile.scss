@@ -329,7 +329,8 @@
             text-transform: uppercase;
             font-family: var(--font-accent-bold);
             display: block;
-            margin-top: -20px;
+            margin: -20px auto 0;
+            max-width: max-content;
             font-size: 30px;
             color: var(--text-content-accent);
             font-weight: 600;

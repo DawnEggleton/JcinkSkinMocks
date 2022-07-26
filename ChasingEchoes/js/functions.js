@@ -105,7 +105,6 @@ function cpShift() {
 	}
     adjustCP(showFields, hideFields, showHeaders);
 }
-
 function adjustCP(show, hide, headers) {
 	show.forEach(field => {
 		showAccField(field);
@@ -132,4 +131,12 @@ function showAccField(field) {
 }
 function insertCPHeader (title, field, identifier) {
 	$(field).before(`<tr class="pformstrip cp-header"><td>${title}</td></tr>`);
+}
+
+function moveLeft(e) {
+    e.parentNode.querySelector('tag-labelset').scrollLeft -= 150;
+}
+function moveRight(e) {
+    console.log(e.parentNode.querySelector('tag-labelset'));
+    e.parentNode.querySelector('tag-labelset').scrollLeft += 150;
 }
