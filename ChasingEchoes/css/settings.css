@@ -1,3 +1,5 @@
-
+tag-shipimage a::after {
+  content: "\e1cd";
+}
 
 /*# sourceMappingURL=settings.css.map */
