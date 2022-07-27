@@ -140,6 +140,10 @@ tag {
         height: 100%;
         grid-template-rows: 37px calc(100% - 52px);
         grid-gap: 15px;
+
+        .profile--freeform & {
+            width: calc(100% + 15px);
+        }
     }
     &-labels {
         display: grid;
@@ -165,7 +169,7 @@ tag {
             width: max-content;
             cursor: pointer;
 
-            &:last-child {
+            &:last-of-type {
                 justify-self: end;
             }
         }
@@ -186,6 +190,7 @@ tag {
         padding: 5px;
         opacity: 0.75;
         cursor: pointer;
+        white-space: nowrap;
 
         &.is-active {
             color: var(--text-on-accent) !important;
@@ -213,5 +218,316 @@ tag {
         transition-duration: 0.5s;
         left: 0;
         margin: 0 10px;
+    }
+
+    &-email {
+        display: grid;
+        grid-gap: 15px;
+    }
+    &-subject {
+        font-family: var(--font-accent-bold);
+        font-size: var(--lBody);
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+
+        &[data-align="center"] {
+            text-align: center;
+        }
+
+        &[data-align="right"] {
+            text-align: right;
+        }
+    }
+    &-contact {
+        display: grid;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: var(--xsBody);
+        line-height: 200%;
+        font-family: var(--font-accent);
+        letter-spacing: 1px;
+        grid-template-columns: 20px auto;
+        align-items: center;
+        grid-gap: 0 15px;
+        margin: 0 15px;
+
+        b {
+            font-family: var(--font-accent-bold);
+            align-self: end;
+        }
+
+        span {
+            color: var(--text-content-accent);
+            align-self: start;
+        }
+
+        &[data-photo="true"] {
+            grid-template-columns: 50px auto;
+
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: 5px solid var(--bg-accent);
+                grid-row: 1 / 3;
+                object-fit: cover;
+            }
+
+            &[data-align="right"] {
+                text-align: right;
+                grid-template-columns: auto 50px;
+
+                img {
+                    grid-column: 2 / 3;
+                }
+            }
+        }
+
+        &[data-photo="false"] {
+            &::before {
+                content: '';
+                width: 100%;
+                height: 1px;
+                background: var(--border-main);
+                grid-row: span 2;
+            }
+
+            &[data-align="right"] {
+                text-align: right;
+                grid-template-columns: auto 20px;
+
+                &::before {
+                    display: none;
+                }
+                &::after {
+                    content: '';
+                    width: 100%;
+                    height: 1px;
+                    background: var(--border-main);
+                    grid-row: 1 / 3;
+                    grid-column: 2 / 3;
+                }
+            }
+        }
+    }
+    &-dualcontact {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 0 15px;
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 15px;
+        }
+
+        tag-contact {
+            &:last-child {
+                text-align: right;
+                grid-template-columns: auto 20px;
+            }
+            &[data-photo="true"] {
+                &:last-child {
+                    grid-template-columns: auto 50px;
+    
+                    img {
+                        grid-column: 2 / 3;
+                    }
+                }
+            }
+    
+            &[data-photo="false"] {
+                &:last-child {
+                    &::before {
+                        display: none;
+                    }
+                    &::after {
+                        content: '';
+                        width: 100%;
+                        height: 1px;
+                        background: var(--border-main);
+                        grid-row: 1 / 3;
+                        grid-column: 2 / 3;
+                    }
+                }
+            }
+        }
+    }
+    &-content {
+        border: 1px solid var(--border-main);
+        padding: 25px 30px;
+    }
+
+    &-phone {
+        margin: 0 auto;
+        max-width: 300px;
+        display: grid;
+        grid-template-columns: 50px auto;
+        grid-gap: 15px;
+    }
+    &-iconimage {
+        width: 50px;
+        height: 50px;
+        display: block;
+        border: 2px solid var(--bg-accent);
+        border-radius: 50%;
+        overflow: hidden;
+        padding: 1px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--bg-accent);
+        }
+    }
+    &-messages {
+        display: grid;
+        grid-gap: 5px;
+    }
+    &-msg {
+        border: 1px solid var(--border-main);
+        padding: 10px 16px;
+
+        &:first-of-type::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-left: 1px solid var(--border-main);
+            border-bottom: 1px solid var(--border-main);
+            transform: rotate(45deg);
+            top: 20px;
+            left: -4px;
+            background: var(--bg-content);
+        }
+    }
+
+    &-timeline {
+        display: grid;
+        grid-template-columns: 70px auto;
+        grid-gap: 30px 15px;
+    }
+    &-year {
+        display: grid;
+        font-size: calc(26px + var(--sizeBoost));
+        font-weight: 900;
+        color: var(--text-content-accent);
+        grid-template-columns: minmax(20px, 1fr) minmax(0, max-content) minmax(20px, 1fr);
+        grid-gap: 15px;
+        align-items: center;
+        grid-column: 1 / -1;
+        margin-top: 15px;
+
+        &::before,
+        &::after {
+            content: '';
+            width: 100%;
+            height: 1px;
+            background: var(--border-main);
+        }
+    }
+    &-date {
+        background: var(--bg-accent);
+        width: 70px;
+        height: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 0;
+        border-radius: 50%;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: calc(100% - 12px);
+            height: calc(100% - 12px);
+            border: 1px solid var(--text-on-accent);
+            border-radius: 50%;
+        }
+
+        b {
+            color: var(--text-on-accent);
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            font-family: var(--font-accent-bold);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        span {
+            color: var(--text-on-accent);
+            font-size: var(--xlBody);
+            margin-top: -9px;
+            font-weight: 700;
+        }
+    }
+    &-events {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    &-event {
+        border: 1px solid var(--border-main);
+        display: block;
+        padding: 10px 15px;
+
+        &:first-of-type {
+            margin-top: 22px;
+
+            &::before {
+                content: '';
+                width: 6px;
+                height: 6px;
+                border-left: 1px solid var(--border-main);
+                border-bottom: 1px solid var(--border-main);
+                transform: rotate(45deg);
+                display: block;
+                position: absolute;
+                top: 10px;
+                left: -4px;
+                background: var(--bg-content);
+            }
+        }
+    }
+
+
+
+    &-tabs,
+    &-labels,
+    &-labelset,
+    &-tabset,
+    &-email,
+    &-dualcontact,
+    &-contact,
+    &-phone,
+    &-iconimage,
+    &-messages,
+    &-timeline,
+    &-year,
+    &-date,
+    &-date b,
+    &-date span,
+    &-events {
+        & > br {
+            display: none;
+        }
+    }
+    &-label,
+    &-tab,
+    &-subject,
+    &-contact b,
+    &-contact span,
+    &-content,
+    &-msg,
+    &-event {
+        & > br:first-child,
+        & > br:last-child {
+            display: none;
+        }
     }
 }

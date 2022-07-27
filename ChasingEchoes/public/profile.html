@@ -225,8 +225,13 @@
                                     <tag-labels>
                                         <button onclick="moveLeft(this)"><i class="fa-solid fa-angles-left"></i></button>
                                         <tag-labelset>
-                                            <tag-label class="is-active">history</tag-label>
-                                            <tag-label>shipper</tag-label>
+                                            <tag-label class="is-active">headers</tag-label>
+                                            <tag-label>emails</tag-label>
+                                            <tag-label>messages</tag-label>
+                                            <tag-label>timeline</tag-label>
+                                            <tag-label>playlist</tag-label>
+                                            <tag-label>image grid</tag-label>
+                                            <tag-label>relationships</tag-label>
                                         </tag-labelset>
                                         <button onclick="moveRight(this)"><i class="fa-solid fa-angles-right"></i></button>
                                     </tag-labels>
@@ -248,42 +253,107 @@
                                             Mauris ornare id sem at rutrum. Vivamus sed nunc risus. Cras in magna congue, commodo nisi non, ullamcorper tellus. Quisque sollicitudin vestibulum tincidunt. Integer vitae mi justo. Aenean lorem libero, aliquam ut nibh ac, laoreet finibus sem. Sed vestibulum, nibh sit amet pretium interdum, quam elit sodales eros, id ornare diam ipsum at felis. Duis iaculis id augue id hendrerit. Nulla eget est rutrum, varius leo in, scelerisque nulla. Praesent venenatis vestibulum dolor, ac interdum mi fermentum scelerisque. 
                                         </tag-tab>
                                         <tag-tab>
-                                            shipper stuff
+                                            <tag-email>
+                                                <tag-subject>Email Subject</tag-subject>
+                                                <tag-dualcontact>
+                                                    <tag-contact data-photo="true">
+                                                        <img src="https://picsum.photos/100" />
+                                                        <b>First Last</b>
+                                                        <span>name@host.com</span>
+                                                    </tag-contact>
+                                                    <tag-contact data-photo="true">
+                                                        <img src="https://picsum.photos/100" />
+                                                        <b>First Last</b>
+                                                        <span>name@host.com</span>
+                                                    </tag-contact>
+                                                </tag-dualcontact>
+                                                <tag-dualcontact>
+                                                    <tag-contact data-photo="false">
+                                                        <b>First Last</b>
+                                                        <span>name@host.com</span>
+                                                    </tag-contact>
+                                                    <tag-contact data-photo="false">
+                                                        <b>First Last</b>
+                                                        <span>name@host.com</span>
+                                                    </tag-contact>
+                                                </tag-dualcontact>
+                                                <tag-contact data-photo="false" data-align="right">
+                                                    <b>First Last</b>
+                                                    <span>name@host.com</span>
+                                                </tag-contact>
+                                                <tag-content>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                </tag-content>
+                                            </tag-email>
+                                        </tag-tab>
+                                        <tag-tab>
+                                            <tag-phone>
+                                                <tag-iconimage>
+                                                    <img src="https://picsum.photos/75" />
+                                                </tag-iconimage>
+                                                <tag-messages>
+                                                    <tag-msg>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                    </tag-msg>
+                                                    <tag-msg>
+                                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                    </tag-msg>
+                                                    <tag-msg>
+                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                                    </tag-msg>
+                                                    <tag-msg>
+                                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </tag-msg>
+                                                </tag-messages>
+                                            </tag-phone>
+                                        </tag-tab>
+                                        <tag-tab>
+                                            <tag-timeline>
+                                                <tag-year>YYYY</tag-year>
+                                                <tag-date>
+                                                    <b>Month</b>
+                                                    <span>DD</span>
+                                                </tag-date>
+                                                <tag-events>
+                                                    <tag-event>Event #1</tag-event>
+                                                    <tag-event>Event #2</tag-event>
+                                                </tag-events>
+                                                <tag-date>
+                                                    <b>Month</b>
+                                                    <span>DD</span>
+                                                </tag-date>
+                                                <tag-events>
+                                                    <tag-event>Event #1</tag-event>
+                                                    <tag-event>Event #2</tag-event>
+                                                </tag-events>
+                                                <tag-year>YYYY</tag-year>
+                                                <tag-date>
+                                                    <b>Month</b>
+                                                    <span>DD</span>
+                                                </tag-date>
+                                                <tag-events>
+                                                    <tag-event>Event #1</tag-event>
+                                                </tag-events>
+                                            </tag-timeline>
+                                        </tag-tab>
+                                        <tag-tab>
+                                            <tag-playlist>
+                                                playlist stuff
+                                            </tag-playlist>
+                                        </tag-tab>
+                                        <tag-tab>
+                                            <tag-imagegrid>
+                                                image grid
+                                            </tag-imagegrid>
+                                        </tag-tab>
+                                        <tag-tab>
+                                            relationships? maybe
                                         </tag-tab>
                                     </tag-tabset>
                                 </tag-tabs>
                             </div>
                         </div>
                     </div>
-                    <!--<div class="profile--list">
-                        <div class="profile--item-image">
-                            <img src="https://picsum.photos/200" />
-                            <div class="profile--item-wrap">
-                                <div class="profile--item-border">
-                                    <b>Charged with Treason</b>
-                                    <span>"Treason." 2018 Silver Bay Gelding. Reining, Barrel Racing, Western Pleasure. Boarded at Stable Name Here Like This.</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="profile--item-image">
-                            <img src="https://picsum.photos/200" />
-                            <div class="profile--item-wrap">
-                                <div class="profile--item-border">
-                                    <b>Charged with Treason</b>
-                                    <span>"Treason." 2018 Silver Bay Gelding. Reining, Barrel Racing, Western Pleasure. Boarded at Stable Name Here Like This.</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="profile--item-image">
-                            <img src="https://picsum.photos/200" />
-                            <div class="profile--item-wrap">
-                                <div class="profile--item-border">
-                                    <b>Charged with Treason</b>
-                                    <span>"Treason." 2018 Silver Bay Gelding. Reining, Barrel Racing, Western Pleasure. Boarded at Stable Name Here Like This.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
                     <div id="profile--subs" class="profile--list oocOnly">
                     </div>
                     <div class="profile--player">
