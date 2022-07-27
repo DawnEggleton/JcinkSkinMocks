@@ -151,7 +151,6 @@
             grid-template-columns: repeat(6, 1fr);
         }
     }
-
     &--stat {
         border: 1px solid var(--border-main);
         font-family: var(--font-accent);
@@ -194,7 +193,6 @@
             margin: 50px 0 0;
         }
     }
-
     &--aside {
         background: var(--bg-opaque-accent);
         border-radius: 5px;
@@ -220,7 +218,6 @@
             }
         }
     }
-
     &--freeform {
         line-height: 200%;
         text-align: justify;
@@ -256,7 +253,6 @@
             }
         }
     }
-
     &--item-image {
         display: grid;
         grid-template-columns: 100px auto;
@@ -432,6 +428,12 @@
                 }
             }
         }
+    }
+
+    &--threads {
+        margin-top: 50px;
+        border-top: 1px solid var(--border-main);
+        padding-top: 50px;
     }
 
     .oocOnly {

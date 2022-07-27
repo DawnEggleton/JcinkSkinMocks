@@ -741,6 +741,7 @@ tag {
     &-shipinfo {
         border: 1px solid var(--border-main);
         padding: 10px 15px;
+        background: var(--bg-content);
 
         &::before {
             content: '';
