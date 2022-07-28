@@ -1419,6 +1419,157 @@ body:not(#idx) .splide {
 /*******************************
     Topic List
 ********************************/
+.topiclist {
+  display: grid;
+  gap: 20px;
+  margin: 0 10px 30px;
+  max-width: 1100px;
+}
+@media only screen and (min-width: 768px) {
+  .topiclist {
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto 50px;
+    gap: 50px;
+  }
+}
+.topiclist .topic {
+  height: 100%;
+}
+.topiclist .topic--border {
+  height: 100%;
+}
+.topiclist h2 {
+  font-family: var(--font-accent-bold);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: var(--lBody);
+  text-align: center;
+  color: var(--text-header-accent);
+  display: grid;
+  align-items: center;
+  grid-gap: 20px;
+  letter-spacing: 3px;
+  margin: 20px -20px 0;
+}
+.topiclist h2::before, .topiclist h2::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background: var(--border-main);
+  display: block;
+}
+@media only screen and (min-width: 768px) {
+  .topiclist h2 {
+    grid-template-columns: 1fr max-content 1fr;
+    margin: 50px;
+    letter-spacing: 5px;
+    grid-gap: 30px;
+    font-size: calc(20px + var(--sizeBoost));
+    grid-column: 1/-1;
+  }
+}
+
+.topic {
+  background: var(--bg-content);
+  height: max-content;
+  z-index: 2;
+  padding: 15px;
+  text-align: center;
+}
+.topic--border {
+  height: 100%;
+  padding: 30px;
+  border: 1px solid var(--border-main);
+}
+.topic--border > a {
+  font-family: var(--font-accent-bold);
+  font-size: calc(16px + var(--sizeBoost));
+  color: var(--text-content-accent);
+  display: block;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-weight: 700;
+  max-width: 375px;
+  margin: 0 auto;
+}
+.new .topic--border {
+  border-color: var(--text-content-accent);
+}
+.topic--border label {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+}
+.topic--border label input {
+  display: none;
+}
+.topic--border label input + div {
+  background: var(--bg-content);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  border: 1px solid var(--border-main);
+  cursor: pointer;
+}
+.topic--border label input:checked + div {
+  background: var(--bg-accent);
+  color: var(--text-on-accent);
+}
+.topic--border .desc {
+  display: block;
+  margin-top: 5px;
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.topic--border .small {
+  display: flex;
+  text-transform: uppercase;
+  font-size: 0;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin: 15px 0 0 -11px;
+  justify-content: center;
+  gap: 5px;
+}
+.topic--border .small a {
+  font-size: var(--xsBody);
+  background: var(--bg-accent);
+  color: var(--text-on-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  padding: 3px;
+}
+.topic--latest, .topic--started, .topic--stats {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-top: 15px;
+  line-height: 200%;
+}
+.topic--stats {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.topic--stats b {
+  color: var(--text-content-accent);
+  font-weight: 900;
+}
+
 /*******************************
     Post Row
 ********************************/
