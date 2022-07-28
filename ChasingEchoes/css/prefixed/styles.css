@@ -804,7 +804,7 @@ body:not(#idx) .splide {
   display: flex;
   justify-content: space-between;
   bottom: -13px;
-  width: calc(100% - -6px);
+  width: calc(100% + 6px);
   left: -3px;
 }
 @media only screen and (min-width: 600px) {
@@ -1208,7 +1208,7 @@ body:not(#idx) .splide {
 @media only screen and (min-width: 600px) {
   .stats--border {
     grid-template-columns: auto 200px;
-    grid-template-rows: 80px calc(208px + (var(--sizeBoost) * 9));
+    grid-template-rows: 80px calc(208px + var(--sizeBoost) * 9);
   }
 }
 .stats--newest {
@@ -1254,7 +1254,7 @@ body:not(#idx) .splide {
 }
 @media only screen and (min-width: 600px) {
   .stats--now .scroll {
-    height: calc(177px + (var(--sizeBoost) * 8));
+    height: calc(177px + var(--sizeBoost) * 8);
   }
 }
 .stats--today {
@@ -1364,7 +1364,7 @@ body:not(#idx) .splide {
   padding-right: 15px;
   scrollbar-color: var(--bg-accent) transparent;
   scrollbar-width: thin;
-  height: calc(294px + (var(--sizeBoost) * 9));
+  height: calc(294px + var(--sizeBoost) * 9);
 }
 .stats--recent table tbody::-webkit-scrollbar {
   width: 5px;
@@ -1906,6 +1906,9 @@ body:not(#idx) .splide {
   padding: 10px 15px;
   margin: 0 auto;
   grid-column: 1/-1;
+  max-width: 350px;
+  line-height: 200%;
+  text-align: justify;
 }
 .profile .oocOnly {
   display: none;
@@ -1992,7 +1995,7 @@ tag-sm, tag-xs {
   display: block;
   text-transform: uppercase;
   font-weight: 700;
-  max-width: calc(300px + (var(--sizeBoost) * 20));
+  max-width: calc(300px + var(--sizeBoost) * 20);
   margin: 0 auto;
 }
 tag-sm {
@@ -2016,7 +2019,7 @@ tag-xs::before {
   margin-right: 10px;
   background: var(--border-main);
   display: inline-block;
-  margin-bottom: calc((var(--xsBody) / 2) - 1.5px);
+  margin-bottom: calc(var(--xsBody) / 2 - 1.5px);
 }
 tag-xl[data-align=left], tag-lg[data-align=left], tag-md[data-align=left], tag-sm[data-align=left], tag-xs[data-align=left] {
   margin-left: 0;
@@ -2253,6 +2256,20 @@ tag-phone {
   grid-template-columns: 50px auto;
   grid-gap: 15px;
 }
+tag-phone[data-align=right] {
+  grid-template-columns: auto 70px;
+}
+tag-phone[data-align=right] tag-iconimage {
+  order: 2;
+}
+tag-phone[data-align=right] tag-messages {
+  order: 1;
+}
+tag-phone[data-align=right] tag-msg:first-child::before {
+  transform: rotate(-135deg);
+  right: -4px;
+  left: auto;
+}
 tag-iconimage {
   width: 50px;
   height: 50px;
@@ -2380,6 +2397,20 @@ tag-playlist {
   grid-gap: 15px;
   max-width: 325px;
   margin: 0 auto;
+}
+tag-playlist[data-align=right] {
+  grid-template-columns: auto 70px;
+}
+tag-playlist[data-align=right] tag-listen {
+  order: 2;
+}
+tag-playlist[data-align=right] tag-songs {
+  order: 1;
+}
+tag-playlist[data-align=right] tag-song:first-child::before {
+  transform: rotate(-135deg);
+  right: -4px;
+  left: auto;
 }
 tag-listen {
   background: var(--bg-accent);
@@ -2525,6 +2556,32 @@ tag-ship {
 tag-ship:not(:last-of-type) {
   margin-bottom: 15px;
 }
+tag-ship[data-align=right] {
+  margin-right: 0;
+  margin-left: auto;
+}
+tag-ship[data-align=centerLeft] {
+  margin-left: auto;
+  margin-right: auto;
+}
+tag-ship[data-align=centerRight] {
+  margin-left: auto;
+  margin-right: auto;
+}
+tag-ship[data-align=right], tag-ship[data-align=centerRight] {
+  grid-template-columns: auto 70px;
+}
+tag-ship[data-align=right] tag-shipimage, tag-ship[data-align=centerRight] tag-shipimage {
+  order: 2;
+}
+tag-ship[data-align=right] tag-shipinfo, tag-ship[data-align=centerRight] tag-shipinfo {
+  order: 1;
+}
+tag-ship[data-align=right] tag-shipinfo::before, tag-ship[data-align=centerRight] tag-shipinfo::before {
+  transform: rotate(-135deg);
+  right: -4px;
+  left: auto;
+}
 tag-shipimage, tag-shipicon {
   display: flex;
   background: var(--bg-accent);
@@ -2604,6 +2661,41 @@ tag-ship + br {
   display: none;
 }
 
+[data-width=xs] {
+  max-width: 250px;
+}
+
+[data-width=sm] {
+  max-width: 325px;
+}
+
+[data-width=md] {
+  max-width: 400px;
+}
+
+[data-width=lg] {
+  max-width: 475px;
+}
+
+[data-width=xl] {
+  max-width: 550px;
+}
+
+[data-width][data-align=left] {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[data-width][data-align=center] {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[data-width][data-align=right] {
+  margin-left: auto;
+  margin-right: 0;
+}
+
 /*******************************
     Jcink Defaults
 ********************************/
@@ -2660,7 +2752,7 @@ tag-ship + br {
 }
 
 #ucpcontent {
-  top: calc(-4px - (var(--sizeBoost) / 2));
+  top: calc(-4px - var(--sizeBoost) / 2);
 }
 #ucpcontent .maintitle {
   background: none;
@@ -2684,7 +2776,7 @@ tag-ship + br {
   background: var(--border-main);
 }
 .code-01 #ucpcontent {
-  top: calc(-6px - (var(--sizeBoost) / 2));
+  top: calc(-6px - var(--sizeBoost) / 2);
 }
 .code-01 #ucpcontent .maintitle {
   display: none;

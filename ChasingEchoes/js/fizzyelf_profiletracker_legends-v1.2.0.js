@@ -71,7 +71,7 @@ async function FillTracker(username, params = {}) {
       //console.log('success.');
     } catch (err) {
       console.log(`Ajax error loading page: ${href} - ${err.status} ${err.statusText}`);
-      config.trackerwrap.append('<div class="tracker--item fullWidth"><div class="tracker--body">Search Failed</div></div>');
+      config.trackerwrap.append('<div class="profile--nothreads">Search Failed</div>');
       return;
     }
     doc = new DOMParser().parseFromString(data, 'text/html');
@@ -83,7 +83,12 @@ async function FillTracker(username, params = {}) {
       //console.log('search = ' + href);
     } else {
       let boardmessage = $('#board-message .tablefill .postcolor', doc).text();
-      config.trackerwrap.append(`<div class="tracker--item fullWidth"><div class="tracker--body">${boardmessage}</div></div>`);
+      config.trackerwrap.append(`<div class="profile--nothreads">${boardmessage}</div>`);
+      config.historywrap.append(`<div class="profile--nothreads">${boardmessage}</div>`);
+      config.commwrap.append(`<div class="profile--nothreads">${boardmessage}</div>`);
+      config.socialwrap.append(`<div class="profile--nothreads">${boardmessage}</div>`);
+      config.devwrap.append(`<div class="profile--nothreads">${boardmessage}</div>`);
+      config.reqwrap.append(`<div class="profile--nothreads">${boardmessage}</div>`);
       return;
     }
   
@@ -104,7 +109,7 @@ async function FillTracker(username, params = {}) {
     } catch (err) {
       console.log(`Ajax error loading page: ${searchlink} - ${err.status} ${err.statusText}`);
       console.log(err)
-      config.trackerwrap.append('<div class="tracker--item fullWidth"><div class="tracker--body">Search Failed</div></div>');
+      config.trackerwrap.append('<div class="profile--nothreads">Search Failed</div>');
       return;
     }
     doc = new DOMParser().parseFromString(data, 'text/html');

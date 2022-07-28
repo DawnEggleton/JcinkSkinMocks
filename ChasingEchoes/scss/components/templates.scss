@@ -376,6 +376,22 @@ tag {
         display: grid;
         grid-template-columns: 50px auto;
         grid-gap: 15px;
+
+        &[data-align="right"] {
+            grid-template-columns: auto 70px;
+
+            tag-iconimage {
+                order: 2;
+            }
+            tag-messages {
+                order: 1;
+            }
+            tag-msg:first-child::before {
+                transform: rotate(-135deg);
+                right: -4px;
+                left: auto;
+            }
+        }
     }
     &-iconimage {
         width: 50px;
@@ -515,6 +531,22 @@ tag {
         grid-gap: 15px;
         max-width: 325px;
         margin: 0 auto;
+
+        &[data-align="right"] {
+            grid-template-columns: auto 70px;
+
+            tag-listen {
+                order: 2;
+            }
+            tag-songs {
+                order: 1;
+            }
+            tag-song:first-child::before {
+                transform: rotate(-135deg);
+                right: -4px;
+                left: auto;
+            }
+        }
     }
     &-listen {
         background: var(--bg-accent);
@@ -693,6 +725,36 @@ tag {
         &:not(:last-of-type) {
             margin-bottom: 15px;
         }
+
+        &[data-align="right"] {
+            margin-right: 0;
+            margin-left: auto;
+        }
+        &[data-align="centerLeft"] {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &[data-align="centerRight"] {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &[data-align="right"],
+        &[data-align="centerRight"] {
+            grid-template-columns: auto 70px;
+
+            tag-shipimage {
+                order: 2;
+            }
+            tag-shipinfo {
+                order: 1;
+
+                &::before {
+                    transform: rotate(-135deg);
+                    right: -4px;
+                    left: auto;
+                }
+            }
+        }
     }
     &-shipimage,
     &-shipicon {
@@ -770,7 +832,6 @@ tag {
     }
 
 
-
     &-tabs,
     &-labels,
     &-labelset,
@@ -825,4 +886,33 @@ tag {
             display: none;
         }
     }
+}
+
+
+[data-width="xs"] {
+    max-width: 250px;
+}
+[data-width="sm"] {
+    max-width: 325px;
+}
+[data-width="md"] {
+    max-width: 400px;
+}
+[data-width="lg"] {
+    max-width: 475px;
+}
+[data-width="xl"] {
+    max-width: 550px;
+}
+[data-width][data-align="left"] {
+    margin-left: 0;
+    margin-right: auto;
+}
+[data-width][data-align="center"] {
+    margin-left: auto;
+    margin-right: auto;
+}
+[data-width][data-align="right"] {
+    margin-left: auto;
+    margin-right: 0;
 }
