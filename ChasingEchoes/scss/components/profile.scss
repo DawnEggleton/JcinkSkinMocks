@@ -73,8 +73,12 @@
 
         img {
             width: 100%;
-            height: 100%;
             object-fit: cover;
+            height: 150px;
+    
+            @media only screen and (min-width: $md) {
+                height: 100px;
+            }
         }
     }
 
@@ -432,8 +436,88 @@
 
     &--threads {
         margin-top: 50px;
-        border-top: 1px solid var(--border-main);
-        padding-top: 50px;
+    }
+    &--thread {
+        background: var(--bg-accent);
+        color: var(--text-on-accent);
+        padding: 15px;
+
+        &-grid {
+            display: grid;
+            grid-gap: 15px;
+            max-height: 350px;
+            grid-template-rows: repeat(auto-fit, minmax(0, max-content));
+
+            @media only screen and (min-width: $md) {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        &-border {
+            border: 1px solid var(--text-on-accent);
+            padding: 10px 15px 13px;
+            text-align: center;
+
+            & > a {
+                color: var(--text-on-accent);
+                font-family: var(--font-accent-bold);
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: var(--lBody);
+            }
+        }
+
+        &-marker {
+            position: absolute;
+            top: -7px;
+            left: -7px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg-accent);
+            border: 1px solid var(--text-on-accent);
+            font-size: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .owing & {
+                background: var(--bg-content);
+                color: var(--text-content-accent);
+            }
+
+            .fa-star,
+            .owing & .fa-check {
+                display: none;
+            }
+
+            .owing & .fa-star {
+                display: initial;
+            }
+        }
+
+        &-info {
+            display: flex;
+            flex-direction: column;
+            text-transform: uppercase;
+            font-family: var(--font-accent);
+            font-size: var(--xsBody);
+            letter-spacing: 1px;
+            font-weight: 600;
+
+            a {
+                color: var(--text-on-accent);
+            }
+        }
+    }
+    &--nothreads {
+        background: var(--bg-opaque-accent);
+        border-radius: 5px;
+        max-width: max-content;
+        height: max-content;
+        padding: 10px 15px;
+        margin: 0 auto;
+        grid-column: 1 / -1;
     }
 
     .oocOnly {

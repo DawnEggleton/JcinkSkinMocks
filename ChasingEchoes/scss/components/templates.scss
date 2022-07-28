@@ -159,6 +159,10 @@ tag {
         border-bottom: 1px solid var(--border-main);
         padding-bottom: 15px;
 
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
         button {
             background: var(--bg-opaque-accent);
             border: 0;
@@ -218,6 +222,14 @@ tag {
         transition-duration: 0.5s;
         left: 0;
         margin: 0 10px;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: var(--bg-accent);
+            border-radius: 3px;
+        }
     }
 
     &-email {

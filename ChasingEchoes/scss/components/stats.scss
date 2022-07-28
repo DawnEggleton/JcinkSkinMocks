@@ -237,6 +237,14 @@
                 scrollbar-width: thin;
                 height: calc(294px + (var(--sizeBoost) * 9));
 
+                &::-webkit-scrollbar {
+                    width: 5px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background: var(--bg-accent);
+                    border-radius: 3px;
+                }
+
                 tr {
                     display: grid;
                     text-align: center;

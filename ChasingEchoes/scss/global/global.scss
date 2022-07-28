@@ -64,9 +64,32 @@ body:not(.g-4) .staffOnly {
     display: none !important;
 }
 .scroll {
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     scrollbar-color: var(--bg-accent) transparent;
     scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--bg-accent);
+        border-radius: 3px;
+    }
+}
+.scroll-h {
+    overflow-y: hidden;
+    overflow-x: auto;
+    scrollbar-color: var(--bg-accent) transparent;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--bg-accent);
+        border-radius: 3px;
+    }
 }
 ul:not(.splide__list):not(.splide__pagination) {
     padding: 0;
