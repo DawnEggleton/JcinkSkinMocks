@@ -120,3 +120,41 @@ if($('body#UserCP').length > 0) {
         });
     }
 }
+
+
+/****************
+ PROFILE ONLY
+*****************/
+if($('body#Profile').length > 0) {
+    const nameArray = document.querySelector('.profile--border h1').innerText.split(' ');
+    if(nameArray.length > 1) {
+        let alteredName = `${nameArray[0]}<span>`;
+        for(let i = 0; i < nameArray.length - 1; i++) {
+            alteredName += `${nameArray[i + 1]}`;
+            if(i < nameArray.length - 2) {
+                alteredName += ` `;
+            }
+        }
+        alteredName += `</span>`;
+        document.querySelector('.profile--border h1').innerHTML = alteredName;
+    }
+}
+
+
+/****************
+ POST VIEW ONLY
+*****************/
+if($('body#ST').length > 0) {
+    const nameArray = document.querySelector('.post--header > a').innerText.split(' ');
+    if(nameArray.length > 1) {
+        let alteredName = `${nameArray[0]}<span>`;
+        for(let i = 0; i < nameArray.length - 1; i++) {
+            alteredName += `${nameArray[i + 1]}`;
+            if(i < nameArray.length - 2) {
+                alteredName += ` `;
+            }
+        }
+        alteredName += `</span>`;
+        document.querySelector('.post--header > a').innerHTML = alteredName;
+    }
+}

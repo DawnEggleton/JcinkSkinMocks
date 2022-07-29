@@ -130,11 +130,92 @@ textarea {
     border: 1px solid var(--border-main);
     padding: 5px 10px;
     background: var(--bg-content);
-    font-family: var(--font-body);
+    font-family: var(--font-body), sans-serif;
     font-size: var(--mBody);
     color: var(--text-body);
 }
 textarea {
     padding: 9px 10px;
     line-height: 200%;
+}
+body:not(#UserCP.code-01) select {
+    font-size: var(--xsBody);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font-accent-bold), sans-serif;
+    font-weight: 700;
+
+    option {
+        font-size: var(--mBody);
+        text-transform: none;
+    }
+}
+.wrapmini,
+.pagination_pagetxt,
+.goto-firstunread {
+    display: none;
+}
+.pagination {
+    display: flex;
+    gap: 3px;
+    font-size: 0;
+
+    &_page,
+    &_current,
+    &_last {
+        border: 1px solid var(--border-main);
+        min-width: 16px;
+        display: flex;
+        padding: 3px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--text-body);
+        max-width: max-content;
+        font-size: var(--xsBody);
+        height: 16px;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg-content);
+        transition-duration: 0.5s;
+    }
+
+    &_current {
+        background: var(--bg-accent);
+        color: var(--text-on-accent);
+    }
+    &_page,
+    &_last {
+        &:hover {
+            color: var(--text-content-accent);
+            border-color: var(--bg-opaque-accent);
+        }
+    }
+    &_last {
+        width: max-content;
+        letter-spacing: 1px;
+    }
+}
+
+.macro--button {
+    border: 1px solid var(--border-main);
+    padding: 5px 10px;
+    font-family: var(--font-accent-bold);
+    text-transform: uppercase;
+    font-weight: 700;
+    background: var(--bg-content);
+    transition-duration: 0.5s;
+
+    &:hover {
+        background: var(--bg-accent);
+        color: var(--text-on-accent);
+    }
+}
+.macro--message {
+  grid-column: 1 / -1;
+  max-width: 375px;
+  width: max-content;
+  background: var(--bg-opaque-accent);
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin: 0 auto;
 }
