@@ -124,6 +124,10 @@ img.effect-grayscale {
         filter: grayscale(0);
     }
 }
+.effect-blur img {
+    transform: scale(1.1);
+    filter: blur(5px) grayscale(1);
+}
 input,
 select,
 textarea {

@@ -12,12 +12,13 @@ header {
     }
 }
 
-.splide {
-    body:not(#idx) & {
-        display: none;
-    }
+header.splide {
     &#desktop-splide {
         display: none;
+
+        .splide__slide.slide--info .splide__border {
+            grid-template-columns: 325px auto;
+        }
 
         @media only screen and (min-width: $md) {
             display: block;
@@ -28,7 +29,7 @@ header {
             display: none;
         }
     }
-    &__slide {
+    .splide__slide {
         background: var(--bg-content);
         padding: 15px;
 
@@ -147,10 +148,6 @@ header {
                 display: grid;
                 grid-template-rows: max-content auto;
                 grid-gap: 5px 15px;
-
-                #desktop-splide & {
-                    grid-template-columns: 325px auto;
-                }
             }
 
             .info {
@@ -276,12 +273,12 @@ header {
             }
         }
     }
-    &__border {
+    .splide__border {
         border: 1px solid var(--border-main);
         padding: 6vw;
         height: 100%;
     }
-    &__arrows {
+    .splide__arrows {
         position: absolute;
         z-index: 2;
         display: flex;
@@ -296,7 +293,7 @@ header {
             left: 67.5px;
         }
     }
-    &__arrow {
+    .splide__arrow {
         border: 0;
         background: var(--text-content-accent);
         color: var(--white);
@@ -321,7 +318,7 @@ header {
             transform: rotate(180deg);
         }
     }
-    &__pagination {
+    .splide__pagination {
         position: absolute;
         bottom: 8px;
         z-index: 2;
@@ -353,4 +350,7 @@ header {
             }
         }
     }
+}
+body:not(#idx) header.splide {
+    display: none;
 }

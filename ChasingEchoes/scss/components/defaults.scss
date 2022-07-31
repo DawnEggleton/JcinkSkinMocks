@@ -122,6 +122,7 @@
                     grid-template-rows: max-content auto;
 
                     &.cp-header,
+                    &#field_10,
                     &#field_27,
                     &#field_28,
                     &#field_29,
@@ -130,6 +131,7 @@
                     &#field_17,
                     &#field_43,
                     &#field_31,
+                    &#field_49,
                     &:last-child {
                         grid-column: 1 / -1;
                     }

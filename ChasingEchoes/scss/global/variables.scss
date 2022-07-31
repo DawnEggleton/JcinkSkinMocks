@@ -15,6 +15,8 @@
 
     --white: rgba(247,247,247,1);
     --white-35: rgba(247,247,247,0.35);
+    --white-75: rgba(247,247,247,0.75);
+    --white-90: rgba(247,247,247,0.90);
     --offwhite: rgba(236,236,236,1);
     --ltgrey: rgba(193,193,193,1);
     --midgrey: rgba(128,128,128,1);
@@ -31,6 +33,7 @@
     --bg-body: var(--offwhite);
     --bg-content: var(--white);
     --bg-opaque: var(--white-35);
+    --bg-opaque2: var(--white-90);
     --bg-opaque-accent: var(--accent-35);
     --bg-opaque-accent2: var(--accent-50);
     --border-main: var(--ltgrey);
@@ -72,6 +75,7 @@
     --bg-content: var(--white);
     --bg-accent: var(--accent-mid);
     --bg-opaque: var(--white-35);
+    --bg-opaque2: var(--white-90);
     --border-main: var(--ltgrey);
     --text-body: var(--dkgrey);
     --text-header-accent: var(--accent-mid);
@@ -85,6 +89,7 @@
     --bg-content: var(--ltgrey);
     --bg-accent: var(--accent-mid);
     --bg-opaque: var(--white-35);
+    --bg-opaque2: var(--white-75);
     --border-main: var(--offwhite);
     --text-body: var(--dkgrey);
     --text-header-accent: var(--accent-light);
@@ -98,6 +103,7 @@
     --bg-content: var(--dkgrey);
     --bg-accent: var(--accent-light);
     --bg-opaque: var(--offblack-55);
+    --bg-opaque2: var(--offblack-55);
     --border-main: var(--midgrey);
     --text-body: var(--ltgrey);
     --text-header-accent: var(--accent-light);
