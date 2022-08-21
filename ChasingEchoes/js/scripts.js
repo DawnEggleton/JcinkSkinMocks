@@ -90,6 +90,45 @@ if(document.querySelectorAll('tag-tabs').length > 0) {
     })
 }
 
+//quick login
+if(document.querySelector('body').classList.contains('g-2')) {
+    if($('#quick-login').length) {
+        $('#quick-login').appendTo('#quick-login-clip');
+    } else {
+        var main_url = location.href.split('?')[0];
+        $.get(main_url, function (data) {
+            $('#quick-login', data).appendTo('#quick-login-clip');
+        });
+    }
+    document.querySelector('#quick-login input[name="UserName"]').setAttribute('placeholder', 'Username');
+    document.querySelector('#quick-login input[name="PassWord"]').setAttribute('placeholder', 'Password');
+}
+
+
+//Popup Management
+document.querySelectorAll('.popup').forEach(popup => {
+    popup.addEventListener('click', () => {
+        let modalTag = popup.dataset.modal,
+            modals = document.querySelectorAll('.modal'),
+            modal;
+            console.log(modalTag);
+            console.log(modals);
+        for(let i = 0; i < modals.length; i++) {
+            if(modals[i].dataset.modalBox === modalTag) {
+                modal = modals[i];
+                modal.classList.add('is-open');
+            }
+        }
+    });
+});
+document.querySelectorAll('.modal').forEach(modal => {
+    window.addEventListener('click', e => {
+        if(e.target.classList.contains('modal') || e.target.classList.contains('modal--close') || e.target.parentNode.classList.contains('modal--close')) {
+            modal.classList.remove('is-open');
+        }
+    });
+});
+
 
 
 
@@ -107,6 +146,39 @@ if($('body#idx').length > 0 || $('body#SC').length > 0) {
  UCP ONLY
 *****************/
 if($('body#UserCP').length > 0) {
+    //wrap checkboxes
+    if($('body.code-04').length <= 0) {
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => jQuery(checkbox).wrap('<label class="fancyInput"></label>'));
+        document.querySelectorAll('.fancyInput').forEach(checkbox => checkbox.insertAdjacentHTML('beforeend', '<div><i class="fa-solid fa-check"></i></div>'));
+    } else {
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => jQuery(checkbox).wrap('<label class="fancyInput"></label>'));
+        document.querySelectorAll('.fancyInput').forEach(checkbox => checkbox.insertAdjacentHTML('beforeend', '<div><i class="fa-solid fa-check"></i></div><b>Is daylight savings time in effect?</b>'));
+    }
+
+    document.querySelector('#ucpmenu').innerHTML = `<div class="ucp--sticky">
+    <b>Account</b>
+    <div class="ucp--expandable ucp--menu-account is-open">
+    <a href="?act=UserCP&CODE=01">Edit Profile</a>
+    <a href="?act=UserCP&CODE=24">Update Avatar</a>
+    <a href="?act=UserCP&CODE=54">Sub-accounts</a>
+    <a href="?act=UserCP&CODE=52">Edit Username</a>
+    <a href="?act=UserCP&CODE=28">Change Password</a>
+    <a href="?act=UserCP&CODE=08">Update Email</a>
+    </div>
+    <b>Tracking</b>
+    <div class="ucp--expandable ucp--menu-track is-open">
+    <a href="?act=UserCP&CODE=alerts">Alerts</a>
+    <a href="?act=UserCP&CODE=50">Forums</a>
+    <a href="?act=UserCP&CODE=26">Topics</a>
+    </div>
+    <b>Settings</b>
+    <div class="ucp--expandable ucp--menu-settings is-open">
+    <a href="?act=UserCP&CODE=04">Board</a>
+    <a href="?act=UserCP&CODE=alerts_settings">Alerts</a>
+    <a href="?act=UserCP&CODE=02">Emails</a>
+    </div>
+    </div>`;
+
 	//Edit Profile Edits
 	if($('body.code-01').length > 0) {
         const toggleFields = [document.querySelector('#field_1_input'), document.querySelector('#field_27_input')];
@@ -119,6 +191,45 @@ if($('body#UserCP').length > 0) {
                 cpShift();
             });
         });
+    }
+
+    //ucp menu toggles
+    setUCPMenus();
+    window.addEventListener('resize', () => {
+        setUCPMenus();
+    });
+    document.querySelectorAll('.ucp--sticky > b').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            let menu = toggle.nextElementSibling.classList;
+            if(menu.contains('is-open')) {
+                if(menu.contains('ucp--menu-account')) {
+                    localStorage.setItem('ucpAccount', 'is-closed');
+                } else if(menu.contains('ucp--menu-track')) {
+                    localStorage.setItem('ucpTrack', 'is-closed');
+                } else if(menu.contains('ucp--menu-settings')) {
+                    localStorage.setItem('ucpSettings', 'is-closed');
+                }
+            } else if(menu.contains('is-closed')) {
+                if(menu.contains('ucp--menu-account')) {
+                    localStorage.setItem('ucpAccount', 'is-open');
+                } else if(menu.contains('ucp--menu-track')) {
+                    localStorage.setItem('ucpTrack', 'is-open');
+                } else if(menu.contains('ucp--menu-settings')) {
+                    localStorage.setItem('ucpSettings', 'is-open');
+                }
+            }
+            setUCPMenus();
+        });
+    });
+
+    //Forum Subscription edits
+    if ($('body.code-50').length > 0) {
+        document.querySelectorAll('#ucpcontent > .tableborder > table > tbody > tr > .darkrow3').forEach(category => category.parentNode.classList.add('ucp--cat-title')); 
+    }
+
+    //Topic Subscription edits
+    if ($('body.code-26').length > 0) {
+        document.querySelectorAll('#ucpcontent > form > .tableborder > table > tbody > tr > .darkrow3').forEach(category => category.parentNode.classList.add('ucp--cat-title')); 
     }
 }
 
@@ -197,5 +308,121 @@ if($('body#ST').length > 0) {
                 document.querySelectorAll('.note').forEach(note => note.style.opacity = 0);
             }, 3000);
         });
+    });
+}
+
+
+/****************
+ POSTING VIEW ONLY
+*****************/
+if($('body#Post').length > 0) {
+    if(document.querySelector('body.code-00')) {
+        document.querySelector('#topic-title input').setAttribute('placeholder', 'Topic Title');
+        document.querySelector('#topic-desc input').setAttribute('placeholder', 'Topic Description');
+    }
+    document.querySelector('#bbcode-buttons').innerHTML = document.querySelector('#bbcode-buttons').innerHTML.replace(/&nbsp;/g,'');
+    document.querySelector('#posting-form tr:last-child').innerHTML = document.querySelector('#posting-form tr:last-child').innerHTML.replace(/&nbsp;/g,'');
+    document.querySelector('#post-icon-options .pformright').innerHTML = document.querySelector('#post-icon-options .pformright').innerHTML.replace(/&nbsp;/g,'');
+    $('#post-options .pformright input').first().wrap('<label class="emoteWrap"></label>');
+    $('.emoteWrap').append('<span><i class="fa-solid fa-check"></i></span> Enable Emojis');
+    $('#post-options .pformright input').last().wrap('<label class="repWrap"></label>');
+    $('.repWrap').append('<span><i class="fa-solid fa-check"></i></span> Enable Notifications');
+    let save = $('.emoteWrap, .repWrap').detach();
+    $('#post-options .pformright').empty().append(save);
+
+    let textNodes = getAllTextNodes(document.querySelector('#post-icon-options .pformright'));
+    textNodes.forEach(node => {
+        const span = document.createElement('span');
+        span.classList.add('macro--icon', 'macro--icon-none');
+        node.after(span);
+        span.appendChild(node);
+    });
+    document.querySelector('.macro--icon-none').innerHTML = '<span><i class="fa-solid fa-check"></i></span> No post icon';
+    $('#post-icon-options .pformright input').each(function() {
+        $(this).nextUntil('input').andSelf().wrapAll('<label class="label--post-icon"></label>');
+    });
+}
+
+
+/****************
+ LOGIN ONLY
+*****************/
+if($('#Login').length > 0) {
+    let textNodes = getAllTextNodes(document.querySelector('main'));
+    textNodes.forEach(node => {
+        const paragraph = document.createElement('p');
+        node.after(paragraph);
+        paragraph.appendChild(node);
+    });
+    $('main').children().wrapAll(`<div class="login-page"><div class="login-page--border"></div></div>`);
+    document.querySelector('input[name="UserName"]').setAttribute('placeholder', 'Username');
+    document.querySelector('input[name="PassWord"]').setAttribute('placeholder', 'Password');
+    $('input[name="CookieDate"][value="1"]').wrap('<label class="label--cookie-remember"></label>');
+    $('.label--cookie-remember').append('<span><i class="fa-solid fa-check"></i></span> Yes (Not recommended for shared computers)');
+    $('input[name="CookieDate"][value="0"]').wrap('<label class="label--cookie-forget"></label>');
+    $('.label--cookie-forget').append('<span><i class="fa-solid fa-check"></i></span> No');
+}
+
+
+/****************
+ REGISTER ONLY
+*****************/
+if($('#Reg').length > 0) {
+    if(document.querySelectorAll('main > form').length > 0) {
+        let row = document.querySelector('main > form > .tableborder > .tablepad > table > tbody > tr:first-child');
+        let firstColumn = row.querySelector('td:first-child');
+        let columns = row.querySelectorAll('td');
+        let secondColumn = row.querySelector('td:last-child > div > table > tbody > tr > td').innerHTML;
+
+        firstColumn.insertAdjacentHTML('beforeend', secondColumn);
+    }
+
+    let textNodes = getAllTextNodes(document.querySelector('main > form'));
+    if(textNodes) {
+        textNodes.forEach(node => {
+            const paragraph = document.createElement('p');
+            node.after(paragraph);
+            paragraph.appendChild(node);
+        });
+    }
+
+    if(document.querySelector('input[name="read_tos"][type="checkbox"]')) {
+        $('input[name="read_tos"][type="checkbox"]').wrap('<label class="tosWrap"></label>');
+        $('.tosWrap').append(document.querySelector('.tosWrap + b'));
+    }
+
+    if(document.querySelector('input[name="allow_admin_mail"][type="checkbox"]')) {
+        $('input[name="allow_admin_mail"][type="checkbox"]').wrap('<label class="staffWrap"></label>');
+        $('.staffWrap').append('<span><i class="fa-solid fa-check"></i></span> Receive email from staff');
+        $('input[name="allow_member_mail"][type="checkbox"]').wrap('<label class="memWrap"></label>');
+        $('.memWrap').append('<span><i class="fa-solid fa-check"></i></span> Receive email from other members');
+        $('.staffWrap').parent().addClass('notifications');
+    }
+
+    if(document.querySelector('input[name="agree"][type="checkbox"]')) {
+        $('input[name="agree"][type="checkbox"]').wrap('<label class="label--tosAgree"></label>');
+        $('.label--tosAgree').append('<span><i class="fa-solid fa-check"></i></span> I agree to the terms of this registration, <b>I am at least 18 years of age,</b> and wish to proceed.');
+    }
+
+    if(document.querySelectorAll('legend')) {
+        document.querySelectorAll('legend').forEach(legend => {
+            if(!legend.querySelector('b')) {
+                legend.innerHTML = `<b>${legend.innerHTML}</b>`;
+            }
+        })
+    }
+}
+
+
+/****************
+ MEMBER LIST ONLY
+*****************/
+if($('body#Members').length > 0) {
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 0) {
+            document.querySelector('body').classList.add('is-scrolled');
+        } else {
+            document.querySelector('body').classList.remove('is-scrolled');
+        }
     });
 }

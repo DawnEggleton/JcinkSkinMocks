@@ -33,10 +33,9 @@
         <link rel="stylesheet" href="../css/settings.css" />
     </head>
     <body id="Members" class="dark g-4">
-        <!--Background Elements-->
         
         <!--Header-->
-        <header class="splide" role="group">
+        <header id="desktop-splide" class="splide" role="group">
             <div class="splide__track">
                 <ul class="splide__list">
                     <li class="splide__slide slide--title">
@@ -48,14 +47,81 @@
                             </h1>
                         </div>
                     </li>
-                    <li class="splide__slide">
+                    <li class="splide__slide slide--info">
                         <div class="splide__border">
-                            Slide #2
+                            <div class="info--summary">
+                                <div class="scroll">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                </div>
+                            </div>
+                            <div class="info--staff">
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/125" />
+                                    <a href="?showuser=1"><span>A</span></a>
+                                </div>
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/100" />
+                                    <a href="?showuser=00"><span>B</span></a>
+                                </div>
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/150" />
+                                    <a href="?showuser=00"><span>C</span></a>
+                                </div>
+                            </div>
+                            <div class="info--news">
+                                <u>News Reel</u>
+                                <div class="scroll">
+                                    <a href="#">a linked announcement</a>
+                                </div>
+                            </div>
                         </div>
                     </li>
-                    <li class="splide__slide">
+                </ul>
+            </div>
+        </header>
+        <header id="mobile-splide" class="splide" role="group">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide slide--title">
                         <div class="splide__border">
-                            Slide #3
+                            <h1>
+                                Chasing
+                                <span class="accent">Echoes</span>
+                                <span class="description">A site description in here like this</span>
+                            </h1>
+                        </div>
+                    </li>
+                    <li class="splide__slide slide--info">
+                        <div class="splide__border">
+                            <div class="info--summary">
+                                <div class="scroll">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                </div>
+                            </div>
+                            <div class="info--news">
+                                <u>News Reel</u>
+                                <div class="scroll">
+                                    <a href="#">a linked announcement</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="splide__slide slide--staff">
+                        <div class="splide__border">
+                            <div class="info--staff">
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/125" />
+                                    <a href="?showuser=1"><span>A</span></a>
+                                </div>
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/100" />
+                                    <a href="?showuser=00"><span>B</span></a>
+                                </div>
+                                <div class="info--staff-member">
+                                    <img src="https://picsum.photos/500/150" />
+                                    <a href="?showuser=00"><span>C</span></a>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -63,10 +129,10 @@
         </header>
 
         <!--Navigation-->
-        <nav>
+        <nav class="nav--desktop">
             <div class="nav--popout">
                 <div class="main-menu">
-                    <button onClick="toggleMenu()">
+                    <button onClick="toggleMenu(this)">
                         <i class="fa-solid fa-bars"></i>
                         <i class="fa-solid fa-xmark"></i>
                     </button>
@@ -83,23 +149,98 @@
             <div class="nav--controls">
                 <a href="index.html"><i class="fa-solid fa-home"></i></a>
                 <a href="profile.html" class="memOnly"><i class="fa-solid fa-user"></i></a>
+                <button onclick="switchAccount(this)">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    <i class="fa-solid fa-xmark"></i>
+                    <div class="nav--switch">
+                        <span id="subaccounts_menu">
+                            <form action="https://playedgod.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
+                            <input type="hidden" name="auth_key" value="67b665903a8fc5105c6bbb3892012108">
+                            <input type="hidden" name="UserName" value="subacct">
+                            <input type="hidden" name="PassWord" value="subacct">
+                            <input type="hidden" name="referer" value="">
+                            <select class="forminput" name="sub_id" onchange="this.form.submit()">
+                            <option value="------------" selected="selected">Switch Account</option>
+                            <option value="4">&nbsp;&nbsp;» Brennan Cormac </option><option value="43">&nbsp;&nbsp;» Cynbel Edevane </option><option value="2">&nbsp;&nbsp;» Hayden Donovan </option><option value="50">&nbsp;&nbsp;» Jesse Dunn </option><option value="45">&nbsp;&nbsp;» Madison Mckinley </option><option value="3">&nbsp;&nbsp;» Malcolm Murdock </option><option value="35">&nbsp;&nbsp;» Nikolas Kovac </option><option value="15">&nbsp;&nbsp;» Satiah El Masry </option><option value="36">&nbsp;&nbsp;» Sterling Di Mitri </option>
+                            </select>
+                            </form>
+                        </span>
+                    </div>
+                </button>
                 <a href="usercp/user-edit.html" class="memOnly"><i class="fa-solid fa-gear"></i></a>
                 <a href="usercp/user-inbox.html" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
                 <a href="usercp/user-alerts.html" class="memOnly"><i class="fa-solid fa-bell"></i></a>
-                <a href="defaults/login.html" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
+                <a href="defaults/redirect.html" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
                 <a href="defaults/register1.html" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
-                <a href="defaults/login.html" class="guestOnly"><i class="fa-solid fa-sign-in"></i></a>
+                <a href="javascript:void(0)" class="guestOnly popup" data-modal="login"><i class="fa-solid fa-sign-in"></i></a>
                 <a href="#"><i class="fa-brand fa-discord"></i></a>
                 <div class="border-vertical"></div>
                 <a href="/admin.php" target="_blank" class="staffOnly"><i class="fa-solid fa-screwdriver-wrench"></i></a>
                 <div class="border-vertical staffOnly"></div>
                 <div class="nav--setting">
                     <i class="fa-solid fa-sun-bright"></i>
-                    <input type="range" min="1" max="3" value="1" name="setting-brightness" />
+                    <input type="range" min="1" max="3" name="setting-brightness" />
                 </div>
                 <div class="nav--setting">
                     <i class="fa-solid fa-text-size"></i>
-                    <input type="range" min="1" max="3" value="1" name="setting-size" />
+                    <input type="range" min="1" max="3" name="setting-size" />
+                </div>
+            </div>
+        </nav>
+        <nav class="nav--mobile">
+            <div class="nav--popout">
+                <div class="main-menu">
+                    <button onClick="toggleMenu(this)">
+                        <i class="fa-solid fa-bars"></i>
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="sub-menu">
+                        <a href="">index</a>
+                        <a href="">guidebook</a>
+                        <a href="">claims</a>
+                        <a href="">members</a>
+                        <a href="#">Discord</a>
+                        <a href="/admin.php" target="_blank" class="staffOnly">Admin</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav--popout">
+                <div class="main-menu">
+                    <button onClick="toggleMenu(this)">
+                        <i class="fa-solid fa-user-gear"></i>
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="sub-menu">
+                        <div class="nav--mobile-settings">
+                            <div class="nav--setting">
+                                <i class="fa-solid fa-sun-bright"></i>
+                                <input type="range" min="1" max="3" name="setting-brightness" />
+                            </div>
+                            <div class="nav--setting">
+                                <i class="fa-solid fa-text-size"></i>
+                                <input type="range" min="1" max="3" name="setting-size" />
+                            </div>
+                        </div>
+                        <span id="subaccounts_menu">
+                            <form action="https://playedgod.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
+                            <input type="hidden" name="auth_key" value="67b665903a8fc5105c6bbb3892012108">
+                            <input type="hidden" name="UserName" value="subacct">
+                            <input type="hidden" name="PassWord" value="subacct">
+                            <input type="hidden" name="referer" value="">
+                            <select class="forminput" name="sub_id" onchange="this.form.submit()">
+                            <option value="------------" selected="selected">Switch Account</option>
+                            <option value="4">&nbsp;&nbsp;» Brennan Cormac </option><option value="43">&nbsp;&nbsp;» Cynbel Edevane </option><option value="2">&nbsp;&nbsp;» Hayden Donovan </option><option value="50">&nbsp;&nbsp;» Jesse Dunn </option><option value="45">&nbsp;&nbsp;» Madison Mckinley </option><option value="3">&nbsp;&nbsp;» Malcolm Murdock </option><option value="35">&nbsp;&nbsp;» Nikolas Kovac </option><option value="15">&nbsp;&nbsp;» Satiah El Masry </option><option value="36">&nbsp;&nbsp;» Sterling Di Mitri </option>
+                            </select>
+                            </form>
+                        </span>
+                        <a href="profile.html" class="memOnly">First Last</a>
+                        <a href="usercp/user-edit.html" class="memOnly">Edit Profile</a>
+                        <a href="usercp/user-inbox.html" class="memOnly">Inbox (0)</a>
+                        <a href="usercp/user-alerts.html" class="memOnly">Alerts (0)</a>
+                        <a href="defaults/login.html" class="memOnly">Logout</a>
+                        <a href="defaults/register1.html" class="guestOnly">Register</a>
+                        <a href="defaults/login.html" class="guestOnly">Login</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -109,6 +250,692 @@
             <a name="top"></a>
             <form action='index.php' method='get'>
                 <input type='hidden' name='act' value='Members' />
+                <div class="members">
+                    <div class="members--options">
+                        <tag-tabs class="members--border">
+                            <tag-labels>
+                                <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                <tag-labelset>
+                                    <input type="text" placeholder="Filter by Name" id="quicksearch" class="members--namesearch" />
+                                    <tag-label class="is-active">members</tag-label>
+                                    <tag-label>account type</tag-label>
+                                    <tag-label>group</tag-label>
+                                    <!--<tag-label>disciplines</tag-label>-->
+                                    <tag-label>age</tag-label>
+                                    <tag-label>relationship</tag-label>
+                                    <tag-label>sort results</tag-label>
+                                </tag-labelset>
+                                <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                            </tag-labels>
+                            <tag-tabset>
+                                <tag-tab class="members--filter-group members--generate-alias" data-filter-group="member">
+                                    <tag-labels>
+                                        <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                        <tag-labelset>
+                                            <label class="all is-checked"><input type="checkbox" class="all" value="" checked=""><span>all</span></label>
+                                        </tag-labelset>
+                                        <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                    </tag-labels>
+                                </tag-tab>
+                                <tag-tab class="members--filter-group" data-filter-group="type">
+                                    <tag-labels>
+                                        <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                        <tag-labelset>
+                                            <label class="all is-checked"><input type="checkbox" class="all" value="" checked=""><span>all</span></label>
+                                            <label><input type="checkbox" value=".g-4"><span>Staff</span></label>
+                                            <label><input type="checkbox" value=".g-6"><span>Writers</span></label>
+                                            <label><input type="checkbox" value=".active"><span>Active Characters</span></label>
+                                            <label><input type="checkbox" value=".g-3"><span>Unsorted</span></label>
+                                            <label><input type="checkbox" value=".g-7"><span>Inactive</span></label>
+                                            <label><input type="checkbox" value=".g-8"><span>Hiatus</span></label>
+                                        </tag-labelset>
+                                        <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                    </tag-labels>
+                                </tag-tab>
+                                <tag-tab class="members--filter-group" data-filter-group="group">
+                                    <tag-labels>
+                                        <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                        <tag-labelset>
+                                            <label class="all is-checked"><input type="checkbox" class="all" value="" checked=""><span>all</span></label>
+                                            <label><input type="checkbox" value=".g-9"><span>International</span></label>
+                                            <label><input type="checkbox" value=".g-10"><span>National</span></label>
+                                            <label><input type="checkbox" value=".g-11"><span>Provincial</span></label>
+                                            <label><input type="checkbox" value=".g-12"><span>Schooling</span></label>
+                                            <label><input type="checkbox" value=".g-13"><span>Industry</span></label>
+                                            <label><input type="checkbox" value=".g-14"><span>Local</span></label>
+                                        </tag-labelset>
+                                        <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                    </tag-labels>
+                                </tag-tab>
+                                <!--<tag-tab class="members--filter-group members--generate-disciplines" data-filter-group="disciplines">
+                                    <tag-labels>
+                                        <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                        <tag-labelset>
+                                            <label class="all is-checked"><input type="checkbox" class="all" value="" checked=""><span>all</span></label>
+                                        </tag-labelset>
+                                        <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                    </tag-labels>
+                                </tag-tab>-->
+                                <tag-tab class="members--filter-group" data-filter-group="age">
+                                    <tag-labels>
+                                        <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                        <tag-labelset>
+                                            <label class="all is-checked"><input type="checkbox" class="all" value="" checked=""><span>all</span></label>
+                                            <label><input type="checkbox" value=".Teen"><span>18-29</span></label>
+                                            <label><input type="checkbox" value=".30s"><span>30-39</span></label>
+                                            <label><input type="checkbox" value=".40s"><span>40-49</span></label>
+                                            <label><input type="checkbox" value=".50"><span>50+</span></label>
+                                        </tag-labelset>
+                                        <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                    </tag-labels>
+                                </tag-tab>
+                                <tag-tab class="members--filter-group" data-filter-group="relationship">
+                                    <tag-labels>
+                                        <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                        <tag-labelset>
+                                            <label class="all is-checked"><input type="checkbox" class="all" value="" checked=""><span>all</span></label>
+                                            <label><input type="checkbox" value=".single"><span>Single</span></label>
+                                            <label><input type="checkbox" value=".dating"><span>Dating</span></label>
+                                            <label><input type="checkbox" value=".engaged"><span>Engaged</span></label>
+                                            <label><input type="checkbox" value=".married"><span>Married</span></label>
+                                            <label><input type="checkbox" value=".separated"><span>Separated</span></label>
+                                            <label><input type="checkbox" value=".divorced"><span>Divorced</span></label>
+                                            <label><input type="checkbox" value=".widowed"><span>Widowed</span></label>
+                                        </tag-labelset>
+                                        <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                    </tag-labels>
+                                </tag-tab>
+                                <tag-tab class="members--sort-options">
+                                    <tag-labels>
+                                        <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                        <tag-labelset>
+                                            <button type="button" class="members--sort is-active" data-sort="name"><span>Name (A -&gt; Z)</span></button>
+                                            <button type="button" class="members--sort" data-sort="nameDesc"><span>Name (Z -&gt; A)</span></button>
+                                            <button type="button" class="members--sort" data-sort="age"><span>Age (Asc)</span></button>
+                                            <button type="button" class="members--sort" data-sort="ageDesc"><span>Age (Desc)</span></button>
+                                            <button type="button" class="members--sort" data-sort="face"><span>Face (A -&gt; Z)</span></button>
+                                            <button type="button" class="members--sort" data-sort="faceDesc"><span>Face (Z -&gt; A)</span></button>
+                                        </tag-labelset>
+                                        <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                    </tag-labels>
+                                </tag-tab>
+                            </tag-tabset>
+                        </tag-tabs>
+                    </div>
+                    <div class="members--list"></div>
+                    <script>
+                        let html = ``;
+                        let accounts = [], members = [], membersClean = [], disciplines = [], disciplinesClean = [];
+                        let $container = $('.members--list');
+                        var filters = {};
+                        let charAge = `0`, ageClass = ``;
+
+                        function sortList(el, direction) {
+                            let sort = el.getAttribute('data-sort');
+                            accounts.sort((a, b) => {
+                                let aSort = a[sort];
+                                let bSort = b[sort];
+                                if(a['type'] != 'Member' && b['type'] != 'Member') {
+                                    if (aSort === bSort) {
+                                        return 0;
+                                    }
+                                    else if (aSort === `` || !aSort) {
+                                        return 1;
+                                    }
+                                    else if (bSort === `` || !bSort) {
+                                        return -1;
+                                    }
+                                    else if (direction === `asc` && aSort !== `` && bSort !== ``) {
+                                        return aSort < bSort ? -1 : 1;
+                                    }
+                                    else if (direction === `desc` && aSort !== `` && bSort !== ``) {
+                                        return aSort < bSort ? 1 : -1;
+                                    }
+                                } else {
+                                    if (a['type'] == 'Member') {
+                                        return 1;
+                                    } else if (b['type'] == 'Member') {
+                                        return -1;
+                                    } else {
+                                        return 0;
+                                    }
+                                }
+                            });
+                            populatePage(accounts);
+                            $container.isotope('reloadItems').isotope();
+                        }
+                        
+                        function populatePage(array) {
+                            for (let i = 0; i < array.length; i++) {
+                                //Make Member Array
+                                let member = {raw: array[i].rawAlias, clean: array[i].alias};
+                                if(jQuery.inArray(member.clean, membersClean) == -1 && member.clean != '') {
+                                    membersClean.push(member.clean);
+                                    members.push(member);
+                                }
+                                //make disciplines array
+                                let characterDisciplines = array[i].disciplinesArray;
+                                for (let j = 0; j < characterDisciplines.length; j++) {
+                                    let discipline = {raw: array[i].disciplinesArray[j], clean: array[i].disciplinesArray[j].toLowerCase().replace(' ', "").replace('\/', "")};
+                                    if(jQuery.inArray(discipline.clean, disciplinesClean) == -1 && discipline.clean != '') {
+                                        disciplines.push(discipline);
+                                        disciplinesClean.push(discipline.clean);
+                                    }
+                                }
+                                switch(array[i].groupID) {
+                                    //member only
+                                    case 4:
+                                    case 6:
+                                        html += `<div class="members--member writer onLoad grid-item g-${array[i].groupID} ${array[i].alias}">
+                                            <div class="member">
+                                                <div class="member--border">
+                                                    <div class="member--top">
+                                                        <a href="profile-member.html" class="name">${array[i].splitName}</a>
+                                                        <div class="member--links">
+                                                            <a href="profile-member.html">directory</a>
+                                                            <a href="defaults/usertopics.html">topics</a>
+                                                            <a href="defaults/userposts.html">posts</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member--image">
+                                                        <img src="${array[i].imageTall}" class="tall" />
+                                                        <img src="${array[i].imageWide}" class="wide" />
+                                                    </div>
+                                                    <div class="member--info">
+                                                        <div class="member--overview"><div class="scroll">${array[i].limits}</div></div>
+                                                        <div class="member--quick-facts">
+                                                            <div class="member--fact">
+                                                                <b>pronouns</b>
+                                                                <span>${array[i].memPronouns}</span>
+                                                            </div>
+                                                            <div class="member--fact">
+                                                                <b>timezone</b>
+                                                                <span>${array[i].timezone}</span>
+                                                            </div>
+                                                            <div class="member--fact">
+                                                                <b>posting</b>
+                                                                <span>${array[i].frequency}</span>
+                                                            </div>
+                                                            <div class="member--fact">
+                                                                <b>joined</b>
+                                                                <span>${array[i].joined}</span>
+                                                            </div>
+                                                            <div class="member--fact">
+                                                                <b>last posted</b>
+                                                                <span>${array[i].lastpost}</span>
+                                                            </div>
+                                                            <div class="member--fact">
+                                                                <b>limits</b>
+                                                                <span>${array[i].writeLimits}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member--search-terms">
+                                                        <span class="search-name">${array[i].name}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>`;
+                                        break;
+                                    //depends on type
+                                    case 1:
+                                    case 5:
+                                    case 7:
+                                    case 8:
+                                        if(array[i].type == `member`) {
+                                            //member
+                                            html += `<div class="members--member writer grid-item g-${array[i].groupID} ${array[i].alias}">
+                                                <div class="member">
+                                                    <div class="member--border">
+                                                        <div class="member--top">
+                                                            <a href="profile-member.html" class="name">${array[i].splitName}</a>
+                                                            <div class="member--links">
+                                                                <a href="profile-member.html">directory</a>
+                                                                <a href="defaults/usertopics.html">topics</a>
+                                                                <a href="defaults/userposts.html">posts</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="member--image">
+                                                            <img src="${array[i].imageTall}" class="tall" />
+                                                            <img src="${array[i].imageWide}" class="wide" />
+                                                        </div>
+                                                        <div class="member--info">
+                                                            <div class="member--overview"><div class="scroll">${array[i].limits}</div></div>
+                                                            <div class="member--quick-facts">
+                                                                <div class="member--fact">
+                                                                    <b>pronouns</b>
+                                                                    <span>${array[i].pronouns}</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>timezone</b>
+                                                                    <span>${array[i].timezone}</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>posting</b>
+                                                                    <span>${array[i].frequency}</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>joined</b>
+                                                                    <span>${array[i].joined}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="member--search-terms">
+                                                            <span class="search-name">${array[i].name}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>`;
+                                        } else {
+                                            //character
+                                            html += `<div class="members--member character grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].alias} ${array[i].groupName} ${array[i].disciplinesClass}">
+                                                <div class="member">
+                                                    <div class="member--border">
+                                                        <div class="member--top">
+                                                            <a href="profile.html" class="name">${array[i].splitName}</a>
+                                                            <div class="member--links">
+                                                                <a href="profile-member.html">directory</a>
+                                                                <a href="defaults/usertopics.html">topics</a>
+                                                                <a href="defaults/userposts.html">posts</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="member--image">
+                                                            <img src="${array[i].imageTall}" class="tall" />
+                                                            <img src="${array[i].imageWide}" class="wide" />
+                                                        </div>
+                                                        <div class="member--info">
+                                                            <div class="member--overview"><div class="scroll">${array[i].overview}</div></div>
+                                                            <div class="member--quick-facts">
+                                                                <div class="member--fact">
+                                                                    <b>pronouns</b>
+                                                                    <span>${array[i].pronouns}</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>age</b>
+                                                                    <span>${array[i].age} years old</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>currently</b>
+                                                                    <span>${array[i].relStatus}</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>played by</b>
+                                                                    <span>${array[i].rawAlias}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="member--search-terms">
+                                                            <span class="search-name">${array[i].name}</span>
+                                                            <span class="sort-name">${array[i].name}</span>
+                                                            <span class="sort-age">${array[i].age}</span>
+                                                            <span class="sort-face">${array[i].face}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>`;
+                                        }
+                                        break;
+                                    //unsorted
+                                    case 3:
+                                        if(array[i].type == `member`) {
+                                            //member
+                                            html += `<div class="members--member writer onLoad grid-item g-${array[i].groupID} ${array[i].alias}">
+                                                <div class="member">
+                                                    <div class="member--border">
+                                                        <div class="member--top">
+                                                            <a href="profile-member.html" class="name">${array[i].splitName}</a>
+                                                            <div class="member--links">
+                                                                <a href="profile-member.html">directory</a>
+                                                                <a href="defaults/usertopics.html">topics</a>
+                                                                <a href="defaults/userposts.html">posts</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="member--image">
+                                                            <img src="${array[i].imageTall}" class="tall" />
+                                                            <img src="${array[i].imageWide}" class="wide" />
+                                                        </div>
+                                                        <div class="member--info">
+                                                            <div class="member--overview"><div class="scroll">${array[i].limits}</div></div>
+                                                            <div class="member--quick-facts">
+                                                                <div class="member--fact">
+                                                                    <b>pronouns</b>
+                                                                    <span>${array[i].pronouns}</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>timezone</b>
+                                                                    <span>${array[i].timezone}</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>posting</b>
+                                                                    <span>${array[i].frequency}</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>joined</b>
+                                                                    <span>${array[i].joined}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="member--search-terms">
+                                                            <span class="search-name">${array[i].name}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>`;
+                                        } else {
+                                            //character
+                                            html += `<div class="members--member character onLoad grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].alias} ${array[i].groupName} ${array[i].disciplinesClass}">
+                                                <div class="member">
+                                                    <div class="member--border">
+                                                        <div class="member--top">
+                                                            <a href="profile.html" class="name">${array[i].splitName}</a>
+                                                            <div class="member--links">
+                                                                <a href="profile-member.html">directory</a>
+                                                                <a href="defaults/usertopics.html">topics</a>
+                                                                <a href="defaults/userposts.html">posts</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="member--image">
+                                                            <img src="${array[i].imageTall}" class="tall" />
+                                                            <img src="${array[i].imageWide}" class="wide" />
+                                                        </div>
+                                                        <div class="member--info">
+                                                            <div class="member--overview"><div class="scroll">${array[i].overview}</div></div>
+                                                            <div class="member--quick-facts">
+                                                                <div class="member--fact">
+                                                                    <b>pronouns</b>
+                                                                    <span>${array[i].pronouns}</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>age</b>
+                                                                    <span>${array[i].age} years old</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>currently</b>
+                                                                    <span>${array[i].relStatus}</span>
+                                                                </div>
+                                                                <div class="member--fact">
+                                                                    <b>played by</b>
+                                                                    <span>${array[i].rawAlias}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="member--search-terms">
+                                                            <span class="search-name">${array[i].name}</span>
+                                                            <span class="sort-name">${array[i].name}</span>
+                                                            <span class="sort-age">${array[i].age}</span>
+                                                            <span class="sort-face">${array[i].face}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>`;
+                                        }
+                                        break;
+                                    //character only
+                                    default: 
+                                        html += `<div class="members--member character active onLoad grid-item g-${array[i].groupID} ${array[i].ageClass} ${array[i].relStatus} ${array[i].alias} ${array[i].groupName} ${array[i].disciplinesClass}">
+                                            <div class="member">
+                                                <div class="member--border">
+                                                    <div class="member--top">
+                                                        <a href="profile.html" class="name">${array[i].splitName}</a>
+                                                        <div class="member--links">
+                                                            <a href="profile-member.html">directory</a>
+                                                            <a href="defaults/usertopics.html">topics</a>
+                                                            <a href="defaults/userposts.html">posts</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member--image">
+                                                        <img src="${array[i].imageTall}" class="tall" />
+                                                        <img src="${array[i].imageWide}" class="wide" />
+                                                    </div>
+                                                    <div class="member--info">
+                                                        <div class="member--overview"><div class="scroll">${array[i].overview}</div></div>
+                                                        <div class="member--quick-facts">
+                                                            <div class="member--fact">
+                                                                <b>pronouns</b>
+                                                                <span>${array[i].pronouns}</span>
+                                                            </div>
+                                                            <div class="member--fact">
+                                                                <b>age</b>
+                                                                <span>${array[i].age} years old</span>
+                                                            </div>
+                                                            <div class="member--fact">
+                                                                <b>currently</b>
+                                                                <span>${array[i].relStatus}</span>
+                                                            </div>
+                                                            <div class="member--fact">
+                                                                <b>played by</b>
+                                                                <span>${array[i].rawAlias}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member--search-terms">
+                                                        <span class="search-name">${array[i].name}</span>
+                                                        <span class="sort-name">${array[i].name}</span>
+                                                        <span class="sort-age">${array[i].age}</span>
+                                                        <span class="sort-face">${array[i].face}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>`;
+                                        break;
+                                }
+                            }
+                            document.querySelector('.members--list').insertAdjacentHTML('beforeend', html);
+
+                            //sort arrays
+                            members.sort();
+                            disciplines.sort();
+
+
+                            //Append Array
+                            members.forEach(member => {
+                                document.querySelector('.members--generate-alias tag-labelset').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${member.clean}"/><span>${member.raw}</span></label>`);
+                            });
+
+                            //Append Disciplines
+                            /*disciplines.forEach(discipline => {
+                                document.querySelector('.members--generate-disciplines tag-labelset').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${discipline.clean}"/><span>${discipline.raw}</span></label>`);
+                            });*/
+                        }
+
+                        function setCustomFilter() {
+                            //get search value
+                            qsRegex = document.querySelector('#quicksearch').value;
+                            
+                            //add show class to all items to reset
+                            elements.forEach(el => el.classList.add('show'));
+                            
+                            //filter by nothing
+                            let searchFilter = '';
+                            
+                            //check each item
+                            elements.forEach(el => {
+                                let name = el.querySelector('.search-name').textContent;
+                                if(!name.toLowerCase().includes(qsRegex)) {
+                                    el.classList.remove('show');
+                                    searchFilter = '.show';
+                                }
+                            });
+                        
+                            let filterGroups = document.querySelectorAll('.members--filter-group');
+                            let groups = [];
+                            let checkFilters;
+                            filterGroups.forEach(group => {
+                                let filters = [];
+                                group.querySelectorAll('label.is-checked input').forEach(filter => {
+                                    if(filter.value) {
+                                        filters.push(filter.value);
+                                    }
+                                });
+                                groups.push({group: group.dataset.filterGroup, selected: filters});
+                            });
+                        
+                            let filterCount = 0;
+                            let comboFilters = [];
+                            groups.forEach(group => {
+                                // skip to next filter group if it doesn't have any values
+                                if ( group.selected.length > 0 ) {
+                                    if ( filterCount === 0 ) {
+                                        // copy groups to comboFilters
+                                        comboFilters = group.selected;
+                                    } else {
+                                        var filterSelectors = [];
+                                        var groupCombo = comboFilters;
+                                        // merge filter Groups
+                                        for (var k = 0; k < group.selected.length; k++) {
+                                            for (var j = 0; j < groupCombo.length; j++) {
+                                                //accommodate weirdness with object vs not
+                                                if(groupCombo[j].selected) {
+                                                    if(groupCombo[j].selected != group.selected[k]) {
+                                                        filterSelectors.push( groupCombo[j].selected + group.selected[k] );
+                                                    }
+                                                } else if (!groupCombo[j].selected && group.selected[k]) {
+                                                    if(groupCombo[j] != group.selected[k]) {
+                                                        filterSelectors.push( groupCombo[j] + group.selected[k] );
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        // apply filter selectors to combo filters for next group
+                                        comboFilters = filterSelectors;
+                                    }
+                                    filterCount++;
+                                }
+                            });
+                            
+                            //set filter to blank
+                            let filter = [];
+                            //check if it's only search
+                            if(qsRegex.length > 0 && comboFilters.length === 0) {
+                                filter = ['.show'];
+                            }
+                            //check if it's only checkboxes
+                            else if(qsRegex.length === 0 && comboFilters.length > 0) {
+                                let combos = comboFilters.join(',').split(',');
+                                filter = [...combos];
+                            }
+                            //check if it's both
+                            else if (qsRegex.length > 0 && comboFilters.length > 0) {
+                                let dualFilters = comboFilters.map(filter => filter + '.show');
+                                filter = [...dualFilters];
+                            }
+                        
+                            //join array into string
+                            filter = filter.join(', ');
+                            
+                            //render isotope
+                            $container.isotope({
+                                filter: filter
+                            });
+                        }
+                    
+                        // debounce so filtering doesn't happen every millisecond
+                        function debounce(fn, threshold) {
+                            var timeout;
+                            return function debounced() {
+                                if (timeout) {
+                                clearTimeout(timeout);
+                                }
+                        
+                                function delayed() {
+                                fn();
+                                timeout = null;
+                                }
+                                setTimeout(delayed, threshold || 100);
+                            };
+                        }
+
+                        accounts = fakeAccounts;
+
+                        populatePage(accounts);
+
+                        //initialize isotope
+                        // quick search regex
+                        let qsRegex;
+                        let elements = document.querySelectorAll('.grid-item');
+
+                        
+                        // init Isotope
+                        $container.isotope({
+                            itemSelector: '.grid-item',
+                            percentPosition: true,
+                            filter: '.onLoad',
+                            getSortData: {
+                                name: '.sort-name',
+                                nameDesc: '.sort-name',
+                                age: '.sort-age parseInt',
+                                ageDesc: '.sort-age parseInt',
+                                face: '.sort-face',
+                                faceDesc: '.sort-face',
+                            },
+                            sortAscending: {
+                                name: true,
+                                nameDesc: false,
+                                age: true,
+                                ageDesc: false,
+                                face: true,
+                                faceDesc: false,
+                            }
+                        });
+                    
+                        //use value of input select to filter
+                        let checkboxes = document.querySelectorAll('.members--filter-group input');
+                        checkboxes.forEach(checkbox => {
+                            checkbox.addEventListener('change', e => {
+                                const url = new URL(window.location.href);
+                                if(e.currentTarget.classList.contains('all')) {
+                                    e.currentTarget.checked = true;
+                                    e.currentTarget.parentElement.classList.add('is-checked');
+                                    e.currentTarget.parentElement.parentElement.querySelectorAll('input:not(.all)').forEach(input => {
+                                        input.checked = false;
+                                        input.parentElement.classList.remove('is-checked');
+                                    });
+                                } else {
+                                    if(e.currentTarget.parentElement.classList.contains('is-checked')) {
+                                        e.currentTarget.checked = false;
+                                        e.currentTarget.parentElement.classList.remove('is-checked');
+                                    } else {
+                                        e.currentTarget.checked = true;
+                                        e.currentTarget.parentElement.classList.add('is-checked');
+                                        e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = false;
+                                        e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.remove('is-checked');
+                                    }
+                                }
+                                let labels = e.currentTarget.parentElement.parentElement.querySelectorAll('label');
+                                let checked = 0;
+                                labels.forEach(label => {
+                                    if(label.classList.contains('is-checked')) {
+                                        checked++;
+                                    }
+                                });
+                                if(checked === 0) {
+                                    e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = true;
+                                    e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.add('is-checked');
+                                }
+                                //set filters
+                                setCustomFilter();
+                            });
+                        });
+                        
+                        // use value of search field to filter
+                        document.querySelector('#quicksearch').addEventListener('keyup', e => {
+                            setCustomFilter();
+                        });
+
+                        // bind sort button click
+                        let sortButtons = document.querySelectorAll('button.members--sort');
+                        sortButtons.forEach(button => {
+                            button.addEventListener('click', e => {
+                                let sortValue = e.currentTarget.dataset.sort;
+                                $container.isotope({ sortBy: sortValue });
+                                sortButtons.forEach(button => {
+                                    button.classList.remove('is-active');
+                                });
+                                e.currentTarget.classList.add('is-active');
+                            });
+                        });
+                    </script>
+                </div>
             </form>
         </main>
 

@@ -43,7 +43,7 @@ header.splide {
                 align-items: center;
             }
             h1 {
-                font-family: var(--font-accent-bold);
+                font-family: var(--font-accent);
                 font-weight: 700;
                 font-size: clamp(30px, 8vw, 90px);
                 text-transform: uppercase;
@@ -74,7 +74,7 @@ header.splide {
                         font-size: var(--xsBody);
                         letter-spacing: 1px;
                         font-weight: 600;
-                        font-family: var(--font-accent-bold);
+                        font-family: var(--font-accent);
                         width: max(13.5vw, 150px);
                         line-height: var(--mBody);
                         text-align: right;
@@ -107,7 +107,7 @@ header.splide {
                 a {
                     background: var(--bg-accent);
                     color: var(--text-on-accent);
-                    font-family: var(--font-accent-bold);
+                    font-family: var(--font-accent);
                     font-weight: 700;
                     font-size: 30px;
                     text-transform: uppercase;
@@ -160,8 +160,6 @@ header.splide {
                     line-height: 200%;
                     letter-spacing: 1px;
                     text-align: justify;
-                    font-weight: 700;
-                    font-family: var(--font-accent);
                     height: 132px;
 
                     .scroll {
@@ -186,7 +184,7 @@ header.splide {
                     a {
                         background: var(--bg-accent);
                         color: var(--text-on-accent);
-                        font-family: var(--font-accent-bold);
+                        font-family: var(--font-accent);
                         font-weight: 700;
                         font-size: 30px;
                         text-transform: uppercase;
@@ -226,7 +224,7 @@ header.splide {
                         display: grid;
                         text-decoration: none;
                         text-transform: uppercase;
-                        font-family: var(--font-accent-bold);
+                        font-family: var(--font-accent);
                         font-weight: 700;
                         color: var(--text-content-accent);
                         text-align: center;
@@ -253,7 +251,7 @@ header.splide {
                         letter-spacing: 1px;
                         text-align: center;
                         color: var(--text-body);
-                        font-family: var(--font-accent-bold);
+                        font-family: var(--font-accent);
                         transition-duration: 0.5s;
 
                         &:not(:last-child) {

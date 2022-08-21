@@ -69,7 +69,7 @@
     }
 
     h2 {
-        font-family: var(--font-accent-bold);
+        font-family: var(--font-accent);
         font-weight: 900;
         text-transform: uppercase;
         font-size: var(--lBody);
@@ -118,7 +118,7 @@
         border: 1px solid var(--border-main);
 
         &  > a {
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-weight: 500;
             font-size: calc(22px + var(--sizeBoost));
             color: var(--text-content-accent);
@@ -140,7 +140,7 @@
             font-size: var(--sBody);
             display: block;
             font-weight: 700;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
         }
 
         span a {
@@ -168,7 +168,6 @@
         flex-wrap: wrap;
         justify-content: center;
         margin-top: 20px;
-        font-family: var(--font-accent);
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;

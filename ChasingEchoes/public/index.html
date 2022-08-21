@@ -33,7 +33,7 @@
         <script type='text/javascript' src='../js/settings.js'></script>
         <link rel="stylesheet" href="../css/settings.css" />
     </head>
-    <body id="idx" class="light g-4 smlFont">
+    <body id="idx" class="light g-2 smlFont">
         <!--Background Elements-->
         
         <!--Header-->
@@ -172,9 +172,9 @@
                 <a href="usercp/user-edit.html" class="memOnly"><i class="fa-solid fa-gear"></i></a>
                 <a href="usercp/user-inbox.html" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
                 <a href="usercp/user-alerts.html" class="memOnly"><i class="fa-solid fa-bell"></i></a>
-                <a href="defaults/login.html" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
+                <a href="defaults/redirect.html" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
                 <a href="defaults/register1.html" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
-                <a href="defaults/login.html" class="guestOnly"><i class="fa-solid fa-sign-in"></i></a>
+                <a href="javascript:void(0)" class="guestOnly popup" data-modal="login"><i class="fa-solid fa-sign-in"></i></a>
                 <a href="#"><i class="fa-brand fa-discord"></i></a>
                 <div class="border-vertical"></div>
                 <a href="/admin.php" target="_blank" class="staffOnly"><i class="fa-solid fa-screwdriver-wrench"></i></a>
@@ -250,6 +250,7 @@
         <!--Main Body-->
         <main>
             <a name="top"></a>
+            <div id="quick-login-clip" data-modal-box="login" class="modal"><div class="modal--close"><span>close</span><i class="fa-solid fa-circle-xmark"></i></div></div>
 
             <!--Category-->
             <section class="category c-1">
@@ -828,6 +829,15 @@
             <!--Stats-->
             <section class="stats">
                 <h2>About</h2>
+                <div id="quick-login">
+                    <form style="display:inline" action="https://legends.jcink.net/index.php?act=Login&amp;CODE=01&amp;CookieDate=1" method="post">
+                    <div align="right"><strong>Quick Log In</strong>
+                    <input type="text" class="forminput" size="10" name="UserName" onfocus="this.value=''" value="User Name">
+                    <input type="password" class="forminput" size="10" name="PassWord" onfocus="this.value=''" value="ibfrules">
+                    <input type="submit" class="forminput" value="Go">
+                    </div>
+                    </form>
+                </div>
                 <div class="stats--main">
                     <div class="stats--border">
                         <div class="stats--now">
@@ -875,9 +885,9 @@
                             </div>
                             <div class="stats--links">
                                 <u>Site Links</u>
-                                <a href="">Last Click</a>
-                                <a href="">All Members</a>
-                                <a href="">Active Topics</a>
+                                <a href="defaults/onlineclick.html">Last Click</a>
+                                <a href="members.html">All Members</a>
+                                <a href="defaults/activetopics.html">Active Topics</a>
                             </div>
                         </div>
                     </div>

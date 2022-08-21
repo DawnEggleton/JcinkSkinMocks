@@ -6,7 +6,7 @@ tag {
     &-xl,
     &-lg,
     &-md {
-        font-family: var(--font-accent-bold);
+        font-family: var(--font-accent);
         text-transform: uppercase;
         font-weight: 700;
     }
@@ -59,14 +59,13 @@ tag {
     }
     &-sm {
         font-size: calc(var(--xsBody) + 0.5px);
-        font-family: var(--font-accent-bold);
+        font-family: var(--font-accent);
         letter-spacing: 3px;
         line-height: 160%;
         margin-bottom: 4px;
     }
     &-xs {
         font-size: var(--xsBody);
-        font-family: var(--font-accent);
         letter-spacing: 1px;
         color: var(--text-content-accent);
         line-height: 200%;
@@ -147,7 +146,7 @@ tag {
     }
     &-labels {
         display: grid;
-        font-family: var(--font-accent-bold);
+        font-family: var(--font-accent);
         text-transform: uppercase;
         font-size: var(--xsBody);
         letter-spacing: 1px;
@@ -158,6 +157,7 @@ tag {
         padding-bottom: 5px;
         border-bottom: 1px solid var(--border-main);
         padding-bottom: 15px;
+        height: calc(36px + var(--sizeBoost));
 
         &::-webkit-scrollbar {
             width: 5px;
@@ -237,7 +237,7 @@ tag {
         grid-gap: 15px;
     }
     &-subject {
-        font-family: var(--font-accent-bold);
+        font-family: var(--font-accent);
         font-size: var(--lBody);
         text-transform: uppercase;
         font-weight: 700;
@@ -257,7 +257,6 @@ tag {
         font-weight: 700;
         font-size: var(--xsBody);
         line-height: 200%;
-        font-family: var(--font-accent);
         letter-spacing: 1px;
         grid-template-columns: 20px auto;
         align-items: center;
@@ -265,7 +264,7 @@ tag {
         margin: 0 15px;
 
         b {
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             align-self: end;
         }
 
@@ -483,7 +482,7 @@ tag {
             color: var(--text-on-accent);
             font-size: var(--xsBody);
             text-transform: uppercase;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-weight: 700;
             letter-spacing: 1px;
         }
@@ -586,7 +585,6 @@ tag {
         flex-direction: column;
         border: 1px solid var(--border-main);
         text-transform: uppercase;
-        font-family: var(--font-accent);
         font-weight: 700;
         font-size: var(--xsBody);
         letter-spacing: 1px;
@@ -613,7 +611,7 @@ tag {
 
         b {
             font-size: var(--mBody);
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             color: var(--text-content-accent);
         }
     }

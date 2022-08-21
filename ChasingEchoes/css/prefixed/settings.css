@@ -2,4 +2,10 @@ tag-shipimage a::after {
   content: "\e1cd";
 }
 
+.members--filter-group label input + span::before,
+.members--options .members--sort > span::before,
+.tosWrap input + b::before {
+  content: "\f00c";
+}
+
 /*# sourceMappingURL=settings.css.map */

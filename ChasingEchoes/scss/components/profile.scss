@@ -16,7 +16,7 @@
         padding: 30px;
 
         h1 {
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-weight: 700;
             font-size: clamp(35px, 8vw, 90px);
             text-align: right;
@@ -40,7 +40,6 @@
         margin: 30px 30px 0;
 
         a {
-            font-family: var(--font-accent);
             text-transform: uppercase;
             font-weight: 700;
             font-size: var(--xsBody);
@@ -107,7 +106,7 @@
             grid-gap: 5px;
 
             & > b {
-                font-family: var(--font-accent-bold);
+                font-family: var(--font-accent);
                 text-transform: uppercase;
                 color: var(--text-content-accent);
                 letter-spacing: 1px;
@@ -129,7 +128,6 @@
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 font-size: var(--xsBody);
-                font-family: var(--font-accent);
                 font-weight: 700;
                 padding: 0 15px;
             }
@@ -157,7 +155,6 @@
     }
     &--stat {
         border: 1px solid var(--border-main);
-        font-family: var(--font-accent);
         text-transform: uppercase;
         font-size: var(--xsBody);
         letter-spacing: 1px;
@@ -168,7 +165,7 @@
         align-items: center;
 
         span {
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             color: var(--text-content-accent);
             font-size: var(--sBody);
             display: inline-grid;
@@ -289,7 +286,7 @@
 
         b {
             text-transform: uppercase;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-size: var(--xlBody);
             line-height: 120%;
             letter-spacing: 0;
@@ -321,13 +318,13 @@
             font-size: 20px;
             text-transform: uppercase;
             display: block;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-weight: 700;
         }
 
         & > a {
             text-transform: uppercase;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             display: block;
             margin: -20px auto 0;
             max-width: max-content;
@@ -361,7 +358,6 @@
                 font-size: var(--xsBody);
                 letter-spacing: 1px;
                 font-weight: 700;
-                font-family: var(--font-accent);
             }
         }
 
@@ -386,7 +382,7 @@
                 grid-gap: 5px;
 
                 & > b {
-                    font-family: var(--font-accent-bold);
+                    font-family: var(--font-accent);
                     text-transform: uppercase;
                     color: var(--text-content-accent);
                     letter-spacing: 1px;
@@ -408,7 +404,6 @@
                     text-transform: uppercase;
                     letter-spacing: 1px;
                     font-size: var(--xsBody);
-                    font-family: var(--font-accent);
                     font-weight: 700;
                     padding: 0 15px;
                 }
@@ -460,7 +455,7 @@
 
             & > a {
                 color: var(--text-on-accent);
-                font-family: var(--font-accent-bold);
+                font-family: var(--font-accent);
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: var(--lBody);
@@ -500,7 +495,6 @@
             display: flex;
             flex-direction: column;
             text-transform: uppercase;
-            font-family: var(--font-accent);
             font-size: var(--xsBody);
             letter-spacing: 1px;
             font-weight: 600;

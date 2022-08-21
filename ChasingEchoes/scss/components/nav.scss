@@ -42,7 +42,7 @@ nav {
 
         &:first-child {
             display: block;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-weight: 700;
             font-size: var(--mBody);
             text-transform: uppercase;
@@ -135,7 +135,7 @@ nav {
             gap: 10px;
 
             a {
-                font-family: var(--font-accent-bold);
+                font-family: var(--font-accent);
                 text-transform: uppercase;
                 font-size: var(--mBody);
                 text-align: center;
@@ -301,7 +301,6 @@ nav {
             font-size: var(--xsBody);
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-family: var(--font-accent), sans-serif;
             font-weight: 600;
             padding: 5px 10px;
             line-height: var(--xsBody);
@@ -322,7 +321,7 @@ nav {
             text-align: center;
             letter-spacing: 1px;
             font-weight: 700;
-            font-family: var(--font-accent-bold), sans-serif;
+            font-family: var(--font-accent), sans-serif;
             text-transform: uppercase;
             font-size: var(--mBody);
             color: var(--text-content-accent);

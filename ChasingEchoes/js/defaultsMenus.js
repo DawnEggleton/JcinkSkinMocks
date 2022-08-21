@@ -2,20 +2,26 @@
 if($('body#UserCP').length > 0) {
     document.querySelector('#ucpmenu').innerHTML = `<div class="ucp--sticky">
     <b>Account</b>
+    <div class="ucp--expandable ucp--menu-account is-open">
     <a href="user-edit.html">Edit Profile</a>
     <a href="user-avatar.html">Update Avatar</a>
     <a href="user-accounts.html">Sub-accounts</a>
     <a href="user-name.html">Edit Username</a>
     <a href="user-pass.html">Change Password</a>
     <a href="user-email.html">Update Email</a>
+    </div>
     <b>Tracking</b>
+    <div class="ucp--expandable ucp--menu-track is-open">
     <a href="user-alerts.html">Alerts</a>
     <a href="user-forums.html">Forums</a>
     <a href="user-topics.html">Topics</a>
+    </div>
     <b>Settings</b>
+    <div class="ucp--expandable ucp--menu-settings is-open">
     <a href="user-boardset.html">Board</a>
     <a href="user-alertset.html">Alerts</a>
     <a href="user-emailset.html">Emails</a>
+    </div>
     </div>`;
 
     // If using menu replacement in live skin, remove the above and uncomment the below:

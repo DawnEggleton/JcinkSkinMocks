@@ -12,7 +12,7 @@
     }
 
     h2 {
-        font-family: var(--font-accent-bold);
+        font-family: var(--font-accent);
         font-weight: 900;
         text-transform: uppercase;
         font-size: var(--lBody);
@@ -68,13 +68,13 @@
             font-size: 30px;
             text-transform: uppercase;
             display: block;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-weight: 700;
         }
 
         span {
             text-transform: uppercase;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             display: block;
             margin-top: -20px;
             font-size: 20px;
@@ -100,7 +100,6 @@
 
         .scroll {
             font-size: var(--lBody);
-            font-family: var(--font-accent);
             text-transform: capitalize;
             font-weight: 700;
             padding: 0 15px;
@@ -117,7 +116,6 @@
         border-radius: 5px;
         padding: 5px 10px;
         text-transform: uppercase;
-        font-family: var(--font-accent);
         font-size: var(--xsBody);
         letter-spacing: 1px;
         font-weight: 700;
@@ -137,7 +135,7 @@
             display: grid;
             text-decoration: none;
             text-transform: uppercase;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-weight: 700;
             color: var(--text-content-accent);
             text-align: center;
@@ -164,7 +162,7 @@
             letter-spacing: 1px;
             text-align: center;
             color: var(--text-body);
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             transition-duration: 0.5s;
             margin-bottom: 5px;
         }
@@ -175,7 +173,7 @@
             display: grid;
             text-decoration: none;
             text-transform: uppercase;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-weight: 700;
             color: var(--text-content-accent);
             text-align: center;
@@ -202,7 +200,7 @@
             letter-spacing: 1px;
             text-align: center;
             color: var(--text-body);
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             transition-duration: 0.5s;
 
             &:not(:last-child) {
@@ -269,12 +267,11 @@
                             display: block;
                             letter-spacing: 1px;
                             color: var(--text-body);
-                            font-family: var(--font-accent);
                             font-weight: 700;
 
                             &:first-child {
                                 font-size: var(--mBody);
-                                font-family: var(--font-accent-bold);
+                                font-family: var(--font-accent);
                                 color: var(--text-content-accent);
                                 margin-bottom: -2px;
                             }
@@ -292,7 +289,7 @@
                         font-size: var(--xsBody);
                         text-transform: uppercase;
                         letter-spacing: 1px;
-                        font-family: var(--font-accent);
+                        font-family: var(--font-body);
                         padding: 0;
                     }
                 }

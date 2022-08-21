@@ -32,7 +32,7 @@
         <script type='text/javascript' src='../js/settings.js'></script>
         <link rel="stylesheet" href="../../css/settings.css" />
     </head>
-    <body id="Post" class="dark g-6">
+    <body id="Post" class="dark g-4">
         
         <!--Header-->
         <header id="desktop-splide" class="splide" role="group">
@@ -248,35 +248,140 @@
         <!--Main Body-->
         <main>
             <a name="top"></a>
-            <script language="javascript1.2" type="text/javascript"></script>
+            <script language="javascript1.2" type="text/javascript">
+            var MessageMax  = "";
+            var Override    = "";
+            MessageMax      = parseInt(MessageMax);
+
+            if ( MessageMax < 0 )
+            {
+                MessageMax = 0;
+            }
+                
+            function emo_pop()
+            {
+            window.open('index.php?act=legends&CODE=emoticons&s=','Legends','width=250,height=500,resizable=yes,scrollbars=yes'); 
+            }
+            function bbc_pop()
+            {
+            window.open('index.php?act=legends&CODE=bbcode&s=','Legends','width=700,height=500,resizable=yes,scrollbars=yes'); 
+            }	
+            function CheckLength() {
+
+                p = document.REPLIER.Post.value;
+                word_count = p.split(" ").length;
+                
+                MessageLength  = document.REPLIER.Post.value.length;
+                
+                message  = "";
+                    if (MessageMax > 0) {
+                        message = "Post: The maximum allowed length is " + MessageMax + " characters.";
+                    } else {
+                        message = "";
+                    }
+                    
+                    alert(message + MessageLength + " characters, " + word_count + " words");
+            }
+                
+                function ValidateForm(isMsg) {
+                    MessageLength  = document.REPLIER.Post.value.length;
+                    errors = "";
+                    
+                    if (isMsg == 1)
+                    {
+                        if (document.REPLIER.msg_title.value.length < 2)
+                        {
+                            errors = "You must enter a message title";
+                        }
+                    }
+                
+                    if (MessageLength < 2) {
+                        errors = "You must enter a message to post!";
+                    }
+                    if (MessageMax !=0) {
+                        if (MessageLength > MessageMax) {
+                            errors = "The maximum allowed length is " + MessageMax + " characters. Current Characters: " + MessageLength;
+                        }
+                    }
+                    if (errors != "" && Override == "") {
+                        alert(errors);
+                        return false;
+                    } else {
+                        document.REPLIER.submit.disabled = true;
+                        return true;
+                    }
+                }
+                
+                // IBC Code stuff
+
+                var text_enter_url      = "Enter the complete URL for the hyperlink";
+                var text_enter_url_name = "Enter the title of the webpage";
+                var text_enter_image    = "Enter the complete URL for the image";
+                var text_enter_email    = "Enter the email address";
+                var text_enter_flash    = "Enter the URL to the Flash movie.";
+                var text_code           = "Usage: [CODE] Your Code Here.. [/CODE]";
+                var text_quote          = "Usage: [QUOTE] Your Quote Here.. [/QUOTE]";
+                var error_no_url        = "You must enter a URL";
+                var error_no_title      = "You must enter a title";
+                var error_no_email      = "You must enter an email address";
+                var error_no_width      = "You must enter a width";
+                var error_no_height     = "You must enter a height";
+                var prompt_start        = "Enter the text to be formatted";
+                
+                var help_bold           = "Insert Bold Text (alt + b)";
+                var help_italic         = "Insert Italic Text (alt + i)";
+                var help_under          = "Insert Underlined Text (alt + u)";
+                var help_font           = "Insert Font Face tags";
+                var help_size           = "Insert Font Size tags";
+                var help_color          = "Insert Font Color tags";
+                var help_close          = "Close all open tags";
+                var help_url            = "Insert Hyperlink (alt+ h)";
+                var help_img            = "Image (alt + g) [img]http://www.dom.com/img.gif[/img]";
+                var help_email          = "Insert Email Address (alt + e)";
+                var help_quote          = "Insert Quoted Text (alt + q)";
+                var help_list           = "Create a list (alt + l)";
+                var help_code           = "Insert Monotype Text (alt + p)";
+                var help_click_close    = "Click button again to close";
+                var list_prompt         = "Enter a list item. Click 'cancel' or leave blank to end the list";
+                
+                
+                //-->
+            </script>
 
             <form action="https://playedgod.jcink.net/index.php?" method="post" name="REPLIER"><input type="hidden" name="st" value="0">
             <input type="hidden" name="act" value="Post">
             <input type="hidden" name="s" value="">
-            <input type="hidden" name="f" value="31">
+            <input type="hidden" name="f" value="32">
             <input type="hidden" name="auth_key" value="c1290008a82d75294bfed035b8d0206c">
 
-            <input type="hidden" name="CODE" value="01"><br>
+            <input type="hidden" name="CODE" value="03">
+            <input type="hidden" name="t" value="162"><br>
             <script language="Javascript" type="text/javascript">
+                function PopUp(url, name, width,height,center,resize,scroll,posleft,postop) {
+                    if (posleft != 0) { x = posleft }
+                    if (postop  != 0) { y = postop  }
+                
+                    if (!scroll) { scroll = 1 }
+                    if (!resize) { resize = 1 }
+                
+                    if ((parseInt (navigator.appVersion) >= 4 ) && (center)) {
+                    X = (screen.width  - width ) / 2;
+                    Y = (screen.height - height) / 2;
+                    }
+                    if (scroll != 0) { scroll = 1 }
+                
+                    var Win = window.open( url, name, 'width='+width+',height='+height+',top='+Y+',left='+X+',resizable='+resize+',scrollbars='+scroll+',location=no,directories=no,status=no,menubar=no,toolbar=no');
+                }
+                //-->
             </script>
 
             <table class="tableborder" id="posting-form" width="100%" cellspacing="0" cellpadding="0">
             <tbody><tr>
-            <td class="maintitle" colspan="2">&nbsp;&nbsp;Post a new topic in Lux</td>
+            <td class="maintitle" colspan="2">&nbsp;&nbsp;Replying to Character Updates</td>
             </tr>
                 
 
-            <tr id="topic-settings-header">
-            <td colspan="2" class="pformstrip">Topic Settings</td>
-            </tr>
-            <tr id="topic-title">
-            <td class="pformleft">Topic Title</td>
-            <td class="pformright"><input type="text" size="40" maxlength="50" name="TopicTitle" value="" tabindex="1" class="forminput" placeholder="Topic Title"></td>
-            </tr>
-            <tr id="topic-desc">
-            <td class="pformleft">Topic Description</td>
-            <td class="pformright"><input type="text" size="40" maxlength="40" name="TopicDesc" value="" tabindex="2" class="forminput" placeholder="Topic Description"></td>
-            </tr>
+            <!--TOPIC TITLE-->
             <!--POLL BOX-->
             <tr id="code-buttons-header">
             <td class="pformstrip" colspan="2">Code Buttons</td>
@@ -394,9 +499,9 @@
             <tr id="post-options">
                 <td class="pformleft"><b>Post Options</b></td>
                 <td class="pformright">
-                    <input type="checkbox" name="enableemo" class="checkbox" value="yes" checked="checked">&nbsp;<b>Enable</b> emoticons?
-                    <br><input type="checkbox" name="enablesig" class="checkbox" value="yes" checked="checked">&nbsp;<b>Enable</b> signature?
-                    <br><input type="checkbox" name="enabletrack" class="checkbox" value="1">&nbsp;<strong>Enable</strong> <acronym title="Notifications are delivered via alerts and emails depending on your preferences.">notification</acronym> of replies?
+                <input type="checkbox" name="enableemo" class="checkbox" value="yes" checked="checked">&nbsp;<b>Enable</b> emoticons?
+                <br><input type="checkbox" name="enablesig" class="checkbox" value="yes" checked="checked">&nbsp;<b>Enable</b> signature?
+                <br><input type="checkbox" name="enabletrack" class="checkbox" value="1">&nbsp;<strong>Enable</strong> <acronym title="Notifications are delivered via alerts and emails depending on your preferences.">notification</acronym> of replies?
                 </td>
             </tr>
             <!--QUOTE BOX-->
@@ -432,18 +537,241 @@
                 </span>
                 </td>
             </tr>
+
+
+            <!--staff only-->
+            <tr>
+              <td class="pformstrip" colspan="2">Options</td>
+             </tr>
+             <tr>
+               <td class="pformleft">After posting...</td>
+               <td class="pformright"><select id="forminput" name="mod_options" class="forminput">
+           <option value="nowt">( Do Nothing )</option>
+           <option value="pin">Pin this topic</option><option value="close">Close this topic</option><option value="pinclose">Pin &amp; Close this topic</option></select></td>
+             </tr>
             
 
             <tr>
             <td class="pformstrip" style="text-align:center" colspan="2" align="center">
-                <input type="submit" name="submit" value="Post New Topic" tabindex="4" class="forminput" accesskey="s" onclick="editor.switchModes()">&nbsp;
+                <input type="submit" name="submit" value="Add Reply" tabindex="4" class="forminput" accesskey="s" onclick="editor.switchModes()">&nbsp;
                 <input type="submit" name="preview" value="Preview Post" tabindex="5" class="forminput">
             </td>
             </tr>
             </tbody></table>
             </form>
             <br>
-            <br clear="all"> 
+            <br clear="all"><br>
+            <div id="topic-summary">
+                <div class="tableborder">
+                <div class="pformstrip">Last 10 Posts [ In reverse order ]</div>
+                <table width="100%" cellspacing="1" cellpadding="6" border="0">  <tbody><tr>
+                <td class="post2" width="20%" valign="top"><b>Draven Thorne</b></td>
+                <td class="post2" width="80%" valign="top">Posted on February 7 2022, 7:51 PM</td>
+            </tr>
+            <tr>
+                <td class="post1" width="20%" valign="top">&nbsp;</td>
+                <td class="post1" width="80%" valign="top"><div class="postcolor"> <tag-basicwrap data-color-scheme="contrast"><tag-wrapinner>
+
+            <tag-lg>Draven Thorne</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>Trying not to kick imogen in the hoo-haa</li>
+            <li>Moved into Voss Estate as an on site handyman</li>
+            <li>Still discovering what powers he has.</li>
+            </ul>
+
+            </tag-wrapinner></tag-basicwrap> </div></td>
+            </tr>  <tr>
+                <td class="post2" width="20%" valign="top"><b>Meriel</b></td>
+                <td class="post2" width="80%" valign="top">Posted on February 5 2022, 2:34 PM</td>
+            </tr>
+            <tr>
+                <td class="post1" width="20%" valign="top">&nbsp;</td>
+                <td class="post1" width="80%" valign="top"><div class="postcolor"> <tag-basicwrap data-color-scheme="contrast"><tag-wrapinner>
+
+            <span class="g-13">
+            <tag-lg>Benjamin Walter</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>no threads yet but that's okay</li>
+            <li>he's always his charming albeit a bit washed up self</li>
+            <li>probably added a few jobs to his ongoing list of past work</li>
+            </ul>
+            </span><!-- end_outskirt -->
+
+            <br><br><span class="g-10">
+            <tag-lg>Eleonor Jenkins</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>Not much going on</li>
+            <li>Still prefers books over people.  Makes for less stupid</li>
+            <li>Might be starting to be a bit more reckless in missions, but hard to tell for now.</li>
+            </ul>
+            </span><!-- end_coast -->
+
+            <br><br><span class="g-9">
+            <tag-lg>William Benton</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>His resting bitch face is as majestic as ever</li>
+            <li>Has started to train one of the recruits for the Order.  Which is quite a test of patience in itself.</li>
+            <li>Marcus is still his favorite target to shoot.</li>
+            </ul>
+            </span><!-- end_river -->
+
+            </tag-wrapinner></tag-basicwrap> </div></td>
+            </tr>  <tr>
+                <td class="post2" width="20%" valign="top"><b>Lauren</b></td>
+                <td class="post2" width="80%" valign="top">Posted on February 4 2022, 11:03 PM</td>
+            </tr>
+            <tr>
+                <td class="post1" width="20%" valign="top">&nbsp;</td>
+                <td class="post1" width="80%" valign="top"><div class="postcolor"> <tag-basicwrap data-color-scheme="contrast"><tag-wrapinner>
+
+            <span class="g-12">
+            <tag-lg>ava whitlock</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>no threads yet rip</li>
+            <li>she is going to be a member of the order of the white knights! she will likely get herself a part of a bunch of anti-meta shit that I have not had time to develop yet</li>
+            </ul>
+            </span><!-- end_central -->
+
+            <br><br><span class="g-11">
+            <tag-lg>imogen bailey</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>no large updates! i'd love to get her a little more involved with other people, but that's a me problem.</li>
+            <li>still flirting sadly with malcolm and ready to pick a fight with draven.</li>
+            </ul>
+            </span><!-- end_oldtown -->
+
+            </tag-wrapinner></tag-basicwrap> </div></td>
+            </tr>  <tr>
+                <td class="post2" width="20%" valign="top"><b>Lux</b></td>
+                <td class="post2" width="80%" valign="top">Posted on January 27 2022, 4:10 PM</td>
+            </tr>
+            <tr>
+                <td class="post1" width="20%" valign="top">&nbsp;</td>
+                <td class="post1" width="80%" valign="top"><div class="postcolor"> <tag-basicwrap data-color-scheme="contrast"><tag-wrapinner>
+
+            <span class="g-12">
+            <tag-lg>Brennan Cormac</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>Generally being a nuisance to his co-workers</li>
+            <li>Has absolutely noticed that he's not the only one sort of eyeing up people in the dead of night for vulnerabilities but is ultimately Not Bothered <sup>tm</sup></li>
+            <li>Has seen the missing person reports coming in too, even if they don't exactly have anything to hand off to toxicology</li>
+            </ul>
+            </span><!-- end_central --><br><br>
+
+            <span class="g-13">
+            <tag-lg>Cynbel Edevane</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>Just hermitting, as per</li>
+            <li>"Get off my lawn!" - Cyn, probably</li>
+            </ul>
+            </span><!-- end_outskirt --><br><br>
+
+            <span class="g-10">
+            <tag-lg>Hayden Donovan</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>Recruiting pack members</li>
+            <li>Has probably hacked some files out of the CIA by now related to her last mission</li>
+            <li>Has not looked at them yet; they are safely tucked away though</li>
+            </ul>
+            </span><!-- end_coast --><br><br>
+
+            <span class="g-13">
+            <tag-lg>Jesse Dunn</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>Random visits to Kharim, probably</li>
+            <li>Also being disgustingly domestic with Gaius</li>
+            <li>Just generally a little oblivious, tbh</li>
+            </ul>
+            </span><!-- end_outskirt --><br><br>
+
+            <span class="g-10">
+            <tag-lg>Madison McKinley</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>Infiltrated the Order of the White Knight as a rookie member and was assigned to train under Will and Marcus</li>
+            <li>Keeps her part time job with Kharim as a cover for a normal life</li>
+            <li>But is literally running around like a chicken with her head cut off to make it to Pack meetings and Order meetings and work all on time especially because the Pack distinctly told her not to do <i>any</i> of what she's done</li>
+            <li>Is going to pay the consequences eventually, probably, but she's less in it for the cause and more for the answers, so none of that is surprising</li>
+            </ul>
+            </span><!-- end_coast --><br><br>
+
+            <span class="g-11">
+            <tag-lg>Malcolm Murdock</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>Has absolutely been keeping tabs on the missing persons, even if he's not about to do anything about it</li>
+            <li>Has probably ended up taking a few jobs related to them, in fact? If not, he <i>would</i></li>
+            <li>Has absolutely stirred up some shit between the various protesting groups as cover for other jobs, too. Subtly, of course.</li>
+            </ul>
+            </span><!-- end_oldtown --><br><br>
+
+            <span class="g-10">
+            <tag-lg>Nikolas Kovac</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>Trying to keep his head down so Quantum doesn't notice as much that he's around</li>
+            <li>Spends a LOT of time holed up in his office and research lab</li>
+            <li>Still hasn't figured out who he can trust to talk to about what happened and why he quit working for Quantum, but given his employment record isn't exactly private, it's only a matter of time before someone finds out and approaches him instead</li>
+            </ul>
+            </span><!-- end_coast --><br><br>
+
+            <span class="g-11">
+            <tag-lg>Satiah El Masry</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>Gives Zero Shits <sup>tm</sup> about what's going on in the world</li>
+            <li>Like, okay, something doesn't feel quite right and she knows not to ignore that, but seriously, what's she gonna do about it? Tell the police that she has a gut feeling? Nah</li>
+            <li>Also dealing with an apparent stalker? More amused than concerned, tbh</li>
+            </ul>
+            </span><!-- end_oldtown --><br><br>
+
+            <span class="g-9">
+            <tag-lg>Sterling De Mitri</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li>Going to school, pining over some rockstar, planning a wedding to a girl who is his best friend but nothing more</li>
+            <li>Y'know, the usual</li>
+            </ul>
+            </span><!-- end_river -->
+
+            </tag-wrapinner></tag-basicwrap> </div></td>
+            </tr>  <tr>
+                <td class="post2" width="20%" valign="top"><b>Dashin</b></td>
+                <td class="post2" width="80%" valign="top">Posted on January 27 2022, 12:37 PM</td>
+            </tr>
+            <tr>
+                <td class="post1" width="20%" valign="top">&nbsp;</td>
+                <td class="post1" width="80%" valign="top"><div class="postcolor"> <tag-basicwrap data-color-scheme="contrast"><tag-wrapinner>
+
+            <span class="g-10">
+            <tag-lg>Kharim Tumaini</tag-lg>
+            <ul data-block="accent3" data-color="alt">
+            <li><s>not</s> <a href="https://playedgod.jcink.net/index.php?showtopic=140">stalking Satiah</a> and maybe even making friends?</li>
+            <li>definitely keeping an eye on whatever's up with Madi; he doesn't know any details, of course, but his Spidey Sense would definitely be tingling if things on her end are progressing.</li>
+            <li>Definitely Not staking out his ranch for more trespassers because <a href="https://playedgod.jcink.net/index.php?showtopic=126">the last one</a> was so entertaining</li>
+            </ul>
+            </span><!-- end_coast -->
+
+            </tag-wrapinner></tag-basicwrap> </div></td>
+            </tr>  <tr>
+                <td class="post2" width="20%" valign="top"><b>Lux</b></td>
+                <td class="post2" width="80%" valign="top">Posted on January 26 2022, 9:02 AM</td>
+            </tr>
+            <tr>
+                <td class="post1" width="20%" valign="top">&nbsp;</td>
+                <td class="post1" width="80%" valign="top"><div class="postcolor"> <tag-basicwrap data-color-scheme="contrast"><tag-wrapinner>
+            <tag-lg>Character Updates</tag-lg>
+            Hello all! First off, we want to thank all of you for a great start; we've got some lovely characters hanging around to get things moving with! Speaking of those characters, as we prepare to move forward into Chapter One of our story, we need some information from you so that we can tailor it to our member base. Namely, we need a summary of what's gone on in the lives of your characters during the Prologue (<b>September 1, 2106 to December 31, 2106</b>). This can be anything you deem important to the continuation of their story, whether it be the intended direction of current threads or head canons you may have. Make sure to confer with your writing partners to figure out any pertinent details!<p>
+
+            <br><tag-sm>Okay... but why?</tag-sm>
+            As we move forward, we really want to make sure the story and plot, site-wide, continues to work with what all of you had in mind for your characters. While we can generate the premise information for Chapter One without these character summaries, there is no guarantee that they will take into account what has happened to individual characters during the Prologue if we do. This is your opportunity to speak up and make sure we know what's important and what's not to you, specifically. For example, if your intention was for Suzy to have joined the Dreamers in the Prologue but that hasn't made it into a thread, we need to know! This will allow us to figure out which direction to steer the plot in so that it works for all of us. And anyway, it's kind of nice to get an update and see how characters are progressing! It makes for a nice little summary for anyone interested in those characters, especially if it's not information that's been added to their profiles!
+
+            <tag-lg>The Form</tag-lg>
+            <u>This counts as your activity check for the month of January.</u> If you do not post a reply to this thread, your characters will be archived and you will be moved to the inactive group, both on-site and on the Discord. If you do not list a character, that character will be archived. Even if you have no updates, just say so under each character. Please only fill this out for <i>sorted</i> characters. Shortened Group references the tags available in the BBCode buttons above: <span class="g-12"><u>central</u></span><!-- end_central -->, <span class="g-10"><u>coast</u></span><!-- end_coast -->, <span class="g-11"><u>oldtown</u></span><!-- end_oldtown -->, <span class="g-13"><u>outskirts</u></span><!-- end_outskirt -->, and <span class="g-9"><u>river</u></span><!-- end_river -->.</p><p>
+
+            <!--c1--></p><table id="CODE-WRAP" width="95%" cellspacing="1" cellpadding="3" border="0" align="center"><tbody><tr><td><b>CODE</b> </td></tr><tr><td id="CODE"><!--ec1-->[dohtml]&lt;tag-basicWrap data-color-scheme="contrast"&gt;&lt;tag-wrapinner&gt;<br><br>[shortenedGroup]<br>&lt;tag-lg&gt;Character Name&lt;/tag-lg&gt;<br>&lt;ul data-block="accent3" data-color="alt"&gt;<br>&lt;li&gt;Update&lt;/li&gt;<br>&lt;li&gt;Update&lt;/li&gt;<br>&lt;li&gt;Update&lt;/li&gt;<br>&lt;/ul&gt;<br>[/shortenedGroup]<br><br>&lt;br&gt;&lt;br&gt;[shortenedGroup]<br>&lt;tag-lg&gt;Character Name&lt;/tag-lg&gt;<br>&lt;ul data-block="accent3" data-color="alt"&gt;<br>&lt;li&gt;Update&lt;/li&gt;<br>&lt;li&gt;Update&lt;/li&gt;<br>&lt;li&gt;Update&lt;/li&gt;<br>&lt;/ul&gt;<br>[/shortenedGroup]<br><br>&lt;/tag-wrapinner&gt;&lt;/tag-basicwrap&gt;[/dohtml]<!--c2--></td></tr></tbody></table><!--ec2-->
+
+            </tag-wrapinner></tag-basicwrap> </div></td>
+            </tr>
+            </tbody></table>
+            <div class="pformstrip"><a href="javascript:PopUp('index.php?act=ST&amp;f=32&amp;t=162','TopicSummary',700,450,1,1)">Review the complete topic (launches new window)</a></div>
+            </div>
+            </div> 
         </main>
 
         <!-- Copyright Information -->

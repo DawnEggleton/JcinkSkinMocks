@@ -13,7 +13,7 @@
                 display: grid;
                 grid-template-columns: 20px minmax(0, max-content) minmax(20px, auto);
                 font-size: 28px;
-                font-family: var(--font-accent-bold);
+                font-family: var(--font-accent);
                 text-transform: uppercase;
                 font-weight: 700;
                 align-items: center;
@@ -33,7 +33,7 @@
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 font-weight: 700;
-                font-family: var(--font-accent-bold);
+                font-family: var(--font-accent);
                 display: grid;
                 grid-template-columns: 20px minmax(0, max-content) 20px;
                 align-items: center;
@@ -68,7 +68,7 @@
                 a {
                     font-size: var(--xsBody);
                     text-transform: uppercase;
-                    font-family: var(--font-accent-bold);
+                    font-family: var(--font-accent);
                     font-weight: 700;
                     color: var(--text-body);
                     border: 1px solid var(--border-main);
@@ -89,6 +89,10 @@
     background: var(--bg-content);
     padding: 30px;
     margin-bottom: 30px;
+
+    &:first-of-type label {
+        display: none;
+    }
 
     & + .activeuserstrip {
         &,
@@ -193,7 +197,7 @@
             border-radius: 3px;
             opacity: 0;
             text-transform: uppercase;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-weight: 700;
             letter-spacing: 1px;
             color: var(--text-on-accent) !important;
@@ -231,7 +235,7 @@
         }
 
         & > a {
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             text-transform: uppercase;
             font-size: clamp(25px, 5vw, 60px);
             font-weight: 700;
@@ -269,7 +273,6 @@
         align-self: start;
         font-size: var(--xsBody);
         text-transform: uppercase;
-        font-family: var(--font-accent);
         font-weight: 700;
         letter-spacing: 1px;
         display: flex;
@@ -360,7 +363,7 @@
         &-label {
             border: 1px solid var(--border-main);
             background: var(--bg-content);
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-size: var(--xsBody);
             font-weight: 700;
             text-transform: uppercase;
@@ -447,17 +450,23 @@
                 margin: 30px;
                 display: grid;
                 max-height: calc(100% - 60px);
-                grid-gap: 30px;
+                grid-gap: 15px;
                 align-items: center;
                 width: calc(100% - 60px);
                 grid-template-columns: 1fr;
 
                 @media only screen and (min-width: $sm) {
                     grid-template-columns: 1fr 1fr;
+                    align-items: start;
                 }
 
                 @media only screen and (min-width: $md) {
                     grid-template-columns: 1fr;
+                    align-items: center;
+                }
+
+                @media only screen and (min-width: $lg) {
+                    grid-gap: 30px;
                 }
             }
         }
@@ -465,14 +474,13 @@
     &--item {
         display: grid;
         text-transform: uppercase;
-        font-family: var(--font-accent);
         font-weight: 700;
         letter-spacing: 1px;
         font-size: var(--xsBody);
         text-align: center;
 
         b {
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             text-transform: uppercase;
             color: var(--text-content-accent);
             font-size: var(--mBody);

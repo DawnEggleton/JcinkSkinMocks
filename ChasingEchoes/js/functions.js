@@ -137,6 +137,38 @@ function moveLeft(e) {
     e.parentNode.querySelector('tag-labelset').scrollLeft -= 150;
 }
 function moveRight(e) {
-    console.log(e.parentNode.querySelector('tag-labelset'));
     e.parentNode.querySelector('tag-labelset').scrollLeft += 150;
+}
+
+function setUCPMenus() {
+    if(localStorage.getItem('ucpAccount') && localStorage.getItem('ucpTrack') && localStorage.getItem('ucpSettings')) {
+        if(window.innerWidth >= 768) {
+            document.querySelectorAll('.ucp--expandable').forEach(menu => menu.classList.remove('is-closed'));
+            document.querySelectorAll('.ucp--expandable').forEach(menu => menu.classList.add('is-open'));
+        } else {
+            document.querySelectorAll('.ucp--expandable').forEach(menu => menu.classList.remove('is-open'));
+            document.querySelectorAll('.ucp--expandable').forEach(menu => menu.classList.remove('is-closed'));
+            document.querySelector('.ucp--menu-account').classList.add(localStorage.getItem('ucpAccount'));
+            document.querySelector('.ucp--menu-track').classList.add(localStorage.getItem('ucpTrack'));
+            document.querySelector('.ucp--menu-settings').classList.add(localStorage.getItem('ucpSettings'));
+        }
+    } else {
+        if(window.innerWidth >= 768) {
+            document.querySelectorAll('.ucp--expandable').forEach(menu => menu.classList.remove('is-closed'));
+            document.querySelectorAll('.ucp--expandable').forEach(menu => menu.classList.add('is-open'));
+        } else {
+            document.querySelectorAll('.ucp--expandable').forEach(menu => menu.classList.remove('is-open'));
+            document.querySelectorAll('.ucp--expandable').forEach(menu => menu.classList.add('is-closed'));
+            localStorage.setItem('ucpAccount', 'is-closed');
+            localStorage.setItem('ucpTrack', 'is-closed');
+            localStorage.setItem('ucpSettings', 'is-closed');
+        }
+    }
+}
+
+
+function getAllTextNodes(element) {
+    if(element) {
+        return Array.from(element.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+    }
 }

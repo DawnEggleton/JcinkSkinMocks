@@ -22,7 +22,7 @@
     }
 
     h2 {
-        font-family: var(--font-accent-bold);
+        font-family: var(--font-accent);
         font-weight: 900;
         text-transform: uppercase;
         font-size: var(--lBody);
@@ -54,7 +54,7 @@
     }
     h3 {
         grid-column: 1 / -1;
-        font-family: var(--font-accent-bold);
+        font-family: var(--font-accent);
         text-transform: uppercase;
         font-size: var(--mBody);
         letter-spacing: 1px;
@@ -88,7 +88,7 @@
         input[type="submit"],
         input[type="button"] {
             text-transform: uppercase;
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-weight: 700;
             font-size: var(--xsBody);
             letter-spacing: 1px;
@@ -110,7 +110,7 @@
         border: 1px solid var(--border-main);
 
         &  > a {
-            font-family: var(--font-accent-bold);
+            font-family: var(--font-accent);
             font-size: calc(16px + var(--sizeBoost));
             color: var(--text-content-accent);
             display: block;
@@ -272,7 +272,7 @@
                 input[type="submit"],
                 input[type="button"] {
                     text-transform: uppercase;
-                    font-family: var(--font-accent-bold);
+                    font-family: var(--font-accent);
                     font-weight: 700;
                     font-size: var(--xsBody);
                     letter-spacing: 1px;

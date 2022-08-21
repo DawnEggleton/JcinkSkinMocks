@@ -15,12 +15,12 @@ body {
     margin: 0;
     background: var(--bg-body);
     font-family: var(--font-body);
-    font-weight: 400;
+    font-weight: 500;
     font-size: var(--mBody);
     color: var(--text-body);
 }
 main {
-    margin: 10px;
+    margin: 50px 10px 10px;
 
     @media only screen and (min-width: $sm) {
         margin: 50px;
@@ -60,7 +60,8 @@ main {
 #submenu + div[align="center"],
 #userlinks,
 body:not(.g-2) .guestOnly,
-body:not(.g-4) .staffOnly {
+body:not(.g-4) .staffOnly,
+body.g-2 .memOnly {
     display: none !important;
 }
 .scroll {
@@ -146,7 +147,7 @@ body:not(#UserCP.code-01) select {
     font-size: var(--xsBody);
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-family: var(--font-accent-bold), sans-serif;
+    font-family: var(--font-accent), sans-serif;
     font-weight: 700;
 
     option {
@@ -203,7 +204,7 @@ body:not(#UserCP.code-01) select {
 .macro--button {
     border: 1px solid var(--border-main);
     padding: 5px 10px;
-    font-family: var(--font-accent-bold);
+    font-family: var(--font-accent);
     text-transform: uppercase;
     font-weight: 700;
     background: var(--bg-content);
@@ -222,4 +223,95 @@ body:not(#UserCP.code-01) select {
   padding: 15px 20px;
   border-radius: 5px;
   margin: 0 auto;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    background: var(--bg-body);
+    align-items: center;
+    justify-content: center;
+
+    &.is-open {
+        display: flex;
+    }
+
+    &--close {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1001;
+        font-family: var(--font-accent);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: var(--xlBody);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+
+        i {
+            color: var(--text-content-accent);
+            top: 0.5px;
+        }
+    }
+
+    #quick-login {
+        form {
+            background: var(--bg-accent);
+            padding: 15px;
+            display: block !important;
+
+            & > div {
+                border: 1px solid var(--text-on-accent);
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                width: 300px;
+                gap: 5px;
+
+                strong {
+                    color: var(--text-on-accent);
+                    font-family: var(--font-body);
+                    font-size: var(--xlBody);
+                    text-transform: uppercase;
+                    text-align: center;
+                    font-weight: 700;
+                }
+
+                input {
+                    background: var(--bg-content);
+                    border: var(--border-main);
+                    text-transform: uppercase;
+                    font-family: var(--font-accent);
+                    font-size: var(--xsBody);
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+}
+
+.copyright {
+    max-width: max-content;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: var(--xsBody);
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    margin-top: 15px;
+
+    a {
+        color: var(--text-header-accent);
+    }
+}
+
+img {
+    max-width: 100%;
 }
