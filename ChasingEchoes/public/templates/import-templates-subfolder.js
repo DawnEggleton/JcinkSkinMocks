@@ -19,15 +19,15 @@ const desktopSlider = `<div class="splide__track">
             <div class="info--staff">
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/125" />
-                    <a href="?showuser=1"><span>A</span></a>
+                    <a href="../profile-member.html"><span>A</span></a>
                 </div>
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/100" />
-                    <a href="?showuser=00"><span>B</span></a>
+                    <a href="../profile-member.html"><span>B</span></a>
                 </div>
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/150" />
-                    <a href="?showuser=00"><span>C</span></a>
+                    <a href="../profile-member.html"><span>C</span></a>
                 </div>
             </div>
             <div class="info--news">
@@ -73,15 +73,15 @@ const mobileSlider = `<div class="splide__track">
             <div class="info--staff">
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/125" />
-                    <a href="?showuser=1"><span>A</span></a>
+                    <a href="../profile-member.html"><span>A</span></a>
                 </div>
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/100" />
-                    <a href="?showuser=00"><span>B</span></a>
+                    <a href="../profile-member.html"><span>B</span></a>
                 </div>
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/150" />
-                    <a href="?showuser=00"><span>C</span></a>
+                    <a href="../profile-member.html"><span>C</span></a>
                 </div>
             </div>
         </div>
@@ -158,7 +158,7 @@ const mobileMenu = `<div class="nav--popout">
         <a href="../index.html">index</a>
         <a href="../webpage.html">guidebook</a>
         <a href="../webpage.html">claims</a>
-        <a href="../members.html">members</a>
+        <a href="../webpage.html">members</a>
         <a href="#">Discord</a>
         <a href="#" target="_blank" class="staffOnly">Admin</a>
     </div>

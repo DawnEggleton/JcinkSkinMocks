@@ -424,6 +424,82 @@ img {
   max-width: 100%;
 }
 
+.profile--freeform b,
+#post-preview .postcolor b,
+.post--content .postcolor b,
+.webpage--content tag-tab b {
+  font-family: var(--font-accent);
+  color: var(--text-content-accent);
+  font-size: calc(var(--lBody) + 1px);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.profile--freeform i,
+#post-preview .postcolor i,
+.post--content .postcolor i,
+.webpage--content tag-tab i {
+  color: var(--text-content-accent);
+  font-weight: 600;
+  font-size: calc(var(--lBody) + 1px);
+}
+.profile--freeform u,
+#post-preview .postcolor u,
+.post--content .postcolor u,
+.webpage--content tag-tab u {
+  background: var(--bg-opaque-accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--text-content-accent);
+  padding: 0 5px;
+  text-transform: uppercase;
+  font-size: var(--sBody);
+  letter-spacing: 0.5px;
+  font-family: var(--font-accent);
+  margin: 0 3px;
+}
+.profile--freeform a,
+#post-preview .postcolor a,
+.post--content .postcolor a,
+.webpage--content tag-tab a {
+  background: var(--bg-content);
+  border: 1px solid var(--border-main);
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  padding: 0 5px;
+  color: var(--text-body);
+  font-family: var(--font-accent);
+  margin: 0 3px;
+}
+.profile--freeform a:hover,
+#post-preview .postcolor a:hover,
+.post--content .postcolor a:hover,
+.webpage--content tag-tab a:hover {
+  color: var(--text-content-accent);
+  border-color: var(--bg-opaque-accent);
+}
+.profile--freeform ul:not(:last-child),
+#post-preview .postcolor ul:not(:last-child),
+.post--content .postcolor ul:not(:last-child),
+.webpage--content tag-tab ul:not(:last-child) {
+  margin-bottom: 20px;
+}
+.profile--freeform ul[data-item-gap=none] li,
+#post-preview .postcolor ul[data-item-gap=none] li,
+.post--content .postcolor ul[data-item-gap=none] li,
+.webpage--content tag-tab ul[data-item-gap=none] li {
+  margin-bottom: 0 !important;
+}
+
+.columns:not(:last-child) {
+  margin-bottom: 30px;
+}
+@media only screen and (min-width: 768px) {
+  .columns {
+    column-count: 2;
+    column-gap: 30px;
+  }
+}
+
 /*******************************
     Navigation
 ********************************/
@@ -1138,6 +1214,7 @@ body:not(#idx) header.splide {
   font-weight: 500;
   font-size: calc(22px + var(--sizeBoost));
   color: var(--text-content-accent);
+  align-self: end;
 }
 .new .forum--border {
   border-color: var(--text-content-accent);
@@ -3131,6 +3208,94 @@ body:not(#idx) header.splide {
 /*******************************
     Webpages
 ********************************/
+.webpage {
+  display: grid;
+  grid-gap: 30px;
+  max-width: 1100px;
+  margin: 80px auto 0;
+}
+.webpage--menu {
+  border-top: 20px solid var(--bg-body);
+  background: var(--bg-content);
+  padding: 15px;
+  position: sticky;
+  top: 40px;
+  z-index: 2;
+}
+.webpage--menu::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  box-shadow: 0 3px 3px var(--bg-body);
+}
+.is-scrolled .webpage--menu::after {
+  box-shadow: 0 3px 3px var(--bg-accent);
+}
+.webpage--menu tag-tab {
+  margin: 0;
+  padding: 0;
+  flex: 0 0 100%;
+}
+.webpage--menu tag-tab tag-labels {
+  border-bottom: 0;
+  padding-bottom: 0;
+  height: calc(21px + var(--sizeBoost));
+}
+.webpage--menu tag-tab tag-labelset a {
+  border: 1px solid var(--border-main);
+  padding: 5px;
+  opacity: 0.75;
+  cursor: pointer;
+  white-space: nowrap;
+  color: var(--text-body);
+}
+.webpage--menu tag-tab tag-labelset a:hover {
+  border-color: var(--bg-opaque-accent);
+  color: var(--text-content-accent);
+  opacity: 1;
+}
+.webpage--menu tag-tab tag-labelset a.is-active {
+  color: var(--text-on-accent) !important;
+  opacity: 1;
+  cursor: default;
+  background: var(--bg-accent);
+}
+.webpage--border {
+  padding: 15px;
+  border: 1px solid var(--border-main);
+}
+.webpage--content > tag-tabset > tag-tab {
+  padding: 0;
+  margin: 0;
+  flex: 0 0 100%;
+}
+.webpage--section {
+  display: grid;
+}
+.webpage--section p {
+  margin: 0;
+}
+.webpage--section p:not(:last-child) {
+  margin-bottom: 20px;
+}
+.webpage--section > tag-tabset > tag-tab {
+  flex: 0 0 calc(100% - 30px);
+  padding: 15px;
+  margin: 0;
+  text-align: justify;
+  font-size: calc(var(--mBody) + 1px);
+  line-height: 200%;
+  background: var(--bg-content);
+  height: max-content;
+  margin: 0 15px;
+}
+.webpage--section > tag-tabset > tag-tab .webpage--border {
+  padding: 30px;
+}
+
 /*******************************
     Templates
 ********************************/
@@ -3210,6 +3375,18 @@ tag-xs::before {
   display: inline-block;
   margin-bottom: calc((var(--xsBody) / 2) - 1.5px);
 }
+tag-lg[data-align=left] {
+  grid-template-columns: 20px minmax(0, max-content) minmax(20px, 1fr);
+}
+tag-lg[data-align=right] {
+  grid-template-columns: minmax(20px, 1fr) minmax(0, max-content) 20px;
+}
+tag-md[data-align=center] {
+  grid-template-columns: minmax(20px, 1fr) minmax(0, max-content) minmax(20px, 1fr);
+}
+tag-md[data-align=right] {
+  grid-template-columns: minmax(20px, 1fr) minmax(0, max-content) 20px;
+}
 tag-xl[data-align=left], tag-lg[data-align=left], tag-md[data-align=left], tag-sm[data-align=left], tag-xs[data-align=left] {
   margin-left: 0;
 }
@@ -3285,6 +3462,9 @@ tag-labelset {
   border-bottom: 0;
   scrollbar-width: none;
   scroll-behavior: smooth;
+}
+tag-labelset::-webkit-scrollbar {
+  display: none;
 }
 tag-label {
   border: 1px solid var(--border-main);
@@ -5308,6 +5488,39 @@ fieldset legend {
   cursor: pointer;
   max-width: max-content;
   border: 1px solid var(--border-main);
+}
+
+#post-preview {
+  margin-top: 90px;
+}
+#post-preview .pformstrip {
+  font-family: var(--font-accent);
+  font-size: var(--mBody);
+  text-transform: uppercase;
+  color: var(--text-content-accent);
+  font-weight: 700;
+  display: grid;
+  grid-template-columns: minmax(20px, 1fr) minmax(0, max-content) minmax(20px, 1fr);
+  grid-gap: 15px;
+  align-items: center;
+  text-align: center;
+  margin: 10px 0 15px 0;
+}
+#post-preview .pformstrip::before, #post-preview .pformstrip::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: var(--border-main);
+}
+#post-preview .row1 {
+  background: var(--bg-content);
+  padding: 30px !important;
+}
+#post-preview .postcolor {
+  border: 1px solid var(--border-main);
+  padding: 30px;
+  line-height: 200%;
+  font-size: calc(var(--mBody) + 1px);
 }
 
 #posting-form {

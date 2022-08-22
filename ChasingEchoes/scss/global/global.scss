@@ -315,3 +315,67 @@ body:not(#UserCP.code-01) select {
 img {
     max-width: 100%;
 }
+
+.profile--freeform,
+#post-preview .postcolor,
+.post--content .postcolor,
+.webpage--content tag-tab {
+    b {
+        font-family: var(--font-accent);
+        color: var(--text-content-accent);
+        font-size: calc(var(--lBody) + 1px);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    i {
+        color: var(--text-content-accent);
+        font-weight: 600;
+        font-size: calc(var(--lBody) + 1px);
+    }
+    u {
+        background: var(--bg-opaque-accent);
+        text-decoration: none;
+        border-bottom: 1px solid var(--text-content-accent);
+        padding: 0 5px;
+        text-transform: uppercase;
+        font-size: var(--sBody);
+        letter-spacing: 0.5px;
+        font-family: var(--font-accent);
+        margin: 0 3px;
+    }
+    a {
+        background: var(--bg-content);
+        border: 1px solid var(--border-main);
+        text-transform: uppercase;
+        font-size: var(--xsBody);
+        letter-spacing: 1px;
+        padding: 0 5px;
+        color: var(--text-body);
+        font-family: var(--font-accent);
+        margin: 0 3px;
+
+        &:hover {
+            color: var(--text-content-accent);
+            border-color: var(--bg-opaque-accent);
+        }
+    }
+    ul {
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        &[data-item-gap="none"] li {
+            margin-bottom: 0 !important;
+        }
+    }
+}
+.columns {
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+
+    @media only screen and (min-width: $md) {
+        column-count: 2;
+        column-gap: 30px;
+    }
+}

@@ -1,4 +1,113 @@
 /*******************************
     Webpages
 ********************************/
+.webpage {
+    display: grid;
+    grid-gap: 30px;
+    max-width: 1100px;
+    margin: 80px auto 0;
 
+    &--menu {
+        border-top: 20px solid var(--bg-body);
+        background: var(--bg-content);
+        padding: 15px;
+        position: sticky;
+        top: 40px;
+        z-index: 2;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            box-shadow: 0 3px 3px var(--bg-body);
+
+            .is-scrolled & {
+                box-shadow: 0 3px 3px var(--bg-accent);
+            }
+        }
+
+        tag-tab {
+            margin: 0;
+            padding: 0;
+            flex: 0 0 100%;
+
+            tag-labels {
+                border-bottom: 0;
+                padding-bottom: 0;
+                height: calc(21px + var(--sizeBoost));
+            }
+
+            tag-labelset {
+                a {
+                    border: 1px solid var(--border-main);
+                    padding: 5px;
+                    opacity: 0.75;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    color: var(--text-body);
+
+                    &:hover {
+                        border-color: var(--bg-opaque-accent);
+                        color: var(--text-content-accent);
+                        opacity: 1;
+                    }
+
+                    &.is-active {
+                        color: var(--text-on-accent) !important;
+                        opacity: 1;
+                        cursor: default;
+                        background: var(--bg-accent);
+                    }
+                }
+            }
+        }
+    }
+
+    &--border {
+        padding: 15px;
+        border: 1px solid var(--border-main);
+    }
+
+    &--content {
+        & > tag-tabset {
+            & > tag-tab {
+                padding: 0;
+                margin: 0;
+                flex: 0 0 100%;
+            }
+        }
+    }
+
+    &--section {
+        display: grid;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+
+        & > tag-tabset {
+            & > tag-tab {
+                flex: 0 0 calc(100% - 30px);
+                padding: 15px;
+                margin: 0;
+                text-align: justify;
+                font-size: calc(var(--mBody) + 1px);
+                line-height: 200%;
+                background: var(--bg-content);
+                height: max-content;
+                margin: 0 15px;
+
+                .webpage--border {
+                    padding: 30px;
+                }
+            }
+        }
+    }
+}

@@ -76,6 +76,32 @@ if(document.querySelectorAll('tag-tabs').length > 0) {
     document.querySelectorAll('tag-tabs').forEach(tabset => {
         let labels = tabset.querySelectorAll('tag-label');
         let tabs = tabset.querySelectorAll('tag-tab');
+        let secondary = tabset.dataset.secondary;
+        let secondaryTabs;
+        if(secondary) {
+            secondaryTabs = document.querySelectorAll(`${secondary} > tag-tabset > tag-tab`);
+            console.log(secondaryTabs);
+
+            //functional tabs within tabs
+            let innerSets = tabset.querySelectorAll('tag-tabset tag-labelset');
+            console.log(innerSets);
+            innerSets.forEach((innerset, i) => {
+                let innerLabels = innerset.querySelectorAll('tag-labelset > a');
+                let innerTabs = secondaryTabs[i].querySelectorAll('tag-tab');
+                innerLabels.forEach((label, i) => {
+                    label.addEventListener('click', () => {
+                        innerLabels.forEach(label => label.classList.remove('is-active'));
+                        innerTabs.forEach(tab => {
+                            tab.classList.remove('is-active');
+                            tab.style.left = `${-100 * i}%`;
+                        });
+                        innerLabels[i].classList.add('is-active');
+                        innerTabs[i].classList.add('is-active');
+                    })
+                });
+            });
+        }
+        //regular tabs and moving the tab groups for secondary sets
         labels.forEach((label, i) => {
             label.addEventListener('click', () => {
                 labels.forEach(label => label.classList.remove('is-active'));
@@ -83,11 +109,20 @@ if(document.querySelectorAll('tag-tabs').length > 0) {
                     tab.classList.remove('is-active');
                     tab.style.left = `${-100 * i}%`;
                 });
+                if(secondary) {
+                    secondaryTabs.forEach(tab => {
+                        tab.classList.remove('is-active');
+                        tab.style.left = `${-100 * i}%`;
+                    });
+                }
                 labels[i].classList.add('is-active');
                 tabs[i].classList.add('is-active');
+                if(secondary) {
+                    secondaryTabs[i].classList.add('is-active');
+                }
             })
         });
-    })
+    });
 }
 
 //quick login
@@ -102,6 +137,13 @@ if(document.querySelector('body').classList.contains('g-2')) {
     }
     document.querySelector('#quick-login input[name="UserName"]').setAttribute('placeholder', 'Username');
     document.querySelector('#quick-login input[name="PassWord"]').setAttribute('placeholder', 'Password');
+} else {
+    if(document.querySelector('#quick-login')) {
+        document.querySelector('#quick-login').remove();
+    }
+    if(document.querySelector('#quick-login-clip')) {
+        document.querySelector('#quick-login-clip').remove();
+    }
 }
 
 
@@ -425,4 +467,63 @@ if($('body#Members').length > 0) {
             document.querySelector('body').classList.remove('is-scrolled');
         }
     });
+}
+
+
+/****************
+ WEBPAGES ONLY
+*****************/
+if($('body#Pages').length > 0) {
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 0) {
+            document.querySelector('body').classList.add('is-scrolled');
+        } else {
+            document.querySelector('body').classList.remove('is-scrolled');
+        }
+    });
+
+    //hash linking
+    if (window.location.hash){
+        //get hash
+        let hash = $.trim( window.location.hash );
+        let selected = document.querySelector(`.webpage--menu a[href="${hash}"]`);
+        let selectedCategory = selected.parentNode.parentNode.parentNode.getAttribute('data-category');
+        let hashMain = document.querySelector(`.webpage--menu tag-label[data-category="${selectedCategory}"]`);
+        let hashCategory = document.querySelector(`.webpage--menu tag-tab[data-category="${selectedCategory}"]`);
+        let hashTab = document.querySelector(`.webpage--content tag-tab[data-category="${selectedCategory}"]`);
+        let hashContent = document.querySelector(`tag-tab[data-key="${hash}"]`);
+        let submenuSiblings = Array.from(hashTab.parentNode.children);
+        let categorySiblings = Array.from(hashCategory.parentNode.children);
+        let tabSiblings = Array.from(hashContent.parentNode.children);
+        let submenuIndex = submenuSiblings.indexOf.call(submenuSiblings, hashTab);
+        let categoryIndex = categorySiblings.indexOf.call(categorySiblings, hashCategory);
+        let tabIndex = tabSiblings.indexOf.call(tabSiblings, hashContent);
+        //find the sub menu/inner menu link with the matching hash
+        if (hash) {
+            $(selected).trigger('click');
+        }
+        //select based on this
+
+        //Tabs
+        //Remove active from everything
+        document.querySelectorAll('.webpage--menu tag-label').forEach(label => label.classList.remove('is-active'));
+        document.querySelectorAll('.webpage--menu a').forEach(label => label.classList.remove('is-active'));
+        document.querySelectorAll('.webpage tag-tab').forEach(label => label.classList.remove('is-active'));
+
+        //Add active
+        hashMain.classList.add('is-active');
+        selected.classList.add('is-active');
+        hashTab.classList.add('is-active');
+        hashContent.classList.add('is-active');
+        selected.parentNode.parentNode.parentNode.classList.add('is-active');
+        submenuSiblings.forEach(sibling => sibling.style.left = `${-100 * submenuIndex}%`);
+        categorySiblings.forEach(sibling => sibling.style.left = `${-100 * categoryIndex}%`);
+        tabSiblings.forEach(sibling => sibling.style.left = `${-100 * tabIndex}%`);
+    } else {
+        //Auto-select  tab without hashtag present
+        document.querySelector('.webpage--menu a[href="#etiquette"]').classList.add('is-active');
+        document.querySelector('.webpage--menu a[href="#etiquette"]').parentNode.parentNode.parentNode.classList.add('is-active');
+        document.querySelector('.webpage--menu tag-label[data-category="required"]').classList.add('is-active');
+        document.querySelector('tag-tab[data-category="required"] .webpage--section tag-tabset tag-tab:first-child').classList.add('is-active');
+    }
 }

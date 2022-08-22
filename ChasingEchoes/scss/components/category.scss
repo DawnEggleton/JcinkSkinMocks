@@ -122,6 +122,7 @@
             font-weight: 500;
             font-size: calc(22px + var(--sizeBoost));
             color: var(--text-content-accent);
+            align-self: end;
         }
 
         .new & {

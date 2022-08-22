@@ -19,15 +19,15 @@ const desktopSlider = `<div class="splide__track">
             <div class="info--staff">
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/125" />
-                    <a href="?showuser=1"><span>A</span></a>
+                    <a href="profile-member.html"><span>A</span></a>
                 </div>
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/100" />
-                    <a href="?showuser=00"><span>B</span></a>
+                    <a href="profile-member.html"><span>B</span></a>
                 </div>
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/150" />
-                    <a href="?showuser=00"><span>C</span></a>
+                    <a href="profile-member.html"><span>C</span></a>
                 </div>
             </div>
             <div class="info--news">
@@ -73,15 +73,15 @@ const mobileSlider = `<div class="splide__track">
             <div class="info--staff">
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/125" />
-                    <a href="?showuser=1"><span>A</span></a>
+                    <a href="profile-member.html"><span>A</span></a>
                 </div>
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/100" />
-                    <a href="?showuser=00"><span>B</span></a>
+                    <a href="profile-member.html"><span>B</span></a>
                 </div>
                 <div class="info--staff-member">
                     <img src="https://picsum.photos/500/150" />
-                    <a href="?showuser=00"><span>C</span></a>
+                    <a href="profile-member.html"><span>C</span></a>
                 </div>
             </div>
         </div>
@@ -97,9 +97,9 @@ const desktopMenu = `<div class="nav--popout">
         <i class="fa-solid fa-xmark"></i>
     </button>
     <div class="sub-menu">
-        <a href="">guidebook</a>
-        <a href="">claims</a>
-        <a href="">members</a>
+        <a href="webpage.html">guidebook</a>
+        <a href="webpage.html">claims</a>
+        <a href="webpage.html">members</a>
     </div>
 </div>
 </div>
@@ -135,7 +135,7 @@ const desktopMenu = `<div class="nav--popout">
 <a href="javascript:void(0)" class="guestOnly popup" data-modal="login"><i class="fa-solid fa-sign-in"></i></a>
 <a href="#"><i class="fa-brand fa-discord"></i></a>
 <div class="border-vertical"></div>
-<a href="/admin.php" target="_blank" class="staffOnly"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+<a href="#" target="_blank" class="staffOnly"><i class="fa-solid fa-screwdriver-wrench"></i></a>
 <div class="border-vertical staffOnly"></div>
 <div class="nav--setting">
     <i class="fa-solid fa-sun-bright"></i>
@@ -155,12 +155,12 @@ const mobileMenu = `<div class="nav--popout">
         <i class="fa-solid fa-xmark"></i>
     </button>
     <div class="sub-menu">
-        <a href="">index</a>
-        <a href="">guidebook</a>
-        <a href="">claims</a>
-        <a href="">members</a>
+        <a href="index.html">index</a>
+        <a href="webpage.html">guidebook</a>
+        <a href="webpage.html">claims</a>
+        <a href="webpage.html">members</a>
         <a href="#">Discord</a>
-        <a href="/admin.php" target="_blank" class="staffOnly">Admin</a>
+        <a href="#" target="_blank" class="staffOnly">Admin</a>
     </div>
 </div>
 </div>

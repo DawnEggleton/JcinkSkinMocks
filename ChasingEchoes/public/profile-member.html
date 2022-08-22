@@ -51,9 +51,9 @@
                 <div class="profile--border">
                     <h1>Lux</h1>
                     <div class="profile--links">
-                        <a href="#" class="charOnly">directory</a>
-                        <a href="#" class="charOnly">development</a>
-                        <a href="#" class="charOnly">wanted</a>
+                        <a href="profile-member.html" class="charOnly">directory</a>
+                        <a href="topiclist.html" class="charOnly">development</a>
+                        <a href="post.html" class="charOnly">wanted</a>
                         <a href="#" class="charOnly">custom</a>
                         <a href="#">topics</a>
                         <a href="#">posts</a>
@@ -260,7 +260,7 @@
                             let name = $(this).text().replace(`»`, ``).trim();
                             let imageDiv = `<div class="profile--item-image-block" style="background-image:url(https://files.jcink.net/uploads2/legends//av-${id}.png), url(https://files.jcink.net/uploads2/legends//av-${id}.gif), url(https://files.jcink.net/uploads2/legends//av-${id}.jpg), url(https://files.jcink.net/uploads2/legends//av-${id}.jpeg), url(https://picsum.photos/250);"></div>`;
 
-                            $('#profile--subs').append(`<div class="profile--item-image">${imageDiv}<div class="profile--item-wrap"><div class="profile--item-border"><b>${name}</b><a href="?showuser=${id}">view profile</a></div></div></div>`);
+                            $('#profile--subs').append(`<a class="profile--item-image" href="profile.html">${imageDiv}<div class="profile--item-wrap"><div class="profile--item-border"><b>${name}</b><span>view profile</span></div></div></a>`);
                         }
                     });
 

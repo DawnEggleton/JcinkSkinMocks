@@ -47,6 +47,201 @@
             <a name="top"></a>
             
             <!--Webpage-->
+            <div class="webpage">
+                <div class="webpage--menu">
+                    <tag-tabs class="webpage--border" data-secondary=".webpage--content">
+                        <tag-labels>
+                            <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                            <tag-labelset>
+                                <tag-label class="is-active" data-category="required">required reading</tag-label>
+                                <tag-label data-category="guides">additional guides</tag-label>
+                                <tag-label data-category="registration">registration</tag-label>
+                                <tag-label data-category="claims">claims</tag-label>
+                                <tag-label data-category="forms">forms</tag-label>
+                            </tag-labelset>
+                            <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                        </tag-labels>
+                        <tag-tabset>
+                            <tag-tab class="is-active" data-category="required">
+                                <tag-labels>
+                                    <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                    <tag-labelset>
+                                        <a href="#etiquette" class="is-active">etiquette</a>
+                                        <a href="#setting">setting</a>
+                                        <a href="#groups">member groups</a>
+                                    </tag-labelset>
+                                    <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                </tag-labels>
+                            </tag-tab>
+                            <tag-tab data-category="guides">
+                                <tag-labels>
+                                    <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                    <tag-labelset>
+                                        <a href="#guide1" class="is-active">guide 1</a>
+                                        <a href="#guide2">guide 2</a>
+                                        <a href="#guide3">guide 3</a>
+                                    </tag-labelset>
+                                    <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                </tag-labels>
+                            </tag-tab>
+                            <tag-tab data-category="registration">
+                                <tag-labels>
+                                    <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                    <tag-labelset>
+                                        <a href="#start" class="is-active">getting started</a>
+                                        <a href="#application">application format</a>
+                                        <a href="#sort">get sorted</a>
+                                    </tag-labelset>
+                                    <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                </tag-labels>
+                            </tag-tab>
+                            <tag-tab data-category="claims">
+                                <tag-labels>
+                                    <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                    <tag-labelset>
+                                        <a href="#reserves" class="is-active">reserves</a>
+                                        <a href="#members">members</a>
+                                        <a href="#faces">faces</a>
+                                        <a href="#jobs">jobs</a>
+                                    </tag-labelset>
+                                    <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                </tag-labels>
+                            </tag-tab>
+                            <tag-tab data-category="forms">
+                                <tag-labels>
+                                    <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                    <tag-labelset>
+                                        <a href="#editclaims" class="is-active">edit claims</a>
+                                    </tag-labelset>
+                                    <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                </tag-labels>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tabs>
+                </div>
+                <div class="webpage--content">
+                    <tag-tabset>
+                        <tag-tab class="is-active" data-category="required">
+                            <div class="webpage--section">
+                                <tag-tabset>
+                                    <tag-tab class="is-active" data-key="#etiquette">
+                                        <div class="webpage--border">
+                                            <tag-xl data-align="left">Header</tag-xl>
+                                            <tag-md data-align="left">Subheader</tag-md>
+                                            <div class="columns">
+                                                <p>Lorem ipsum dolor sit amet, <b>consectetur adipiscing</b> elit. Etiam dapibus augue at sapien auctor, sed pulvinar elit lobortis. Sed id consectetur dui. Sed sit amet purus convallis, congue lorem eu, eleifend ex. Vestibulum ut sapien vel urna cursus cursus nec eu purus. Sed eu viverra orci, at fermentum tellus. Fusce pharetra sagittis tempor. Nulla laoreet purus et suscipit efficitur.</p>
+
+                                                <p>Aliquam id arcu molestie, porttitor ligula eget, interdum felis. Pellentesque dignissim ullamcorper lacus, vitae vehicula velit pulvinar sit amet. <i>Maecenas leo purus, venenatis in leo quis, cursus iaculis nibh.</i> Cras at erat finibus, luctus diam et, consectetur risus. Curabitur posuere enim sit amet orci accumsan, vitae placerat odio sollicitudin. Ut erat mi, viverra sit amet pellentesque ut, tincidunt a orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi laoreet, est eget auctor porta, est urna molestie enim, vitae aliquam leo justo et tortor. In euismod enim finibus, ullamcorper ante et, congue felis. Phasellus vel odio sit amet arcu efficitur pretium. Sed et placerat orci. Nunc ut est blandit, finibus tortor sit amet, commodo ante.</p>
+
+                                                <p>Duis placerat in lacus hendrerit imperdiet. Maecenas ac erat et <a href="#">neque</a> cursus accumsan auctor ac elit. Morbi malesuada id lorem sit amet tempus. Aliquam vel augue auctor augue facilisis iaculis. Sed et vestibulum elit. Fusce non leo vel ante pulvinar luctus. In auctor a metus at porta. Mauris cursus convallis elit id efficitur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus aliquet eleifend magna, quis hendrerit nisi molestie aliquet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam a sem accumsan, blandit leo porta, imperdiet libero. In malesuada sem nec tortor consectetur, quis mattis felis porta. Aenean faucibus diam sapien, malesuada aliquam nunc semper in. Vivamus non ex eget dolor blandit pharetra. Nunc nec risus vehicula, vulputate nisi a, iaculis leo.</p>
+
+                                                <p>Vestibulum varius <u>semper felis</u>, vel condimentum diam fringilla a. Praesent aliquam commodo ex, ultricies convallis dolor imperdiet ac. Donec viverra ac purus rhoncus venenatis. Ut laoreet, sem ut tempor malesuada, nisl lacus imperdiet nulla, vitae finibus enim purus id est. Suspendisse sollicitudin elit id nisi sodales, vel cursus mauris egestas. Nulla vulputate turpis nec augue semper, ac semper lacus pharetra. Donec facilisis ac leo vel aliquet.</p>
+
+                                                <ul data-item-gap="none">
+                                                    <li>List item</li>
+                                                    <li>List item</li>
+                                                    <li>List item</li>
+                                                </ul>
+
+                                                <p>Nam semper iaculis finibus. Donec porttitor in nisi convallis blandit. Cras suscipit dictum nisi sit amet finibus. Suspendisse viverra sapien nisl, ornare ullamcorper ante vehicula vel. Nulla dignissim metus ex, sit amet accumsan massa maximus porttitor. Phasellus augue sem, placerat congue imperdiet in, molestie et orci. Morbi vel mattis leo. Suspendisse rutrum nibh lobortis massa maximus iaculis. Nunc auctor non quam sed sodales. Proin magna mi, viverra sit amet felis non, blandit efficitur odio. Pellentesque bibendum lorem non pellentesque pellentesque.</p>
+                                            </div>
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab data-key="#setting">
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab data-key="#groups">
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                </tag-tabset>
+                            </div>
+                        </tag-tab>
+                        <tag-tab data-category="guides">
+                            <div class="webpage--section">
+                                <tag-tabset>
+                                    <tag-tab class="is-active" data-key="#guide1">
+                                        <div class="webpage--border">
+                                            guide1
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab data-key="#guide2">
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab data-key="#guide3">
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                </tag-tabset>
+                            </div>
+                        </tag-tab>
+                        <tag-tab data-category="registration">
+                            <div class="webpage--section">
+                                <tag-tabset>
+                                    <tag-tab class="is-active">
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab>
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab>
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                </tag-tabset>
+                            </div>
+                        </tag-tab>
+                        <tag-tab data-category="claims">
+                            <div class="webpage--section">
+                                <tag-tabset>
+                                    <tag-tab class="is-active">
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab>
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab>
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab>
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                </tag-tabset>
+                            </div>
+                        </tag-tab>
+                        <tag-tab data-category="forms">
+                            <div class="webpage--section">
+                                <tag-tabset>
+                                    <tag-tab class="is-active">
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                </tag-tabset>
+                            </div>
+                        </tag-tab>
+                    </tag-tabset>
+                </div>
+            </div>
         </main>
 
         <!-- Copyright Information -->

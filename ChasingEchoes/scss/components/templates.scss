@@ -81,6 +81,24 @@ tag {
         }
     }
 
+    &-lg {
+        &[data-align="left"] {
+            grid-template-columns: 20px minmax(0, max-content) minmax(20px, 1fr);
+        }
+        &[data-align="right"] {
+            grid-template-columns: minmax(20px, 1fr) minmax(0, max-content) 20px;
+        }
+    }
+
+    &-md {
+        &[data-align="center"] {
+            grid-template-columns: minmax(20px, 1fr) minmax(0, max-content) minmax(20px, 1fr);
+        }
+        &[data-align="right"] {
+            grid-template-columns: minmax(20px, 1fr) minmax(0, max-content) 20px;
+        }
+    }
+
     &-xl,
     &-lg,
     &-md,
@@ -188,6 +206,10 @@ tag {
         border-bottom: 0;
         scrollbar-width: none;
         scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
     &-label {
         border: 1px solid var(--border-main);
