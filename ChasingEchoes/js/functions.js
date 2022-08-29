@@ -166,9 +166,48 @@ function setUCPMenus() {
     }
 }
 
-
 function getAllTextNodes(element) {
     if(element) {
         return Array.from(element.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
     }
+}
+
+function openHelp(e) {
+    e.classList.toggle('is-help');
+    e.parentNode.parentNode.parentNode.querySelector('.help').classList.toggle('show');
+}
+function loadHides(fields, classes) {
+    fields.forEach((field, i) => {
+        if(field.options[field.selectedIndex].value === 'y') {
+            document.querySelectorAll(classes[i]).forEach(item => item.classList.remove('hide'));
+        } else {
+            document.querySelectorAll(classes[i]).forEach(item => item.classList.add('hide'));
+        }
+    });
+}
+function loadJobFields(fields, type) {
+    fields.forEach((field, i) => {
+        let num = field.value;
+        let html = ``;
+        for(let j = 0; j < num; j++) {
+            html += `<label>
+                <tag-md data-align="left">Employer</tag-md>
+                <input type="text"
+                    name="${type[i]}-job${j}employer"
+                    id="${type[i]}-job${j}employer"
+                    placeholder="Employer"
+                    class="${type[i]}-job-employer"
+                    required>
+            </label><label>
+            <tag-md data-align="left">Position</tag-md>
+                <input type="text"
+                    name="${type[i]}-job${j}position"
+                    id="${type[i]}-job${j}position"
+                    placeholder="Position"
+                    class="${type[i]}-job-position"
+                    required>
+            </label>`;
+        }
+        document.querySelector(`.form--${type[i]}-job-fields`).innerHTML = html;
+    })
 }

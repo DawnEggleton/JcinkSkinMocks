@@ -33,12 +33,8 @@
     --bg-content: var(--white);
     --bg-opaque: var(--white-35);
     --bg-opaque2: var(--white-90);
-    --bg-opaque-accent: var(--accent-35);
-    --bg-opaque-accent2: var(--accent-50);
     --border-main: var(--ltgrey);
     --text-body: var(--dkgrey);
-    --text-header-accent: var(--accent-mid);
-    --text-content-accent: var(--accent-mid);
     --text-on-accent: var(--offwhite);
 }
 
@@ -72,41 +68,214 @@
 .light {
     --bg-body: var(--offwhite);
     --bg-content: var(--white);
-    --bg-accent: var(--accent-mid);
     --bg-opaque: var(--white-35);
     --bg-opaque2: var(--white-90);
     --border-main: var(--ltgrey);
     --text-body: var(--dkgrey);
-    --text-header-accent: var(--accent-mid);
-    --text-content-accent: var(--accent-mid);
     --text-on-accent: var(--offwhite);
     --filter-forum-image: none;
+
+    .g-1,
+    &.g-1,
+    .g-2,
+    &.g-2,
+    .g-3,
+    &.g-3,
+    .g-4,
+    &.g-4,
+    .g-5,
+    &.g-5,
+    .g-6,
+    &.g-6,
+    .g-7,
+    &.g-7,
+    .g-8,
+    &.g-8,
+    .g-9,
+    &.g-9,
+    .g-10,
+    &.g-10,
+    .g-11,
+    &.g-11,
+    .g-12,
+    &.g-12,
+    .g-13,
+    &.g-13,
+    .g-14,
+    &.g-14 {
+        --bg-opaque-accent: var(--accent-35);
+        --bg-opaque-accent2: var(--accent-50);
+        --bg-accent: var(--accent-mid);
+        --text-header-accent: var(--accent-mid);
+        --text-content-accent: var(--accent-mid);
+    }
 }
 
 .medium {
     --bg-body: var(--midgrey);
     --bg-content: var(--ltgrey);
-    --bg-accent: var(--accent-mid);
     --bg-opaque: var(--white-35);
     --bg-opaque2: var(--white-75);
     --border-main: var(--offwhite);
     --text-body: var(--dkgrey);
-    --text-header-accent: var(--accent-light);
-    --text-content-accent: var(--accent-dark);
     --text-on-accent: var(--offwhite);
     --filter-forum-image: grayscale(0.5);
+
+    .g-1,
+    &.g-1,
+    .g-2,
+    &.g-2,
+    .g-3,
+    &.g-3,
+    .g-4,
+    &.g-4,
+    .g-5,
+    &.g-5,
+    .g-6,
+    &.g-6,
+    .g-7,
+    &.g-7,
+    .g-8,
+    &.g-8,
+    .g-9,
+    &.g-9,
+    .g-10,
+    &.g-10,
+    .g-11,
+    &.g-11,
+    .g-12,
+    &.g-12,
+    .g-13,
+    &.g-13,
+    .g-14,
+    &.g-14 {
+        --bg-opaque-accent: var(--accent-35);
+        --bg-opaque-accent2: var(--accent-50);
+        --bg-accent: var(--accent-mid);
+        --text-header-accent: var(--accent-mid);
+        --text-content-accent: var(--accent-mid);
+    }
 }
 
 .dark {
     --bg-body: var(--offblack);
     --bg-content: var(--dkgrey);
-    --bg-accent: var(--accent-light);
     --bg-opaque: var(--offblack-55);
     --bg-opaque2: var(--offblack-55);
     --border-main: var(--midgrey);
     --text-body: var(--ltgrey);
-    --text-header-accent: var(--accent-light);
-    --text-content-accent: var(--accent-light);
     --text-on-accent: var(--dkgrey);
     --filter-forum-image: grayscale(0.75) contrast(1.5);
+
+    .g-1,
+    &.g-1,
+    .g-2,
+    &.g-2,
+    .g-3,
+    &.g-3,
+    .g-4,
+    &.g-4,
+    .g-5,
+    &.g-5,
+    .g-6,
+    &.g-6,
+    .g-7,
+    &.g-7,
+    .g-8,
+    &.g-8,
+    .g-9,
+    &.g-9,
+    .g-10,
+    &.g-10,
+    .g-11,
+    &.g-11,
+    .g-12,
+    &.g-12,
+    .g-13,
+    &.g-13,
+    .g-14,
+    &.g-14 {
+        --bg-opaque-accent: var(--accent-35);
+        --bg-opaque-accent2: var(--accent-50);
+        --bg-accent: var(--accent-mid);
+        --text-header-accent: var(--accent-mid);
+        --text-content-accent: var(--accent-mid);
+    }
+}
+
+//validating, banned, inactive, hiatus - grey
+.g-1,
+.g-5,
+.g-7,
+.g-8 {
+    --accent-light: rgb(172, 172, 172);
+    --accent-mid: rgba(151, 151, 151, 1);
+    --accent-dark: rgba(136, 136, 136, 1);
+    --accent-35: rgba(151, 151, 151, 0.35);
+    --accent-50: rgba(151, 151, 151, 0.5);
+}
+//guests, unsorted, writers - green
+.g-2,
+.g-3 {
+    --accent-light: rgb(158, 185, 172);
+    --accent-mid: rgba(152,159,125, 1);
+    --accent-dark: rgba(135,140,116, 1);
+    --accent-35: rgba(152,159,125, 0.35);
+    --accent-50: rgba(152,159,125, 0.5);
+}
+//staff - light blue
+.g-4 {
+    --accent-light: rgb(161, 182, 185);
+    --accent-mid: rgba(144, 175, 179, 1);
+    --accent-dark: rgba(119, 151, 155, 1);
+    --accent-35: rgba(144, 175, 179, 0.35);
+    --accent-50: rgba(144, 175, 179, 0.5);
+}
+//international - gold
+.g-9 {
+    --accent-light: rgb(204, 185, 136);
+    --accent-mid: rgba(189, 173, 133, 1);
+    --accent-dark: rgba(157, 146, 118, 1);
+    --accent-35: rgba(189, 173, 133, 0.35);
+    --accent-50: rgba(189, 173, 133, 0.5);
+}
+//national - purple
+.g-10 {
+    --accent-light: rgb(173, 158, 185);
+    --accent-mid: rgba(136, 125, 159, 1);
+    --accent-dark: rgba(122, 116, 140, 1);
+    --accent-35: rgba(136, 125, 159, 0.35);
+    --accent-50: rgba(136, 125, 159, 0.5);
+}
+//provincial - mauve
+.g-11 {
+    --accent-light: rgb(185, 158, 166);
+    --accent-mid: rgba(159, 125, 146, 1);
+    --accent-dark: rgba(140, 116, 132, 1);
+    --accent-35: rgba(159, 125, 146, 0.35);
+    --accent-50: rgba(159, 125, 146, 0.5);
+}
+//schooling - blue
+.g-12 {
+    --accent-light: rgb(158, 172, 185);
+    --accent-mid: rgba(125, 148, 159, 1);
+    --accent-dark: rgba(116, 133, 140, 1);
+    --accent-35: rgba(125, 148, 159, 0.35);
+    --accent-50: rgba(125, 148, 159, 0.5);
+}
+//industry - teal
+.g-13 {
+    --accent-light: rgb(158, 185, 161);
+    --accent-mid: rgba(125, 159, 129, 1);
+    --accent-dark: rgba(116, 140, 119, 1);
+    --accent-35: rgba(125, 159, 129, 0.35);
+    --accent-50: rgba(125, 159, 129, 0.5);
+}
+//local - clay
+.g-14 {
+    --accent-light: rgb(181, 157, 154);
+    --accent-mid: rgba(162, 129, 119, 1);
+    --accent-dark: rgba(136, 115, 110, 1);
+    --accent-35: rgba(162, 129, 119, 0.35);
+    --accent-50: rgba(162, 129, 119, 0.5);
 }

@@ -56,6 +56,7 @@
                                 <tag-label class="is-active" data-category="required">required reading</tag-label>
                                 <tag-label data-category="guides">additional guides</tag-label>
                                 <tag-label data-category="registration">registration</tag-label>
+                                <tag-label data-category="stables">stables</tag-label>
                                 <tag-label data-category="claims">claims</tag-label>
                                 <tag-label data-category="forms">forms</tag-label>
                             </tag-labelset>
@@ -91,6 +92,20 @@
                                         <a href="#start" class="is-active">getting started</a>
                                         <a href="#application">application format</a>
                                         <a href="#sort">get sorted</a>
+                                        <a href="#horseregistration">horse registration</a>
+                                    </tag-labelset>
+                                    <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                </tag-labels>
+                            </tag-tab>
+                            <tag-tab data-category="stables">
+                                <tag-labels>
+                                    <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                    <tag-labelset>
+                                        <a href="#stables" class="is-active">overview</a>
+                                        <a href="#foxrun">foxrun equestrian</a>
+                                        <a href="#stable2">stable 2</a>
+                                        <a href="#stable3">stable 3</a>
+                                        <a href="#stable4">stable 4</a>
                                     </tag-labelset>
                                     <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
                                 </tag-labels>
@@ -112,6 +127,8 @@
                                     <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
                                     <tag-labelset>
                                         <a href="#editclaims" class="is-active">edit claims</a>
+                                        <a href="#entershow">enter a show</a>
+                                        <a href="#runshow" class="staffOnly">run a show</a>
                                     </tag-labelset>
                                     <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
                                 </tag-labels>
@@ -184,20 +201,160 @@
                         <tag-tab data-category="registration">
                             <div class="webpage--section">
                                 <tag-tabset>
-                                    <tag-tab class="is-active">
+                                    <tag-tab class="is-active" data-key="#start">
                                         <div class="webpage--border">
                                             content
                                         </div>
                                     </tag-tab>
-                                    <tag-tab>
+                                    <tag-tab data-key="#application">
                                         <div class="webpage--border">
                                             content
                                         </div>
                                     </tag-tab>
-                                    <tag-tab>
+                                    <tag-tab data-key="#sort">
+                                        <div class="webpage--border">
+                                            <tag-xl data-align="left">Get Sorted</tag-xl>
+                                            <p>Claims will submit automatically to our database. Please give it a few seconds to a minute to update through the system and then check the accuracy of your claims by refreshing the page and looking at the relevant claims tabs. To make corrections to incorrect claims or to update information that has changed through natural character progression, please use the <a href="">Edit Claims</a> form.</p>
+                                            <form id="form-sort">
+                                                <label>
+                                                    <tag-md data-align="left">Alias</tag-md>
+                                                    <input type="text"
+                                                        name="sort-member"
+                                                        id="sort-member"
+                                                        placeholder="Alias"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Character Name</tag-md>
+                                                    <input type="text"
+                                                        name="sort-character"
+                                                        id="sort-character"
+                                                        placeholder="Character Name"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">
+                                                        <span>
+                                                            Account ID
+                                                            <button onclick="openHelp(this)" type="button">
+                                                                <i class="fa-solid fa-circle-question"></i>
+                                                                <i class="fa-solid fa-circle-xmark"></i>
+                                                            </button>
+                                                        </span>
+                                                    </tag-md>
+                                                    <i class="help">Can be found by getting the numbers at the end of the URL of your main profile.</i>
+                                                    <input type="text"
+                                                        name="sort-accountid"
+                                                        id="sort-accountid"
+                                                        placeholder="Account ID"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">
+                                                        <span>
+                                                            Parent Account ID
+                                                            <button onclick="openHelp(this)" type="button">
+                                                                <i class="fa-solid fa-circle-question"></i>
+                                                                <i class="fa-solid fa-circle-xmark"></i>
+                                                            </button>
+                                                        </span>
+                                                    </tag-md>
+                                                    <i class="help">Can be found by getting the numbers at the end of the URL of your OOC account's main profile.</i>
+                                                    <input type="text"
+                                                        name="sort-parentid"
+                                                        id="sort-parentid"
+                                                        placeholder="Parent Account ID"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Group</tag-md>
+                                                    <select name="sort-group"
+                                                            id="sort-group"
+                                                            required>
+                                                        <option value="">(select)</option>
+                                                        <optgroup label="Competitive">
+                                                            <option value="9">International</option>
+                                                            <option value="10">National</option>
+                                                            <option value="11">Provincial</option>
+                                                            <option value="12">Schooling</option>
+                                                        </optgroup>
+                                                        <optgroup label="Non-Competitive">
+                                                            <option value="13">Industry</option>
+                                                            <option value="14">Local</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Face Claim</tag-md>
+                                                    <input type="text"
+                                                        name="sort-face"
+                                                        id="sort-face"
+                                                        placeholder="Face Claim"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Employed?</tag-md>
+                                                    <select name="sort-employed"
+                                                            id="sort-employed"
+                                                            required>
+                                                        <option value="">(select)</option>
+                                                        <option value="y">Yes</option>
+                                                        <option value="n">No</option>
+                                                    </select>
+                                                </label>
+                                                <label class="hide is-employed">
+                                                    <tag-md data-align="left">Number of Jobs</tag-md>
+                                                    <input name="sort-jobnum"
+                                                        id="sort-jobnum"
+                                                        type="number"
+                                                        min="0"
+                                                        placeholder="Number of Jobs">
+                                                </label>
+                                                <div class="form--sort-job-fields form--job-fields hide is-employed"></div>
+                                                <button type="submit">Submit</button>
+                                                <div class="form--sort-warning"></div>
+                                            </form>
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab data-key="#horseregistration">
                                         <div class="webpage--border">
                                             content
                                         </div>
+                                    </tag-tab>
+                                </tag-tabset>
+                            </div>
+                        </tag-tab>
+                        <tag-tab data-category="stables">
+                            <div class="webpage--section">
+                                <tag-tabset>
+                                    <tag-tab class="is-active" data-key="#stables">
+                                        <div class="claims--border">
+                                            About Stables
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab class="claims horses" data-key="#foxrun">
+                                        <div class="claims--stable"><div class="claims--border">
+                                            About Foxrun
+                                        </div></div>
+                                        <tag-lg data-align="left">Stable Roster</tag-lg>
+                                    </tag-tab>
+                                    <tag-tab class="claims horses" data-key="#stable2">
+                                        <div class="claims--stable"><div class="claims--border">
+                                            About Stable2
+                                        </div></div>
+                                        <tag-lg data-align="left">Stable Roster</tag-lg>
+                                    </tag-tab>
+                                    <tag-tab class="claims horses" data-key="#stable3">
+                                        <div class="claims--stable"><div class="claims--border">
+                                            About Stable3
+                                        </div></div>
+                                        <tag-lg data-align="left">Stable Roster</tag-lg>
+                                    </tag-tab>
+                                    <tag-tab class="claims horses" data-key="#stable4">
+                                        <div class="claims--stable"><div class="claims--border">
+                                            About Stable4
+                                        </div></div>
+                                        <tag-lg data-align="left">Stable Roster</tag-lg>
                                     </tag-tab>
                                 </tag-tabset>
                             </div>
@@ -205,33 +362,27 @@
                         <tag-tab data-category="claims">
                             <div class="webpage--section">
                                 <tag-tabset>
-                                    <tag-tab class="is-active">
-                                        <div class="webpage--border">
-                                            content
-                                        </div>
-                                    </tag-tab>
-                                    <tag-tab>
-                                        <div class="webpage--border">
-                                            content
-                                        </div>
-                                    </tag-tab>
-                                    <tag-tab>
-                                        <div class="webpage--border">
-                                            content
-                                        </div>
-                                    </tag-tab>
-                                    <tag-tab>
-                                        <div class="webpage--border">
-                                            content
-                                        </div>
-                                    </tag-tab>
+                                    <tag-tab class="is-active claims" data-key="#reserves"></tag-tab>
+                                    <tag-tab class="claims" data-key="#members"></tag-tab>
+                                    <tag-tab class="claims" data-key="#faces"></tag-tab>
+                                    <tag-tab class="claims" data-key="#jobs"></tag-tab>
                                 </tag-tabset>
                             </div>
                         </tag-tab>
                         <tag-tab data-category="forms">
                             <div class="webpage--section">
                                 <tag-tabset>
-                                    <tag-tab class="is-active">
+                                    <tag-tab class="is-active" data-key="#editclaims">
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab data-key="#entershow">
+                                        <div class="webpage--border">
+                                            content
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab data-key="#runshow" class="staffOnly">
                                         <div class="webpage--border">
                                             content
                                         </div>
@@ -242,6 +393,29 @@
                     </tag-tabset>
                 </div>
             </div>
+            <script src="../js/formatClaims.js"></script>
+            <script>
+                //fetch reserves
+                fetch("https://opensheet.elk.sh/1x6ZjvfoBDksT1H09aLM40hWgaTWbvSDfWVumHqnOHL8/Reserves")
+                .then((response) => response.json())
+                .then((data) => {
+                    formatReserves(data);
+                });
+
+                //fetch human claims
+                fetch("https://opensheet.elk.sh/1x6ZjvfoBDksT1H09aLM40hWgaTWbvSDfWVumHqnOHL8/HumanClaims")
+                .then((response) => response.json())
+                .then((data) => {
+                    formatPeople(data);
+                });
+
+                //fetch horse claims
+                fetch("https://opensheet.elk.sh/1x6ZjvfoBDksT1H09aLM40hWgaTWbvSDfWVumHqnOHL8/HorseClaims")
+                .then((response) => response.json())
+                .then((data) => {
+                    formatHorses(data);
+                });
+            </script>
         </main>
 
         <!-- Copyright Information -->

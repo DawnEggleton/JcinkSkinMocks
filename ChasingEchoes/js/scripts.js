@@ -80,18 +80,17 @@ if(document.querySelectorAll('tag-tabs').length > 0) {
         let secondaryTabs;
         if(secondary) {
             secondaryTabs = document.querySelectorAll(`${secondary} > tag-tabset > tag-tab`);
-            console.log(secondaryTabs);
-
             //functional tabs within tabs
             let innerSets = tabset.querySelectorAll('tag-tabset tag-labelset');
-            console.log(innerSets);
             innerSets.forEach((innerset, i) => {
                 let innerLabels = innerset.querySelectorAll('tag-labelset > a');
                 let innerTabs = secondaryTabs[i].querySelectorAll('tag-tab');
                 innerLabels.forEach((label, i) => {
                     label.addEventListener('click', () => {
-                        innerLabels.forEach(label => label.classList.remove('is-active'));
-                        innerTabs.forEach(tab => {
+			let siblingLabels = label.parentNode.querySelectorAll('a');
+			let siblingTabs = innerTabs[i].parentNode.querySelectorAll('tag-tab');
+                        siblingLabels.forEach(label => label.classList.remove('is-active'));
+                        siblingTabs.forEach(tab => {
                             tab.classList.remove('is-active');
                             tab.style.left = `${-100 * i}%`;
                         });
@@ -116,6 +115,8 @@ if(document.querySelectorAll('tag-tabs').length > 0) {
                     });
                 }
                 labels[i].classList.add('is-active');
+                let autoLabel = document.querySelector(`tag-tab[data-category="${labels[i].dataset.category}"]`).querySelector('.is-active').getAttribute('href');
+                window.location.hash = autoLabel;
                 tabs[i].classList.add('is-active');
                 if(secondary) {
                     secondaryTabs[i].classList.add('is-active');
@@ -526,4 +527,44 @@ if($('body#Pages').length > 0) {
         document.querySelector('.webpage--menu tag-label[data-category="required"]').classList.add('is-active');
         document.querySelector('tag-tab[data-category="required"] .webpage--section tag-tabset tag-tab:first-child').classList.add('is-active');
     }
+
+    //sorting form
+    let fields = [document.querySelector('#sort-employed')];
+    let classes = ['.is-employed'];
+    let jobFields = [document.querySelector('#sort-jobnum')];
+    let jobTypes = ['sort'];
+    loadHides(fields, classes);
+    loadJobFields(jobFields, jobTypes);
+    document.querySelector('#sort-employed').addEventListener('change', () => {
+        loadHides(fields, classes);
+        jobFields.forEach(field => {
+            field.value = 0;
+        });
+        loadJobFields(jobFields, jobTypes);
+    });
+    document.querySelector('#sort-jobnum').addEventListener('change', e => {
+        loadJobFields(jobFields, jobTypes);
+    });
+    document.querySelector('#form-sort').addEventListener('submit', e => {
+        e.preventDefault();
+        const url = `https://opensheet.elk.sh/1x6ZjvfoBDksT1H09aLM40hWgaTWbvSDfWVumHqnOHL8/HumanClaims`;
+        fetch(url)
+        .then((response) => response.json())
+        .then(data => {
+            idCheck = data.filter(item => item.AccountID === document.querySelector('#sort-accountid').value);
+            nameCheck = data.filter(item => item.Character.toLowerCase().trim() === document.querySelector('#sort-character').value.toLowerCase().trim());
+console.log(idCheck);
+console.log(nameCheck);
+            if(idCheck.length === 1) {
+                document.querySelector('.form--sort-warning').innerHTML = 'This character already exists in the claims! Please <a href="/">update your claims</a> instead.';
+            } else if (nameCheck.length === 1) {
+                document.querySelector('.form--sort-warning').innerHTML = 'This name already exists on site. Please double check that it matches your account name exactly to prevent any confusion in the claims.';
+            } else if (idCheck.length === 0 && nameCheck.length === 0) {
+                postClaims();
+                $('#form-sort button[type="submit"]').text('Submitting...');
+            } else {
+                document.querySelector('.form--sort-warning').innerHTML = 'Whoops! Somehow your character is already on the sheet - more than once! Please contact a member of staff to fix the sheet.';
+            }
+        });
+    });
 }

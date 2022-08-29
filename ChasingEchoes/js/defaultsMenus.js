@@ -83,7 +83,7 @@ if($('body#store').length > 0) {
 }
 
 
-//Store Only
+//Modcp Only
 if($('body#modcp').length > 0) {
     document.querySelector('#modcp main > table:first-child > tbody > tr > td:first-child').innerHTML = `<b>Forums & Posts</b>
     <a href="mod-queue.html">Queue</a>
