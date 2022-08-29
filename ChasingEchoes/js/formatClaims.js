@@ -271,7 +271,6 @@ function postClaims(formtype = 'POST') {
             }
         }
     }
-    console.log('submit');
 
     $.ajax({
         url: `https://script.google.com/macros/s/AKfycbzZjIt4sCyEGOe3tekg9KA4A3DKLI45mlZUlaep3LiT_ivQCKfv_tQA-Zzp1zc1ZJ1mSw/exec`,   
@@ -307,6 +306,125 @@ function postClaims(formtype = 'POST') {
             loadJobFields(jobFields, jobTypes);
             $('#form-sort button[type="submit"]').text('Submit');
             document.querySelector('.form--sort-warning').innerHTML = 'Success! Your character has been added to the sheet.';
+        }
+      });
+    
+      return false;
+}
+
+
+function updateClaims(character, formtype = 'POST') {
+    let alias = character[0].Member;
+    if(document.querySelector('#choice-member').checked) {
+        alias = document.querySelector('#update-member').value.toLowerCase().trim();
+    }
+    let accountID = document.querySelector('#update-accountid').value.trim();
+    let characterName = character[0].Character;
+    if(document.querySelector('#choice-character').checked) {
+        characterName = document.querySelector('#update-character').value.toLowerCase().trim();
+    }
+    let group = character[0].Group;
+    let groupID = character[0].GroupID;
+    if(document.querySelector('#choice-group').checked) {
+        group = document.querySelector('#update-group').options[document.querySelector('#update-group').selectedIndex].innerText.toLowerCase().trim();
+        groupID = document.querySelector('#update-group').options[document.querySelector('#update-group').selectedIndex].value;
+    }
+    let face = character[0].Face;
+    if(document.querySelector('#choice-face').checked) {
+        face = document.querySelector('#update-face').value.toLowerCase().trim();
+    }
+    let jobsString = character[0].Jobs;
+    if(document.querySelector('#choice-newjob').checked || document.querySelector('#choice-updatejob').checked || document.querySelector('#choice-removejob').checked) {
+        let jobs = [];
+        let jobsArray = character[0].Jobs.split('+');
+        jobsArray.forEach(job => {
+            jobs.push(JSON.parse(job));
+        });
+        if(document.querySelector('#choice-newjob').checked) {
+            let employers = document.querySelectorAll('.new-job-employer');
+            let positions = document.querySelectorAll('.new-job-position');
+            for(let i = 0; i < employers.length; i++) {
+                let newJob = {
+                    employer: employers[i].value.toLowerCase().trim(),
+                    position: positions[i].value.toLowerCase().trim()
+                };
+                jobs.push(newJob);
+            }
+        }
+        if(document.querySelector('#choice-updatejob').checked) {
+            let currentEmployers = document.querySelectorAll('.update-job-employer-current');
+            let currentPositions = document.querySelectorAll('.update-job-position-current');
+            let newEmployers = document.querySelectorAll('.update-job-employer-new');
+            let newPositions = document.querySelectorAll('.update-job-position-new');
+            for(let i = 0; i < currentEmployers.length; i++) {
+                let currentEmployer = currentEmployers[i].value.toLowerCase().trim();
+                let currentPosition = currentPositions[i].value.toLowerCase().trim();
+                let newEmployer = newEmployers[i].value.toLowerCase().trim();
+                let newPosition = newPositions[i].value.toLowerCase().trim();
+                if(newEmployer !== `` && currentEmployer !== newEmployer) {
+                    jobs.forEach(job => {
+                        if(job.employer === currentEmployer && job.position === currentPosition) {
+                            job.employer = newEmployer;
+                            currentEmployer = newEmployer;
+                        }
+                    });
+                }
+                if(newPosition !== `` && currentPosition !== newPosition) {
+                    jobs.forEach(job => {
+                        if(job.employer === currentEmployer && job.position === currentPosition) {
+                            job.position = newPosition;
+                        }
+                    });
+                }
+            }
+        }
+        if(document.querySelector('#choice-removejob').checked) {
+            let employers = document.querySelectorAll('.remove-job-employer');
+            let positions = document.querySelectorAll('.remove-job-position');
+            for(let i = 0; i < employers.length; i++) {
+                let employer = employers[i].value.toLowerCase().trim();
+                let position = positions[i].value.toLowerCase().trim();
+                let removeJob = jobs.findIndex(job => {
+                    return job.employer === employer && job.position === position;
+                });
+                jobs.splice(removeJob, 1);
+            }
+        }
+        jobsString = jobs.map(job => JSON.stringify(job)).join('+');
+    }
+    console.log(accountID);
+
+    $.ajax({
+        url: `https://script.google.com/macros/s/AKfycbzZjIt4sCyEGOe3tekg9KA4A3DKLI45mlZUlaep3LiT_ivQCKfv_tQA-Zzp1zc1ZJ1mSw/exec`,   
+        data: {
+            "SubmissionType": "claims-edit",
+            "Member": alias,
+            "Character": characterName,
+            "AccountID": accountID,
+            "Group": group,
+            "GroupID": groupID,
+            "Face": face,
+            "Jobs": jobsString
+        },
+        method: formtype,
+        type: formtype,
+        dataType: "json", 
+        success: function () {
+            console.log('success');
+            //sendSortRequest(message);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('error');
+            document.querySelector('.form--update-warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again! If this persists, please open the console (ctrl + shift + J) and send Lux a screenshot of what's there.`;
+        },
+        complete: function () {
+            $('#form-update').trigger('reset');
+            document.querySelectorAll('.form--update-section').forEach(section => section.classList.add('hide'));
+            let jobFields = [document.querySelector('#new-jobnum'), document.querySelector('#update-jobnum'), document.querySelector('#remove-jobnum')];
+            let jobTypes = ['new', 'update', 'remove'];
+            loadJobFields(jobFields, jobTypes);
+            $('#form-update button[type="submit"]').text('Submit');
+            document.querySelector('.form--update-warning').innerHTML = 'Success! Your claims have been updated.';
         }
       });
     

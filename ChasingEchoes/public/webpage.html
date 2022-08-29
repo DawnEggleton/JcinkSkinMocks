@@ -312,7 +312,7 @@
                                                 </label>
                                                 <div class="form--sort-job-fields form--job-fields hide is-employed"></div>
                                                 <button type="submit">Submit</button>
-                                                <div class="form--sort-warning"></div>
+                                                <div class="form--sort-warning form--warning"></div>
                                             </form>
                                         </div>
                                     </tag-tab>
@@ -374,7 +374,174 @@
                                 <tag-tabset>
                                     <tag-tab class="is-active" data-key="#editclaims">
                                         <div class="webpage--border">
-                                            content
+                                            <tag-xl data-align="left">Update Claims</tag-xl>
+                                            <p>Claim updates will submit automatically and will update based on your <u>account ID</u>, so please ensure this is accurate before submitting. Please give it a few seconds to a minute to update through the system and then check the accuracy of your claims by refreshing the page and looking at the relevant claims tabs.</p>
+                                            <p><b>Note:</b> Alias, name, and group updates will not produce new fields. If either needs to change, simply use the new value in the initial fields and check the correct box(es). The information for these two fields will <i>not</i> change unless you have selected the related option.</p>
+                                            <form id="form-update">
+                                                <label>
+                                                    <tag-md data-align="left">Alias</tag-md>
+                                                    <input type="text"
+                                                        name="update-member"
+                                                        id="update-member"
+                                                        placeholder="Alias"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Character Name</tag-md>
+                                                    <input type="text"
+                                                        name="update-character"
+                                                        id="update-character"
+                                                        placeholder="Character Name"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">
+                                                        <span>
+                                                            Account ID
+                                                            <button onclick="openHelp(this)" type="button">
+                                                                <i class="fa-solid fa-circle-question"></i>
+                                                                <i class="fa-solid fa-circle-xmark"></i>
+                                                            </button>
+                                                        </span>
+                                                    </tag-md>
+                                                    <i class="help">Can be found by getting the numbers at the end of the URL of your main profile.</i>
+                                                    <input type="text"
+                                                        name="update-accountid"
+                                                        id="update-accountid"
+                                                        placeholder="Account ID"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Group</tag-md>
+                                                    <select name="update-group"
+                                                            id="update-group"
+                                                            required>
+                                                        <option value="">(select)</option>
+                                                        <optgroup label="Competitive">
+                                                            <option value="9">International</option>
+                                                            <option value="10">National</option>
+                                                            <option value="11">Provincial</option>
+                                                            <option value="12">Schooling</option>
+                                                        </optgroup>
+                                                        <optgroup label="Non-Competitive">
+                                                            <option value="13">Industry</option>
+                                                            <option value="14">Local</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </label>
+                                                <div class="form--choices">
+                                                    <tag-md data-align="left">
+                                                        <span>
+                                                            Please Update
+                                                            <button onclick="openHelp(this)" type="button">
+                                                                <i class="fa-solid fa-circle-question"></i>
+                                                                <i class="fa-solid fa-circle-xmark"></i>
+                                                            </button>
+                                                        </span>
+                                                    </tag-md>
+                                                    <i class="help">Check all that apply. Reminder that when submitting a change to alias, character name, and/or group, no extra fields will appear as this information is filled out above. Ensure the above information is accurate to how you want it to appear.</i>
+                                                    <div class="form--flex">
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="choice-member"
+                                                                value="member">
+                                                            <strong class="checkbox">Update Alias</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="choice-character"
+                                                                value="character">
+                                                            <strong class="checkbox">Update Name</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="choice-group"
+                                                                value="group">
+                                                            <strong class="checkbox">Update Group</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="choice-face"
+                                                                value="face">
+                                                            <strong class="checkbox">Update Face</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input   type="checkbox"
+                                                                name="updateChoices"
+                                                                id="choice-newjob"
+                                                                value="newjob">
+                                                            <strong class="checkbox">Add New Job(s)</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input   type="checkbox"
+                                                                name="updateChoices"
+                                                                id="choice-updatejob"
+                                                                value="updatejob">
+                                                            <strong class="checkbox">Update Current Job(s)</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input   type="checkbox"
+                                                                name="updateChoices"
+                                                                id="choice-removejob"
+                                                                value="removejob">
+                                                            <strong class="checkbox">Remove Current Job(s)</strong>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="hide is-update-face form--update-section">
+                                                    <tag-lg data-align="left">Change Face</tag-lg>
+                                                    <label>
+                                                        <input type="text"
+                                                            name="update-face"
+                                                            id="update-face"
+                                                            placeholder="Face Claim">
+                                                    </label>
+                                                </div>
+                                                <div class="hide is-new-job form--update-section">
+                                                    <tag-lg data-align="left">Add Job(s)</tag-lg>
+                                                    <label>
+                                                        <tag-md data-align="left">Number of Jobs</tag-md>
+                                                        <input name="new-jobnum"
+                                                            id="new-jobnum"
+                                                            type="number"
+                                                            min="0"
+                                                            placeholder="Number of Jobs">
+                                                    </label>
+                                                    <div class="form--new-job-fields form--job-fields"></div>
+                                                </div>
+                                                <div class="hide is-update-job form--update-section">
+                                                    <tag-lg data-align="left">Update Job(s)</tag-lg>
+                                                    <p>Ensure the current info matches letter for letter (case excluded)</p>
+                                                    <label>
+                                                        <tag-md data-align="left">Number of Jobs</tag-md>
+                                                        <input name="update-jobnum"
+                                                            id="update-jobnum"
+                                                            type="number"
+                                                            min="0"
+                                                            placeholder="Number of Jobs">
+                                                    </label>
+                                                    <div class="form--update-job-fields form--job-fields"></div>
+                                                </div>
+                                                <div class="hide is-remove-job form--update-section">
+                                                    <tag-lg data-align="left">Remove Job(s)</tag-lg>
+                                                    <p>Ensure the current info matches letter for letter (case excluded)</p>
+                                                    <label>
+                                                        <tag-md data-align="left">Number of Jobs</tag-md>
+                                                        <input name="remove-jobnum"
+                                                            id="remove-jobnum"
+                                                            type="number"
+                                                            min="0"
+                                                            placeholder="Number of Jobs">
+                                                    </label>
+                                                    <div class="form--remove-job-fields form--job-fields"></div>
+                                                </div>
+                                                <button type="submit">Submit</button>
+                                                <div class="form--update-warning form--warning"></div>
+                                            </form>
                                         </div>
                                     </tag-tab>
                                     <tag-tab data-key="#entershow">

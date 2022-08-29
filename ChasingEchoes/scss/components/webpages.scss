@@ -122,7 +122,8 @@
             grid-template-columns: 1fr 1fr;
         }
 
-        label {
+        label,
+        .form--choices {
             display: flex;
             flex-direction: column;
 
@@ -488,7 +489,7 @@
     Forms
 ********************************/
 .form {
-    &--sort-warning {
+    &--warning {
         background: var(--bg-opaque-accent);
         grid-column: 1 / -1;
         max-width: max-content;
@@ -502,5 +503,53 @@
         &:empty {
             display: none;
         }
+    }
+    &--choices {
+        grid-column: 1 / -1;
+
+        label {
+            cursor: pointer;
+        }
+
+        input {
+            display: none;
+
+            &:checked + .checkbox::before {
+                background: var(--bg-accent);
+                color: var(--text-on-accent);
+            }
+        }
+
+        .checkbox {
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 1px;
+
+            &::before {
+                font-family: 'Font Awesome 6 Pro';
+                font-weight: 500;
+                background: var(--bg-content);
+                border-radius: 50%;
+                width: 16px;
+                height: 16px;
+                font-size: 8px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: transparent;
+                border: 1px solid var(--border-main);
+                cursor: pointer;
+                margin-right: 5px;
+            }
+        }
+    }
+    &--flex {
+        display: flex;
+        gap: 5px 15px;
+        flex-wrap: wrap;
+    }
+    &--update-section {
+        grid-column: 1 / -1;
+        margin-top: 30px;
     }
 }

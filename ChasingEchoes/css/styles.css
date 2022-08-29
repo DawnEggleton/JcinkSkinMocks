@@ -3432,26 +3432,32 @@ body:not(#idx) header.splide {
     grid-template-columns: 1fr 1fr;
   }
 }
-.webpage form label {
+.webpage form label,
+.webpage form .form--choices {
   display: flex;
   flex-direction: column;
 }
-.webpage form label tag-md span button {
+.webpage form label tag-md span button,
+.webpage form .form--choices tag-md span button {
   background: none;
   border: 0;
   top: 1px;
   cursor: pointer;
 }
-.webpage form label tag-md span .fa-circle-xmark {
+.webpage form label tag-md span .fa-circle-xmark,
+.webpage form .form--choices tag-md span .fa-circle-xmark {
   display: none;
 }
-.webpage form label tag-md span.is-help .fa-circle-xmark {
+.webpage form label tag-md span.is-help .fa-circle-xmark,
+.webpage form .form--choices tag-md span.is-help .fa-circle-xmark {
   display: initial;
 }
-.webpage form label tag-md span.is-help .fa-circle-question {
+.webpage form label tag-md span.is-help .fa-circle-question,
+.webpage form .form--choices tag-md span.is-help .fa-circle-question {
   display: none;
 }
-.webpage form label .help {
+.webpage form label .help,
+.webpage form .form--choices .help {
   display: none;
   font-size: var(--xsBody);
   text-transform: uppercase;
@@ -3462,14 +3468,17 @@ body:not(#idx) header.splide {
   margin: -5px 10px 10px;
 }
 @media only screen and (min-width: 480px) {
-  .webpage form label .help {
+  .webpage form label .help,
+.webpage form .form--choices .help {
     margin: 0 10px 10px;
   }
 }
-.webpage form label .help.show {
+.webpage form label .help.show,
+.webpage form .form--choices .help.show {
   display: initial;
 }
-.webpage form label select {
+.webpage form label select,
+.webpage form .form--choices select {
   padding: 8.5px 10px;
 }
 .webpage form .form--job-fields {
@@ -3740,7 +3749,7 @@ body:not(#idx) header.splide {
 /*******************************
     Forms
 ********************************/
-.form--sort-warning {
+.form--warning {
   background: var(--bg-opaque-accent);
   grid-column: 1/-1;
   max-width: max-content;
@@ -3751,8 +3760,51 @@ body:not(#idx) header.splide {
   line-height: 200%;
   text-align: justify;
 }
-.form--sort-warning:empty {
+.form--warning:empty {
   display: none;
+}
+.form--choices {
+  grid-column: 1/-1;
+}
+.form--choices label {
+  cursor: pointer;
+}
+.form--choices input {
+  display: none;
+}
+.form--choices input:checked + .checkbox::before {
+  background: var(--bg-accent);
+  color: var(--text-on-accent);
+}
+.form--choices .checkbox {
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+}
+.form--choices .checkbox::before {
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 500;
+  background: var(--bg-content);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  border: 1px solid var(--border-main);
+  cursor: pointer;
+  margin-right: 5px;
+}
+.form--flex {
+  display: flex;
+  gap: 5px 15px;
+  flex-wrap: wrap;
+}
+.form--update-section {
+  grid-column: 1/-1;
+  margin-top: 30px;
 }
 
 /*******************************

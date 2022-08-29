@@ -567,4 +567,85 @@ console.log(nameCheck);
             }
         });
     });
+
+    //update claims
+    function loadUpdateForm() {
+        document.querySelectorAll('#form-update .form--choices input[type="checkbox"]').forEach(option => { 
+            switch(option.value) {
+                case 'face':
+                    let face = document.querySelector('#form-update .is-update-face');
+                    if(!option.checked) {
+                        face.classList.add('hide');
+                    } else {
+                        face.classList.remove('hide');
+                    }
+                    break;
+                case 'newjob':
+                    let newjob = document.querySelector('#form-update .is-new-job');
+                    if(!option.checked) {
+                        newjob.classList.add('hide');
+                        document.querySelector('#new-jobnum').value = 0;
+                        loadJobFields([document.querySelector('#new-jobnum')], ['new']);
+                    } else {
+                        newjob.classList.remove('hide');
+                    }
+                    break;
+                case 'updatejob':
+                    let updatejob = document.querySelector('#form-update .is-update-job');
+                    if(!option.checked) {
+                        updatejob.classList.add('hide');
+                        document.querySelector('#update-jobnum').value = 0;
+                        loadJobFields([document.querySelector('#update-jobnum')], ['update']);
+                    } else {
+                        updatejob.classList.remove('hide');
+                    }
+                    break;
+                case 'removejob':
+                    let removejob = document.querySelector('#form-update .is-remove-job');
+                    if(!option.checked) {
+                        removejob.classList.add('hide');
+                        document.querySelector('#remove-jobnum').value = 0;
+                        loadJobFields([document.querySelector('#remove-jobnum')], ['remove']);
+                    } else {
+                        removejob.classList.remove('hide');
+                    }
+                    break;
+                default:
+                    break;
+            }
+        });
+        let jobFields = [document.querySelector('#new-jobnum'), document.querySelector('#update-jobnum'), document.querySelector('#remove-jobnum')];
+        let jobTypes = ['new', 'update', 'remove'];
+        loadJobFields(jobFields, jobTypes);
+        jobFields.forEach((field, i) => {
+            field.addEventListener('change', e => {
+                loadJobFields([field], [jobTypes[i]]);
+            });
+        });
+    }
+    loadUpdateForm();
+    document.querySelectorAll('#form-update .form--choices input[type="checkbox"]').forEach(option => { 
+        option.addEventListener('change', e => {
+            loadUpdateForm();
+        });
+    });
+
+    document.querySelector('#form-update').addEventListener('submit', e => {
+        e.preventDefault();
+        const url = `https://opensheet.elk.sh/1x6ZjvfoBDksT1H09aLM40hWgaTWbvSDfWVumHqnOHL8/HumanClaims`;
+        fetch(url)
+        .then((response) => response.json())
+        .then(data => {
+            idCheck = data.filter(item => item.AccountID === document.querySelector('#sort-accountid').value);
+            if(idCheck.length === 1) {
+                let character = data.filter(item => item.AccountID === document.querySelector('#sort-accountid').value);
+                updateClaims(character);
+                $('#form-update button[type="submit"]').text('Submitting...');
+            } else if (idCheck.length === 0) {
+                document.querySelector('.form--sort-warning').innerHTML = `This character doesn't exist in our records. Make sure to submit them for sorting first!`;
+            } else {
+                document.querySelector('.form--sort-warning').innerHTML = 'Whoops! Somehow your character is already on the sheet - more than once! Please contact a member of staff to fix the sheet.';
+            }
+        });
+    });
 }

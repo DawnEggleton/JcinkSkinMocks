@@ -2,6 +2,7 @@ tag-shipimage a::after {
   content: "\e1cd";
 }
 
+.form--choices .checkbox::before,
 .members--filter-group label input + span::before,
 .members--options .members--sort > span::before,
 .tosWrap input + b::before {

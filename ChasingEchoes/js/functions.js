@@ -189,24 +189,63 @@ function loadJobFields(fields, type) {
     fields.forEach((field, i) => {
         let num = field.value;
         let html = ``;
-        for(let j = 0; j < num; j++) {
-            html += `<label>
-                <tag-md data-align="left">Employer</tag-md>
-                <input type="text"
-                    name="${type[i]}-job${j}employer"
-                    id="${type[i]}-job${j}employer"
-                    placeholder="Employer"
-                    class="${type[i]}-job-employer"
-                    required>
-            </label><label>
-            <tag-md data-align="left">Position</tag-md>
-                <input type="text"
-                    name="${type[i]}-job${j}position"
-                    id="${type[i]}-job${j}position"
-                    placeholder="Position"
-                    class="${type[i]}-job-position"
-                    required>
-            </label>`;
+        if(type[i] !== 'update') {
+            for(let j = 0; j < num; j++) {
+                html += `<label>
+                    <tag-md data-align="left">Employer</tag-md>
+                    <input type="text"
+                        name="${type[i]}-job${j}employer"
+                        id="${type[i]}-job${j}employer"
+                        placeholder="Employer"
+                        class="${type[i]}-job-employer"
+                        required>
+                </label><label>
+                <tag-md data-align="left">Position</tag-md>
+                    <input type="text"
+                        name="${type[i]}-job${j}position"
+                        id="${type[i]}-job${j}position"
+                        placeholder="Position"
+                        class="${type[i]}-job-position"
+                        required>
+                </label>`;
+            }
+        } else {
+            for(let j = 0; j < num; j++) {
+                html += `<label>
+                    <tag-md data-align="left">Current Employer</tag-md>
+                    <input type="text"
+                        name="${type[i]}-job${j}employer-current"
+                        id="${type[i]}-job${j}employer-current"
+                        placeholder="Current Employer"
+                        class="${type[i]}-job-employer-current"
+                        required>
+                </label>
+                <label>
+                    <tag-md data-align="left">New Employer</tag-md>
+                    <input type="text"
+                        name="${type[i]}-job${j}employer-new"
+                        id="${type[i]}-job${j}employer-new"
+                        placeholder="New Employer"
+                        class="${type[i]}-job-employer-new">
+                </label>
+                <label>
+                    <tag-md data-align="left">Current Position</tag-md>
+                    <input type="text"
+                        name="${type[i]}-job${j}position-current"
+                        id="${type[i]}-job${j}position-current"
+                        placeholder="Current Position"
+                        class="${type[i]}-job-position-current"
+                        required>
+                </label>
+                <label>
+                    <tag-md data-align="left">New Position</tag-md>
+                    <input type="text"
+                        name="${type[i]}-job${j}position-new"
+                        id="${type[i]}-job${j}position-new"
+                        placeholder="New Position"
+                        class="${type[i]}-job-position-new">
+                </label>`;
+            }
         }
         document.querySelector(`.form--${type[i]}-job-fields`).innerHTML = html;
     })
