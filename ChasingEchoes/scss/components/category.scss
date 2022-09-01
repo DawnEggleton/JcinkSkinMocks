@@ -13,7 +13,7 @@
         gap: 50px;
     }
 
-    &.subforums,
+    &.subforums:not(.f-54):not(.f-56):not(.f-57):not(.f-71):not(.f-72),
     &.c-1,
     &.c-2,
     &.c-3,
@@ -36,6 +36,11 @@
         }
     }
 
+    &.f-72,
+    &.f-71,
+    &.f-57,
+    &.f-56,
+    &.f-54,
     &.c-4 {
         .forum {
             display: grid;
@@ -45,8 +50,9 @@
                 order: 2;
                 margin: -50px 15px 0 15px;
             }
-                
-            img {
+            
+            img,
+            .forum--image {
                 order: 1;
             }
 
@@ -61,7 +67,8 @@
                     margin: 50px 0;
                 }
 
-                img {
+                img,
+                .forum--image {
                     order: 2;
                 }
             }
@@ -207,13 +214,23 @@
         }
     }
 
+    & > .forum--image,
     & > img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        filter: var(--filter-forum-image);
         height: 0;
         min-height: 100%;
+        object-fit: cover;
+        filter: var(--filter-forum-image);
+    }
+
+    & > .forum--image img {
+        width: 100%;
+        height: 100%;
+        height: 0;
+        min-height: 100%;
+        object-fit: cover;
+        filter: var(--filter-forum-image);
     }
 
     &.f-1,

@@ -127,6 +127,7 @@
                                     <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
                                     <tag-labelset>
                                         <a href="#editclaims" class="is-active">edit claims</a>
+                                        <a href="#edithorse">edit horse registration</a>
                                         <a href="#entershow">enter a show</a>
                                         <a href="#runshow" class="staffOnly">run a show</a>
                                     </tag-labelset>
@@ -318,7 +319,161 @@
                                     </tag-tab>
                                     <tag-tab data-key="#horseregistration">
                                         <div class="webpage--border">
-                                            content
+                                            <tag-xl data-align="left">Horse Registration</tag-xl>
+                                            <p>Claims will submit automatically to our database. Please give it a few seconds to a minute to update through the system and then check the accuracy of your claims by refreshing the page and looking at the relevant stables tabs/your profile. To make corrections to incorrect claims or to update information that has changed through natural progression, please use the <a href="">Edit Horse Registration</a> form.</p>
+                                            <form id="form-horse">
+                                                <label>
+                                                    <tag-md data-align="left">Alias</tag-md>
+                                                    <input type="text"
+                                                        name="horse-member"
+                                                        id="horse-member"
+                                                        placeholder="Alias"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Character Name</tag-md>
+                                                    <input type="text"
+                                                        name="horse-character"
+                                                        id="horse-character"
+                                                        placeholder="Character Name"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">
+                                                        <span>
+                                                            Account ID
+                                                            <button onclick="openHelp(this)" type="button">
+                                                                <i class="fa-solid fa-circle-question"></i>
+                                                                <i class="fa-solid fa-circle-xmark"></i>
+                                                            </button>
+                                                        </span>
+                                                    </tag-md>
+                                                    <i class="help">Can be found by getting the numbers at the end of the URL of your main profile.</i>
+                                                    <input type="text"
+                                                        name="horse-accountid"
+                                                        id="horse-accountid"
+                                                        placeholder="Account ID"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Character Group</tag-md>
+                                                    <select name="horse-group"
+                                                            id="horse-group"
+                                                            required>
+                                                        <option value="">(select)</option>
+                                                        <optgroup label="Competitive">
+                                                            <option value="9">International</option>
+                                                            <option value="10">National</option>
+                                                            <option value="11">Provincial</option>
+                                                            <option value="12">Schooling</option>
+                                                        </optgroup>
+                                                        <optgroup label="Non-Competitive">
+                                                            <option value="13">Industry</option>
+                                                            <option value="14">Local</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Show Name</tag-md>
+                                                    <input type="text"
+                                                        name="horse-showname"
+                                                        id="horse-showname"
+                                                        placeholder="Show Name"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Barn Name</tag-md>
+                                                    <input type="text"
+                                                        name="horse-barnname"
+                                                        id="horse-barnname"
+                                                        placeholder="Barn Name"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Image URL</tag-md>
+                                                    <input type="text"
+                                                        name="horse-image"
+                                                        id="horse-image"
+                                                        placeholder="Image URL"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Stable Affiliation</tag-md>
+                                                    <select name="horse-stable"
+                                                            id="horse-stable"
+                                                            required>
+                                                        <option value="">(select)</option>
+                                                        <option value="foxrun">Foxrun Equestrian</option>
+                                                        <option value="stable2">Stable 2</option>
+                                                        <option value="stable3">Stable 3</option>
+                                                        <option value="stable4">Stable 4</option>
+                                                    </select>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Sex</tag-md>
+                                                    <select name="horse-sex"
+                                                            id="horse-sex"
+                                                            required>
+                                                        <option value="">(select)</option>
+                                                        <option value="stallion">Stallion</option>
+                                                        <option value="gelding">Gelding</option>
+                                                        <option value="mare">Mare</option>
+                                                        <option value="colt">Colt</option>
+                                                        <option value="gelded colt">Gelded Colt</option>
+                                                        <option value="filly">Filly</option>
+                                                    </select>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Birth Year</tag-md>
+                                                    <input type="text"
+                                                        name="horse-age"
+                                                        id="horse-age"
+                                                        placeholder="Birth Year"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Height</tag-md>
+                                                    <input type="text"
+                                                        name="horse-height"
+                                                        id="horse-height"
+                                                        placeholder="Height"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Breed</tag-md>
+                                                    <input type="text"
+                                                        name="horse-breed"
+                                                        id="horse-breed"
+                                                        placeholder="Breed"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Coat Colour</tag-md>
+                                                    <input type="text"
+                                                        name="horse-color"
+                                                        id="horse-color"
+                                                        placeholder="Coat Colour"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Markings</tag-md>
+                                                    <input type="text"
+                                                        name="horse-markings"
+                                                        id="horse-markings"
+                                                        placeholder="Markings">
+                                                </label>
+                                                <label class="fullWidth">
+                                                    <tag-md data-align="left">Number of Disciplines</tag-md>
+                                                    <input name="horse-discnum"
+                                                        id="horse-discnum"
+                                                        type="number"
+                                                        min="0"
+                                                        placeholder="Number of Disciplines">
+                                                </label>
+                                                <div class="form--horse-discipline-fields form--discipline-fields fullWidth"></div>
+                                                <button type="submit">Submit</button>
+                                                <div class="form--horse-warning form--warning"></div>
+                                            </form>
                                         </div>
                                     </tag-tab>
                                 </tag-tabset>
@@ -362,7 +517,35 @@
                         <tag-tab data-category="claims">
                             <div class="webpage--section">
                                 <tag-tabset>
-                                    <tag-tab class="is-active claims" data-key="#reserves"></tag-tab>
+                                    <tag-tab class="is-active claims" data-key="#reserves">
+                                        <div class="claims--stable">
+                                            <div class="webpage--border">
+                                                <tag-xl data-align="left">Make a Reservation</tag-xl>
+                                                <tag-sm data-align="left">Lasts for 7 days</tag-sm>
+                                                <p>Reserves will submit automatically with the form. Please give it a few seconds to a minute before refreshing the page to see your reservation added to the list. Reserves will automatically be removed after 7 days have elapsed from the submission timestamp.</p>
+                                                <form id="reserve">
+                                                    <label>
+                                                        <tag-md data-align="left">Alias</tag-md>
+                                                        <input type="text"
+                                                            name="reserve-member"
+                                                            id="reserve-member"
+                                                            placeholder="Alias"
+                                                            required>
+                                                    </label>
+                                                    <label>
+                                                        <tag-md data-align="left">Face</tag-md>
+                                                        <input type="text"
+                                                            name="reserve-face"
+                                                            id="reserve-face"
+                                                            placeholder="Face"
+                                                            required>
+                                                    </label>
+                                                    <button type="submit">Submit</button>
+                                                    <div class="form--reserve-warning form--warning"></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </tag-tab>
                                     <tag-tab class="claims" data-key="#members"></tag-tab>
                                     <tag-tab class="claims" data-key="#faces"></tag-tab>
                                     <tag-tab class="claims" data-key="#jobs"></tag-tab>
@@ -515,32 +698,246 @@
                                                 </div>
                                                 <div class="hide is-update-job form--update-section">
                                                     <tag-lg data-align="left">Update Job(s)</tag-lg>
-                                                    <p>Ensure the current info matches letter for letter (case excluded)</p>
-                                                    <label>
-                                                        <tag-md data-align="left">Number of Jobs</tag-md>
-                                                        <input name="update-jobnum"
-                                                            id="update-jobnum"
-                                                            type="number"
-                                                            min="0"
-                                                            placeholder="Number of Jobs">
-                                                    </label>
                                                     <div class="form--update-job-fields form--job-fields"></div>
                                                 </div>
                                                 <div class="hide is-remove-job form--update-section">
                                                     <tag-lg data-align="left">Remove Job(s)</tag-lg>
-                                                    <p>Ensure the current info matches letter for letter (case excluded)</p>
-                                                    <label>
-                                                        <tag-md data-align="left">Number of Jobs</tag-md>
-                                                        <input name="remove-jobnum"
-                                                            id="remove-jobnum"
-                                                            type="number"
-                                                            min="0"
-                                                            placeholder="Number of Jobs">
-                                                    </label>
                                                     <div class="form--remove-job-fields form--job-fields"></div>
                                                 </div>
                                                 <button type="submit">Submit</button>
                                                 <div class="form--update-warning form--warning"></div>
+                                            </form>
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab data-key="#edithorse">
+                                        <div class="webpage--border">
+                                            <tag-xl data-align="left">Edit Horse Registration</tag-xl>
+                                            <p>Claim updates will submit automatically and will update based on your <u>horse's current show name</u>, so please ensure this is accurate before submitting. Please give it a few seconds to a minute to update through the system and then check the accuracy of your claims by refreshing the page and looking at the relevant claims tabs.</p>
+                                            <p><b>Note:</b> Alias, character name, and group updates will not produce new fields. If either needs to change, simply use the new value in the initial fields and check the correct box(es). The information for these two fields will <i>not</i> change unless you have selected the related option.</p>
+                                            <form id="form-horseedit">
+                                                <label>
+                                                    <tag-md data-align="left">Alias</tag-md>
+                                                    <input type="text"
+                                                        name="horseedit-member"
+                                                        id="horseedit-member"
+                                                        placeholder="Alias"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Character Name</tag-md>
+                                                    <input type="text"
+                                                        name="horseedit-character"
+                                                        id="horseedit-character"
+                                                        placeholder="Character Name"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Show Name</tag-md>
+                                                    <input type="text"
+                                                        name="horseedit-showname"
+                                                        id="horseedit-showname"
+                                                        placeholder="Show Name"
+                                                        required>
+                                                </label>
+                                                <label>
+                                                    <tag-md data-align="left">Character Group</tag-md>
+                                                    <select name="horseedit-group"
+                                                            id="horseedit-group"
+                                                            required>
+                                                        <option value="">(select)</option>
+                                                        <optgroup label="Competitive">
+                                                            <option value="9">International</option>
+                                                            <option value="10">National</option>
+                                                            <option value="11">Provincial</option>
+                                                            <option value="12">Schooling</option>
+                                                        </optgroup>
+                                                        <optgroup label="Non-Competitive">
+                                                            <option value="13">Industry</option>
+                                                            <option value="14">Local</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </label>
+                                                <div class="form--choices">
+                                                    <tag-md data-align="left">
+                                                        <span>
+                                                            Please Update
+                                                            <button onclick="openHelp(this)" type="button">
+                                                                <i class="fa-solid fa-circle-question"></i>
+                                                                <i class="fa-solid fa-circle-xmark"></i>
+                                                            </button>
+                                                        </span>
+                                                    </tag-md>
+                                                    <i class="help">Check all that apply. Reminder that when submitting a change to alias, character name, and/or group, no extra fields will appear as this information is filled out above. Ensure the above information is accurate to how you want it to appear.</i>
+                                                    <div class="form--flex">
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="horseeditChoices"
+                                                                id="horseedit-memberChoice"
+                                                                value="member">
+                                                            <strong class="checkbox">Update Alias</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="horseedit-characterChoice"
+                                                                value="character">
+                                                            <strong class="checkbox">Update Character Name</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="horseedit-groupChoice"
+                                                                value="group">
+                                                            <strong class="checkbox">Update Character Group</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="horseedit-shownameChoice"
+                                                                value="showname">
+                                                            <strong class="checkbox">Update Show Name</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="horseedit-barnnameChoice"
+                                                                value="barnname">
+                                                            <strong class="checkbox">Update Barn Name</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="horseedit-imageChoice"
+                                                                value="image">
+                                                            <strong class="checkbox">Update Image</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="horseedit-stableChoice"
+                                                                value="stable">
+                                                            <strong class="checkbox">Update Stable</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="horseedit-sexChoice"
+                                                                value="sex">
+                                                            <strong class="checkbox">Update Sex</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                name="updateChoices"
+                                                                id="horseedit-heightChoice"
+                                                                value="height">
+                                                            <strong class="checkbox">Update Height</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input   type="checkbox"
+                                                                name="updateChoices"
+                                                                id="horseedit-newdiscChoice"
+                                                                value="newdisc">
+                                                            <strong class="checkbox">Add New Discipline(s)</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input   type="checkbox"
+                                                                name="updateChoices"
+                                                                id="horseedit-updatediscChoice"
+                                                                value="updatedisc">
+                                                            <strong class="checkbox">Update Current Discipline(s)</strong>
+                                                        </label>
+                                                        <label>
+                                                            <input   type="checkbox"
+                                                                name="updateChoices"
+                                                                id="horseedit-removediscChoice"
+                                                                value="removedisc">
+                                                            <strong class="checkbox">Remove Current Disciplines(s)</strong>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="hide is-update-showname form--update-section">
+                                                    <tag-lg data-align="left">Change Show Name</tag-lg>
+                                                    <label>
+                                                        <input type="text"
+                                                            name="horseedit-newshowname"
+                                                            id="horseedit-newshowname"
+                                                            placeholder="New Show Name">
+                                                    </label>
+                                                </div>
+                                                <div class="hide is-update-barnname form--update-section">
+                                                    <tag-lg data-align="left">Change Barn Name</tag-lg>
+                                                    <label>
+                                                        <input type="text"
+                                                            name="horseedit-barnname"
+                                                            id="horseedit-barnname"
+                                                            placeholder="Barn Name">
+                                                    </label>
+                                                </div>
+                                                <div class="hide is-update-image form--update-section">
+                                                    <tag-lg data-align="left">Change Image</tag-lg>
+                                                    <label>
+                                                        <input type="text"
+                                                            name="horseedit-image"
+                                                            id="horseedit-image"
+                                                            placeholder="Image URL">
+                                                    </label>
+                                                </div>
+                                                <div class="hide is-update-stable form--update-section">
+                                                    <tag-lg data-align="left">Change Stable</tag-lg>
+                                                    <select name="horseedit-stable"
+                                                            id="horseedit-stable">
+                                                        <option value="">(select)</option>
+                                                        <option value="foxrun">Foxrun Equestrian</option>
+                                                        <option value="stable2">Stable 2</option>
+                                                        <option value="stable3">Stable 3</option>
+                                                        <option value="stable4">Stable 4</option>
+                                                    </select>
+                                                </div>
+                                                <div class="hide is-update-sex form--update-section">
+                                                    <tag-lg data-align="left">Change Sex</tag-lg>
+                                                    <select name="horseedit-sex"
+                                                            id="horseedit-sex">
+                                                        <option value="">(select)</option>
+                                                        <option value="stallion">Stallion</option>
+                                                        <option value="gelding">Gelding</option>
+                                                        <option value="mare">Mare</option>
+                                                        <option value="colt">Colt</option>
+                                                        <option value="gelded colt">Gelded Colt</option>
+                                                        <option value="filly">Filly</option>
+                                                    </select>
+                                                </div>
+                                                <div class="hide is-update-height form--update-section">
+                                                    <tag-lg data-align="left">Change Height</tag-lg>
+                                                    <p>Please <i>only</i> use this for young horses that are still maturing. Mature horses won't change heights.</p>
+                                                    <label>
+                                                        <input type="text"
+                                                            name="horseedit-height"
+                                                            id="horseedit-height"
+                                                            placeholder="Height">
+                                                    </label>
+                                                </div>
+                                                <div class="hide is-new-discipline form--update-section">
+                                                    <tag-lg data-align="left">Add Discipline(s)</tag-lg>
+                                                    <label>
+                                                        <tag-md data-align="left">Number of Disciplines</tag-md>
+                                                        <input name="new-discnum"
+                                                            id="new-discnum"
+                                                            type="number"
+                                                            min="0"
+                                                            placeholder="Number of Disciplines">
+                                                    </label>
+                                                    <div class="form--new-discipline-fields form--discipline-fields"></div>
+                                                </div>
+                                                <div class="hide is-update-discipline form--update-section">
+                                                    <tag-lg data-align="left">Update Discipline(s)</tag-lg>
+                                                    <div class="form--update-discipline-fields form--discipline-fields">load in current disciplines and levels</div>
+                                                </div>
+                                                <div class="hide is-remove-discipline form--update-section">
+                                                    <tag-lg data-align="left">Remove Discipline(s)</tag-lg>
+                                                    <div class="form--remove-discipline-fields form--discipline-fields">load in current disciplines</div>
+                                                </div>
+                                                <button type="submit">Submit</button>
+                                                <div class="form--horseedit-warning form--warning"></div>
                                             </form>
                                         </div>
                                     </tag-tab>

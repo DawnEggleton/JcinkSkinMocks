@@ -506,4 +506,36 @@
         text-align: justify;
         font-size: calc(var(--mBody) + 1px);
     }
+
+    &--modal-content {
+        position: absolute;
+        top: 60px;
+        width: calc(100% - 60px);
+        max-height: calc(100vh - 90px);
+        left: 30px;
+        display: grid;
+        grid-gap: 30px;
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        tag-lg {
+            grid-column: 1 / -1;
+            margin-bottom: -30px
+        }
+    }
+
+    &--notice {
+        background: var(--bg-opaque-accent);
+        border-radius: 5px;
+        max-width: max-content;
+        height: max-content;
+        padding: 10px 15px;
+        margin: 0 auto;
+        grid-column: 1/-1;
+        max-width: 350px;
+        line-height: 200%;
+        text-align: justify;
+    }
 }

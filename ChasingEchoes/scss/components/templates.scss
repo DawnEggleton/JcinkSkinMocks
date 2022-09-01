@@ -70,6 +70,12 @@ tag {
         letter-spacing: 3px;
         line-height: 160%;
         margin-bottom: 4px;
+
+        &[data-style="webpageAccent"] {
+            margin: 15px 30px !important;
+            font-size: var(--xsBody);
+            max-width: none;
+        }
     }
     &-xs {
         font-size: var(--xsBody);
@@ -200,6 +206,11 @@ tag {
 
             &:last-of-type {
                 justify-self: end;
+            }
+
+            i {
+                color: var(--text-body) !important;
+                font-size: var(--xsBody) !important;
             }
         }
     }

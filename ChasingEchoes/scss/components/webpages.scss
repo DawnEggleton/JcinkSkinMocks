@@ -196,6 +196,14 @@
             grid-column: 1 / -1;
             margin: 0 auto;
         }
+
+        .fullWidth {
+            grid-column: 1 / -1;
+        }
+
+        select {
+            width: 100%;
+        }
     }
 }
 
@@ -294,6 +302,7 @@
     &--stable {
         background: var(--bg-content);
         padding: 15px;
+        grid-column: 1 / -1;
     }
 
     &--horse {
@@ -382,7 +391,7 @@
         
 
                 .scroll {
-                    max-height: 165px;
+                    height: 165px;
                 }
 
                 b {
@@ -551,5 +560,36 @@
     &--update-section {
         grid-column: 1 / -1;
         margin-top: 30px;
+
+        &.is-update-skills {
+            display: grid;
+            grid-gap: 15px;
+    
+            @media only screen and (min-width: $md) {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+    &--discipline-fields {
+        display: grid;
+        grid-gap: 15px;
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    &--update-job {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-gap: 0 15px;
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        tag-md {
+            grid-column: 1 / -1;
+            margin-bottom: 0;
+        }
     }
 }

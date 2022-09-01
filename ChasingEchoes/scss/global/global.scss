@@ -342,6 +342,8 @@ img {
         letter-spacing: 0.5px;
         font-family: var(--font-accent);
         margin: 0 3px;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
     }
     a {
         background: var(--bg-content);
@@ -353,6 +355,8 @@ img {
         color: var(--text-body);
         font-family: var(--font-accent);
         margin: 0 3px;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
 
         &:hover {
             color: var(--text-content-accent);
@@ -378,4 +382,11 @@ img {
         column-count: 2;
         column-gap: 30px;
     }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    margin-bottom: 30px;
 }

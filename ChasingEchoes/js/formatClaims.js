@@ -273,7 +273,7 @@ function postClaims(formtype = 'POST') {
     }
 
     $.ajax({
-        url: `https://script.google.com/macros/s/AKfycbzZjIt4sCyEGOe3tekg9KA4A3DKLI45mlZUlaep3LiT_ivQCKfv_tQA-Zzp1zc1ZJ1mSw/exec`,   
+        url: `https://script.google.com/macros/s/AKfycbzAeOtlDM67PVcwdIGgqDI_ieEK9IJAVf9wKbriP_oGSDkC5CefCt1mvj9cUUbmJNf24w/exec`,   
         data: {
             "SubmissionType": "claims-submit",
             "Member": member,
@@ -306,14 +306,15 @@ function postClaims(formtype = 'POST') {
             loadJobFields(jobFields, jobTypes);
             $('#form-sort button[type="submit"]').text('Submit');
             document.querySelector('.form--sort-warning').innerHTML = 'Success! Your character has been added to the sheet.';
+            document.querySelector('tag-tab[data-key="#sort"]').scrollIntoView({ behavior: 'smooth', block: 'end'}); 
         }
       });
     
       return false;
 }
 
-
 function updateClaims(character, formtype = 'POST') {
+    console.log('update claims');
     let alias = character[0].Member;
     if(document.querySelector('#choice-member').checked) {
         alias = document.querySelector('#update-member').value.toLowerCase().trim();
@@ -352,50 +353,54 @@ function updateClaims(character, formtype = 'POST') {
             }
         }
         if(document.querySelector('#choice-updatejob').checked) {
-            let currentEmployers = document.querySelectorAll('.update-job-employer-current');
-            let currentPositions = document.querySelectorAll('.update-job-position-current');
-            let newEmployers = document.querySelectorAll('.update-job-employer-new');
-            let newPositions = document.querySelectorAll('.update-job-position-new');
-            for(let i = 0; i < currentEmployers.length; i++) {
-                let currentEmployer = currentEmployers[i].value.toLowerCase().trim();
-                let currentPosition = currentPositions[i].value.toLowerCase().trim();
-                let newEmployer = newEmployers[i].value.toLowerCase().trim();
-                let newPosition = newPositions[i].value.toLowerCase().trim();
-                if(newEmployer !== `` && currentEmployer !== newEmployer) {
-                    jobs.forEach(job => {
-                        if(job.employer === currentEmployer && job.position === currentPosition) {
-                            job.employer = newEmployer;
-                            currentEmployer = newEmployer;
-                        }
-                    });
+            jobs.forEach(job => {
+                let newValue = document.querySelector(`input[data-employer="${job.employer}"][data-position="${job.position}"]`);
+                let oldValue = '';
+                if(newValue && newValue.dataset.changed === 'Employer') {
+                    oldValue = job.employer;
+                } else if(newValue && newValue.dataset.changed === 'Position') {
+                    oldValue = job.position;
                 }
-                if(newPosition !== `` && currentPosition !== newPosition) {
-                    jobs.forEach(job => {
-                        if(job.employer === currentEmployer && job.position === currentPosition) {
-                            job.position = newPosition;
-                        }
-                    });
+                if(newValue && newValue.value !== `` && newValue.value.toLowerCase().trim() !== oldValue) {
+                    if(newValue.dataset.changed === 'Employer') {
+                        job.employer = newValue.value.toLowerCase().trim();
+                    } else if(newValue.dataset.changed === 'Position') {
+                        job.position = newValue.value.toLowerCase().trim();
+                    }
                 }
-            }
+            });
         }
         if(document.querySelector('#choice-removejob').checked) {
-            let employers = document.querySelectorAll('.remove-job-employer');
-            let positions = document.querySelectorAll('.remove-job-position');
-            for(let i = 0; i < employers.length; i++) {
-                let employer = employers[i].value.toLowerCase().trim();
-                let position = positions[i].value.toLowerCase().trim();
-                let removeJob = jobs.findIndex(job => {
-                    return job.employer === employer && job.position === position;
-                });
-                jobs.splice(removeJob, 1);
-            }
+            jobs.forEach(job => {
+                let selected = document.querySelector(`input[type="checkbox"][data-employer="${job.employer}"][data-position="${job.position}"]`);
+                if(selected && selected.checked) {
+                    let remove = jobs.findIndex(job => {
+                        return selected.dataset.employer === job.employer && selected.dataset.position === job.position;
+                    });
+                    jobs.splice(remove, 1);
+                }
+            });
         }
         jobsString = jobs.map(job => JSON.stringify(job)).join('+');
     }
-    console.log(accountID);
+    let handling = character[0].Handling;
+    let training = character[0].Training;
+    let equitation = character[0].Equitation;
+    let jumping = character[0].Jumping;
+    let western = character[0].Western;
+    let other = character[0].Other;
+    let groupField = document.querySelector('#update-group');
+    if(document.querySelector('#choice-group').checked && groupField.options[groupField.selectedIndex] !== '13' && groupField.options[groupField.selectedIndex] !== '14') {
+ 	   handling = parseInt(document.querySelector('#update-handling').value);
+	   training = parseInt(document.querySelector('#update-training').value);
+ 	   equitation = parseInt(document.querySelector('#update-equitation').value);
+ 	   jumping = parseInt(document.querySelector('#update-jumping').value);
+ 	   western = parseInt(document.querySelector('#update-western').value);
+ 	   other = parseInt(document.querySelector('#update-other').value);
+    }
 
     $.ajax({
-        url: `https://script.google.com/macros/s/AKfycbzZjIt4sCyEGOe3tekg9KA4A3DKLI45mlZUlaep3LiT_ivQCKfv_tQA-Zzp1zc1ZJ1mSw/exec`,   
+        url: `https://script.google.com/macros/s/AKfycbwM7UbGB6Jagw72dt3Z7KlRyCgnlFMDA_Cd_B5kYJYmnFspbYwTa2186qjADZ9HsSWtDA/exec`,   
         data: {
             "SubmissionType": "claims-edit",
             "Member": alias,
@@ -404,7 +409,13 @@ function updateClaims(character, formtype = 'POST') {
             "Group": group,
             "GroupID": groupID,
             "Face": face,
-            "Jobs": jobsString
+            "Jobs": jobsString,
+	    "Handling": handling,
+	    "Training": training,
+	    "Equitation": equitation,
+	    "Jumping": jumping,
+	    "Western": western,
+	    "Other": other
         },
         method: formtype,
         type: formtype,
@@ -420,11 +431,247 @@ function updateClaims(character, formtype = 'POST') {
         complete: function () {
             $('#form-update').trigger('reset');
             document.querySelectorAll('.form--update-section').forEach(section => section.classList.add('hide'));
-            let jobFields = [document.querySelector('#new-jobnum'), document.querySelector('#update-jobnum'), document.querySelector('#remove-jobnum')];
-            let jobTypes = ['new', 'update', 'remove'];
+            let jobFields = [document.querySelector('#new-jobnum')];
+            let jobTypes = ['new'];
             loadJobFields(jobFields, jobTypes);
             $('#form-update button[type="submit"]').text('Submit');
             document.querySelector('.form--update-warning').innerHTML = 'Success! Your claims have been updated.';
+            document.querySelector('tag-tab[data-key="#editclaims"]').scrollIntoView({ behavior: 'smooth', block: 'end'}); 
+        }
+      });
+    
+      return false;
+}
+
+function postHorse(formtype = 'POST') {
+    let member = document.querySelector('#horse-member').value.toLowerCase().trim();
+    let character = document.querySelector('#horse-character').value.toLowerCase().trim();
+    let accountID = document.querySelector('#horse-accountid').value.trim();
+    let group = document.querySelector('#horse-group').options[document.querySelector('#horse-group').selectedIndex].innerText.toLowerCase().trim();
+    let groupID = document.querySelector('#horse-group').options[document.querySelector('#horse-group').selectedIndex].value;
+    let showname = document.querySelector('#horse-showname').value.toLowerCase().trim();
+    let barnname = document.querySelector('#horse-barnname').value.toLowerCase().trim();
+    let image = document.querySelector('#horse-image').value.trim();
+    let stable = document.querySelector('#horse-stable').options[document.querySelector('#horse-stable').selectedIndex].innerText.toLowerCase().trim();
+    let stableID = document.querySelector('#horse-stable').options[document.querySelector('#horse-stable').selectedIndex].value;
+    let sex = document.querySelector('#horse-sex').options[document.querySelector('#horse-sex').selectedIndex].innerText.toLowerCase().trim();
+    let age = document.querySelector('#horse-age').value.toLowerCase().trim();
+    let height = document.querySelector('#horse-height').value.toLowerCase().trim();
+    let breed = document.querySelector('#horse-breed').value.toLowerCase().trim();
+    let color = document.querySelector('#horse-color').value.toLowerCase().trim();
+    let markings = document.querySelector('#horse-markings').value.toLowerCase().trim();
+    let disciplines = ``;
+    if(document.querySelector('#horse-discnum').value > 0) {
+        let disciplineArray = document.querySelectorAll('.horse-discipline');
+        let levels = document.querySelectorAll('.horse-level');
+        for(let i = 0; i < disciplineArray.length; i++) {
+            disciplines += `{"discipline": "${disciplineArray[i].value.toLowerCase().trim()}", "level": "${levels[i].options[levels[i].selectedIndex].value}"}`;
+            if(i !== disciplineArray.length - 1) {
+                disciplines += `+`;
+            }
+        }
+    }
+
+    $.ajax({
+        url: `https://script.google.com/macros/s/AKfycbzAeOtlDM67PVcwdIGgqDI_ieEK9IJAVf9wKbriP_oGSDkC5CefCt1mvj9cUUbmJNf24w/exec`,   
+        data: {
+            "SubmissionType": "horse-submit",
+            "Member": member,
+            "Character": character,
+            "AccountID": accountID,
+            "Group": group,
+            "GroupID": groupID,
+            "ShowName": showname,
+            "BarnName": barnname,
+            "Image": image,
+            "StableFull": stable,
+            "Stable": stableID,
+            "Sex": sex,
+            "Age": age,
+            "Height": height,
+            "Breed": breed,
+            "Color": color,
+            "Markings": markings,
+            "Disciplines": disciplines
+        },
+        method: formtype,
+        type: formtype,
+        dataType: "json", 
+        success: function () {
+            console.log('success');
+            //sendSortRequest(message);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('error');
+            document.querySelector('.form--horse-warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again! If this persists, please open the console (ctrl + shift + J) and send Lux a screenshot of what's there.`;
+        },
+        complete: function () {
+            $('#form-horse').trigger('reset');
+            let discFields = [document.querySelector('#horse-discnum')];
+            let discTypes = ['horse'];
+            loadDisciplineFields(discFields, discTypes);
+            $('#form-horse button[type="submit"]').text('Submit');
+            document.querySelector('.form--horse-warning').innerHTML = 'Success! Your character has been added to the sheet.';
+            document.querySelector('tag-tab[data-key="#horseregistration"]').scrollIntoView({ behavior: 'smooth', block: 'end'}); 
+        }
+      });
+    
+      return false;
+}
+
+function updateHorse(horse, formtype = 'POST') {
+    let currentShowName = horse[0].ShowName;
+
+    let alias = horse[0].Member;
+    if(document.querySelector('#horseedit-memberChoice').checked) {
+        alias = document.querySelector('#horseedit-member').value.toLowerCase().trim();
+    }
+    let characterName = horse[0].Character;
+    if(document.querySelector('#horseedit-characterChoice').checked) {
+        characterName = document.querySelector('#horseedit-character').value.toLowerCase().trim();
+    }
+    let showName = horse[0].ShowName;
+    if(document.querySelector('#horseedit-shownameChoice').checked) {
+        showName = document.querySelector('#horseedit-newshowname').value.toLowerCase().trim();
+    }
+    let barnName = horse[0].BarnName;
+    if(document.querySelector('#horseedit-shownameChoice').checked) {
+        barnName = document.querySelector('#horseedit-barnname').value.toLowerCase().trim();
+    }
+    let image = horse[0].Image;
+    if(document.querySelector('#horseedit-image').checked) {
+        image = document.querySelector('#horseedit-image').value.trim();
+    }
+    let height = horse[0].Height;
+    if(document.querySelector('#horseedit-height').checked) {
+        height = document.querySelector('#horseedit-height').value.trim();
+    }
+    
+    let group = horse[0].Group;
+    let groupID = horse[0].GroupID;
+    if(document.querySelector('#horseedit-groupChoice').checked) {
+        group = document.querySelector('#horseedit-group').options[document.querySelector('#horseedit-group').selectedIndex].innerText.toLowerCase().trim();
+        groupID = document.querySelector('#horseedit-group').options[document.querySelector('#horseedit-group').selectedIndex].value;
+    }
+    let stable = horse[0].StableFull;
+    let stableID = horse[0].Stable;
+    if(document.querySelector('#horseedit-stableChoice').checked) {
+        stable = document.querySelector('#horseedit-stable').options[document.querySelector('#horseedit-stable').selectedIndex].innerText.toLowerCase().trim();
+        stableID = document.querySelector('#horseedit-stable').options[document.querySelector('#horseedit-stable').selectedIndex].value;
+    }
+    let sex = horse[0].Sex;
+    if(document.querySelector('#horseedit-sexChoice').checked) {
+        sex = document.querySelector('#horseedit-sex').options[document.querySelector('#horseedit-sex').selectedIndex].value;
+    }
+    
+    let disciplineString = horse[0].Disciplines;
+    if(document.querySelector('#horseedit-newdiscChoice').checked || document.querySelector('#horseedit-updatediscChoice').checked || document.querySelector('#horseedit-removediscChoice').checked) {
+        let disciplines = [];
+        let disciplinesArray = disciplineString.split('+');
+        disciplinesArray.forEach(discipline => {
+            disciplines.push(JSON.parse(discipline));
+        });
+        if(document.querySelector('#horseedit-newdiscChoice').checked) {
+            let disciplinesList = document.querySelectorAll('.new-discipline');
+            let levels = document.querySelectorAll('.horse-level');
+            for(let i = 0; i < disciplinesList.length; i++) {
+                let newDiscipline = {
+                    discipline: disciplinesList[i].value.toLowerCase().trim(),
+                    level: levels[i].value.toLowerCase().trim()
+                };
+                disciplines.push(newDiscipline);
+            }
+        }
+        if(document.querySelector('#horseedit-updatediscChoice').checked) {
+            disciplines.forEach(discipline => {
+                console.log(discipline.discipline);
+                let selectBox = document.querySelector(`select[data-discipline="${discipline.discipline}"]`);
+                if(selectBox && selectBox.options[selectBox.selectedIndex].value !== `` && selectBox.options[selectBox.selectedIndex].value !== discipline.level) {
+                    discipline.level = selectBox.options[selectBox.selectedIndex].value;
+                }
+            });
+        }
+        if(document.querySelector('#horseedit-removediscChoice').checked) {
+            disciplines.forEach(discipline => {
+                let selected = document.querySelector(`input[type="checkbox"][data-discipline="${discipline.discipline}"]`);
+                if(selected && selected.checked) {
+                    let remove = disciplines.findIndex(discipline => {
+                        return selected.dataset.discipline === discipline.discipline;
+                    });
+                    disciplines.splice(remove, 1);
+                }
+            });
+        }
+        disciplineString = disciplines.map(discipline => JSON.stringify(discipline)).join('+');
+    }
+
+    $.ajax({
+        url: `https://script.google.com/macros/s/AKfycbzAeOtlDM67PVcwdIGgqDI_ieEK9IJAVf9wKbriP_oGSDkC5CefCt1mvj9cUUbmJNf24w/exec`,   
+        data: {
+            "SubmissionType": "horse-edit",
+            "Member": alias,
+            "Character": characterName,
+            "CurrentShowName": currentShowName,
+            "ShowName": showName,
+            "BarnName": barnName,
+            "Image": image,
+            "Height": height,
+            "Group": group,
+            "GroupID": groupID,
+            "Stable": stableID,
+            "StableFull": stable,
+            "Sex": sex,
+            "Disciplines": disciplineString
+        },
+        method: formtype,
+        type: formtype,
+        dataType: "json", 
+        success: function () {
+            console.log('success');
+            //sendSortRequest(message);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('error');
+            document.querySelector('.form--horseedit-warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again! If this persists, please open the console (ctrl + shift + J) and send Lux a screenshot of what's there.`;
+        },
+        complete: function () {
+            $('#form-horseedit').trigger('reset');
+            $('#form-horseedit button[type="submit"]').text('Submit');
+            document.querySelector('.form--horseedit-warning').innerHTML = 'Success! Your claims have been updated.';
+            document.querySelector('tag-tab[data-key="#edithorse"]').scrollIntoView({ behavior: 'smooth', block: 'end'}); 
+        }
+      });
+    
+      return false;
+}
+
+function postReserve(formtype = 'POST') {
+    let member = document.querySelector('#reserve-member').value.toLowerCase().trim();
+    let face = document.querySelector('#reserve-face').value.toLowerCase().trim();
+
+    $.ajax({
+        url: `https://script.google.com/macros/s/AKfycbzAeOtlDM67PVcwdIGgqDI_ieEK9IJAVf9wKbriP_oGSDkC5CefCt1mvj9cUUbmJNf24w/exec`,   
+        data: {
+            "SubmissionType": "reserve-submit",
+            "Member": member,
+            "Face": face,
+            "Count": 1
+        },
+        method: formtype,
+        type: formtype,
+        dataType: "json", 
+        success: function () {
+            console.log('success');
+            //sendSortRequest(message);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('error');
+            document.querySelector('.form--reserve-warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again! If this persists, please open the console (ctrl + shift + J) and send Lux a screenshot of what's there.`;
+        },
+        complete: function () {
+            $('#reserve').trigger('reset');
+            $('#reserve button[type="submit"]').text('Submit');
+            document.querySelector('.form--reserve-warning').innerHTML = 'Success! Your reservation has been added to the sheet.';
         }
       });
     
