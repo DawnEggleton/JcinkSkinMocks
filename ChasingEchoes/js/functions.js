@@ -172,6 +172,7 @@ function getAllTextNodes(element) {
     }
 }
 
+
 function openHelp(e) {
     e.classList.toggle('is-help');
     e.parentNode.parentNode.parentNode.querySelector('.help').classList.toggle('show');
@@ -185,7 +186,6 @@ function loadHides(fields, classes) {
 	            document.querySelectorAll(classes[i]).forEach(item => item.classList.add('hide'));
 	        }
 	} else {
-console.log('comp');
 	        if(field.options[field.selectedIndex].value !== '13' && field.options[field.selectedIndex].value !== '14' && field.options[field.selectedIndex].value !== '') {
 	            document.querySelectorAll(classes[i]).forEach(item => item.classList.remove('hide'));
 	        } else {
@@ -397,7 +397,6 @@ function loadUpdateForm(form = '#form-update') {
 		let field = document.querySelector('#update-group');
 		let className = '.is-update-skills';
 		if(form === '#form-update' && option.checked) {
-console.log(field.options[field.selectedIndex].value);
 			if(field.options[field.selectedIndex].value !== '13' && field.options[field.selectedIndex].value !== '14' && field.options[field.selectedIndex].value !== '') {
 				document.querySelectorAll(className).forEach(item => item.classList.remove('hide'));
 			} else {
@@ -689,5 +688,170 @@ console.log(field.options[field.selectedIndex].value);
                 loadDisciplineFields([field], [discTypes[i]]);
             });
         });
+    }
+}
+
+function modalHorseBox(horse, comp) {
+    let disciplines = [];
+    let disciplineList = horse.Disciplines.split('+');
+    disciplineList.forEach(discipline => {
+        disciplines.push(JSON.parse(discipline));
+    })
+    if(!horse.Markings) {
+        horse.Markings = 'no markings';
+    }
+    let disciplineHTML = ``;
+    disciplines.forEach(discipline => {
+        disciplineHTML += `<div class="claims--discipline">
+            <b>${discipline.discipline}</b>
+            <div class="claims--skill-bar ${discipline.level}" title="${discipline.level}"><span class="pleasure"></span><span class="green"></span></div>
+        </div>`;
+    });
+    if (comp) {
+        return `<div class="claims--horse">
+	        <img src="${horse.Image}" />
+	        <div class="claims--item horse"><div class="claims--border">
+	            <b>${horse.ShowName}</b>
+	            <a href="?act=Pages&kid=guidebook#${horse.Stable}">kept at ${horse.StableFull}</a>
+	            <span>known as ${horse.BarnName}</span>
+	            <span>a ${horse.Age} ${horse.Breed} ${horse.Sex}</span>
+	            <span>${horse.Height}hh ${horse.Color} with ${horse.Markings}</span>
+	        </div></div>
+	        <div class="claims--item skills"><div class="claims--border"><div class="scroll">
+	            ${disciplineHTML}
+	        </div></div></div>
+	    </div>`;
+    }
+    return `<div class="claims--horse">
+	        <img src="${horse.Image}" />
+	        <div class="claims--item horse"><div class="claims--border">
+	            <b>${horse.ShowName}</b>
+	            <a href="?act=Pages&kid=guidebook#${horse.Stable}">kept at ${horse.StableFull}</a>
+	            <span>known as ${horse.BarnName}</span>
+	            <span>a ${horse.Age} ${horse.Breed} ${horse.Sex}</span>
+	            <span>${horse.Height}hh ${horse.Color} with ${horse.Markings}</span>
+	        </div></div>
+	    </div>`;
+}
+function formatModalHorses(data, id, gid, eqField) {
+    let owned = data.filter(item => item.AccountID === id);
+    let comp = false;
+    if (gid !== `13` && gid !== `14` && eqField === 'Competitive') { comp = true; }
+    let html = ``;
+    owned.forEach(horse => {
+        html += modalHorseBox(horse, true);
+    });
+    if(html === ``) {
+        html = `<div class="post--notice">Horses not yet submitted.</div>`;
+    }
+    document.querySelector(`div[data-modal-box="horses-${id}"] .post--modal-content`).insertAdjacentHTML('beforeend', html);
+    let scrolls = document.querySelectorAll('.claims--item.skills .scroll');
+    if(scrolls.length > 0) {
+    	scrolls.forEach(scroll => {
+            if(scroll.scrollHeight > scroll.clientHeight) {
+            	scroll.style.paddingRight = '10px';
+            }
+    	});
+    }
+}
+
+function capitalize(str, separators) {
+    separators = separators || [ ' ' ];
+    var regex = new RegExp('(^|[' + separators.join('') + '])(\\w)', 'g');
+    return str.replace(regex, function(x) { return x.toUpperCase(); });
+}
+
+function webpageFunctions() {
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 0) {
+            document.querySelector('body').classList.add('is-scrolled');
+        } else {
+            document.querySelector('body').classList.remove('is-scrolled');
+        }
+    });
+
+    window.addEventListener('hashchange', function(e){
+        //get hash
+        let hash = $.trim( window.location.hash );
+        let selected = document.querySelector(`.webpage--menu a[href="${hash}"]`);
+        let selectedCategory = selected.parentNode.parentNode.parentNode.getAttribute('data-category');
+        let hashMain = document.querySelector(`.webpage--menu tag-label[data-category="${selectedCategory}"]`);
+        let hashCategory = document.querySelector(`.webpage--menu tag-tab[data-category="${selectedCategory}"]`);
+        let hashTab = document.querySelector(`.webpage--content tag-tab[data-category="${selectedCategory}"]`);
+        let hashContent = document.querySelector(`tag-tab[data-key="${hash}"]`);
+        let unsetDefault = Array.from(selected.parentNode.children);
+        let submenuSiblings = Array.from(hashTab.parentNode.children);
+        let categorySiblings = Array.from(hashCategory.parentNode.children);
+        let tabSiblings = Array.from(hashContent.parentNode.children);
+        let submenuIndex = submenuSiblings.indexOf.call(submenuSiblings, hashTab);
+        let categoryIndex = categorySiblings.indexOf.call(categorySiblings, hashCategory);
+        let tabIndex = tabSiblings.indexOf.call(tabSiblings, hashContent);
+        //find the sub menu/inner menu link with the matching hash
+        if (hash) {
+            $(selected).trigger('click');
+        }
+        //select based on this
+
+        //Tabs
+        //Remove active from everything
+        document.querySelectorAll('.webpage--menu tag-label').forEach(label => label.classList.remove('is-active'));
+        unsetDefault.forEach(label => label.classList.remove('is-active'));
+        document.querySelectorAll('.webpage tag-tab').forEach(label => label.classList.remove('is-active'));
+
+        //Add active
+        hashMain.classList.add('is-active');
+        selected.classList.add('is-active');
+        hashTab.classList.add('is-active');
+        hashContent.classList.add('is-active');
+        selected.parentNode.parentNode.parentNode.classList.add('is-active');
+        submenuSiblings.forEach(sibling => sibling.style.left = `${-100 * submenuIndex}%`);
+        categorySiblings.forEach(sibling => sibling.style.left = `${-100 * categoryIndex}%`);
+        tabSiblings.forEach(sibling => sibling.style.left = `${-100 * tabIndex}%`);
+    });
+
+    //hash linking
+    if (window.location.hash){
+        //get hash
+        let hash = $.trim( window.location.hash );
+        let selected = document.querySelector(`.webpage--menu a[href="${hash}"]`);
+        let selectedCategory = selected.parentNode.parentNode.parentNode.getAttribute('data-category');
+        let hashMain = document.querySelector(`.webpage--menu tag-label[data-category="${selectedCategory}"]`);
+        let hashCategory = document.querySelector(`.webpage--menu tag-tab[data-category="${selectedCategory}"]`);
+        let hashTab = document.querySelector(`.webpage--content tag-tab[data-category="${selectedCategory}"]`);
+        let hashContent = document.querySelector(`tag-tab[data-key="${hash}"]`);
+        let unsetDefault = Array.from(selected.parentNode.children);
+        let submenuSiblings = Array.from(hashTab.parentNode.children);
+        let categorySiblings = Array.from(hashCategory.parentNode.children);
+        let tabSiblings = Array.from(hashContent.parentNode.children);
+        let submenuIndex = submenuSiblings.indexOf.call(submenuSiblings, hashTab);
+        let categoryIndex = categorySiblings.indexOf.call(categorySiblings, hashCategory);
+        let tabIndex = tabSiblings.indexOf.call(tabSiblings, hashContent);
+        //find the sub menu/inner menu link with the matching hash
+        if (hash) {
+            $(selected).trigger('click');
+        }
+        //select based on this
+
+        //Tabs
+        //Remove active from everything
+        document.querySelectorAll('.webpage--menu tag-label').forEach(label => label.classList.remove('is-active'));
+        unsetDefault.forEach(label => label.classList.remove('is-active'));
+        document.querySelectorAll('.webpage tag-tab').forEach(label => label.classList.remove('is-active'));
+
+        //Add active
+        hashMain.classList.add('is-active');
+        selected.classList.add('is-active');
+        hashTab.classList.add('is-active');
+        hashContent.classList.add('is-active');
+        selected.parentNode.parentNode.parentNode.classList.add('is-active');
+        submenuSiblings.forEach(sibling => sibling.style.left = `${-100 * submenuIndex}%`);
+        categorySiblings.forEach(sibling => sibling.style.left = `${-100 * categoryIndex}%`);
+        tabSiblings.forEach(sibling => sibling.style.left = `${-100 * tabIndex}%`);
+    } else {
+        //Auto-select  tab without hashtag present
+        document.querySelector('.webpage--menu a[href="#etiquette"]').classList.add('is-active');
+        document.querySelector('.webpage--menu a[href="#etiquette"]').parentNode.parentNode.parentNode.classList.add('is-active');
+        document.querySelector('.webpage--menu tag-label[data-category="required"]').classList.add('is-active');
+        document.querySelector('tag-tab[data-category="required"] .webpage--section tag-tabset tag-tab:first-child').classList.add('is-active');
     }
 }

@@ -286,7 +286,7 @@
             transform: translateY(-50%);
             grid-column: auto;
             grid-row: auto;
-            background: rgba(152,159,125,.35);
+            background: var(--bg-opaque-accent);
             margin: 15px -30px -30px -30px;
             padding: 15px;
 

@@ -73,11 +73,8 @@
         img {
             width: 100%;
             object-fit: cover;
-            height: 150px;
-    
-            @media only screen and (min-width: $md) {
-                height: 100px;
-            }
+            height: 0;
+            min-height: 100%;
         }
     }
 
@@ -193,6 +190,17 @@
             grid-gap: 60px;
             margin: 50px 0 0;
         }
+
+        #clip-warnings {
+            grid-column: 1 / -1;
+            font-size: var(--lBody);
+            letter-spacing: 0.5px;
+            font-weight: 600;
+
+            &:empty {
+                display: none;
+            }
+        }
     }
     &--aside {
         background: var(--bg-opaque-accent);
@@ -242,7 +250,6 @@
         @media only screen and (min-width: $lg) {
             margin-top: 50px;
             grid-template-columns: repeat(2, 1fr);
-            grid-gap: 5px 15px;
         }
 
         &.horse-list {
@@ -421,8 +428,8 @@
                     }
 
                     img {
-                        width: 16px;
-                        height: 16px;
+                        width: 24px;
+                        height: 24px;
                         object-fit: contain;
                     }
                 }
@@ -528,7 +535,7 @@
 
     &.g-4,
     &.g-6,
-    &.g-3.acc-member {
+    &.g-3.acc-Member {
         .charOnly {
             display: none;
         }

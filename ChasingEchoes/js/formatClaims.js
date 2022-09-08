@@ -20,7 +20,7 @@ function horseBox(horse) {
     let disciplineList = horse.Disciplines.split('+');
     disciplineList.forEach(discipline => {
         disciplines.push(JSON.parse(discipline));
-    });
+    })
     if(!horse.Markings) {
         horse.Markings = 'no markings';
     }
@@ -31,21 +31,12 @@ function horseBox(horse) {
             <div class="claims--skill-bar ${discipline.level}" title="${discipline.level}"><span class="pleasure"></span><span class="green"></span></div>
         </div>`;
     });
-    let compLevel = `<span>'${horse.BarnName}' does not compete</span>`;
-    if(horse.GroupID !== `13` && horse.GroupID !== `14`) {
-        compLevel = `<span>'${horse.BarnName}' competes at ${horse.Group} level</span>`;
-    } else {
-        disciplineHTML = `<tag-md data-align="left">trained in</tag-md>`;
-        disciplines.forEach(discipline => {
-            disciplineHTML += `<b>${discipline.discipline}</b><br>`;
-        });
-    }
     return `<div class="claims--horse g-${horse.GroupID}">
         <img src="${horse.Image}" />
         <div class="claims--item horse"><div class="claims--border">
             <b>${horse.ShowName}</b>
             <a href="?showuser=${horse.AccountID}">owned by ${horse.Character}</a>
-            ${compLevel}
+            <span>known as ${horse.BarnName}</span>
             <span>a ${horse.Age} ${horse.Breed} ${horse.Sex}</span>
             <span>${horse.Height}hh ${horse.Color} with ${horse.Markings}</span>
         </div></div>
@@ -158,25 +149,51 @@ function formatFaces(data) {
 }
 
 function formatJobs(data) {
-    let array = data.filter(item => item.Jobs);
+    let array = data.filter(item => item.Job1Position);
     let employed = [];
     array.forEach(character => {
-        let jobs = [];
-        let jobsList = character.Jobs.split('+');
-        jobsList.forEach(job => {
-            jobs.push(JSON.parse(job));
+        employed.push({
+            Character: character.Character,
+            GroupID: character.GroupID,
+            AccountID: character.AccountID,
+            Employer: character.Job1Employer,
+            Position: character.Job1Position,
+            BumpOwner: character.Job1Position.indexOf('owner'),
+            BumpCoOwner: character.Job1Position.indexOf('co-owner'),
         });
-        jobs.forEach(job => {
+        if(character.Job2Position) {
             employed.push({
                 Character: character.Character,
                 GroupID: character.GroupID,
                 AccountID: character.AccountID,
-                Employer: job.employer,
-                Position: job.position,
-                BumpOwner: job.position.indexOf('owner'),
-                BumpCoOwner: job.position.indexOf('co-owner'),
+                Employer: character.Job2Employer,
+                Position: character.Job2Position,
+                BumpOwner: character.Job2Position.indexOf('owner'),
+                BumpCoOwner: character.Job2Position.indexOf('co-owner'),
             });
-        });
+        }
+        if(character.Job3Position) {
+            employed.push({
+                Character: character.Character,
+                GroupID: character.GroupID,
+                AccountID: character.AccountID,
+                Employer: character.Job3Employer,
+                Position: character.Job3Position,
+                BumpOwner: character.Job3Position.indexOf('owner'),
+                BumpCoOwner: character.Job3Position.indexOf('co-owner'),
+            });
+        }
+        if(character.Job4Position) {
+            employed.push({
+                Character: character.Character,
+                GroupID: character.GroupID,
+                AccountID: character.AccountID,
+                Employer: character.Job4Employer,
+                Position: character.Job4Position,
+                BumpOwner: character.Job4Position.indexOf('owner'),
+                BumpCoOwner: character.Job4Position.indexOf('co-owner'),
+            });
+        }
     });
     employed.sort((a,b) => {
         if (a.Employer < b.Employer) {
@@ -271,9 +288,15 @@ function postClaims(formtype = 'POST') {
             }
         }
     }
+    let handling = document.querySelector('#sort-handling').value.trim();
+    let training = document.querySelector('#sort-training').value.trim();
+    let equitation = document.querySelector('#sort-equitation').value.trim();
+    let jumping = document.querySelector('#sort-jumping').value.trim();
+    let western = document.querySelector('#sort-western').value.trim();
+    let other = document.querySelector('#sort-other').value.trim();
 
     $.ajax({
-        url: `https://script.google.com/macros/s/AKfycbzAeOtlDM67PVcwdIGgqDI_ieEK9IJAVf9wKbriP_oGSDkC5CefCt1mvj9cUUbmJNf24w/exec`,   
+        url: `https://script.google.com/macros/s/AKfycbwM7UbGB6Jagw72dt3Z7KlRyCgnlFMDA_Cd_B5kYJYmnFspbYwTa2186qjADZ9HsSWtDA/exec`,   
         data: {
             "SubmissionType": "claims-submit",
             "Member": member,
@@ -283,13 +306,18 @@ function postClaims(formtype = 'POST') {
             "Group": group,
             "GroupID": groupID,
             "Face": face,
-            "Jobs": jobs
+            "Jobs": jobs,
+            "Handling": handling,
+            "Training": training,
+            "Equitation": equitation,
+            "Jumping": jumping,
+            "Western": western,
+            "Other": other
         },
         method: formtype,
         type: formtype,
         dataType: "json", 
         success: function () {
-            console.log('success');
             //sendSortRequest(message);
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -314,7 +342,6 @@ function postClaims(formtype = 'POST') {
 }
 
 function updateClaims(character, formtype = 'POST') {
-    console.log('update claims');
     let alias = character[0].Member;
     if(document.querySelector('#choice-member').checked) {
         alias = document.querySelector('#update-member').value.toLowerCase().trim();
@@ -410,18 +437,17 @@ function updateClaims(character, formtype = 'POST') {
             "GroupID": groupID,
             "Face": face,
             "Jobs": jobsString,
-	    "Handling": handling,
-	    "Training": training,
-	    "Equitation": equitation,
-	    "Jumping": jumping,
-	    "Western": western,
-	    "Other": other
+            "Handling": handling,
+            "Training": training,
+            "Equitation": equitation,
+            "Jumping": jumping,
+            "Western": western,
+            "Other": other
         },
         method: formtype,
         type: formtype,
         dataType: "json", 
         success: function () {
-            console.log('success');
             //sendSortRequest(message);
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -473,7 +499,7 @@ function postHorse(formtype = 'POST') {
     }
 
     $.ajax({
-        url: `https://script.google.com/macros/s/AKfycbzAeOtlDM67PVcwdIGgqDI_ieEK9IJAVf9wKbriP_oGSDkC5CefCt1mvj9cUUbmJNf24w/exec`,   
+        url: `https://script.google.com/macros/s/AKfycbwM7UbGB6Jagw72dt3Z7KlRyCgnlFMDA_Cd_B5kYJYmnFspbYwTa2186qjADZ9HsSWtDA/exec`,   
         data: {
             "SubmissionType": "horse-submit",
             "Member": member,
@@ -498,7 +524,6 @@ function postHorse(formtype = 'POST') {
         type: formtype,
         dataType: "json", 
         success: function () {
-            console.log('success');
             //sendSortRequest(message);
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -584,7 +609,6 @@ function updateHorse(horse, formtype = 'POST') {
         }
         if(document.querySelector('#horseedit-updatediscChoice').checked) {
             disciplines.forEach(discipline => {
-                console.log(discipline.discipline);
                 let selectBox = document.querySelector(`select[data-discipline="${discipline.discipline}"]`);
                 if(selectBox && selectBox.options[selectBox.selectedIndex].value !== `` && selectBox.options[selectBox.selectedIndex].value !== discipline.level) {
                     discipline.level = selectBox.options[selectBox.selectedIndex].value;
@@ -606,7 +630,7 @@ function updateHorse(horse, formtype = 'POST') {
     }
 
     $.ajax({
-        url: `https://script.google.com/macros/s/AKfycbzAeOtlDM67PVcwdIGgqDI_ieEK9IJAVf9wKbriP_oGSDkC5CefCt1mvj9cUUbmJNf24w/exec`,   
+        url: `https://script.google.com/macros/s/AKfycbwM7UbGB6Jagw72dt3Z7KlRyCgnlFMDA_Cd_B5kYJYmnFspbYwTa2186qjADZ9HsSWtDA/exec`,   
         data: {
             "SubmissionType": "horse-edit",
             "Member": alias,
@@ -627,7 +651,6 @@ function updateHorse(horse, formtype = 'POST') {
         type: formtype,
         dataType: "json", 
         success: function () {
-            console.log('success');
             //sendSortRequest(message);
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -650,7 +673,7 @@ function postReserve(formtype = 'POST') {
     let face = document.querySelector('#reserve-face').value.toLowerCase().trim();
 
     $.ajax({
-        url: `https://script.google.com/macros/s/AKfycbzAeOtlDM67PVcwdIGgqDI_ieEK9IJAVf9wKbriP_oGSDkC5CefCt1mvj9cUUbmJNf24w/exec`,   
+        url: `https://script.google.com/macros/s/AKfycbwM7UbGB6Jagw72dt3Z7KlRyCgnlFMDA_Cd_B5kYJYmnFspbYwTa2186qjADZ9HsSWtDA/exec`,   
         data: {
             "SubmissionType": "reserve-submit",
             "Member": member,
@@ -661,7 +684,6 @@ function postReserve(formtype = 'POST') {
         type: formtype,
         dataType: "json", 
         success: function () {
-            console.log('success');
             //sendSortRequest(message);
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -672,6 +694,70 @@ function postReserve(formtype = 'POST') {
             $('#reserve').trigger('reset');
             $('#reserve button[type="submit"]').text('Submit');
             document.querySelector('.form--reserve-warning').innerHTML = 'Success! Your reservation has been added to the sheet.';
+        }
+      });
+    
+      return false;
+}
+
+function postHorse(formtype = 'POST') {
+    let member = document.querySelector('#foal-member').value.toLowerCase().trim();
+    let character = document.querySelector('#foal-character').value.toLowerCase().trim();
+    let accountID = document.querySelector('#foal-accountid').value.trim();
+    let group = document.querySelector('#foal-group').options[document.querySelector('#foal-group').selectedIndex].innerText.toLowerCase().trim();
+    let groupID = document.querySelector('#foal-group').options[document.querySelector('#foal-group').selectedIndex].value;
+    let showname = document.querySelector('#foal-showname').value.toLowerCase().trim();
+    let barnname = document.querySelector('#foal-barnname').value.toLowerCase().trim();
+    let image = document.querySelector('#foal-image').value.trim();
+    let stable = document.querySelector('#foal-stable').options[document.querySelector('#foal-stable').selectedIndex].innerText.toLowerCase().trim();
+    let stableID = document.querySelector('#foal-stable').options[document.querySelector('#foal-stable').selectedIndex].value;
+    let sex = document.querySelector('#foal-sex').options[document.querySelector('#foal-sex').selectedIndex].innerText.toLowerCase().trim();
+    let age = document.querySelector('#foal-age').value.toLowerCase().trim();
+    let height = document.querySelector('#foal-height').value.toLowerCase().trim();
+    let breed = document.querySelector('#foal-breed').value.toLowerCase().trim();
+    let color = document.querySelector('#foal-color').value.toLowerCase().trim();
+    let markings = document.querySelector('#foal-markings').value.toLowerCase().trim();
+    let sire = document.querySelector('#foal-sire').value.toLowerCase().trim();
+    let dam = document.querySelector('#foal-dam').value.toLowerCase().trim();
+
+    $.ajax({
+        url: `https://script.google.com/macros/s/AKfycbwM7UbGB6Jagw72dt3Z7KlRyCgnlFMDA_Cd_B5kYJYmnFspbYwTa2186qjADZ9HsSWtDA/exec`,   
+        data: {
+            "SubmissionType": "horse-submit",
+            "Member": member,
+            "Character": character,
+            "AccountID": accountID,
+            "Group": group,
+            "GroupID": groupID,
+            "ShowName": showname,
+            "BarnName": barnname,
+            "Image": image,
+            "StableFull": stable,
+            "Stable": stableID,
+            "Sex": sex,
+            "Age": age,
+            "Height": height,
+            "Breed": breed,
+            "Color": color,
+            "Markings": markings,
+            "Sire": sire,
+            "Dam": dam
+        },
+        method: formtype,
+        type: formtype,
+        dataType: "json", 
+        success: function () {
+            //sendSortRequest(message);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('error');
+            document.querySelector('.form--foal-warning').innerHTML = `Whoops! The sheet connection didn't quite work. Please refresh the page and try again! If this persists, please open the console (ctrl + shift + J) and send Lux a screenshot of what's there.`;
+        },
+        complete: function () {
+            $('#form-foal').trigger('reset');
+            $('#form-foal button[type="submit"]').text('Submit');
+            document.querySelector('.form--foal-warning').innerHTML = 'Success! Your horse has been added to the sheet.';
+            document.querySelector('tag-tab[data-key="#breedfoal"]').scrollIntoView({ behavior: 'smooth', block: 'end'}); 
         }
       });
     

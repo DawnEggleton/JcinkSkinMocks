@@ -24,7 +24,7 @@
     --offblack-55: rgba(77,77,77,0.55);
 
     --accent-light: rgba(179,185,158,1);
-    --accent-mid: rgba(152,159,125,1);
+    --accent-mid: rgb(152, 159, 125, 1);
     --accent-dark: rgba(135,140,116,1);
     --accent-35: rgba(152,159,125,0.35);
     --accent-50: rgba(152,159,125,0.5);
@@ -218,7 +218,7 @@
 .g-2,
 .g-3 {
     --accent-light: rgb(158, 185, 172);
-    --accent-mid: rgba(152,159,125, 1);
+    --accent-mid: rgb(152, 159, 125);
     --accent-dark: rgba(135,140,116, 1);
     --accent-35: rgba(152,159,125, 0.35);
     --accent-50: rgba(152,159,125, 0.5);

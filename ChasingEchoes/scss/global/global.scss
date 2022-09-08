@@ -97,6 +97,20 @@ ul:not(.splide__list):not(.splide__pagination) {
     margin: 0;
     list-style-type: none;
 
+    ol {
+        padding: 0 15px 0 0;
+        display: flex;
+        gap: 15px;
+        counter-increment: step;
+
+        &::before {
+            content: counter(step) '.';
+            font-family: var(--font-accent);
+            font-weight: 700;
+            color: var(--text-content-accent);
+        }
+    }
+
     li {
         &::before {
             content: '';
@@ -389,4 +403,16 @@ img {
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
     margin-bottom: 30px;
+}
+
+blockquote {
+    background: var(--bg-opaque-accent);
+    padding: 15px 20px;
+    border-left: 1px solid var(--bg-accent);
+    margin: 30px auto;
+    text-align: justify;
+
+    @media only screen and (min-width: $sm) {
+        max-width: min(80%, 550px);
+    }
 }

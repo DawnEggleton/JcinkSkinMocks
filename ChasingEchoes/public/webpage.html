@@ -958,26 +958,30 @@
                 </div>
             </div>
             <script src="../js/formatClaims.js"></script>
+            <script src="../js/claimsScripts.js"></script>
             <script>
                 //fetch reserves
                 fetch("https://opensheet.elk.sh/1x6ZjvfoBDksT1H09aLM40hWgaTWbvSDfWVumHqnOHL8/Reserves")
                 .then((response) => response.json())
                 .then((data) => {
                     formatReserves(data);
-                });
-
-                //fetch human claims
-                fetch("https://opensheet.elk.sh/1x6ZjvfoBDksT1H09aLM40hWgaTWbvSDfWVumHqnOHL8/HumanClaims")
-                .then((response) => response.json())
-                .then((data) => {
-                    formatPeople(data);
-                });
-
-                //fetch horse claims
-                fetch("https://opensheet.elk.sh/1x6ZjvfoBDksT1H09aLM40hWgaTWbvSDfWVumHqnOHL8/HorseClaims")
-                .then((response) => response.json())
-                .then((data) => {
-                    formatHorses(data);
+                
+                    //fetch human claims
+                    fetch("https://opensheet.elk.sh/1x6ZjvfoBDksT1H09aLM40hWgaTWbvSDfWVumHqnOHL8/HumanClaims")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        formatPeople(data);
+                
+                    //fetch horse claims
+                    fetch("https://opensheet.elk.sh/1x6ZjvfoBDksT1H09aLM40hWgaTWbvSDfWVumHqnOHL8/HorseClaims")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        formatHorses(data);
+                    })
+                    .then(() => {
+                        webpageFunctions();
+                    });
+                    });
                 });
             </script>
         </main>

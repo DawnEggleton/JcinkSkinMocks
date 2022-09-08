@@ -177,14 +177,24 @@
                     &#field_10,
                     &#field_27,
                     &#field_28,
+                    &#field_54,
                     &#field_29,
                     &#field_30,
-                    &#field_36,
                     &#field_17,
                     &#field_49,
                     &#field_53,
                     &:last-child {
                         grid-column: 1 / -1;
+                    }
+
+                    &#field_11,
+                    &#field_54,
+                    &#field_12,
+                    &#field_19,
+                    &#field_20 {
+                        textarea {
+                            height: 80px;
+                        }
                     }
 
                     &#field_28,
@@ -2420,46 +2430,8 @@ fieldset {
                                                 order: 2;
                                             }
 
-                                            &.notifications {
-                                                font-size: 0;
-                                                display: grid;
-                                                grid-gap: 5px;
-
-                                                .desc {
-                                                    font-size: var(--xsBody);
-                                                }
-
-                                                label {
-                                                    display: flex;
-                                                    gap: 5px;
-                                                    font-size: var(--xsBody);
-                                                    text-transform: uppercase;
-                                                    font-weight: 700;
-                                                    letter-spacing: 1px;
-                                                    align-items: center;
-                                                    cursor: pointer;
-                                
-                                                    input {
-                                                        display: none;
-                                
-                                                        & + span {
-                                                            display: inline-flex;
-                                                            background: var(--bg-body);
-                                                            border: 1px solid var(--border-main);
-                                                            width: 16px;
-                                                            height: 16px;
-                                                            align-items: center;
-                                                            justify-content: center;
-                                                            text-align: center;
-                                                            font-size: 8px;
-                                                            color: transparent;
-                                                        }
-                                                        &:checked + span {
-                                                            background: var(--bg-accent);
-                                                            color: var(--text-on-accent);
-                                                        }
-                                                    }
-                                                }
+                                            &:last-of-type {
+                                                grid-column: 1 / -1;
                                             }
                                         }
                                     }
@@ -2487,8 +2459,72 @@ fieldset {
 
                                 &:first-child {
                                     & > td {
-                                        &:last-child {
-                                            display: none;
+                                        &:last-child div {
+                                            margin-top: 15px;
+
+                                            & > b,
+                                            & > br {
+                                                display: none;
+                                            }
+                                            & > table > tbody > tr > td {
+                                                display: grid;
+                                                grid-gap: 15px;
+                                                width: 100%;
+        
+                                                @media only screen and (min-width: $lg) {
+                                                    grid-template-columns: 1fr 1fr;
+                                                }
+    
+                                                & > br {
+                                                    display: none;
+                                                }
+                                                & > fieldset {
+                                                    &:nth-last-of-type(3) {
+                                                        grid-column: 1 / -1;
+                                                    }
+                                                    &.notifications {
+                                                        font-size: 0;
+                                                        display: grid;
+                                                        grid-gap: 5px;
+            
+                                                        .desc {
+                                                            font-size: var(--xsBody);
+                                                        }
+            
+                                                        label {
+                                                            display: flex;
+                                                            gap: 5px;
+                                                            font-size: var(--xsBody);
+                                                            text-transform: uppercase;
+                                                            font-weight: 700;
+                                                            letter-spacing: 1px;
+                                                            align-items: center;
+                                                            cursor: pointer;
+                                        
+                                                            input {
+                                                                display: none;
+                                        
+                                                                & + span {
+                                                                    display: inline-flex;
+                                                                    background: var(--bg-body);
+                                                                    border: 1px solid var(--border-main);
+                                                                    width: 16px;
+                                                                    height: 16px;
+                                                                    align-items: center;
+                                                                    justify-content: center;
+                                                                    text-align: center;
+                                                                    font-size: 8px;
+                                                                    color: transparent;
+                                                                }
+                                                                &:checked + span {
+                                                                    background: var(--bg-accent);
+                                                                    color: var(--text-on-accent);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
