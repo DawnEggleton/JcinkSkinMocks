@@ -160,11 +160,10 @@
         justify-content: center;
         gap: 5px;
         align-items: center;
+        text-shadow: 0.0px 1.0px 0px var(--bg-content), -0.6px -0.8px 0px var(--bg-content), 1.0px 0.2px 0px var(--bg-content), -0.9px 0.4px 0px var(--bg-content), 0.4px -0.9px 0px var(--bg-content), 0.2px 1.0px 0px var(--bg-content), -0.8px -0.6px 0px var(--bg-content), 1.0px -0.0px 0px var(--bg-content), -0.8px 0.7px 0px var(--bg-content), 0.2px -1.0px 0px var(--bg-content), 0.5px 0.9px 0px var(--bg-content), -0.9px -0.4px 0px var(--bg-content), 1.0px -0.3px 0px var(--bg-content), -0.6px 0.8px 0px var(--bg-content), -0.1px -1.0px 0px var(--bg-content), 0.7px 0.7px 0px var(--bg-content), -1.0px -0.1px 0px var(--bg-content), 0.9px -0.5px 0px var(--bg-content), -0.4px 0.9px 0px var(--bg-content), -0.3px -0.9px 0px var(--bg-content), 0.8px 0.5px 0px var(--bg-content), -1.0px 0.1px 0px var(--bg-content), 0.7px -0.7px 0px var(--bg-content), -0.1px 1.0px 0px var(--bg-content);
 
         span {
-            font-family: var(--font-accent);
-            color: var(--text-content-accent);
-            font-size: var(--sBody);
+            font-weight: 900;
             display: inline-grid;
             grid-template-columns: 8px max-content;
             align-items: center;
@@ -177,6 +176,14 @@
                 background: var(--border-main);
                 margin-top: 1px;
             }
+        }
+
+        &-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--bg-opaque-accent);
         }
     }
 

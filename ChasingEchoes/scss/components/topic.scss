@@ -109,6 +109,16 @@
         padding: 30px;
         border: 1px solid var(--border-main);
 
+        .macro--icon {
+            display: block;
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-family: var(--font-accent);
+            margin-bottom: 15px;
+        }
+
         &  > a {
             font-family: var(--font-accent);
             font-size: calc(16px + var(--sizeBoost));
@@ -156,13 +166,17 @@
             }
         }
 
-        .desc {
+        .topic--description {
             display: block;
             margin-top: 5px;
             text-transform: uppercase;
             font-size: var(--xsBody);
             letter-spacing: 1px;
             font-weight: 600;
+
+            &:empty {
+                display: none;
+            }
         }
 
         .small {
@@ -230,6 +244,11 @@
 #SF,
 #ST {
     main {
+        & > table {
+            &:first-of-type {
+                margin-top: 90px;
+            }
+        }
         & > table,
         & > form > table {
             display: block;
@@ -246,7 +265,11 @@
                     gap: 15px 30px;
 
                     & > td {
-                        max-width: max-content;
+                        width: auto;
+
+                        &:first-child {
+                            flex-grow: 1;
+                        }
 
                         &:last-child {
                             display: flex;

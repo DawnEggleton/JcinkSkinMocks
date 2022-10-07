@@ -10,6 +10,11 @@ if($('body#UserCP').length > 0) {
     <a href="user-pass.html">Change Password</a>
     <a href="user-email.html">Update Email</a>
     </div>
+    <b>Messages</b>
+    <div class="ucp--expandable ucp--menu-track is-open">
+    <a href="user-inbox.html">Inbox</a>
+    <a href="user-message.html">Send Message</a>
+    </div>
     <b>Tracking</b>
     <div class="ucp--expandable ucp--menu-track is-open">
     <a href="user-alerts.html">Alerts</a>
@@ -43,6 +48,38 @@ if($('body#UserCP').length > 0) {
     <a href="?act=UserCP&CODE=02">Emails</a>
     </div>`;
     */
+}
+
+//UCP Only
+if($('body#Msg').length > 0) {
+    document.querySelector('#ucpmenu').innerHTML = `<div class="ucp--sticky">
+    <b>Account</b>
+    <div class="ucp--expandable ucp--menu-account is-open">
+    <a href="user-edit.html">Edit Profile</a>
+    <a href="user-avatar.html">Update Avatar</a>
+    <a href="user-accounts.html">Sub-accounts</a>
+    <a href="user-name.html">Edit Username</a>
+    <a href="user-pass.html">Change Password</a>
+    <a href="user-email.html">Update Email</a>
+    </div>
+    <b>Messages</b>
+    <div class="ucp--expandable ucp--menu-track is-open">
+    <a href="user-inbox.html">Inbox</a>
+    <a href="user-message.html">Send Message</a>
+    </div>
+    <b>Tracking</b>
+    <div class="ucp--expandable ucp--menu-track is-open">
+    <a href="user-alerts.html">Alerts</a>
+    <a href="user-forums.html">Forums</a>
+    <a href="user-topics.html">Topics</a>
+    </div>
+    <b>Settings</b>
+    <div class="ucp--expandable ucp--menu-settings is-open">
+    <a href="user-boardset.html">Board</a>
+    <a href="user-alertset.html">Alerts</a>
+    <a href="user-emailset.html">Emails</a>
+    </div>
+    </div>`;
 }
 
 

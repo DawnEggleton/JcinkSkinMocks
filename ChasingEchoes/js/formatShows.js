@@ -82,8 +82,21 @@ function horseRiderYearend(group, id, rider, horse, points) {
     return `<div class="show--pair yearend g-${group}"><span class="placing"></span><span><a href="?showuser=${id}">${rider}</a> riding <b>${horse}</b></span><b>${points} points</b></div>`;
 }
 
+function startShowType(id, type) {
+    return `<tag-tab data-key="#classes-${id}">
+        <div class="claims--notice"><div class="claims--border">
+        <tag-xl data-align="left">${type}</tag-xl>`;
+}
+function endShowType() {
+    return `</div></div></tag-tab>`
+}
+function showTypeLabel(id, type) {
+    return `<a href="#classes-${id}">${type} Class List</a>`;
+}
+
 function formatClasses(data) {
     let html = ``;
+    let labels = ``;
     data.sort((a, b) => {
         if (parseInt(a.ShowTypeID) < parseInt(b.ShowTypeID)) {
             return -1;
@@ -104,8 +117,8 @@ function formatClasses(data) {
     data.forEach((showClass, i) => {
 	//first
         if(i === 0) {
-            html += `<div class="claims--notice"><div class="claims--border">`;
-	    html += `<tag-xl data-align="left">${showClass.ShowType}</tag-xl>`;
+	        labels += showTypeLabel(showClass.ShowType.replace(/\s/g, "").toLowerCase(), showClass.ShowType);
+	        html += startShowType(showClass.ShowType.replace(/\s/g, "").toLowerCase(), showClass.ShowType);
             html += classStart(showClass.Discipline, showClass.DisciplineCost);
             html += classBox(showClass.ClassName, showClass.Skills);
         }
@@ -113,7 +126,9 @@ function formatClasses(data) {
 	//different discipline
 	else if(data[i - 1].ShowTypeID !== showClass.ShowTypeID) {
             html += classEnd();
-	    html += `<tag-xl data-align="left">${showClass.ShowType}</tag-xl>`;
+            html += endShowType();
+	        labels += showTypeLabel(showClass.ShowType.replace(/\s/g, "").toLowerCase(), showClass.ShowType);
+	        html += startShowType(showClass.ShowType.replace(/\s/g, "").toLowerCase(), showClass.ShowType);
             html += classStart(showClass.Discipline, showClass.DisciplineCost);
             html += classBox(showClass.ClassName, showClass.Skills);
         }
@@ -130,10 +145,11 @@ function formatClasses(data) {
 	//end
 	if(data.length - 1 === i) {
             html += classEnd();
-            html += `</div></div>`;
+            html += endShowType();
         }
     });
-    document.querySelector(`tag-tab[data-key="#classlists"]`).insertAdjacentHTML('beforeend', html);
+    document.querySelector(`tag-tab[data-category="info"] tag-labelset`).insertAdjacentHTML('beforeend', labels);
+    document.querySelector(`tag-tab[data-category="info"] tag-tabset`).insertAdjacentHTML('beforeend', html);
 }
 
 function formatEntries(data) {

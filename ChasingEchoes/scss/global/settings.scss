@@ -1,9 +1,17 @@
 tag-shipimage a::after {
     content: '\e1cd';
 }
+a[target="_blank"]:not(.staffOnly)::after {
+    content: '\f08e';
+}
+#Msg.code-04 #ucpcontent form > table > tbody > tr:nth-last-child(2) .pformright label input + b::before,
 .form--choices .checkbox::before,
 .members--filter-group label input + span::before,
 .members--options .members--sort > span::before,
 .tosWrap input + b::before {
     content: '\f00c';
+}
+
+ul:not(.splide__list):not(.splide__pagination) li::before {
+    content: "\f105";
 }

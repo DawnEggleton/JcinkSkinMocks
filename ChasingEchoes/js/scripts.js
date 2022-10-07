@@ -186,6 +186,25 @@ if($('body#idx').length > 0 || $('body#SC').length > 0) {
 
 
 /****************
+ MESSAGES ONLY
+*****************/
+if($('body#Msg').length > 0) {
+    //wrap checkboxes
+    if($('form > .tableborder > table > tbody > tr.dlight, form > .tableborder > table > tbody > tr.hlight').length > 0) {
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            $(checkbox).wrap('<label></label>');
+            checkbox.insertAdjacentHTML('afterend', `<div><i class="fa-solid fa-check"></i></div>`);
+        });
+    }
+    if($('body.code-04').length > 0) {
+        $('#enter-your-post-header + tr + tr + tr input').each(function() {
+            $(this).nextUntil('br').andSelf().wrapAll('<label></label>');
+        });
+    }
+}
+
+
+/****************
  UCP ONLY
 *****************/
 if($('body#UserCP').length > 0) {
@@ -198,7 +217,7 @@ if($('body#UserCP').length > 0) {
         document.querySelectorAll('.fancyInput').forEach(checkbox => checkbox.insertAdjacentHTML('beforeend', '<div><i class="fa-solid fa-check"></i></div><b>Is daylight savings time in effect?</b>'));
     }
 
-    document.querySelector('#ucpmenu').innerHTML = `<div class="ucp--sticky">
+    /*document.querySelector('#ucpmenu').innerHTML = `<div class="ucp--sticky">
     <b>Account</b>
     <div class="ucp--expandable ucp--menu-account is-open">
     <a href="?act=UserCP&CODE=01">Edit Profile</a>
@@ -220,7 +239,7 @@ if($('body#UserCP').length > 0) {
     <a href="?act=UserCP&CODE=alerts_settings">Alerts</a>
     <a href="?act=UserCP&CODE=02">Emails</a>
     </div>
-    </div>`;
+    </div>`;*/
 
 	//Edit Profile Edits
 	if($('body.code-01').length > 0) {
@@ -501,4 +520,9 @@ if($('body#store').length > 0) {
     <a href="?act=store&code=edit_inventory" class="staffOnly">Edit Inventory</a>
     </div>
     </div>`;
+
+    document.querySelectorAll('body.store-do_staff_inventory .row4:last-child input[type="checkbox"]').forEach(checkbox => {
+        $(checkbox).wrap(`<label></label>`);
+        checkbox.insertAdjacentHTML('afterend', `<div><i class="fa-solid fa-check"></i></div>`);
+    });
 }

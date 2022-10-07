@@ -9,6 +9,18 @@
 a {
     text-decoration: none;
     color: var(--text-content-accent);
+
+    &[target="_blank"]:not(.staffOnly)::after {
+        font-family: 'Font Awesome 6 Pro';
+        padding-left: 5px;
+        color: var(--text-content-accent);
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+
+    &[href=""] {
+        display: none;
+    }
 }
 body {
     padding: 0;
@@ -61,9 +73,13 @@ main {
 #userlinks,
 body:not(.g-2) .guestOnly,
 body:not(.g-4) .staffOnly,
-body.g-2 .memOnly {
+body.g-2 .memOnly,
+.post.g-4 .charOnly,
+.post.g-6 .charOnly,
+.post.acc-Member .charOnly {
     display: none !important;
 }
+textarea,
 .scroll {
     overflow-y: auto;
     overflow-x: hidden;
@@ -113,14 +129,14 @@ ul:not(.splide__list):not(.splide__pagination) {
 
     li {
         &::before {
-            content: '';
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--text-content-accent);
             display: inline-block;
+            font-family: 'Font Awesome 6 Pro';
+            color: var(--text-content-accent);
+            font-weight: 900;
+            font-size: 0.8em;
+            line-height: 1em;
+            position: relative;
             margin-right: 5px;
-            margin-bottom: 0.5px;
         }
         &:not(:last-child) {
             margin-bottom: 15px;
@@ -178,14 +194,16 @@ body:not(#UserCP.code-01) select {
     display: flex;
     gap: 3px;
     font-size: 0;
+    margin: 10px 0;
 
     &_page,
     &_current,
+    &_first,
     &_last {
         border: 1px solid var(--border-main);
         min-width: 16px;
         display: flex;
-        padding: 3px;
+        padding: 3px 5px;
         text-transform: uppercase;
         font-weight: 700;
         color: var(--text-body);
@@ -215,28 +233,43 @@ body:not(#UserCP.code-01) select {
     }
 }
 
-.macro--button {
-    border: 1px solid var(--border-main);
-    padding: 5px 10px;
-    font-family: var(--font-accent);
-    text-transform: uppercase;
-    font-weight: 700;
-    background: var(--bg-content);
-    transition-duration: 0.5s;
-
-    &:hover {
-        background: var(--bg-accent);
-        color: var(--text-on-accent);
+.macro {
+    .light &--highlight {
+        color: #9f3232;
     }
-}
-.macro--message {
-  grid-column: 1 / -1;
-  max-width: 375px;
-  width: max-content;
-  background: var(--bg-opaque-accent);
-  padding: 15px 20px;
-  border-radius: 5px;
-  margin: 0 auto;
+    .medium &--highlight {
+        color: #822929;
+    }
+    .dark &--highlight {
+        color: #cc6161;
+    }
+    &--important {
+        color: var(--text-content-accent);
+    }
+    &--button {
+        display: inline-block;
+        border: 1px solid var(--border-main);
+        padding: 5px 10px;
+        font-family: var(--font-accent);
+        text-transform: uppercase;
+        font-weight: 700;
+        background: var(--bg-content);
+        transition-duration: 0.5s;
+    
+        &:hover {
+            background: var(--bg-accent);
+            color: var(--text-on-accent);
+        }
+    }
+    &--message {
+        grid-column: 1 / -1;
+        max-width: 375px;
+        width: max-content;
+        background: var(--bg-opaque-accent);
+        padding: 15px 20px;
+        border-radius: 5px;
+        margin: 0 auto;
+    }
 }
 
 .modal {
@@ -328,6 +361,7 @@ body:not(#UserCP.code-01) select {
 
 img {
     max-width: 100%;
+    object-fit: cover;
 }
 
 .profile--freeform,
@@ -378,6 +412,8 @@ img {
         }
     }
     ul {
+        white-space: normal;
+
         &:not(:last-child) {
             margin-bottom: 20px;
         }
@@ -385,11 +421,36 @@ img {
         &[data-item-gap="none"] li {
             margin-bottom: 0 !important;
         }
+
+        & > br {
+            display: none;
+        }
+    }
+    .lux {
+        b,
+        i {
+            color: var(--accent);
+        }
+        a:hover {
+            color: var(--dkAccent);
+        }
+        a:hover {
+            border-color: var(--accent);
+        }
+        u {
+            background: var(--accent);
+            color: var(--text-on-accent);
+            border-color: var(--dkAccent);
+        }
     }
 }
 .columns {
     &:not(:last-child) {
         margin-bottom: 30px;
+    }
+    .show--pair {
+        break-inside: avoid;
+        margin-bottom: 10px;
     }
 
     @media only screen and (min-width: $md) {
@@ -415,4 +476,65 @@ blockquote {
     @media only screen and (min-width: $sm) {
         max-width: min(80%, 550px);
     }
+}
+
+.code--wrapper {
+    &.codeblock {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .codecon pre,
+    pre {
+        background: var(--bg-body);
+        border: 1px solid var(--border-main);
+        padding: 10px;
+        width: 100%;
+        height: 120px;
+        max-width: 400px;
+        margin: 10px auto 0 0;
+
+        code,
+        textarea {
+            width: 100%;
+            height: 100%;
+            white-space: pre-wrap;
+            border: 0;
+            padding: 0 15px 0 0;
+            background: none;
+            outline: 0;
+            font-size: var(--mBody);
+            font-family: var(--font-body);
+            line-height: 160%;
+            display: block;
+        }
+    }
+    button,
+    .codeclick {
+        border: 1px solid var(--border-main);
+        font-family: var(--font-accent);
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 5px 10px;
+        background: var(--bg-opaque-accent);
+        cursor: pointer;
+        max-width: max-content;
+        line-height: 160%;
+    }
+}
+
+.anchor--top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--bg-accent);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--border-main);
+    color: var(--text-on-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }

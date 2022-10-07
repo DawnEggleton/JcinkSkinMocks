@@ -45,22 +45,32 @@ header.splide {
             h1 {
                 font-family: var(--font-accent);
                 font-weight: 700;
-                font-size: clamp(30px, 8vw, 90px);
+                font-size: clamp(20px, 6vw, 90px);
+                letter-spacing: 0rem;
                 text-transform: uppercase;
                 margin: 0 0 0 auto;
                 line-height: 100%;
                 text-align: right;
-                letter-spacing: 0.2rem;
                 width: max-content;
+
+                @media only screen and (min-width: $sm) {
+                    font-size: clamp(30px, 8vw, 90px);
+                    letter-spacing: 0.2rem;
+                }
     
                 span {
     
                     &.accent {
                         color: var(--text-content-accent);
-                        font-size: clamp(40px, 13vw, 170px);
+                        font-size: clamp(40px, 11vw, 170px);
+                        letter-spacing: 0.4rem;
                         display: block;
                         margin: 1vw -0.5rem 2.5rem 0;
-                        letter-spacing: 0.6rem;
+
+                        @media only screen and (min-width: $sm) {
+                            font-size: clamp(40px, 13vw, 170px);
+                            letter-spacing: 0.6rem;
+                        }
 
                         @media only screen and (min-width: $md) {
                             margin: 1vw -1rem 3.5rem 0;
@@ -91,7 +101,6 @@ header.splide {
         &.slide--staff {
             .info--staff {
                 height: 100%;
-                grid-template-rows: repeat(3, 1fr);
                 grid-gap: 10px;
                 display: grid;
 
@@ -168,7 +177,6 @@ header.splide {
                 }
                 &--staff {
                     grid-row: span 2;
-                    grid-template-rows: repeat(3, 1fr);
                     grid-gap: 10px;
                     display: grid;
 

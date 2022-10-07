@@ -1,378 +1,210 @@
-function formatSchedule(data) {
-    let current = new Date();
-    let active = data.filter(item => {
-        let time = new Date(item.ShowDate);
-        let difference = Math.floor(((time - current) / (1000*60*60*24)));
-        return difference > 0;
-    });
-    active.sort((a, b) => {
-        if (new Date(a.ShowDate) < new Date(b.ShowDate)) {
-            return -1;
-        } else if (new Date(a.ShowDate) > new Date(b.ShowDate)) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-    let html = ``;
-    active.forEach(show => {
-        let showDate = new Date(show.ShowDate);
-        showDate.setDate(showDate.getDate() - 1);
-        const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
-        html += `<div class="claims--item"><div class="claims--border">
-            <b>${show.ShowName}</b>
-            <span>Entries close ${months[showDate.getMonth()]} ${showDate.getDate()}, ${showDate.getFullYear()}, 11:59pm (GMT-4)</span>
-        </div></div>`;
-    });
-    if (html === ``) {
-        html = `<div class="claims--notice"><div class="claims--border">No upcoming shows.</div></div>`;
-    }
-    document.querySelector(`tag-tab[data-key="#schedule"]`).insertAdjacentHTML('beforeend', html);
-}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Site Name</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-function classBox(name, skills) {
-	return `<b>${name}</b><span>${skills.split(', ')[0]}</span><span>${skills.split(', ')[1]}</span>`;
-}
-function classStart(discipline, cost) {
-	return `<tag-lg data-align="left">${discipline}</tag-lg>
-		<tag-sm data-align="left">Cost: $${cost} for division / $25 per class</tag-sm>
-		<div class="show--classGrid static">
-			<tag-xs data-align="left">class</tag-xs><tag-xs data-align="left">primary skill</tag-xs><tag-xs data-align="left">secondary skill</tag-xs>`;
-}
-function classEnd() {
-	return `</div>`;
-}
+        <!--Styles-->
+        <link rel="stylesheet" href="../css/styles.css" />
+        <link rel="stylesheet" href="../css/packages/splide-core.min.css" />
 
-function newLabel(id, showname, type) {
-    return `<a href="#${type}-show${id}">${showname} ${type}</a>`;
-}
-function newTabStart(id, type) {
-    return `<tag-tab data-key="#${type}-show${id}">
-    <div class="webpage--border">`;
-}
-function newTabEnd() {
-    return `</div>
-    </tag-tab>`;
-}
-function newShow(showname) {
-    return `<tag-xl data-align="left">${showname}</tag-xl>`
-}
-function newLevel(level) {
-    return `<tag-lg data-align="left">${level}</tag-lg>`
-}
-function newDisciplineStart(discipline) {
-    return `<tag-md data-align="left">${discipline}</tag-md><div class="show--classGrid flexible">`
-}
-function newDisciplineEnd() {
-    return `</div>`
-}
-function newClassStart(classname) {
-    return `<div class="grid--item"><tag-xs data-align="left">${classname}</tag-xs>`
-}
-function newClassEnd() {
-    return `</div>`
-}
-function horseRiderPair(group, id, rider, horse) {
-    return `<div class="show--pair g-${group}"><a href="?showuser=${id}">${rider}</a> riding <b>${horse}</b></div>`;
-}
-function horseRiderPlacing(group, id, rider, horse, placing) {
-    return `<div class="show--pair g-${group}"><span class="placing">${placing}</span><a href="?showuser=${id}">${rider}</a> riding <b>${horse}</b></div>`;
-}
-function horseRiderYearend(group, id, rider, horse, points) {
-    return `<div class="show--pair yearend g-${group}"><span class="placing"></span><span><a href="?showuser=${id}">${rider}</a> riding <b>${horse}</b></span><b>${points} points</b></div>`;
-}
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+        
+        <!--Icons-->
+		<link href="https://dawneggleton.github.io/JcinkSkinMocks/FA6/css/all.min.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/saturnicons.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/honeybee.css" rel="stylesheet" />
+		<link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
 
-function formatClasses(data) {
-    let html = ``;
-    data.sort((a, b) => {
-        if (parseInt(a.ShowTypeID) < parseInt(b.ShowTypeID)) {
-            return -1;
-        } else if (parseInt(a.ShowTypeID) > parseInt(b.ShowTypeID)) {
-            return 1;
-        } else if (parseInt(a.DisciplineID) < parseInt(b.DisciplineID)) {
-            return -1;
-        } else if (parseInt(a.DisciplineID) > parseInt(b.DisciplineID)) {
-            return 1;
-        } else if (parseInt(a.ClassID) < parseInt(b.ClassID)) {
-            return -1;
-        } else if (parseInt(a.ClassID) > parseInt(b.ClassID)) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-    data.forEach((showClass, i) => {
-	//first
-        if(i === 0) {
-            html += `<div class="claims--notice"><div class="claims--border">`;
-	    html += `<tag-xl data-align="left">${showClass.ShowType}</tag-xl>`;
-            html += classStart(showClass.Discipline, showClass.DisciplineCost);
-            html += classBox(showClass.ClassName, showClass.Skills);
-        }
-	//different show type
-	//different discipline
-	else if(data[i - 1].ShowTypeID !== showClass.ShowTypeID) {
-            html += classEnd();
-	    html += `<tag-xl data-align="left">${showClass.ShowType}</tag-xl>`;
-            html += classStart(showClass.Discipline, showClass.DisciplineCost);
-            html += classBox(showClass.ClassName, showClass.Skills);
-        }
-	//different discipline
-	else if(data[i - 1].ShowType === showClass.ShowType && data[i - 1].Discipline !== showClass.Discipline) {
-            html += classEnd();
-            html += classStart(showClass.Discipline, showClass.DisciplineCost);
-            html += classBox(showClass.ClassName, showClass.Skills);
-        }
-	//otherwise, just add class
-	else {
-	    html += classBox(showClass.ClassName, showClass.Skills);
-	}
-	//end
-	if(data.length - 1 === i) {
-            html += classEnd();
-            html += `</div></div>`;
-        }
-    });
-    document.querySelector(`tag-tab[data-key="#classlists"]`).insertAdjacentHTML('beforeend', html);
-}
+        <!--Script Libraries-->
+		<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
+        <script src="../js/clipboard.js"></script>
 
-function formatEntries(data) {
-    let newLabels = ``;
-    let newTabs = ``;
-    data.sort((a, b) => {
-        if (a.ShowID < b.ShowID) {
-            return -1;
-        } else if (a.ShowID > b.ShowID) {
-            return 1;
-        } else if (a.LevelID < b.LevelID) {
-            return -1;
-        } else if (a.LevelID > b.LevelID) {
-            return 1;
-        } else if (a.DisciplineID < b.DisciplineID) {
-            return -1;
-        } else if (a.DisciplineID > b.DisciplineID) {
-            return 1;
-        } else if (a.ClassID < b.ClassID) {
-            return -1;
-        } else if (a.ClassID > b.ClassID) {
-            return 1;
-        } else if (a.Rider < b.Rider) {
-            return -1;
-        } else if (a.Rider > b.Rider) {
-            return 1;
-        } else if (a.Horse < b.Horse) {
-            return -1;
-        } else if (a.Horse > b.Horse) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-    
-    for(let i = 0; i < data.length; i++) {
-        //first
-        if ( i === 0 ) {
-            newLabels += newLabel(data[i].ShowID, data[i].Show, 'entries');
-            newTabs += newTabStart(data[i].ShowID, 'entries');
-            newTabs += newShow(data[i].Show);
-            newTabs += newLevel(data[i].Level);
-            newTabs += newDisciplineStart(data[i].Discipline);
-            newTabs += newClassStart(data[i].ClassName);
-            newTabs += horseRiderPair(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse);
-        }
-        //new show
-        else if (data[i-1].ShowID !== data[i].ShowID) {
-            newTabs += newClassEnd();
-            newTabs += newDisciplineEnd();
-            newTabs += newTabEnd();
-            newLabels += newLabel(data[i].ShowID, data[i].Show, 'entries');
-            newTabs += newTabStart(data[i].ShowID, 'entries');
-            newTabs += newShow(data[i].Show);
-            newTabs += newLevel(data[i].Level);
-            newTabs += newDisciplineStart(data[i].Discipline);
-            newTabs += newClassStart(data[i].ClassName);
-            newTabs += horseRiderPair(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse);
-        }
-        //new level
-        else if (data[i-1].ShowID === data[i].ShowID && data[i-1].LevelID !== data[i].LevelID) {
-            newTabs += newClassEnd();
-            newTabs += newDisciplineEnd();
-            newTabs += newLevel(data[i].Level);
-            newTabs += newDisciplineStart(data[i].Discipline);
-            newTabs += newClassStart(data[i].ClassName);
-            newTabs += horseRiderPair(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse);
-        }
-        //new discipline
-        else if (data[i-1].ShowID === data[i].ShowID && data[i-1].LevelID === data[i].LevelID && data[i-1].DisciplineID !== data[i].DisciplineID) {
-            newTabs += newClassEnd();
-            newTabs += newDisciplineEnd();
-            newTabs += newDisciplineStart(data[i].Discipline);
-            newTabs += newClassStart(data[i].ClassName);
-            newTabs += horseRiderPair(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse);
-        }
-        //new class
-        else if (data[i-1].ShowID === data[i].ShowID && data[i-1].LevelID === data[i].LevelID && data[i-1].DisciplineID === data[i].DisciplineID && data[i-1].ClassID !== data[i].ClassID) {
-            newTabs += newClassEnd();
-            newTabs += newClassStart(data[i].ClassName);
-            newTabs += horseRiderPair(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse);
-        }
-        //new horse rider pair
-        else if (data[i-1].ShowID === data[i].ShowID && data[i-1].LevelID === data[i].LevelID && data[i-1].DisciplineID === data[i].DisciplineID && data[i-1].ClassID === data[i].ClassID) {
-            newTabs += horseRiderPair(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse);
-        }
-        //last
-        if ( i === data.length - 1) {
-            newTabs += newClassEnd();
-            newTabs += newDisciplineEnd();
-            newTabs += newTabEnd();
-        }
-    }
+        <!--Settings-->
+        <script type='text/javascript' src='../js/settings.js'></script>
+        <link rel="stylesheet" href="../css/settings.css" />
+    </head>
+    <body id="Pages" class="dark g-4">
+        
+        <!--Header-->
+        <header id="desktop-splide" class="splide" role="group"></header>
+        <header id="mobile-splide" class="splide" role="group"></header>
 
-    document.querySelector('.webpage--menu tag-tab[data-category="upcoming"] tag-labelset').insertAdjacentHTML('beforeend', newLabels);
+        <!--Navigation-->
+        <nav class="nav--desktop"></nav>
+        <nav class="nav--mobile"></nav>
 
-    document.querySelector('.webpage--content tag-tab[data-category="upcoming"] tag-tabset').insertAdjacentHTML('beforeend', newTabs);
-}
-function formatResults(data) {
-    let newLabels = ``;
-    let newTabs = ``;
-    data.sort((a, b) => {
-        if (a.ShowID < b.ShowID) {
-            return -1;
-        } else if (a.ShowID > b.ShowID) {
-            return 1;
-        } else if (a.LevelID < b.LevelID) {
-            return -1;
-        } else if (a.LevelID > b.LevelID) {
-            return 1;
-        } else if (a.DisciplineID < b.DisciplineID) {
-            return -1;
-        } else if (a.DisciplineID > b.DisciplineID) {
-            return 1;
-        } else if (a.ClassID < b.ClassID) {
-            return -1;
-        } else if (a.ClassID > b.ClassID) {
-            return 1;
-        } else if (a.Placing < b.Placing) {
-            return -1;
-        } else if (a.Placing > b.Placing) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-    
-    for(let i = 0; i < data.length; i++) {
-        //first
-        if ( i === 0 ) {
-            newLabels += newLabel(data[i].ShowID, data[i].Show, 'results');
-            newTabs += newTabStart(data[i].ShowID, 'results');
-            newTabs += newShow(data[i].Show);
-            newTabs += newLevel(data[i].Level);
-            newTabs += newDisciplineStart(data[i].Discipline);
-            newTabs += newClassStart(data[i].ClassName);
-            newTabs += horseRiderPlacing(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse, data[i].Placing);
-        }
-        //new show
-        else if (data[i-1].ShowID !== data[i].ShowID) {
-            newTabs += newClassEnd();
-            newTabs += newDisciplineEnd();
-            newTabs += newTabEnd();
-            newLabels += newLabel(data[i].ShowID, data[i].Show, 'results');
-            newTabs += newTabStart(data[i].ShowID, 'results');
-            newTabs += newShow(data[i].Show);
-            newTabs += newLevel(data[i].Level);
-            newTabs += newDisciplineStart(data[i].Discipline);
-            newTabs += newClassStart(data[i].ClassName);
-            newTabs += horseRiderPlacing(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse, data[i].Placing);
-        }
-        //new level
-        else if (data[i-1].ShowID === data[i].ShowID && data[i-1].LevelID !== data[i].LevelID) {
-            newTabs += newClassEnd();
-            newTabs += newDisciplineEnd();
-            newTabs += newLevel(data[i].Level);
-            newTabs += newDisciplineStart(data[i].Discipline);
-            newTabs += newClassStart(data[i].ClassName);
-            newTabs += horseRiderPlacing(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse, data[i].Placing);
-        }
-        //new discipline
-        else if (data[i-1].ShowID === data[i].ShowID && data[i-1].LevelID === data[i].LevelID && data[i-1].DisciplineID !== data[i].DisciplineID) {
-            newTabs += newClassEnd();
-            newTabs += newDisciplineEnd();
-            newTabs += newDisciplineStart(data[i].Discipline);
-            newTabs += newClassStart(data[i].ClassName);
-            newTabs += horseRiderPlacing(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse, data[i].Placing);
-        }
-        //new class
-        else if (data[i-1].ShowID === data[i].ShowID && data[i-1].LevelID === data[i].LevelID && data[i-1].DisciplineID === data[i].DisciplineID && data[i-1].ClassID !== data[i].ClassID) {
-            newTabs += newClassEnd();
-            newTabs += newClassStart(data[i].ClassName);
-            newTabs += horseRiderPlacing(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse, data[i].Placing);
-        }
-        //new horse rider pair
-        else if (data[i-1].ShowID === data[i].ShowID && data[i-1].LevelID === data[i].LevelID && data[i-1].DisciplineID === data[i].DisciplineID && data[i-1].ClassID === data[i].ClassID) {
-            newTabs += horseRiderPlacing(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse, data[i].Placing);
-        }
-        //last
-        if ( i === data.length - 1) {
-            newTabs += newClassEnd();
-            newTabs += newDisciplineEnd();
-            newTabs += newTabEnd();
-        }
-    }
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+            <div class="webpage">
+                <div class="webpage--menu">
+                    <tag-tabs class="webpage--border" data-secondary=".webpage--content">
+                        <tag-labels>
+                            <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                            <tag-labelset>
+                                <tag-label data-category="info" class="is-active">show information</tag-label>
+                                <tag-label data-category="upcoming">upcoming shows</tag-label>
+                                <tag-label data-category="results">show results</tag-label>
+                            </tag-labelset>
+                            <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                        </tag-labels>
+                        <tag-tabset>
+                            <tag-tab data-category="info">
+                                <tag-labels>
+                                    <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                    <tag-labelset>
+                                        <a href="#schedule" class="is-active">show schedule</a>
+                                        <a href="#classlists">class lists</a>
+                                    </tag-labelset>
+                                    <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                </tag-labels>
+                            </tag-tab>
+                            <tag-tab data-category="upcoming">
+                                <tag-labels>
+                                    <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                    <tag-labelset>
+                                        <a href="#enter" class="is-active">enter a show</a>
+                                        <a href="#run" class="staffOnly">run show</a>
+                                    </tag-labelset>
+                                    <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                </tag-labels>
+                            </tag-tab>
+                            <tag-tab data-category="results">
+                                <tag-labels>
+                                    <button onclick="moveLeft(this)" type="button"><i class="fa-solid fa-angles-left"></i></button>
+                                    <tag-labelset id="clip-resultsTabs">
+                                        <a href="#yearend" class="is-active">year-end standings</a>
+                                    </tag-labelset>
+                                    <button onclick="moveRight(this)" type="button"><i class="fa-solid fa-angles-right"></i></button>
+                                </tag-labels>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tabs>
+                </div>
+                <div class="webpage--content">
+                    <tag-tabset>
+                        <tag-tab data-category="info">
+                            <div class="webpage--section">
+                                <tag-tabset>
+                                    <tag-tab data-key="#schedule" class="claims"></tag-tab>
+                                    <tag-tab data-key="#classlists"></tag-tab>
+                                </tag-tabset>
+                            </div>
+                        </tag-tab>
+                        <tag-tab data-category="upcoming">
+                            <div class="webpage--section">
+                                <tag-tabset>
+                                    <tag-tab data-key="#enter">
+                                        <div class="webpage--border">
+                                            <% f-enter %>
+                                        </div>
+                                    </tag-tab>
+                                    <tag-tab data-key="#run">
+                                        <div class="webpage--border">
+                                            <% f-run %>
+                                        </div>
+                                    </tag-tab>
+                                </tag-tabset>
+                            </div>
+                        </tag-tab>
+                        <tag-tab data-category="results">
+                            <div class="webpage--section">
+                                <tag-tabset id="clip-results">
+                                    <tag-tab data-key="#yearend">
+                                        <div class="webpage--border" id="clip-yearend">
+                            <% a-yearend %>
+                            </div>
+                                    </tag-tab>
+                                </tag-tabset>
+                            </div>
+                        </tag-tab>
+                    </tag-tabset>
+                </div>
+            </div>
+            <script src="../js/showFunctions.js"></script>
+            <script src="../js/formatShows.js"></script>
+            <script src="../js/showScripts.js"></script>
+            <script>
+            //fetch schedule
+            fetch("https://opensheet.elk.sh/1yV-kgpnrWzMF1f1GVXp9P4Fw1CorziU-hNHAvRSlfvM/ShowSchedule")
+            .then((response) => response.json())
+            .then((data) => {
+                if(data) {
+                    formatSchedule(data);
+                }
 
-    document.querySelector('.webpage--menu tag-tab[data-category="results"] tag-labelset').insertAdjacentHTML('beforeend', newLabels);
+                //fetch class list
+                fetch("https://opensheet.elk.sh/1yV-kgpnrWzMF1f1GVXp9P4Fw1CorziU-hNHAvRSlfvM/ClassList")
+                .then((response) => response.json())
+                .then((data) => {
+                if(data) {
+                        formatClasses(data);
+                }
 
-    document.querySelector('.webpage--content tag-tab[data-category="results"] tag-tabset').insertAdjacentHTML('beforeend', newTabs);
-}
-function formatYearEnd(data) {
-    let html = ``;
-    data.sort((a, b) => {
-        if (a.LevelID < b.LevelID) {
-            return -1;
-        } else if (a.LevelID > b.LevelID) {
-            return 1;
-        } else if (a.DisciplineID < b.DisciplineID) {
-            return -1;
-        } else if (a.DisciplineID > b.DisciplineID) {
-            return 1;
-        } else if (a.YearEndPoints > b.YearEndPoints) {
-            return -1;
-        } else if (a.YearEndPoints < b.YearEndPoints) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-    
-    for(let i = 0; i < data.length; i++) {
-        //first
-        if ( i === 0 ) {
-            html += newLevel(data[i].Level);
-            html += newDisciplineStart(data[i].Discipline);
-            html += horseRiderYearend(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse, data[i].YearEndPoints);
-        }
-        //new level
-        else if (data[i-1].LevelID !== data[i].LevelID) {
-            html += newDisciplineEnd();
-            html += newLevel(data[i].Level);
-            html += newDisciplineStart(data[i].Discipline);
-            html += horseRiderYearend(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse, data[i].YearEndPoints);
-        }
-        //new discipline
-        else if (data[i-1].LevelID === data[i].LevelID && data[i-1].DisciplineID !== data[i].DisciplineID) {
-            html += newDisciplineEnd();
-            html += newDisciplineStart(data[i].Discipline);
-            html += horseRiderYearend(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse, data[i].YearEndPoints);
-        }
-        //new horse rider pair
-        else if (data[i-1].LevelID === data[i].LevelID && data[i-1].DisciplineID === data[i].DisciplineID) {
-            html += horseRiderYearend(data[i].GroupID, data[i].AccountID, data[i].Rider, data[i].Horse, data[i].YearEndPoints);
-        }
-        //last
-        if ( i === data.length - 1) {
-            html += newDisciplineEnd();
-        }
-    }
+                    //fetch current entries
+                    fetch("https://opensheet.elk.sh/1yV-kgpnrWzMF1f1GVXp9P4Fw1CorziU-hNHAvRSlfvM/Entries")
+                    .then((response) => response.json())
+                    .then((data) => {
+                    if(data) {
+                            formatEntries(data);
+                    }
 
-    document.querySelector('#clip-yearend').insertAdjacentHTML('beforeend', html);
-}
+                        //fetch current results
+                        fetch("https://opensheet.elk.sh/1yV-kgpnrWzMF1f1GVXp9P4Fw1CorziU-hNHAvRSlfvM/CurrentResults")
+                        .then((response) => response.json())
+                        .then((data) => {
+                    if(data) {
+                                formatResults(data);
+                    }
+
+                            //fetch year end results
+                            fetch("https://opensheet.elk.sh/1yV-kgpnrWzMF1f1GVXp9P4Fw1CorziU-hNHAvRSlfvM/YearEndResults")
+                            .then((response) => response.json())
+                            .then((data) => {
+                        if(data) {
+                                    formatYearEnd(data);
+                        }
+                            })
+                            .then(() => {
+                                webpageFunctions();
+                            });
+                        });
+                    });
+                });
+            });
+            </script>
+        </main>
+
+        <!-- Copyright Information -->
+        <div class="tableborder" align="center">
+            <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                <div class="copyright" align="center">
+                    Powered by 
+                    <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                    (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                    <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                    ) © 2020 &nbsp;
+                    <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                    <br>
+                    Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                    <a href="index.php?act=Mobile">Mobile Version</a> · 
+                    <a href="index.php?act=privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div> 
+
+        <!--Scripts-->
+        <script src="templates/import-templates.js"></script>
+        <script src="../js/functions.js"></script>
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>
