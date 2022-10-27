@@ -1,6 +1,41 @@
 /*******************************
     Templates
 ********************************/
+tag-tw {
+    width: 100%;
+    max-width: 300px;
+    background: var(--bg-accent);
+    display: grid;
+    font-size: var(--xsBody);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: calc(100% - 22px);
+        height: calc(100% - 22px);
+        border: 1px solid var(--text-on-accent);
+    }
+
+    b {
+        color: var(--text-on-accent) !important;
+        text-align: center;
+        padding: 10px;
+        border-bottom: 1px solid var(--text-on-accent);
+    }
+
+    span {
+        padding: 10px;
+        background: var(--bg-content);
+        margin: 5px;
+    }
+}
 .members,
 .modal,
 .webpage,
@@ -1636,11 +1671,51 @@
 
 }
 
+//profile fixes with white-space: pre-line;
+.profile {
+    tag {
+        &-xl,
+        &-lg,
+        &-md,
+        &-sm,
+        &-xs {
+            &:not(:first-child) {
+                margin-top: 0;
+            }
+        }
+        &-tab {
+            br {
+                display: none;
+            }
+        }
+    }
+}
+
+//remove white-space: pre-line from webpages so i don't have to redo them all
+.webpage tag-tab {
+    white-space: normal !important;
+}
+
 [data-scroll="true"],
 [data-scroll="TRUE"],
 [data-scroll="True"] {
     .scroll {
         max-height: 225px;
+        padding: 0 15px 0 0 !important;
+        margin: 15px;
+        height: auto;
+
+        & ~ br {
+            display: none;
+        }
+    }
+}
+
+[data-scroll="short"],
+[data-scroll="SHORT"],
+[data-scroll="Short"] {
+    .scroll {
+        max-height: 125px;
         padding: 0 15px 0 0 !important;
         margin: 15px;
         height: auto;

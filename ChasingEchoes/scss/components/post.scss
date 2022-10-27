@@ -169,6 +169,20 @@
         }
     }
 
+    &--info {
+        border: 1px solid var(--border-main);
+        border-top: 0;
+        padding: 10px 13px;
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: var(--font-accent);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: space-between;
+    }
+
     &--buttons {
         position: absolute;
         top: -13px;
@@ -325,6 +339,8 @@
         width: 100%;
 
         .post--sticky {
+            top: 0;
+
             @media only screen and (min-width: $md) {
                 position: sticky;
             }
@@ -336,8 +352,6 @@
         height: 175px;
         border-radius: 5px;
         overflow: hidden;
-        height: 0;
-        padding-top: 55%;
 
         picture {
             position: absolute;

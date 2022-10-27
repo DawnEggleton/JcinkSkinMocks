@@ -455,6 +455,7 @@
         background: var(--bg-accent);
         color: var(--text-on-accent);
         padding: 15px;
+        white-space: normal;
 
         &-grid {
             display: grid;

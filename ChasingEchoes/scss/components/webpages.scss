@@ -308,7 +308,7 @@
     &--horse {
         display: grid;
         grid-template-columns: 100px auto;
-        grid-template-rows: auto max-content;
+        grid-template-rows: minmax(0, 100%) max-content;
         align-items: center;
 
         .webpage & {

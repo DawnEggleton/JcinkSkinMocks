@@ -24,7 +24,7 @@
     --offblack: rgba(77,77,77,1);
     --offblack-55: rgba(77,77,77,0.55);
 
-    --accent-light: rgba(179,185,158,1);
+    --accent-light: rgb(193, 200, 166);
     --accent-mid: rgb(152, 159, 125, 1);
     --accent-dark: rgba(135,140,116,1);
     --accent-35: rgba(152,159,125,0.35);
@@ -189,7 +189,7 @@
         --bg-opaque-accent: var(--accent-35);
         --bg-opaque-accent2: var(--accent-50);
         --bg-accent: var(--accent-mid);
-        --text-header-accent: var(--accent-mid);
+        --text-header-accent: var(--accent-light);
         --text-content-accent: var(--accent-light);
     }
 }
@@ -252,9 +252,9 @@
     [data-group="INTERNATIONAL"] {
         --bg-opaque-accent: var(--accent-35);
         --bg-opaque-accent2: var(--accent-50);
-        --bg-accent: var(--accent-mid);
-        --text-header-accent: var(--accent-mid);
-        --text-content-accent: var(--accent-mid);
+        --bg-accent: var(--accent-light);
+        --text-header-accent: var(--accent-light);
+        --text-content-accent: var(--accent-light);
     }
 }
 
@@ -271,8 +271,9 @@
 }
 //guests, unsorted, writers - green
 .g-2,
-.g-3 {
-    --accent-light: rgb(158, 185, 172);
+.g-3,
+.g-6 {
+    --accent-light: rgb(193, 200, 166);
     --accent-mid: rgb(152, 159, 125);
     --accent-dark: rgba(135,140,116, 1);
     --accent-35: rgba(152,159,125, 0.35);
@@ -302,33 +303,33 @@
 [data-group="national"],
 [data-group="National"],
 [data-group="NATIONAL"] {
-    --accent-light: rgb(173, 158, 185);
-    --accent-mid: rgba(136, 125, 159, 1);
+    --accent-light: rgb(196, 178, 210);
+    --accent-mid: rgb(134, 123, 155);
     --accent-dark: rgba(122, 116, 140, 1);
-    --accent-35: rgba(136, 125, 159, 0.35);
-    --accent-50: rgba(136, 125, 159, 0.5);
+    --accent-35: rgba(134, 123, 155, 0.35);
+    --accent-50: rgba(134, 123, 155, 0.5);
 }
 //provincial - mauve
 .g-11,
 [data-group="provincial"],
 [data-group="Provincial"],
 [data-group="PROVINCIAL"] {
-    --accent-light: rgb(185, 158, 166);
-    --accent-mid: rgba(159, 125, 146, 1);
+    --accent-light: rgb(204, 177, 185);
+    --accent-mid: rgb(174, 140, 161);
     --accent-dark: rgba(140, 116, 132, 1);
-    --accent-35: rgba(159, 125, 146, 0.35);
-    --accent-50: rgba(159, 125, 146, 0.5);
+    --accent-35: rgba(174, 140, 161, 0.35);
+    --accent-50: rgba(174, 140, 161, 0.5);
 }
 //schooling - blue
 .g-12,
 [data-group="schooling"],
 [data-group="Schooling"],
 [data-group="SCHOOLING"] {
-    --accent-light: rgb(158, 172, 185);
-    --accent-mid: rgba(125, 148, 159, 1);
+    --accent-light: rgb(160, 182, 202);
+    --accent-mid: rgb(141, 165, 176);
     --accent-dark: rgba(116, 133, 140, 1);
-    --accent-35: rgba(125, 148, 159, 0.35);
-    --accent-50: rgba(125, 148, 159, 0.5);
+    --accent-35: rgba(141, 165, 176, 0.35);
+    --accent-50: rgba(141, 165, 176, 0.5);
 }
 //industry - teal
 .g-13,
@@ -346,7 +347,7 @@
 [data-group="local"],
 [data-group="Local"],
 [data-group="LOCAL"] {
-    --accent-light: rgb(181, 157, 154);
+    --accent-light: rgb(200, 174, 171);
     --accent-mid: rgba(162, 129, 119, 1);
     --accent-dark: rgba(136, 115, 110, 1);
     --accent-35: rgba(162, 129, 119, 0.35);

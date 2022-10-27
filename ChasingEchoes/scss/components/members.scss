@@ -205,38 +205,38 @@
         border: 1px solid var(--border-main);
         display: grid;
         grid-gap: 15px;
-        height: 630px;
+        height: calc(630px + (var(--sizeBoost) * 23));
         
         @media only screen and (min-width: $xs) {
             grid-template-columns: auto 100px;
-            height: 473px;
+            height: calc(473px + (var(--sizeBoost) * 23));
         }
 
         @media only screen and (min-width: $md) {
             grid-template-columns: 1fr;
-            height: 636px;
+            height: calc(636px + (var(--sizeBoost) * 23));
         }
 
         @media only screen and (min-width: $lg) {
             grid-template-columns: auto 100px;
-            height: 473px;
+            height: calc(473px + (var(--sizeBoost) * 23));
         }
 
         .writer & {
             grid-template-columns: 1fr;
             grid-template-rows: max-content auto;
-            height: 465px;
+            height: calc(630px + (var(--sizeBoost) * 23));;
         
             @media only screen and (min-width: $xs) {
-                height: 473px;
+                height: calc(473px + (var(--sizeBoost) * 23));
             }
     
             @media only screen and (min-width: $md) {
-                height: 636px;
+                height: calc(636px + (var(--sizeBoost) * 23));
             }
     
             @media only screen and (min-width: $lg) {
-                height: 473px;
+                height: calc(473px + (var(--sizeBoost) * 23));
             }
         }
     }

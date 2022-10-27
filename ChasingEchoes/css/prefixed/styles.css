@@ -21,7 +21,7 @@
   --dkgrey: rgba(100,100,100,1);
   --offblack: rgba(77,77,77,1);
   --offblack-55: rgba(77,77,77,0.55);
-  --accent-light: rgba(179,185,158,1);
+  --accent-light: rgb(193, 200, 166);
   --accent-mid: rgb(152, 159, 125, 1);
   --accent-dark: rgba(135,140,116,1);
   --accent-35: rgba(152,159,125,0.35);
@@ -156,7 +156,7 @@
   --bg-opaque-accent: var(--accent-35);
   --bg-opaque-accent2: var(--accent-50);
   --bg-accent: var(--accent-mid);
-  --text-header-accent: var(--accent-mid);
+  --text-header-accent: var(--accent-light);
   --text-content-accent: var(--accent-light);
 }
 
@@ -204,9 +204,9 @@
 .dark [data-group=INTERNATIONAL] {
   --bg-opaque-accent: var(--accent-35);
   --bg-opaque-accent2: var(--accent-50);
-  --bg-accent: var(--accent-mid);
-  --text-header-accent: var(--accent-mid);
-  --text-content-accent: var(--accent-mid);
+  --bg-accent: var(--accent-light);
+  --text-header-accent: var(--accent-light);
+  --text-content-accent: var(--accent-light);
 }
 
 .g-1,
@@ -221,8 +221,9 @@
 }
 
 .g-2,
-.g-3 {
-  --accent-light: rgb(158, 185, 172);
+.g-3,
+.g-6 {
+  --accent-light: rgb(193, 200, 166);
   --accent-mid: rgb(152, 159, 125);
   --accent-dark: rgba(135,140,116, 1);
   --accent-35: rgba(152,159,125, 0.35);
@@ -252,33 +253,33 @@
 [data-group=national],
 [data-group=National],
 [data-group=NATIONAL] {
-  --accent-light: rgb(173, 158, 185);
-  --accent-mid: rgba(136, 125, 159, 1);
+  --accent-light: rgb(196, 178, 210);
+  --accent-mid: rgb(134, 123, 155);
   --accent-dark: rgba(122, 116, 140, 1);
-  --accent-35: rgba(136, 125, 159, 0.35);
-  --accent-50: rgba(136, 125, 159, 0.5);
+  --accent-35: rgba(134, 123, 155, 0.35);
+  --accent-50: rgba(134, 123, 155, 0.5);
 }
 
 .g-11,
 [data-group=provincial],
 [data-group=Provincial],
 [data-group=PROVINCIAL] {
-  --accent-light: rgb(185, 158, 166);
-  --accent-mid: rgba(159, 125, 146, 1);
+  --accent-light: rgb(204, 177, 185);
+  --accent-mid: rgb(174, 140, 161);
   --accent-dark: rgba(140, 116, 132, 1);
-  --accent-35: rgba(159, 125, 146, 0.35);
-  --accent-50: rgba(159, 125, 146, 0.5);
+  --accent-35: rgba(174, 140, 161, 0.35);
+  --accent-50: rgba(174, 140, 161, 0.5);
 }
 
 .g-12,
 [data-group=schooling],
 [data-group=Schooling],
 [data-group=SCHOOLING] {
-  --accent-light: rgb(158, 172, 185);
-  --accent-mid: rgba(125, 148, 159, 1);
+  --accent-light: rgb(160, 182, 202);
+  --accent-mid: rgb(141, 165, 176);
   --accent-dark: rgba(116, 133, 140, 1);
-  --accent-35: rgba(125, 148, 159, 0.35);
-  --accent-50: rgba(125, 148, 159, 0.5);
+  --accent-35: rgba(141, 165, 176, 0.35);
+  --accent-50: rgba(141, 165, 176, 0.5);
 }
 
 .g-13,
@@ -296,7 +297,7 @@
 [data-group=local],
 [data-group=Local],
 [data-group=LOCAL] {
-  --accent-light: rgb(181, 157, 154);
+  --accent-light: rgb(200, 174, 171);
   --accent-mid: rgba(162, 129, 119, 1);
   --accent-dark: rgba(136, 115, 110, 1);
   --accent-35: rgba(162, 129, 119, 0.35);
@@ -2486,6 +2487,19 @@ body:not(#idx) header.splide {
   background: var(--bg-accent);
   color: var(--text-on-accent);
 }
+.post--info {
+  border: 1px solid var(--border-main);
+  border-top: 0;
+  padding: 10px 13px;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--font-accent);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
 .post--buttons {
   position: absolute;
   top: -13px;
@@ -3318,6 +3332,7 @@ body:not(#idx) header.splide {
   background: var(--bg-accent);
   color: var(--text-on-accent);
   padding: 15px;
+  white-space: normal;
 }
 .profile--thread-grid {
   display: grid;
@@ -3584,44 +3599,44 @@ body:not(#idx) header.splide {
   border: 1px solid var(--border-main);
   display: grid;
   grid-gap: 15px;
-  height: 630px;
+  height: calc(630px + (var(--sizeBoost) * 23));
 }
 @media only screen and (min-width: 480px) {
   .member--border {
     grid-template-columns: auto 100px;
-    height: 473px;
+    height: calc(473px + (var(--sizeBoost) * 23));
   }
 }
 @media only screen and (min-width: 768px) {
   .member--border {
     grid-template-columns: 1fr;
-    height: 636px;
+    height: calc(636px + (var(--sizeBoost) * 23));
   }
 }
 @media only screen and (min-width: 1024px) {
   .member--border {
     grid-template-columns: auto 100px;
-    height: 473px;
+    height: calc(473px + (var(--sizeBoost) * 23));
   }
 }
 .writer .member--border {
   grid-template-columns: 1fr;
   grid-template-rows: max-content auto;
-  height: 465px;
+  height: calc(630px + (var(--sizeBoost) * 23));
 }
 @media only screen and (min-width: 480px) {
   .writer .member--border {
-    height: 473px;
+    height: calc(473px + (var(--sizeBoost) * 23));
   }
 }
 @media only screen and (min-width: 768px) {
   .writer .member--border {
-    height: 636px;
+    height: calc(636px + (var(--sizeBoost) * 23));
   }
 }
 @media only screen and (min-width: 1024px) {
   .writer .member--border {
-    height: 473px;
+    height: calc(473px + (var(--sizeBoost) * 23));
   }
 }
 .member--top a.name {
@@ -4093,7 +4108,7 @@ body:not(#idx) header.splide {
 .claims--horse {
   display: grid;
   grid-template-columns: 100px auto;
-  grid-template-rows: auto max-content;
+  grid-template-rows: minmax(0, 100%) max-content;
   align-items: center;
 }
 .webpage .claims--horse {
@@ -4518,6 +4533,39 @@ body:not(#Pages) .claims--horse:not(.g-9):not(.g-10):not(.g-11):not(.g-12):not(.
 /*******************************
     Templates
 ********************************/
+tag-tw {
+  width: 100%;
+  max-width: 300px;
+  background: var(--bg-accent);
+  display: grid;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+}
+tag-tw::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: calc(100% - 22px);
+  height: calc(100% - 22px);
+  border: 1px solid var(--text-on-accent);
+}
+tag-tw b {
+  color: var(--text-on-accent) !important;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--text-on-accent);
+}
+tag-tw span {
+  padding: 10px;
+  background: var(--bg-content);
+  margin: 5px;
+}
+
 .members tag,
 .modal tag,
 .webpage tag,
@@ -12814,6 +12862,17 @@ form label .webpage--content tag-tab tag-md {
   scrollbar-color: var(--accent) transparent !important;
 }
 
+.profile tag-xl:not(:first-child), .profile tag-lg:not(:first-child), .profile tag-md:not(:first-child), .profile tag-sm:not(:first-child), .profile tag-xs:not(:first-child) {
+  margin-top: 0;
+}
+.profile tag-tab br {
+  display: none;
+}
+
+.webpage tag-tab {
+  white-space: normal !important;
+}
+
 [data-scroll=true] .scroll,
 [data-scroll=TRUE] .scroll,
 [data-scroll=True] .scroll {
@@ -12825,6 +12884,20 @@ form label .webpage--content tag-tab tag-md {
 [data-scroll=true] .scroll ~ br,
 [data-scroll=TRUE] .scroll ~ br,
 [data-scroll=True] .scroll ~ br {
+  display: none;
+}
+
+[data-scroll=short] .scroll,
+[data-scroll=SHORT] .scroll,
+[data-scroll=Short] .scroll {
+  max-height: 125px;
+  padding: 0 15px 0 0 !important;
+  margin: 15px;
+  height: auto;
+}
+[data-scroll=short] .scroll ~ br,
+[data-scroll=SHORT] .scroll ~ br,
+[data-scroll=Short] .scroll ~ br {
   display: none;
 }
 
@@ -14846,13 +14919,13 @@ fieldset legend {
   text-align: justify;
 }
 
-#Reg main > .tableborder:nth-child(4) {
+#Reg main > #notes + .tableborder {
   background: var(--bg-content);
   padding: 30px;
   max-width: 1100px;
   margin: 90px auto 0;
 }
-#Reg main > .tableborder:nth-child(4) .maintitle {
+#Reg main > #notes + .tableborder .maintitle {
   display: grid;
   grid-template-columns: minmax(20px, 1fr) minmax(0, max-content) minmax(20px, 1fr);
   align-items: center;
@@ -14864,41 +14937,41 @@ fieldset legend {
   font-size: var(--xlBody);
   margin-bottom: 20px;
 }
-#Reg main > .tableborder:nth-child(4) .maintitle::before, #Reg main > .tableborder:nth-child(4) .maintitle::after {
+#Reg main > #notes + .tableborder .maintitle::before, #Reg main > #notes + .tableborder .maintitle::after {
   content: "";
   width: 100%;
   height: 1px;
   background: var(--border-main);
 }
-#Reg main > .tableborder:nth-child(4) .pformstrip {
+#Reg main > #notes + .tableborder .pformstrip {
   display: none;
 }
-#Reg main > .tableborder:nth-child(4) .tablepad {
+#Reg main > #notes + .tableborder .tablepad {
   line-height: 200%;
   text-align: justify;
   margin-bottom: 30px;
 }
-#Reg main > .tableborder:nth-child(4) .tablepad b,
-#Reg main > .tableborder:nth-child(4) .tablepad br {
+#Reg main > #notes + .tableborder .tablepad b,
+#Reg main > #notes + .tableborder .tablepad br {
   display: none;
 }
-#Reg main > .tableborder:nth-child(4) .row2 > label > form {
+#Reg main > #notes + .tableborder .row2 > label > form {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
-#Reg main > .tableborder:nth-child(4) .row2 > label > form .tosWrap {
+#Reg main > #notes + .tableborder .row2 > label > form .tosWrap {
   cursor: pointer;
 }
-#Reg main > .tableborder:nth-child(4) .row2 > label > form .tosWrap input {
+#Reg main > #notes + .tableborder .row2 > label > form .tosWrap input {
   display: none;
 }
-#Reg main > .tableborder:nth-child(4) .row2 > label > form .tosWrap input + b {
+#Reg main > #notes + .tableborder .row2 > label > form .tosWrap input + b {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-#Reg main > .tableborder:nth-child(4) .row2 > label > form .tosWrap input + b::before {
+#Reg main > #notes + .tableborder .row2 > label > form .tosWrap input + b::before {
   font-family: "Font Awesome 6 Pro";
   font-weight: 500;
   font-size: 8px;
@@ -14912,11 +14985,11 @@ fieldset legend {
   justify-content: center;
   color: transparent;
 }
-#Reg main > .tableborder:nth-child(4) .row2 > label > form .tosWrap input:checked + b::before {
+#Reg main > #notes + .tableborder .row2 > label > form .tosWrap input:checked + b::before {
   background: var(--bg-accent);
   color: var(--text-on-accent);
 }
-#Reg main > .tableborder:nth-child(4) .row2 input[type=submit] {
+#Reg main > #notes + .tableborder .row2 input[type=submit] {
   background: var(--bg-accent);
   color: var(--text-on-accent);
   text-transform: uppercase;

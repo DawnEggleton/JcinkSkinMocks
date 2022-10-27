@@ -2357,7 +2357,7 @@ fieldset {
 
 #Reg {
     main {
-        & > .tableborder:nth-child(4) {
+        & > #notes + .tableborder {
             background: var(--bg-content);
             padding: 30px;
             max-width: 1100px;
