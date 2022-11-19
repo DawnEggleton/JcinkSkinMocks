@@ -14,9 +14,17 @@ function setGroup(id) {
             let canon = document.querySelector('#sort-canon');
             setShowHide(canon.options[canon.selectedIndex].value, '.ifReturn');
             break;
-        default:
+            case '18':
+            case '15':
+            case '8':
+            case '12':
+            case '11':
+            case '13':
+            case '6':
             form.querySelectorAll('.ifStudent, .ifCore, .ifStart, .ifElec, .ifUpper, .ifLeadershipPossible, .ifQuidditch, .ifLeadership').forEach(field => field.classList.add('hide'));
             form.querySelectorAll('.ifAdult').forEach(field => field.classList.remove('hide'));
+            break;
+        default:
             break;
     }
 }
