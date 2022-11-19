@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TOTL 2022</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Styles-->
+        <link rel="stylesheet" href="../css/styles.css" />
+
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.typekit.net/bvh4fkz.css">
+
+
+        <!--Icons-->
+        <link href="https://dawneggleton.github.io/JcinkSkinMocks/FA6/css/all.min.css" rel="stylesheet" />
+        <link href="https://files.jcink.net/uploads/totl/saturnicons.css" rel="stylesheet" />
+        <link href="https://files.jcink.net/uploads/totl/honeybee.css" rel="stylesheet" />
+        <link href="https://files.jcink.net/uploads/totl/cappucicons.css" rel="stylesheet" />
+
+        <!--Script Libraries-->
+        <script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+        <script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+        <script src="../../js/clipboard.js"></script>
+        <script src="../js/functions.js"></script>
+
+        <!--Settings-->
+        <script type='text/javascript' src='../js/settings.js'></script>
+        <link rel="stylesheet" href="../css/settings.css" />
+    </head>
+    <body id="Pages" class="dark g-4">
+        <!--Header-->
+        <header></header>
+
+        <!--Navigation-->
+        <nav>
+            <div class="main-nav"></div>
+    
+            <div class="alt-nav notMobile"><div class="nav--controls"></div></div>
+    
+            <div class="breadcrumb-nav">
+                <div id="navstrip" align="left">
+                    <a href="index.html">My Community</a>
+                    <i class="fa-light fa-ellipsis-h"></i>
+                    The TOTL Handbook
+                </div>
+            </div>
+        </nav>
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+            <div id="loading">
+                <i class="fa-regular fa-wand-sparkles"></i>
+                <p>Accio!</p>
+            </div>
+            
+            <!--Webpage-->
+            <div class="webpage">
+                <div class="webpage--header header">
+                    <div class="header--deco">
+                        <div class="header--deco-accent left"></div>
+                        <div class="header--deco-accent right"></div>
+                        <h1>Guidebook</h1>
+                    </div>
+                </div>
+                <div class="webpage--wrapper">
+                    <div class="webpage--main-menu">
+                        <div class="webpage--sticky">
+                            <button class="go-left" onclick="moveLeft(this,'.webpage--main-menu-links')">
+                                <i class="fa-light fa-angles-left"></i>
+                            </button>
+                            <div class="webpage--main-menu-links">
+                                <a data-group="basics"><span>New Forms</span></a>
+                                <a data-group="claims"><span>Claims</span></a>
+                                <a data-group="jobs"><span>Jobs</span></a>
+                                <a data-group="students"><span>Students</span></a>
+                            </div>
+                            <button class="go-right" onclick="moveRight(this,'.webpage--main-menu-links')">
+                                <i class="fa-light fa-angles-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="webpage--content">
+                        <!--New Forms-->
+                        <section class="webpage--section">
+                            <div class="webpage--menu-sticky">
+                                <div class="webpage--sub-menu">
+                                    <button class="go-left" onclick="moveLeft(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-left"></i>
+                                    </button>
+                                    <div class="webpage--sub-menu-links">
+                                        <a href="#rules" data-category="basics">Claim</a>
+                                        <a href="#plot" data-category="basics">Edit</a>
+                                        <a href="#groups" data-category="basics">Transfer</a>
+                                    </div>
+                                    <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="webpage--tab" data-tab="#rules">
+                                
+                                <form id="newsort" class="grid twoCol">
+                                    <h3 class="fullWidth"><hr>Required<hr></h3>
+                                    <label>
+                                        <strong>Alias</strong>
+                                        <input type="text"
+                                            name="sort-alias"
+                                            id="sort-alias"
+                                            placeholder="Alias"
+                                            required>
+                                    </label>
+                                    <label>
+                                        <strong>Character Name</strong>
+                                        <input type="text"
+                                            name="sort-character"
+                                            id="sort-character"
+                                            placeholder="Character Name"
+                                            required>
+                                    </label>
+                                    <label>
+                                        <strong>
+                                            Account ID
+                                            <button onclick="openHelp(this)" type="button">
+                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </strong>
+                                        <i class="help">Can be found by getting the numbers at the end of the URL of your main profile.</i>
+                                        <input type="text"
+                                            name="sort-id"
+                                            id="sort-id"
+                                            placeholder="Account ID"
+                                            required>
+                                    </label>
+                                    <label>
+                                        <strong>Group</strong>
+                                        <select name="sort-group"
+                                            id="sort-group"
+                                            required>
+                                            <option value="">(select)</option>
+                                            <optgroup label="Students">
+                                                <option value="7">Gryffindor</option>
+                                                <option value="9">Hufflepuff</option>
+                                                <option value="14">Ravenclaw</option>
+                                                <option value="16">Slytherin</option>
+                                            </optgroup>
+                                            <optgroup label="Adults">
+                                                <option value="18">Entertainment</option>
+                                                <option value="15">Healers</option>
+                                                <option value="8">Hogwarts Staff</option>
+                                                <option value="12">Ministry</option>
+                                                <option value="11">Press</option>
+                                                <option value="13">Quidditch</option>
+                                                <option value="17">Returners</option>
+                                                <option value="6">Adults</option>
+                                            </optgroup>
+                                        </select>
+                                    </label>
+
+                                    <label class="fullWidth">
+                                        <strong>Face Claim</strong>
+                                        <input type="text"
+                                            name="sort-face"
+                                            id="sort-face"
+                                            placeholder="Face Claim"
+                                            required>
+                                    </label>
+
+                                    <label>
+                                        <strong>Ability or Species?</strong>
+                                        <select name="sort-abspexists"
+                                            id="sort-abspexists"
+                                            required>
+                                            <option value="">(select)</option>
+                                            <option value="y">yes</option>
+                                            <option value="n">no</option>
+                                        </select>
+                                    </label>
+
+                                    <label>
+                                        <strong>Canon?</strong>
+                                        <select name="sort-canon" id="sort-canon">
+                                            <option value="">(select)</option>
+                                            <option value="y">yes</option>
+                                            <option value="n">no</option>
+                                        </select>
+                                    </label>
+
+                                    <!--Abilities and Species-->
+                                    <h3 class="fullWidth hide ifAbSp"><hr>Abilities & Species<hr></h3>
+                                    <div class="form-item hide ifAbSp fullWidth">
+                                        <strong>
+                                            Abilities & Species Selections
+                                            <button onclick="openHelp(this)" type="button">
+                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </strong>
+                                        <i class="help">Check all that apply. If using the 'other' field, please make sure to separate entries by a comma with a space after (e.g., ability 1, ability 2, ability 3, species). If a character is a mixture of species beyond 1 non-human and human (e.g., a veela and vampire hybrid), please use the Other field instead of the checkboxes for respective species and place their blood percentage for each in brackets. E.g., Veela (quarter), Vampire (half). Wandless and non-verbal magic do not need to be claimed.</i>
+                                        <div class="form-flex">
+                                            <label>
+                                                <input type="checkbox" name="sort-absp" id="sort-animagus" value="animagus">
+                                                <strong class="checkbox">Animagus</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="sort-absp" id="sort-metamorphmagus" value="metamorphmagus">
+                                                <strong class="checkbox">Metamorphmagus</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="sort-absp" id="sort-legilimens" value="legilimens">
+                                                <strong class="checkbox">Legilimens</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="sort-absp" id="sort-occlumens" value="occlumens">
+                                                <strong class="checkbox">Occlumens</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="sort-absp" id="sort-seer" value="seer">
+                                                <strong class="checkbox">Seer</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="sort-absp" id="sort-squib" value="squib">
+                                                <strong class="checkbox">Squib</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="sort-absp" id="sort-vamp" value="vamp">
+                                                <strong class="checkbox">Vampire</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="sort-absp" id="sort-veela" value="veela">
+                                                <strong class="checkbox">Veela</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="sort-absp" id="sort-were" value="were">
+                                                <strong class="checkbox">Werecreature</strong>
+                                            </label>
+                                        </div>
+                                        <div class="grid twoCol">
+                                            <label>
+                                                <strong>Other Abilities & Species</strong>
+                                                <input type="text"
+                                                    name="sort-otherabsp"
+                                                    id="sort-otherabsp"
+                                                    placeholder="Other Abilities and Species, comma separated">
+                                            </label>
+                                            <label class="hide ifAnimagus">
+                                                <strong>Animagus Form</strong>
+                                                <input type="text"
+                                                    name="sort-animagusform"
+                                                    id="sort-animagusform"
+                                                    placeholder="Animagus Form">
+                                            </label>
+                                            <label class="hide ifWere">
+                                                <strong>Were Type</strong>
+                                                <input type="text"
+                                                    name="sort-weretype"
+                                                    id="sort-weretype"
+                                                    placeholder="Werecreature Type">
+                                            </label>
+                                            <label class="hide ifPercent fullWidth">
+                                                <strong>Species Percentage</strong>
+                                                <select name="sort-speciesamount" id="sort-speciesamount">
+                                                    <option value="">(select)</option>
+                                                    <option value="full">Full</option>
+                                                    <option value="half">Half</option>
+                                                    <option value="quarter">Quarter</option>
+                                                    <option value="eighth">Eighth</option>
+                                                    <option value="minimal">Minimal</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <!--Adults-->
+                                    <h3 class="fullWidth hide ifAdult"><hr>Adults<hr></h3>
+                                    <label class="hide ifAdult">
+                                        <strong>Employed?</strong>
+                                        <select name="sort-employed" id="sort-employed">
+                                            <option value="">(select)</option>
+                                            <option value="y">yes</option>
+                                            <option value="n">no</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifAdult">
+                                        <strong>University Student?</strong>
+                                        <select name="sort-unistudent" id="sort-unistudent">
+                                            <option value="">(select)</option>
+                                            <option value="y">yes</option>
+                                            <option value="n">no</option>
+                                        </select>
+                                    </label>
+
+                                    <!--Employed-->
+                                    <h3 class="fullWidth hide ifJob"><hr>Employed<hr></h3>
+                                    <label class="hide ifJob">
+                                        <strong>Number of Jobs</strong>
+                                        <input type="number"
+                                            name="sort-jobcount"
+                                            id="sort-jobcount"
+                                            value="1">
+                                    </label>
+                                    <div class="hide fullWidth grid twoCol ifJob form--jobs-clip form--sort" style="grid-gap: 20px;"></div>
+
+                                    <!--University-->
+                                    <h3 class="fullWidth hide ifUni"><hr>University<hr></h3>
+                                    <label class="hide ifUni">
+                                        <strong>University/College</strong>
+                                        <input type="text"
+                                            name="sort-uniname"
+                                            id="sort-uniname"
+                                            placeholder="University/College">
+                                    </label>
+                                    <label class="hide ifUni">
+                                        <strong>Program</strong>
+                                        <input type="text"
+                                            name="sort-uniprogram"
+                                            id="sort-uniprogram"
+                                            placeholder="Program">
+                                    </label>
+                                    <label class="hide ifUni">
+                                        <strong>Year</strong>
+                                        <select name="sort-uniyear" id="sort-uniyear">
+                                            <option value="">(select)</option>
+                                            <option value="1">First Year</option>
+                                            <option value="2">Second Year</option>
+                                            <option value="3">Third Year</option>
+                                            <option value="4">Fourth Year</option>
+                                            <option value="post">Post-Grad</option>
+                                        </select>
+                                    </label>
+
+                                    <!--Students-->
+                                    <h3 class="fullWidth hide ifStudent"><hr>Hogwarts Students<hr></h3>
+                                    <label class="hide ifStudent">
+                                        <strong>Year</strong>
+                                        <select name="sort-hwyear" id="sort-hwyear">
+                                            <option value="">(select)</option>
+                                            <option value="1">First Year</option>
+                                            <option value="2">Second Year</option>
+                                            <option value="3">Third Year</option>
+                                            <option value="4">Fourth Year</option>
+                                            <option value="5">Fifth Year</option>
+                                            <option value="6">Sixth Year</option>
+                                            <option value="7">Seventh Year</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifStudent">
+                                        <strong>
+                                            Preferred Dorm Arrangement
+                                            <button onclick="openHelp(this)" type="button">
+                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </strong>
+                                        <i class="help">If there is a specific room or dormmate you would like, please let us know. Otherwise, we will randomly assign characters to rooms. This occurs manually upon character sorting and so will NOT appear within 30-60s on the claims after submission.</i>
+                                        <input type="text"
+                                            name="sort-hwdorm"
+                                            id="sort-hwdorm"
+                                            placeholder="Dorm preference">
+                                    </label>
+                                    <label class="hide ifStudent">
+                                        <strong>Quidditch?</strong>
+                                        <select name="sort-hwquidditch" id="sort-hwquidditch">
+                                            <option value="">(select)</option>
+                                            <option value="y">yes</option>
+                                            <option value="n">no</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifLeadershipPossible">
+                                        <strong>Leadership?</strong>
+                                        <select name="sort-hwlead" id="sort-hwlead">
+                                            <option value="">(select)</option>
+                                            <option value="y">yes</option>
+                                            <option value="n">no</option>
+                                        </select>
+                                    </label>
+                                    <label class="hide ifHogwartsQuidditch">
+                                        <strong>Quidditch Position</strong>
+                                        <input type="text"
+                                            name="sort-hwquidditchposition"
+                                            id="sort-hwquidditchposition"
+                                            placeholder="Quidditch Position">
+                                    </label>
+                                    <label class="hide ifLeadership">
+                                        <strong>Leadership Position</strong>
+                                        <select name="sort-hwleadposition" id="sort-hwleadposition">
+                                            <option value="">(select)</option>
+                                            <option value="prefect">Prefect</option>
+                                            <option value="head">Head Boy/Girl</option>
+                                        </select>
+                                    </label>
+
+                                    <!--Required Classes-->
+                                    <div class="hide fullWidth grid twoCol ifStudent form--reqclass-clip form--sort" style="grid-gap: 20px;"></div>
+
+                                    <h3 class="fullWidth hide ifElec"><hr>Electives<hr></h3>
+                                    <i class="hide ifElec fullWidth">Minimum of 2 electives for years 3 to 5. Minimum of 4 electives for years 6 and 7.</i>
+                                    <div class="hide fullWidth grid twoCol ifStudent form--elecclass-clip form--sort" style="grid-gap: 20px;"></div>
+
+                                    <!--Canon-->
+                                    <h3 class="fullWidth hide ifCanon"><hr>Canon<hr></h3>
+                                    <label class="hide ifCanon">
+                                        <strong>Birth Year</strong>
+                                        <input type="text" name="entry.1227238528" id="sort-birth" placeholder="Birth year">
+                                    </label>
+                                    <label class="hide ifReturn">
+                                        <strong>Death Year</strong>
+                                        <input type="text" name="entry.1227238528" id="sort-death" placeholder="Death Year">
+                                    </label>
+                                    <label class="hide ifReturn">
+                                        <strong>Return Year</strong>
+                                        <input type="text" name="entry.1227238528" id="sort-return" placeholder="Return Year">
+                                    </label>
+                                    <label class="hide ifCanon fullWidth">
+                                        <strong>Relation to Canon</strong>
+                                        <textarea name="entry.1227238528" id="sort-canonRelation" placeholder="Relation to Canon"></textarea>
+                                    </label>
+                                    
+                                    <div id="warning" class="form-warning"></div>
+                                    <div class="form-buttons fullWidth">
+                                        <button type="submit">Submit</button>
+                                        <button onclick="formReset('#sort')">Reset</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="webpage--tab" data-tab="#plot">
+                                edit form
+                            </div>
+                            <div class="webpage--tab" data-tab="#groups">
+                                transfer button
+                            </div>
+                        </section>
+                        <!--Claims-->
+                        <section class="webpage--section">
+                            <div class="webpage--menu-sticky">
+                                <div class="webpage--sub-menu">
+                                    <button class="go-left" onclick="moveLeft(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-left"></i>
+                                    </button>
+                                    <div class="webpage--sub-menu-links">
+                                        <a href="#ClaimedFaces" data-category="claims">Claimed Faces</a>
+                                        <a href="#UpcomingFaces" data-category="forms">Upcoming Faces</a>
+                                        <a href="#UniversityClaims" data-category="claims">University Claims</a>
+                                        <button data-subcategory="absp-claim">Abilities & Species</button>
+                                    </div>
+                                    <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-right"></i>
+                                    </button>
+                                </div>
+                                <div class="webpage--pop-menu">
+                                    <button class="go-left" onclick="moveLeft(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-left"></i>
+                                    </button>
+                                    <div id="abilitiesTabs" class="webpage--sub-menu-links claim--labels"></div>
+                                    <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="webpage--tab" data-tab="#ClaimedFaces">
+                                <div id="faces" class="claim grid twoCol"></div>
+                            </div>
+                            <div class="webpage--tab" data-tab="#UpcomingFaces">
+                                <div id="upcomingfaces" class="claim grid twoCol"></div>
+                            </div>
+                            <div class="webpage--tab" data-tab="#UniversityClaims">
+                                <div id="university" class="claim grid twoCol"></div>
+                            </div>
+                            <div id="abilities" class="claim--tabs" data-subcategory="absp-claim"></div>
+                        </section>
+                        <!--Jobs-->
+                        <section class="webpage--section">
+                            <div class="webpage--menu-sticky">
+                                <div class="webpage--sub-menu">
+                                    <button class="go-left" onclick="moveLeft(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-left"></i>
+                                    </button>
+                                    <div id="jobsTabs" class="webpage--sub-menu-links claim--labels"></div>
+                                    <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="jobs" class="claim--tabs"></div>
+                        </section>
+                        <!--Students-->
+                        <section class="webpage--section">
+                            <div class="webpage--menu-sticky">
+                                <div class="webpage--sub-menu">
+                                    <button class="go-left" onclick="moveLeft(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-left"></i>
+                                    </button>
+                                    <div class="webpage--sub-menu-links">
+                                        <button data-subcategory="classes">Class Lists</button>
+                                        <button data-subcategory="dorms">Dormitories</button>
+                                        <a href="#StudentQuidditch" data-category="students">Quidditch</a>
+                                        <a href="#leadership" data-category="students">Leadership</a>
+                                    </div>
+                                    <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-right"></i>
+                                    </button>
+                                </div>
+                                <div class="webpage--pop-menu">
+                                    <button class="go-left" onclick="moveLeft(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-left"></i>
+                                    </button>
+                                    <div id="classTabs" class="webpage--sub-menu-links claim--labels"></div>
+                                    <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-right"></i>
+                                    </button>
+                                </div>
+                                <div class="webpage--pop-menu">
+                                    <button class="go-left" onclick="moveLeft(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-left"></i>
+                                    </button>
+                                    <div id="dormTabs" class="webpage--sub-menu-links claim--labels"></div>
+                                    <button class="go-right" onclick="moveRight(this,'.webpage--sub-menu-links')">
+                                        <i class="fa-light fa-angles-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="classes" class="claim--tabs" data-subcategory="classes"></div>
+                            <div id="dorms" class="claim--tabs" data-subcategory="dorms"></div>
+                            <div class="webpage--tab" data-tab="#StudentQuidditch">
+                                <div id="StudentQuidditch" class="claim grid twoCol"></div>
+                            </div>
+                            <div class="webpage--tab" data-tab="#leadership">
+                                <div id="leadership" class="claim grid twoCol"></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            const url = `https://opensheet.elk.sh/146rEeh3eiyftnC-9NXF29rgSPRLAhuG2gss_nWp_xxw/OriginalClaims`;
+            const upcomingurl = `https://opensheet.elk.sh/1W-Ffhi7pIe4X1X_tt1SoYaasEewx7Hk5IPd5EJZllOI/Sheet1`;
+            fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                //formatFaces(data);
+                //formatUniversities(data);
+                //formatAbilitiesSpecies(data);
+                //formatJobs(data);
+                //formatClasses(data);
+                //formatDorms(data);
+                //formatQuidditch(data);
+                //formatLeadership(data);
+                
+                structureFaceClaim(data);
+                structureUniClaim(data);
+                structureAbilitiesClaim(data);
+                structureJobClaim(data);
+                structureClassClaim(data);
+                structureDormClaim(data);
+                structureQuidditchClaim(data);
+                structureLeadClaim(data);
+
+                fetch(upcomingurl)
+                .then((response) => response.json())
+                .then((data) => {
+                    //formatReserves(data);
+
+                    structureUpcomingFaces(data);
+                }).then(() => {
+                    webpageTabs();
+                    document.querySelector('#loading').remove();
+                })
+            });
+        </script>
+
+        <!-- Copyright Information -->
+        <div class="tableborder" align="center">
+            <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                <div class="copyright" align="center">
+                    Powered by 
+                    <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                    (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                    <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                    ) © 2020 &nbsp;
+                    <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                    <br>
+                    Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                    <a href="index.php?act=Mobile">Mobile Version</a> · 
+                    <a href="index.php?act=privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div> 
+
+        <!--Templates-->
+        <script type="text/javascript" src="../templates/header.js"></script>
+        <script type="text/javascript" src="../templates/calendar.js"></script>
+        <script type="text/javascript" src="../templates/nav.js"></script>
+        <script type="text/javascript" src="../templates/controls.js"></script>
+        <script src="../js/claimFunctions.js"></script>
+        <script src="../js/claimFormat.js"></script>
+        <script src="../js/claimScript.js"></script>
+
+        <!--Scripts-->
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>
