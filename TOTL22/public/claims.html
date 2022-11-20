@@ -107,7 +107,7 @@
                                 
                                 <form id="newsort" class="grid twoCol">
                                     <h3 class="fullWidth"><hr>Required<hr></h3>
-                                    <label>
+                                    <label class="required">
                                         <strong>Alias</strong>
                                         <input type="text"
                                             name="sort-alias"
@@ -115,7 +115,7 @@
                                             placeholder="Alias"
                                             required>
                                     </label>
-                                    <label>
+                                    <label class="required">
                                         <strong>Character Name</strong>
                                         <input type="text"
                                             name="sort-character"
@@ -123,7 +123,7 @@
                                             placeholder="Character Name"
                                             required>
                                     </label>
-                                    <label>
+                                    <label class="required">
                                         <strong>
                                             Account ID
                                             <button onclick="openHelp(this)" type="button">
@@ -138,7 +138,7 @@
                                             placeholder="Account ID"
                                             required>
                                     </label>
-                                    <label>
+                                    <label class="required">
                                         <strong>Group</strong>
                                         <select name="sort-group"
                                             id="sort-group"
@@ -163,7 +163,7 @@
                                         </select>
                                     </label>
 
-                                    <label class="fullWidth">
+                                    <label class="fullWidth required">
                                         <strong>Face Claim</strong>
                                         <input type="text"
                                             name="sort-face"
@@ -172,7 +172,7 @@
                                             required>
                                     </label>
 
-                                    <label>
+                                    <label class="required">
                                         <strong>Ability or Species?</strong>
                                         <select name="sort-abspexists"
                                             id="sort-abspexists"
@@ -183,7 +183,7 @@
                                         </select>
                                     </label>
 
-                                    <label>
+                                    <label class="required">
                                         <strong>Canon?</strong>
                                         <select name="sort-canon" id="sort-canon">
                                             <option value="">(select)</option>
@@ -229,11 +229,11 @@
                                                 <strong class="checkbox">Squib</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="sort-absp" id="sort-vamp" value="vamp">
+                                                <input type="checkbox" name="sort-absp" id="sort-vamp" value="vamp" data-species="true">
                                                 <strong class="checkbox">Vampire</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="sort-absp" id="sort-veela" value="veela">
+                                                <input type="checkbox" name="sort-absp" id="sort-veela" value="veela" data-species="true">
                                                 <strong class="checkbox">Veela</strong>
                                             </label>
                                             <label>
@@ -242,28 +242,28 @@
                                             </label>
                                         </div>
                                         <div class="grid twoCol">
-                                            <label>
+                                            <label class="fullWidth">
                                                 <strong>Other Abilities & Species</strong>
                                                 <input type="text"
                                                     name="sort-otherabsp"
                                                     id="sort-otherabsp"
                                                     placeholder="Other Abilities and Species, comma separated">
                                             </label>
-                                            <label class="hide ifAnimagus">
+                                            <label class="hide ifAnimagus required">
                                                 <strong>Animagus Form</strong>
                                                 <input type="text"
                                                     name="sort-animagusform"
                                                     id="sort-animagusform"
                                                     placeholder="Animagus Form">
                                             </label>
-                                            <label class="hide ifWere">
+                                            <label class="hide ifWere required">
                                                 <strong>Were Type</strong>
                                                 <input type="text"
                                                     name="sort-weretype"
                                                     id="sort-weretype"
                                                     placeholder="Werecreature Type">
                                             </label>
-                                            <label class="hide ifPercent fullWidth">
+                                            <label class="hide ifPercent fullWidth required">
                                                 <strong>Species Percentage</strong>
                                                 <select name="sort-speciesamount" id="sort-speciesamount">
                                                     <option value="">(select)</option>
@@ -279,7 +279,7 @@
                                     
                                     <!--Adults-->
                                     <h3 class="fullWidth hide ifAdult"><hr>Adults<hr></h3>
-                                    <label class="hide ifAdult">
+                                    <label class="hide ifAdult required">
                                         <strong>Employed?</strong>
                                         <select name="sort-employed" id="sort-employed">
                                             <option value="">(select)</option>
@@ -287,7 +287,7 @@
                                             <option value="n">no</option>
                                         </select>
                                     </label>
-                                    <label class="hide ifAdult">
+                                    <label class="hide ifAdult required">
                                         <strong>University Student?</strong>
                                         <select name="sort-unistudent" id="sort-unistudent">
                                             <option value="">(select)</option>
@@ -298,7 +298,7 @@
 
                                     <!--Employed-->
                                     <h3 class="fullWidth hide ifJob"><hr>Employed<hr></h3>
-                                    <label class="hide ifJob">
+                                    <label class="hide ifJob required">
                                         <strong>Number of Jobs</strong>
                                         <input type="number"
                                             name="sort-jobcount"
@@ -309,21 +309,21 @@
 
                                     <!--University-->
                                     <h3 class="fullWidth hide ifUni"><hr>University<hr></h3>
-                                    <label class="hide ifUni">
+                                    <label class="hide ifUni required">
                                         <strong>University/College</strong>
                                         <input type="text"
                                             name="sort-uniname"
                                             id="sort-uniname"
                                             placeholder="University/College">
                                     </label>
-                                    <label class="hide ifUni">
+                                    <label class="hide ifUni required">
                                         <strong>Program</strong>
                                         <input type="text"
                                             name="sort-uniprogram"
                                             id="sort-uniprogram"
                                             placeholder="Program">
                                     </label>
-                                    <label class="hide ifUni">
+                                    <label class="hide ifUni required">
                                         <strong>Year</strong>
                                         <select name="sort-uniyear" id="sort-uniyear">
                                             <option value="">(select)</option>
@@ -337,7 +337,7 @@
 
                                     <!--Students-->
                                     <h3 class="fullWidth hide ifStudent"><hr>Hogwarts Students<hr></h3>
-                                    <label class="hide ifStudent">
+                                    <label class="hide ifStudent required">
                                         <strong>Year</strong>
                                         <select name="sort-hwyear" id="sort-hwyear">
                                             <option value="">(select)</option>
@@ -364,7 +364,7 @@
                                             id="sort-hwdorm"
                                             placeholder="Dorm preference">
                                     </label>
-                                    <label class="hide ifStudent">
+                                    <label class="hide ifStudent required">
                                         <strong>Quidditch?</strong>
                                         <select name="sort-hwquidditch" id="sort-hwquidditch">
                                             <option value="">(select)</option>
@@ -372,7 +372,7 @@
                                             <option value="n">no</option>
                                         </select>
                                     </label>
-                                    <label class="hide ifLeadershipPossible">
+                                    <label class="hide ifLeadershipPossible required">
                                         <strong>Leadership?</strong>
                                         <select name="sort-hwlead" id="sort-hwlead">
                                             <option value="">(select)</option>
@@ -380,14 +380,14 @@
                                             <option value="n">no</option>
                                         </select>
                                     </label>
-                                    <label class="hide ifHogwartsQuidditch">
+                                    <label class="hide ifHogwartsQuidditch required">
                                         <strong>Quidditch Position</strong>
                                         <input type="text"
                                             name="sort-hwquidditchposition"
                                             id="sort-hwquidditchposition"
                                             placeholder="Quidditch Position">
                                     </label>
-                                    <label class="hide ifLeadership">
+                                    <label class="hide ifLeadership required">
                                         <strong>Leadership Position</strong>
                                         <select name="sort-hwleadposition" id="sort-hwleadposition">
                                             <option value="">(select)</option>
@@ -405,19 +405,19 @@
 
                                     <!--Canon-->
                                     <h3 class="fullWidth hide ifCanon"><hr>Canon<hr></h3>
-                                    <label class="hide ifCanon">
+                                    <label class="hide ifCanon fullWidth required">
                                         <strong>Birth Year</strong>
                                         <input type="text" name="entry.1227238528" id="sort-birth" placeholder="Birth year">
                                     </label>
-                                    <label class="hide ifReturn">
+                                    <label class="hide ifReturn required">
                                         <strong>Death Year</strong>
                                         <input type="text" name="entry.1227238528" id="sort-death" placeholder="Death Year">
                                     </label>
-                                    <label class="hide ifReturn">
+                                    <label class="hide ifReturn required">
                                         <strong>Return Year</strong>
                                         <input type="text" name="entry.1227238528" id="sort-return" placeholder="Return Year">
                                     </label>
-                                    <label class="hide ifCanon fullWidth">
+                                    <label class="hide ifCanon fullWidth required">
                                         <strong>Relation to Canon</strong>
                                         <textarea name="entry.1227238528" id="sort-canonRelation" placeholder="Relation to Canon"></textarea>
                                     </label>
@@ -428,13 +428,13 @@
                                         <button onclick="formReset('#sort')">Reset</button>
                                     </div>
                                 </form>
-                                
+
                             </div>
                             <div class="webpage--tab" data-tab="#plot">
                                 edit form
                             </div>
                             <div class="webpage--tab" data-tab="#groups">
-                                transfer button
+                                <button onclick="sheetTransfer()" id="transfer">Transfer Records</button>
                             </div>
                         </section>
                         <!--Claims-->
@@ -600,6 +600,7 @@
         <script type="text/javascript" src="../templates/calendar.js"></script>
         <script type="text/javascript" src="../templates/nav.js"></script>
         <script type="text/javascript" src="../templates/controls.js"></script>
+        <script src="../js/tempFunctions.js"></script>
         <script src="../js/claimFunctions.js"></script>
         <script src="../js/claimFormat.js"></script>
         <script src="../js/claimScript.js"></script>

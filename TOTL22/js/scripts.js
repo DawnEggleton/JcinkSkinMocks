@@ -673,7 +673,6 @@ if($('body#UserCP').length > 0 || $('body#Msg').length > 0) {
     //sub menu - on button click, open inner menu
     menuTriggers.forEach((trigger, index) => {
         trigger.addEventListener('click', e => {
-            console.log(trigger);
             menuTriggers.forEach(trigger => trigger.classList.remove('active'));
             menuSections.forEach(menu => menu.classList.remove('active'));
             e.currentTarget.classList.add('active');
@@ -1029,7 +1028,6 @@ if($('body#store').length > 0) {
     //sub menu - on button click, open inner menu
     menuTriggers.forEach((trigger, index) => {
         trigger.addEventListener('click', e => {
-            console.log(trigger);
             menuTriggers.forEach(trigger => trigger.classList.remove('active'));
             menuSections.forEach(menu => menu.classList.remove('active'));
             e.currentTarget.classList.add('active');

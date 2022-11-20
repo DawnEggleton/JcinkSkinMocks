@@ -4303,8 +4303,14 @@ body:not(.g-4) .post--controls-inner label {
   grid-gap: 20px;
 }
 .webpage--tab form h3 {
-  margin-top: 0;
   margin-bottom: 0;
+}
+.webpage--tab form .required > strong::after {
+  content: '*';
+  left: 5px;
+  top: -5px;
+  position: relative;
+  color: #a64a4a;
 }
 .webpage--tab form .form-item,
 .webpage--tab form label {

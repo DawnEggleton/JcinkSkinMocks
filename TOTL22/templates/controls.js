@@ -31,6 +31,5 @@ const controls = `
 </div>
 `;
 document.querySelectorAll('.nav--controls').forEach(controlSet => {
-    console.log(controlSet);
     controlSet.innerHTML = controls;
 });

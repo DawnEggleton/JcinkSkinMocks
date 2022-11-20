@@ -1344,13 +1344,11 @@ function webpageTabs() {
             tabGroup.classList.add('active');
             tab.classList.add('active');
         } else if(selected.parentNode.classList.contains('claim--labels')) {
-            console.log('claims tab not nested');
             let tab = document.querySelector(`.claim--tab[data-tab="${hash}"]`);
             tab.classList.add('active');
             tab.parentNode.classList.add('active');
 
         } else {
-            console.log('webpage tab');
             let tab = document.querySelector(`.webpage--tab[data-tab="${hash}"]`);
             tab.classList.add('active');
         }
@@ -1402,7 +1400,6 @@ function canonCollapse(e) {
 
 
 function structureUpcomingFaces (data, infoClip = '#upcomingfaces') {
-    console.log(data);
     data.sort((a, b) => {
         aValue = a.Face.toLowerCase();
         bValue = b.Face.toLowerCase();
@@ -1439,7 +1436,6 @@ function memberTabs() {
     //sub menu - on button click, open inner menu
     innerTriggers.forEach((trigger, index) => {
         trigger.addEventListener('click', e => {
-            console.log(trigger);
             innerTriggers.forEach(trigger => trigger.classList.remove('active'));
             innerMenus.forEach(menu => menu.classList.remove('active'));
             e.currentTarget.classList.add('active');

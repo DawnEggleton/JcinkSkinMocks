@@ -9,7 +9,7 @@ function setGroup(id) {
             form.querySelectorAll('.ifAdult, .ifJob, .ifUni').forEach(field => field.classList.add('hide'));
             break;
         case '17':
-            form.querySelectorAll('.ifStudent, .ifCore, .ifStart, .ifElec, .ifUpper, .ifLeadershipPossible, .ifQuidditch, .ifLeadership').forEach(field => field.classList.add('hide'));
+            form.querySelectorAll('.ifStudent, .ifCore, .ifStart, .ifElec, .ifUpper, .ifLeadershipPossible, .ifHogwartsQuidditch, .ifLeadership').forEach(field => field.classList.add('hide'));
             form.querySelectorAll('.ifAdult').forEach(field => field.classList.remove('hide'));
             let canon = document.querySelector('#sort-canon');
             setShowHide(canon.options[canon.selectedIndex].value, '.ifReturn');
@@ -21,7 +21,7 @@ function setGroup(id) {
             case '11':
             case '13':
             case '6':
-            form.querySelectorAll('.ifStudent, .ifCore, .ifStart, .ifElec, .ifUpper, .ifLeadershipPossible, .ifQuidditch, .ifLeadership').forEach(field => field.classList.add('hide'));
+            form.querySelectorAll('.ifStudent, .ifCore, .ifStart, .ifElec, .ifUpper, .ifLeadershipPossible, .ifHogwartsQuidditch, .ifLeadership').forEach(field => field.classList.add('hide'));
             form.querySelectorAll('.ifAdult').forEach(field => field.classList.remove('hide'));
             break;
         default:
@@ -32,6 +32,17 @@ function setShowHide(value, classList) {
     let form = document.querySelector('#newsort');
     switch (value) {
         case 'y':
+            form.querySelectorAll(classList).forEach(field => field.classList.remove('hide'));
+            break;
+        default:
+            form.querySelectorAll(classList).forEach(field => field.classList.add('hide'));
+            break;
+    }
+}
+function setCheckShowHide(value, classList) {
+    let form = document.querySelector('#newsort');
+    switch (value) {
+        case true:
             form.querySelectorAll(classList).forEach(field => field.classList.remove('hide'));
             break;
         default:
@@ -97,7 +108,6 @@ function addJobFields(i) {
     return html;
 }
 function setHogwartsYear(year) {
-    console.log(year);
     let reqClip = document.querySelector('.form--reqclass-clip.form--sort');
     let elecClip = document.querySelector('.form--elecclass-clip.form--sort');
     switch(year) {
@@ -117,7 +127,7 @@ function setHogwartsYear(year) {
             reqClip.innerHTML = '';
             elecClip.innerHTML = '';
             reqClip.insertAdjacentHTML('beforeend', addCoreClasses());
-            elecClip.insertAdjacentHTML('beforeend', addElecClasses(4));
+            elecClip.insertAdjacentHTML('beforeend', addElecClasses(4, 2, false));
             break;
         case '5':
             document.querySelectorAll('.ifElec').forEach(field => field.classList.remove('hide'));
@@ -125,7 +135,7 @@ function setHogwartsYear(year) {
             reqClip.innerHTML = '';
             elecClip.innerHTML = '';
             reqClip.insertAdjacentHTML('beforeend', addCoreClasses());
-            elecClip.insertAdjacentHTML('beforeend', addElecClasses(4));
+            elecClip.insertAdjacentHTML('beforeend', addElecClasses(4, 2, false));
             break;
         case '6':
         case '7':
@@ -133,7 +143,7 @@ function setHogwartsYear(year) {
             document.querySelectorAll('.ifLeadershipPossible').forEach(field => field.classList.remove('hide'));
             reqClip.innerHTML = '';
             elecClip.innerHTML = '';
-            elecClip.insertAdjacentHTML('beforeend', addElecClasses(8));
+            elecClip.insertAdjacentHTML('beforeend', addElecClasses(8, 4, true));
             break;
         default:
             break;
@@ -142,7 +152,7 @@ function setHogwartsYear(year) {
 function addStartClasses() {
     let html = `
     <h3 class="fullWidth"><hr>Introductory Classes<hr></h3>
-    <label>
+    <label class="required">
         <strong>Culture Class</strong>
         <select name="sort-culture" id="sort-culture">
         <option value="">(select)</option>
@@ -150,7 +160,7 @@ function addStartClasses() {
         <option value="wizarding">Wizarding Culture</option>
         </select>
     </label>
-    <label>
+    <label class="required">
         <strong>Culture Grade</strong>
         <select name="sort-culturegrade" id="sort-culturegrade">
         <option value="">(select)</option>
@@ -162,7 +172,7 @@ function addStartClasses() {
         <option value="t">Troll</option>
         </select>
     </label>
-    <label>
+    <label class="required">
         <strong>Literacy</strong>
         <select name="sort-literacy" id="sort-literacy">
         <option value="">(select)</option>
@@ -174,7 +184,7 @@ function addStartClasses() {
         <option value="t">Troll</option>
         </select>
     </label>
-    <label>
+    <label class="required">
         <strong>Magical Theory</strong>
         <select name="sort-magicaltheory" id="sort-magicaltheory">
         <option value="">(select)</option>
@@ -186,7 +196,7 @@ function addStartClasses() {
         <option value="t">Troll</option>
         </select>
     </label>
-    <label>
+    <label class="required">
         <strong>Maths</strong>
         <select name="sort-maths" id="sort-maths">
         <option value="">(select)</option>
@@ -203,7 +213,7 @@ function addStartClasses() {
 function addCoreClasses() {
     let html = `
     <h3 class="fullWidth"><hr>Core Classes<hr></h3>
-    <label>
+    <label class="required">
         <strong>Astronomy</strong>
         <select name="sort-astronomy" id="sort-astronomy">
         <option value="">(select)</option>
@@ -215,7 +225,7 @@ function addCoreClasses() {
         <option value="t">Troll</option>
         </select>
     </label>
-    <label>
+    <label class="required">
         <strong>Charms</strong>
         <select name="sort-charms" id="sort-charms">
         <option value="">(select)</option>
@@ -227,7 +237,7 @@ function addCoreClasses() {
         <option value="t">Troll</option>
         </select>
     </label>
-    <label>
+    <label class="required">
         <strong>Defence Against the Dark Arts</strong>
         <select name="sort-dada" id="sort-dada">
         <option value="">(select)</option>
@@ -239,7 +249,7 @@ function addCoreClasses() {
         <option value="t">Troll</option>
         </select>
     </label>
-    <label>
+    <label class="required">
         <strong>Games</strong>
         <select name="sort-games" id="sort-games">
         <option value="">(select)</option>
@@ -251,7 +261,7 @@ function addCoreClasses() {
         <option value="t">Troll</option>
         </select>
     </label>
-    <label>
+    <label class="required">
         <strong>Herbology</strong>
         <select name="sort-herbology" id="sort-herbology">
         <option value="">(select)</option>
@@ -263,7 +273,7 @@ function addCoreClasses() {
         <option value="t">Troll</option>
         </select>
     </label>
-    <label>
+    <label class="required">
         <strong>History of Magic</strong>
         <select name="sort-historyofmagic" id="sort-historyofmagic">
         <option value="">(select)</option>
@@ -275,7 +285,7 @@ function addCoreClasses() {
         <option value="t">Troll</option>
         </select>
     </label>
-    <label>
+    <label class="required">
         <strong>Potions</strong>
         <select name="sort-potions" id="sort-potions">
         <option value="">(select)</option>
@@ -287,7 +297,7 @@ function addCoreClasses() {
         <option value="t">Troll</option>
         </select>
     </label>
-    <label>
+    <label class="required">
         <strong>Transfiguration</strong>
         <select name="sort-transfiguration" id="sort-transfiguration">
         <option value="">(select)</option>
@@ -301,47 +311,67 @@ function addCoreClasses() {
     </label>`;
     return html;
 }
-function addElecClasses(count) {
+function addElecClasses(count, min, upper) {
     let html = ``;
     for(let i = 0; i < count; i++) {
-        html += `<label>
-        <strong>Course</strong>
-        <select name="sort-elec${i}" id="sort-elec${i}">
-            <option value="">(select)</option>
-            <option class="hide ifUpper" value="alchemy">Alchemy</option>
+        if (i < min) {
+            html += `<label class="required">`;
+        } else {
+            html += `<label>`;
+        }
+        let options = `<option value="">(select)</option>
+        <option value="runes">Ancient Runes</option>
+        <option value="arithmancy">Arithmancy</option>
+        <option value="art">Art</option>
+        <option value="comc">Care of Magical Creatures</option>
+        <option value="divination">Divination</option>
+        <option value="magicaltheory">Magical Theory</option>
+        <option value="mugglestudies">Muggle Studies</option>
+        <option value="music">Music</option>`;
+        if(upper) {
+            options = `<option value="">(select)</option>
+            <option value="alchemy">Alchemy</option>
             <option value="runes">Ancient Runes</option>
-            <option class="hide ifUpper" value="ancientstudies">Ancient Studies</option>
+            <option value="ancientstudies">Ancient Studies</option>
             <option value="arithmancy">Arithmancy</option>
             <option value="art">Art</option>
-            <option class="hide ifUpper" value="astronomy">Astronomy</option>
+            <option value="astronomy">Astronomy</option>
             <option value="comc">Care of Magical Creatures</option>
-            <option class="hide ifUpper" value="charms">Charms</option>
-            <option class="hide ifUpper" value="dada">Defence Against the Dark Arts</option>
+            <option value="charms">Charms</option>
+            <option value="dada">Defence Against the Dark Arts</option>
             <option value="divination">Divination</option>
-            <option class="hide ifUpper" value="games">Games</option>
-            <option class="hide ifUpper" value="ghoulstudies">Ghoul Studies</option>
-            <option class="hide ifUpper" value="herbology">Herbology</option>
-            <option class="hide ifUpper" value="historyofmagic">History of Magic</option>
+            <option value="games">Games</option>
+            <option value="ghoulstudies">Ghoul Studies</option>
+            <option value="herbology">Herbology</option>
+            <option value="historyofmagic">History of Magic</option>
             <option value="magicaltheory">Magical Theory</option>
             <option value="mugglestudies">Muggle Studies</option>
             <option value="music">Music</option>
-            <option class="hide ifUpper" value="potions">Potions</option>
-            <option class="hide ifUpper" value="transfiguration">Transfiguration</option>
-            <option class="hide ifUpper" value="xylomancy">Xylomancy</option>
-        </select>
-    </label>
-    <label>
-        <strong>Grade</strong>
-        <select name="sort-elec${i}grade" id="sort-elec${i}grade">
-        <option value="">(select)</option>
-        <option value="o">Outstanding</option>
-        <option value="e">Exceeds Expectations</option>
-        <option value="a">Acceptable</option>
-        <option value="p">Poor</option>
-        <option value="d">Dreadful</option>
-        <option value="t">Troll</option>
-        </select>
-    </label>`
+            <option value="potions">Potions</option>
+            <option value="transfiguration">Transfiguration</option>
+            <option value="xylomancy">Xylomancy</option>`;
+        }
+        html += `
+            <strong>Course</strong>
+            <select name="sort-elec${i}" id="sort-elec${i}">${options}</select>
+        </label>`;
+        if (i < min) {
+            html += `<label class="required">`;
+        } else {
+            html += `<label>`;
+        }
+        html += `
+            <strong>Grade</strong>
+            <select name="sort-elec${i}grade" id="sort-elec${i}grade">
+            <option value="">(select)</option>
+            <option value="o">Outstanding</option>
+            <option value="e">Exceeds Expectations</option>
+            <option value="a">Acceptable</option>
+            <option value="p">Poor</option>
+            <option value="d">Dreadful</option>
+            <option value="t">Troll</option>
+            </select>
+        </label>`;
     }
     return html;
 }
