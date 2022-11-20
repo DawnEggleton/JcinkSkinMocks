@@ -431,7 +431,150 @@
 
                             </div>
                             <div class="webpage--tab" data-tab="#plot">
-                                edit form
+
+                                <form id="newedit" class="grid twoCol">
+                                    <h3 class="fullWidth"><hr>Required<hr></h3>
+                                    <label class="required">
+                                        <strong>Alias</strong>
+                                        <input type="text"
+                                            name="update-alias"
+                                            id="update-alias"
+                                            placeholder="Alias"
+                                            required>
+                                    </label>
+                                    <label class="required">
+                                        <strong>Character Name</strong>
+                                        <input type="text"
+                                            name="update-character"
+                                            id="update-character"
+                                            placeholder="Character Name"
+                                            required>
+                                    </label>
+                                    <label class="required">
+                                        <strong>
+                                            Account ID
+                                            <button onclick="openHelp(this)" type="button">
+                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </strong>
+                                        <i class="help">Can be found by getting the numbers at the end of the URL of your main profile.</i>
+                                        <input type="text"
+                                            name="update-id"
+                                            id="update-id"
+                                            placeholder="Account ID"
+                                            required>
+                                    </label>
+                                    <label class="required">
+                                        <strong>Group</strong>
+                                        <select name="update-group"
+                                            id="update-group"
+                                            required>
+                                            <option value="">(select)</option>
+                                            <optgroup label="Students">
+                                                <option value="7">Gryffindor</option>
+                                                <option value="9">Hufflepuff</option>
+                                                <option value="14">Ravenclaw</option>
+                                                <option value="16">Slytherin</option>
+                                            </optgroup>
+                                            <optgroup label="Adults">
+                                                <option value="18">Entertainment</option>
+                                                <option value="15">Healers</option>
+                                                <option value="8">Hogwarts Staff</option>
+                                                <option value="12">Ministry</option>
+                                                <option value="11">Press</option>
+                                                <option value="13">Quidditch</option>
+                                                <option value="17">Returners</option>
+                                                <option value="6">Adults</option>
+                                            </optgroup>
+                                        </select>
+                                    </label>
+                                    <div class="form-item fullWidth required">
+                                        <strong>
+                                            Please Update
+                                            <button onclick="openHelp(this)" type="button">
+                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </button>
+                                        </strong>
+                                        <i class="help">Check all that apply.</i>
+                                        <div class="form-flex">
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="update-group" value="group">
+                                                <strong class="checkbox">Update Group</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="update-face" value="face">
+                                                <strong class="checkbox">Update Face</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="update-newuni" value="newuni">
+                                                <strong class="checkbox">Add University Program</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="update-changeuni" value="changeuni">
+                                                <strong class="checkbox">Remove University Program</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="update-ability" value="ability">
+                                                <strong class="checkbox">Add Abilities or Species</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="update-newjob" value="newjob">
+                                                <strong class="checkbox">Add New Job(s)</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="update-changejob" value="changejob">
+                                                <strong class="checkbox">Update Current Job(s)</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="update-removejob" value="removejob">
+                                                <strong class="checkbox">Remove Current Job(s)</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="update-classes" value="classes">
+                                                <strong class="checkbox">Update Classes/Grades</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="update-quidditch" value="quidditch">
+                                                <strong class="checkbox">Add/Update Student Quidditch</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="update-leadership" value="leadership">
+                                                <strong class="checkbox">Add/Update Student Leadership</strong>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!--Update Face-->
+                                    <h3 class="fullWidth hide ifChange-Face"><hr>Change Face<hr></h3>
+                                    <label class="fullWidth required hide ifChange-Face">
+                                        <strong>Face Claim</strong>
+                                        <input type="text"
+                                            name="update-face"
+                                            id="update-face"
+                                            placeholder="Face Claim">
+                                    </label>
+
+                                    <!--Add University Program-->
+
+                                    <!--Remove University Program-->
+
+                                    <!--Add Ability/Species-->
+
+                                    <!--Add Jobs-->
+
+                                    <!--Update Jobs-->
+
+                                    <!--Remove Jobs-->
+
+                                    <!--Update Classes-->
+
+                                    <!--Add/Update Student Quidditch-->
+
+                                    <!--Add/Update Student Leadership-->
+                                </form>
+
                             </div>
                             <div class="webpage--tab" data-tab="#groups">
                                 <button onclick="sheetTransfer()" id="transfer">Transfer Records</button>
