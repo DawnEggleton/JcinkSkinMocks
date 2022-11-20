@@ -39,8 +39,7 @@ function setShowHide(value, classList) {
             break;
     }
 }
-function setCheckShowHide(value, classList) {
-    let form = document.querySelector('#newsort');
+function setCheckShowHide(value, classList, form) {
     switch (value) {
         case true:
             form.querySelectorAll(classList).forEach(field => field.classList.remove('hide'));
@@ -143,6 +142,40 @@ function setHogwartsYear(year) {
             document.querySelectorAll('.ifLeadershipPossible').forEach(field => field.classList.remove('hide'));
             reqClip.innerHTML = '';
             elecClip.innerHTML = '';
+            elecClip.insertAdjacentHTML('beforeend', addElecClasses(8, 4, true));
+            break;
+        default:
+            break;
+    }
+}
+function setHogwartsYearUpdate(year) {
+    console.log('update year');
+    let reqClip = document.querySelector('.form--reqclass-clip.form--update');
+    let elecClip = document.querySelector('.form--elecclass-clip.form--update');
+    switch(year) {
+        case '1':
+        case '2':
+            document.querySelectorAll('.ifElec-Change').forEach(field => field.classList.add('hide'));
+            reqClip.innerHTML = '';
+            elecClip.innerHTML = '';
+            reqClip.insertAdjacentHTML('beforeend', addStartClasses());
+            reqClip.insertAdjacentHTML('beforeend', addCoreClasses());
+            break;
+        case '3':
+        case '4':
+        case '5':
+            document.querySelectorAll('.ifElec-Change').forEach(field => field.classList.remove('hide'));
+            reqClip.innerHTML = '';
+            elecClip.innerHTML = '';
+            reqClip.insertAdjacentHTML('beforeend', addCoreClasses());
+            elecClip.insertAdjacentHTML('beforeend', addElecClasses(4, 2, false));
+            break;
+        case '6':
+        case '7':
+            document.querySelectorAll('.ifElec-Change').forEach(field => field.classList.remove('hide'));
+            reqClip.innerHTML = '';
+            elecClip.innerHTML = '';
+            console.log(elecClip);
             elecClip.insertAdjacentHTML('beforeend', addElecClasses(8, 4, true));
             break;
         default:
@@ -374,4 +407,30 @@ function addElecClasses(count, min, upper) {
         </label>`;
     }
     return html;
+}
+function setUpdateOptions() {
+    let faceChange = document.querySelector('#update-face').checked;
+    let addUni = document.querySelector('#update-newuni').checked;
+    let addAbility = document.querySelector('#update-ability').checked;
+    let addJobs = document.querySelector('#update-newjob').checked;
+    let changeJobs = document.querySelector('#update-changejob').checked;
+    let removeJobs = document.querySelector('#update-removejob').checked;
+    let changeClasses = document.querySelector('#update-classes').checked;
+    let changeQuid = document.querySelector('#update-quidditch').checked;
+    let changeLead = document.querySelector('#update-leadership').checked;
+
+    setCheckShowHide(faceChange, '.ifFace-Change', document.querySelector('#newedit'));
+    setCheckShowHide(addUni, '.ifUni-Change', document.querySelector('#newedit'));
+    setCheckShowHide(addAbility, '.ifAbSp-Change', document.querySelector('#newedit'));
+    setCheckShowHide(addJobs, '.ifJob-Add', document.querySelector('#newedit'));
+    setCheckShowHide(changeJobs, '.ifJob-Change', document.querySelector('#newedit'));
+    setCheckShowHide(removeJobs, '.ifJob-Remove', document.querySelector('#newedit'));
+    setCheckShowHide(changeClasses, '.ifStudent-Change', document.querySelector('#newedit'));
+    setHogwartsYearUpdate(document.querySelector('#update-hwyear').options[document.querySelector('#update-hwyear').selectedIndex].value);
+    setCheckShowHide(changeQuid, '.ifHogwartsQuidditch-Change', document.querySelector('#newedit'));
+    setCheckShowHide(changeLead, '.ifLeadership-Change', document.querySelector('#newedit'));
+    
+    if(!changeClasses) {
+        document.querySelectorAll('.ifElec-Change').forEach(field => field.classList.add('hide'));
+    }
 }

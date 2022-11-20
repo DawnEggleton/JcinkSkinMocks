@@ -14,30 +14,30 @@ absp.addEventListener('change', () => {
 
 //Animagus Change Event
 let isAnimagus = document.querySelector('#sort-animagus');
-setCheckShowHide(isAnimagus.checked, '.ifAnimagus');
+setCheckShowHide(isAnimagus.checked, '.ifAnimagus', document.querySelector('#newsort'));
 isAnimagus.addEventListener('change', () => {
-    setCheckShowHide(isAnimagus.checked, '.ifAnimagus');
+    setCheckShowHide(isAnimagus.checked, '.ifAnimagus', document.querySelector('#newsort'));
 });
 
 //Were Change Event
 let isWere = document.querySelector('#sort-were');
-setCheckShowHide(isWere.checked, '.ifWere');
+setCheckShowHide(isWere.checked, '.ifWere', document.querySelector('#newsort'));
 isWere.addEventListener('change', () => {
-    setCheckShowHide(isWere.checked, '.ifWere');
+    setCheckShowHide(isWere.checked, '.ifWere', document.querySelector('#newsort'));
 });
 
 //Species Change Event
 let isVamp = document.querySelector('#sort-vamp');
 let isVeela = document.querySelector('#sort-veela');
 let isSpecies = (isVamp.checked || isVeela.checked);
-setCheckShowHide(isSpecies, '.ifPercent');
+setCheckShowHide(isSpecies, '.ifPercent', document.querySelector('#newsort'));
 isVamp.addEventListener('change', () => {
     isSpecies = (isVamp.checked || isVeela.checked);
-    setCheckShowHide(isSpecies, '.ifPercent');
+    setCheckShowHide(isSpecies, '.ifPercent', document.querySelector('#newsort'));
 });
 isVeela.addEventListener('change', () => {
     isSpecies = (isVamp.checked || isVeela.checked);
-    setCheckShowHide(isSpecies, '.ifPercent');
+    setCheckShowHide(isSpecies, '.ifPercent', document.querySelector('#newsort'));
 });
 
 //Canon Change Event
@@ -114,6 +114,19 @@ setShowHide(hwlead.options[hwlead.selectedIndex].value, '.ifLeadership');
 hwlead.addEventListener('change', () => {
     setShowHide(hwlead.options[hwlead.selectedIndex].value, '.ifLeadership');
 });
+
+//Edit Options Change Status
+let options = document.querySelectorAll('#newedit input[name="updateChoices"]');
+setUpdateOptions();
+options.forEach(option => {
+    option.addEventListener('change', () => {
+        setUpdateOptions();
+    });
+});
+document.querySelector('#update-hwyear').addEventListener('change', () => {
+    setHogwartsYearUpdate(document.querySelector('#update-hwyear').options[document.querySelector('#update-hwyear').selectedIndex].value);
+});
+
 
 //Claims submit
 document.querySelector('#newsort').addEventListener('submit', e => {
