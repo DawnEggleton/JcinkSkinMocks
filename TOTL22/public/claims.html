@@ -426,7 +426,7 @@
                                     <div id="warning" class="form-warning"></div>
                                     <div class="form-buttons fullWidth">
                                         <button type="submit">Submit</button>
-                                        <button onclick="formReset('#sort')">Reset</button>
+                                        <button onclick="formReset('#newsort')">Reset</button>
                                     </div>
                                 </form>
 
@@ -498,51 +498,55 @@
                                                 <i class="fa-solid fa-circle-xmark"></i>
                                             </button>
                                         </strong>
-                                        <i class="help">Check all that apply. Group and Remove University Program will not provide extra fields. Add/Update University Program, Update Classes/Grades, Add/Update Student Quidditch, and Add/Update Student Leadership will overwrite all current data. Updates to abilities/species will only add to current data. Job options do what they say on the button: add without removing current data, update without removing unchanged data, or remove specific jobs. The update and remove job options will load in current jobs that are available only so you do not need to try and match data.</i>
+                                        <i class="help">Check all that apply. Group, Remove University Program, and Graduate from Hogwarts will not provide extra fields. When graduating from Hogwarts, at minimum group should also be updated. Add/Update University Program, Update Classes/Grades, Add/Update Student Quidditch, and Add/Update Student Leadership will overwrite all current data. Updates to abilities/species will only add to current data. Job options do what they say on the button: add without removing current data, update without removing unchanged data, or remove specific jobs. The update and remove job options will load in current jobs that are available only so you do not need to try and match data.</i>
                                         <div class="form-flex">
                                             <label>
-                                                <input type="checkbox" name="updateChoices" id="update-group" value="group">
+                                                <input type="checkbox" name="updateChoices" id="choice-group" value="group">
                                                 <strong class="checkbox">Update Group</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="updateChoices" id="update-face" value="face">
+                                                <input type="checkbox" name="updateChoices" id="choice-face" value="face">
                                                 <strong class="checkbox">Update Face</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="updateChoices" id="update-newuni" value="newuni">
+                                                <input type="checkbox" name="updateChoices" id="choice-newuni" value="newuni">
                                                 <strong class="checkbox">Add/Update University Program</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="updateChoices" id="update-removeuni" value="removeuni">
+                                                <input type="checkbox" name="updateChoices" id="choice-removeuni" value="removeuni">
                                                 <strong class="checkbox">Remove University Program</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="updateChoices" id="update-ability" value="ability">
+                                                <input type="checkbox" name="updateChoices" id="choice-ability" value="ability">
                                                 <strong class="checkbox">Add Abilities or Species</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="updateChoices" id="update-newjob" value="newjob">
+                                                <input type="checkbox" name="updateChoices" id="choice-newjob" value="newjob">
                                                 <strong class="checkbox">Add New Job(s)</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="updateChoices" id="update-changejob" value="changejob">
+                                                <input type="checkbox" name="updateChoices" id="choice-changejob" value="changejob">
                                                 <strong class="checkbox">Update Current Job(s)</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="updateChoices" id="update-removejob" value="removejob">
+                                                <input type="checkbox" name="updateChoices" id="choice-removejob" value="removejob">
                                                 <strong class="checkbox">Remove Current Job(s)</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="updateChoices" id="update-classes" value="classes">
+                                                <input type="checkbox" name="updateChoices" id="choice-classes" value="classes">
                                                 <strong class="checkbox">Update Classes/Grades</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="updateChoices" id="update-quidditch" value="quidditch">
+                                                <input type="checkbox" name="updateChoices" id="choice-quidditch" value="quidditch">
                                                 <strong class="checkbox">Add/Update Student Quidditch</strong>
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="updateChoices" id="update-leadership" value="leadership">
+                                                <input type="checkbox" name="updateChoices" id="choice-leadership" value="leadership">
                                                 <strong class="checkbox">Add/Update Student Leadership</strong>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" name="updateChoices" id="choice-graduate" value="graduate">
+                                                <strong class="checkbox">Graduate from Hogwarts</strong>
                                             </label>
                                         </div>
                                     </div>
@@ -675,8 +679,8 @@
                                     <label class="hide ifJob-Add required fullWidth">
                                         <strong>Number of Jobs</strong>
                                         <input type="number"
-                                            name="aupdate-jobcount"
-                                            id="aupdate-jobcount"
+                                            name="update-jobcount"
+                                            id="update-jobcount"
                                             value="1">
                                     </label>
                                     <div class="hide fullWidth grid twoCol ifJob-Add form--jobs-clip form--update" style="grid-gap: 20px;"></div>
@@ -732,6 +736,12 @@
                                             <option value="head">Head Boy/Girl</option>
                                         </select>
                                     </label>
+
+                                    <div id="warning" class="form-warning"></div>
+                                    <div class="form-buttons fullWidth">
+                                        <button type="submit">Submit</button>
+                                        <button onclick="formReset('#newedit')">Reset</button>
+                                    </div>
                                 </form>
 
                             </div>
@@ -843,35 +853,24 @@
         </main>
 
         <script>
-            const url = `https://opensheet.elk.sh/146rEeh3eiyftnC-9NXF29rgSPRLAhuG2gss_nWp_xxw/OriginalClaims`;
+            const url = `https://opensheet.elk.sh/146rEeh3eiyftnC-9NXF29rgSPRLAhuG2gss_nWp_xxw/NewClaims`;
             const upcomingurl = `https://opensheet.elk.sh/1W-Ffhi7pIe4X1X_tt1SoYaasEewx7Hk5IPd5EJZllOI/Sheet1`;
             fetch(url)
             .then((response) => response.json())
             .then((data) => {
-                //formatFaces(data);
-                //formatUniversities(data);
-                //formatAbilitiesSpecies(data);
-                //formatJobs(data);
-                //formatClasses(data);
-                //formatDorms(data);
-                //formatQuidditch(data);
-                //formatLeadership(data);
-                
-                structureFaceClaim(data);
-                structureUniClaim(data);
-                structureAbilitiesClaim(data);
-                structureJobClaim(data);
-                structureClassClaim(data);
-                structureDormClaim(data);
-                structureQuidditchClaim(data);
-                structureLeadClaim(data);
+                formatFaces(data);
+                formatUniversities(data);
+                formatAbilitiesSpecies(data);
+                formatJobs(data);
+                formatClasses(data);
+                formatDorms(data);
+                formatQuidditch(data);
+                formatLeadership(data);
 
                 fetch(upcomingurl)
                 .then((response) => response.json())
                 .then((data) => {
-                    //formatReserves(data);
-
-                    structureUpcomingFaces(data);
+                    formatReserves(data);
                 }).then(() => {
                     webpageTabs();
                     document.querySelector('#loading').remove();

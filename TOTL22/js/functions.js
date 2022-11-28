@@ -42,7 +42,7 @@ function capitalize(str, separators) {
 
 
 
-/* SORTING FORM FUNCTIONS */
+/* SORTING FORM FUNCTIONS 
 function addRequired(field) {
     document.querySelector(field).setAttribute('required', true);
 }
@@ -149,27 +149,7 @@ function checkQuid() {
     } else {
         hideFields('.ifQuidditch');
     }  
-}
-
-function getYear(year) {
-    switch (year) {
-        case 'first year':
-            return 1;
-        case 'second year':
-            return 2;
-        case 'third year':
-            return 3;
-        case 'fourth year':
-            return 4;
-        case 'post-grad':
-        case 'fifth year':
-            return 5;
-        case 'sixth year':
-            return 6;
-        case 'seventh year':
-            return 7;
-    }
-}
+}*/
 
 function structureFaceClaim (data, infoClip = '#faces') {
     data.sort((a, b) => {
@@ -908,26 +888,21 @@ function structureLeadClaim (data, infoClip = '#leadership') {
 function claimTabStart(data) {
     return `<div class="claim--tab grid twoCol" data-tab="#${cleanString(data)}">`;
 }
-
 function claimTabEnd() {
     return `</div>`;
 }
-
 function claimTabLabel(label, category, subcategory = null) {
     if(subcategory) {
         return `<a href="#${cleanString(label)}" data-category="${category}" data-subcategory="${subcategory}">${label}</a>`;
     }
     return `<a href="#${cleanString(label)}" data-category="${category}">${label}</a>`;
 }
-
 function claimHeader(title) {
     return `<h3 class="fullWidth"><hr />${title}<hr /></h3>`;
 }
-
 function claimSubheader(title) {
     return `<h4 class="fullWidth"><hr />${title}<hr /></h4>`;
 }
-
 function characterBox(id, group, bold, lines = []) {
     let box = `<a href="?showuser=${id}" class="claim--item g-${group}">
     <b>${bold}</b>`;
@@ -939,7 +914,6 @@ function characterBox(id, group, bold, lines = []) {
     box += `</a>`;
     return box;
 }
-
 function simpleBox(face, member) {
     let box = `<div class="claim--item">
     <b>${face}</b>

@@ -18,12 +18,22 @@ setCheckShowHide(isAnimagus.checked, '.ifAnimagus', document.querySelector('#new
 isAnimagus.addEventListener('change', () => {
     setCheckShowHide(isAnimagus.checked, '.ifAnimagus', document.querySelector('#newsort'));
 });
+let isAnimagusEdit = document.querySelector('#update-animagus');
+setCheckShowHide(isAnimagusEdit.checked, '.ifAnimagus-Add', document.querySelector('#newedit'));
+isAnimagusEdit.addEventListener('change', () => {
+    setCheckShowHide(isAnimagusEdit.checked, '.ifAnimagus-Add', document.querySelector('#newedit'));
+});
 
 //Were Change Event
 let isWere = document.querySelector('#sort-were');
 setCheckShowHide(isWere.checked, '.ifWere', document.querySelector('#newsort'));
 isWere.addEventListener('change', () => {
     setCheckShowHide(isWere.checked, '.ifWere', document.querySelector('#newsort'));
+});
+let isWereEdit = document.querySelector('#update-were');
+setCheckShowHide(isWereEdit.checked, '.ifWere-Add', document.querySelector('#newedit'));
+isWereEdit.addEventListener('change', () => {
+    setCheckShowHide(isWereEdit.checked, '.ifWere-Add', document.querySelector('#newedit'));
 });
 
 //Species Change Event
@@ -38,6 +48,18 @@ isVamp.addEventListener('change', () => {
 isVeela.addEventListener('change', () => {
     isSpecies = (isVamp.checked || isVeela.checked);
     setCheckShowHide(isSpecies, '.ifPercent', document.querySelector('#newsort'));
+});
+let isVampEdit = document.querySelector('#update-vamp');
+let isVeelaEdit = document.querySelector('#update-veela');
+let isSpeciesEdit = (isVampEdit.checked || isVeelaEdit.checked);
+setCheckShowHide(isSpeciesEdit, '.ifPercent-Add', document.querySelector('#newedit'));
+isVampEdit.addEventListener('change', () => {
+    isSpeciesEdit = (isVampEdit.checked || isVeelaEdit.checked);
+    setCheckShowHide(isSpeciesEdit, '.ifPercent-Add', document.querySelector('#newedit'));
+});
+isVeelaEdit.addEventListener('change', () => {
+    isSpeciesEdit = (isVampEdit.checked || isVeelaEdit.checked);
+    setCheckShowHide(isSpeciesEdit, '.ifPercent-Add', document.querySelector('#newedit'));
 });
 
 //Canon Change Event
@@ -61,10 +83,19 @@ let jobCount = document.querySelector('#sort-jobcount');
 let jobClip = document.querySelector('.form--jobs-clip.form--sort');
 if (jobCount.value !== 0) {
     for(let i = 0; i < jobCount.value; i++) {
-        jobClip.insertAdjacentHTML('beforeend', addJobFields(i));
+        jobClip.insertAdjacentHTML('beforeend', addJobFields(i, 'sort'));
     }
 } else {
     jobClip.innerHTML = '';
+}
+let jobCountEdit = document.querySelector('#update-jobcount');
+let jobClipEdit = document.querySelector('.form--jobs-clip.form--update');
+if (jobCountEdit.value !== 0) {
+    for(let i = 0; i < jobCountEdit.value; i++) {
+        jobClipEdit.insertAdjacentHTML('beforeend', addJobFields(i, 'update'));
+    }
+} else {
+    jobClipEdit.innerHTML = '';
 }
 
 //Job Count Change
@@ -83,6 +114,23 @@ jobCount.addEventListener('change', e => {
             document.querySelectorAll('.form--job-sub-section')[currentCount - i - 1].remove();
             document.querySelectorAll('.form--job-line1')[currentCount - i - 1].remove();
             document.querySelectorAll('.form--job-line2')[currentCount - i - 1].remove();
+        }
+    }
+});
+jobCountEdit.addEventListener('change', e => {
+    let currentCount = jobClipEdit.querySelectorAll('.form--job-section').length;
+    let newCount = parseInt(e.currentTarget.value);
+    if (newCount > currentCount) {
+        for(let i = currentCount; i < newCount; i++) {
+            jobClipEdit.insertAdjacentHTML('beforeend', addJobFields(i, 'update'));
+        }
+    } else if (currentCount > newCount) {
+        let difference = currentCount - newCount;
+        for(let i = 0; i < difference; i++) {
+            jobClipEdit.querySelectorAll('.form--job-section')[currentCount - i - 1].remove();
+            jobClipEdit.querySelectorAll('.form--job-sub-section')[currentCount - i - 1].remove();
+            jobClipEdit.querySelectorAll('.form--job-line1')[currentCount - i - 1].remove();
+            jobClipEdit.querySelectorAll('.form--job-line2')[currentCount - i - 1].remove();
         }
     }
 });
@@ -127,6 +175,12 @@ document.querySelector('#update-hwyear').addEventListener('change', () => {
     setHogwartsYearUpdate(document.querySelector('#update-hwyear').options[document.querySelector('#update-hwyear').selectedIndex].value);
 });
 
+//Edit ID Change
+document.querySelector('#update-id').addEventListener('change', () => {
+    setJobChange(document.querySelector('.form--jobschange-clip.form--update'));
+    setJobRemove(document.querySelector('.form--jobsremove-clip.form--update'));
+});
+
 
 //Claims submit
 document.querySelector('#newsort').addEventListener('submit', e => {
@@ -148,117 +202,20 @@ document.querySelector('#newsort').addEventListener('submit', e => {
             //set up abilities & species
             let abSpString = ``;
             if(document.querySelector('#sort-abspexists').options[document.querySelector('#sort-abspexists').selectedIndex].value === 'y') {
-                let checked = Array.prototype.slice.call(document.querySelectorAll(`input[name='sort-absp']:checked`)).map(box => box.value);
-                for(let i = 0; i < checked.length; i++) {
-                    if (checked[i] === 'animagus') {
-                        checked[i] = `animagus (${document.querySelector('#sort-animagusform').value.toLowerCase().trim()})`;
-                    }
-                    if(checked[i] === 'veela' || checked[i] === 'vampire') {
-                        let percent = document.querySelector('#sort-speciesamount').options[document.querySelector('#sort-speciesamount').selectedIndex].value;
-                        checked[i] = `${checked[i]} (${percent})`;
-                    }
-                    if (checked[i] === 'were') {
-                        checked[i] = `werecreature (${document.querySelector('#sort-weretype').value.toLowerCase().trim()})`;
-                    }
-                }
-                abSpString = checked.join(`, `);
-                if(document.querySelector('#sort-otherabsp').value.trim() !== ``) {
-                    if(abSpString !== ``) {
-                        abSpString += `, `;
-                    }
-                    abSpString += document.querySelector('#sort-otherabsp').value.trim();
-                }
+                abSpString = setAbilitiesSpecies('sort');
             }
 
             //set up jobs
             let jobs = ``;
             if(document.querySelector('#sort-employed').options[document.querySelector('#sort-employed').selectedIndex].value === 'y') {
-                let jobCount = parseInt(document.querySelector('#sort-jobcount').value);
-                for(let i = 0; i < jobCount; i++) {
-                    let section = document.querySelector(`#sort-jobsection-${i}`).options[document.querySelector(`#sort-jobsection-${i}`).selectedIndex].innerText.toLowerCase();
-                    let subsection = document.querySelector(`#sort-jobsubsection-${i}`).value.toLowerCase().trim();
-                    let line1 = document.querySelector(`#sort-jobline1-${i}`).value.toLowerCase().trim();
-                    let line2 = document.querySelector(`#sort-jobline2-${i}`).value.toLowerCase().trim();
-                    if(i !== 0) {
-                        jobs += `+`
-                    }
-                    jobs += `{"section":"${section}","subsection":"${subsection}","line1":"${line1}","line2":"${line2}"}`;
-                }
+                jobs = setNewJobs('sort');
             }
 
             //set up hogwarts classes
             let hogwartsClasses = ``;
-            let characterGroup = document.querySelector('#sort-group').options[document.querySelector('#sort-group').selectedIndex].value;
-            if(characterGroup === '7' || characterGroup === '9' || characterGroup === '14' || characterGroup === '16') {
-                let year = document.querySelector('#sort-hwyear').options[document.querySelector('#sort-hwyear').selectedIndex].innerText.toLowerCase();
-                if(year === 'first year' || year === 'second year') {
-                    //only core and start classes
-                    let astronomy = document.querySelector('#sort-astronomy').options[document.querySelector('#sort-astronomy').selectedIndex].innerText.toLowerCase();
-                    let charms = document.querySelector('#sort-charms').options[document.querySelector('#sort-charms').selectedIndex].innerText.toLowerCase();
-                    let dada = document.querySelector('#sort-dada').options[document.querySelector('#sort-dada').selectedIndex].innerText.toLowerCase();
-                    let games = document.querySelector('#sort-games').options[document.querySelector('#sort-games').selectedIndex].innerText.toLowerCase();
-                    let herbology = document.querySelector('#sort-herbology').options[document.querySelector('#sort-herbology').selectedIndex].innerText.toLowerCase();
-                    let hom = document.querySelector('#sort-historyofmagic').options[document.querySelector('#sort-historyofmagic').selectedIndex].innerText.toLowerCase();
-                    let literacy = document.querySelector('#sort-literacy').options[document.querySelector('#sort-literacy').selectedIndex].innerText.toLowerCase();
-                    let theory = document.querySelector('#sort-magicaltheory').options[document.querySelector('#sort-magicaltheory').selectedIndex].innerText.toLowerCase();
-                    let maths = document.querySelector('#sort-maths').options[document.querySelector('#sort-maths').selectedIndex].innerText.toLowerCase();
-                    let potions = document.querySelector('#sort-potions').options[document.querySelector('#sort-potions').selectedIndex].innerText.toLowerCase();
-                    let transfig = document.querySelector('#sort-transfiguration').options[document.querySelector('#sort-transfiguration').selectedIndex].innerText.toLowerCase();
-                    let culture = document.querySelector('#sort-culture').options[document.querySelector('#sort-culture').selectedIndex].innerText.toLowerCase();
-                    let cultureGrade = document.querySelector('#sort-culturegrade').options[document.querySelector('#sort-culturegrade').selectedIndex].innerText.toLowerCase();
-
-                    hogwartsClasses += `{"class":"astronomy","grade":"${astronomy}"}`;
-                    hogwartsClasses += `+{"class":"charms","grade":"${charms}"}`;
-                    hogwartsClasses += `+{"class":"dada","grade":"${dada}"}`;
-                    hogwartsClasses += `+{"class":"games","grade":"${games}"}`;
-                    hogwartsClasses += `+{"class":"herbology","grade":"${herbology}"}`;
-                    hogwartsClasses += `+{"class":"historyOfMagic","grade":"${hom}"}`;
-                    hogwartsClasses += `+{"class":"literacy","grade":"${literacy}"}`;
-                    hogwartsClasses += `+{"class":"magicalTheory","grade":"${theory}"}`;
-                    hogwartsClasses += `+{"class":"maths","grade":"${maths}"}`;
-                    hogwartsClasses += `+{"class":"potions","grade":"${potions}"}`;
-                    hogwartsClasses += `+{"class":"transfiguration","grade":"${transfig}"}`;
-                    hogwartsClasses += `+{"class":"${culture}","grade":"${cultureGrade}"}`;
-                } else if(year === 'third year' || year === 'fourth year' || year === 'fifth year') {
-                    //core and elective fields
-                    let astronomy = document.querySelector('#sort-astronomy').options[document.querySelector('#sort-astronomy').selectedIndex].innerText.toLowerCase();
-                    let charms = document.querySelector('#sort-charms').options[document.querySelector('#sort-charms').selectedIndex].innerText.toLowerCase();
-                    let dada = document.querySelector('#sort-dada').options[document.querySelector('#sort-dada').selectedIndex].innerText.toLowerCase();
-                    let games = document.querySelector('#sort-games').options[document.querySelector('#sort-games').selectedIndex].innerText.toLowerCase();
-                    let herbology = document.querySelector('#sort-herbology').options[document.querySelector('#sort-herbology').selectedIndex].innerText.toLowerCase();
-                    let hom = document.querySelector('#sort-historyofmagic').options[document.querySelector('#sort-historyofmagic').selectedIndex].innerText.toLowerCase();
-                    let potions = document.querySelector('#sort-potions').options[document.querySelector('#sort-potions').selectedIndex].innerText.toLowerCase();
-                    let transfig = document.querySelector('#sort-transfiguration').options[document.querySelector('#sort-transfiguration').selectedIndex].innerText.toLowerCase();
-
-                    hogwartsClasses += `{"class":"astronomy","grade":"${astronomy}"}`;
-                    hogwartsClasses += `+{"class":"charms","grade":"${charms}"}`;
-                    hogwartsClasses += `+{"class":"dada","grade":"${dada}"}`;
-                    hogwartsClasses += `+{"class":"games","grade":"${games}"}`;
-                    hogwartsClasses += `+{"class":"herbology","grade":"${herbology}"}`;
-                    hogwartsClasses += `+{"class":"historyOfMagic","grade":"${hom}"}`;
-                    hogwartsClasses += `+{"class":"potions","grade":"${potions}"}`;
-                    hogwartsClasses += `+{"class":"transfiguration","grade":"${transfig}"}`;
-
-                    for(let i = 0; i < 4; i++) {
-                        if(document.querySelector(`#sort-elec${i}`) && document.querySelector(`#sort-elec${i}`).options[document.querySelector(`#sort-elec${i}`).selectedIndex].value.toLowerCase() !== ``) {
-                            let elec = document.querySelector(`#sort-elec${i}`).options[document.querySelector(`#sort-elec${i}`).selectedIndex].innerText.toLowerCase();
-                            let grade = document.querySelector(`#sort-elec${i}grade`).options[document.querySelector(`#sort-elec${i}grade`).selectedIndex].innerText.toLowerCase();
-                            hogwartsClasses += `+{"class":"${elec}","grade":"${grade}"}`;
-                        }
-                    }
-                } else {
-                    for(let i = 0; i < 8; i++) {
-                        if(document.querySelector(`#sort-elec${i}`) && document.querySelector(`#sort-elec${i}`).options[document.querySelector(`#sort-elec${i}`).selectedIndex].value.toLowerCase() !== ``) {
-                            if(i !== 0) {
-                                hogwartsClasses += `+`;
-                            }
-                            let elec = document.querySelector(`#sort-elec${i}`).options[document.querySelector(`#sort-elec${i}`).selectedIndex].innerText.toLowerCase();
-                            let grade = document.querySelector(`#sort-elec${i}grade`).options[document.querySelector(`#sort-elec${i}grade`).selectedIndex].innerText.toLowerCase();
-                            hogwartsClasses += `{"class":"${elec}","grade":"${grade}"}`;
-                        }
-                    }
-                }
-            }
+            let characterGroup = document.querySelector('#sort-group');
+            let characterYear = document.querySelector('#sort-hwyear');
+            hogwartsClasses = setHogwartsClasses(characterGroup, characterYear, 'sort');
 
             //set up character
             let character = {
@@ -294,82 +251,8 @@ document.querySelector('#newsort').addEventListener('submit', e => {
 
         //discord embed set up
         let embedTitle = `${capitalize(character.Member, [`'`, '-'])} has requested sorting for ${capitalize(character.Character, [`'`, '-'])}`;
-        let message = `**View Profile: <https://totl.jcink.net/?showuser=${character.AccountID}>**
-        **Sort Into:** ${capitalize(character.GroupName, [`'`, '-'])}`;
-        if(character.PreferredDorm !== ``) {
-            message += `
-            **Preferred Dorm:** ${character.PreferredDorm}`;
-        }
-        if(character.CanonRelation !== ``) {
-            let canonCode = ``;
-            let firstName = character.Character.split(' ')[0];
-            let lastName = character.Character.split(' ').filter((item, i) => i !== 0).join(' ');
-            let formattedName = `${lastName.toUpperCase()}, ${firstName.toLowerCase()}`;
-            let primaryJob = `unemployed`;
-            if(character.Jobs && character.Jobs !== ``) {
-                let job = character.Jobs.split('+').map(job => JSON.parse(job))[0];
-                if(job.line2 && job.line2 !== ``) {
-                    primaryJob = job.line2;
-                } else {
-                    primaryJob = job.line1;
-                }
-            }
-            if(character.GroupID === '17') {
-                canonCode = `<a href="?showuser=${character.AccountID}" class="g-${character.GroupID}"><b>${formattedName}.</b></a> ${primaryJob}. b. ${character.BirthYear}. d. ${character.DeathYear}. r. ${character.ReturnYear}. ${character.Member}.<br>`;
-            } else {
-                canonCode = `<a href="?showuser=${character.AccountID}" class="g-${character.GroupID}"><b>${formattedName}.</b></a> ${primaryJob}. b. ${character.BirthYear}. ${character.Member}.<br>`;
-            }
-            message += `
-            **Relation to Canon:**
-            `;
-            message += '```' + character.CanonRelation + '```';
-            message += `
-            **Canon Code:**
-            `;
-            message += '```' + canonCode + '```';
-        }
-        let groupColor;
-        switch(character.GroupID) {
-            case `6`: //adults
-                groupColor = `11749717`;
-                break;
-            case `7`: //gryffindor
-                groupColor = `9644591`;
-                break;
-            case `8`: //hogwarts
-                groupColor = `6379161`;
-                break;
-            case `9`: //hufflepuff
-                groupColor = `12031093`;
-                break;
-            case `11`: //press
-                groupColor = `11568724`;
-                break;
-            case `12`: //ministry
-                groupColor = `5146238`;
-                break;
-            case `13`: //quidditch
-                groupColor = `9601693`;
-                break;
-            case `14`: //ravenclaw
-                groupColor = `4283278`;
-                break;
-            case `15`: //healers
-                groupColor = `5798739`;
-                break;
-            case `16`: //slytherin
-                groupColor = `2972477`;
-                break;
-            case `17`: //returners
-                groupColor = `5933463`;
-                break;
-            case `18`: //entertainment
-                groupColor = `5413538`;
-                break;
-            default:
-                groupColor = null;
-                break;
-        }
+        let message = discordSortMessage(character);
+        let groupColor = discordEmbedColor(character.GroupID);
         let settings = {
             message: message,
             embedTitle: embedTitle,
@@ -385,6 +268,199 @@ document.querySelector('#newsort').addEventListener('submit', e => {
         document.querySelector('#newsort button[type="submit"]').innerText = 'Submit';
         document.querySelector('#newsort button[type="submit"]').removeAttribute('disabled');
         document.querySelector('#newsort #warning').innerHTML = `Your character has been submitted!`;
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
+
+//Edits submit
+document.querySelector('#newedit').addEventListener('submit', e => {
+    e.preventDefault();
+    //submit changes
+    document.querySelector('#newedit button[type="submit"]').innerText = 'Submitting...';
+    document.querySelector('#newedit button[type="submit"]').setAttribute('disabled', true);
+
+    //check if already on sheet
+    const url = `https://opensheet.elk.sh/146rEeh3eiyftnC-9NXF29rgSPRLAhuG2gss_nWp_xxw/NewClaims`;
+    fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+        let idExists = data.filter(item => item.AccountID === document.querySelector('#update-id').value).length > 0;
+        
+        if(idExists) {
+            //set up
+            let character = data.filter(item => item.AccountID === document.querySelector('#update-id').value)[0];
+            let message = [];
+
+            //if group change
+            if(document.querySelector('#choice-group').checked) {
+                let newGroup = document.querySelector('#update-group').options[document.querySelector('#update-group').selectedIndex];
+                character.GroupName = newGroup.innerText.toLowerCase().trim();
+                character.GroupID = newGroup.value;
+                message.push('group');
+            }
+
+            //if face change
+            if(document.querySelector('#choice-face').checked) {
+                let newFace = document.querySelector('#update-face').value.toLowerCase().trim();
+                character.Face = newFace;
+                message.push('face');
+            }
+
+            //if uni change
+            if(document.querySelector('#choice-newuni').checked) {
+                character.School = document.querySelector('#new-uniname').value.toLowerCase().trim();
+                character.Program = document.querySelector('#new-uniprogram').value.toLowerCase().trim();
+                character.UniversityYear = document.querySelector('#new-uniyear').options[document.querySelector('#new-uniyear').selectedIndex].innerText.toLowerCase().trim();
+                message.push('university');
+            }
+
+            //if uni remove
+            if(document.querySelector('#choice-removeuni').checked) {
+                character.School = ``;
+                character.Program = ``;
+                character.UniversityYear = ``;
+                message.push('university');
+            }
+
+            //if ability/species add
+            if(document.querySelector('#choice-ability').checked) {
+                let newAbSp = setAbilitiesSpecies('update');
+                if(character.AbilitiesSpecies === '') {
+                    character.AbilitiesSpecies = newAbSp;
+                } else {
+                    character.AbilitiesSpecies += `, ${newAbSp}`;
+                }
+                message.push('abilities/species');
+            }
+
+            //if job(s) change
+            if(document.querySelector('#choice-changejob').checked) {
+                let prevJobs = character.Jobs.split('+').map(item => JSON.parse(item));
+                let line1changes = document.querySelectorAll('.form--jobschange-clip .form--job-line1 input');
+                let line2changes = document.querySelectorAll('.form--jobschange-clip .form--job-line2 input');
+                prevJobs.forEach((prevJob, i) => {
+                    let newLine1 = line1changes[i].value.toLowerCase().trim();
+                    let newLine2 = line2changes[i].value.toLowerCase().trim();
+                    if(newLine1 !== `` && prevJob.line1 !== newLine1) {
+                        prevJob.line1 = newLine1;
+                    }
+                    if(newLine2 !== `` && prevJob.line2 !== newLine2) {
+                        prevJob.line2 = newLine2;
+                    }
+                });
+                let jobs = prevJobs.map(job => JSON.stringify(job)).join('+');
+                character.Jobs = jobs;
+                message.push('jobs');
+            }
+
+            //if job(s) remove
+            if(document.querySelector('#choice-removejob').checked) {
+                let prevJobs = character.Jobs.split('+').map(item => JSON.parse(item));
+                let removeJobs = Array.prototype.slice.call(document.querySelectorAll('.form--jobsremove-clip input')).map(removeJob => removeJob.checked);
+                let jobs = prevJobs.filter((prevJob, i) => !removeJobs[i]).map(job => JSON.stringify(job)).join('+');
+                character.Jobs = jobs;
+                message.push('jobs');
+            }
+
+            //if job(s) add
+            if(document.querySelector('#choice-newjob').checked) {
+                let newJobs = setNewJobs('update');
+                if(character.Jobs === '') {
+                    character.Jobs = newJobs;
+                } else {
+                    character.Jobs += `+${newJobs}`;
+                }
+                message.push('jobs');
+            }
+
+            //if classes/grades change
+            if(document.querySelector('#choice-classes').checked) {
+                let characterGroup = document.querySelector('#update-group');
+                let characterYear = document.querySelector('#update-hwyear');
+                character.HogwartsClasses = setHogwartsClasses(characterGroup, characterYear, 'update');
+                character.HogwartsYear = characterYear.options[characterYear.selectedIndex].innerText.toLowerCase().trim();
+                message.push('classes');
+            }
+
+            //if quidditch add/change
+            if(document.querySelector('#choice-quidditch').checked) {
+                character.QuidditchPosition = document.querySelector('#update-hwquidditchposition').value.toLowerCase().trim();
+                message.push('student quidditch');
+            }
+
+            //if leadership add/change
+            if(document.querySelector('#choice-leadership').checked) {
+                character.LeadershipPosition = document.querySelector('#update-hwleadposition').options[document.querySelector('#update-hwleadposition').selectedIndex].innerText.toLowerCase().trim();
+                message.push('student leadership');
+            }
+
+            //if graduate hogwarts
+            if(document.querySelector('#choice-graduate').checked) {
+                character.HogwartsYear = ``;
+                character.HogwartsClasses = ``;
+                character.QuidditchPosition = ``;
+                character.LeadershipPosition = ``;
+                character.Dorm = ``;
+                message.push('graduated hogwarts');
+            }
+
+            //set up character
+            let newCharacter = {
+                "SubmissionType": "claims-edit",
+                Timestamp: character.Timestamp,
+                Member: character.Member,
+                Character: character.Character,
+                AccountID: character.AccountID,
+                GroupName: character.GroupName,
+                GroupID: character.GroupID,
+                Face: character.Face,
+                AbilitiesSpecies: character.AbilitiesSpecies,
+                Jobs: character.Jobs,
+                School: character.School,
+                Program: character.Program,
+                UniversityYear: character.UniversityYear,
+                HogwartsYear: character.HogwartsYear,
+                HogwartsClasses: character.HogwartsClasses,
+                QuidditchPosition: character.QuidditchPosition,
+                LeadershipPosition: character.LeadershipPosition,
+                Dorm: character.Dorm,
+                Message: message,
+            }
+            return newCharacter;
+        } else {
+            document.querySelector('#newedit #warning').innerHTML = `This character doesn't exist yet! Please use the claims submission form instead.`;
+        }
+    }).then((character) => {
+        //actual submission
+        postClaims(character);
+
+        //discord embed set up
+        if(character) {
+            let embedTitle = `${capitalize(character.Member, [`'`, '-'])} has updated the claims for ${capitalize(character.Character, [`'`, '-'])}`;
+            let message = `**Updated:** ${character.Message.join(', ')}`;
+            let groupColor = character.GroupID;
+            let settings = {
+                message: message,
+                embedTitle: embedTitle,
+                color: groupColor,
+            };
+            console.log(settings);
+            return settings;
+        }
+    }).then((settings) => {
+        //send discord message
+        sendDiscordMessage(`webhook url`, settings.message, settings.embedTitle, null, settings.color);
+
+        //after submission
+        formReset('#newedit');
+        document.querySelector('#newedit button[type="submit"]').innerText = 'Submit';
+        document.querySelector('#newedit button[type="submit"]').removeAttribute('disabled');
+        document.querySelector('#newedit #warning').innerHTML = `Edits have been completed!`;
         window.scrollTo({
             top: 0,
             left: 0,

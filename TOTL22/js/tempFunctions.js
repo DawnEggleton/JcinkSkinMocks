@@ -3,7 +3,7 @@ function formatJob(section, subsection, line1, line2) {
     return string;
 }
 function sheetTransfer() {
-    const url = `https://opensheet.elk.sh/146rEeh3eiyftnC-9NXF29rgSPRLAhuG2gss_nWp_xxw/OriginalClaims`;
+    const url = `https://opensheet.elk.sh/1MQsi3iyJDhtlSiLRvOvmYxiBWZBHjCr7QGbnXyb_u-s/Sheet1`;
     fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -128,6 +128,7 @@ function sheetTransfer() {
                 HogwartsClasses: hogwartsClasses,
                 QuidditchPosition: item.QuidditchPosition,
                 LeadershipPosition: item.LeadershipPosition,
+                Dorm: item.Dorm,
             };
             
             return formatted;

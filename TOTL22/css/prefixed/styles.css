@@ -4312,6 +4312,47 @@ body:not(.g-4) .post--controls-inner label {
   position: relative;
   color: #a64a4a;
 }
+.editJobs {
+  font-family: var(--headerFont);
+  text-decoration: none;
+  font-size: var(--mBody);
+  font-weight: 500;
+  background: var(--ltaccent);
+  padding: 5px 15px;
+  border-radius: 4px;
+  max-width: max-content;
+  color: var(--accentColor);
+}
+.form--jobsremove-clip label {
+  display: grid;
+  grid-template-columns: max-content auto;
+  align-items: center;
+}
+.form--jobsremove-clip label input {
+  display: none;
+}
+.form--jobsremove-clip label input + div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--headerFont);
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--ltaccent);
+  color: transparent;
+  font-size: 12px;
+  padding: 0 0 2px;
+}
+.form--jobsremove-clip label input:checked + div {
+  background: var(--accent);
+  color: var(--accentColor);
+}
+.form--jobsremove-clip label:hover input + div,
+.form--jobsremove-clip label:hover u {
+  background: var(--accent);
+}
 .webpage--tab form .form-item,
 .webpage--tab form label {
   display: grid;
