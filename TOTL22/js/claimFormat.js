@@ -1117,12 +1117,12 @@ function formatReserves(data) {
             return 0;
         }
     });
-    let html = ``;
+    let html = `<input type="text" class="filterSearch" onkeyup="wipSearch()" placeholder="Filter...">`;
     data.forEach((character, i) => {
         if(i === 0) {
             html += claimHeader(character.Face[0]);
             html += simpleBox(character.Face, character.Member);
-        } else if(data[i - 1].Face[0] !== character.Face[0]) {
+        } else if(data[i - 1].Face[0].toLowerCase() !== character.Face[0].toLowerCase()) {
             html += claimHeader(character.Face[0]);
             html += simpleBox(character.Face, character.Member);
         } else {
@@ -1130,4 +1130,32 @@ function formatReserves(data) {
         }
     });
     document.querySelector('#upcomingfaces').insertAdjacentHTML('beforeend', html);
+}
+function wipSearch() {
+	let searchValue = document.querySelector('#upcomingfaces .filterSearch').value.toLowerCase().trim();
+    let names = document.querySelectorAll('#upcomingfaces .claim--item b');
+    let headers = document.querySelectorAll('#upcomingfaces h3');
+    compareNames(names, searchValue, headers);
+}
+function faceSearch() {
+	let searchValue = document.querySelector('#faces .filterSearch').value.toLowerCase().trim();
+    let names = document.querySelectorAll('#faces .claim--item b');
+    let headers = document.querySelectorAll('#faces h3');
+    compareNames(names, searchValue, headers);
+}
+function compareNames(names, searchValue, headers) {
+    if(searchValue !== '') {
+        headers.forEach(header => header.classList.add('hide'));
+        names.forEach(name => {
+            let nameValue = name.innerText.toLowerCase().trim();
+            if (nameValue.indexOf(searchValue) > -1) {
+                name.parentElement.classList.remove('hide');
+            } else {
+                name.parentElement.classList.add('hide');
+            }
+        });
+    } else {
+        headers.forEach(header => header.classList.remove('hide'));
+        names.forEach(name => name.parentElement.classList.remove('hide'))
+    }
 }

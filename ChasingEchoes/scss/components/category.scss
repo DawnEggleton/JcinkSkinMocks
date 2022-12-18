@@ -17,7 +17,8 @@
     &.c-1,
     &.c-2,
     &.c-3,
-    &.c-5 {
+    &.c-5,
+    &.c-6 {
         @media only screen and (min-width: $md) {
             grid-template-columns: 1fr 1fr;
     
@@ -106,7 +107,7 @@
         }
     }
 
-    &.subforums:not(.f-10) .redirect {
+    &.subforums:not(.f-9):not(.f-10) .redirect {
         display: none !important;
     }
 }
@@ -235,7 +236,8 @@
     &.f-1,
     &.f-5,
     &.f-44,
-    &.f-10 {
+    &.f-10,
+    &.f-102 {
 
         @media only screen and (min-width: $md) {
             grid-column: span 2;
@@ -326,7 +328,8 @@
             display: none;
         }
     }
-    &.f-10 {
+    &.f-10,
+    &.f-102 {
         @media only screen and (min-width: $lg) {
             .forum--border {
                 & > a {

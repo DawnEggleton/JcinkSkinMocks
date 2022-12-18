@@ -339,7 +339,9 @@
         width: 100%;
 
         .post--sticky {
-            top: 0;
+            @media only screen and (max-width: 767px) {
+                top: 0 !important;
+            }
 
             @media only screen and (min-width: $md) {
                 position: sticky;

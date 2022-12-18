@@ -293,38 +293,6 @@ nav {
         margin-bottom: 5px;
         padding: 0 10px 10px;
     }
-    &--switch {
-        position: absolute;
-        bottom: calc((var(--sBody) + 36px + var(--sizeBoost)) * -1);
-        background: var(--bg-content);
-        left: -5px;
-        overflow: hidden;
-        height: 0;
-        transition-duration: 0.5s;
-        box-shadow: 3px 3px 3px var(--bg-body);
-
-        .is-open & {
-            overflow: visible;
-            height: auto;
-        }
-
-        #subaccounts_menu select {
-            background: var(--bg-body);
-            border: 1px solid var(--border-main);
-            font-size: var(--xsBody);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            padding: 5px 10px;
-            line-height: var(--xsBody);
-            margin: 5px;
-            width: 165px;
-
-            option {
-                font-size: var(--mBody);
-            }
-        }
-    }
     &--mobile {
         #subaccounts_menu select {
             width: 100%;
@@ -341,6 +309,51 @@ nav {
 
             option {
                 color: var(--text-body);
+            }
+        }
+    }
+}
+
+
+#account-switch {
+    width: calc(100% - 30px);
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+    padding-right: 15px;
+
+    .switch {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        &-block {
+            display: grid;
+            grid-template-columns: 50px auto;
+            gap: 10px;
+            align-items: center;
+            width: calc(25% - (30px / 4));
+            background: var(--bg-content);
+            padding: 5px;
+            text-align: left;
+            cursor: pointer;
+
+            input {
+                display: none;
+
+                & + div {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 3px;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+            }
+            b {
+                font-family: var(--font-accent);
+                text-transform: uppercase;
+                font-size: var(--mBody);
+                letter-spacing: 0.5px;
             }
         }
     }

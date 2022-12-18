@@ -2307,6 +2307,7 @@ fieldset {
     textarea {
         background: var(--bg-body);
         margin-bottom: 15px;
+        width: 100%;
 
         & ~ br,
         & ~ a,
@@ -2357,7 +2358,8 @@ fieldset {
 
 #Reg {
     main {
-        & > #notes + .tableborder {
+        & > #notes + .tableborder,
+        & > #notes + img + .tableborder {
             background: var(--bg-content);
             padding: 30px;
             max-width: 1100px;
